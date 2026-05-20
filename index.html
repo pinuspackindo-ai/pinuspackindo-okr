@@ -1,0 +1,899 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>PINUS PACKINDO :: TOOLS ANALISA</title>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+<script src="https://cdnjs.cloudflare.com/ajax/libs/xlsx/0.18.5/xlsx.full.min.js"></script>
+<style>
+:root{
+  --primary:#3b82f6;--primary-d:#2563eb;--primary-l:#eff6ff;
+  --success:#10b981;--success-l:#ecfdf5;
+  --warning:#f59e0b;--warning-l:#fffbeb;
+  --danger:#ef4444;--danger-l:#fef2f2;
+  --bg:#f1f5f9;--bg2:#ffffff;--border:#e2e8f0;--border-l:#f8fafc;
+  --text:#1e293b;--text-m:#64748b;--text-l:#94a3b8;
+  --sb-bg:#1e293b;--sb-text:rgba(255,255,255,.68);
+  --sb-active:rgba(255,255,255,.12);--sb-hover:rgba(255,255,255,.07);
+  --sb-border:rgba(255,255,255,.08);
+  --shadow-sm:0 1px 2px rgba(0,0,0,.05);
+  --shadow:0 1px 3px rgba(0,0,0,.08),0 3px 10px rgba(0,0,0,.04);
+  --shadow-md:0 4px 20px rgba(0,0,0,.10);
+  --radius:10px;--radius-sm:6px;
+  --font:'Inter','Segoe UI',system-ui,sans-serif;
+  --g:var(--success);--gdim:var(--text-m);--gdk:var(--text-l);
+  --gglo:transparent;--amb:var(--warning);--red:var(--danger);
+  --brd:var(--border);--mono:var(--font);--vt:var(--font);
+}
+*,*::before,*::after{box-sizing:border-box;margin:0;padding:0;}
+body{font-family:var(--font);background:var(--bg);color:var(--text);
+  min-height:100vh;display:flex;font-size:14px;line-height:1.5;
+  -webkit-font-smoothing:antialiased;}
+#pwd-overlay{position:fixed;inset:0;z-index:8000;
+  background:linear-gradient(135deg,#1e3a5f 0%,#1e293b 100%);
+  display:flex;flex-direction:column;align-items:center;justify-content:center;}
+.pwd-box{background:var(--bg2);border-radius:16px;padding:40px 44px;
+  text-align:center;box-shadow:0 24px 64px rgba(0,0,0,.28);width:380px;}
+.pwd-title{font-size:1.3rem;font-weight:700;color:var(--text);letter-spacing:-.02em;margin-bottom:6px;}
+.pwd-sub{font-size:13px;color:var(--text-m);margin-bottom:28px;}
+.pwd-input{width:100%;padding:12px 16px;background:var(--bg);
+  border:1.5px solid var(--border);border-radius:var(--radius-sm);
+  color:var(--text);font-family:var(--font);font-size:15px;
+  letter-spacing:4px;text-align:center;outline:none;
+  margin-bottom:12px;transition:border-color .15s;}
+.pwd-input:focus{border-color:var(--primary);}
+.pwd-err{font-size:12px;color:var(--danger);min-height:18px;margin-bottom:10px;}
+.pwd-footer{font-size:11px;color:rgba(255,255,255,.38);margin-top:28px;}
+.sidebar{width:240px;background:var(--sb-bg);display:flex;flex-direction:column;
+  position:fixed;top:0;left:0;bottom:0;z-index:100;}
+.sidebar-logo{padding:24px 20px;border-bottom:1px solid var(--sb-border);}
+.logo-title{font-size:1rem;font-weight:700;color:#fff;letter-spacing:-.01em;line-height:1.3;}
+.logo-sub{font-size:11px;color:var(--sb-text);margin-top:4px;}
+.sidebar-nav{flex:1;padding:16px 12px;overflow-y:auto;}
+.nav-label{font-size:10px;color:var(--sb-text);text-transform:uppercase;
+  letter-spacing:1.5px;padding:4px 10px 10px;font-weight:600;}
+.nav-item{display:flex;align-items:center;gap:10px;padding:10px 12px;
+  border-radius:var(--radius-sm);cursor:pointer;font-size:13.5px;font-weight:500;
+  color:var(--sb-text);border:none;background:none;width:100%;text-align:left;
+  font-family:var(--font);transition:all .15s;margin-bottom:3px;}
+.nav-item:hover{background:var(--sb-hover);color:#fff;}
+.nav-item.active{background:var(--sb-active);color:#fff;}
+.sidebar-footer{padding:14px 16px;border-top:1px solid var(--sb-border);
+  font-size:11px;color:var(--sb-text);line-height:1.8;}
+.btn-logout{width:100%;margin-bottom:12px;padding:8px;
+  border-radius:var(--radius-sm);border:1px solid rgba(255,255,255,.15);
+  background:transparent;color:rgba(255,255,255,.70);font-family:var(--font);
+  font-size:12px;font-weight:500;cursor:pointer;transition:all .15s;}
+.btn-logout:hover{background:rgba(255,255,255,.10);color:#fff;}
+.main{margin-left:240px;flex:1;display:flex;flex-direction:column;min-height:100vh;}
+.topbar{background:var(--bg2);border-bottom:1px solid var(--border);
+  padding:14px 28px;display:flex;align-items:center;justify-content:space-between;
+  position:sticky;top:0;z-index:50;box-shadow:var(--shadow-sm);}
+.topbar-title{font-size:16px;font-weight:600;color:var(--text);letter-spacing:-.01em;}
+.topbar-badge{font-size:12px;color:var(--text-m);}
+.content{padding:24px 28px;flex:1;}
+.panel{display:none;}.panel.active{display:block;}
+.card{background:var(--bg2);border-radius:var(--radius);border:1px solid var(--border);
+  padding:20px 24px;margin-bottom:16px;box-shadow:var(--shadow);}
+.card-title{font-size:11px;font-weight:600;color:var(--text-m);text-transform:uppercase;
+  letter-spacing:1px;margin-bottom:16px;display:flex;align-items:center;gap:8px;}
+.grid-2{display:grid;grid-template-columns:1fr 1fr;gap:16px;margin-bottom:16px;}
+.grid-3{display:grid;grid-template-columns:repeat(3,1fr);gap:14px;margin-bottom:16px;}
+.grid-5{display:grid;grid-template-columns:repeat(5,1fr);gap:12px;margin-bottom:16px;}
+.upload-zone{border:2px dashed var(--border);border-radius:var(--radius-sm);
+  padding:22px 16px;text-align:center;cursor:pointer;transition:all .15s;
+  position:relative;background:var(--bg);}
+.upload-zone:hover{border-color:var(--primary);background:var(--primary-l);}
+.upload-zone.ready{border-style:solid;border-color:var(--success);background:var(--success-l);}
+.upload-zone input[type=file]{position:absolute;inset:0;opacity:0;cursor:pointer;width:100%;height:100%;}
+.upload-tag{font-size:10px;font-weight:600;color:var(--text-l);text-transform:uppercase;
+  letter-spacing:1px;background:var(--bg2);border:1px solid var(--border);
+  border-radius:4px;padding:2px 10px;display:inline-block;margin-bottom:10px;}
+.upload-zone.ready .upload-tag{color:var(--success);border-color:var(--success);}
+.upload-label{font-size:13px;font-weight:500;color:var(--text-m);}
+.upload-zone.ready .upload-label{color:var(--success);}
+.upload-hint{font-size:11px;color:var(--text-l);margin-top:5px;}
+.btn{display:inline-flex;align-items:center;gap:6px;padding:9px 18px;
+  border-radius:var(--radius-sm);border:1px solid var(--border);background:var(--bg2);
+  color:var(--text-m);font-family:var(--font);font-size:13px;font-weight:500;
+  cursor:pointer;transition:all .15s;text-decoration:none;}
+.btn:hover{border-color:var(--text-l);color:var(--text);background:var(--bg);}
+.btn:disabled{opacity:.4;cursor:not-allowed;}
+.btn-primary{background:var(--primary);border-color:var(--primary);color:#fff;
+  width:100%;justify-content:center;padding:12px;font-size:13.5px;font-weight:600;
+  box-shadow:0 2px 8px rgba(59,130,246,.25);}
+.btn-primary:hover{background:var(--primary-d);border-color:var(--primary-d);color:#fff;}
+.btn-primary:disabled{opacity:.4;box-shadow:none;}
+.btn-dl{border-color:var(--border);color:var(--text-m);font-size:12px;
+  padding:7px 14px;background:var(--bg);}
+.btn-dl:hover{background:var(--text);color:#fff;border-color:var(--text);}
+.metric{background:var(--bg2);border-radius:var(--radius);border:1px solid var(--border);
+  padding:16px 18px;box-shadow:var(--shadow-sm);}
+.metric-label{font-size:11px;font-weight:500;color:var(--text-m);text-transform:uppercase;
+  letter-spacing:.8px;margin-bottom:8px;}
+.metric-value{font-size:2rem;font-weight:700;color:var(--text);line-height:1;letter-spacing:-.02em;}
+.metric-value.danger{color:var(--danger);}
+.metric-sub{font-size:11px;color:var(--text-l);margin-top:5px;}
+.score-card{background:var(--bg2);border-radius:var(--radius);border:1px solid var(--border);
+  padding:20px 24px;margin-bottom:16px;display:flex;align-items:center;gap:24px;box-shadow:var(--shadow);}
+.score-num{font-size:3rem;font-weight:700;line-height:1;min-width:90px;letter-spacing:-.03em;}
+.score-num.good{color:var(--success);}
+.score-num.warn{color:var(--warning);}
+.score-num.bad{color:var(--danger);}
+.score-right{flex:1;}
+.score-title{font-size:15px;font-weight:600;color:var(--text);margin-bottom:4px;}
+.score-desc{font-size:12px;color:var(--text-m);margin-bottom:12px;}
+.progress-track{height:6px;background:var(--border);border-radius:99px;overflow:hidden;}
+.progress-fill{height:100%;border-radius:99px;transition:width .8s cubic-bezier(.16,1,.3,1);}
+.progress-fill.good{background:var(--success);}
+.progress-fill.warn{background:var(--warning);}
+.progress-fill.bad{background:var(--danger);}
+.table-header{display:flex;align-items:center;justify-content:space-between;margin-bottom:10px;}
+.table-title{font-size:13px;font-weight:600;color:var(--text);display:flex;align-items:center;gap:8px;}
+.table-wrap{border:1px solid var(--border);border-radius:var(--radius-sm);overflow:hidden;background:var(--bg2);}
+table{width:100%;border-collapse:collapse;font-size:13px;}
+thead th{background:var(--bg);padding:10px 14px;text-align:left;font-size:11px;
+  font-weight:600;color:var(--text-m);text-transform:uppercase;letter-spacing:.7px;
+  border-bottom:1px solid var(--border);}
+tbody td{padding:10px 14px;border-bottom:1px solid var(--border-l);color:var(--text-m);vertical-align:middle;}
+tbody tr:last-child td{border-bottom:none;}
+tbody tr:hover td{background:var(--bg);}
+.td-mono{font-variant-numeric:tabular-nums;font-size:12px;}
+.td-danger{color:var(--danger);font-weight:600;font-size:12px;}
+.td-success{color:var(--success);}
+.badge{display:inline-flex;align-items:center;font-size:11px;font-weight:600;
+  padding:3px 10px;border-radius:99px;border:none;}
+.badge-danger{color:#b91c1c;background:#fee2e2;}
+.badge-success{color:#065f46;background:#d1fae5;}
+.badge-amber{color:#92400e;background:#fef3c7;}
+.badge-blue{color:#1e40af;background:#dbeafe;}
+.final-big{font-size:2.5rem;font-weight:700;line-height:1;letter-spacing:-.03em;}
+.final-big.good{color:var(--success);}
+.final-big.warn{color:var(--warning);}
+.final-big.bad{color:var(--danger);}
+.module-info{background:var(--primary-l);border:1px solid #bfdbfe;
+  border-radius:var(--radius);padding:14px 18px;margin-bottom:16px;
+  display:flex;align-items:flex-start;gap:12px;}
+.module-info-icon{color:var(--primary);font-size:18px;flex-shrink:0;line-height:1.4;}
+.module-info-title{font-size:13px;font-weight:600;color:var(--primary-d);margin-bottom:3px;}
+.module-info-text{font-size:12px;color:#1d4ed8;line-height:1.6;}
+.divider{height:1px;background:var(--border);margin:20px 0;}
+.empty{text-align:center;padding:52px 20px;color:var(--text-l);}
+.empty p{font-size:1.1rem;font-weight:600;color:var(--text-m);margin-bottom:8px;}
+.empty span{font-size:12px;}
+.blink{animation:blink 1.2s step-end infinite;}
+@keyframes blink{0%,100%{opacity:1}50%{opacity:0}}
+::-webkit-scrollbar{width:5px;height:5px;}
+::-webkit-scrollbar-track{background:var(--bg);}
+::-webkit-scrollbar-thumb{background:var(--border);border-radius:99px;}
+::-webkit-scrollbar-thumb:hover{background:var(--text-l);}
+@keyframes fadeUp{from{opacity:0;transform:translateY(10px)}to{opacity:1;transform:translateY(0)}}
+.anim{animation:fadeUp .3s ease both;}
+.notify{position:fixed;bottom:24px;right:24px;padding:13px 20px;
+  border-radius:var(--radius-sm);background:var(--text);color:#fff;
+  font-size:13px;font-weight:500;z-index:5000;box-shadow:var(--shadow-md);
+  transition:opacity .3s;max-width:340px;}
+.notify.error{background:var(--danger);}
+.notify.hidden{opacity:0;pointer-events:none;}
+</style>
+</head>
+<body>
+
+<div id="pwd-overlay">
+  <div style="font-size:2rem;font-weight:800;color:#fff;letter-spacing:-.03em;text-align:center;margin-bottom:8px;">Pinus Packindo</div>
+  <div style="font-size:13px;color:rgba(255,255,255,.55);margin-bottom:36px;text-align:center;">Sistem Analisa &nbsp;·&nbsp; Stock &middot; PO &middot; Penerimaan</div>
+  <div class="pwd-box">
+    <div class="pwd-title">Masuk ke Sistem</div>
+    <div class="pwd-sub">Masukkan kata sandi untuk melanjutkan</div>
+    <input class="pwd-input" id="pwd-input" type="password" maxlength="20" placeholder="••••••">
+    <div class="pwd-err" id="pwd-err"></div>
+    <button class="btn btn-primary" onclick="doLogin()">Masuk</button>
+  </div>
+  <div class="pwd-footer">© Pinus Packindo &nbsp;· Data diproses di browser Anda</div>
+</div>
+
+<aside class="sidebar" id="sidebar" style="display:none;">
+  <div class="sidebar-logo">
+    <div class="logo-title">Pinus Packindo</div>
+    <div class="logo-sub">Tools Analisa v2.0</div>
+  </div>
+  <nav class="sidebar-nav">
+    <div class="nav-label">Modul</div>
+    <button class="nav-item active" onclick="showPanel('instock',this)">Analisa Instock</button>
+    <button class="nav-item" onclick="showPanel('po',this)">Analisa PO</button>
+    <button class="nav-item" onclick="showPanel('penerimaan',this)">Analisa Penerimaan</button>
+  </nav>
+  <div class="sidebar-footer">
+    <button class="btn-logout" onclick="doLogout()">Logout</button>
+    Upload: .xlsx / .xls / .csv<br>
+    Data diproses di browser<br>
+    Tidak dikirim ke server
+  </div>
+</aside>
+
+<main class="main" id="main-app" style="display:none;">
+  <div class="topbar">
+    <span class="topbar-title" id="topbar-title">Analisa Instock</span>
+    <span class="topbar-badge">
+      <span id="topbar-date"></span> &nbsp;·&nbsp;
+      <span id="topbar-time" style="font-variant-numeric:tabular-nums;font-weight:500;"></span> &nbsp;·&nbsp;
+      <span style="color:var(--success);font-weight:600;">&#x25cf; Online</span>
+    </span>
+  </div>
+  <div class="content">
+
+    <!-- PANEL INSTOCK -->
+    <div id="panel-instock" class="panel active">
+      <div class="module-info">
+        <div class="module-info-icon">&#x2139;</div>
+        <div>
+          <div class="module-info-title">Analisa Instock</div>
+          <div class="module-info-text">Digunakan untuk mengetahui barang-barang yang memiliki stok kosong di semua lokasi.</div>
+        </div>
+      </div>
+      <div class="card">
+        <div class="card-title">Upload Data Excel</div>
+        <div class="grid-2">
+          <div class="upload-zone" id="zone1">
+            <input type="file" id="file1" accept=".xlsx,.xls,.csv" onchange="markReady('zone1','lbl1',this)">
+            <div class="upload-tag">Excel 1</div>
+            <div class="upload-label" id="lbl1">Pilih file Excel pertama</div>
+            <div class="upload-hint">Kolom: Name · Unit of Measure · Quantity On Hand</div>
+          </div>
+          <div class="upload-zone" id="zone2">
+            <input type="file" id="file2" accept=".xlsx,.xls,.csv" onchange="markReady('zone2','lbl2',this)">
+            <div class="upload-tag">Excel 2</div>
+            <div class="upload-label" id="lbl2">Pilih file Excel kedua</div>
+            <div class="upload-hint">Kolom: Name · Unit of Measure · Quantity On Hand</div>
+          </div>
+        </div>
+        <button class="btn btn-primary" id="btn-instock" onclick="runInstock()" disabled>Jalankan Analisa Instock</button>
+      </div>
+      <div id="instock-results" style="display:none;">
+        <div class="grid-5 anim">
+          <div class="metric"><div class="metric-label">Total Item Unik</div><div class="metric-value" id="m-total">—</div><div class="metric-sub">Gabungan kedua file</div></div>
+          <div class="metric"><div class="metric-label">Item QoH &le; 0</div><div class="metric-value danger" id="m-below">—</div><div class="metric-sub">Perlu perhatian</div></div>
+          <div class="metric"><div class="metric-label">Item QoH &gt; 0</div><div class="metric-value" id="m-above" style="color:var(--g)">—</div><div class="metric-sub">Stok tersedia</div></div>
+          <div class="metric"><div class="metric-label">Item Bersama</div><div class="metric-value" id="m-shared">—</div><div class="metric-sub">Ada di kedua file</div></div>
+          <div class="metric"><div class="metric-label">Dikecualikan (D)</div><div class="metric-value" id="m-excluded" style="color:#60a5fa">—</div><div class="metric-sub">QoH &le; 0 tapi (D)</div></div>
+        </div>
+        <div class="score-card anim">
+          <div><div class="metric-label">Skor Instock</div><div class="score-num" id="ins-score-num">—</div></div>
+          <div class="score-right">
+            <div class="score-title" id="ins-score-title">—</div>
+            <div class="score-desc" id="ins-score-desc">—</div>
+            <div class="progress-track"><div class="progress-fill" id="ins-score-bar" style="width:0%"></div></div>
+          </div>
+        </div>
+        <div class="divider"></div>
+        <div class="table-header">
+          <div class="table-title">&#x26A0; Data QoH &le; 0 &nbsp;<span class="badge badge-danger" id="ins-below-badge">0 item</span></div>
+          <button class="btn btn-dl" onclick="dlExcel('instock_below','Analisa_Instock_BelowZero.xlsx')">&#x25BC; &nbsp;Download Excel</button>
+        </div>
+        <div class="table-wrap"><table>
+          <thead><tr><th style="width:38%">Name</th><th style="width:15%">Unit</th><th style="width:15%;text-align:right">QoH Excel 1</th><th style="width:15%;text-align:right">QoH Excel 2</th><th style="width:17%;text-align:right">Total QoH</th></tr></thead>
+          <tbody id="ins-below-body"></tbody>
+        </table></div>
+        <div class="divider"></div>
+        <div class="table-header">
+          <div class="table-title">&#x2713; Semua Data Gabungan</div>
+          <button class="btn btn-dl" onclick="dlExcel('instock_all','Analisa_Instock_Semua.xlsx')">&#x25BC; &nbsp;Download Semua</button>
+        </div>
+        <div class="table-wrap"><table>
+          <thead><tr><th style="width:38%">Name</th><th style="width:15%">Unit</th><th style="width:15%;text-align:right">QoH Excel 1</th><th style="width:15%;text-align:right">QoH Excel 2</th><th style="width:17%;text-align:right">Total QoH</th></tr></thead>
+          <tbody id="ins-all-body"></tbody>
+        </table></div>
+      </div>
+      <div id="instock-empty" class="empty">
+        <p>Upload dua file Excel untuk memulai<span class="blink">_</span></p>
+        <span>Sistem akan membandingkan QoH dari kedua file secara otomatis</span>
+      </div>
+    </div>
+
+    <!-- PANEL PO -->
+    <div id="panel-po" class="panel">
+      <div class="module-info">
+        <div class="module-info-icon">&#x2139;</div>
+        <div>
+          <div class="module-info-title">Analisa PO</div>
+          <div class="module-info-text">Digunakan untuk mengetahui tingkat akurasi penginputan PO dan melihat ketepatan waktu penginputan PO.</div>
+        </div>
+      </div>
+      <div id="po-final-wrap" style="display:none;" class="anim">
+        <div style="background:var(--bg2);border:1px solid var(--border);border-radius:var(--radius);padding:28px 24px;margin-bottom:16px;box-shadow:var(--shadow);">
+          <div style="font-size:11px;font-weight:600;color:var(--text-m);text-transform:uppercase;letter-spacing:1.2px;text-align:center;margin-bottom:24px;">Score Akhir Analisa PO</div>
+          <div style="display:grid;grid-template-columns:1fr 1.5fr 1fr;gap:16px;align-items:stretch;">
+            <div style="background:var(--bg);border:1px solid var(--border);border-radius:var(--radius);padding:24px 16px;text-align:center;display:flex;flex-direction:column;align-items:center;justify-content:center;">
+              <div style="font-size:10px;font-weight:700;color:var(--text-l);text-transform:uppercase;letter-spacing:1px;margin-bottom:4px;">Keterlambatan</div>
+              <div style="font-size:11px;color:var(--text-l);margin-bottom:16px;">Bobot 70%</div>
+              <div class="final-big" id="pof-late" style="font-size:2.4rem;">—</div>
+            </div>
+            <div style="background:var(--bg2);border:2px solid var(--primary);border-radius:var(--radius);padding:28px 20px;text-align:center;box-shadow:0 0 0 4px var(--primary-l);display:flex;flex-direction:column;align-items:center;justify-content:center;">
+              <div style="font-size:10px;font-weight:700;color:var(--primary);text-transform:uppercase;letter-spacing:1px;margin-bottom:4px;">Score Akhir PO</div>
+              <div style="font-size:11px;color:var(--text-l);margin-bottom:16px;">(KET &times; 70%) + (AKU &times; 30%)</div>
+              <div class="final-big" id="pof-final" style="font-size:3.2rem;">—</div>
+              <div style="width:100%;margin-top:18px;"><div class="progress-track"><div class="progress-fill" id="pof-bar" style="width:0%"></div></div></div>
+            </div>
+            <div style="background:var(--bg);border:1px solid var(--border);border-radius:var(--radius);padding:24px 16px;text-align:center;display:flex;flex-direction:column;align-items:center;justify-content:center;">
+              <div style="font-size:10px;font-weight:700;color:var(--text-l);text-transform:uppercase;letter-spacing:1px;margin-bottom:4px;">Akurasi</div>
+              <div style="font-size:11px;color:var(--text-l);margin-bottom:16px;">Bobot 30%</div>
+              <div class="final-big" id="pof-acc" style="font-size:2.4rem;">—</div>
+            </div>
+          </div>
+        </div>
+        <div class="divider"></div>
+      </div>
+      <div class="card">
+        <div class="card-title">Upload Data Analisa PO</div>
+        <div class="grid-2" style="align-items:stretch;">
+          <div style="display:flex;flex-direction:column;">
+            <div style="font-size:11px;font-weight:600;color:var(--text-m);text-transform:uppercase;letter-spacing:.8px;margin-bottom:10px;">Keterlambatan PO</div>
+            <div class="upload-zone" id="zone-late" style="flex:1;margin-bottom:10px;">
+              <input type="file" id="file-late" accept=".xlsx,.xls,.csv" onchange="markReady('zone-late','lbl-late',this)">
+              <div class="upload-tag">Excel Keterlambatan</div>
+              <div class="upload-label" id="lbl-late">Pilih file Excel</div>
+              <div class="upload-hint">Order Reference · Order Date · Received Date</div>
+            </div>
+            <button class="btn btn-primary" id="btn-late" onclick="runLate()" disabled style="width:100%;">Analisa Keterlambatan</button>
+          </div>
+          <div style="display:flex;flex-direction:column;">
+            <div style="font-size:11px;font-weight:600;color:var(--text-m);text-transform:uppercase;letter-spacing:.8px;margin-bottom:10px;">Akurasi PO</div>
+            <div class="upload-zone" id="zone-acc" style="flex:1;margin-bottom:10px;">
+              <input type="file" id="file-acc" accept=".xlsx,.xls,.csv" onchange="markReady('zone-acc','lbl-acc',this)">
+              <div class="upload-tag">Excel Akurasi</div>
+              <div class="upload-label" id="lbl-acc">Pilih file Excel</div>
+              <div class="upload-hint">Source Origin · Source Document</div>
+            </div>
+            <button class="btn btn-primary" id="btn-acc" onclick="runAcc()" disabled style="width:100%;">Analisa Akurasi</button>
+            <div style="font-size:10px;color:var(--text-l);margin-top:8px;line-height:1.6;">Kata kunci: HPP · SUPPLIER · HARGA · KUANTITI · QTY · SALAH · DISKON · LEBIH · KURANG · TEMPO · TERMIN · NAMA</div>
+          </div>
+        </div>
+      </div>
+      <div style="display:grid;grid-template-columns:1fr 1fr;gap:16px;margin-top:4px;">
+        <div>
+          <div id="late-results" style="display:none;">
+            <div style="font-size:13px;font-weight:600;color:var(--text);border-left:3px solid var(--primary);padding-left:10px;margin-bottom:14px;">Hasil — Keterlambatan PO</div>
+            <div class="grid-3 anim">
+              <div class="metric"><div class="metric-label">Total PO</div><div class="metric-value" id="late-total">—</div></div>
+              <div class="metric"><div class="metric-label">Terlambat</div><div class="metric-value danger" id="late-count">—</div></div>
+              <div class="metric"><div class="metric-label">Ontime</div><div class="metric-value" id="late-ontime" style="color:var(--g)">—</div></div>
+            </div>
+            <div class="score-card anim">
+              <div><div class="metric-label">Score Keterlambatan</div><div class="score-num" id="late-score-num">—</div></div>
+              <div class="score-right">
+                <div class="score-title" id="late-score-title">—</div>
+                <div class="score-desc" id="late-score-desc">—</div>
+                <div class="progress-track"><div class="progress-fill" id="late-score-bar" style="width:0%"></div></div>
+              </div>
+            </div>
+            <div class="table-header">
+              <div class="table-title">&#x26A0; PO Terlambat &nbsp;<span class="badge badge-danger" id="late-badge">0 PO</span></div>
+              <button class="btn btn-dl" onclick="dlExcel('late_late','PO_Terlambat.xlsx')">&#x25BC; &nbsp;Download</button>
+            </div>
+            <div class="table-wrap"><table>
+              <thead><tr><th>Order Reference</th><th>Order Date</th><th>Received Date</th><th>Status</th></tr></thead>
+              <tbody id="late-body"></tbody>
+            </table></div>
+            <div class="divider"></div>
+            <div class="table-header">
+              <div class="table-title">Semua Data PO</div>
+              <button class="btn btn-dl" onclick="dlExcel('late_all','PO_Keterlambatan_Semua.xlsx')">&#x25BC; &nbsp;Download Semua</button>
+            </div>
+            <div class="table-wrap"><table>
+              <thead><tr><th>No. PO</th><th>Produk</th><th>Tgl Order</th><th>Tgl Terima</th><th>Status</th></tr></thead>
+              <tbody id="late-all-body"></tbody>
+            </table></div>
+          </div>
+        </div>
+        <div>
+          <div id="acc-results" style="display:none;">
+            <div style="font-size:13px;font-weight:600;color:var(--text);border-left:3px solid var(--primary);padding-left:10px;margin-bottom:14px;">Hasil — Akurasi PO</div>
+            <div class="grid-3 anim">
+              <div class="metric"><div class="metric-label">Total PO</div><div class="metric-value" id="acc-total">—</div></div>
+              <div class="metric"><div class="metric-label">Tdk Akurat</div><div class="metric-value danger" id="acc-inacc">—</div></div>
+              <div class="metric"><div class="metric-label">Akurat</div><div class="metric-value" id="acc-acc" style="color:var(--g)">—</div></div>
+            </div>
+            <div class="score-card anim">
+              <div><div class="metric-label">Score Akurasi</div><div class="score-num" id="acc-score-num">—</div></div>
+              <div class="score-right">
+                <div class="score-title" id="acc-score-title">—</div>
+                <div class="score-desc" id="acc-score-desc">—</div>
+                <div class="progress-track"><div class="progress-fill" id="acc-score-bar" style="width:0%"></div></div>
+              </div>
+            </div>
+            <div class="table-header">
+              <div class="table-title">&#x26A0; Tidak Akurat &nbsp;<span class="badge badge-danger" id="acc-badge">0 baris</span></div>
+              <button class="btn btn-dl" onclick="dlExcel('acc_inacc','PO_Tidak_Akurat.xlsx')">&#x25BC; &nbsp;Download</button>
+            </div>
+            <div class="table-wrap"><table>
+              <thead><tr><th>Source Document</th><th>Source Origin</th><th>Status</th></tr></thead>
+              <tbody id="acc-body"></tbody>
+            </table></div>
+            <div class="divider"></div>
+            <div class="table-header">
+              <div class="table-title">Semua Data Akurasi</div>
+              <button class="btn btn-dl" onclick="dlExcel('acc_all','PO_Akurasi_Semua.xlsx')">&#x25BC; &nbsp;Download Semua</button>
+            </div>
+            <div class="table-wrap"><table>
+              <thead><tr><th>Source Document</th><th>Source Origin</th><th>Status</th></tr></thead>
+              <tbody id="acc-all-body"></tbody>
+            </table></div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- PANEL PENERIMAAN -->
+    <div id="panel-penerimaan" class="panel">
+      <div class="module-info">
+        <div class="module-info-icon">&#x2139;</div>
+        <div>
+          <div class="module-info-title">Analisa Pengiriman</div>
+          <div class="module-info-text">Digunakan untuk mengetahui keakuratan supplier dalam mengirimkan barang sesuai dengan kuantiti PO yang dibuat.</div>
+        </div>
+      </div>
+      <div class="card">
+        <div class="card-title">Upload Data Penerimaan</div>
+        <div class="upload-zone" id="zone-ship" style="margin-bottom:12px;">
+          <input type="file" id="file-ship" accept=".xlsx,.xls,.csv" onchange="markReady('zone-ship','lbl-ship',this)">
+          <div class="upload-tag">Excel Penerimaan</div>
+          <div class="upload-label" id="lbl-ship">Pilih file Excel</div>
+          <div class="upload-hint">Kolom: Order Reference · Product · Received Qty · Quantity</div>
+        </div>
+        <button class="btn btn-primary" id="btn-ship" onclick="runShip()" disabled>Analisa Penerimaan</button>
+      </div>
+      <div id="ship-results" style="display:none;">
+        <div class="grid-3 anim">
+          <div class="metric"><div class="metric-label">Total Baris</div><div class="metric-value" id="ship-total">—</div></div>
+          <div class="metric"><div class="metric-label">Tidak Akurat</div><div class="metric-value danger" id="ship-inacc">—</div></div>
+          <div class="metric"><div class="metric-label">Akurat</div><div class="metric-value" id="ship-acc" style="color:var(--g)">—</div></div>
+        </div>
+        <div class="score-card anim">
+          <div><div class="metric-label">Score Akurasi</div><div class="score-num" id="ship-score-num">—</div></div>
+          <div class="score-right">
+            <div class="score-title" id="ship-score-title">—</div>
+            <div class="score-desc" id="ship-score-desc">—</div>
+            <div class="progress-track"><div class="progress-fill" id="ship-score-bar" style="width:0%"></div></div>
+          </div>
+        </div>
+        <div class="table-header">
+          <div class="table-title">&#x26A0; Data Tidak Akurat &nbsp;<span class="badge badge-danger" id="ship-badge">0 item</span></div>
+          <button class="btn btn-dl" onclick="dlExcel('ship_inacc','Penerimaan_Tidak_Akurat.xlsx')">&#x25BC; &nbsp;Download</button>
+        </div>
+        <div class="table-wrap"><table>
+          <thead><tr><th>Order Reference</th><th>Product</th><th style="text-align:right">Received Qty</th><th style="text-align:right">Quantity</th><th>Status</th></tr></thead>
+          <tbody id="ship-inacc-body"></tbody>
+        </table></div>
+        <div class="divider"></div>
+        <div class="table-header">
+          <div class="table-title">Semua Data Penerimaan</div>
+          <button class="btn btn-dl" onclick="dlExcel('ship_all','Penerimaan_Semua.xlsx')">&#x25BC; &nbsp;Download Semua</button>
+        </div>
+        <div class="table-wrap"><table>
+          <thead><tr><th>Order Reference</th><th>Product</th><th style="text-align:right">Received Qty</th><th style="text-align:right">Quantity</th><th>Status</th></tr></thead>
+          <tbody id="ship-all-body"></tbody>
+        </table></div>
+      </div>
+      <div id="ship-empty" class="empty">
+        <p>Upload file Excel untuk memulai<span class="blink">_</span></p>
+        <span>Sistem akan membandingkan Received Qty dan Quantity</span>
+      </div>
+    </div>
+
+  </div>
+</main>
+
+<div class="notify hidden" id="notify"></div>
+
+<script>
+// ─── CLOCK ───
+const days=['Minggu','Senin','Selasa','Rabu','Kamis','Jumat','Sabtu'];
+const months=['Jan','Feb','Mar','Apr','Mei','Jun','Jul','Agu','Sep','Okt','Nov','Des'];
+function updateClock(){
+  const t=new Date();
+  document.getElementById('topbar-date').textContent=`${days[t.getDay()]}, ${t.getDate()} ${months[t.getMonth()]} ${t.getFullYear()}`;
+  document.getElementById('topbar-time').textContent=`${String(t.getHours()).padStart(2,'0')}:${String(t.getMinutes()).padStart(2,'0')}:${String(t.getSeconds()).padStart(2,'0')}`;
+}
+updateClock(); setInterval(updateClock,1000);
+
+// ─── NOTIFY ───
+let _nt=null;
+function notify(msg,type='ok'){
+  const el=document.getElementById('notify');
+  el.textContent=msg;
+  el.className='notify'+(type==='error'?' error':'');
+  if(_nt) clearTimeout(_nt);
+  _nt=setTimeout(()=>el.classList.add('hidden'),3500);
+}
+
+// ─── AUTH ───
+function doLogin(){
+  const pwd=document.getElementById('pwd-input').value;
+  const err=document.getElementById('pwd-err');
+  if(pwd==='010101'){
+    const o=document.getElementById('pwd-overlay');
+    o.style.transition='opacity .4s'; o.style.opacity='0';
+    setTimeout(()=>{o.remove();document.getElementById('sidebar').style.display='flex';document.getElementById('main-app').style.display='flex';},400);
+  } else {
+    err.textContent='Password salah.';
+    document.getElementById('pwd-input').value='';
+    document.getElementById('pwd-input').focus();
+    setTimeout(()=>{err.textContent='';},2500);
+  }
+}
+document.getElementById('pwd-input').focus();
+document.getElementById('pwd-input').addEventListener('keydown',e=>{if(e.key==='Enter')doLogin();});
+function doLogout(){location.reload();}
+
+// ─── PANEL ───
+const panelTitles={instock:'Analisa Instock',po:'Analisa PO',penerimaan:'Analisa Penerimaan'};
+function showPanel(name,btn){
+  document.querySelectorAll('.panel').forEach(p=>p.classList.remove('active'));
+  document.querySelectorAll('.nav-item').forEach(b=>b.classList.remove('active'));
+  document.getElementById('panel-'+name).classList.add('active');
+  btn.classList.add('active');
+  document.getElementById('topbar-title').textContent=panelTitles[name];
+}
+
+// ─── FILE READY ───
+function markReady(zoneId,lblId,input){
+  const file=input.files[0]; if(!file) return;
+  document.getElementById(zoneId).classList.add('ready');
+  document.getElementById(lblId).textContent='✓ '+file.name;
+  if(zoneId==='zone1'||zoneId==='zone2'){
+    const f1=document.getElementById('file1').files.length;
+    const f2=document.getElementById('file2').files.length;
+    document.getElementById('btn-instock').disabled=!(f1&&f2);
+  }
+  if(zoneId==='zone-late') document.getElementById('btn-late').disabled=false;
+  if(zoneId==='zone-acc')  document.getElementById('btn-acc').disabled=false;
+  if(zoneId==='zone-ship') document.getElementById('btn-ship').disabled=false;
+}
+
+// ─── HELPERS ───
+function esc(s){return String(s).replace(/&/g,'&amp;').replace(/</g,'&lt;').replace(/>/g,'&gt;');}
+function r2(n){return Math.round(n*100)/100;}
+function scoreClass(s){return s>=80?'good':s>=50?'warn':'bad';}
+function scoreTitle(s){return s>=80?'PERFORMA BAIK':s>=50?'PERLU PERHATIAN':'KRITIS';}
+function scoreDesc(s){return s>=80?'Mayoritas memenuhi standar':s>=50?'Cukup banyak yang bermasalah':'Banyak yang tidak memenuhi standar';}
+function renderScore(numId,titleId,descId,barId,score){
+  const cls=scoreClass(score);
+  document.getElementById(numId).textContent=score.toFixed(1)+'%';
+  document.getElementById(numId).className='score-num '+cls;
+  document.getElementById(titleId).textContent=scoreTitle(score);
+  document.getElementById(descId).textContent=scoreDesc(score);
+  document.getElementById(barId).style.width=score.toFixed(1)+'%';
+  document.getElementById(barId).className='progress-fill '+cls;
+}
+
+// ─── EXCEL READ ───
+async function readExcel(file){
+  return new Promise((resolve,reject)=>{
+    const reader=new FileReader();
+    reader.onload=e=>{
+      try{
+        const wb=XLSX.read(new Uint8Array(e.target.result),{type:'array',cellDates:true});
+        const ws=wb.Sheets[wb.SheetNames[0]];
+        resolve(XLSX.utils.sheet_to_json(ws,{defval:null,raw:true}));
+      } catch(err){reject(err);}
+    };
+    reader.onerror=reject;
+    reader.readAsArrayBuffer(file);
+  });
+}
+
+// ─── EXCEL DOWNLOAD ───
+const _dl={};
+function dlExcel(key,filename){
+  const data=_dl[key];
+  if(!data||!data.length){notify('Jalankan analisa terlebih dahulu','error');return;}
+  const ws=XLSX.utils.json_to_sheet(data);
+  const wb=XLSX.utils.book_new();
+  XLSX.utils.book_append_sheet(wb,ws,'Data');
+  XLSX.writeFile(wb,filename);
+}
+
+// ─── EXCLUSION RULES (Instock) ───
+const _EXCL_PREFIX=/^\((D|L|N)\)/i;
+const _EXCL_WORDS=/ongkos[\s\-]*kirim|uang[\s\-]*muka|voucher|sampul[\s\-]*juara|jasa[\s\-]*sablon/i;
+function isExcluded(name){
+  const n=String(name).trim();
+  if(_EXCL_PREFIX.test(n)) return true;
+  return _EXCL_WORDS.test(n);
+}
+
+// ─── FIND COLUMN ───
+function findCol(headers,keywords){
+  for(const kw of keywords){
+    const kwn=kw.toLowerCase().replace(/[\s_]/g,'');
+    for(const col of headers){
+      if(String(col).toLowerCase().replace(/[\s_]/g,'').includes(kwn)) return col;
+    }
+  }
+  return null;
+}
+
+// ─── DATE HELPERS ───
+function parseDate(val){
+  if(val===null||val===undefined||val==='') return null;
+  if(val instanceof Date) return isNaN(val.getTime())?null:val;
+  if(typeof val==='number'){
+    const d=new Date((val-25569)*86400*1000);
+    return isNaN(d.getTime())?null:d;
+  }
+  const s=String(val).trim();
+  if(!s||s==='-') return null;
+  let m=s.match(/^(\d{1,2})\/(\d{1,2})\/(\d{4})$/);
+  if(m) return new Date(+m[3],+m[2]-1,+m[1]);
+  m=s.match(/^(\d{4})-(\d{2})-(\d{2})$/);
+  if(m) return new Date(+m[1],+m[2]-1,+m[3]);
+  m=s.match(/^(\d{1,2})-(\d{1,2})-(\d{4})$/);
+  if(m) return new Date(+m[3],+m[2]-1,+m[1]);
+  const d=new Date(s);
+  return isNaN(d.getTime())?null:d;
+}
+function fmtDate(d){
+  if(!d) return '-';
+  return `${String(d.getDate()).padStart(2,'0')}/${String(d.getMonth()+1).padStart(2,'0')}/${d.getFullYear()}`;
+}
+function sameDay(d1,d2){
+  return d1.getFullYear()===d2.getFullYear()&&d1.getMonth()===d2.getMonth()&&d1.getDate()===d2.getDate();
+}
+
+// ─── STATE (PO) ───
+let _lateScore=null, _lateTotal=null;
+
+// ─── ANALISA INSTOCK ───
+async function runInstock(){
+  const f1=document.getElementById('file1').files[0];
+  const f2=document.getElementById('file2').files[0];
+  if(!f1||!f2){notify('Upload dua file terlebih dahulu','error');return;}
+  const btn=document.getElementById('btn-instock');
+  btn.disabled=true; btn.textContent='⟳ Memproses...';
+  try{
+    const [rows1,rows2]=await Promise.all([readExcel(f1),readExcel(f2)]);
+    const h1=Object.keys(rows1[0]||{});
+    const h2=Object.keys(rows2[0]||{});
+    const n1=findCol(h1,['name','nama','product','produk','item']);
+    const q1k=findCol(h1,['quantityonhand','qtyonhand','onhand','quantity','qty','stok','stock']);
+    const u1=findCol(h1,['unitofmeasure','uom','satuan','unit']);
+    const n2=findCol(h2,['name','nama','product','produk','item']);
+    const q2k=findCol(h2,['quantityonhand','qtyonhand','onhand','quantity','qty','stok','stock']);
+    if(!n1||!q1k) {notify('Kolom tidak ditemukan di Excel 1','error');return;}
+    if(!n2||!q2k) {notify('Kolom tidak ditemukan di Excel 2','error');return;}
+
+    // Group sum
+    const g1={},g2={},uomMap={};
+    for(const r of rows1){
+      const name=String(r[n1]||'').trim(); if(!name) continue;
+      g1[name]=(g1[name]||0)+(parseFloat(r[q1k])||0);
+      if(u1&&r[u1]&&!uomMap[name]) uomMap[name]=String(r[u1]).trim();
+    }
+    for(const r of rows2){
+      const name=String(r[n2]||'').trim(); if(!name) continue;
+      g2[name]=(g2[name]||0)+(parseFloat(r[q2k])||0);
+    }
+    const allNames=new Set([...Object.keys(g1),...Object.keys(g2)]);
+    const shared=[...Object.keys(g1)].filter(n=>g2[n]!==undefined).length;
+    const merged=[];
+    for(const name of allNames){
+      const qA=r2(g1[name]||0), qB=r2(g2[name]||0);
+      const total=r2(qA+qB);
+      const excluded=isExcluded(name);
+      merged.push({name,uom:uomMap[name]||'-',q1:qA,q2:qB,total,excluded});
+    }
+    merged.sort((a,b)=>a.total-b.total);
+    const below=merged.filter(r=>r.total<=0&&!r.excluded);
+    const excl=merged.filter(r=>r.total<=0&&r.excluded);
+    const total=merged.length, bc=below.length;
+    const score=total?(total-bc)/total*100:0;
+
+    _dl['instock_below']=below.map(r=>({'Name':r.name,'Unit of Measure':r.uom,'QoH Excel 1':r.q1,'QoH Excel 2':r.q2,'Total QoH':r.total}));
+    _dl['instock_all']=merged.map(r=>({'Name':r.name,'Unit of Measure':r.uom,'QoH Excel 1':r.q1,'QoH Excel 2':r.q2,'Total QoH':r.total}));
+
+    document.getElementById('m-total').textContent=total;
+    document.getElementById('m-below').textContent=bc;
+    document.getElementById('m-above').textContent=total-bc;
+    document.getElementById('m-shared').textContent=shared;
+    document.getElementById('m-excluded').textContent=excl.length;
+    document.getElementById('ins-below-badge').textContent=bc+' item';
+    renderScore('ins-score-num','ins-score-title','ins-score-desc','ins-score-bar',score);
+
+    const bTbody=document.getElementById('ins-below-body');
+    bTbody.innerHTML=bc?below.map(r=>`<tr><td>${esc(r.name)}</td><td>${esc(r.uom)}</td><td class="td-mono" style="text-align:right">${r.q1}</td><td class="td-mono" style="text-align:right">${r.q2}</td><td class="td-danger" style="text-align:right">${r.total}</td></tr>`).join(''):'<tr><td colspan="5" style="text-align:center;padding:28px;color:var(--g);font-weight:600;">✓ Semua item memiliki QoH lebih dari 0</td></tr>';
+    document.getElementById('ins-all-body').innerHTML=merged.map(r=>{
+      const neg=r.total<=0&&!r.excluded;
+      const ex=r.excluded?` <span class="badge badge-blue">(D)</span>`:'';
+      return `<tr><td>${esc(r.name)}${ex}</td><td>${esc(r.uom)}</td><td class="td-mono" style="text-align:right">${r.q1}</td><td class="td-mono" style="text-align:right">${r.q2}</td><td class="${neg?'td-danger':'td-mono'}" style="text-align:right">${r.total}</td></tr>`;
+    }).join('');
+
+    document.getElementById('instock-results').style.display='block';
+    document.getElementById('instock-empty').style.display='none';
+    notify('Analisa Instock selesai ✓');
+  } catch(e){notify('Error: '+e.message,'error');}
+  finally{btn.disabled=false;btn.textContent='Jalankan Analisa Instock';}
+}
+
+// ─── ANALISA KETERLAMBATAN ───
+async function runLate(){
+  const f=document.getElementById('file-late').files[0];
+  if(!f){notify('Upload file terlebih dahulu','error');return;}
+  const btn=document.getElementById('btn-late');
+  btn.disabled=true; btn.textContent='⟳ Memproses...';
+  try{
+    const rows=await readExcel(f);
+    const h=Object.keys(rows[0]||{});
+    const refK=findCol(h,['orderreference','reference','ordref','po','ponumber','order']);
+    const ordK=findCol(h,['orderdate','orddate','tanggalorder','tglorder','purchasedate']);
+    const recK=findCol(h,['receiveddate','receivedate','recdate','tanggalterima','tglterima','received','arrival']);
+    const prodK=findCol(h,['product','produk','item','nama']);
+    if(!refK||!ordK||!recK){notify('Kolom tidak ditemukan. Pastikan ada: Order Reference, Order Date, Received Date','error');return;}
+
+    const allRows=rows.map(row=>{
+      const ref=String(row[refK]||'').trim();
+      const prod=prodK?String(row[prodK]||'-').trim():'-';
+      const od=parseDate(row[ordK]);
+      const rd=parseDate(row[recK]);
+      const late=od&&rd&&sameDay(od,rd);
+      return{ref,product:prod,order_date:fmtDate(od),received_date:fmtDate(rd),status:late?'Terlambat':'Ontime'};
+    });
+
+    // Deduplicate by ref
+    const refMap={};
+    for(const r of allRows){
+      if(!r.ref) continue;
+      if(!refMap[r.ref]) refMap[r.ref]={...r};
+      else if(r.status==='Terlambat') refMap[r.ref].status='Terlambat';
+    }
+    const uniq=Object.values(refMap);
+    const lateRows=uniq.filter(r=>r.status==='Terlambat');
+    const total=uniq.length, tlbt=lateRows.length;
+    const score=total?(total-tlbt)/total*100:0;
+
+    _lateScore=score; _lateTotal=total;
+    _dl['late_late']=lateRows.map(r=>({'Order Reference':r.ref,'Order Date':r.order_date,'Received Date':r.received_date,'Status':r.status}));
+    _dl['late_all']=allRows.map(r=>({'Order Reference':r.ref,'Product':r.product,'Order Date':r.order_date,'Received Date':r.received_date,'Status':r.status}));
+
+    document.getElementById('late-total').textContent=total;
+    document.getElementById('late-count').textContent=tlbt;
+    document.getElementById('late-ontime').textContent=total-tlbt;
+    document.getElementById('late-badge').textContent=tlbt+' PO';
+    renderScore('late-score-num','late-score-title','late-score-desc','late-score-bar',score);
+
+    document.getElementById('late-body').innerHTML=tlbt?lateRows.map(r=>`<tr style="background:rgba(255,51,51,.05);"><td style="color:var(--red);font-weight:600">${esc(r.ref)}</td><td class="td-mono">${esc(r.order_date)}</td><td class="td-mono">${esc(r.received_date)}</td><td><span class="badge badge-danger">Terlambat</span></td></tr>`).join(''):'<tr><td colspan="4" style="text-align:center;padding:24px;color:var(--g);">✓ Semua PO Ontime</td></tr>';
+    document.getElementById('late-all-body').innerHTML=allRows.map(r=>{
+      const late=r.status==='Terlambat';
+      return `<tr style="${late?'background:rgba(255,51,51,.05);':''}"><td style="${late?'color:var(--red);font-weight:600':''}">${esc(r.ref)}</td><td>${esc(r.product)}</td><td class="td-mono">${esc(r.order_date)}</td><td class="td-mono">${esc(r.received_date)}</td><td><span class="badge ${late?'badge-danger':'badge-success'}">${esc(r.status)}</span></td></tr>`;
+    }).join('');
+
+    document.getElementById('late-results').style.display='block';
+    notify('Analisa Keterlambatan selesai ✓');
+  } catch(e){notify('Error: '+e.message,'error');}
+  finally{btn.disabled=false;btn.textContent='Analisa Keterlambatan';}
+}
+
+// ─── ANALISA AKURASI ───
+const ACC_KW=['HPP','SUPPLIER','HARGA','KUANTITI','QTY','SALAH','DISKON','LEBIH','KURANG','TEMPO','TERMIN','NAMA'];
+async function runAcc(){
+  const f=document.getElementById('file-acc').files[0];
+  if(!f){notify('Upload file terlebih dahulu','error');return;}
+  const btn=document.getElementById('btn-acc');
+  btn.disabled=true; btn.textContent='⟳ Memproses...';
+  try{
+    const rows=await readExcel(f);
+    const h=Object.keys(rows[0]||{});
+    const originK=findCol(h,['sourceorigin','source origin']);
+    const docK=findCol(h,['sourcedocument','source document']);
+    if(!originK){notify('Kolom Source Origin tidak ditemukan','error');return;}
+
+    const allRows=rows.map(row=>{
+      const origin=String(row[originK]||'').trim();
+      const doc=docK?String(row[docK]||'-').trim():'-';
+      const matched=ACC_KW.filter(kw=>origin.toUpperCase().includes(kw));
+      return{doc,origin,status:matched.length?'Tidak Akurat':'Akurat',matched:matched.join(', ')};
+    });
+
+    const inacc=allRows.filter(r=>r.status==='Tidak Akurat');
+    const totalRef=_lateTotal||allRows.length;
+    const inaccCnt=inacc.length;
+    const accCnt=Math.max(0,totalRef-inaccCnt);
+    const score=totalRef?accCnt/totalRef*100:0;
+
+    _dl['acc_inacc']=inacc.map(r=>({'Source Document':r.doc,'Source Origin':r.origin,'Status':r.status,'Kata Kunci':r.matched}));
+    _dl['acc_all']=allRows.map(r=>({'Source Document':r.doc,'Source Origin':r.origin,'Status':r.status,'Kata Kunci':r.matched}));
+
+    document.getElementById('acc-total').textContent=totalRef;
+    document.getElementById('acc-inacc').textContent=inaccCnt;
+    document.getElementById('acc-acc').textContent=accCnt;
+    document.getElementById('acc-badge').textContent=inaccCnt+' baris';
+    renderScore('acc-score-num','acc-score-title','acc-score-desc','acc-score-bar',score);
+
+    document.getElementById('acc-body').innerHTML=inaccCnt?inacc.map(r=>`<tr style="background:rgba(255,51,51,.05);"><td style="font-size:11px;color:var(--gdim)">${esc(r.doc)}</td><td style="font-size:11px;">${esc(r.origin)}</td><td><span class="badge badge-danger">Tidak Akurat</span></td></tr>`).join(''):'<tr><td colspan="3" style="text-align:center;padding:24px;color:var(--g);">✓ Semua Source Origin akurat</td></tr>';
+    document.getElementById('acc-all-body').innerHTML=allRows.map(r=>{
+      const bad=r.status==='Tidak Akurat';
+      return `<tr style="${bad?'background:rgba(255,51,51,.05);':''}"><td style="font-size:11px;color:var(--gdim)">${esc(r.doc)}</td><td style="font-size:11px;">${esc(r.origin)}</td><td><span class="badge ${bad?'badge-danger':'badge-success'}">${esc(r.status)}</span></td></tr>`;
+    }).join('');
+
+    document.getElementById('acc-results').style.display='block';
+
+    // Final score
+    if(_lateScore!==null){
+      const finalScore=_lateScore*0.7+score*0.3;
+      const cls=scoreClass(finalScore);
+      document.getElementById('pof-late').textContent=_lateScore.toFixed(1)+'%';
+      document.getElementById('pof-late').className='final-big '+scoreClass(_lateScore);
+      document.getElementById('pof-acc').textContent=score.toFixed(1)+'%';
+      document.getElementById('pof-acc').className='final-big '+scoreClass(score);
+      document.getElementById('pof-final').textContent=finalScore.toFixed(1)+'%';
+      document.getElementById('pof-final').className='final-big '+cls;
+      document.getElementById('pof-bar').style.width=finalScore.toFixed(1)+'%';
+      document.getElementById('pof-bar').className='progress-fill '+cls;
+      document.getElementById('po-final-wrap').style.display='block';
+    }
+    notify('Analisa Akurasi selesai ✓');
+  } catch(e){notify('Error: '+e.message,'error');}
+  finally{btn.disabled=false;btn.textContent='Analisa Akurasi';}
+}
+
+// ─── ANALISA PENERIMAAN ───
+async function runShip(){
+  const f=document.getElementById('file-ship').files[0];
+  if(!f){notify('Upload file terlebih dahulu','error');return;}
+  const btn=document.getElementById('btn-ship');
+  btn.disabled=true; btn.textContent='⟳ Memproses...';
+  try{
+    const rows=await readExcel(f);
+    const h=Object.keys(rows[0]||{});
+    const refK=findCol(h,['orderreference','order reference','reference','ordref','po']);
+    const prodK=findCol(h,['product','produk','item','nama']);
+    const rqtyK=findCol(h,['receivedqty','received qty','receivedquantity','qty received','qtyreceived','terima']);
+    const qtyK=h.find(c=>c.trim().toLowerCase()==='quantity')||findCol(h,['quantity']);
+    if(!rqtyK||!qtyK){notify('Kolom Received Qty / Quantity tidak ditemukan','error');return;}
+
+    const allRows=rows.map(row=>{
+      const rqty=r2(parseFloat(row[rqtyK])||0);
+      const qty=r2(parseFloat(row[qtyK])||0);
+      return{
+        ref:refK?String(row[refK]||'-').trim():'-',
+        product:prodK?String(row[prodK]||'-').trim():'-',
+        received_qty:rqty, quantity:qty,
+        status:rqty===qty?'Akurat':'Tidak Akurat'
+      };
+    });
+
+    const inacc=allRows.filter(r=>r.status==='Tidak Akurat');
+    const total=allRows.length, inaccCnt=inacc.length;
+    const score=total?(total-inaccCnt)/total*100:0;
+
+    _dl['ship_inacc']=inacc.map(r=>({'Order Reference':r.ref,'Product':r.product,'Received Qty':r.received_qty,'Quantity':r.quantity,'Status':r.status}));
+    _dl['ship_all']=allRows.map(r=>({'Order Reference':r.ref,'Product':r.product,'Received Qty':r.received_qty,'Quantity':r.quantity,'Status':r.status}));
+
+    document.getElementById('ship-total').textContent=total;
+    document.getElementById('ship-inacc').textContent=inaccCnt;
+    document.getElementById('ship-acc').textContent=total-inaccCnt;
+    document.getElementById('ship-badge').textContent=inaccCnt+' item';
+    const cls=scoreClass(score);
+    const titles={good:'PENERIMAAN AKURAT',warn:'AKURASI PERLU PERHATIAN',bad:'AKURASI KRITIS'};
+    document.getElementById('ship-score-num').textContent=score.toFixed(1)+'%';
+    document.getElementById('ship-score-num').className='score-num '+cls;
+    document.getElementById('ship-score-title').textContent=titles[cls];
+    document.getElementById('ship-score-desc').textContent=scoreDesc(score);
+    document.getElementById('ship-score-bar').style.width=score.toFixed(1)+'%';
+    document.getElementById('ship-score-bar').className='progress-fill '+cls;
+
+    document.getElementById('ship-inacc-body').innerHTML=inaccCnt?inacc.map(r=>`<tr style="background:rgba(255,51,51,.05);"><td style="color:var(--red);font-weight:500;font-size:11px;">${esc(r.ref)}</td><td style="font-size:11px;">${esc(r.product)}</td><td class="td-danger" style="text-align:right">${r.received_qty}</td><td class="td-mono" style="text-align:right">${r.quantity}</td><td><span class="badge badge-danger" style="font-size:10px;">Tdk Akurat</span></td></tr>`).join(''):'<tr><td colspan="5" style="text-align:center;padding:24px;color:var(--g);">✓ Semua produk diterima sesuai quantity</td></tr>';
+    document.getElementById('ship-all-body').innerHTML=allRows.map(r=>{
+      const bad=r.status==='Tidak Akurat';
+      return `<tr style="${bad?'background:rgba(255,51,51,.05);':''}"><td style="font-size:11px;${bad?'color:var(--red);font-weight:500;':''}">${esc(r.ref)}</td><td style="font-size:11px;">${esc(r.product)}</td><td class="${bad?'td-danger':'td-mono'}" style="text-align:right">${r.received_qty}</td><td class="td-mono" style="text-align:right">${r.quantity}</td><td><span class="badge ${bad?'badge-danger':'badge-success'}" style="font-size:10px;">${bad?'Tdk Akurat':'Akurat'}</span></td></tr>`;
+    }).join('');
+
+    document.getElementById('ship-results').style.display='block';
+    document.getElementById('ship-empty').style.display='none';
+    notify('Analisa Penerimaan selesai ✓');
+  } catch(e){notify('Error: '+e.message,'error');}
+  finally{btn.disabled=false;btn.textContent='Analisa Penerimaan';}
+}
+</script>
+</body>
+</html>
