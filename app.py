@@ -140,7 +140,7 @@ def analyze_instock():
         if re.match(r'^\((d|l|n)\)', n): return True
         return any(kw in n for kw in [
             'ongkos kirim', 'ongkos  kirim', 'ongkos\tkirim',
-            'uang muka', 'voucher', 'sampul juara', 'jasa sablon'
+            'uang muka', 'voucher', 'sampul juara', 'jasa sablon', '10 l'
         ]) or 'ongkos' in n and 'kirim' in n
     merged['excluded'] = merged['name'].apply(_is_excluded)
     merged = merged.sort_values('total').reset_index(drop=True)

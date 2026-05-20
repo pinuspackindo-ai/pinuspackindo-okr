@@ -239,7 +239,7 @@ tbody tr:hover td{background:var(--bg);}
           <div style="font-size:13px;font-weight:600;color:#92400e;margin-bottom:6px;">Data yang Dikecualikan dari Hitungan QoH &le; 0</div>
           <div style="font-size:12px;color:#92400e;line-height:1.9;">
             Produk dengan <strong>kode awalan</strong> : (D) &nbsp;&middot;&nbsp; (L) &nbsp;&middot;&nbsp; (N)<br>
-            Produk dengan <strong>nama mengandung</strong> : Ongkos Kirim &nbsp;&middot;&nbsp; Uang Muka &nbsp;&middot;&nbsp; Voucher &nbsp;&middot;&nbsp; Sampul Juara &nbsp;&middot;&nbsp; Jasa Sablon
+            Produk dengan <strong>nama mengandung</strong> : Ongkos Kirim &nbsp;&middot;&nbsp; Uang Muka &nbsp;&middot;&nbsp; Voucher &nbsp;&middot;&nbsp; Sampul Juara &nbsp;&middot;&nbsp; Jasa Sablon &nbsp;&middot;&nbsp; 10 L
           </div>
         </div>
       </div>
@@ -607,7 +607,7 @@ function dlExcel(key,filename){
 
 // ─── EXCLUSION RULES (Instock) ───
 const _EXCL_PREFIX=/^\((D|L|N)\)/i;
-const _EXCL_WORDS=/ongkos[\s\-]*kirim|uang[\s\-]*muka|voucher|sampul[\s\-]*juara|jasa[\s\-]*sablon/i;
+const _EXCL_WORDS=/ongkos[\s\-]*kirim|uang[\s\-]*muka|voucher|sampul[\s\-]*juara|jasa[\s\-]*sablon|10\s*l/i;
 function isExcluded(name){
   const n=String(name).trim();
   if(_EXCL_PREFIX.test(n)) return true;
