@@ -232,6 +232,17 @@ tbody tr:hover td{background:var(--bg);}
           <div class="module-info-text">Digunakan untuk mengetahui barang-barang yang memiliki stok kosong di semua lokasi.</div>
         </div>
       </div>
+      <div style="background:var(--warning-l);border:1px solid #fcd34d;border-radius:var(--radius);
+                  padding:14px 18px;margin-bottom:16px;display:flex;align-items:flex-start;gap:12px;">
+        <div style="color:var(--warning);font-size:18px;flex-shrink:0;line-height:1.4;">&#9888;</div>
+        <div>
+          <div style="font-size:13px;font-weight:600;color:#92400e;margin-bottom:6px;">Data yang Dikecualikan dari Hitungan QoH &le; 0</div>
+          <div style="font-size:12px;color:#92400e;line-height:1.9;">
+            Produk dengan <strong>kode awalan</strong> : (D) &nbsp;&middot;&nbsp; (L) &nbsp;&middot;&nbsp; (N)<br>
+            Produk dengan <strong>nama mengandung</strong> : Ongkos Kirim &nbsp;&middot;&nbsp; Uang Muka &nbsp;&middot;&nbsp; Voucher &nbsp;&middot;&nbsp; Sampul Juara &nbsp;&middot;&nbsp; Jasa Sablon
+          </div>
+        </div>
+      </div>
       <div class="card">
         <div class="card-title">Upload Data Excel</div>
         <div class="grid-2">
@@ -704,8 +715,7 @@ async function runInstock(){
     bTbody.innerHTML=bc?below.map(r=>`<tr><td>${esc(r.name)}</td><td>${esc(r.uom)}</td><td class="td-mono" style="text-align:right">${r.q1}</td><td class="td-mono" style="text-align:right">${r.q2}</td><td class="td-danger" style="text-align:right">${r.total}</td></tr>`).join(''):'<tr><td colspan="5" style="text-align:center;padding:28px;color:var(--g);font-weight:600;">✓ Semua item memiliki QoH lebih dari 0</td></tr>';
     document.getElementById('ins-all-body').innerHTML=merged.map(r=>{
       const neg=r.total<=0&&!r.excluded;
-      const ex=r.excluded?` <span class="badge badge-blue">(D)</span>`:'';
-      return `<tr><td>${esc(r.name)}${ex}</td><td>${esc(r.uom)}</td><td class="td-mono" style="text-align:right">${r.q1}</td><td class="td-mono" style="text-align:right">${r.q2}</td><td class="${neg?'td-danger':'td-mono'}" style="text-align:right">${r.total}</td></tr>`;
+      return `<tr><td>${esc(r.name)}</td><td>${esc(r.uom)}</td><td class="td-mono" style="text-align:right">${r.q1}</td><td class="td-mono" style="text-align:right">${r.q2}</td><td class="${neg?'td-danger':'td-mono'}" style="text-align:right">${r.total}</td></tr>`;
     }).join('');
 
     document.getElementById('instock-results').style.display='block';
