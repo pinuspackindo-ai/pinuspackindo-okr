@@ -671,51 +671,63 @@ tbody tr:hover td{background:var(--bg);}
           <!-- AKURASI GA — 3 POIN BERBOBOT -->
           <div class="lap-section-title">Akurasi &mdash; 3 Poin Penilaian</div>
           <div style="font-size:12px;color:var(--text-m);margin-bottom:12px;line-height:1.6;">
-            Isi kolom <strong>Poin Revisi</strong> dengan jumlah poin yang direvisi per kriteria.
-            Skor = (total sisa poin) / 40 &times; 100%.
+            Isi <strong>Jumlah Temuan</strong> per kriteria. Pengurangan = Temuan &times; Bobot/Temuan.
+            Skor = (total sisa poin) / 30 &times; 100%.
           </div>
 
           <div class="ga-poin-row">
             <div class="ga-poin-info">
               <span class="ga-poin-num">Poin 1</span>
-              <span class="ga-poin-max-lbl">Maks 20 poin</span>
+              <span class="ga-poin-max-lbl">Maks 15</span>
+              <span class="ga-poin-bobot">Bobot/temuan: 3</span>
             </div>
             <div class="ga-input-group">
-              <label>Poin Revisi:</label>
-              <input class="ga-poin-input" type="number" id="ga-inp-0" min="0" max="20" value="0" oninput="calcGaAkurasi()">
+              <label>Temuan:</label>
+              <input class="ga-poin-input" type="number" id="ga-inp-0" min="0" value="0" oninput="calcGaAkurasi()">
             </div>
-            <div class="ga-poin-sisa">Sisa: <strong id="ga-sisa-0" style="color:var(--success)">20</strong> / 20 poin</div>
+            <div class="ga-poin-sisa" style="min-width:170px;">
+              Kurang: <strong id="ga-deduct-0" style="color:var(--danger)">0</strong> &nbsp;&middot;&nbsp;
+              Sisa: <strong id="ga-sisa-0" style="color:var(--success)">15</strong> / 15
+            </div>
           </div>
 
           <div class="ga-poin-row">
             <div class="ga-poin-info">
               <span class="ga-poin-num">Poin 2</span>
-              <span class="ga-poin-max-lbl">Maks 5 poin</span>
+              <span class="ga-poin-max-lbl">Maks 5</span>
+              <span class="ga-poin-bobot">Bobot/temuan: 5</span>
             </div>
             <div class="ga-input-group">
-              <label>Poin Revisi:</label>
-              <input class="ga-poin-input" type="number" id="ga-inp-1" min="0" max="5" value="0" oninput="calcGaAkurasi()">
+              <label>Temuan:</label>
+              <input class="ga-poin-input" type="number" id="ga-inp-1" min="0" value="0" oninput="calcGaAkurasi()">
             </div>
-            <div class="ga-poin-sisa">Sisa: <strong id="ga-sisa-1" style="color:var(--success)">5</strong> / 5 poin</div>
+            <div class="ga-poin-sisa" style="min-width:170px;">
+              Kurang: <strong id="ga-deduct-1" style="color:var(--danger)">0</strong> &nbsp;&middot;&nbsp;
+              Sisa: <strong id="ga-sisa-1" style="color:var(--success)">5</strong> / 5
+            </div>
           </div>
 
           <div class="ga-poin-row">
             <div class="ga-poin-info">
               <span class="ga-poin-num">Poin 3</span>
-              <span class="ga-poin-max-lbl">Maks 15 poin</span>
+              <span class="ga-poin-max-lbl">Maks 10</span>
+              <span class="ga-poin-bobot">Bobot/temuan: 5</span>
             </div>
             <div class="ga-input-group">
-              <label>Poin Revisi:</label>
-              <input class="ga-poin-input" type="number" id="ga-inp-2" min="0" max="15" value="0" oninput="calcGaAkurasi()">
+              <label>Temuan:</label>
+              <input class="ga-poin-input" type="number" id="ga-inp-2" min="0" value="0" oninput="calcGaAkurasi()">
             </div>
-            <div class="ga-poin-sisa">Sisa: <strong id="ga-sisa-2" style="color:var(--success)">15</strong> / 15 poin</div>
+            <div class="ga-poin-sisa" style="min-width:170px;">
+              Kurang: <strong id="ga-deduct-2" style="color:var(--danger)">0</strong> &nbsp;&middot;&nbsp;
+              Sisa: <strong id="ga-sisa-2" style="color:var(--success)">10</strong> / 10
+            </div>
           </div>
 
           <div style="display:flex;align-items:center;gap:14px;margin:12px 0 20px;
                       padding:10px 16px;background:var(--bg);border-radius:var(--radius-sm);">
             <span style="font-size:13px;font-weight:600;color:var(--text);">Score Akurasi:</span>
             <span class="score-num good" id="ga-aku-val" style="font-size:1.4rem;">100.0%</span>
-            <span style="font-size:12px;color:var(--text-m);" id="ga-aku-desc">40 dari 40 poin</span>
+            <span style="font-size:12px;color:var(--text-m);" id="ga-aku-desc">30 dari 30 poin</span>
           </div>
 
           <div class="divider"></div>
@@ -1331,8 +1343,9 @@ async function runShip(){
 var _lapInit=false;
 var _fa_revisi=Array(15).fill(false);
 var _fa_ontime=null;
-var _GA_MAX=[20,5,15];
-var _GA_TOTAL=40;
+var _GA_MAX=[15,5,10];
+var _GA_BOBOT=[3,5,5];
+var _GA_TOTAL=30; // 15+5+10
 var _ga_ontime=null;
 
 function initLaporan(){
