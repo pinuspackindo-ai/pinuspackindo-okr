@@ -1376,19 +1376,39 @@ function initLaporan(){
   calcFaAkurasi();
 }
 
-function toggleFaItem(i){
-  _fa_revisi[i]=!_fa_revisi[i];
-  document.getElementById('fa-item-'+i).classList.toggle('revisi',_fa_revisi[i]);
-  document.getElementById('fa-chk-'+i).innerHTML=_fa_revisi[i]?'&#x2717;':'&#x2713;';
-  _updateFaAku(); _tryFaFinal();
-}
-function _calcFaAku(){return (15-_fa_revisi.filter(Boolean).length)/15*100;}
-function _updateFaAku(){
-  var s=_calcFaAku(); var rev=_fa_revisi.filter(Boolean).length;
+function calcFaAkurasi(){
+  var totalSisa=0;
+  for(var i=0;i<_FA_COUNT;i++){
+    var temuan=Math.max(0,Math.min(_FA_POIN_MAX,parseInt(document.getElementById('fa-inp-'+i).value)||0));
+    var sisa=_FA_POIN_MAX-temuan;
+    totalSisa+=sisa;
+    var item=document.getElementById('fa-item-'+i);
+    var chk=document.getElementById('fa-chk-'+i);
+    var sisaEl=document.getElementById('fa-sisa-'+i);
+    item.classList.remove('revisi','warn');
+    if(temuan===0){
+      chk.innerHTML='&#x2713;'; sisaEl.style.color='var(--success)';
+    } else if(temuan<_FA_POIN_MAX){
+      item.classList.add('warn'); chk.innerHTML='&#x26A0;'; sisaEl.style.color='var(--warning)';
+    } else {
+      item.classList.add('revisi'); chk.innerHTML='&#x2717;'; sisaEl.style.color='var(--danger)';
+    }
+    sisaEl.textContent='sisa '+sisa+' / '+_FA_POIN_MAX;
+  }
+  var score=totalSisa/_FA_TOTAL*100;
   var el=document.getElementById('fa-aku-val');
-  if(el){el.textContent=s.toFixed(1)+'%';el.className='score-num '+scoreClass(s);}
+  if(el){el.textContent=score.toFixed(1)+'%';el.className='score-num '+scoreClass(score);}
   var d=document.getElementById('fa-aku-desc');
-  if(d)d.textContent=(15-rev)+' poin akurat dari 15';
+  if(d)d.textContent=totalSisa+' dari '+_FA_TOTAL+' poin';
+  _tryFaFinal();
+}
+function _calcFaAku(){
+  var totalSisa=0;
+  for(var i=0;i<_FA_COUNT;i++){
+    var temuan=Math.max(0,Math.min(_FA_POIN_MAX,parseInt(document.getElementById('fa-inp-'+i).value)||0));
+    totalSisa+=_FA_POIN_MAX-temuan;
+  }
+  return totalSisa/_FA_TOTAL*100;
 }
 function _tryFaFinal(){
   if(_fa_ontime===null)return;
