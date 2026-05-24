@@ -1020,6 +1020,95 @@ async function runShip(){
   } catch(e){notify('Error: '+e.message,'error');}
   finally{btn.disabled=false;btn.textContent='Analisa Penerimaan';}
 }
+
+// ─── ANALISA LAPORAN ───
+let _lapRevisi=Array(12).fill(false);
+let _lapOntimeScore=null;
+let _lapInitialized=false;
+
+function initLaporan(){
+  if(_lapInitialized)return;
+  _lapInitialized=true;
+
+  // Set deadline: tanggal 5 bulan berjalan
+  const now=new Date();
+  const mo=['Jan','Feb','Mar','Apr','Mei','Jun','Jul','Agu','Sep','Okt','Nov','Des'];
+  document.getElementById('lap-deadline-txt').textContent=
+    '5 '+mo[now.getMonth()]+' '+now.getFullYear();
+
+  // Build 12-item grid
+  const grid=document.getElementById('lap-grid');
+  grid.innerHTML=Array.from({length:12},function(_,i){
+    return '<div class="lap-item" id="lap-item-'+i+'" onclick="toggleLapItem('+i+')" title="Klik untuk menandai revisi">'+
+      '<span class="lap-check" id="lap-check-'+i+'">&#x2713;</span>'+
+      '<div class="lap-poin">Poin '+(i+1)+'</div></div>';
+  }).join('');
+
+  _updateAkuDisplay(100);
+}
+
+function toggleLapItem(i){
+  _lapRevisi[i]=!_lapRevisi[i];
+  var item=document.getElementById('lap-item-'+i);
+  var check=document.getElementById('lap-check-'+i);
+  if(_lapRevisi[i]){item.classList.add('revisi');check.innerHTML='&#x2717;';}
+  else{item.classList.remove('revisi');check.innerHTML='&#x2713;';}
+  var score=_calcAkurasi();
+  _updateAkuDisplay(score);
+  _tryUpdateFinal();
+}
+
+function _calcAkurasi(){
+  var revisi=_lapRevisi.filter(Boolean).length;
+  return (12-revisi)/12*100;
+}
+
+function _updateAkuDisplay(score){
+  var revisi=_lapRevisi.filter(Boolean).length;
+  var el=document.getElementById('lap-aku-val');
+  if(el){el.textContent=score.toFixed(1)+'%';el.className='final-big '+scoreClass(score);}
+  var desc=document.getElementById('lap-aku-desc');
+  if(desc)desc.textContent=(12-revisi)+' poin akurat dari 12';
+}
+
+function calcOntime(){
+  var val=document.getElementById('lap-ontime-input').value;
+  if(!val){notify('Masukkan tanggal pengiriman laporan','error');return;}
+
+  var now=new Date();
+  var deadline=new Date(now.getFullYear(),now.getMonth(),5);
+  var submitted=new Date(val+'T00:00:00');
+  var diffDays=Math.ceil((submitted-deadline)/(1000*60*60*24));
+  var late=Math.max(0,diffDays);
+  var score=Math.max(0,(25-late)/25*100);
+
+  var ontimeVal=document.getElementById('lap-ontime-val');
+  ontimeVal.textContent=score.toFixed(1)+'%';
+  ontimeVal.className='final-big '+scoreClass(score);
+  document.getElementById('lap-ontime-desc').textContent=
+    late===0?'Ontime — tidak ada keterlambatan':'Terlambat '+late+' hari dari deadline tanggal 5';
+  document.getElementById('lap-ontime-result').style.display='block';
+
+  _lapOntimeScore=score;
+  _tryUpdateFinal();
+}
+
+function _tryUpdateFinal(){
+  if(_lapOntimeScore===null)return;
+  var akuScore=_calcAkurasi();
+  var finalScore=akuScore*0.7+_lapOntimeScore*0.3;
+  var cls=scoreClass(finalScore);
+
+  document.getElementById('lapf-aku').textContent=akuScore.toFixed(1)+'%';
+  document.getElementById('lapf-aku').className='final-big '+scoreClass(akuScore);
+  document.getElementById('lapf-ontime').textContent=_lapOntimeScore.toFixed(1)+'%';
+  document.getElementById('lapf-ontime').className='final-big '+scoreClass(_lapOntimeScore);
+  document.getElementById('lapf-total').textContent=finalScore.toFixed(1)+'%';
+  document.getElementById('lapf-total').className='final-big '+cls;
+  document.getElementById('lap-bar').style.width=finalScore.toFixed(1)+'%';
+  document.getElementById('lap-bar').className='progress-fill '+cls;
+  document.getElementById('lap-final-wrap').style.display='block';
+}
 </script>
 </body>
 </html>
