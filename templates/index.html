@@ -1437,20 +1437,39 @@ function initLaporan(){
 }
 
 // ── FA functions ──
-function toggleFaItem(i){
-  _fa_revisi[i]=!_fa_revisi[i];
-  document.getElementById('fa-item-'+i).classList.toggle('revisi',_fa_revisi[i]);
-  document.getElementById('fa-chk-'+i).textContent=_fa_revisi[i]?'✗':'✓';
-  _updateFaAku();
+function calcFaAkurasi(){
+  let totalSisa=0;
+  for(let i=0;i<_FA_COUNT;i++){
+    const temuan=Math.max(0,Math.min(_FA_POIN_MAX,parseInt(document.getElementById('fa-inp-'+i).value)||0));
+    const sisa=_FA_POIN_MAX-temuan;
+    totalSisa+=sisa;
+    const item=document.getElementById('fa-item-'+i);
+    const chk=document.getElementById('fa-chk-'+i);
+    const sisaEl=document.getElementById('fa-sisa-'+i);
+    item.classList.remove('revisi','warn');
+    if(temuan===0){
+      chk.textContent='✓'; sisaEl.style.color='var(--success)';
+    } else if(temuan<_FA_POIN_MAX){
+      item.classList.add('warn'); chk.textContent='⚠'; sisaEl.style.color='var(--warning)';
+    } else {
+      item.classList.add('revisi'); chk.textContent='✗'; sisaEl.style.color='var(--danger)';
+    }
+    sisaEl.textContent='sisa '+sisa+' / '+_FA_POIN_MAX;
+  }
+  const score=totalSisa/_FA_TOTAL*100;
+  const el=document.getElementById('fa-aku-val');
+  if(el){el.textContent=score.toFixed(1)+'%';el.className='score-num '+scoreClass(score);}
+  const d=document.getElementById('fa-aku-desc');
+  if(d)d.textContent=totalSisa+' dari '+_FA_TOTAL+' poin';
   _tryFaFinal();
 }
-function _calcFaAku(){return (15-_fa_revisi.filter(Boolean).length)/15*100;}
-function _updateFaAku(){
-  const s=_calcFaAku(); const rev=_fa_revisi.filter(Boolean).length;
-  const el=document.getElementById('fa-aku-val');
-  if(el){el.textContent=s.toFixed(1)+'%';el.className='score-num '+scoreClass(s);}
-  const d=document.getElementById('fa-aku-desc');
-  if(d)d.textContent=(15-rev)+' poin akurat dari 15';
+function _calcFaAku(){
+  let totalSisa=0;
+  for(let i=0;i<_FA_COUNT;i++){
+    const temuan=Math.max(0,Math.min(_FA_POIN_MAX,parseInt(document.getElementById('fa-inp-'+i).value)||0));
+    totalSisa+=_FA_POIN_MAX-temuan;
+  }
+  return totalSisa/_FA_TOTAL*100;
 }
 function _tryFaFinal(){
   if(_fa_ontime===null)return;
