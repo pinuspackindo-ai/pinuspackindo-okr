@@ -1415,8 +1415,10 @@ function calcLapOntime(div){
 
 function calcGaAkurasi(){
   var sisa=_GA_MAX.map(function(max,i){
-    var rev=Math.min(max,Math.max(0,parseFloat(document.getElementById('ga-inp-'+i).value)||0));
-    var s=max-rev;
+    var temuan=Math.max(0,parseInt(document.getElementById('ga-inp-'+i).value)||0);
+    var deduct=Math.min(max,temuan*_GA_BOBOT[i]);
+    var s=max-deduct;
+    document.getElementById('ga-deduct-'+i).textContent=deduct;
     var sisaEl=document.getElementById('ga-sisa-'+i);
     sisaEl.textContent=s;
     sisaEl.style.color=s<max?'var(--danger)':'var(--success)';
@@ -1431,8 +1433,8 @@ function calcGaAkurasi(){
 }
 function _calcGaAku(){
   return _GA_MAX.reduce(function(acc,max,i){
-    var rev=Math.min(max,Math.max(0,parseFloat(document.getElementById('ga-inp-'+i).value)||0));
-    return acc+(max-rev);
+    var temuan=Math.max(0,parseInt(document.getElementById('ga-inp-'+i).value)||0);
+    return acc+Math.max(0,max-Math.min(max,temuan*_GA_BOBOT[i]));
   },0)/_GA_TOTAL*100;
 }
 function _tryGaFinal(){
