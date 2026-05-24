@@ -1435,6 +1435,49 @@ function _tryGaFinal(){
   document.getElementById('ga-bar').className='progress-fill '+cls;
   document.getElementById('ga-final-wrap').style.display='block';
 }
+
+// ── INVENTORY functions ──
+var _INV_POIN=[{max:15,bobot:2},{max:5,bobot:5},{max:5,bobot:5},{max:10,bobot:2},{max:5,bobot:5}];
+var _INV_TOTAL=40;
+var _inv_ontime=null;
+
+function calcInvAkurasi(){
+  var sisa=_INV_POIN.map(function(p,i){
+    var temuan=Math.max(0,parseInt(document.getElementById('inv-inp-'+i).value)||0);
+    var deduct=Math.min(p.max, temuan*p.bobot);
+    var s=p.max-deduct;
+    document.getElementById('inv-deduct-'+i).textContent=deduct;
+    var sisaEl=document.getElementById('inv-sisa-'+i);
+    sisaEl.textContent=s;
+    sisaEl.style.color=s<p.max?'var(--danger)':'var(--success)';
+    return s;
+  });
+  var total=sisa.reduce(function(a,b){return a+b;},0);
+  var score=total/_INV_TOTAL*100;
+  var el=document.getElementById('inv-aku-val');
+  el.textContent=score.toFixed(1)+'%'; el.className='score-num '+scoreClass(score);
+  document.getElementById('inv-aku-desc').textContent=total+' dari '+_INV_TOTAL+' poin';
+  _tryInvFinal();
+}
+function _calcInvAku(){
+  return _INV_POIN.reduce(function(acc,p,i){
+    var temuan=Math.max(0,parseInt(document.getElementById('inv-inp-'+i).value)||0);
+    return acc+Math.max(0,p.max-Math.min(p.max,temuan*p.bobot));
+  },0)/_INV_TOTAL*100;
+}
+function _tryInvFinal(){
+  if(_inv_ontime===null)return;
+  var aku=_calcInvAku(),fin=aku*0.5+_inv_ontime*0.5,cls=scoreClass(fin);
+  document.getElementById('inv-f-aku').textContent=aku.toFixed(1)+'%';
+  document.getElementById('inv-f-aku').className='final-big '+scoreClass(aku);
+  document.getElementById('inv-f-ontime').textContent=_inv_ontime.toFixed(1)+'%';
+  document.getElementById('inv-f-ontime').className='final-big '+scoreClass(_inv_ontime);
+  document.getElementById('inv-f-total').textContent=fin.toFixed(1)+'%';
+  document.getElementById('inv-f-total').className='final-big '+cls;
+  document.getElementById('inv-bar').style.width=fin.toFixed(1)+'%';
+  document.getElementById('inv-bar').className='progress-fill '+cls;
+  document.getElementById('inv-final-wrap').style.display='block';
+}
 </script>
 </body>
 </html>
