@@ -743,6 +743,159 @@ tbody tr:hover td{background:var(--bg);}
         </div>
       </div><!-- /lap-div-ga -->
 
+      <!-- ══ INVENTORY ══ -->
+      <div id="lap-div-inv" style="display:none;">
+        <div class="card">
+          <div class="card-title">&#9733; Inventory</div>
+
+          <!-- SCORE AKHIR INV — PALING ATAS -->
+          <div id="inv-final-wrap" style="display:none;" class="anim">
+            <div style="font-size:11px;font-weight:600;color:var(--text-m);text-transform:uppercase;
+                        letter-spacing:1.2px;text-align:center;margin-bottom:16px;">
+              Score Akhir &mdash; Inventory
+            </div>
+            <div class="lap-score-grid">
+              <div class="lap-score-box">
+                <div class="lap-score-lbl">Akurasi</div>
+                <div class="lap-score-formula">Bobot 50%</div>
+                <div class="final-big" id="inv-f-aku" style="font-size:2.2rem;">&mdash;</div>
+              </div>
+              <div class="lap-score-box main">
+                <div class="lap-score-lbl" style="color:var(--primary);">Score Total</div>
+                <div class="lap-score-formula">(Akurasi &times; 50%) + (Ontime &times; 50%)</div>
+                <div class="final-big" id="inv-f-total" style="font-size:3rem;">&mdash;</div>
+                <div style="width:100%;margin-top:12px;">
+                  <div class="progress-track"><div class="progress-fill" id="inv-bar" style="width:0%"></div></div>
+                </div>
+              </div>
+              <div class="lap-score-box">
+                <div class="lap-score-lbl">Ontime</div>
+                <div class="lap-score-formula">Bobot 50%</div>
+                <div class="final-big" id="inv-f-ontime" style="font-size:2.2rem;">&mdash;</div>
+              </div>
+            </div>
+            <div class="divider" style="margin-top:20px;"></div>
+          </div>
+
+          <!-- AKURASI INV — 5 POIN BERBOBOT -->
+          <div class="lap-section-title">Akurasi &mdash; 5 Poin Penilaian</div>
+          <div style="font-size:12px;color:var(--text-m);margin-bottom:12px;line-height:1.6;">
+            Isi <strong>Jumlah Temuan</strong> per kriteria. Pengurangan = Temuan &times; Bobot/Temuan.
+            Skor = (total sisa poin) / 40 &times; 100%.
+          </div>
+
+          <div class="ga-poin-row">
+            <div class="ga-poin-info">
+              <span class="ga-poin-num">Poin 1</span>
+              <span class="ga-poin-max-lbl">Maks 15</span>
+              <span class="ga-poin-bobot">Bobot/temuan: 2</span>
+            </div>
+            <div class="ga-input-group">
+              <label>Temuan:</label>
+              <input class="ga-poin-input" type="number" id="inv-inp-0" min="0" value="0" oninput="calcInvAkurasi()">
+            </div>
+            <div class="ga-poin-sisa" style="min-width:170px;">
+              Kurang: <strong id="inv-deduct-0" style="color:var(--danger)">0</strong> &nbsp;&middot;&nbsp;
+              Sisa: <strong id="inv-sisa-0" style="color:var(--success)">15</strong> / 15
+            </div>
+          </div>
+
+          <div class="ga-poin-row">
+            <div class="ga-poin-info">
+              <span class="ga-poin-num">Poin 2</span>
+              <span class="ga-poin-max-lbl">Maks 5</span>
+              <span class="ga-poin-bobot">Bobot/temuan: 5</span>
+            </div>
+            <div class="ga-input-group">
+              <label>Temuan:</label>
+              <input class="ga-poin-input" type="number" id="inv-inp-1" min="0" value="0" oninput="calcInvAkurasi()">
+            </div>
+            <div class="ga-poin-sisa" style="min-width:170px;">
+              Kurang: <strong id="inv-deduct-1" style="color:var(--danger)">0</strong> &nbsp;&middot;&nbsp;
+              Sisa: <strong id="inv-sisa-1" style="color:var(--success)">5</strong> / 5
+            </div>
+          </div>
+
+          <div class="ga-poin-row">
+            <div class="ga-poin-info">
+              <span class="ga-poin-num">Poin 3</span>
+              <span class="ga-poin-max-lbl">Maks 5</span>
+              <span class="ga-poin-bobot">Bobot/temuan: 5</span>
+            </div>
+            <div class="ga-input-group">
+              <label>Temuan:</label>
+              <input class="ga-poin-input" type="number" id="inv-inp-2" min="0" value="0" oninput="calcInvAkurasi()">
+            </div>
+            <div class="ga-poin-sisa" style="min-width:170px;">
+              Kurang: <strong id="inv-deduct-2" style="color:var(--danger)">0</strong> &nbsp;&middot;&nbsp;
+              Sisa: <strong id="inv-sisa-2" style="color:var(--success)">5</strong> / 5
+            </div>
+          </div>
+
+          <div class="ga-poin-row">
+            <div class="ga-poin-info">
+              <span class="ga-poin-num">Poin 4</span>
+              <span class="ga-poin-max-lbl">Maks 10</span>
+              <span class="ga-poin-bobot">Bobot/temuan: 2</span>
+            </div>
+            <div class="ga-input-group">
+              <label>Temuan:</label>
+              <input class="ga-poin-input" type="number" id="inv-inp-3" min="0" value="0" oninput="calcInvAkurasi()">
+            </div>
+            <div class="ga-poin-sisa" style="min-width:170px;">
+              Kurang: <strong id="inv-deduct-3" style="color:var(--danger)">0</strong> &nbsp;&middot;&nbsp;
+              Sisa: <strong id="inv-sisa-3" style="color:var(--success)">10</strong> / 10
+            </div>
+          </div>
+
+          <div class="ga-poin-row">
+            <div class="ga-poin-info">
+              <span class="ga-poin-num">Poin 5</span>
+              <span class="ga-poin-max-lbl">Maks 5</span>
+              <span class="ga-poin-bobot">Bobot/temuan: 5</span>
+            </div>
+            <div class="ga-input-group">
+              <label>Temuan:</label>
+              <input class="ga-poin-input" type="number" id="inv-inp-4" min="0" value="0" oninput="calcInvAkurasi()">
+            </div>
+            <div class="ga-poin-sisa" style="min-width:170px;">
+              Kurang: <strong id="inv-deduct-4" style="color:var(--danger)">0</strong> &nbsp;&middot;&nbsp;
+              Sisa: <strong id="inv-sisa-4" style="color:var(--success)">5</strong> / 5
+            </div>
+          </div>
+
+          <div style="display:flex;align-items:center;gap:14px;margin:12px 0 20px;
+                      padding:10px 16px;background:var(--bg);border-radius:var(--radius-sm);">
+            <span style="font-size:13px;font-weight:600;color:var(--text);">Score Akurasi:</span>
+            <span class="score-num good" id="inv-aku-val" style="font-size:1.4rem;">100.0%</span>
+            <span style="font-size:12px;color:var(--text-m);" id="inv-aku-desc">40 dari 40 poin</span>
+          </div>
+
+          <div class="divider"></div>
+
+          <!-- ONTIME INV -->
+          <div class="lap-section-title">Ontime Laporan</div>
+          <div style="font-size:12px;color:var(--text-m);margin-bottom:10px;line-height:1.6;">
+            Deadline tanggal 5 bulan berjalan. Keterlambatan maks 25 hari (turun linear ke 0%).
+          </div>
+          <div class="lap-date-row">
+            <div class="lap-deadline">&#x23F0; Deadline: <strong id="inv-deadline-txt">&mdash;</strong></div>
+            <input class="lap-date-input" type="date" id="inv-ontime-input">
+            <button class="btn btn-primary" style="width:auto;padding:9px 20px;"
+              onclick="calcLapOntime('inv')">Hitung Ontime</button>
+          </div>
+          <div id="inv-ontime-result" style="display:none;margin-top:12px;
+               padding:10px 16px;background:var(--bg);border-radius:var(--radius-sm);">
+            <div style="display:flex;align-items:center;gap:14px;">
+              <span style="font-size:13px;font-weight:600;color:var(--text);">Score Ontime:</span>
+              <span class="score-num" id="inv-ontime-val" style="font-size:1.4rem;">&mdash;</span>
+              <span style="font-size:12px;color:var(--text-m);" id="inv-ontime-desc">&mdash;</span>
+            </div>
+          </div>
+
+        </div>
+      </div><!-- /lap-div-inv -->
+
     </div><!-- /panel-laporan -->
 
   </div>
@@ -809,10 +962,10 @@ function showPanel(name,btn){
 }
 function showLapDiv(div,btn){
   _lapCurrentDiv=div;
-  ['fa','ga'].forEach(function(d){document.getElementById('lap-div-'+d).style.display=d===div?'block':'none';});
+  ['fa','ga','inv'].forEach(function(d){document.getElementById('lap-div-'+d).style.display=d===div?'block':'none';});
   document.querySelectorAll('.nav-sub').forEach(function(b){b.classList.remove('active');});
   if(btn)btn.classList.add('active');
-  var nm={fa:'Finance & Accounting',ga:'General Affair'};
+  var nm={fa:'Finance & Accounting',ga:'General Affair',inv:'Inventory'};
   document.getElementById('topbar-title').textContent='Analisa Laporan — '+nm[div];
 }
 
