@@ -1404,8 +1404,8 @@ async function runAcc(){
 let _lapInit=false;
 let _fa_revisi=Array(15).fill(false);
 let _fa_ontime=null;
-const _GA_MAX=[20,5,15];
-const _GA_TOTAL=40; // 20+5+15
+const _GA_MAX=[15,5,10];
+const _GA_TOTAL=30; // 15+5+10
 let _ga_ontime=null;
 
 function initLaporan(){
@@ -1477,10 +1477,13 @@ function calcLapOntime(div){
 }
 
 // ── GA functions ──
+const _GA_BOBOT=[3,5,5];
 function calcGaAkurasi(){
   const sisa=_GA_MAX.map((max,i)=>{
-    const rev=Math.min(max,Math.max(0,parseFloat(document.getElementById('ga-inp-'+i).value)||0));
-    const s=max-rev;
+    const temuan=Math.max(0,parseInt(document.getElementById('ga-inp-'+i).value)||0);
+    const deduct=Math.min(max,temuan*_GA_BOBOT[i]);
+    const s=max-deduct;
+    document.getElementById('ga-deduct-'+i).textContent=deduct;
     const sisaEl=document.getElementById('ga-sisa-'+i);
     sisaEl.textContent=s;
     sisaEl.style.color=s<max?'var(--danger)':'var(--success)';
@@ -1495,8 +1498,8 @@ function calcGaAkurasi(){
 }
 function _calcGaAku(){
   return _GA_MAX.reduce((acc,max,i)=>{
-    const rev=Math.min(max,Math.max(0,parseFloat(document.getElementById('ga-inp-'+i).value)||0));
-    return acc+(max-rev);
+    const temuan=Math.max(0,parseInt(document.getElementById('ga-inp-'+i).value)||0);
+    return acc+Math.max(0,max-Math.min(max,temuan*_GA_BOBOT[i]));
   },0)/_GA_TOTAL*100;
 }
 function _tryGaFinal(){
