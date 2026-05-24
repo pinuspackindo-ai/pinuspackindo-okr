@@ -279,13 +279,14 @@ tbody tr:hover td{background:var(--bg);}
 .lap-section-title{font-size:11px;font-weight:700;color:var(--text-m);text-transform:uppercase;
   letter-spacing:1.2px;border-left:3px solid var(--primary);
   padding:4px 0 4px 10px;margin-bottom:12px;}
-.lap-score-grid{display:grid;grid-template-columns:1fr 1.4fr 1fr;gap:14px;
-  max-width:580px;margin:0 auto;align-items:center;}
+.lap-score-grid{display:grid;grid-template-columns:1fr 1fr 1fr;gap:10px;
+  max-width:500px;margin:0 auto;}
 .lap-score-box{background:var(--bg);border:1px solid var(--border);border-radius:var(--radius);
-  padding:14px 12px;text-align:center;display:flex;flex-direction:column;
-  align-items:center;justify-content:center;gap:5px;}
+  padding:12px 10px;text-align:center;display:flex;flex-direction:column;
+  align-items:center;justify-content:center;gap:4px;}
 .lap-score-box.main{background:var(--bg2);border:2px solid var(--primary);
-  box-shadow:0 0 0 3px var(--primary-l);padding:18px 14px;}
+  box-shadow:0 0 0 3px var(--primary-l);padding:12px 10px;}
+.lap-score-progress{max-width:500px;margin:8px auto 0;}
 .lap-score-lbl{font-size:10px;font-weight:700;color:var(--text-l);text-transform:uppercase;letter-spacing:1px;}
 .lap-score-formula{font-size:10px;color:var(--text-l);}
 .lap-date-row{display:flex;align-items:center;gap:12px;flex-wrap:wrap;margin-top:8px;}
@@ -777,23 +778,23 @@ tbody tr:hover td{background:var(--bg);}
               <div class="lap-score-box">
                 <div class="lap-score-lbl">Akurasi</div>
                 <div class="lap-score-formula">Bobot 50%</div>
-                <div class="final-big" id="fa-f-aku" style="font-size:2.2rem;">—</div>
+                <div class="final-big" id="fa-f-aku" style="font-size:1.9rem;">—</div>
               </div>
               <div class="lap-score-box main">
                 <div class="lap-score-lbl" style="color:var(--primary);">Score Total</div>
-                <div class="lap-score-formula">(Akurasi × 50%) + (Ontime × 50%)</div>
-                <div class="final-big" id="fa-f-total" style="font-size:3rem;">—</div>
-                <div style="width:100%;margin-top:12px;">
-                  <div class="progress-track"><div class="progress-fill" id="fa-bar" style="width:0%"></div></div>
-                </div>
+                <div class="lap-score-formula">(Akurasi×50%)+(Ontime×50%)</div>
+                <div class="final-big" id="fa-f-total" style="font-size:2.2rem;">—</div>
               </div>
               <div class="lap-score-box">
                 <div class="lap-score-lbl">Ontime</div>
                 <div class="lap-score-formula">Bobot 50%</div>
-                <div class="final-big" id="fa-f-ontime" style="font-size:2.2rem;">—</div>
+                <div class="final-big" id="fa-f-ontime" style="font-size:1.9rem;">—</div>
               </div>
             </div>
-            <div class="divider" style="margin-top:20px;"></div>
+            <div class="lap-score-progress">
+              <div class="progress-track"><div class="progress-fill" id="fa-bar" style="width:0%"></div></div>
+            </div>
+            <div class="divider" style="margin-top:16px;"></div>
           </div>
 
           <!-- AKURASI 15 POIN -->
@@ -850,23 +851,23 @@ tbody tr:hover td{background:var(--bg);}
               <div class="lap-score-box">
                 <div class="lap-score-lbl">Akurasi</div>
                 <div class="lap-score-formula">Bobot 50%</div>
-                <div class="final-big" id="ga-f-aku" style="font-size:2.2rem;">—</div>
+                <div class="final-big" id="ga-f-aku" style="font-size:1.9rem;">—</div>
               </div>
               <div class="lap-score-box main">
                 <div class="lap-score-lbl" style="color:var(--primary);">Score Total</div>
-                <div class="lap-score-formula">(Akurasi × 50%) + (Ontime × 50%)</div>
-                <div class="final-big" id="ga-f-total" style="font-size:3rem;">—</div>
-                <div style="width:100%;margin-top:12px;">
-                  <div class="progress-track"><div class="progress-fill" id="ga-bar" style="width:0%"></div></div>
-                </div>
+                <div class="lap-score-formula">(Akurasi×50%)+(Ontime×50%)</div>
+                <div class="final-big" id="ga-f-total" style="font-size:2.2rem;">—</div>
               </div>
               <div class="lap-score-box">
                 <div class="lap-score-lbl">Ontime</div>
                 <div class="lap-score-formula">Bobot 50%</div>
-                <div class="final-big" id="ga-f-ontime" style="font-size:2.2rem;">—</div>
+                <div class="final-big" id="ga-f-ontime" style="font-size:1.9rem;">—</div>
               </div>
             </div>
-            <div class="divider" style="margin-top:20px;"></div>
+            <div class="lap-score-progress">
+              <div class="progress-track"><div class="progress-fill" id="ga-bar" style="width:0%"></div></div>
+            </div>
+            <div class="divider" style="margin-top:16px;"></div>
           </div>
 
           <!-- AKURASI GA — 3 POIN BERBOBOT -->
@@ -971,23 +972,23 @@ tbody tr:hover td{background:var(--bg);}
               <div class="lap-score-box">
                 <div class="lap-score-lbl">Akurasi</div>
                 <div class="lap-score-formula">Bobot 50%</div>
-                <div class="final-big" id="inv-f-aku" style="font-size:2.2rem;">—</div>
+                <div class="final-big" id="inv-f-aku" style="font-size:1.9rem;">—</div>
               </div>
               <div class="lap-score-box main">
                 <div class="lap-score-lbl" style="color:var(--primary);">Score Total</div>
-                <div class="lap-score-formula">(Akurasi × 50%) + (Ontime × 50%)</div>
-                <div class="final-big" id="inv-f-total" style="font-size:3rem;">—</div>
-                <div style="width:100%;margin-top:12px;">
-                  <div class="progress-track"><div class="progress-fill" id="inv-bar" style="width:0%"></div></div>
-                </div>
+                <div class="lap-score-formula">(Akurasi×50%)+(Ontime×50%)</div>
+                <div class="final-big" id="inv-f-total" style="font-size:2.2rem;">—</div>
               </div>
               <div class="lap-score-box">
                 <div class="lap-score-lbl">Ontime</div>
                 <div class="lap-score-formula">Bobot 50%</div>
-                <div class="final-big" id="inv-f-ontime" style="font-size:2.2rem;">—</div>
+                <div class="final-big" id="inv-f-ontime" style="font-size:1.9rem;">—</div>
               </div>
             </div>
-            <div class="divider" style="margin-top:20px;"></div>
+            <div class="lap-score-progress">
+              <div class="progress-track"><div class="progress-fill" id="inv-bar" style="width:0%"></div></div>
+            </div>
+            <div class="divider" style="margin-top:16px;"></div>
           </div>
 
           <!-- AKURASI INV — 5 POIN BERBOBOT -->
