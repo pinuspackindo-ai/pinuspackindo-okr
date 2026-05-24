@@ -1172,92 +1172,110 @@ async function runShip(){
 }
 
 // ─── ANALISA LAPORAN ───
-let _lapRevisi=Array(12).fill(false);
-let _lapOntimeScore=null;
-let _lapInitialized=false;
+var _lapInit=false;
+var _fa_revisi=Array(15).fill(false);
+var _fa_ontime=null;
+var _GA_MAX=[20,5,15];
+var _GA_TOTAL=40;
+var _ga_ontime=null;
 
 function initLaporan(){
-  if(_lapInitialized)return;
-  _lapInitialized=true;
+  if(_lapInit)return; _lapInit=true;
+  var mo=['Jan','Feb','Mar','Apr','Mei','Jun','Jul','Agu','Sep','Okt','Nov','Des'];
+  var now=new Date();
+  var ddlTxt='5 '+mo[now.getMonth()]+' '+now.getFullYear();
+  document.getElementById('fa-deadline-txt').textContent=ddlTxt;
+  document.getElementById('ga-deadline-txt').textContent=ddlTxt;
 
-  // Set deadline: tanggal 5 bulan berjalan
-  const now=new Date();
-  const mo=['Jan','Feb','Mar','Apr','Mei','Jun','Jul','Agu','Sep','Okt','Nov','Des'];
-  document.getElementById('lap-deadline-txt').textContent=
-    '5 '+mo[now.getMonth()]+' '+now.getFullYear();
-
-  // Build 12-item grid
-  const grid=document.getElementById('lap-grid');
-  grid.innerHTML=Array.from({length:12},function(_,i){
-    return '<div class="lap-item" id="lap-item-'+i+'" onclick="toggleLapItem('+i+')" title="Klik untuk menandai revisi">'+
-      '<span class="lap-check" id="lap-check-'+i+'">&#x2713;</span>'+
-      '<div class="lap-poin">Poin '+(i+1)+'</div></div>';
+  var faList=document.getElementById('fa-list');
+  faList.innerHTML=Array.from({length:15},function(_,i){
+    return '<div class="lap-list-item" id="fa-item-'+i+'" onclick="toggleFaItem('+i+')">'+
+      '<span class="lap-list-check" id="fa-chk-'+i+'">&#x2713;</span>'+
+      '<span class="lap-list-label">Poin '+(i+1)+'</span>'+
+      '<span style="font-size:11px;color:var(--text-l);">klik untuk tandai revisi</span>'+
+    '</div>';
   }).join('');
-
-  _updateAkuDisplay(100);
+  _updateFaAku();
 }
 
-function toggleLapItem(i){
-  _lapRevisi[i]=!_lapRevisi[i];
-  var item=document.getElementById('lap-item-'+i);
-  var check=document.getElementById('lap-check-'+i);
-  if(_lapRevisi[i]){item.classList.add('revisi');check.innerHTML='&#x2717;';}
-  else{item.classList.remove('revisi');check.innerHTML='&#x2713;';}
-  var score=_calcAkurasi();
-  _updateAkuDisplay(score);
-  _tryUpdateFinal();
+function toggleFaItem(i){
+  _fa_revisi[i]=!_fa_revisi[i];
+  document.getElementById('fa-item-'+i).classList.toggle('revisi',_fa_revisi[i]);
+  document.getElementById('fa-chk-'+i).innerHTML=_fa_revisi[i]?'&#x2717;':'&#x2713;';
+  _updateFaAku(); _tryFaFinal();
+}
+function _calcFaAku(){return (15-_fa_revisi.filter(Boolean).length)/15*100;}
+function _updateFaAku(){
+  var s=_calcFaAku(); var rev=_fa_revisi.filter(Boolean).length;
+  var el=document.getElementById('fa-aku-val');
+  if(el){el.textContent=s.toFixed(1)+'%';el.className='score-num '+scoreClass(s);}
+  var d=document.getElementById('fa-aku-desc');
+  if(d)d.textContent=(15-rev)+' poin akurat dari 15';
+}
+function _tryFaFinal(){
+  if(_fa_ontime===null)return;
+  var aku=_calcFaAku(),fin=aku*0.5+_fa_ontime*0.5,cls=scoreClass(fin);
+  document.getElementById('fa-f-aku').textContent=aku.toFixed(1)+'%';
+  document.getElementById('fa-f-aku').className='final-big '+scoreClass(aku);
+  document.getElementById('fa-f-ontime').textContent=_fa_ontime.toFixed(1)+'%';
+  document.getElementById('fa-f-ontime').className='final-big '+scoreClass(_fa_ontime);
+  document.getElementById('fa-f-total').textContent=fin.toFixed(1)+'%';
+  document.getElementById('fa-f-total').className='final-big '+cls;
+  document.getElementById('fa-bar').style.width=fin.toFixed(1)+'%';
+  document.getElementById('fa-bar').className='progress-fill '+cls;
+  document.getElementById('fa-final-wrap').style.display='block';
 }
 
-function _calcAkurasi(){
-  var revisi=_lapRevisi.filter(Boolean).length;
-  return (12-revisi)/12*100;
-}
-
-function _updateAkuDisplay(score){
-  var revisi=_lapRevisi.filter(Boolean).length;
-  var el=document.getElementById('lap-aku-val');
-  if(el){el.textContent=score.toFixed(1)+'%';el.className='final-big '+scoreClass(score);}
-  var desc=document.getElementById('lap-aku-desc');
-  if(desc)desc.textContent=(12-revisi)+' poin akurat dari 12';
-}
-
-function calcOntime(){
-  var val=document.getElementById('lap-ontime-input').value;
+function calcLapOntime(div){
+  var val=document.getElementById(div+'-ontime-input').value;
   if(!val){notify('Masukkan tanggal pengiriman laporan','error');return;}
-
   var now=new Date();
   var deadline=new Date(now.getFullYear(),now.getMonth(),5);
-  var submitted=new Date(val+'T00:00:00');
-  var diffDays=Math.ceil((submitted-deadline)/(1000*60*60*24));
-  var late=Math.max(0,diffDays);
+  var late=Math.max(0,Math.ceil((new Date(val+'T00:00:00')-deadline)/86400000));
   var score=Math.max(0,(25-late)/25*100);
-
-  var ontimeVal=document.getElementById('lap-ontime-val');
-  ontimeVal.textContent=score.toFixed(1)+'%';
-  ontimeVal.className='final-big '+scoreClass(score);
-  document.getElementById('lap-ontime-desc').textContent=
+  var vEl=document.getElementById(div+'-ontime-val');
+  vEl.textContent=score.toFixed(1)+'%'; vEl.className='score-num '+scoreClass(score);
+  document.getElementById(div+'-ontime-desc').textContent=
     late===0?'Ontime — tidak ada keterlambatan':'Terlambat '+late+' hari dari deadline tanggal 5';
-  document.getElementById('lap-ontime-result').style.display='block';
-
-  _lapOntimeScore=score;
-  _tryUpdateFinal();
+  document.getElementById(div+'-ontime-result').style.display='block';
+  if(div==='fa'){_fa_ontime=score;_tryFaFinal();}
+  else{_ga_ontime=score;_tryGaFinal();}
 }
 
-function _tryUpdateFinal(){
-  if(_lapOntimeScore===null)return;
-  var akuScore=_calcAkurasi();
-  var finalScore=akuScore*0.7+_lapOntimeScore*0.3;
-  var cls=scoreClass(finalScore);
-
-  document.getElementById('lapf-aku').textContent=akuScore.toFixed(1)+'%';
-  document.getElementById('lapf-aku').className='final-big '+scoreClass(akuScore);
-  document.getElementById('lapf-ontime').textContent=_lapOntimeScore.toFixed(1)+'%';
-  document.getElementById('lapf-ontime').className='final-big '+scoreClass(_lapOntimeScore);
-  document.getElementById('lapf-total').textContent=finalScore.toFixed(1)+'%';
-  document.getElementById('lapf-total').className='final-big '+cls;
-  document.getElementById('lap-bar').style.width=finalScore.toFixed(1)+'%';
-  document.getElementById('lap-bar').className='progress-fill '+cls;
-  document.getElementById('lap-final-wrap').style.display='block';
+function calcGaAkurasi(){
+  var sisa=_GA_MAX.map(function(max,i){
+    var rev=Math.min(max,Math.max(0,parseFloat(document.getElementById('ga-inp-'+i).value)||0));
+    var s=max-rev;
+    var sisaEl=document.getElementById('ga-sisa-'+i);
+    sisaEl.textContent=s;
+    sisaEl.style.color=s<max?'var(--danger)':'var(--success)';
+    return s;
+  });
+  var total=sisa.reduce(function(a,b){return a+b;},0);
+  var score=total/_GA_TOTAL*100;
+  var el=document.getElementById('ga-aku-val');
+  el.textContent=score.toFixed(1)+'%'; el.className='score-num '+scoreClass(score);
+  document.getElementById('ga-aku-desc').textContent=total+' dari '+_GA_TOTAL+' poin';
+  _tryGaFinal();
+}
+function _calcGaAku(){
+  return _GA_MAX.reduce(function(acc,max,i){
+    var rev=Math.min(max,Math.max(0,parseFloat(document.getElementById('ga-inp-'+i).value)||0));
+    return acc+(max-rev);
+  },0)/_GA_TOTAL*100;
+}
+function _tryGaFinal(){
+  if(_ga_ontime===null)return;
+  var aku=_calcGaAku(),fin=aku*0.5+_ga_ontime*0.5,cls=scoreClass(fin);
+  document.getElementById('ga-f-aku').textContent=aku.toFixed(1)+'%';
+  document.getElementById('ga-f-aku').className='final-big '+scoreClass(aku);
+  document.getElementById('ga-f-ontime').textContent=_ga_ontime.toFixed(1)+'%';
+  document.getElementById('ga-f-ontime').className='final-big '+scoreClass(_ga_ontime);
+  document.getElementById('ga-f-total').textContent=fin.toFixed(1)+'%';
+  document.getElementById('ga-f-total').className='final-big '+cls;
+  document.getElementById('ga-bar').style.width=fin.toFixed(1)+'%';
+  document.getElementById('ga-bar').className='progress-fill '+cls;
+  document.getElementById('ga-final-wrap').style.display='block';
 }
 </script>
 </body>
