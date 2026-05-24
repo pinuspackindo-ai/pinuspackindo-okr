@@ -1228,93 +1228,114 @@ async function runAcc(){
 }
 
 // ─── ANALISA LAPORAN ───
-let _lapRevisi=Array(12).fill(false);
-let _lapOntimeScore=null;
-let _lapInitialized=false;
+let _lapInit=false;
+let _fa_revisi=Array(15).fill(false);
+let _fa_ontime=null;
+const _GA_MAX=[20,5,15];
+const _GA_TOTAL=40; // 20+5+15
+let _ga_ontime=null;
 
 function initLaporan(){
-  if(_lapInitialized)return;
-  _lapInitialized=true;
-
-  // Set deadline text: selalu tanggal 5 bulan berjalan
-  const now=new Date();
-  const ddl=new Date(now.getFullYear(),now.getMonth(),5);
+  if(_lapInit)return; _lapInit=true;
   const mo=['Jan','Feb','Mar','Apr','Mei','Jun','Jul','Agu','Sep','Okt','Nov','Des'];
-  document.getElementById('lap-deadline-txt').textContent=
-    `5 ${mo[ddl.getMonth()]} ${ddl.getFullYear()}`;
+  const now=new Date();
+  const ddlTxt=`5 ${mo[now.getMonth()]} ${now.getFullYear()}`;
+  document.getElementById('fa-deadline-txt').textContent=ddlTxt;
+  document.getElementById('ga-deadline-txt').textContent=ddlTxt;
 
-  // Build 12-item grid
-  const grid=document.getElementById('lap-grid');
-  grid.innerHTML=Array.from({length:12},(_,i)=>`
-    <div class="lap-item" id="lap-item-${i}" onclick="toggleLapItem(${i})" title="Klik untuk menandai revisi">
-      <span class="lap-check" id="lap-check-${i}">✓</span>
-      <div class="lap-poin">Poin ${i+1}</div>
-    </div>`).join('');
-
-  // Set initial akurasi
-  _updateAkuDisplay(100);
+  // Build FA 15-poin list
+  document.getElementById('fa-list').innerHTML=
+    Array.from({length:15},(_,i)=>
+      `<div class="lap-list-item" id="fa-item-${i}" onclick="toggleFaItem(${i})">
+        <span class="lap-list-check" id="fa-chk-${i}">✓</span>
+        <span class="lap-list-label">Poin ${i+1}</span>
+        <span style="font-size:11px;color:var(--text-l);">klik untuk tandai revisi</span>
+      </div>`).join('');
+  _updateFaAku();
 }
 
-function toggleLapItem(i){
-  _lapRevisi[i]=!_lapRevisi[i];
-  const item=document.getElementById('lap-item-'+i);
-  const check=document.getElementById('lap-check-'+i);
-  if(_lapRevisi[i]){item.classList.add('revisi');check.textContent='✗';}
-  else{item.classList.remove('revisi');check.textContent='✓';}
-  const score=_calcAkurasi();
-  _updateAkuDisplay(score);
-  _tryUpdateFinal();
+// ── FA functions ──
+function toggleFaItem(i){
+  _fa_revisi[i]=!_fa_revisi[i];
+  document.getElementById('fa-item-'+i).classList.toggle('revisi',_fa_revisi[i]);
+  document.getElementById('fa-chk-'+i).textContent=_fa_revisi[i]?'✗':'✓';
+  _updateFaAku();
+  _tryFaFinal();
+}
+function _calcFaAku(){return (15-_fa_revisi.filter(Boolean).length)/15*100;}
+function _updateFaAku(){
+  const s=_calcFaAku(); const rev=_fa_revisi.filter(Boolean).length;
+  const el=document.getElementById('fa-aku-val');
+  if(el){el.textContent=s.toFixed(1)+'%';el.className='score-num '+scoreClass(s);}
+  const d=document.getElementById('fa-aku-desc');
+  if(d)d.textContent=(15-rev)+' poin akurat dari 15';
+}
+function _tryFaFinal(){
+  if(_fa_ontime===null)return;
+  const aku=_calcFaAku(), fin=aku*0.5+_fa_ontime*0.5, cls=scoreClass(fin);
+  document.getElementById('fa-f-aku').textContent=aku.toFixed(1)+'%';
+  document.getElementById('fa-f-aku').className='final-big '+scoreClass(aku);
+  document.getElementById('fa-f-ontime').textContent=_fa_ontime.toFixed(1)+'%';
+  document.getElementById('fa-f-ontime').className='final-big '+scoreClass(_fa_ontime);
+  document.getElementById('fa-f-total').textContent=fin.toFixed(1)+'%';
+  document.getElementById('fa-f-total').className='final-big '+cls;
+  document.getElementById('fa-bar').style.width=fin.toFixed(1)+'%';
+  document.getElementById('fa-bar').className='progress-fill '+cls;
+  document.getElementById('fa-final-wrap').style.display='block';
 }
 
-function _calcAkurasi(){
-  const revisi=_lapRevisi.filter(Boolean).length;
-  return (12-revisi)/12*100;
-}
-
-function _updateAkuDisplay(score){
-  const revisi=_lapRevisi.filter(Boolean).length;
-  const el=document.getElementById('lap-aku-val');
-  if(el){el.textContent=score.toFixed(1)+'%';el.className='final-big '+scoreClass(score);}
-  const desc=document.getElementById('lap-aku-desc');
-  if(desc)desc.textContent=`${12-revisi} poin akurat dari 12`;
-}
-
-function calcOntime(){
-  const val=document.getElementById('lap-ontime-input').value;
+// ── Ontime (shared) ──
+function calcLapOntime(div){
+  const val=document.getElementById(div+'-ontime-input').value;
   if(!val){notify('Masukkan tanggal pengiriman laporan','error');return;}
-
   const now=new Date();
   const deadline=new Date(now.getFullYear(),now.getMonth(),5);
-  const submitted=new Date(val+'T00:00:00');
-  const diffDays=Math.ceil((submitted-deadline)/(1000*60*60*24));
-  const late=Math.max(0,diffDays);
+  const late=Math.max(0,Math.ceil((new Date(val+'T00:00:00')-deadline)/86400000));
   const score=Math.max(0,(25-late)/25*100);
-
-  document.getElementById('lap-ontime-val').textContent=score.toFixed(1)+'%';
-  document.getElementById('lap-ontime-val').className='final-big '+scoreClass(score);
-  document.getElementById('lap-ontime-desc').textContent=
+  const vEl=document.getElementById(div+'-ontime-val');
+  vEl.textContent=score.toFixed(1)+'%'; vEl.className='score-num '+scoreClass(score);
+  document.getElementById(div+'-ontime-desc').textContent=
     late===0?'Ontime — tidak ada keterlambatan':'Terlambat '+late+' hari dari deadline tanggal 5';
-  document.getElementById('lap-ontime-result').style.display='block';
-
-  _lapOntimeScore=score;
-  _tryUpdateFinal();
+  document.getElementById(div+'-ontime-result').style.display='block';
+  if(div==='fa'){_fa_ontime=score;_tryFaFinal();}
+  else{_ga_ontime=score;_tryGaFinal();}
 }
 
-function _tryUpdateFinal(){
-  if(_lapOntimeScore===null)return;
-  const akuScore=_calcAkurasi();
-  const finalScore=akuScore*0.7+_lapOntimeScore*0.3;
-  const cls=scoreClass(finalScore);
-
-  document.getElementById('lapf-aku').textContent=akuScore.toFixed(1)+'%';
-  document.getElementById('lapf-aku').className='final-big '+scoreClass(akuScore);
-  document.getElementById('lapf-ontime').textContent=_lapOntimeScore.toFixed(1)+'%';
-  document.getElementById('lapf-ontime').className='final-big '+scoreClass(_lapOntimeScore);
-  document.getElementById('lapf-total').textContent=finalScore.toFixed(1)+'%';
-  document.getElementById('lapf-total').className='final-big '+cls;
-  document.getElementById('lap-bar').style.width=finalScore.toFixed(1)+'%';
-  document.getElementById('lap-bar').className='progress-fill '+cls;
-  document.getElementById('lap-final-wrap').style.display='block';
+// ── GA functions ──
+function calcGaAkurasi(){
+  const sisa=_GA_MAX.map((max,i)=>{
+    const rev=Math.min(max,Math.max(0,parseFloat(document.getElementById('ga-inp-'+i).value)||0));
+    const s=max-rev;
+    const sisaEl=document.getElementById('ga-sisa-'+i);
+    sisaEl.textContent=s;
+    sisaEl.style.color=s<max?'var(--danger)':'var(--success)';
+    return s;
+  });
+  const total=sisa.reduce((a,b)=>a+b,0);
+  const score=total/_GA_TOTAL*100;
+  const el=document.getElementById('ga-aku-val');
+  el.textContent=score.toFixed(1)+'%'; el.className='score-num '+scoreClass(score);
+  document.getElementById('ga-aku-desc').textContent=total+' dari '+_GA_TOTAL+' poin';
+  _tryGaFinal();
+}
+function _calcGaAku(){
+  return _GA_MAX.reduce((acc,max,i)=>{
+    const rev=Math.min(max,Math.max(0,parseFloat(document.getElementById('ga-inp-'+i).value)||0));
+    return acc+(max-rev);
+  },0)/_GA_TOTAL*100;
+}
+function _tryGaFinal(){
+  if(_ga_ontime===null)return;
+  const aku=_calcGaAku(), fin=aku*0.5+_ga_ontime*0.5, cls=scoreClass(fin);
+  document.getElementById('ga-f-aku').textContent=aku.toFixed(1)+'%';
+  document.getElementById('ga-f-aku').className='final-big '+scoreClass(aku);
+  document.getElementById('ga-f-ontime').textContent=_ga_ontime.toFixed(1)+'%';
+  document.getElementById('ga-f-ontime').className='final-big '+scoreClass(_ga_ontime);
+  document.getElementById('ga-f-total').textContent=fin.toFixed(1)+'%';
+  document.getElementById('ga-f-total').className='final-big '+cls;
+  document.getElementById('ga-bar').style.width=fin.toFixed(1)+'%';
+  document.getElementById('ga-bar').className='progress-fill '+cls;
+  document.getElementById('ga-final-wrap').style.display='block';
 }
 
 // ─── ANALISA PENERIMAAN ───
