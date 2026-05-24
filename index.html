@@ -1342,6 +1342,7 @@ function initLaporan(){
   var ddlTxt='5 '+mo[now.getMonth()]+' '+now.getFullYear();
   document.getElementById('fa-deadline-txt').textContent=ddlTxt;
   document.getElementById('ga-deadline-txt').textContent=ddlTxt;
+  document.getElementById('inv-deadline-txt').textContent=ddlTxt;
 
   var faList=document.getElementById('fa-list');
   faList.innerHTML=Array.from({length:15},function(_,i){
@@ -1395,7 +1396,8 @@ function calcLapOntime(div){
     late===0?'Ontime — tidak ada keterlambatan':'Terlambat '+late+' hari dari deadline tanggal 5';
   document.getElementById(div+'-ontime-result').style.display='block';
   if(div==='fa'){_fa_ontime=score;_tryFaFinal();}
-  else{_ga_ontime=score;_tryGaFinal();}
+  else if(div==='ga'){_ga_ontime=score;_tryGaFinal();}
+  else if(div==='inv'){_inv_ontime=score;_tryInvFinal();}
 }
 
 function calcGaAkurasi(){
