@@ -3,7 +3,7 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>PINUS PACKINDO :: TOOLS ANALISA</title>
+<title>Tools OKR Pinus</title>
 <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
 <style>
 /* ─── DESIGN SYSTEM ─────────────────────────────────────────── */
@@ -283,13 +283,14 @@ tbody tr:hover td{background:var(--bg);}
 <aside class="sidebar" id="sidebar" style="display:none;">
   <div class="sidebar-logo">
     <div class="logo-title">Pinus Packindo</div>
-    <div class="logo-sub">Tools Analisa v2.0</div>
+    <div class="logo-sub">Tools OKR Pinus</div>
   </div>
   <nav class="sidebar-nav">
     <div class="nav-label">Modul</div>
     <button class="nav-item active" onclick="showPanel('instock',this)">Analisa Instock</button>
     <button class="nav-item" onclick="showPanel('po',this)">Analisa PO</button>
-    <button class="nav-item" onclick="showPanel('penerimaan',this)">Analisa Penerimaan</button>
+    <button class="nav-item" onclick="showPanel('penerimaan',this)">Analisa Kualitas Penerimaan</button>
+    <button class="nav-item" onclick="showPanel('laporan',this)">Analisa Akurasi &amp; Ontime Laporan</button>
   </nav>
   <div class="sidebar-footer">
     <button class="btn-logout" onclick="doLogout()">Logout</button>
@@ -626,7 +627,7 @@ tbody tr:hover td{background:var(--bg);}
       <div class="module-info">
         <div class="module-info-icon">ℹ</div>
         <div>
-          <div class="module-info-title">Analisa Pengiriman</div>
+          <div class="module-info-title">Analisa Kualitas Penerimaan</div>
           <div class="module-info-text">Digunakan untuk mengetahui keakuratan supplier dalam mengirimkan barang sesuai dengan kuantiti PO yang dibuat.</div>
         </div>
       </div>
