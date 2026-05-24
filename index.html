@@ -794,13 +794,23 @@ const panelTitles={
   penerimaan:'Analisa Kualitas Penerimaan',
   laporan:'Analisa Akurasi dan Ontime Laporan'
 };
+var _lapCurrentDiv='fa';
 function showPanel(name,btn){
-  document.querySelectorAll('.panel').forEach(p=>p.classList.remove('active'));
-  document.querySelectorAll('.nav-item').forEach(b=>b.classList.remove('active'));
+  document.querySelectorAll('.panel').forEach(function(p){p.classList.remove('active');});
+  document.querySelectorAll('.nav-item').forEach(function(b){b.classList.remove('active');});
   document.getElementById('panel-'+name).classList.add('active');
   btn.classList.add('active');
-  document.getElementById('topbar-title').textContent=panelTitles[name];
-  if(name==='laporan') initLaporan();
+  document.getElementById('topbar-title').textContent=panelTitles[name]||name;
+  document.getElementById('lap-subnav').style.display=name==='laporan'?'block':'none';
+  if(name==='laporan'){initLaporan();showLapDiv(_lapCurrentDiv,document.getElementById('nav-sub-'+_lapCurrentDiv));}
+}
+function showLapDiv(div,btn){
+  _lapCurrentDiv=div;
+  ['fa','ga'].forEach(function(d){document.getElementById('lap-div-'+d).style.display=d===div?'block':'none';});
+  document.querySelectorAll('.nav-sub').forEach(function(b){b.classList.remove('active');});
+  if(btn)btn.classList.add('active');
+  var nm={fa:'Finance & Accounting',ga:'General Affair'};
+  document.getElementById('topbar-title').textContent='Analisa Laporan — '+nm[div];
 }
 
 // ─── FILE READY ───
