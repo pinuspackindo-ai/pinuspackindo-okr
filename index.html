@@ -227,6 +227,8 @@ tbody tr:hover td{background:var(--bg);}
   transition:border-color .15s;}
 .ga-poin-input:focus{border-color:var(--primary);}
 .ga-poin-sisa{font-size:12px;color:var(--text-m);white-space:nowrap;min-width:110px;}
+.ga-poin-bobot{font-size:11px;color:var(--text-m);background:rgba(0,0,0,.04);
+  border:1px solid var(--border);border-radius:4px;padding:2px 8px;white-space:nowrap;}
 </style>
 </head>
 <body>
@@ -258,6 +260,7 @@ tbody tr:hover td{background:var(--bg);}
     <div id="lap-subnav" style="display:none;padding:2px 4px 4px;">
       <button class="nav-sub active" id="nav-sub-fa" onclick="showLapDiv('fa',this)">&#x2514; Finance &amp; Accounting</button>
       <button class="nav-sub" id="nav-sub-ga" onclick="showLapDiv('ga',this)">&#x2514; General Affair</button>
+      <button class="nav-sub" id="nav-sub-inv" onclick="showLapDiv('inv',this)">&#x2514; Inventory</button>
     </div>
   </nav>
   <div class="sidebar-footer">

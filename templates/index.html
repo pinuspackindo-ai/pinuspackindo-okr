@@ -1501,6 +1501,49 @@ function _tryGaFinal(){
   document.getElementById('ga-final-wrap').style.display='block';
 }
 
+// ── INVENTORY functions ──
+const _INV_POIN=[{max:15,bobot:2},{max:5,bobot:5},{max:5,bobot:5},{max:10,bobot:2},{max:5,bobot:5}];
+const _INV_TOTAL=40;
+let _inv_ontime=null;
+
+function calcInvAkurasi(){
+  const sisa=_INV_POIN.map((p,i)=>{
+    const temuan=Math.max(0,parseInt(document.getElementById('inv-inp-'+i).value)||0);
+    const deduct=Math.min(p.max, temuan*p.bobot);
+    const s=p.max-deduct;
+    document.getElementById('inv-deduct-'+i).textContent=deduct;
+    const sisaEl=document.getElementById('inv-sisa-'+i);
+    sisaEl.textContent=s;
+    sisaEl.style.color=s<p.max?'var(--danger)':'var(--success)';
+    return s;
+  });
+  const total=sisa.reduce((a,b)=>a+b,0);
+  const score=total/_INV_TOTAL*100;
+  const el=document.getElementById('inv-aku-val');
+  el.textContent=score.toFixed(1)+'%'; el.className='score-num '+scoreClass(score);
+  document.getElementById('inv-aku-desc').textContent=total+' dari '+_INV_TOTAL+' poin';
+  _tryInvFinal();
+}
+function _calcInvAku(){
+  return _INV_POIN.reduce((acc,p,i)=>{
+    const temuan=Math.max(0,parseInt(document.getElementById('inv-inp-'+i).value)||0);
+    return acc+Math.max(0,p.max-Math.min(p.max,temuan*p.bobot));
+  },0)/_INV_TOTAL*100;
+}
+function _tryInvFinal(){
+  if(_inv_ontime===null)return;
+  const aku=_calcInvAku(), fin=aku*0.5+_inv_ontime*0.5, cls=scoreClass(fin);
+  document.getElementById('inv-f-aku').textContent=aku.toFixed(1)+'%';
+  document.getElementById('inv-f-aku').className='final-big '+scoreClass(aku);
+  document.getElementById('inv-f-ontime').textContent=_inv_ontime.toFixed(1)+'%';
+  document.getElementById('inv-f-ontime').className='final-big '+scoreClass(_inv_ontime);
+  document.getElementById('inv-f-total').textContent=fin.toFixed(1)+'%';
+  document.getElementById('inv-f-total').className='final-big '+cls;
+  document.getElementById('inv-bar').style.width=fin.toFixed(1)+'%';
+  document.getElementById('inv-bar').className='progress-fill '+cls;
+  document.getElementById('inv-final-wrap').style.display='block';
+}
+
 // ─── ANALISA PENERIMAAN ───
 async function runShip(){
   const f=document.getElementById('file-ship').files[0];
