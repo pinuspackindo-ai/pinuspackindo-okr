@@ -270,9 +270,11 @@ tbody tr:hover td{background:var(--bg);}
   cursor:pointer;transition:all .15s;background:var(--success-l);user-select:none;}
 .lap-list-item:hover{opacity:.85;}
 .lap-list-item.revisi{background:var(--danger-l);border-color:#fca5a5;}
+.lap-list-item.warn{background:var(--warning-l);border-color:#fcd34d;}
 .lap-list-check{font-size:.95rem;font-weight:700;color:var(--success);
   width:22px;text-align:center;flex-shrink:0;}
 .lap-list-item.revisi .lap-list-check{color:var(--danger);}
+.lap-list-item.warn .lap-list-check{color:var(--warning);}
 .lap-list-label{font-size:13px;color:var(--text);font-weight:500;flex:1;}
 .lap-section-title{font-size:11px;font-weight:700;color:var(--text-m);text-transform:uppercase;
   letter-spacing:1.2px;border-left:3px solid var(--primary);
@@ -795,9 +797,9 @@ tbody tr:hover td{background:var(--bg);}
           </div>
 
           <!-- AKURASI 15 POIN -->
-          <div class="lap-section-title">Akurasi Laporan — 15 Poin</div>
+          <div class="lap-section-title">Akurasi Laporan — 15 Poin (maks 30)</div>
           <div style="font-size:12px;color:var(--text-m);margin-bottom:10px;line-height:1.6;">
-            Klik poin untuk menandai <strong>ada revisi</strong> (✗). Klik lagi untuk membatalkan.
+            Masukkan jumlah temuan tiap poin. Setiap temuan mengurangi <strong>1 poin</strong> (maks 2 per poin, total 30).
           </div>
           <div id="fa-list"></div>
 
@@ -805,7 +807,7 @@ tbody tr:hover td{background:var(--bg);}
                       padding:10px 16px;background:var(--bg);border-radius:var(--radius-sm);">
             <span style="font-size:13px;font-weight:600;color:var(--text);">Score Akurasi:</span>
             <span class="score-num good" id="fa-aku-val" style="font-size:1.4rem;">100.0%</span>
-            <span style="font-size:12px;color:var(--text-m);" id="fa-aku-desc">15 poin akurat dari 15</span>
+            <span style="font-size:12px;color:var(--text-m);" id="fa-aku-desc">30 dari 30 poin</span>
           </div>
 
           <div class="divider"></div>
@@ -1402,7 +1404,9 @@ async function runAcc(){
 
 // ─── ANALISA LAPORAN ───
 let _lapInit=false;
-let _fa_revisi=Array(15).fill(false);
+const _FA_COUNT=15;
+const _FA_POIN_MAX=2;
+const _FA_TOTAL=30; // 15×2
 let _fa_ontime=null;
 const _GA_MAX=[15,5,10];
 const _GA_TOTAL=30; // 15+5+10
@@ -1417,15 +1421,19 @@ function initLaporan(){
   document.getElementById('ga-deadline-txt').textContent=ddlTxt;
   document.getElementById('inv-deadline-txt').textContent=ddlTxt;
 
-  // Build FA 15-poin list
+  // Build FA 15-poin list (input-based)
   document.getElementById('fa-list').innerHTML=
-    Array.from({length:15},(_,i)=>
-      `<div class="lap-list-item" id="fa-item-${i}" onclick="toggleFaItem(${i})">
+    Array.from({length:_FA_COUNT},(_,i)=>
+      `<div class="lap-list-item" id="fa-item-${i}">
         <span class="lap-list-check" id="fa-chk-${i}">✓</span>
         <span class="lap-list-label">Poin ${i+1}</span>
-        <span style="font-size:11px;color:var(--text-l);">klik untuk tandai revisi</span>
+        <div class="ga-input-group">
+          <label>Temuan:</label>
+          <input class="ga-poin-input" type="number" id="fa-inp-${i}" min="0" max="${_FA_POIN_MAX}" value="0" oninput="calcFaAkurasi()">
+        </div>
+        <span class="ga-poin-sisa" id="fa-sisa-${i}" style="color:var(--success);">sisa 2 / 2</span>
       </div>`).join('');
-  _updateFaAku();
+  calcFaAkurasi();
 }
 
 // ── FA functions ──
