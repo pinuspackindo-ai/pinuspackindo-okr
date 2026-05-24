@@ -554,79 +554,192 @@ tbody tr:hover td{background:var(--bg);}
         <div class="module-info-icon">&#x2139;</div>
         <div>
           <div class="module-info-title">Analisa Akurasi dan Ontime Laporan</div>
-          <div class="module-info-text">Penilaian kualitas laporan berdasarkan tingkat akurasi (bobot 70%) dan ketepatan waktu pengiriman laporan (bobot 30%). Klik poin untuk menandai adanya revisi.</div>
+          <div class="module-info-text">Penilaian kualitas laporan per divisi. Pilih divisi dari sub-menu kiri. Score Total = (Akurasi &times; 50%) + (Ontime &times; 50%).</div>
         </div>
       </div>
 
-      <!-- DIVISI: Finance & Accounting -->
-      <div class="card">
-        <div class="card-title">&#9733; Divisi Finance &amp; Accounting</div>
+      <!-- ══ FINANCE & ACCOUNTING ══ -->
+      <div id="lap-div-fa">
+        <div class="card">
+          <div class="card-title">&#9733; Finance &amp; Accounting</div>
 
-        <!-- AKURASI -->
-        <div class="lap-section-title">Akurasi Laporan &mdash; 12 Poin</div>
-        <div style="font-size:12px;color:var(--text-m);margin-bottom:8px;line-height:1.6;">
-          Klik poin untuk menandai <strong>ada revisi</strong> (&#x2717;). Klik lagi untuk membatalkan. Skor dihitung otomatis.
-        </div>
-        <div class="lap-grid" id="lap-grid"></div>
-
-        <div style="display:flex;align-items:center;gap:16px;margin-bottom:20px;">
-          <div style="font-size:13px;font-weight:600;color:var(--text);">Score Akurasi:</div>
-          <div style="font-size:1.6rem;font-weight:700;" id="lap-aku-val">100.0%</div>
-          <div style="font-size:12px;color:var(--text-m);" id="lap-aku-desc">12 poin akurat dari 12</div>
-        </div>
-
-        <div class="divider"></div>
-
-        <!-- ONTIME -->
-        <div class="lap-section-title">Ontime Laporan</div>
-        <div style="font-size:12px;color:var(--text-m);margin-bottom:12px;line-height:1.6;">
-          Deadline selalu <strong>tanggal 5 bulan berjalan</strong>. Keterlambatan maksimum 25 hari (skor turun linear hingga 0%).
-        </div>
-        <div class="lap-date-row">
-          <div class="lap-deadline">&#x23F0; Deadline: <strong id="lap-deadline-txt">&mdash;</strong></div>
-          <input class="lap-date-input" type="date" id="lap-ontime-input" title="Tanggal pengiriman laporan">
-          <button class="btn btn-primary" style="width:auto;padding:9px 20px;" onclick="calcOntime()">Hitung Ontime</button>
-        </div>
-
-        <div id="lap-ontime-result" style="display:none;margin-top:16px;">
-          <div style="display:flex;align-items:center;gap:16px;">
-            <div style="font-size:13px;font-weight:600;color:var(--text);">Score Ontime:</div>
-            <div style="font-size:1.6rem;font-weight:700;" id="lap-ontime-val">&mdash;</div>
-            <div style="font-size:12px;color:var(--text-m);" id="lap-ontime-desc">&mdash;</div>
-          </div>
-        </div>
-
-        <div class="divider"></div>
-
-        <!-- SCORE TOTAL -->
-        <div id="lap-final-wrap" style="display:none;" class="anim">
-          <div style="font-size:11px;font-weight:600;color:var(--text-m);text-transform:uppercase;
-                      letter-spacing:1.2px;text-align:center;margin-bottom:18px;">
-            Score Total Laporan &mdash; Finance &amp; Accounting
-          </div>
-          <div class="lap-score-row">
-            <div class="lap-score-box">
-              <div class="lap-score-lbl">Akurasi</div>
-              <div class="lap-score-formula">Bobot 70%</div>
-              <div class="final-big" id="lapf-aku" style="font-size:2.2rem;">&mdash;</div>
+          <!-- SCORE AKHIR — PALING ATAS -->
+          <div id="fa-final-wrap" style="display:none;" class="anim">
+            <div style="font-size:11px;font-weight:600;color:var(--text-m);text-transform:uppercase;
+                        letter-spacing:1.2px;text-align:center;margin-bottom:16px;">
+              Score Akhir &mdash; Finance &amp; Accounting
             </div>
-            <div class="lap-score-box main">
-              <div class="lap-score-lbl" style="color:var(--primary);">Score Total</div>
-              <div class="lap-score-formula">(Akurasi &times; 70%) + (Ontime &times; 30%)</div>
-              <div class="final-big" id="lapf-total" style="font-size:3rem;">&mdash;</div>
-              <div style="width:100%;margin-top:12px;">
-                <div class="progress-track"><div class="progress-fill" id="lap-bar" style="width:0%"></div></div>
+            <div class="lap-score-grid">
+              <div class="lap-score-box">
+                <div class="lap-score-lbl">Akurasi</div>
+                <div class="lap-score-formula">Bobot 50%</div>
+                <div class="final-big" id="fa-f-aku" style="font-size:2.2rem;">&mdash;</div>
+              </div>
+              <div class="lap-score-box main">
+                <div class="lap-score-lbl" style="color:var(--primary);">Score Total</div>
+                <div class="lap-score-formula">(Akurasi &times; 50%) + (Ontime &times; 50%)</div>
+                <div class="final-big" id="fa-f-total" style="font-size:3rem;">&mdash;</div>
+                <div style="width:100%;margin-top:12px;">
+                  <div class="progress-track"><div class="progress-fill" id="fa-bar" style="width:0%"></div></div>
+                </div>
+              </div>
+              <div class="lap-score-box">
+                <div class="lap-score-lbl">Ontime</div>
+                <div class="lap-score-formula">Bobot 50%</div>
+                <div class="final-big" id="fa-f-ontime" style="font-size:2.2rem;">&mdash;</div>
               </div>
             </div>
-            <div class="lap-score-box">
-              <div class="lap-score-lbl">Ontime</div>
-              <div class="lap-score-formula">Bobot 30%</div>
-              <div class="final-big" id="lapf-ontime" style="font-size:2.2rem;">&mdash;</div>
+            <div class="divider" style="margin-top:20px;"></div>
+          </div>
+
+          <!-- AKURASI 15 POIN -->
+          <div class="lap-section-title">Akurasi Laporan &mdash; 15 Poin</div>
+          <div style="font-size:12px;color:var(--text-m);margin-bottom:10px;line-height:1.6;">
+            Klik poin untuk menandai <strong>ada revisi</strong> (&#x2717;). Klik lagi untuk membatalkan.
+          </div>
+          <div id="fa-list"></div>
+
+          <div style="display:flex;align-items:center;gap:14px;margin:12px 0 20px;
+                      padding:10px 16px;background:var(--bg);border-radius:var(--radius-sm);">
+            <span style="font-size:13px;font-weight:600;color:var(--text);">Score Akurasi:</span>
+            <span class="score-num good" id="fa-aku-val" style="font-size:1.4rem;">100.0%</span>
+            <span style="font-size:12px;color:var(--text-m);" id="fa-aku-desc">15 poin akurat dari 15</span>
+          </div>
+
+          <div class="divider"></div>
+
+          <!-- ONTIME FA -->
+          <div class="lap-section-title">Ontime Laporan</div>
+          <div style="font-size:12px;color:var(--text-m);margin-bottom:10px;line-height:1.6;">
+            Deadline tanggal 5 bulan berjalan. Keterlambatan maks 25 hari (turun linear ke 0%).
+          </div>
+          <div class="lap-date-row">
+            <div class="lap-deadline">&#x23F0; Deadline: <strong id="fa-deadline-txt">&mdash;</strong></div>
+            <input class="lap-date-input" type="date" id="fa-ontime-input">
+            <button class="btn btn-primary" style="width:auto;padding:9px 20px;"
+              onclick="calcLapOntime('fa')">Hitung Ontime</button>
+          </div>
+          <div id="fa-ontime-result" style="display:none;margin-top:12px;
+               padding:10px 16px;background:var(--bg);border-radius:var(--radius-sm);">
+            <div style="display:flex;align-items:center;gap:14px;">
+              <span style="font-size:13px;font-weight:600;color:var(--text);">Score Ontime:</span>
+              <span class="score-num" id="fa-ontime-val" style="font-size:1.4rem;">&mdash;</span>
+              <span style="font-size:12px;color:var(--text-m);" id="fa-ontime-desc">&mdash;</span>
             </div>
           </div>
-        </div>
 
-      </div><!-- /card F&A -->
+        </div>
+      </div><!-- /lap-div-fa -->
+
+      <!-- ══ GENERAL AFFAIR ══ -->
+      <div id="lap-div-ga" style="display:none;">
+        <div class="card">
+          <div class="card-title">&#9733; General Affair</div>
+
+          <!-- SCORE AKHIR GA — PALING ATAS -->
+          <div id="ga-final-wrap" style="display:none;" class="anim">
+            <div style="font-size:11px;font-weight:600;color:var(--text-m);text-transform:uppercase;
+                        letter-spacing:1.2px;text-align:center;margin-bottom:16px;">
+              Score Akhir &mdash; General Affair
+            </div>
+            <div class="lap-score-grid">
+              <div class="lap-score-box">
+                <div class="lap-score-lbl">Akurasi</div>
+                <div class="lap-score-formula">Bobot 50%</div>
+                <div class="final-big" id="ga-f-aku" style="font-size:2.2rem;">&mdash;</div>
+              </div>
+              <div class="lap-score-box main">
+                <div class="lap-score-lbl" style="color:var(--primary);">Score Total</div>
+                <div class="lap-score-formula">(Akurasi &times; 50%) + (Ontime &times; 50%)</div>
+                <div class="final-big" id="ga-f-total" style="font-size:3rem;">&mdash;</div>
+                <div style="width:100%;margin-top:12px;">
+                  <div class="progress-track"><div class="progress-fill" id="ga-bar" style="width:0%"></div></div>
+                </div>
+              </div>
+              <div class="lap-score-box">
+                <div class="lap-score-lbl">Ontime</div>
+                <div class="lap-score-formula">Bobot 50%</div>
+                <div class="final-big" id="ga-f-ontime" style="font-size:2.2rem;">&mdash;</div>
+              </div>
+            </div>
+            <div class="divider" style="margin-top:20px;"></div>
+          </div>
+
+          <!-- AKURASI GA — 3 POIN BERBOBOT -->
+          <div class="lap-section-title">Akurasi &mdash; 3 Poin Penilaian</div>
+          <div style="font-size:12px;color:var(--text-m);margin-bottom:12px;line-height:1.6;">
+            Isi kolom <strong>Poin Revisi</strong> dengan jumlah poin yang direvisi per kriteria.
+            Skor = (total sisa poin) / 40 &times; 100%.
+          </div>
+
+          <div class="ga-poin-row">
+            <div class="ga-poin-info">
+              <span class="ga-poin-num">Poin 1</span>
+              <span class="ga-poin-max-lbl">Maks 20 poin</span>
+            </div>
+            <div class="ga-input-group">
+              <label>Poin Revisi:</label>
+              <input class="ga-poin-input" type="number" id="ga-inp-0" min="0" max="20" value="0" oninput="calcGaAkurasi()">
+            </div>
+            <div class="ga-poin-sisa">Sisa: <strong id="ga-sisa-0" style="color:var(--success)">20</strong> / 20 poin</div>
+          </div>
+
+          <div class="ga-poin-row">
+            <div class="ga-poin-info">
+              <span class="ga-poin-num">Poin 2</span>
+              <span class="ga-poin-max-lbl">Maks 5 poin</span>
+            </div>
+            <div class="ga-input-group">
+              <label>Poin Revisi:</label>
+              <input class="ga-poin-input" type="number" id="ga-inp-1" min="0" max="5" value="0" oninput="calcGaAkurasi()">
+            </div>
+            <div class="ga-poin-sisa">Sisa: <strong id="ga-sisa-1" style="color:var(--success)">5</strong> / 5 poin</div>
+          </div>
+
+          <div class="ga-poin-row">
+            <div class="ga-poin-info">
+              <span class="ga-poin-num">Poin 3</span>
+              <span class="ga-poin-max-lbl">Maks 15 poin</span>
+            </div>
+            <div class="ga-input-group">
+              <label>Poin Revisi:</label>
+              <input class="ga-poin-input" type="number" id="ga-inp-2" min="0" max="15" value="0" oninput="calcGaAkurasi()">
+            </div>
+            <div class="ga-poin-sisa">Sisa: <strong id="ga-sisa-2" style="color:var(--success)">15</strong> / 15 poin</div>
+          </div>
+
+          <div style="display:flex;align-items:center;gap:14px;margin:12px 0 20px;
+                      padding:10px 16px;background:var(--bg);border-radius:var(--radius-sm);">
+            <span style="font-size:13px;font-weight:600;color:var(--text);">Score Akurasi:</span>
+            <span class="score-num good" id="ga-aku-val" style="font-size:1.4rem;">100.0%</span>
+            <span style="font-size:12px;color:var(--text-m);" id="ga-aku-desc">40 dari 40 poin</span>
+          </div>
+
+          <div class="divider"></div>
+
+          <!-- ONTIME GA -->
+          <div class="lap-section-title">Ontime Laporan</div>
+          <div style="font-size:12px;color:var(--text-m);margin-bottom:10px;line-height:1.6;">
+            Deadline tanggal 5 bulan berjalan. Keterlambatan maks 25 hari (turun linear ke 0%).
+          </div>
+          <div class="lap-date-row">
+            <div class="lap-deadline">&#x23F0; Deadline: <strong id="ga-deadline-txt">&mdash;</strong></div>
+            <input class="lap-date-input" type="date" id="ga-ontime-input">
+            <button class="btn btn-primary" style="width:auto;padding:9px 20px;"
+              onclick="calcLapOntime('ga')">Hitung Ontime</button>
+          </div>
+          <div id="ga-ontime-result" style="display:none;margin-top:12px;
+               padding:10px 16px;background:var(--bg);border-radius:var(--radius-sm);">
+            <div style="display:flex;align-items:center;gap:14px;">
+              <span style="font-size:13px;font-weight:600;color:var(--text);">Score Ontime:</span>
+              <span class="score-num" id="ga-ontime-val" style="font-size:1.4rem;">&mdash;</span>
+              <span style="font-size:12px;color:var(--text-m);" id="ga-ontime-desc">&mdash;</span>
+            </div>
+          </div>
+
+        </div>
+      </div><!-- /lap-div-ga -->
+
     </div><!-- /panel-laporan -->
 
   </div>
