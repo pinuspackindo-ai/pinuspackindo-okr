@@ -257,6 +257,35 @@ tbody tr:hover td{background:var(--bg);}
   transition:opacity .3s;max-width:340px;}
 .notify.error{background:var(--danger);}
 .notify.hidden{opacity:0;pointer-events:none;}
+
+/* ── LAPORAN MODULE ── */
+.lap-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:10px;margin:16px 0 20px;}
+.lap-item{background:var(--success-l);border:1.5px solid #6ee7b7;border-radius:var(--radius-sm);
+  padding:16px 10px;text-align:center;cursor:pointer;transition:all .15s;user-select:none;}
+.lap-item:hover{opacity:.82;transform:translateY(-1px);}
+.lap-item.revisi{background:var(--danger-l);border-color:#fca5a5;}
+.lap-check{font-size:1.5rem;font-weight:700;display:block;margin-bottom:4px;color:var(--success);}
+.lap-item.revisi .lap-check{color:var(--danger);}
+.lap-poin{font-size:11px;font-weight:600;color:var(--text-m);text-transform:uppercase;letter-spacing:.5px;}
+.lap-section-title{font-size:11px;font-weight:700;color:var(--text-m);text-transform:uppercase;
+  letter-spacing:1.2px;margin-bottom:10px;padding-left:2px;border-left:3px solid var(--primary);
+  padding:4px 0 4px 10px;}
+.lap-score-row{display:grid;grid-template-columns:1fr 1.5fr 1fr;gap:14px;margin-top:4px;}
+.lap-score-box{background:var(--bg);border:1px solid var(--border);border-radius:var(--radius);
+  padding:20px 16px;text-align:center;display:flex;flex-direction:column;align-items:center;
+  justify-content:center;gap:6px;}
+.lap-score-box.main{background:var(--bg2);border:2px solid var(--primary);
+  box-shadow:0 0 0 4px var(--primary-l);padding:24px 20px;}
+.lap-score-lbl{font-size:10px;font-weight:700;color:var(--text-l);text-transform:uppercase;letter-spacing:1px;}
+.lap-score-formula{font-size:10px;color:var(--text-l);margin-top:2px;}
+.lap-score-desc{font-size:11px;color:var(--text-m);}
+.lap-date-row{display:flex;align-items:center;gap:12px;flex-wrap:wrap;margin-top:8px;}
+.lap-date-input{padding:9px 14px;border:1.5px solid var(--border);border-radius:var(--radius-sm);
+  font-family:var(--font);font-size:13px;color:var(--text);background:var(--bg);outline:none;
+  transition:border-color .15s;}
+.lap-date-input:focus{border-color:var(--primary);}
+.lap-deadline{font-size:12px;color:var(--text-m);background:var(--warning-l);
+  border:1px solid #fcd34d;border-radius:var(--radius-sm);padding:7px 14px;font-weight:500;}
 </style>
 </head>
 <body>
@@ -692,6 +721,92 @@ tbody tr:hover td{background:var(--bg);}
       </div>
     </div><!-- /panel-penerimaan -->
 
+    <!-- ════════ PANEL LAPORAN ════════ -->
+    <div id="panel-laporan" class="panel">
+      <div class="module-info">
+        <div class="module-info-icon">ℹ</div>
+        <div>
+          <div class="module-info-title">Analisa Akurasi dan Ontime Laporan</div>
+          <div class="module-info-text">Penilaian kualitas laporan berdasarkan tingkat akurasi (bobot 70%) dan ketepatan waktu pengiriman laporan (bobot 30%). Klik poin untuk menandai adanya revisi.</div>
+        </div>
+      </div>
+
+      <!-- DIVISI: Finance & Accounting -->
+      <div class="card">
+        <div class="card-title">&#9733; Divisi Finance &amp; Accounting</div>
+
+        <!-- AKURASI -->
+        <div class="lap-section-title">Akurasi Laporan — 12 Poin</div>
+        <div style="font-size:12px;color:var(--text-m);margin-bottom:8px;line-height:1.6;">
+          Klik poin untuk menandai <strong>ada revisi</strong> (✗). Klik lagi untuk membatalkan. Skor dihitung otomatis.
+        </div>
+        <div class="lap-grid" id="lap-grid"></div>
+
+        <div style="display:flex;align-items:center;gap:16px;margin-bottom:20px;">
+          <div style="font-size:13px;font-weight:600;color:var(--text);">Score Akurasi:</div>
+          <div style="font-size:1.6rem;font-weight:700;" id="lap-aku-val">100.0%</div>
+          <div style="font-size:12px;color:var(--text-m);" id="lap-aku-desc">12 poin akurat dari 12</div>
+        </div>
+
+        <div class="divider"></div>
+
+        <!-- ONTIME -->
+        <div class="lap-section-title">Ontime Laporan</div>
+        <div style="font-size:12px;color:var(--text-m);margin-bottom:12px;line-height:1.6;">
+          Deadline selalu <strong>tanggal 5 bulan berjalan</strong>. Keterlambatan maksimum 25 hari (skor turun linear hingga 0%).
+        </div>
+        <div class="lap-date-row">
+          <div class="lap-deadline">⏰ Deadline: <strong id="lap-deadline-txt">—</strong></div>
+          <input class="lap-date-input" type="date" id="lap-ontime-input" title="Tanggal pengiriman laporan">
+          <button class="btn btn-primary" style="width:auto;padding:9px 20px;" onclick="calcOntime()">Hitung Ontime</button>
+        </div>
+
+        <div id="lap-ontime-result" style="display:none;margin-top:16px;">
+          <div style="display:flex;align-items:center;gap:16px;">
+            <div style="font-size:13px;font-weight:600;color:var(--text);">Score Ontime:</div>
+            <div style="font-size:1.6rem;font-weight:700;" id="lap-ontime-val">—</div>
+            <div style="font-size:12px;color:var(--text-m);" id="lap-ontime-desc">—</div>
+          </div>
+        </div>
+
+        <div class="divider"></div>
+
+        <!-- SCORE TOTAL -->
+        <div id="lap-final-wrap" style="display:none;" class="anim">
+          <div style="font-size:11px;font-weight:600;color:var(--text-m);text-transform:uppercase;
+                      letter-spacing:1.2px;text-align:center;margin-bottom:18px;">
+            Score Total Laporan — Finance &amp; Accounting
+          </div>
+          <div class="lap-score-row">
+            <!-- Akurasi -->
+            <div class="lap-score-box">
+              <div class="lap-score-lbl">Akurasi</div>
+              <div class="lap-score-formula">Bobot 70%</div>
+              <div class="final-big" id="lapf-aku" style="font-size:2.2rem;">—</div>
+            </div>
+            <!-- Score Total (center) -->
+            <div class="lap-score-box main">
+              <div class="lap-score-lbl" style="color:var(--primary);">Score Total</div>
+              <div class="lap-score-formula">(Akurasi × 70%) + (Ontime × 30%)</div>
+              <div class="final-big" id="lapf-total" style="font-size:3rem;">—</div>
+              <div style="width:100%;margin-top:12px;">
+                <div class="progress-track">
+                  <div class="progress-fill" id="lap-bar" style="width:0%"></div>
+                </div>
+              </div>
+            </div>
+            <!-- Ontime -->
+            <div class="lap-score-box">
+              <div class="lap-score-lbl">Ontime</div>
+              <div class="lap-score-formula">Bobot 30%</div>
+              <div class="final-big" id="lapf-ontime" style="font-size:2.2rem;">—</div>
+            </div>
+          </div>
+        </div>
+
+      </div><!-- /card F&A -->
+    </div><!-- /panel-laporan -->
+
   </div><!-- /content -->
 </main><!-- /main -->
 
@@ -754,13 +869,19 @@ async function doLogout(){
 }
 
 // ─── PANEL SWITCH ───
-const panelTitles={instock:'Analisa Instock',po:'Analisa PO',penerimaan:'Analisa Penerimaan'};
+const panelTitles={
+  instock:'Analisa Instock',
+  po:'Analisa PO',
+  penerimaan:'Analisa Kualitas Penerimaan',
+  laporan:'Analisa Akurasi dan Ontime Laporan'
+};
 function showPanel(name,btn){
   document.querySelectorAll('.panel').forEach(p=>p.classList.remove('active'));
   document.querySelectorAll('.nav-item').forEach(b=>b.classList.remove('active'));
   document.getElementById('panel-'+name).classList.add('active');
   btn.classList.add('active');
   document.getElementById('topbar-title').textContent=panelTitles[name];
+  if(name==='laporan') initLaporan();
 }
 
 
