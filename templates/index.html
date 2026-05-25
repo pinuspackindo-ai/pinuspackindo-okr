@@ -204,12 +204,12 @@ tbody tr:hover td{background:var(--bg);}
 .badge-blue   {color:#1e40af;background:#dbeafe;}
 
 /* ── FINAL SCORE PANEL (PO) ── */
-.final-score-wrap{display:flex;flex-direction:row;gap:10px;margin-bottom:20px;align-items:stretch;}
+.final-score-wrap{display:flex;flex-direction:row;gap:10px;margin-bottom:20px;align-items:flex-start;width:100%;}
 .final-score-item{flex:1;min-width:0;background:var(--bg);border-radius:var(--radius);
-  border:1px solid var(--border);padding:14px 12px;text-align:center;
-  display:flex;flex-direction:column;align-items:center;justify-content:center;gap:5px;}
+  border:1px solid var(--border);padding:14px 10px;text-align:center;
+  display:flex;flex-direction:column;align-items:center;justify-content:flex-start;gap:6px;}
 .final-score-item.main{background:var(--bg2);border:2px solid var(--primary);
-  box-shadow:0 0 0 4px var(--primary-l);padding:16px 14px;}
+  box-shadow:0 0 0 4px var(--primary-l);padding:16px 12px;}
 .final-big{font-size:2rem;font-weight:700;line-height:1;letter-spacing:-.03em;}
 .final-score-item.main .final-big{font-size:2.6rem;}
 .final-big.good{color:var(--success);}
