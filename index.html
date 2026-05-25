@@ -922,6 +922,170 @@ tbody tr:hover td{background:var(--bg);}
 
     </div><!-- /panel-laporan -->
 
+    <!-- ═══════════════ PANEL KEPATUHAN & KEDISIPLINAN ═══════════════ -->
+    <div id="panel-kedisiplinan" class="panel">
+      <div style="background:var(--primary-l);border:1px solid #bfdbfe;border-radius:var(--radius);
+                  padding:14px 18px;margin-bottom:20px;display:flex;gap:12px;align-items:flex-start;">
+        <div style="color:var(--primary);font-size:18px;flex-shrink:0;line-height:1.4;">&#x1F4CB;</div>
+        <div>
+          <div style="font-weight:700;font-size:13px;color:var(--text);margin-bottom:2px;">
+            Analisa Kepatuhan &amp; Kedisiplinan
+          </div>
+          <div style="font-size:12px;color:var(--text-m);line-height:1.6;">
+            3 komponen: <strong>Absensi</strong> (bobot 40%) &middot; <strong>Kepatuhan</strong> (bobot 30%) &middot; <strong>Sanksi</strong> (bobot 20%).
+            Score akhir muncul setelah Absensi &amp; Kepatuhan diisi.
+          </div>
+        </div>
+      </div>
+
+      <div class="card">
+        <div class="card-title">&#9733; Kepatuhan &amp; Kedisiplinan</div>
+
+        <!-- SCORE AKHIR PALING ATAS -->
+        <div id="kd-final-wrap" style="display:none;" class="anim">
+          <div style="font-size:11px;font-weight:600;color:var(--text-m);text-transform:uppercase;
+                      letter-spacing:1.2px;text-align:center;margin-bottom:12px;">
+            Score Akhir &mdash; Kepatuhan &amp; Kedisiplinan
+          </div>
+          <div class="lap-score-box main kd-total-center">
+            <div class="lap-score-lbl" style="color:var(--primary);">Score Total</div>
+            <div class="lap-score-formula">(Absensi&times;40%) + (Kepatuhan&times;30%) + (Sanksi&times;20%)</div>
+            <div class="final-big" id="kd-f-total" style="font-size:2.4rem;">&mdash;</div>
+          </div>
+          <div class="lap-score-progress kd-total-center">
+            <div class="progress-track"><div class="progress-fill" id="kd-bar" style="width:0%"></div></div>
+          </div>
+          <div class="lap-score-grid" style="margin-top:10px;">
+            <div class="lap-score-box">
+              <div class="lap-score-lbl">Absensi</div>
+              <div class="lap-score-formula">Bobot 40%</div>
+              <div class="final-big" id="kd-f-abs" style="font-size:1.7rem;">&mdash;</div>
+            </div>
+            <div class="lap-score-box">
+              <div class="lap-score-lbl">Kepatuhan</div>
+              <div class="lap-score-formula">Bobot 30%</div>
+              <div class="final-big" id="kd-f-kep" style="font-size:1.7rem;">&mdash;</div>
+            </div>
+            <div class="lap-score-box">
+              <div class="lap-score-lbl">Sanksi</div>
+              <div class="lap-score-formula">Bobot 20%</div>
+              <div class="final-big" id="kd-f-snk" style="font-size:1.7rem;">&mdash;</div>
+            </div>
+          </div>
+          <div class="divider" style="margin-top:16px;"></div>
+        </div>
+
+        <!-- 1. ABSENSI -->
+        <div class="lap-section-title">1. Absensi <span class="kd-bobot-badge">Bobot 40%</span></div>
+        <div style="font-size:12px;color:var(--text-m);margin-bottom:12px;line-height:1.6;">
+          Masukkan total hari aktif dan jumlah <strong>hari</strong> ada temuan per kategori.
+          Jika 1 hari ada beberapa pelanggar, tetap dihitung <strong>1 hari</strong>.
+        </div>
+        <div class="kd-hari-row">
+          <span class="kd-hari-lbl">Total Hari Aktif:</span>
+          <input class="ga-poin-input" type="number" id="abs-hari-aktif" min="1" max="31"
+                 placeholder="cth: 22" style="width:90px;" oninput="calcAbsensi()">
+          <span style="font-size:12px;color:var(--text-m);">hari kerja bulan ini</span>
+        </div>
+        <div class="ga-poin-row">
+          <div class="ga-poin-info">
+            <span class="ga-poin-num">Keterlambatan</span>
+            <span class="ga-poin-bobot">masuk terlambat</span>
+          </div>
+          <div class="ga-input-group" style="margin-left:auto;">
+            <label>Hari ada temuan:</label>
+            <input class="ga-poin-input" type="number" id="abs-tem-0" min="0" value="0" oninput="calcAbsensi()">
+          </div>
+        </div>
+        <div class="ga-poin-row">
+          <div class="ga-poin-info">
+            <span class="ga-poin-num">Absen Tidak Hadir</span>
+            <span class="ga-poin-bobot">tanpa ket / izin</span>
+          </div>
+          <div class="ga-input-group" style="margin-left:auto;">
+            <label>Hari ada temuan:</label>
+            <input class="ga-poin-input" type="number" id="abs-tem-1" min="0" value="0" oninput="calcAbsensi()">
+          </div>
+        </div>
+        <div class="ga-poin-row" style="margin-bottom:10px;">
+          <div class="ga-poin-info">
+            <span class="ga-poin-num">Perizinan Tidak Sesuai SOP</span>
+            <span class="ga-poin-bobot">izin tidak prosedural</span>
+          </div>
+          <div class="ga-input-group" style="margin-left:auto;">
+            <label>Hari ada temuan:</label>
+            <input class="ga-poin-input" type="number" id="abs-tem-2" min="0" value="0" oninput="calcAbsensi()">
+          </div>
+        </div>
+        <div class="kd-score-display" id="abs-score-row" style="display:none;">
+          <span style="font-size:13px;font-weight:600;color:var(--text);">Score Absensi:</span>
+          <span class="score-num" id="abs-score-val" style="font-size:1.3rem;">&mdash;</span>
+          <span style="font-size:12px;color:var(--text-m);" id="abs-score-desc">&mdash;</span>
+        </div>
+
+        <div class="divider"></div>
+
+        <!-- 2. KEPATUHAN -->
+        <div class="lap-section-title">2. Kepatuhan <span class="kd-bobot-badge">Bobot 30%</span></div>
+        <div style="font-size:12px;color:var(--text-m);margin-bottom:12px;line-height:1.6;">
+          Ketidaksesuaian SOP terutama <strong>grooming</strong> dan <strong>dresscode</strong>.
+          Jika 1 hari ada beberapa pelanggar, tetap dihitung <strong>1 hari</strong>.
+        </div>
+        <div class="kd-hari-row">
+          <span class="kd-hari-lbl">Total Hari Aktif:</span>
+          <input class="ga-poin-input" type="number" id="kep-hari-aktif" min="1" max="31"
+                 placeholder="cth: 22" style="width:90px;" oninput="calcKepatuhan()">
+          <span style="font-size:12px;color:var(--text-m);">hari kerja bulan ini</span>
+        </div>
+        <div class="ga-poin-row">
+          <div class="ga-poin-info">
+            <span class="ga-poin-num">Ketidaksesuaian Grooming</span>
+            <span class="ga-poin-bobot">penampilan tidak standar</span>
+          </div>
+          <div class="ga-input-group" style="margin-left:auto;">
+            <label>Hari ada temuan:</label>
+            <input class="ga-poin-input" type="number" id="kep-tem-0" min="0" value="0" oninput="calcKepatuhan()">
+          </div>
+        </div>
+        <div class="ga-poin-row" style="margin-bottom:10px;">
+          <div class="ga-poin-info">
+            <span class="ga-poin-num">Ketidaksesuaian Dresscode</span>
+            <span class="ga-poin-bobot">seragam tidak sesuai</span>
+          </div>
+          <div class="ga-input-group" style="margin-left:auto;">
+            <label>Hari ada temuan:</label>
+            <input class="ga-poin-input" type="number" id="kep-tem-1" min="0" value="0" oninput="calcKepatuhan()">
+          </div>
+        </div>
+        <div class="kd-score-display" id="kep-score-row" style="display:none;">
+          <span style="font-size:13px;font-weight:600;color:var(--text);">Score Kepatuhan:</span>
+          <span class="score-num" id="kep-score-val" style="font-size:1.3rem;">&mdash;</span>
+          <span style="font-size:12px;color:var(--text-m);" id="kep-score-desc">&mdash;</span>
+        </div>
+
+        <div class="divider"></div>
+
+        <!-- 3. SANKSI -->
+        <div class="lap-section-title">3. Sanksi <span class="kd-bobot-badge">Bobot 20%</span></div>
+        <div style="font-size:12px;color:var(--text-m);margin-bottom:12px;line-height:1.6;">
+          Sanksi tertulis (ST / SP) di bulan berjalan. Setiap sanksi mengurangi score komponen ini
+          sebesar <strong>50%</strong> &mdash; maksimal 2 sanksi = score 0%.
+        </div>
+        <div class="kd-hari-row">
+          <span class="kd-hari-lbl">Jumlah Sanksi Tertulis:</span>
+          <input class="ga-poin-input" type="number" id="snk-jumlah" min="0" value="0"
+                 style="width:80px;" oninput="calcSanksi()">
+          <span style="font-size:12px;color:var(--text-m);">sanksi (ST / SP)</span>
+        </div>
+        <div class="kd-score-display" id="snk-score-row">
+          <span style="font-size:13px;font-weight:600;color:var(--text);">Score Sanksi:</span>
+          <span class="score-num good" id="snk-score-val" style="font-size:1.3rem;">100.0%</span>
+          <span style="font-size:12px;color:var(--text-m);" id="snk-score-desc">Tidak ada sanksi tertulis</span>
+        </div>
+
+      </div>
+    </div><!-- /panel-kedisiplinan -->
+
   </div>
 </main>
 
@@ -972,7 +1136,8 @@ const panelTitles={
   instock:'Analisa Instock',
   po:'Analisa PO',
   penerimaan:'Analisa Kualitas Penerimaan',
-  laporan:'Analisa Akurasi dan Ontime Laporan'
+  laporan:'Analisa Akurasi dan Ontime Laporan',
+  kedisiplinan:'Analisa Kepatuhan & Kedisiplinan'
 };
 var _lapCurrentDiv='fa';
 function showPanel(name,btn){
