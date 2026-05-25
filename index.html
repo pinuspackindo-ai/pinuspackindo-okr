@@ -1696,6 +1696,74 @@ function _tryInvFinal(){
   document.getElementById('inv-bar').className='progress-fill '+cls;
   document.getElementById('inv-final-wrap').style.display='block';
 }
+
+// ─── ANALISA KEPATUHAN & KEDISIPLINAN ───
+var _kd_abs_score=null;
+var _kd_kep_score=null;
+var _kd_snk_score=100;
+
+function calcAbsensi(){
+  var aktif=Math.max(0,parseInt(document.getElementById('abs-hari-aktif').value)||0);
+  if(aktif<=0){_kd_abs_score=null;document.getElementById('abs-score-row').style.display='none';_tryKdFinal();return;}
+  var t0=Math.max(0,parseInt(document.getElementById('abs-tem-0').value)||0);
+  var t1=Math.max(0,parseInt(document.getElementById('abs-tem-1').value)||0);
+  var t2=Math.max(0,parseInt(document.getElementById('abs-tem-2').value)||0);
+  var totalPel=Math.min(aktif,t0+t1+t2);
+  var score=(aktif-totalPel)/aktif*100;
+  _kd_abs_score=score;
+  var el=document.getElementById('abs-score-val');
+  el.textContent=score.toFixed(1)+'%'; el.className='score-num '+scoreClass(score);
+  document.getElementById('abs-score-desc').textContent=
+    totalPel+' hari pelanggaran dari '+aktif+' hari aktif';
+  document.getElementById('abs-score-row').style.display='flex';
+  _tryKdFinal();
+}
+
+function calcKepatuhan(){
+  var aktif=Math.max(0,parseInt(document.getElementById('kep-hari-aktif').value)||0);
+  if(aktif<=0){_kd_kep_score=null;document.getElementById('kep-score-row').style.display='none';_tryKdFinal();return;}
+  var t0=Math.max(0,parseInt(document.getElementById('kep-tem-0').value)||0);
+  var t1=Math.max(0,parseInt(document.getElementById('kep-tem-1').value)||0);
+  var totalPel=Math.min(aktif,t0+t1);
+  var score=(aktif-totalPel)/aktif*100;
+  _kd_kep_score=score;
+  var el=document.getElementById('kep-score-val');
+  el.textContent=score.toFixed(1)+'%'; el.className='score-num '+scoreClass(score);
+  document.getElementById('kep-score-desc').textContent=
+    totalPel+' hari pelanggaran dari '+aktif+' hari aktif';
+  document.getElementById('kep-score-row').style.display='flex';
+  _tryKdFinal();
+}
+
+function calcSanksi(){
+  var jumlah=Math.max(0,parseInt(document.getElementById('snk-jumlah').value)||0);
+  var score=Math.max(0,100-jumlah*50);
+  _kd_snk_score=score;
+  var el=document.getElementById('snk-score-val');
+  el.textContent=score.toFixed(1)+'%'; el.className='score-num '+scoreClass(score);
+  document.getElementById('snk-score-desc').textContent=
+    jumlah===0?'Tidak ada sanksi tertulis':
+    jumlah===1?'1 sanksi tertulis — score turun 50%':
+    jumlah+' sanksi atau lebih — score 0%';
+  _tryKdFinal();
+}
+
+function _tryKdFinal(){
+  if(_kd_abs_score===null||_kd_kep_score===null)return;
+  var fin=_kd_abs_score*0.4+_kd_kep_score*0.3+_kd_snk_score*0.2;
+  var cls=scoreClass(fin);
+  document.getElementById('kd-f-abs').textContent=_kd_abs_score.toFixed(1)+'%';
+  document.getElementById('kd-f-abs').className='final-big '+scoreClass(_kd_abs_score);
+  document.getElementById('kd-f-kep').textContent=_kd_kep_score.toFixed(1)+'%';
+  document.getElementById('kd-f-kep').className='final-big '+scoreClass(_kd_kep_score);
+  document.getElementById('kd-f-snk').textContent=_kd_snk_score.toFixed(1)+'%';
+  document.getElementById('kd-f-snk').className='final-big '+scoreClass(_kd_snk_score);
+  document.getElementById('kd-f-total').textContent=fin.toFixed(1)+'%';
+  document.getElementById('kd-f-total').className='final-big '+cls;
+  document.getElementById('kd-bar').style.width=fin.toFixed(1)+'%';
+  document.getElementById('kd-bar').className='progress-fill '+cls;
+  document.getElementById('kd-final-wrap').style.display='block';
+}
 </script>
 </body>
 </html>
