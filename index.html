@@ -959,24 +959,24 @@ tbody tr:hover td{background:var(--bg);}
                       letter-spacing:1.2px;text-align:center;margin-bottom:12px;">
             Score Akhir &mdash; Kepatuhan &amp; Kedisiplinan
           </div>
-          <div class="final-score-wrap">
-            <div class="final-score-item">
+          <div style="display:flex;flex-direction:row;gap:10px;margin-bottom:20px;align-items:flex-start;width:100%;">
+            <div style="flex:1;background:var(--bg);border-radius:var(--radius);border:1px solid var(--border);padding:14px 10px;text-align:center;display:flex;flex-direction:column;align-items:center;gap:5px;">
               <div class="lap-score-lbl">Absensi</div>
               <div class="lap-score-formula">Bobot 40%</div>
               <div class="final-big" id="kd-f-abs">&mdash;</div>
             </div>
-            <div class="final-score-item main">
+            <div style="flex:1;background:var(--bg2);border:2px solid var(--primary);border-radius:var(--radius);box-shadow:0 0 0 4px var(--primary-l);padding:16px 12px;text-align:center;display:flex;flex-direction:column;align-items:center;gap:5px;">
               <div class="lap-score-lbl" style="color:var(--primary);">Score Total</div>
               <div class="lap-score-formula">(A&times;40%)+(K&times;30%)+(S&times;20%)</div>
-              <div class="final-big" id="kd-f-total">&mdash;</div>
-              <div style="width:100%;margin-top:14px;">
+              <div class="final-big" id="kd-f-total" style="font-size:2.4rem;">&mdash;</div>
+              <div style="width:100%;margin-top:10px;">
                 <div class="progress-track"><div class="progress-fill" id="kd-bar" style="width:0%"></div></div>
               </div>
-              <div style="font-size:11px;color:var(--text-m);margin-top:8px;">
+              <div style="font-size:11px;color:var(--text-m);margin-top:6px;">
                 Sanksi (20%): <span id="kd-f-snk" style="font-weight:700;color:var(--text);">&mdash;</span>
               </div>
             </div>
-            <div class="final-score-item">
+            <div style="flex:1;background:var(--bg);border-radius:var(--radius);border:1px solid var(--border);padding:14px 10px;text-align:center;display:flex;flex-direction:column;align-items:center;gap:5px;">
               <div class="lap-score-lbl">Kepatuhan</div>
               <div class="lap-score-formula">Bobot 30%</div>
               <div class="final-big" id="kd-f-kep">&mdash;</div>
