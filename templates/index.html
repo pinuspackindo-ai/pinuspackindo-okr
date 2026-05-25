@@ -1151,28 +1151,28 @@ tbody tr:hover td{background:var(--bg);}
                       letter-spacing:1.2px;text-align:center;margin-bottom:12px;">
             Score Akhir — Kepatuhan &amp; Kedisiplinan
           </div>
-          <div class="lap-score-grid">
-            <div class="lap-score-box">
+          <div class="final-score-wrap">
+            <div class="final-score-item">
               <div class="lap-score-lbl">Absensi</div>
               <div class="lap-score-formula">Bobot 40%</div>
-              <div class="final-big" id="kd-f-abs" style="font-size:1.9rem;">—</div>
+              <div class="final-big" id="kd-f-abs">—</div>
             </div>
-            <div class="lap-score-box main">
+            <div class="final-score-item main">
               <div class="lap-score-lbl" style="color:var(--primary);">Score Total</div>
               <div class="lap-score-formula">(A&times;40%)+(K&times;30%)+(S&times;20%)</div>
-              <div class="final-big" id="kd-f-total" style="font-size:2.2rem;">—</div>
+              <div class="final-big" id="kd-f-total">—</div>
+              <div style="width:100%;margin-top:14px;">
+                <div class="progress-track"><div class="progress-fill" id="kd-bar" style="width:0%"></div></div>
+              </div>
+              <div style="font-size:11px;color:var(--text-m);margin-top:8px;">
+                Sanksi (20%): <span id="kd-f-snk" style="font-weight:700;color:var(--text);">—</span>
+              </div>
             </div>
-            <div class="lap-score-box">
+            <div class="final-score-item">
               <div class="lap-score-lbl">Kepatuhan</div>
               <div class="lap-score-formula">Bobot 30%</div>
-              <div class="final-big" id="kd-f-kep" style="font-size:1.9rem;">—</div>
+              <div class="final-big" id="kd-f-kep">—</div>
             </div>
-          </div>
-          <div class="lap-score-progress">
-            <div class="progress-track"><div class="progress-fill" id="kd-bar" style="width:0%"></div></div>
-          </div>
-          <div style="text-align:center;margin-top:6px;font-size:12px;color:var(--text-m);">
-            Sanksi (Bobot 20%): <span id="kd-f-snk" style="font-weight:700;color:var(--text);">—</span>
           </div>
           <div class="divider" style="margin-top:12px;"></div>
         </div>
