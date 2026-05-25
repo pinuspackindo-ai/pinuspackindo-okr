@@ -1215,34 +1215,28 @@ tbody tr:hover td{background:var(--bg);}
         <!-- ── 2. KEPATUHAN ── -->
         <div class="lap-section-title">2. Kepatuhan <span class="kd-bobot-badge">Bobot 30%</span></div>
         <div style="font-size:12px;color:var(--text-m);margin-bottom:12px;line-height:1.6;">
-          Ketidaksesuaian SOP terutama <strong>grooming</strong> dan <strong>dresscode</strong>.
-          Jika 1 hari ada beberapa pelanggar, tetap dihitung <strong>1 hari</strong>.
+          Ketidaksesuaian SOP terutama grooming dan dresscode. Jika 1 hari ada beberapa pelanggar, tetap dihitung <strong>1 hari</strong>.
         </div>
-        <div class="kd-hari-row">
-          <span class="kd-hari-lbl">Total Hari Aktif:</span>
-          <input class="ga-poin-input" type="number" id="kep-hari-aktif" min="1" max="31"
-                 placeholder="cth: 22" style="width:90px;" oninput="calcKepatuhan()">
-          <span style="font-size:12px;color:var(--text-m);">hari kerja bulan ini</span>
-        </div>
-
-        <div class="ga-poin-row">
-          <div class="ga-poin-info">
-            <span class="ga-poin-num">Ketidaksesuaian Grooming</span>
-            <span class="ga-poin-bobot">penampilan tidak standar</span>
+        <div class="ga-poin-row" style="margin-bottom:10px;">
+          <div class="ga-poin-info" style="min-width:200px;">
+            <span class="ga-poin-num">Total Hari Aktif</span>
+            <span class="ga-poin-bobot">hari kerja bulan ini</span>
           </div>
           <div class="ga-input-group" style="margin-left:auto;">
-            <label>Hari ada temuan:</label>
-            <input class="ga-poin-input" type="number" id="kep-tem-0" min="0" value="0" oninput="calcKepatuhan()">
+            <label>Hari:</label>
+            <input class="ga-poin-input" type="number" id="kep-hari-aktif" min="1" max="31"
+                   placeholder="22" style="width:80px;" oninput="calcKepatuhan()">
           </div>
         </div>
         <div class="ga-poin-row" style="margin-bottom:10px;">
-          <div class="ga-poin-info">
-            <span class="ga-poin-num">Ketidaksesuaian Dresscode</span>
-            <span class="ga-poin-bobot">seragam tidak sesuai</span>
+          <div class="ga-poin-info" style="min-width:200px;">
+            <span class="ga-poin-num">Hari Ada Pelanggaran</span>
+            <span class="ga-poin-bobot">grooming / dresscode / SOP lainnya</span>
           </div>
           <div class="ga-input-group" style="margin-left:auto;">
-            <label>Hari ada temuan:</label>
-            <input class="ga-poin-input" type="number" id="kep-tem-1" min="0" value="0" oninput="calcKepatuhan()">
+            <label>Hari:</label>
+            <input class="ga-poin-input" type="number" id="kep-hari-temuan" min="0" value="0"
+                   style="width:80px;" oninput="calcKepatuhan()">
           </div>
         </div>
         <div class="kd-score-display" id="kep-score-row" style="display:none;">
@@ -1753,10 +1747,7 @@ let _kd_snk_score=100;
 function calcAbsensi(){
   const aktif=Math.max(0,parseInt(document.getElementById('abs-hari-aktif').value)||0);
   if(aktif<=0){_kd_abs_score=null;document.getElementById('abs-score-row').style.display='none';_tryKdFinal();return;}
-  const t0=Math.max(0,parseInt(document.getElementById('abs-tem-0').value)||0);
-  const t1=Math.max(0,parseInt(document.getElementById('abs-tem-1').value)||0);
-  const t2=Math.max(0,parseInt(document.getElementById('abs-tem-2').value)||0);
-  const totalPel=Math.min(aktif,t0+t1+t2);
+  const totalPel=Math.min(aktif,Math.max(0,parseInt(document.getElementById('abs-hari-temuan').value)||0));
   const score=(aktif-totalPel)/aktif*100;
   _kd_abs_score=score;
   const el=document.getElementById('abs-score-val');
@@ -1770,9 +1761,7 @@ function calcAbsensi(){
 function calcKepatuhan(){
   const aktif=Math.max(0,parseInt(document.getElementById('kep-hari-aktif').value)||0);
   if(aktif<=0){_kd_kep_score=null;document.getElementById('kep-score-row').style.display='none';_tryKdFinal();return;}
-  const t0=Math.max(0,parseInt(document.getElementById('kep-tem-0').value)||0);
-  const t1=Math.max(0,parseInt(document.getElementById('kep-tem-1').value)||0);
-  const totalPel=Math.min(aktif,t0+t1);
+  const totalPel=Math.min(aktif,Math.max(0,parseInt(document.getElementById('kep-hari-temuan').value)||0));
   const score=(aktif-totalPel)/aktif*100;
   _kd_kep_score=score;
   const el=document.getElementById('kep-score-val');
@@ -1804,8 +1793,9 @@ function _tryKdFinal(){
   document.getElementById('kd-f-abs').className='final-big '+scoreClass(_kd_abs_score);
   document.getElementById('kd-f-kep').textContent=_kd_kep_score.toFixed(1)+'%';
   document.getElementById('kd-f-kep').className='final-big '+scoreClass(_kd_kep_score);
-  document.getElementById('kd-f-snk').textContent=_kd_snk_score.toFixed(1)+'%';
-  document.getElementById('kd-f-snk').className='final-big '+scoreClass(_kd_snk_score);
+  const snkEl=document.getElementById('kd-f-snk');
+  snkEl.textContent=_kd_snk_score.toFixed(1)+'%';
+  snkEl.style.color=_kd_snk_score>=80?'var(--success)':_kd_snk_score>=50?'var(--warning)':'var(--danger)';
   document.getElementById('kd-f-total').textContent=fin.toFixed(1)+'%';
   document.getElementById('kd-f-total').className='final-big '+cls;
   document.getElementById('kd-bar').style.width=fin.toFixed(1)+'%';
