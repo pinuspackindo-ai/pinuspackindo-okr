@@ -1077,6 +1077,88 @@ tbody tr:hover td{background:var(--bg);}
       </div>
     </div><!-- /panel-kedisiplinan -->
 
+    <!-- ═══════════════ PANEL SAVING COST ═══════════════ -->
+    <div id="panel-saving" class="panel">
+      <div class="module-info">
+        <div class="module-info-icon">&#x1F4B0;</div>
+        <div>
+          <div class="module-info-title">Analisa Saving Cost</div>
+          <div class="module-info-text">Mengukur seberapa banyak item pembelian yang berhasil mendapat saving cost. Score = Item Saving &divide; Total Item &times; 100%.</div>
+        </div>
+      </div>
+
+      <div class="card">
+        <div class="card-title">&#9733; Saving Cost</div>
+
+        <!-- SCORE AKHIR -->
+        <div id="sv-final-wrap" style="display:none;" class="anim">
+          <div style="font-size:11px;font-weight:600;color:var(--text-m);text-transform:uppercase;
+                      letter-spacing:1.2px;text-align:center;margin-bottom:16px;">
+            Score Akhir &mdash; Saving Cost
+          </div>
+          <div style="display:flex;flex-direction:row;gap:10px;margin-bottom:20px;align-items:flex-start;width:100%;">
+            <div style="flex:1;background:var(--bg);border-radius:var(--radius);border:1px solid var(--border);padding:14px 10px;text-align:center;display:flex;flex-direction:column;align-items:center;gap:5px;">
+              <div class="lap-score-lbl">Total Item</div>
+              <div class="lap-score-formula">Pembelian bulan ini</div>
+              <div class="final-big" id="sv-f-total" style="font-size:2rem;">—</div>
+              <div style="font-size:11px;color:var(--text-m);">item</div>
+            </div>
+            <div style="flex:1;background:var(--bg2);border:2px solid var(--primary);border-radius:var(--radius);box-shadow:0 0 0 4px var(--primary-l);padding:16px 12px;text-align:center;display:flex;flex-direction:column;align-items:center;gap:5px;">
+              <div class="lap-score-lbl" style="color:var(--primary);">Score Saving</div>
+              <div class="lap-score-formula">Item Saving &divide; Total Item</div>
+              <div class="final-big" id="sv-f-score" style="font-size:2.4rem;">—</div>
+              <div style="width:100%;margin-top:10px;">
+                <div class="progress-track"><div class="progress-fill" id="sv-bar" style="width:0%"></div></div>
+              </div>
+            </div>
+            <div style="flex:1;background:var(--bg);border-radius:var(--radius);border:1px solid var(--border);padding:14px 10px;text-align:center;display:flex;flex-direction:column;align-items:center;gap:5px;">
+              <div class="lap-score-lbl">Item Saving</div>
+              <div class="lap-score-formula">Berhasil saving cost</div>
+              <div class="final-big" id="sv-f-saving" style="font-size:2rem;">—</div>
+              <div style="font-size:11px;color:var(--text-m);">item</div>
+            </div>
+          </div>
+          <div class="divider" style="margin-top:4px;"></div>
+        </div>
+
+        <!-- INPUT -->
+        <div class="lap-section-title">Input Data</div>
+
+        <div class="ga-poin-row" style="margin-bottom:12px;">
+          <div class="ga-poin-info" style="min-width:220px;">
+            <span class="ga-poin-num">Total Item Pembelian</span>
+            <span class="ga-poin-bobot">jumlah item yang dibeli bulan ini</span>
+          </div>
+          <div class="ga-input-group" style="margin-left:auto;">
+            <label>Item:</label>
+            <input class="ga-poin-input" type="number" id="sv-total" min="0" value="0"
+              style="width:90px;" oninput="calcSaving()">
+          </div>
+        </div>
+
+        <div class="ga-poin-row" style="margin-bottom:12px;">
+          <div class="ga-poin-info" style="min-width:220px;">
+            <span class="ga-poin-num">Item Berhasil Saving Cost</span>
+            <span class="ga-poin-bobot">item yang mendapat harga lebih murah dari referensi</span>
+          </div>
+          <div class="ga-input-group" style="margin-left:auto;">
+            <label>Item:</label>
+            <input class="ga-poin-input" type="number" id="sv-saving" min="0" value="0"
+              style="width:90px;" oninput="calcSaving()">
+          </div>
+        </div>
+
+        <!-- RESULT INLINE -->
+        <div id="sv-result-row" style="display:none;align-items:center;gap:14px;margin:12px 0 4px;
+             padding:10px 16px;background:var(--bg);border-radius:var(--radius-sm);">
+          <span style="font-size:13px;font-weight:600;color:var(--text);">Score Saving Cost:</span>
+          <span class="score-num good" id="sv-inline-val" style="font-size:1.4rem;">—</span>
+          <span style="font-size:12px;color:var(--text-m);" id="sv-inline-desc">—</span>
+        </div>
+
+      </div>
+    </div><!-- /panel-saving -->
+
   </div>
 </main>
 
@@ -1128,7 +1210,8 @@ const panelTitles={
   po:'Analisa PO',
   penerimaan:'Analisa Kualitas Penerimaan',
   laporan:'Analisa Akurasi dan Ontime Laporan',
-  kedisiplinan:'Analisa Kepatuhan & Kedisiplinan'
+  kedisiplinan:'Analisa Kepatuhan & Kedisiplinan',
+  saving:'Analisa Saving Cost'
 };
 var _lapCurrentDiv='fa';
 function showPanel(name,btn){
@@ -1750,6 +1833,38 @@ function _tryKdFinal(){
   document.getElementById('kd-bar').style.width=fin.toFixed(1)+'%';
   document.getElementById('kd-bar').className='progress-fill '+cls;
   document.getElementById('kd-final-wrap').style.display='block';
+}
+
+// ─── SAVING COST ───
+function calcSaving(){
+  var total=Math.max(0,parseInt(document.getElementById('sv-total').value)||0);
+  var saving=Math.max(0,parseInt(document.getElementById('sv-saving').value)||0);
+  saving=Math.min(saving,total);
+
+  if(total===0){
+    document.getElementById('sv-final-wrap').style.display='none';
+    document.getElementById('sv-result-row').style.display='none';
+    return;
+  }
+
+  var score=saving/total*100;
+  var cls=scoreClass(score);
+
+  // score akhir boxes
+  document.getElementById('sv-f-total').textContent=total;
+  document.getElementById('sv-f-saving').textContent=saving;
+  document.getElementById('sv-f-score').textContent=score.toFixed(1)+'%';
+  document.getElementById('sv-f-score').className='final-big '+cls;
+  document.getElementById('sv-bar').style.width=score.toFixed(1)+'%';
+  document.getElementById('sv-bar').className='progress-fill '+cls;
+  document.getElementById('sv-final-wrap').style.display='block';
+
+  // inline result row
+  var el=document.getElementById('sv-inline-val');
+  el.textContent=score.toFixed(1)+'%';
+  el.className='score-num '+cls;
+  document.getElementById('sv-inline-desc').textContent=saving+' dari '+total+' item berhasil saving';
+  document.getElementById('sv-result-row').style.display='flex';
 }
 </script>
 </body>
