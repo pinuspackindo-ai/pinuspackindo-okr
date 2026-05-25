@@ -976,43 +976,28 @@ tbody tr:hover td{background:var(--bg);}
         <!-- 1. ABSENSI -->
         <div class="lap-section-title">1. Absensi <span class="kd-bobot-badge">Bobot 40%</span></div>
         <div style="font-size:12px;color:var(--text-m);margin-bottom:12px;line-height:1.6;">
-          Masukkan total hari aktif dan jumlah <strong>hari</strong> ada temuan per kategori.
-          Jika 1 hari ada beberapa pelanggar, tetap dihitung <strong>1 hari</strong>.
+          Keterlambatan, tidak hadir, dan perizinan tidak sesuai SOP. Jika 1 hari ada beberapa pelanggar, tetap dihitung <strong>1 hari</strong>.
         </div>
-        <div class="kd-hari-row">
-          <span class="kd-hari-lbl">Total Hari Aktif:</span>
-          <input class="ga-poin-input" type="number" id="abs-hari-aktif" min="1" max="31"
-                 placeholder="cth: 22" style="width:90px;" oninput="calcAbsensi()">
-          <span style="font-size:12px;color:var(--text-m);">hari kerja bulan ini</span>
-        </div>
-        <div class="ga-poin-row">
-          <div class="ga-poin-info">
-            <span class="ga-poin-num">Keterlambatan</span>
-            <span class="ga-poin-bobot">masuk terlambat</span>
+        <div class="ga-poin-row" style="margin-bottom:10px;">
+          <div class="ga-poin-info" style="min-width:200px;">
+            <span class="ga-poin-num">Total Hari Aktif</span>
+            <span class="ga-poin-bobot">hari kerja bulan ini</span>
           </div>
           <div class="ga-input-group" style="margin-left:auto;">
-            <label>Hari ada temuan:</label>
-            <input class="ga-poin-input" type="number" id="abs-tem-0" min="0" value="0" oninput="calcAbsensi()">
-          </div>
-        </div>
-        <div class="ga-poin-row">
-          <div class="ga-poin-info">
-            <span class="ga-poin-num">Absen Tidak Hadir</span>
-            <span class="ga-poin-bobot">tanpa ket / izin</span>
-          </div>
-          <div class="ga-input-group" style="margin-left:auto;">
-            <label>Hari ada temuan:</label>
-            <input class="ga-poin-input" type="number" id="abs-tem-1" min="0" value="0" oninput="calcAbsensi()">
+            <label>Hari:</label>
+            <input class="ga-poin-input" type="number" id="abs-hari-aktif" min="1" max="31"
+                   placeholder="22" style="width:80px;" oninput="calcAbsensi()">
           </div>
         </div>
         <div class="ga-poin-row" style="margin-bottom:10px;">
-          <div class="ga-poin-info">
-            <span class="ga-poin-num">Perizinan Tidak Sesuai SOP</span>
-            <span class="ga-poin-bobot">izin tidak prosedural</span>
+          <div class="ga-poin-info" style="min-width:200px;">
+            <span class="ga-poin-num">Hari Ada Pelanggaran</span>
+            <span class="ga-poin-bobot">keterlambatan / absen / izin tidak SOP</span>
           </div>
           <div class="ga-input-group" style="margin-left:auto;">
-            <label>Hari ada temuan:</label>
-            <input class="ga-poin-input" type="number" id="abs-tem-2" min="0" value="0" oninput="calcAbsensi()">
+            <label>Hari:</label>
+            <input class="ga-poin-input" type="number" id="abs-hari-temuan" min="0" value="0"
+                   style="width:80px;" oninput="calcAbsensi()">
           </div>
         </div>
         <div class="kd-score-display" id="abs-score-row" style="display:none;">
@@ -1026,33 +1011,28 @@ tbody tr:hover td{background:var(--bg);}
         <!-- 2. KEPATUHAN -->
         <div class="lap-section-title">2. Kepatuhan <span class="kd-bobot-badge">Bobot 30%</span></div>
         <div style="font-size:12px;color:var(--text-m);margin-bottom:12px;line-height:1.6;">
-          Ketidaksesuaian SOP terutama <strong>grooming</strong> dan <strong>dresscode</strong>.
-          Jika 1 hari ada beberapa pelanggar, tetap dihitung <strong>1 hari</strong>.
+          Ketidaksesuaian SOP terutama grooming dan dresscode. Jika 1 hari ada beberapa pelanggar, tetap dihitung <strong>1 hari</strong>.
         </div>
-        <div class="kd-hari-row">
-          <span class="kd-hari-lbl">Total Hari Aktif:</span>
-          <input class="ga-poin-input" type="number" id="kep-hari-aktif" min="1" max="31"
-                 placeholder="cth: 22" style="width:90px;" oninput="calcKepatuhan()">
-          <span style="font-size:12px;color:var(--text-m);">hari kerja bulan ini</span>
-        </div>
-        <div class="ga-poin-row">
-          <div class="ga-poin-info">
-            <span class="ga-poin-num">Ketidaksesuaian Grooming</span>
-            <span class="ga-poin-bobot">penampilan tidak standar</span>
+        <div class="ga-poin-row" style="margin-bottom:10px;">
+          <div class="ga-poin-info" style="min-width:200px;">
+            <span class="ga-poin-num">Total Hari Aktif</span>
+            <span class="ga-poin-bobot">hari kerja bulan ini</span>
           </div>
           <div class="ga-input-group" style="margin-left:auto;">
-            <label>Hari ada temuan:</label>
-            <input class="ga-poin-input" type="number" id="kep-tem-0" min="0" value="0" oninput="calcKepatuhan()">
+            <label>Hari:</label>
+            <input class="ga-poin-input" type="number" id="kep-hari-aktif" min="1" max="31"
+                   placeholder="22" style="width:80px;" oninput="calcKepatuhan()">
           </div>
         </div>
         <div class="ga-poin-row" style="margin-bottom:10px;">
-          <div class="ga-poin-info">
-            <span class="ga-poin-num">Ketidaksesuaian Dresscode</span>
-            <span class="ga-poin-bobot">seragam tidak sesuai</span>
+          <div class="ga-poin-info" style="min-width:200px;">
+            <span class="ga-poin-num">Hari Ada Pelanggaran</span>
+            <span class="ga-poin-bobot">grooming / dresscode / SOP lainnya</span>
           </div>
           <div class="ga-input-group" style="margin-left:auto;">
-            <label>Hari ada temuan:</label>
-            <input class="ga-poin-input" type="number" id="kep-tem-1" min="0" value="0" oninput="calcKepatuhan()">
+            <label>Hari:</label>
+            <input class="ga-poin-input" type="number" id="kep-hari-temuan" min="0" value="0"
+                   style="width:80px;" oninput="calcKepatuhan()">
           </div>
         </div>
         <div class="kd-score-display" id="kep-score-row" style="display:none;">
