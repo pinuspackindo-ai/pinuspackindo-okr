@@ -2247,12 +2247,14 @@ function okrDownloadTemplate(){
   XLSX.utils.book_append_sheet(wb,ws,'OKR Template');
   XLSX.writeFile(wb,'OKR_Template_Pinus.xlsx');
   notify('Template Excel berhasil diunduh ✓');
+  });
 }
 
 function okrProcessFile(e){
   var file=e.target.files[0];
   if(!file){ return; }
   e.target.value='';
+  okrEnsureXLSX(function(){
   var reader=new FileReader();
   reader.onload=function(ev){
     try{
@@ -2266,6 +2268,7 @@ function okrProcessFile(e){
     }
   };
   reader.readAsArrayBuffer(file);
+  });
 }
 
 function okrImportRows(rows){
