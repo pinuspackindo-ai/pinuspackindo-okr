@@ -358,7 +358,7 @@
       "actionPlan": "Drafting SOP ketidakhadiran"
     }
   },
-  "_ts": 1779902449138,
+  "_ts": 1779902451648,
   "_s_omzet_2026_05": {
     "value": 4000000000,
     "evidence": null,
@@ -395,51 +395,6 @@
         }
       ],
       "actionPlan": "Finalisasi DD, bizflow, SOP warehouse"
-    },
-    "HRD": {
-      "rows": [
-        {
-          "id": "r1779902428992k9uz",
-          "objective": "Membangun dan menjaga SDM yg kompeten, disiplin, produktif, inisiatif, guna mendukung perusahaan berkembang.",
-          "keyResult": "Tingkat kedisiplinan karyawan",
-          "target": 90,
-          "actual": null,
-          "bobot": 30
-        },
-        {
-          "id": "r1779902428992lcxm",
-          "objective": "Membangun dan menjaga SDM yg kompeten, disiplin, produktif, inisiatif, guna mendukung perusahaan berkembang.",
-          "keyResult": "Skor pencapaian KPI seluruh team",
-          "target": 85,
-          "actual": null,
-          "bobot": 25
-        },
-        {
-          "id": "r1779902428992a20e",
-          "objective": "Membangun dan menjaga SDM yg kompeten, disiplin, produktif, inisiatif, guna mendukung perusahaan berkembang.",
-          "keyResult": "Akurasi & ketepatan waktu administrasi HR",
-          "target": 95,
-          "actual": null,
-          "bobot": 20
-        },
-        {
-          "id": "r1779902428992uaoj",
-          "objective": "Membangun dan menjaga SDM yg kompeten, disiplin, produktif, inisiatif, guna mendukung perusahaan berkembang.",
-          "keyResult": "Ketepatan waktu rekrutment",
-          "target": 85,
-          "actual": null,
-          "bobot": 15
-        },
-        {
-          "id": "r17799024289926d3f",
-          "objective": "Membangun dan menjaga SDM yg kompeten, disiplin, produktif, inisiatif, guna mendukung perusahaan berkembang.",
-          "keyResult": "Skor kinerja karyawan baru",
-          "target": 85,
-          "actual": null,
-          "bobot": 10
-        }
-      ],
-      "actionPlan": "Drafting SOP ketidakhadiran"
     }
   }
 }
