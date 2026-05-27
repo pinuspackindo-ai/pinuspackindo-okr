@@ -2293,6 +2293,12 @@ function okrProcessFile(e){
 function okrImportRows(rows){
   if(!rows||rows.length===0){ alert('File Excel kosong atau tidak ada data.'); return; }
 
+  // Define locally — avoid any global-scope access issue inside FileReader callback
+  var _DIVISI = (typeof OKR_DIVISI !== 'undefined' && Array.isArray(OKR_DIVISI))
+    ? OKR_DIVISI
+    : ['Store','Distribution Sales','Warehouse','Inventory','Purchasing',
+       'Finance & Accounting','General Affair','HRD','Internal Audit'];
+
   var COL_ALIASES={
     divisi:['divisi','division','div'],
     bulan:['bulan','month','bln'],
@@ -2350,10 +2356,10 @@ function okrImportRows(rows){
     if(!keyResult){ skipped++; return; }
 
     // Normalize divisi — exact match dulu, lalu fuzzy (e.g. "General Affairs" → "General Affair")
-    var divisiMatch=OKR_DIVISI.filter(function(d){ return d.toLowerCase()===divisi.toLowerCase(); })[0];
+    var divisiMatch=_DIVISI.filter(function(d){ return d.toLowerCase()===divisi.toLowerCase(); })[0];
     if(!divisiMatch){
       var vl=divisi.toLowerCase();
-      divisiMatch=OKR_DIVISI.filter(function(d){
+      divisiMatch=_DIVISI.filter(function(d){
         var dl=d.toLowerCase();
         return vl.indexOf(dl)>=0||dl.indexOf(vl)>=0;
       })[0];
