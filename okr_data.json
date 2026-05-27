@@ -358,7 +358,7 @@
       "actionPlan": "Drafting SOP ketidakhadiran"
     }
   },
-  "_ts": 1779902443168,
+  "_ts": 1779902445927,
   "_s_omzet_2026_05": {
     "value": 4000000000,
     "evidence": null,
@@ -395,51 +395,6 @@
         }
       ],
       "actionPlan": "Kaji ulang cctv warehouse"
-    },
-    "Finance & Accounting": {
-      "rows": [
-        {
-          "id": "r1779902428992dpe7",
-          "objective": "Data dan fisik uang akurat, transaksi tepat dan on time.",
-          "keyResult": "Tingkat keberhasilan penagihan piutang",
-          "target": 95,
-          "actual": null,
-          "bobot": 30
-        },
-        {
-          "id": "r17799024289929dqw",
-          "objective": "Data dan fisik uang akurat, transaksi tepat dan on time.",
-          "keyResult": "Payment akurat dan on time",
-          "target": 98,
-          "actual": null,
-          "bobot": 25
-        },
-        {
-          "id": "r1779902428992v0ap",
-          "objective": "Data dan fisik uang akurat, transaksi tepat dan on time.",
-          "keyResult": "Tingkat akurasi uang fisik dan data",
-          "target": 98,
-          "actual": null,
-          "bobot": 20
-        },
-        {
-          "id": "r1779902428992yau2",
-          "objective": "Data dan fisik uang akurat, transaksi tepat dan on time.",
-          "keyResult": "Laporan keuangan akurat dan on time",
-          "target": 98,
-          "actual": null,
-          "bobot": 15
-        },
-        {
-          "id": "r1779902428992j5nm",
-          "objective": "Data dan fisik uang akurat, transaksi tepat dan on time.",
-          "keyResult": "Tingkat implementasi rekomendasi audit",
-          "target": 100,
-          "actual": null,
-          "bobot": 10
-        }
-      ],
-      "actionPlan": "Planning investasi"
     },
     "Internal Audit": {
       "rows": [
