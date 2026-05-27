@@ -6,6 +6,19 @@ from datetime import datetime
 import uuid
 import os
 import json
+import base64
+import threading
+import urllib.request
+import urllib.error
+
+# ─── GITHUB CONFIG ──────────────────────────────────────────────────────────
+# Isi GITHUB_TOKEN dan GITHUB_REPO sekali, lalu restart Flask.
+# Data OKR akan otomatis terpush ke GitHub setiap kali disimpan.
+GITHUB_TOKEN  = ''             # Personal Access Token (Settings → Developer → Fine-grained / Classic, scope: repo)
+GITHUB_REPO   = ''             # Format: "username/nama-repo"   contoh: "budi/pinus-okr"
+GITHUB_BRANCH = 'main'         # Branch aktif (biasanya main atau master)
+GITHUB_FILE   = 'okr_data.json'  # Path file di dalam repo (jangan diubah)
+# ────────────────────────────────────────────────────────────────────────────
 
 app = Flask(__name__)
 app.secret_key = 'pinus_packindo_secret_2025'
