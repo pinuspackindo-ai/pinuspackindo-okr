@@ -1634,6 +1634,7 @@ function showPanel(name,btn){
   document.getElementById('topbar-title').textContent=panelTitles[name]||name;
   document.getElementById('lap-subnav').style.display=name==='laporan'?'block':'none';
   if(name==='laporan'){initLaporan();showLapDiv(_lapCurrentDiv,document.getElementById('nav-sub-'+_lapCurrentDiv));}
+  if(name==='store'){storeInit();}
 }
 function showLapDiv(div,btn){
   _lapCurrentDiv=div;

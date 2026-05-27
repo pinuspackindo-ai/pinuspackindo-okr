@@ -259,6 +259,13 @@ tbody tr:hover td{background:var(--bg);}
 .notify.error{background:var(--danger);}
 .notify.hidden{opacity:0;pointer-events:none;}
 
+/* ── STORE MODULE ── */
+.store-tabs{display:flex;gap:2px;margin-bottom:20px;border-bottom:2px solid var(--border);padding-bottom:0;flex-wrap:wrap;}
+.store-tab{background:none;border:none;border-bottom:3px solid transparent;padding:9px 16px;cursor:pointer;font-family:var(--font);font-size:13px;font-weight:600;color:var(--text-m);margin-bottom:-2px;transition:color .15s,border-color .15s;}
+.store-tab:hover{color:var(--text);}
+.store-tab.active{color:var(--primary);border-bottom-color:var(--primary);}
+.store-year-sel{padding:5px 10px;border:1.5px solid var(--border);border-radius:var(--radius-sm);font-family:var(--font);font-size:13px;background:var(--bg2);color:var(--text);cursor:pointer;}
+
 /* ── OKR DASHBOARD ── */
 .okr-table{width:100%;border-collapse:collapse;font-size:13px;}
 .okr-table th{background:var(--bg);padding:9px 12px;text-align:left;font-size:10px;font-weight:700;color:var(--text-m);text-transform:uppercase;letter-spacing:.8px;border-bottom:2px solid var(--border);white-space:nowrap;}
@@ -357,6 +364,8 @@ tbody tr:hover td{background:var(--bg);}
   <nav class="sidebar-nav">
     <div class="nav-label">Utama</div>
     <button class="nav-item active" id="nav-dashboard" onclick="showPanel('dashboard',this)">&#x1F4CA; Dashboard OKR</button>
+    <div class="nav-label" style="margin-top:10px;">Modul Data</div>
+    <button class="nav-item" id="nav-store" onclick="showPanel('store',this)">&#x1F4E6; Store</button>
     <div class="nav-label" style="margin-top:10px;">Modul Analisa</div>
     <button class="nav-item" onclick="showPanel('instock',this)">Analisa Instock</button>
     <button class="nav-item" onclick="showPanel('po',this)">Analisa PO</button>
