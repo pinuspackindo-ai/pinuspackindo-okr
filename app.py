@@ -157,16 +157,21 @@ def okr_data_get():
             return jsonify(json.load(f))
     return jsonify({})
 
-@app.route('/api/okr', methods=['POST'])
-def okr_data_save():
-    """Save OKR data ke okr_data.json, lalu push ke GitHub secara otomatis."""
+@app.route('/api/okr', methods=['GET', 'POST'])
+def okr_api():
+    """GET: baca okr_data.json | POST: simpan + push ke GitHub."""
+    if request.method == 'GET':
+        if os.path.exists(OKR_DATA_PATH):
+            with open(OKR_DATA_PATH, 'r', encoding='utf-8') as f:
+                return jsonify(json.load(f))
+        return jsonify({})
+    # POST
     data = request.get_json(silent=True)
     if not isinstance(data, dict):
         return jsonify({'ok': False, 'msg': 'Invalid data'}), 400
     data_str = json.dumps(data, ensure_ascii=False, indent=2)
     with open(OKR_DATA_PATH, 'w', encoding='utf-8') as f:
         f.write(data_str)
-    # Push ke GitHub di background thread (non-blocking, tidak memperlambat response)
     if GITHUB_TOKEN and GITHUB_REPO:
         threading.Thread(target=_push_github_bg, args=(data_str,), daemon=True).start()
     return jsonify({'ok': True, 'github': bool(GITHUB_TOKEN and GITHUB_REPO)})
