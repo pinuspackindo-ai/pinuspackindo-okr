@@ -369,8 +369,10 @@ tbody tr:hover td{background:var(--bg);}
     <div class="logo-sub">Tools OKR Pinus</div>
   </div>
   <nav class="sidebar-nav">
-    <div class="nav-label">Modul</div>
-    <button class="nav-item active" onclick="showPanel('instock',this)">Analisa Instock</button>
+    <div class="nav-label">Utama</div>
+    <button class="nav-item active" id="nav-dashboard" onclick="showPanel('dashboard',this)">&#x1F4CA; Dashboard OKR</button>
+    <div class="nav-label" style="margin-top:10px;">Modul Analisa</div>
+    <button class="nav-item" onclick="showPanel('instock',this)">Analisa Instock</button>
     <button class="nav-item" onclick="showPanel('po',this)">Analisa PO</button>
     <button class="nav-item" onclick="showPanel('penerimaan',this)">Analisa Kualitas Penerimaan</button>
     <button class="nav-item" id="nav-laporan" onclick="showPanel('laporan',this)">Analisa Akurasi &amp; Ontime Laporan</button>
@@ -403,8 +405,24 @@ tbody tr:hover td{background:var(--bg);}
 
   <div class="content">
 
+    <!-- ═══════════════ PANEL DASHBOARD OKR ═══════════════ -->
+    <div id="panel-dashboard" class="panel active">
+      <div style="display:flex;align-items:center;justify-content:space-between;margin-bottom:20px;flex-wrap:wrap;gap:12px;">
+        <div style="display:flex;align-items:center;gap:8px;">
+          <button class="okr-month-btn" onclick="okrPrevMonth()">&#8249;</button>
+          <span id="okr-month-label" style="font-size:15px;font-weight:700;color:var(--text);min-width:150px;text-align:center;">—</span>
+          <button class="okr-month-btn" onclick="okrNextMonth()">&#8250;</button>
+        </div>
+        <div style="display:flex;gap:8px;flex-wrap:wrap;">
+          <button class="btn" style="background:var(--bg);border:1.5px solid var(--border);color:var(--text);padding:8px 16px;font-size:13px;" onclick="okrDuplicate()">&#x1F4CB; Duplicate Bulan Lalu</button>
+          <button class="btn btn-primary" style="padding:8px 20px;font-size:13px;" onclick="okrOpenNew()">+ New OKR</button>
+        </div>
+      </div>
+      <div id="okr-tables-wrap"></div>
+    </div>
+
     <!-- ════════ PANEL INSTOCK ════════ -->
-    <div id="panel-instock" class="panel active">
+    <div id="panel-instock" class="panel">
       <div class="module-info">
         <div class="module-info-icon">ℹ</div>
         <div>
