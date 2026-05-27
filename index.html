@@ -296,8 +296,10 @@ tbody tr:hover td{background:var(--bg);}
     <div class="logo-sub">Tools OKR Pinus</div>
   </div>
   <nav class="sidebar-nav">
-    <div class="nav-label">Modul</div>
-    <button class="nav-item active" onclick="showPanel('instock',this)">Analisa Instock</button>
+    <div class="nav-label">Utama</div>
+    <button class="nav-item active" id="nav-dashboard" onclick="showPanel('dashboard',this)">&#x1F4CA; Dashboard OKR</button>
+    <div class="nav-label" style="margin-top:10px;">Modul Analisa</div>
+    <button class="nav-item" onclick="showPanel('instock',this)">Analisa Instock</button>
     <button class="nav-item" onclick="showPanel('po',this)">Analisa PO</button>
     <button class="nav-item" onclick="showPanel('penerimaan',this)">Analisa Kualitas Penerimaan</button>
     <button class="nav-item" id="nav-laporan" onclick="showPanel('laporan',this)">Analisa Akurasi &amp; Ontime Laporan</button>
@@ -328,8 +330,26 @@ tbody tr:hover td{background:var(--bg);}
   </div>
   <div class="content">
 
+    <!-- ═══════════════ PANEL DASHBOARD OKR ═══════════════ -->
+    <div id="panel-dashboard" class="panel active">
+      <!-- Header: bulan nav + tombol aksi -->
+      <div style="display:flex;align-items:center;justify-content:space-between;margin-bottom:20px;flex-wrap:wrap;gap:12px;">
+        <div style="display:flex;align-items:center;gap:8px;">
+          <button class="okr-month-btn" onclick="okrPrevMonth()">&#8249;</button>
+          <span id="okr-month-label" style="font-size:15px;font-weight:700;color:var(--text);min-width:150px;text-align:center;">—</span>
+          <button class="okr-month-btn" onclick="okrNextMonth()">&#8250;</button>
+        </div>
+        <div style="display:flex;gap:8px;flex-wrap:wrap;">
+          <button class="btn" style="background:var(--bg);border:1.5px solid var(--border);color:var(--text);padding:8px 16px;font-size:13px;" onclick="okrDuplicate()">&#x1F4CB; Duplicate Bulan Lalu</button>
+          <button class="btn btn-primary" style="padding:8px 20px;font-size:13px;" onclick="okrOpenNew()">+ New OKR</button>
+        </div>
+      </div>
+      <!-- Tabel per divisi -->
+      <div id="okr-tables-wrap"></div>
+    </div>
+
     <!-- PANEL INSTOCK -->
-    <div id="panel-instock" class="panel active">
+    <div id="panel-instock" class="panel">
       <div class="module-info">
         <div class="module-info-icon">&#x2139;</div>
         <div>
@@ -1183,6 +1203,66 @@ tbody tr:hover td{background:var(--bg);}
   </div>
 </main>
 
+<!-- ═══ OKR MODAL ═══ -->
+<div class="okr-modal-overlay" id="okr-modal">
+  <div class="okr-modal-box">
+    <div style="display:flex;align-items:center;justify-content:space-between;margin-bottom:20px;">
+      <div style="font-size:16px;font-weight:700;color:var(--text);" id="okr-modal-title">New OKR</div>
+      <button onclick="okrCloseModal()" style="background:none;border:none;cursor:pointer;font-size:22px;color:var(--text-m);line-height:1;padding:0 4px;">&#x2715;</button>
+    </div>
+
+    <!-- Header fields -->
+    <div style="display:grid;grid-template-columns:1.4fr 1fr 0.7fr;gap:12px;margin-bottom:20px;padding-bottom:20px;border-bottom:1px solid var(--border);">
+      <div>
+        <label class="okr-lbl">Divisi</label>
+        <select class="okr-inp" id="okr-f-divisi">
+          <option value="">-- Pilih Divisi --</option>
+          <option>Store</option>
+          <option>Distribution Sales</option>
+          <option>Warehouse</option>
+          <option>Inventory</option>
+          <option>Purchasing</option>
+          <option>Finance &amp; Accounting</option>
+          <option>General Affair</option>
+          <option>HRD</option>
+          <option>Internal Audit</option>
+        </select>
+      </div>
+      <div>
+        <label class="okr-lbl">Bulan</label>
+        <select class="okr-inp" id="okr-f-bulan">
+          <option value="1">Januari</option><option value="2">Februari</option>
+          <option value="3">Maret</option><option value="4">April</option>
+          <option value="5">Mei</option><option value="6">Juni</option>
+          <option value="7">Juli</option><option value="8">Agustus</option>
+          <option value="9">September</option><option value="10">Oktober</option>
+          <option value="11">November</option><option value="12">Desember</option>
+        </select>
+      </div>
+      <div>
+        <label class="okr-lbl">Tahun</label>
+        <input class="okr-inp" type="number" id="okr-f-tahun" min="2020" max="2035">
+      </div>
+    </div>
+
+    <!-- Bobot warning -->
+    <div id="okr-bobot-warn" style="display:none;background:var(--warning-l);border:1px solid #fcd34d;border-radius:var(--radius-sm);padding:8px 14px;font-size:12px;color:#92400e;margin-bottom:12px;">
+      &#x26A0; Total bobot = <span id="okr-bobot-total">0</span>%. Sebaiknya total bobot = 100%.
+    </div>
+
+    <!-- Key Result rows -->
+    <div style="font-size:12px;font-weight:700;color:var(--text-m);text-transform:uppercase;letter-spacing:.8px;margin-bottom:10px;">Key Results</div>
+    <div id="okr-rows-wrap" style="max-height:380px;overflow-y:auto;padding-right:4px;"></div>
+    <button class="okr-add-btn" onclick="okrAddRow()">+ Tambah Key Result</button>
+
+    <!-- Footer actions -->
+    <div style="display:flex;justify-content:flex-end;gap:10px;padding-top:16px;border-top:1px solid var(--border);">
+      <button onclick="okrCloseModal()" style="background:var(--bg);border:1.5px solid var(--border);border-radius:var(--radius-sm);color:var(--text);padding:9px 20px;cursor:pointer;font-family:var(--font);font-size:13px;">Batal</button>
+      <button onclick="okrSave()" class="btn btn-primary" style="padding:9px 28px;">Simpan OKR</button>
+    </div>
+  </div>
+</div>
+
 <div class="notify hidden" id="notify"></div>
 
 <script>
@@ -1227,6 +1307,7 @@ function doLogout(){location.reload();}
 
 // ─── PANEL ───
 const panelTitles={
+  dashboard:'Dashboard OKR',
   instock:'Analisa Instock',
   po:'Analisa PO',
   penerimaan:'Analisa Kualitas Penerimaan',
