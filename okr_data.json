@@ -358,43 +358,12 @@
       "actionPlan": "Drafting SOP ketidakhadiran"
     }
   },
-  "_ts": 1779898963082,
+  "_ts": 1779898966129,
   "_s_omzet_2026_05": {
     "value": 4000000000,
     "evidence": null,
     "evidenceName": null,
     "savedAt": "2026-05-27T16:21:23.622Z",
     "locked": true
-  },
-  "2026-06": {
-    "Internal Audit": {
-      "rows": [
-        {
-          "id": "r1779898939051b7nb",
-          "objective": "Melindungi dan mengawasi sistem internal berbasis dari resiko yg timbul.",
-          "keyResult": "Tingkat implementasi rekomendasi audit",
-          "target": 100,
-          "actual": null,
-          "bobot": 45
-        },
-        {
-          "id": "r1779898939051iwmo",
-          "objective": "Melindungi dan mengawasi sistem internal berbasis dari resiko yg timbul.",
-          "keyResult": "Laporan audit akurat dan on time",
-          "target": 100,
-          "actual": null,
-          "bobot": 35
-        },
-        {
-          "id": "r1779898939051xu1u",
-          "objective": "Melindungi dan mengawasi sistem internal berbasis dari resiko yg timbul.",
-          "keyResult": "Jumlah inisiatif proaktif",
-          "target": 2,
-          "actual": null,
-          "bobot": 20
-        }
-      ],
-      "actionPlan": "Finalisasi DD, bizflow, SOP warehouse"
-    }
   }
 }
