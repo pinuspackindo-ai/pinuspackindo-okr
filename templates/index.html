@@ -1978,6 +1978,250 @@ function _tryKdFinal(){
   document.getElementById('kd-final-wrap').style.display='block';
 }
 
+// ══════════════════════════════════════
+// OKR DASHBOARD
+// ══════════════════════════════════════
+var OKR_STORE_KEY='pinus_okr_v1';
+var okrData={};
+var okrCurYear=new Date().getFullYear();
+var okrCurMonth=new Date().getMonth()+1;
+var okrModalMode='new';
+var okrEditDivisi=null;
+var _okrRowId=0;
+
+var OKR_DIVISI=['Store','Distribution Sales','Warehouse','Inventory','Purchasing',
+                'Finance & Accounting','General Affair','HRD','Internal Audit'];
+var OKR_BULAN=['Januari','Februari','Maret','April','Mei','Juni',
+               'Juli','Agustus','September','Oktober','November','Desember'];
+
+function okrLoad(){
+  try{okrData=JSON.parse(localStorage.getItem(OKR_STORE_KEY)||'{}');}catch(e){okrData={};}
+}
+function okrSaveLS(){localStorage.setItem(OKR_STORE_KEY,JSON.stringify(okrData));}
+function okrKey(){return okrCurYear+'-'+String(okrCurMonth).padStart(2,'0');}
+function okrKeyOf(y,m){return y+'-'+String(m).padStart(2,'0');}
+
+function okrInit(){
+  okrLoad();
+  document.getElementById('okr-f-tahun').value=okrCurYear;
+  document.getElementById('okr-f-bulan').value=okrCurMonth;
+  okrRender();
+}
+
+function okrPrevMonth(){
+  okrCurMonth--;if(okrCurMonth<1){okrCurMonth=12;okrCurYear--;}okrRender();
+}
+function okrNextMonth(){
+  okrCurMonth++;if(okrCurMonth>12){okrCurMonth=1;okrCurYear++;}okrRender();
+}
+
+function okrRender(){
+  document.getElementById('okr-month-label').textContent=OKR_BULAN[okrCurMonth-1]+' '+okrCurYear;
+  var key=okrKey();
+  var monthData=okrData[key]||{};
+  var wrap=document.getElementById('okr-tables-wrap');
+  if(!wrap)return;
+  var hasDivisi=OKR_DIVISI.some(function(d){return monthData[d]&&monthData[d].length>0;});
+  if(!hasDivisi){
+    wrap.innerHTML='<div class="empty"><p>Belum ada OKR '+OKR_BULAN[okrCurMonth-1]+' '+okrCurYear+'</p><span>Klik &ldquo;+ New OKR&rdquo; untuk membuat, atau &ldquo;Duplicate Bulan Lalu&rdquo; jika poin sama.</span></div>';
+    return;
+  }
+  var html='';
+  OKR_DIVISI.forEach(function(div){
+    var rows=monthData[div];
+    if(!rows||rows.length===0)return;
+    html+='<div class="card" style="margin-bottom:16px;padding:16px 20px;">';
+    html+='<div class="card-title" style="justify-content:space-between;margin-bottom:14px;">';
+    html+='<span>&#9733; '+div+'</span>';
+    html+='<button style="background:var(--bg);border:1.5px solid var(--border);border-radius:var(--radius-sm);padding:5px 14px;cursor:pointer;font-size:12px;font-family:var(--font);color:var(--text);" onclick="okrOpenEdit(\''+okrEsc(div)+'\')">&#x270F;&#xFE0F; Edit OKR</button>';
+    html+='</div>';
+    html+='<div style="overflow-x:auto;"><table class="okr-table"><thead><tr>';
+    html+='<th style="width:30px;">No</th><th style="min-width:160px;">Objective</th><th style="min-width:180px;">Key Result</th>';
+    html+='<th style="width:70px;text-align:right;">Target</th><th style="width:70px;text-align:right;">Actual</th>';
+    html+='<th style="width:65px;text-align:center;">Bobot</th><th style="width:70px;text-align:center;">Score</th>';
+    html+='<th style="min-width:180px;">Action Plan</th>';
+    html+='</tr></thead><tbody>';
+    var scoreAkhir=0;var anyNull=false;
+    rows.forEach(function(row,i){
+      var scoreVal=null;var scoreStr='—';
+      if(row.actual!==null&&row.actual!==undefined&&row.actual!==''&&row.target>0){
+        scoreVal=Math.min((parseFloat(row.actual)/parseFloat(row.target))*parseFloat(row.bobot),parseFloat(row.bobot));
+        scoreStr=scoreVal.toFixed(1);scoreAkhir+=scoreVal;
+      }else{anyNull=true;}
+      var pct=row.target>0&&row.actual!=null&&row.actual!==''?(parseFloat(row.actual)/parseFloat(row.target)*100):0;
+      var scoreColor=scoreVal!==null?(pct>=80?'var(--success)':pct>=50?'var(--warning)':'var(--danger)'):'var(--text-l)';
+      html+='<tr>';
+      html+='<td style="text-align:center;color:var(--text-l);font-size:12px;">'+(i+1)+'</td>';
+      html+='<td>'+okrEsc(row.objective||'')+'</td>';
+      html+='<td>'+okrEsc(row.keyResult||'')+'</td>';
+      html+='<td style="text-align:right;font-variant-numeric:tabular-nums;">'+okrFmt(row.target)+'</td>';
+      html+='<td style="text-align:right;font-variant-numeric:tabular-nums;color:var(--text-m);">'+(row.actual!==null&&row.actual!==undefined&&row.actual!==''?okrFmt(row.actual):'<span style="color:var(--text-l);">—</span>')+'</td>';
+      html+='<td style="text-align:center;">'+(row.bobot||0)+'%</td>';
+      html+='<td style="text-align:center;font-weight:700;color:'+scoreColor+';">'+scoreStr+'</td>';
+      html+='<td style="font-size:12px;color:var(--text-m);">'+okrEsc(row.actionPlan||'')+'</td>';
+      html+='</tr>';
+    });
+    var saStr=anyNull?'—':scoreAkhir.toFixed(1);
+    var saCls=!anyNull?(scoreAkhir>=80?'color:var(--success)':scoreAkhir>=50?'color:var(--warning)':'color:var(--danger)'):'';
+    html+='<tr class="okr-score-akhir">';
+    html+='<td colspan="6" style="text-align:right;font-size:12px;letter-spacing:.5px;padding-right:16px;">SCORE AKHIR</td>';
+    html+='<td style="text-align:center;font-size:1.05rem;'+saCls+'">'+saStr+'</td><td></td>';
+    html+='</tr>';
+    html+='</tbody></table></div></div>';
+  });
+  wrap.innerHTML=html||'<div class="empty"><p>Belum ada data.</p></div>';
+}
+
+function okrEsc(s){return String(s).replace(/&/g,'&amp;').replace(/</g,'&lt;').replace(/>/g,'&gt;').replace(/"/g,'&quot;');}
+function okrFmt(n){var x=parseFloat(n);return isNaN(x)?'—':x%1===0?x.toString():x.toFixed(2);}
+
+function okrDuplicate(){
+  var pm=okrCurMonth-1;var py=okrCurYear;
+  if(pm<1){pm=12;py--;}
+  var prevKey=okrKeyOf(py,pm);
+  var prevData=okrData[prevKey];
+  if(!prevData||Object.keys(prevData).length===0){notify('Tidak ada OKR di '+OKR_BULAN[pm-1]+' '+py+'.','error');return;}
+  var curKey=okrKey();
+  var hasCur=okrData[curKey]&&Object.keys(okrData[curKey]||{}).length>0;
+  if(hasCur){if(!confirm('OKR bulan ini sudah ada. Divisi yang belum ada akan ditambahkan. Lanjutkan?'))return;}
+  if(!okrData[curKey])okrData[curKey]={};
+  var count=0;
+  Object.keys(prevData).forEach(function(div){
+    if(!okrData[curKey][div]){
+      okrData[curKey][div]=prevData[div].map(function(row){
+        return{id:'r'+Date.now()+Math.random().toString(36).substr(2,4),
+          objective:row.objective,keyResult:row.keyResult,
+          target:row.target,actual:null,bobot:row.bobot,actionPlan:row.actionPlan};
+      });count++;
+    }
+  });
+  okrSaveLS();okrRender();
+  notify(count+' divisi berhasil diduplikasi dari '+OKR_BULAN[pm-1]+' '+py+' ✓');
+}
+
+function okrOpenNew(){
+  okrModalMode='new';okrEditDivisi=null;
+  document.getElementById('okr-modal-title').textContent='New OKR';
+  document.getElementById('okr-f-divisi').disabled=false;
+  document.getElementById('okr-f-bulan').disabled=false;
+  document.getElementById('okr-f-tahun').disabled=false;
+  document.getElementById('okr-f-divisi').value='';
+  document.getElementById('okr-f-bulan').value=okrCurMonth;
+  document.getElementById('okr-f-tahun').value=okrCurYear;
+  _okrRowId=0;document.getElementById('okr-rows-wrap').innerHTML='';
+  okrAddRow();
+  document.getElementById('okr-bobot-warn').style.display='none';
+  document.getElementById('okr-modal').classList.add('open');
+}
+
+function okrOpenEdit(div){
+  okrModalMode='edit';okrEditDivisi=div;
+  document.getElementById('okr-modal-title').textContent='Edit OKR — '+div;
+  document.getElementById('okr-f-divisi').disabled=true;
+  document.getElementById('okr-f-bulan').disabled=true;
+  document.getElementById('okr-f-tahun').disabled=true;
+  document.getElementById('okr-f-divisi').value=div;
+  document.getElementById('okr-f-bulan').value=okrCurMonth;
+  document.getElementById('okr-f-tahun').value=okrCurYear;
+  _okrRowId=0;document.getElementById('okr-rows-wrap').innerHTML='';
+  var rows=(okrData[okrKey()]&&okrData[okrKey()][div])||[];
+  if(rows.length===0){okrAddRow();}else{rows.forEach(function(r){okrAddRow(r);});}
+  okrUpdateBobotWarn();
+  document.getElementById('okr-modal').classList.add('open');
+}
+
+function okrCloseModal(){
+  document.getElementById('okr-modal').classList.remove('open');
+  document.getElementById('okr-f-divisi').disabled=false;
+  document.getElementById('okr-f-bulan').disabled=false;
+  document.getElementById('okr-f-tahun').disabled=false;
+}
+
+function okrAddRow(data){
+  _okrRowId++;var id=_okrRowId;
+  var isNew=okrModalMode==='new';
+  var wrap=document.getElementById('okr-rows-wrap');
+  var div=document.createElement('div');
+  div.id='okr-row-'+id;div.className='okr-row-card';
+  var av=data&&data.actual!==null&&data.actual!==undefined&&data.actual!==''?data.actual:'';
+  div.innerHTML=
+    '<div style="display:flex;align-items:center;justify-content:space-between;margin-bottom:10px;">'+
+    '<span style="font-size:10px;font-weight:700;color:var(--text-m);text-transform:uppercase;letter-spacing:.8px;">Key Result '+id+'</span>'+
+    '<button onclick="okrDelRow('+id+')" style="background:none;border:none;cursor:pointer;font-size:12px;color:var(--danger);padding:2px 6px;font-family:var(--font);">&#x2715; Hapus</button>'+
+    '</div>'+
+    '<div style="display:grid;grid-template-columns:1fr 1fr;gap:10px;margin-bottom:10px;">'+
+    '<div><label class="okr-lbl">Objective</label><input class="okr-inp" type="text" id="okr-obj-'+id+'" placeholder="Tujuan utama..." value="'+(data&&data.objective?okrEsc(data.objective):'')+'"></div>'+
+    '<div><label class="okr-lbl">Key Result</label><input class="okr-inp" type="text" id="okr-kr-'+id+'" placeholder="Hasil yang terukur..." value="'+(data&&data.keyResult?okrEsc(data.keyResult):'')+'"></div>'+
+    '</div>'+
+    '<div style="display:grid;grid-template-columns:1fr 1fr 1fr 1fr;gap:10px;">'+
+    '<div><label class="okr-lbl">Target</label><input class="okr-inp" type="number" id="okr-target-'+id+'" placeholder="0" value="'+(data&&data.target!==undefined?data.target:'')+'"></div>'+
+    '<div><label class="okr-lbl">Bobot (%)</label><input class="okr-inp" type="number" id="okr-bobot-'+id+'" placeholder="0" min="0" max="100" oninput="okrUpdateBobotWarn()" value="'+(data&&data.bobot!==undefined?data.bobot:'')+'"></div>'+
+    '<div><label class="okr-lbl">Actual '+(isNew?'<span style="font-size:9px;font-weight:400;color:var(--text-l);">(otomatis)</span>':'')+'</label>'+
+    '<input class="okr-inp" type="number" id="okr-actual-'+id+'" placeholder="—" value="'+av+'" '+(isNew?'disabled title="Akan diisi otomatis dari modul lain"':'')+'></div>'+
+    '<div><label class="okr-lbl">Action Plan</label><input class="okr-inp" type="text" id="okr-ap-'+id+'" placeholder="Rencana aksi..." value="'+(data&&data.actionPlan?okrEsc(data.actionPlan):'')+'"></div>'+
+    '</div>';
+  wrap.appendChild(div);
+}
+
+function okrDelRow(id){
+  var el=document.getElementById('okr-row-'+id);
+  if(el){el.remove();okrUpdateBobotWarn();}
+}
+
+function okrUpdateBobotWarn(){
+  var rows=document.querySelectorAll('#okr-rows-wrap .okr-row-card');
+  var total=0;
+  rows.forEach(function(el){
+    var rowId=el.id.replace('okr-row-','');
+    var b=document.getElementById('okr-bobot-'+rowId);
+    if(b)total+=parseFloat(b.value)||0;
+  });
+  var warn=document.getElementById('okr-bobot-warn');
+  document.getElementById('okr-bobot-total').textContent=total;
+  warn.style.display=(total!==100&&total>0)?'block':'none';
+}
+
+function okrSave(){
+  var divisi=document.getElementById('okr-f-divisi').value;
+  var bulan=parseInt(document.getElementById('okr-f-bulan').value);
+  var tahun=parseInt(document.getElementById('okr-f-tahun').value);
+  if(!divisi){alert('Pilih divisi terlebih dahulu.');return;}
+  if(!bulan||!tahun){alert('Pilih bulan dan tahun.');return;}
+  var rowEls=document.querySelectorAll('#okr-rows-wrap .okr-row-card');
+  var rows=[];
+  rowEls.forEach(function(el){
+    var id=el.id.replace('okr-row-','');
+    var obj=document.getElementById('okr-obj-'+id);
+    var kr=document.getElementById('okr-kr-'+id);
+    var target=document.getElementById('okr-target-'+id);
+    var bobot=document.getElementById('okr-bobot-'+id);
+    var actual=document.getElementById('okr-actual-'+id);
+    var ap=document.getElementById('okr-ap-'+id);
+    if(!obj||(!obj.value.trim()&&!kr.value.trim()))return;
+    var av=actual&&actual.value!==''?parseFloat(actual.value):null;
+    rows.push({id:'r'+Date.now()+Math.random().toString(36).substr(2,4),
+      objective:obj.value.trim(),keyResult:kr.value.trim(),
+      target:parseFloat(target.value)||0,actual:av,
+      bobot:parseFloat(bobot.value)||0,actionPlan:ap?ap.value.trim():''});
+  });
+  if(rows.length===0){alert('Isi minimal 1 Key Result.');return;}
+  var key=okrKeyOf(tahun,bulan);
+  if(!okrData[key])okrData[key]={};
+  okrData[key][divisi]=rows;
+  okrSaveLS();
+  okrCurYear=tahun;okrCurMonth=bulan;
+  okrCloseModal();okrRender();
+  notify('OKR '+divisi+' berhasil disimpan ✓');
+}
+
+(function(){
+  var _orig=window.showPanel;
+  window.showPanel=function(name,btn){
+    _orig(name,btn);
+    if(name==='dashboard')okrRender();
+  };
+})();
+
 // ─── SAVING COST ───
 function calcSaving(){
   var total=Math.max(0,parseInt(document.getElementById('sv-total').value)||0);
