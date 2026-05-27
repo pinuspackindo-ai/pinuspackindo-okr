@@ -2457,10 +2457,12 @@ function okrRender(){
 
     // Action Plan divisi (di bawah tabel)
     if(ap){
-      html+='<div style="margin-top:12px;padding:10px 14px;background:var(--bg);border-radius:var(--radius-sm);border-left:3px solid var(--primary);">';
+      html+='<div style="margin:12px 20px 16px;padding:10px 14px;background:var(--bg);border-radius:var(--radius-sm);border-left:3px solid var(--primary);">';
       html+='<div style="font-size:10px;font-weight:700;color:var(--primary-d);text-transform:uppercase;letter-spacing:.8px;margin-bottom:4px;">Action Plan</div>';
       html+='<div style="font-size:13px;color:var(--text);white-space:pre-wrap;line-height:1.6;">'+okrEsc(ap)+'</div>';
       html+='</div>';
+    } else {
+      html+='<div style="height:14px;"></div>';
     }
 
     html+='</div>';
