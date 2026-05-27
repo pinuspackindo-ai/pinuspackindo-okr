@@ -1433,11 +1433,11 @@ function storeRender(){
   html+='<div style="overflow-x:auto;"><table class="okr-table" style="width:100%;">';
   html+='<thead><tr>';
   html+='<th style="width:36px;text-align:center;">No</th>';
-  html+='<th style="min-width:110px;">Bulan</th>';
-  html+='<th style="min-width:165px;text-align:right;">'+sub.desc+' ('+sub.unit+')</th>';
-  html+='<th style="width:115px;text-align:center;">OKR Actual</th>';
-  html+='<th style="width:130px;text-align:center;">Bukti Upload</th>';
-  html+='<th style="width:120px;text-align:center;">Aksi</th>';
+  html+='<th style="min-width:100px;">Bulan</th>';
+  html+='<th style="min-width:130px;">'+sub.desc+' ('+sub.unit+')</th>';
+  html+='<th style="width:110px;text-align:center;">OKR Actual</th>';
+  html+='<th style="width:110px;text-align:center;">Bukti Upload</th>';
+  html+='<th style="width:170px;text-align:center;">Aksi</th>';
   html+='</tr></thead><tbody>';
 
   for(var m=1;m<=12;m++){
@@ -1470,14 +1470,14 @@ function storeRender(){
 
     // Kolom nilai
     if(locked){
-      html+='<td style="text-align:right;font-weight:700;font-size:14px;color:var(--text);">'+storeFmt(d.value,sub.unit)+'</td>';
+      html+='<td style="font-weight:700;font-size:13px;color:var(--text);">'+storeFmt(d.value,sub.unit)+'</td>';
     } else {
       var step_=sub.unit==='Rp'?'1000':'0.01';
       var max_=sub.unit==='%'?'max="100"':'';
-      html+='<td style="text-align:right;">';
+      html+='<td>';
       html+='<input type="number" id="store-inp-'+m+'" min="0" '+max_+' step="'+step_+'" placeholder="0"';
       html+=(hasVal?' value="'+d.value+'"':'')+' ';
-      html+='style="width:100%;text-align:right;padding:5px 8px;border:1.5px solid var(--border);border-radius:var(--radius-sm);font-family:var(--font);font-size:13px;background:var(--bg2);color:var(--text);">';
+      html+='style="width:100%;padding:5px 8px;border:1.5px solid var(--border);border-radius:var(--radius-sm);font-family:var(--font);font-size:13px;background:var(--bg2);color:var(--text);">';
       html+='</td>';
     }
 
@@ -1502,12 +1502,16 @@ function storeRender(){
     // Aksi
     html+='<td style="text-align:center;">';
     if(locked){
-      html+='<div style="display:flex;flex-direction:column;align-items:center;gap:4px;">';
-      html+='<span style="font-size:11px;color:var(--text-l);">🔒 Tersimpan</span>';
-      html+='<button onclick="storeUnlock('+m+')" style="background:none;border:1px solid var(--border);color:var(--text-m);border-radius:var(--radius-sm);padding:3px 10px;cursor:pointer;font-size:11px;font-family:var(--font);">✏️ Edit</button>';
+      html+='<div style="display:flex;align-items:center;gap:5px;justify-content:center;">';
+      html+='<span style="font-size:12px;color:var(--text-l);" title="Tersimpan">🔒</span>';
+      html+='<button onclick="storeUnlock('+m+')" style="background:none;border:1px solid var(--border);color:var(--text-m);border-radius:var(--radius-sm);padding:4px 10px;cursor:pointer;font-size:11px;font-family:var(--font);">✏️ Edit</button>';
+      html+='<button onclick="storeDelete('+m+')" style="background:none;border:1.5px solid #fca5a5;color:#dc2626;border-radius:var(--radius-sm);padding:4px 8px;cursor:pointer;font-size:12px;font-family:var(--font);" title="Hapus data">🗑</button>';
       html+='</div>';
     } else {
-      html+='<button onclick="storeConfirmSave('+m+')" style="background:var(--primary);border:none;color:#fff;border-radius:var(--radius-sm);padding:6px 14px;cursor:pointer;font-size:12px;font-family:var(--font);font-weight:600;">💾 Simpan</button>';
+      html+='<div style="display:flex;align-items:center;gap:5px;justify-content:center;">';
+      html+='<button onclick="storeConfirmSave('+m+')" style="background:var(--primary);border:none;color:#fff;border-radius:var(--radius-sm);padding:5px 12px;cursor:pointer;font-size:12px;font-family:var(--font);font-weight:600;">💾 Simpan</button>';
+      html+='<button onclick="storeDelete('+m+')" style="background:none;border:1.5px solid #fca5a5;color:#dc2626;border-radius:var(--radius-sm);padding:5px 8px;cursor:pointer;font-size:12px;font-family:var(--font);" title="Hapus data">🗑</button>';
+      html+='</div>';
     }
     html+='</td></tr>';
   }
@@ -2399,9 +2403,10 @@ function okrRender(){
     rows.forEach(function(row,i){
       var scoreVal=null; var scoreStr='—';
       if(row.actual!==null&&row.actual!==undefined&&row.actual!==''&&row.target>0){
-        scoreVal=Math.min((parseFloat(row.actual)/parseFloat(row.target))*parseFloat(row.bobot), parseFloat(row.bobot));
+        var pct_ach=Math.min(parseFloat(row.actual)/parseFloat(row.target)*100, 100);
+        scoreVal=pct_ach;
         scoreStr=scoreVal.toFixed(1);
-        scoreAkhir+=scoreVal;
+        scoreAkhir+=pct_ach*(parseFloat(row.bobot)||0)/100;
       } else { anyNull=true; }
 
       var pct=row.target>0&&row.actual!=null&&row.actual!==''?(parseFloat(row.actual)/parseFloat(row.target)*100):0;
