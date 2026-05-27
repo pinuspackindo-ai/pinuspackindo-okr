@@ -1544,6 +1544,262 @@ async function doLogout(){
   location.reload();
 }
 
+// ══════════════════════════════════════════════════════════════
+// STORE MODULE — Data Operasional Bulanan
+// ══════════════════════════════════════════════════════════════
+var STORE_SUBS=[
+  {id:'omzet',      label:'Omzet',                         icon:'💰',unit:'Rp',
+   desc:'Perolehan Omzet',          source:'Hashmicro → POS Detail Report',
+   okrMatch:function(kr){return /omset/i.test(kr);}},
+  {id:'akurasi',    label:'Akurasi Stock',                  icon:'📦',unit:'%',
+   desc:'Akurasi Stok Fisik vs Data',source:'LK Audit Stock Opname',
+   okrMatch:function(kr){return /akurasi.*(stok|stock)/i.test(kr);}},
+  {id:'csat',       label:'CSAT',                           icon:'⭐',unit:'%',
+   desc:'Score Kepuasan Pelanggan', source:'Data Kepuasan Pelanggan',
+   okrMatch:function(kr){return /kepuasan.*pelanggan/i.test(kr);}},
+  {id:'impl_audit', label:'Implementasi Rekomendasi Audit', icon:'📋',unit:'%',
+   desc:'Tingkat Implementasi Rekomendasi',source:'LK Stock Opname Audit',
+   okrMatch:function(kr){return /implementasi.*rekomendasi|rekomendasi.*audit/i.test(kr);}}
+];
+var storeCurSub='omzet';
+var storeYear=new Date().getFullYear();
+var STORE_BULAN=['Januari','Februari','Maret','April','Mei','Juni','Juli','Agustus','September','Oktober','November','Desember'];
+
+function _sk(s,y,m){return '_s_'+s+'_'+y+'_'+String(m).padStart(2,'0');}
+function _sg(s,y,m){return okrData[_sk(s,y,m)]||{value:null,evidence:null,evidenceName:null,savedAt:null,locked:false};}
+function _ss(s,y,m,o){okrData[_sk(s,y,m)]=o;}
+
+function storeInit(){
+  if(!storeYear) storeYear=new Date().getFullYear();
+  var sel=document.getElementById('store-year-sel');
+  if(sel){
+    sel.innerHTML='';
+    var y=new Date().getFullYear();
+    for(var i=y-1;i<=y+1;i++){
+      var opt=document.createElement('option');
+      opt.value=i; opt.textContent=i;
+      if(i===storeYear) opt.selected=true;
+      sel.appendChild(opt);
+    }
+  }
+  storeRender();
+}
+
+function storeYearChange(y){
+  storeYear=parseInt(y)||new Date().getFullYear();
+  storeRender();
+}
+
+function storeShowSub(subId,btn){
+  storeCurSub=subId;
+  document.querySelectorAll('.store-tab').forEach(function(t){t.classList.remove('active');});
+  if(btn) btn.classList.add('active');
+  storeRender();
+}
+
+function storeFmt(v,unit){
+  if(v===null||v===undefined||v==='') return '—';
+  if(unit==='Rp') return 'Rp '+Number(v).toLocaleString('id-ID');
+  return Number(v).toLocaleString('id-ID',{maximumFractionDigits:2})+' %';
+}
+
+function storeRender(){
+  var sub=STORE_SUBS.find(function(s){return s.id===storeCurSub;});
+  if(!sub) return;
+  var wrap=document.getElementById('store-content');
+  if(!wrap) return;
+
+  var html='';
+  // Info sumber data
+  html+='<div style="margin-bottom:14px;">';
+  html+='<span style="display:inline-flex;align-items:center;gap:8px;padding:7px 14px;background:var(--bg);border:1px solid var(--border);border-radius:var(--radius-sm);font-size:12px;color:var(--text-m);">';
+  html+='ℹ️ Sumber data: <strong style="color:var(--text);">'+sub.source+'</strong></span></div>';
+
+  html+='<div class="card" style="padding:0;overflow:hidden;">';
+  html+='<div style="overflow-x:auto;"><table class="okr-table" style="width:100%;">';
+  html+='<thead><tr>';
+  html+='<th style="width:36px;text-align:center;">No</th>';
+  html+='<th style="min-width:110px;">Bulan</th>';
+  html+='<th style="min-width:165px;text-align:right;">'+sub.desc+' ('+sub.unit+')</th>';
+  html+='<th style="width:115px;text-align:center;">OKR Actual</th>';
+  html+='<th style="width:130px;text-align:center;">Bukti Upload</th>';
+  html+='<th style="width:120px;text-align:center;">Aksi</th>';
+  html+='</tr></thead><tbody>';
+
+  for(var m=1;m<=12;m++){
+    var d=_sg(storeCurSub,storeYear,m);
+    var hasVal=d.value!==null&&d.value!=='';
+    var hasEv=!!d.evidence;
+    var locked=!!d.locked;
+
+    // Cek OKR actual saat ini
+    var mkOkr=storeYear+'-'+String(m).padStart(2,'0');
+    var okrActualStr='—';
+    var okrActualColor='var(--text-l)';
+    if(okrData[mkOkr]&&okrData[mkOkr]['Store']){
+      var rs=okrGetRows(okrData[mkOkr]['Store']);
+      for(var ri=0;ri<rs.length;ri++){
+        if(sub.okrMatch(rs[ri].keyResult)){
+          if(rs[ri].actual!==null&&rs[ri].actual!==undefined&&rs[ri].actual!==''){
+            okrActualStr=storeFmt(rs[ri].actual,sub.unit);
+            okrActualColor='var(--primary)';
+          }
+          break;
+        }
+      }
+    }
+
+    var rowBg=locked?'background:rgba(59,130,246,.04);':'';
+    html+='<tr id="store-row-'+m+'" style="'+rowBg+'">';
+    html+='<td style="text-align:center;color:var(--text-m);font-size:12px;">'+m+'</td>';
+    html+='<td style="font-weight:600;font-size:13px;">'+STORE_BULAN[m-1]+'</td>';
+
+    // Kolom nilai
+    if(locked){
+      html+='<td style="text-align:right;font-weight:700;font-size:14px;color:var(--text);">'+storeFmt(d.value,sub.unit)+'</td>';
+    } else {
+      var step_=sub.unit==='Rp'?'1000':'0.01';
+      var max_=sub.unit==='%'?'max="100"':'';
+      html+='<td style="text-align:right;">';
+      html+='<input type="number" id="store-inp-'+m+'" min="0" '+max_+' step="'+step_+'" placeholder="0"';
+      html+=(hasVal?' value="'+d.value+'"':'')+' ';
+      html+='style="width:100%;text-align:right;padding:5px 8px;border:1.5px solid var(--border);border-radius:var(--radius-sm);font-family:var(--font);font-size:13px;background:var(--bg2);color:var(--text);">';
+      html+='</td>';
+    }
+
+    // OKR Actual
+    html+='<td style="text-align:center;font-size:12px;font-weight:600;color:'+okrActualColor+';">'+okrActualStr+'</td>';
+
+    // Bukti
+    html+='<td style="text-align:center;">';
+    if(locked&&hasEv){
+      html+='<button onclick="storeViewEv('+m+')" style="background:none;border:1.5px solid var(--primary);color:var(--primary);border-radius:var(--radius-sm);padding:4px 10px;cursor:pointer;font-size:12px;font-family:var(--font);">👁 Lihat</button>';
+    } else if(!locked){
+      html+='<label for="store-ev-'+m+'" style="cursor:pointer;display:inline-flex;align-items:center;gap:4px;padding:4px 10px;border:1.5px dashed var(--border);border-radius:var(--radius-sm);font-size:12px;color:var(--text-m);max-width:110px;">';
+      if(hasEv){ html+='✅ <span style="overflow:hidden;text-overflow:ellipsis;white-space:nowrap;max-width:70px;">'+okrEsc(d.evidenceName||'OK')+'</span>'; }
+      else { html+='📎 Upload'; }
+      html+='</label>';
+      html+='<input type="file" id="store-ev-'+m+'" accept="image/*" style="display:none;" onchange="storeUpload('+m+',this)">';
+    } else {
+      html+='<span style="color:var(--text-l);font-size:11px;">—</span>';
+    }
+    html+='</td>';
+
+    // Aksi
+    html+='<td style="text-align:center;">';
+    if(locked){
+      html+='<div style="display:flex;flex-direction:column;align-items:center;gap:4px;">';
+      html+='<span style="font-size:11px;color:var(--text-l);">🔒 Tersimpan</span>';
+      html+='<button onclick="storeUnlock('+m+')" style="background:none;border:1px solid var(--border);color:var(--text-m);border-radius:var(--radius-sm);padding:3px 10px;cursor:pointer;font-size:11px;font-family:var(--font);">✏️ Edit</button>';
+      html+='</div>';
+    } else {
+      html+='<button onclick="storeConfirmSave('+m+')" style="background:var(--primary);border:none;color:#fff;border-radius:var(--radius-sm);padding:6px 14px;cursor:pointer;font-size:12px;font-family:var(--font);font-weight:600;">💾 Simpan</button>';
+    }
+    html+='</td></tr>';
+  }
+  html+='</tbody></table></div></div>';
+  wrap.innerHTML=html;
+}
+
+function storeUpload(month,inp){
+  var file=inp.files[0]; if(!file) return;
+  if(file.size>5*1024*1024){notify('File terlalu besar (maks 5MB).','error');inp.value='';return;}
+  var img_=new Image();
+  var url=URL.createObjectURL(file);
+  img_.onload=function(){
+    var canvas=document.createElement('canvas');
+    var mxW=1400,mxH=1050,w=img_.width,h=img_.height;
+    if(w>mxW){h=Math.round(h*mxW/w);w=mxW;}
+    if(h>mxH){w=Math.round(w*mxH/h);h=mxH;}
+    canvas.width=w;canvas.height=h;
+    canvas.getContext('2d').drawImage(img_,0,0,w,h);
+    URL.revokeObjectURL(url);
+    var b64=canvas.toDataURL('image/jpeg',0.78);
+    var d=_sg(storeCurSub,storeYear,month);
+    d.evidence=b64;d.evidenceName=file.name;
+    _ss(storeCurSub,storeYear,month,d);
+    storeRender();
+    notify('Bukti "'+file.name+'" berhasil diupload ✓');
+  };
+  img_.onerror=function(){
+    URL.revokeObjectURL(url);
+    var reader=new FileReader();
+    reader.onload=function(e){
+      var d=_sg(storeCurSub,storeYear,month);
+      d.evidence=e.target.result;d.evidenceName=file.name;
+      _ss(storeCurSub,storeYear,month,d);
+      storeRender();
+      notify('Bukti "'+file.name+'" berhasil diupload ✓');
+    };
+    reader.readAsDataURL(file);
+  };
+  img_.src=url;
+}
+
+function storeConfirmSave(month){
+  var sub=STORE_SUBS.find(function(s){return s.id===storeCurSub;});
+  var inp=document.getElementById('store-inp-'+month);
+  var val=inp?(inp.value.trim()===''?null:parseFloat(inp.value)):null;
+  if(val===null||isNaN(val)){notify('Isi nilai terlebih dahulu.','error');return;}
+  var d=_sg(storeCurSub,storeYear,month);
+  d.value=val; _ss(storeCurSub,storeYear,month,d);
+  document.getElementById('sc-sub').textContent=sub.icon+' '+sub.label;
+  document.getElementById('sc-bulan').textContent=STORE_BULAN[month-1]+' '+storeYear;
+  document.getElementById('sc-val').textContent=storeFmt(val,sub.unit);
+  document.getElementById('sc-ev').innerHTML=d.evidence
+    ?'✅ '+okrEsc(d.evidenceName||'File terupload')
+    :'<span style="color:#f59e0b;">⚠️ Belum ada bukti</span>';
+  document.getElementById('sc-month').value=month;
+  document.getElementById('store-confirm-modal').style.display='flex';
+}
+
+function storeDoSave(){
+  var month=parseInt(document.getElementById('sc-month').value);
+  var d=_sg(storeCurSub,storeYear,month);
+  d.locked=true; d.savedAt=new Date().toISOString();
+  _ss(storeCurSub,storeYear,month,d);
+  storeSyncOKR(storeCurSub,storeYear,month,d.value);
+  okrSaveLS();
+  storeCloseConfirm();
+  storeRender();
+  // Re-render OKR jika bulan yang sama sedang ditampilkan
+  if(okrCurYear===storeYear&&okrCurMonth===month) okrRender();
+  notify('Data '+STORE_BULAN[month-1]+' '+storeYear+' tersimpan & sync ke GitHub ✓');
+}
+
+function storeCloseConfirm(){
+  document.getElementById('store-confirm-modal').style.display='none';
+}
+
+function storeUnlock(month){
+  if(!confirm('Buka kunci data '+STORE_BULAN[month-1]+' '+storeYear+' untuk diedit?')) return;
+  var d=_sg(storeCurSub,storeYear,month);
+  d.locked=false; _ss(storeCurSub,storeYear,month,d);
+  okrSaveLS(); storeRender();
+}
+
+function storeViewEv(month){
+  var d=_sg(storeCurSub,storeYear,month);
+  if(!d.evidence){notify('Tidak ada bukti tersimpan.','error');return;}
+  document.getElementById('sem-name').textContent=d.evidenceName||'Bukti';
+  var img=document.getElementById('sem-img');
+  if(d.evidence.startsWith('data:image')){img.src=d.evidence;img.style.display='block';}
+  else{img.style.display='none';}
+  document.getElementById('store-ev-modal').style.display='flex';
+}
+function storeCloseEv(){document.getElementById('store-ev-modal').style.display='none';}
+
+function storeSyncOKR(subId,year,month,value){
+  var sub=STORE_SUBS.find(function(s){return s.id===subId;});
+  if(!sub) return;
+  var mk=year+'-'+String(month).padStart(2,'0');
+  if(!okrData[mk]||!okrData[mk]['Store']) return;
+  var divData=okrData[mk]['Store'];
+  var rows=okrGetRows(divData);
+  rows.forEach(function(row){if(sub.okrMatch(row.keyResult)) row.actual=value;});
+  if(typeof divData==='object'&&!Array.isArray(divData)) divData.rows=rows;
+}
+
 // ─── PANEL SWITCH ───
 const panelTitles={
   dashboard:'Dashboard OKR',
