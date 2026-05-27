@@ -358,7 +358,7 @@
       "actionPlan": "Drafting SOP ketidakhadiran"
     }
   },
-  "_ts": 1779902435204,
+  "_ts": 1779902437593,
   "_s_omzet_2026_05": {
     "value": 4000000000,
     "evidence": null,
@@ -551,51 +551,6 @@
         }
       ],
       "actionPlan": "Planning acara chef Alfian"
-    },
-    "Warehouse": {
-      "rows": [
-        {
-          "id": "r1779902428992zun5",
-          "objective": "Stok akurat, operasional berjalan sesuai SOP.",
-          "keyResult": "Tingkat akurasi stok fisik vs data",
-          "target": 98,
-          "actual": null,
-          "bobot": 30
-        },
-        {
-          "id": "r17799024289923t4k",
-          "objective": "Stok akurat, operasional berjalan sesuai SOP.",
-          "keyResult": "Tingkat akurasi default diary",
-          "target": 95,
-          "actual": null,
-          "bobot": 25
-        },
-        {
-          "id": "r1779902428992s7wm",
-          "objective": "Stok akurat, operasional berjalan sesuai SOP.",
-          "keyResult": "Score avg cartrack",
-          "target": 90,
-          "actual": null,
-          "bobot": 20
-        },
-        {
-          "id": "r1779902428992gtjl",
-          "objective": "Stok akurat, operasional berjalan sesuai SOP.",
-          "keyResult": "Score kepuasan pelanggan distribusi",
-          "target": 90,
-          "actual": null,
-          "bobot": 15
-        },
-        {
-          "id": "r1779902428992r2gq",
-          "objective": "Stok akurat, operasional berjalan sesuai SOP.",
-          "keyResult": "Tingkat implementasi rekomendasi audit",
-          "target": 100,
-          "actual": null,
-          "bobot": 10
-        }
-      ],
-      "actionPlan": ""
     },
     "HRD": {
       "rows": [
