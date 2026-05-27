@@ -358,7 +358,7 @@
       "actionPlan": "Drafting SOP ketidakhadiran"
     }
   },
-  "_ts": 1779902440244,
+  "_ts": 1779902443168,
   "_s_omzet_2026_05": {
     "value": 4000000000,
     "evidence": null,
@@ -469,51 +469,6 @@
         }
       ],
       "actionPlan": "Finalisasi DD, bizflow, SOP warehouse"
-    },
-    "Purchasing": {
-      "rows": [
-        {
-          "id": "r17799024289928cgq",
-          "objective": "Pengadaan stok tepat waktu dan berkwalitas, administrasi akurat..",
-          "keyResult": "Tingkat in stock",
-          "target": 90,
-          "actual": null,
-          "bobot": 35
-        },
-        {
-          "id": "r1779902428992hjyz",
-          "objective": "Pengadaan stok tepat waktu dan berkwalitas, administrasi akurat..",
-          "keyResult": "Tingkat akurasi PO",
-          "target": 95,
-          "actual": null,
-          "bobot": 30
-        },
-        {
-          "id": "r1779902428992d8hb",
-          "objective": "Pengadaan stok tepat waktu dan berkwalitas, administrasi akurat..",
-          "keyResult": "Tingkat kwalitas pengadaan",
-          "target": 95,
-          "actual": null,
-          "bobot": 20
-        },
-        {
-          "id": "r1779902428992kbsm",
-          "objective": "Pengadaan stok tepat waktu dan berkwalitas, administrasi akurat..",
-          "keyResult": "Tingkat penghematan budget",
-          "target": 3,
-          "actual": null,
-          "bobot": 10
-        },
-        {
-          "id": "r1779902428992x777",
-          "objective": "Pengadaan stok tepat waktu dan berkwalitas, administrasi akurat..",
-          "keyResult": "Tingkat implementasi rekomendasi audit",
-          "target": 100,
-          "actual": null,
-          "bobot": 5
-        }
-      ],
-      "actionPlan": "Membuat 4 konten sosmed"
     },
     "HRD": {
       "rows": [
