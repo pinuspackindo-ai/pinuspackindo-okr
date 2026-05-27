@@ -278,20 +278,8 @@ tbody tr:hover td{background:var(--bg);}
 </head>
 <body>
 
-<div id="pwd-overlay">
-  <div style="font-size:2rem;font-weight:800;color:#fff;letter-spacing:-.03em;text-align:center;margin-bottom:8px;">Pinus Packindo</div>
-  <div style="font-size:13px;color:rgba(255,255,255,.55);margin-bottom:36px;text-align:center;">Sistem Analisa &nbsp;·&nbsp; Stock &middot; PO &middot; Penerimaan</div>
-  <div class="pwd-box">
-    <div class="pwd-title">Masuk ke Sistem</div>
-    <div class="pwd-sub">Masukkan kata sandi untuk melanjutkan</div>
-    <input class="pwd-input" id="pwd-input" type="password" maxlength="20" placeholder="••••••">
-    <div class="pwd-err" id="pwd-err"></div>
-    <button class="btn btn-primary" onclick="doLogin()">Masuk</button>
-  </div>
-  <div class="pwd-footer">© Pinus Packindo &nbsp;· Data diproses di browser Anda</div>
-</div>
 
-<aside class="sidebar" id="sidebar" style="display:none;">
+<aside class="sidebar" id="sidebar">
   <div class="sidebar-logo">
     <div class="logo-title">Pinus Packindo</div>
     <div class="logo-sub">Tools OKR Pinus</div>
@@ -320,7 +308,7 @@ tbody tr:hover td{background:var(--bg);}
   </div>
 </aside>
 
-<main class="main" id="main-app" style="display:none;">
+<main class="main" id="main-app">
   <div class="topbar">
     <span class="topbar-title" id="topbar-title">Analisa Instock</span>
     <span class="topbar-badge">
@@ -1296,24 +1284,8 @@ function notify(msg,type='ok'){
   _nt=setTimeout(()=>el.classList.add('hidden'),3500);
 }
 
-// ─── AUTH ───
-function doLogin(){
-  const pwd=document.getElementById('pwd-input').value;
-  const err=document.getElementById('pwd-err');
-  if(pwd==='010101'){
-    const o=document.getElementById('pwd-overlay');
-    o.style.transition='opacity .4s'; o.style.opacity='0';
-    setTimeout(()=>{o.remove();document.getElementById('sidebar').style.display='flex';document.getElementById('main-app').style.display='flex';okrInit();},400);
-  } else {
-    err.textContent='Password salah.';
-    document.getElementById('pwd-input').value='';
-    document.getElementById('pwd-input').focus();
-    setTimeout(()=>{err.textContent='';},2500);
-  }
-}
-document.getElementById('pwd-input').focus();
-document.getElementById('pwd-input').addEventListener('keydown',e=>{if(e.key==='Enter')doLogin();});
 function doLogout(){location.reload();}
+okrInit();
 
 // ─── PANEL ───
 const panelTitles={
@@ -2347,10 +2319,27 @@ function okrImportRows(rows){
   var parsed={};
   var skipped=0;
 
+  // helper: parse angka dari string (handle koma ribuan & tanda %)
+  function _parseNum(val){
+    if(val===null||val===undefined||val==='') return null;
+    var s=String(val).trim().replace(/,/g,'').replace(/%\s*$/,'');
+    var n=parseFloat(s); return isNaN(n)?null:n;
+  }
+
+  // carry-forward untuk merged cells (Divisi, Bulan, Tahun, Objective bisa kosong karena merge)
+  var _lastDivisi='', _lastBulan='', _lastTahun='', _lastObjective='';
+
   rows.forEach(function(row){
-    var divisi=String(row[colMap.divisi]||'').trim();
-    var bulanStr=String(row[colMap.bulan]||'').trim().toLowerCase();
-    var tahunStr=String(row[colMap.tahun]||'').trim();
+    var divisi=String(row[colMap.divisi]||'').trim()||_lastDivisi;
+    var bulanStr=(String(row[colMap.bulan]||'').trim()||_lastBulan).toLowerCase();
+    var tahunStr=String(row[colMap.tahun]||'').trim()||_lastTahun;
+    var objective=colMap.objective?(String(row[colMap.objective]||'').trim()||_lastObjective):'';
+
+    // update carry-forward
+    if(divisi) _lastDivisi=divisi;
+    if(bulanStr) _lastBulan=bulanStr;
+    if(tahunStr) _lastTahun=tahunStr;
+    if(objective) _lastObjective=objective;
 
     // Normalize divisi (case-insensitive match)
     var divisiMatch=OKR_DIVISI.filter(function(d){ return d.toLowerCase()===divisi.toLowerCase(); })[0];
@@ -2364,17 +2353,14 @@ function okrImportRows(rows){
     var tahunNum=parseInt(tahunStr);
     if(isNaN(tahunNum)||tahunNum<2020||tahunNum>2099){ skipped++; return; }
 
-    var objective=colMap.objective?String(row[colMap.objective]||'').trim():'';
     var keyResult=colMap.keyResult?String(row[colMap.keyResult]||'').trim():'';
     if(!objective&&!keyResult){ skipped++; return; }
 
-    var targetVal=colMap.target?(parseFloat(row[colMap.target])||0):0;
-    var bobotVal=colMap.bobot?(parseFloat(row[colMap.bobot])||0):0;
+    var targetVal=colMap.target?(_parseNum(row[colMap.target])||0):0;
+    var bobotVal=colMap.bobot?(_parseNum(row[colMap.bobot])||0):0;
     var actionPlan=colMap.actionPlan?String(row[colMap.actionPlan]||'').trim():'';
 
-    var actualRaw=colMap.actual?row[colMap.actual]:null;
-    var actualVal=(actualRaw!==null&&actualRaw!==undefined&&actualRaw!=='')?parseFloat(actualRaw):null;
-    if(actualVal!==null&&isNaN(actualVal)) actualVal=null;
+    var actualVal=colMap.actual?_parseNum(row[colMap.actual]):null;
 
     var key=okrKeyOf(tahunNum,bulanNum);
     if(!parsed[key]) parsed[key]={};
