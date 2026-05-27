@@ -2453,7 +2453,7 @@ function okrRender(){
     var saStr=hasAnyScore?scoreAkhir.toFixed(1):'—';
     var saCls=hasAnyScore?(scoreAkhir>=80?'color:var(--success)':scoreAkhir>=50?'color:var(--warning)':'color:var(--danger)'):'';
     _divCount++;
-    if(hasAnyScore) _divScores.push(scoreAkhir);
+    _divScores.push(scoreAkhir); // selalu ikut average, termasuk yang masih 0
     html+='<tr class="okr-score-akhir">';
     html+='<td colspan="5" style="text-align:right;font-size:12px;letter-spacing:.5px;padding-right:16px;">SCORE AKHIR</td>';
     html+='<td style="text-align:center;font-size:1.05rem;'+saCls+'">'+saStr+'</td>';
@@ -2478,9 +2478,7 @@ function okrRender(){
       var gAvg=_divScores.reduce(function(a,b){return a+b;},0)/_divScores.length;
       var gColor=gAvg>=80?'var(--success)':gAvg>=50?'var(--warning)':'var(--danger)';
       var gLabel=gAvg>=80?'Performa Baik 🎯':gAvg>=50?'Perlu Perhatian ⚠️':'Kritis ❗';
-      var gNote=_divScores.length<_divCount
-        ?(_divScores.length+' dari '+_divCount+' divisi ('+(_divCount-_divScores.length)+' belum lengkap)')
-        :(_divCount+' divisi terukur');
+      var gNote=_divCount+' divisi (rata-rata semua, termasuk yang belum diisi)';
       gWrap.innerHTML=
         '<div style="background:var(--bg2);border:2px solid '+gColor+';border-radius:var(--radius);padding:14px 22px;display:flex;align-items:center;gap:22px;box-shadow:0 0 0 4px '+gColor+'22;">'+
         '<div style="text-align:center;min-width:80px;">'+
