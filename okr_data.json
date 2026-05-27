@@ -192,7 +192,7 @@
           "objective": "Mencapai target penjualan, \r\nstok akurat, pelanggan puas, operasional sesuai SOP.",
           "keyResult": "Jumlah omset",
           "target": 3040000000,
-          "actual": null,
+          "actual": 4000000000,
           "bobot": 30
         },
         {
@@ -358,5 +358,12 @@
       "actionPlan": "Drafting SOP ketidakhadiran"
     }
   },
-  "_ts": 1779898858890
+  "_ts": 1779898883623,
+  "_s_omzet_2026_05": {
+    "value": 4000000000,
+    "evidence": null,
+    "evidenceName": null,
+    "savedAt": "2026-05-27T16:21:23.622Z",
+    "locked": true
+  }
 }
