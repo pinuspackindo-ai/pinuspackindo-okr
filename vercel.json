@@ -1,0 +1,11 @@
+{
+  "version": 2,
+  "builds": [
+    { "src": "index.html", "use": "@vercel/static" },
+    { "src": "api/okr.js", "use": "@vercel/node" }
+  ],
+  "routes": [
+    { "src": "/api/okr", "dest": "/api/okr.js" },
+    { "src": "/(.*)", "dest": "/index.html" }
+  ]
+}
