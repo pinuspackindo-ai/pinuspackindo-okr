@@ -6,3 +6,4 @@ __pycache__/
 .claude/
 uploads/
 tmp/
+local_config.py
