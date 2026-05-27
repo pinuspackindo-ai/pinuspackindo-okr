@@ -273,8 +273,8 @@ tbody tr:hover td{background:var(--bg);}
 .okr-table tbody tr:last-child td{border-bottom:none;}
 .okr-table tbody tr:hover td{background:var(--bg);}
 .okr-score-akhir td{background:var(--primary-l)!important;font-weight:700;border-top:2px solid var(--primary);color:var(--primary-d);}
-.okr-month-btn{background:var(--bg2);border:1.5px solid var(--border);border-radius:var(--radius-sm);padding:6px 16px;cursor:pointer;font-size:16px;color:var(--text);font-family:var(--font);line-height:1;transition:all .15s;}
-.okr-month-btn:hover{border-color:var(--primary);color:var(--primary);}
+.okr-month-btn{background:rgba(255,255,255,.15);border:1.5px solid rgba(255,255,255,.3);border-radius:var(--radius-sm);padding:6px 16px;cursor:pointer;font-size:16px;color:#fff;font-family:var(--font);line-height:1;transition:all .15s;}
+.okr-month-btn:hover{background:rgba(255,255,255,.28);border-color:rgba(255,255,255,.55);}
 .okr-modal-overlay{position:fixed;inset:0;background:rgba(15,23,42,.5);z-index:600;display:none;align-items:flex-start;justify-content:center;padding:24px 16px;overflow-y:auto;}
 .okr-modal-overlay.open{display:flex;}
 .okr-modal-box{background:var(--bg2);border-radius:var(--radius);width:100%;max-width:860px;padding:28px 32px;box-shadow:0 20px 60px rgba(0,0,0,.25);margin:0 auto;}
@@ -402,18 +402,18 @@ tbody tr:hover td{background:var(--bg);}
 
     <!-- ═══════════════ PANEL DASHBOARD OKR ═══════════════ -->
     <div id="panel-dashboard" class="panel active">
-      <div style="display:flex;align-items:center;justify-content:space-between;margin-bottom:20px;flex-wrap:wrap;gap:12px;">
+      <div style="background:var(--primary);border-radius:var(--radius);padding:10px 16px;display:flex;align-items:center;justify-content:space-between;margin-bottom:20px;flex-wrap:wrap;gap:12px;">
         <div style="display:flex;align-items:center;gap:8px;">
           <button class="okr-month-btn" onclick="okrPrevMonth()">&#8249;</button>
-          <span id="okr-month-label" style="font-size:15px;font-weight:700;color:var(--text);min-width:150px;text-align:center;">—</span>
+          <span id="okr-month-label" style="font-size:15px;font-weight:700;color:#fff;min-width:150px;text-align:center;">—</span>
           <button class="okr-month-btn" onclick="okrNextMonth()">&#8250;</button>
         </div>
-        <div style="display:flex;gap:6px;flex-wrap:wrap;justify-content:flex-end;">
-          <button class="btn" style="background:var(--bg);border:1.5px solid var(--border);color:var(--text);padding:5px 10px;font-size:12px;" onclick="okrDuplicate()">&#x1F4CB; Duplikat</button>
-          <button class="btn" style="background:var(--bg);border:1.5px solid var(--border);color:var(--text);padding:5px 10px;font-size:12px;" onclick="okrDownloadTemplate()">&#x2B07; Template</button>
-          <button class="btn" style="background:var(--bg);border:1.5px solid var(--border);color:var(--text);padding:5px 10px;font-size:12px;" onclick="okrImportClick()">&#x1F4C2; Import Excel</button>
+        <div style="display:flex;gap:6px;flex-wrap:wrap;justify-content:flex-end;align-items:center;">
+          <button class="btn" id="okr-dup-btn" style="background:rgba(255,255,255,.15);border:1.5px solid rgba(255,255,255,.3);color:#fff;padding:5px 10px;font-size:12px;" onclick="okrDuplicate()">&#x1F4CB; Duplikat</button>
+          <button class="btn" style="background:rgba(255,255,255,.15);border:1.5px solid rgba(255,255,255,.3);color:#fff;padding:5px 10px;font-size:12px;" onclick="okrDownloadTemplate()">&#x2B07; Template</button>
+          <button class="btn" style="background:rgba(255,255,255,.15);border:1.5px solid rgba(255,255,255,.3);color:#fff;padding:5px 10px;font-size:12px;" onclick="okrImportClick()">&#x1F4C2; Import Excel</button>
           <input type="file" id="okr-file-input" accept=".xlsx,.xls" style="display:none;" onchange="okrProcessFile(event)">
-          <button class="btn btn-primary" style="padding:5px 10px;font-size:12px;width:auto;" onclick="okrOpenNew()">+ New OKR</button>
+          <button class="btn btn-primary" style="padding:5px 10px;font-size:12px;width:auto;background:#fff;color:var(--primary);border-color:#fff;" onclick="okrOpenNew()">+ New OKR</button>
         </div>
       </div>
       <!-- Judul OKR -->
@@ -2402,8 +2402,10 @@ function okrRender(){
   var wrap=document.getElementById('okr-tables-wrap');
   if(!wrap)return;
   var hasDivisi=_RD.some(function(d){return okrGetRows(monthData[d]).length>0;});
+  var _dupBtn=document.getElementById('okr-dup-btn');
+  if(_dupBtn) _dupBtn.style.display=hasDivisi?'none':'';
   if(!hasDivisi){
-    wrap.innerHTML='<div class="empty"><p>Belum ada OKR '+_labelBulan+' '+okrCurYear+'</p><span>Klik &ldquo;+ New OKR&rdquo; untuk membuat, atau &ldquo;Duplicate Bulan Lalu&rdquo; jika poin sama.</span></div>';
+    wrap.innerHTML='<div class="empty"><p>Belum ada OKR '+_labelBulan+' '+okrCurYear+'</p><span>Klik &ldquo;+ New OKR&rdquo; untuk membuat, atau &ldquo;Duplikat Bulan Lalu&rdquo; jika OKR sama dengan bulan sebelumnya.</span></div>';
     var gWclr=document.getElementById('okr-global-wrap'); if(gWclr) gWclr.innerHTML='';
     return;
   }
