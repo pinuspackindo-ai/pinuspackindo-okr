@@ -2266,19 +2266,33 @@ function okrProcessFile(e){
   if(!file){ return; }
   e.target.value='';
   okrEnsureXLSX(function(){
-  var reader=new FileReader();
-  reader.onload=function(ev){
-    try{
-      var data=new Uint8Array(ev.target.result);
-      var wb=XLSX.read(data,{type:'array'});
-      var ws=wb.Sheets[wb.SheetNames[0]];
-      var rows=XLSX.utils.sheet_to_json(ws,{defval:''});
-      okrImportRows(rows);
-    }catch(err){
-      alert('Gagal membaca file Excel: '+err.message);
-    }
-  };
-  reader.readAsArrayBuffer(file);
+    var reader=new FileReader();
+    reader.onload=function(ev){
+      var importResult=null;
+      try{
+        var data=new Uint8Array(ev.target.result);
+        var wb=XLSX.read(data,{type:'array'});
+        if(!wb||!wb.SheetNames||!wb.SheetNames.length){
+          alert('File Excel tidak valid atau tidak memiliki sheet.'); return;
+        }
+        var ws=wb.Sheets[wb.SheetNames[0]];
+        if(!ws){ alert('Sheet pertama tidak ditemukan.'); return; }
+        var rows=XLSX.utils.sheet_to_json(ws,{defval:''});
+        if(!Array.isArray(rows)||rows.length===0){ alert('Sheet Excel kosong atau tidak ada data.'); return; }
+        importResult=okrImportRows(rows);
+      }catch(err){
+        alert('Gagal membaca file Excel: '+err.message);
+        return;
+      }
+      // Render & notify OUTSIDE try-catch so render errors are separate
+      if(importResult){
+        okrCurYear=importResult.year;
+        okrCurMonth=importResult.month;
+        okrRender();
+        notify('Import berhasil: '+importResult.totalRows+' Key Result dari '+importResult.totalDivisi+' divisi ✓');
+      }
+    };
+    reader.readAsArrayBuffer(file);
   });
 }
 
@@ -2403,15 +2417,15 @@ function okrImportRows(rows){
   });
   okrSaveLS();
 
-  // Navigate to first imported month
+  // Return result so caller can navigate & render OUTSIDE try-catch
   var firstKey=Object.keys(parsed).sort()[0];
+  var resYear=okrCurYear, resMonth=okrCurMonth;
   if(firstKey){
     var parts=firstKey.split('-');
-    okrCurYear=parseInt(parts[0]);
-    okrCurMonth=parseInt(parts[1]);
+    resYear=parseInt(parts[0]);
+    resMonth=parseInt(parts[1]);
   }
-  okrRender();
-  notify('Import berhasil: '+totalRows+' Key Result dari '+totalDivisi+' divisi ✓');
+  return {year:resYear, month:resMonth, totalRows:totalRows, totalDivisi:totalDivisi};
 }
 
 // ─── SAVING COST ───
