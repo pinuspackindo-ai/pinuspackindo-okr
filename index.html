@@ -1256,8 +1256,14 @@ tbody tr:hover td{background:var(--bg);}
 
     <!-- Key Result rows -->
     <div style="font-size:12px;font-weight:700;color:var(--text-m);text-transform:uppercase;letter-spacing:.8px;margin-bottom:10px;">Key Results</div>
-    <div id="okr-rows-wrap" style="max-height:380px;overflow-y:auto;padding-right:4px;"></div>
+    <div id="okr-rows-wrap" style="max-height:280px;overflow-y:auto;padding-right:4px;"></div>
     <button class="okr-add-btn" onclick="okrAddRow()">+ Tambah Key Result</button>
+
+    <!-- Action Plan per divisi -->
+    <div style="margin-top:4px;margin-bottom:16px;padding-top:16px;border-top:1px solid var(--border);">
+      <label class="okr-lbl">Action Plan <span style="font-weight:400;color:var(--text-l);text-transform:none;letter-spacing:0;">&mdash; rencana tindakan untuk seluruh divisi</span></label>
+      <textarea class="okr-inp" id="okr-f-ap" rows="3" placeholder="Tulis rencana konkret, langkah aksi, dan PIC yang bertanggung jawab..." style="resize:vertical;min-height:72px;line-height:1.5;"></textarea>
+    </div>
 
     <!-- Footer actions -->
     <div style="display:flex;justify-content:flex-end;gap:10px;padding-top:16px;border-top:1px solid var(--border);">
