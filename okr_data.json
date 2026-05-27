@@ -358,7 +358,7 @@
       "actionPlan": "Drafting SOP ketidakhadiran"
     }
   },
-  "_ts": 1779902437593,
+  "_ts": 1779902440244,
   "_s_omzet_2026_05": {
     "value": 4000000000,
     "evidence": null,
@@ -514,43 +514,6 @@
         }
       ],
       "actionPlan": "Membuat 4 konten sosmed"
-    },
-    "Inventory": {
-      "rows": [
-        {
-          "id": "r1779902428992gu7q",
-          "objective": "Stok akurat, persediaan optimal, biaya & waste minimal.",
-          "keyResult": "Tingkat akurasi stok fisik vs data",
-          "target": 75,
-          "actual": null,
-          "bobot": 20
-        },
-        {
-          "id": "r177990242899234g5",
-          "objective": "Stok akurat, persediaan optimal, biaya & waste minimal.",
-          "keyResult": "Akurasi DO & RN",
-          "target": 100,
-          "actual": null,
-          "bobot": 10
-        },
-        {
-          "id": "r1779902428992z2ei",
-          "objective": "Stok akurat, persediaan optimal, biaya & waste minimal.",
-          "keyResult": "Tingkat akurasi administrasi",
-          "target": 98,
-          "actual": null,
-          "bobot": 40
-        },
-        {
-          "id": "r1779902428992efhb",
-          "objective": "Stok akurat, persediaan optimal, biaya & waste minimal.",
-          "keyResult": "Laporan inventory akurat dan on time",
-          "target": 100,
-          "actual": null,
-          "bobot": 30
-        }
-      ],
-      "actionPlan": "Planning acara chef Alfian"
     },
     "HRD": {
       "rows": [
