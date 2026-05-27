@@ -1950,39 +1950,53 @@ function okrLoad(){
   try{ okrData=JSON.parse(localStorage.getItem(OKR_STORE_KEY)||'{}'); }catch(e){ okrData={}; }
 }
 function okrSaveLS(){
-  okrData._ts=Date.now(); // timestamp untuk cloud sync comparison
+  okrData._ts=Date.now();
   localStorage.setItem(OKR_STORE_KEY,JSON.stringify(okrData));
-  // POST ke Flask jika tersedia (silently fail di Vercel/static)
+  // POST ke Flask lokal jika tersedia (auto-fail di Vercel)
   fetch('/api/okr',{method:'POST',headers:{'Content-Type':'application/json'},body:JSON.stringify(okrData)}).catch(function(){});
 }
 function okrKey(){ return okrCurYear+'-'+String(okrCurMonth).padStart(2,'0'); }
 function okrKeyOf(y,m){ return y+'-'+String(m).padStart(2,'0'); }
 
+// Download okr_data.json ke folder project (untuk sync manual ke GitHub)
+function okrDownloadData(){
+  var json=JSON.stringify(okrData,null,2);
+  var blob=new Blob([json],{type:'application/json'});
+  var a=document.createElement('a'); a.href=URL.createObjectURL(blob);
+  a.download='okr_data.json'; a.click();
+  notify('Simpan okr_data.json ke folder project → auto-sync ke GitHub ✓');
+}
+
+// Load dari cloud (okr_data.json di Vercel/GitHub)
+function okrLoadCloud(showMsg){
+  fetch('/okr_data.json?_='+Date.now())
+    .then(function(r){ return r.ok?r.json():null; })
+    .then(function(cloud){
+      if(!cloud||typeof cloud!=='object') { if(showMsg) notify('Tidak ada data di cloud.','error'); return; }
+      var cloudKeys=Object.keys(cloud).filter(function(k){return k!=='_ts';});
+      if(!cloudKeys.length){ if(showMsg) notify('Cloud data masih kosong.','error'); return; }
+      okrData=cloud;
+      localStorage.setItem(OKR_STORE_KEY,JSON.stringify(cloud));
+      okrRender();
+      if(showMsg) notify('Data berhasil dimuat dari cloud ✓');
+    })
+    .catch(function(){ if(showMsg) notify('Gagal terhubung ke cloud.','error'); });
+}
+
 function okrInit(){
   okrLoad();
   document.getElementById('okr-f-tahun').value = okrCurYear;
   document.getElementById('okr-f-bulan').value = okrCurMonth;
-  okrRender(); // render dari localStorage dulu (cepat, tidak tunggu network)
 
-  // Cek cloud data di background — update jika lebih baru
-  fetch('/okr_data.json?_='+Date.now())
-    .then(function(r){ return r.ok?r.json():null; })
-    .then(function(cloud){
-      if(!cloud||typeof cloud!=='object') return;
-      var cloudKeys=Object.keys(cloud).filter(function(k){return k!=='_ts';});
-      if(!cloudKeys.length) return; // cloud kosong
-      var localTs=okrData._ts||0;
-      var cloudTs=cloud._ts||0;
-      var localEmpty=Object.keys(okrData).filter(function(k){return k!=='_ts';}).length===0;
-      if(cloudTs>localTs||localEmpty){
-        // Cloud lebih baru atau local kosong → pakai cloud
-        okrData=cloud;
-        localStorage.setItem(OKR_STORE_KEY,JSON.stringify(cloud));
-        okrRender();
-        if(!localEmpty) notify('Data diperbarui dari cloud sync ✓');
-      }
-    })
-    .catch(function(){}); // tidak ada cloud data, lanjut pakai localStorage
+  var hasLocal=Object.keys(okrData).filter(function(k){return k!=='_ts';}).length>0;
+  if(hasLocal){
+    // Ada data lokal → langsung tampilkan, TIDAK timpa dengan cloud
+    okrRender();
+  } else {
+    // Browser baru / localStorage kosong → coba load dari cloud
+    okrLoadCloud(false);
+    okrRender();
+  }
 }
 
 // ── NAVIGATION ──
