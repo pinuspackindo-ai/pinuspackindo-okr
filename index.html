@@ -2060,6 +2060,17 @@ function okrRender(){
 function okrEsc(s){ return String(s).replace(/&/g,'&amp;').replace(/</g,'&lt;').replace(/>/g,'&gt;').replace(/"/g,'&quot;'); }
 function okrFmt(n){ var x=parseFloat(n); return isNaN(x)?'—':x%1===0?x.toString():x.toFixed(2); }
 
+// Helper: backward-compat accessor (old=array, new={rows,actionPlan})
+function okrGetRows(divData){
+  if(!divData) return [];
+  if(Array.isArray(divData)) return divData;
+  return divData.rows||[];
+}
+function okrGetAP(divData){
+  if(!divData||Array.isArray(divData)) return '';
+  return divData.actionPlan||'';
+}
+
 // ── DUPLICATE ──
 function okrDuplicate(){
   var pm=okrCurMonth-1; var py=okrCurYear;
