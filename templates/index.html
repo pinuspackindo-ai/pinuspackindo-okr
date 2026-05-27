@@ -2016,13 +2016,25 @@ function okrInit(){
   okrLoad();
   document.getElementById('okr-f-tahun').value=okrCurYear;
   document.getElementById('okr-f-bulan').value=okrCurMonth;
-  var hasLocal=Object.keys(okrData).filter(function(k){return k!=='_ts';}).length>0;
-  if(hasLocal){
-    okrRender();
-  } else {
-    okrLoadCloud(false);
-    okrRender();
-  }
+  okrRender();
+  // Auto-check cloud: update lokal hanya jika cloud lebih baru (cek _ts)
+  // Browser lain cukup refresh → data otomatis ter-update tanpa klik Load Cloud
+  fetch('/okr_data.json?_='+Date.now())
+    .then(function(r){return r.ok?r.json():null;})
+    .then(function(cloud){
+      if(!cloud||typeof cloud!=='object') return;
+      var cloudKeys=Object.keys(cloud).filter(function(k){return k!=='_ts';});
+      if(!cloudKeys.length) return;
+      var localTs=okrData._ts||0;
+      var cloudTs=cloud._ts||0;
+      if(cloudTs>localTs){
+        okrData=cloud;
+        localStorage.setItem(OKR_STORE_KEY,JSON.stringify(cloud));
+        okrRender();
+        if(localTs>0) notify('Data diperbarui dari cloud ✓');
+      }
+    })
+    .catch(function(){});
 }
 
 function okrPrevMonth(){
