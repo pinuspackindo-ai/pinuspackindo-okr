@@ -177,6 +177,27 @@ tbody tr:hover td{background:var(--bg);}
 .notify.error{background:var(--danger);}
 .notify.hidden{opacity:0;pointer-events:none;}
 
+/* ── OKR DASHBOARD ── */
+.okr-table{width:100%;border-collapse:collapse;font-size:13px;}
+.okr-table th{background:var(--bg);padding:9px 12px;text-align:left;font-size:10px;font-weight:700;color:var(--text-m);text-transform:uppercase;letter-spacing:.8px;border-bottom:2px solid var(--border);white-space:nowrap;}
+.okr-table td{padding:10px 12px;border-bottom:1px solid var(--border);vertical-align:middle;color:var(--text);}
+.okr-table tbody tr:last-child td{border-bottom:none;}
+.okr-table tbody tr:hover td{background:var(--bg);}
+.okr-score-akhir td{background:var(--primary-l)!important;font-weight:700;border-top:2px solid var(--primary);color:var(--primary-d);}
+.okr-month-btn{background:var(--bg2);border:1.5px solid var(--border);border-radius:var(--radius-sm);padding:6px 16px;cursor:pointer;font-size:16px;color:var(--text);font-family:var(--font);line-height:1;transition:all .15s;}
+.okr-month-btn:hover{border-color:var(--primary);color:var(--primary);}
+.okr-modal-overlay{position:fixed;inset:0;background:rgba(15,23,42,.5);z-index:600;display:none;align-items:flex-start;justify-content:center;padding:24px 16px;overflow-y:auto;}
+.okr-modal-overlay.open{display:flex;}
+.okr-modal-box{background:var(--bg2);border-radius:var(--radius);width:100%;max-width:860px;padding:28px 32px;box-shadow:0 20px 60px rgba(0,0,0,.25);margin:0 auto;}
+.okr-lbl{font-size:10px;font-weight:700;color:var(--text-m);text-transform:uppercase;letter-spacing:.8px;display:block;margin-bottom:5px;}
+.okr-inp{width:100%;padding:9px 12px;border:1.5px solid var(--border);border-radius:var(--radius-sm);font-family:var(--font);font-size:13px;color:var(--text);background:var(--bg2);outline:none;transition:border-color .15s;box-sizing:border-box;}
+.okr-inp:focus{border-color:var(--primary);}
+.okr-inp:disabled{background:var(--bg);color:var(--text-l);cursor:not-allowed;}
+.okr-row-card{background:var(--bg);border:1px solid var(--border);border-radius:var(--radius-sm);padding:14px 16px;margin-bottom:10px;}
+.okr-add-btn{width:100%;background:transparent;border:1.5px dashed var(--border);border-radius:var(--radius-sm);color:var(--text-m);padding:10px;margin-bottom:16px;cursor:pointer;font-family:var(--font);font-size:13px;transition:all .15s;}
+.okr-add-btn:hover{border-color:var(--primary);color:var(--primary);}
+.okr-div-badge{display:inline-block;font-size:10px;font-weight:700;padding:2px 9px;border-radius:99px;background:var(--primary-l);color:var(--primary-d);letter-spacing:.5px;text-transform:uppercase;margin-left:8px;}
+
 /* ── LAPORAN MODULE ── */
 .nav-sub{display:flex;align-items:center;gap:8px;padding:7px 12px 7px 28px;
   border-radius:var(--radius-sm);cursor:pointer;font-size:12.5px;font-weight:500;
