@@ -2216,6 +2216,161 @@ function okrSave(){
   };
 })();
 
+// ── EXCEL IMPORT / EXPORT ──
+function okrImportClick(){
+  document.getElementById('okr-file-input').click();
+}
+
+function okrDownloadTemplate(){
+  var wb=XLSX.utils.book_new();
+  var headers=['Divisi','Bulan','Tahun','Objective','Key Result','Target','Actual','Bobot (%)','Action Plan'];
+  var examples=[
+    ['Store','Mei','2026','Meningkatkan Sales','Target penjualan bulanan',100,85,30,'Review mingguan'],
+    ['Store','Mei','2026','Meningkatkan Sales','On-time delivery rate',50,45,20,'Koordinasi logistik'],
+    ['Warehouse','Mei','2026','Efisiensi Gudang','Akurasi picking order',200,195,50,'Training team picking'],
+    ['Inventory','Mei','2026','Akurasi Stok','Selisih stok vs sistem',1000,980,40,'Stock opname rutin'],
+    ['Purchasing','Mei','2026','Efisiensi Pembelian','Item berhasil saving cost',50,30,30,'Negosiasi supplier'],
+  ];
+  var ws=XLSX.utils.aoa_to_sheet([headers].concat(examples));
+  ws['!cols']=[{wch:22},{wch:12},{wch:8},{wch:32},{wch:32},{wch:10},{wch:10},{wch:10},{wch:32}];
+  XLSX.utils.book_append_sheet(wb,ws,'OKR Template');
+  XLSX.writeFile(wb,'OKR_Template_Pinus.xlsx');
+  notify('Template Excel berhasil diunduh ✓');
+}
+
+function okrProcessFile(e){
+  var file=e.target.files[0];
+  if(!file){ return; }
+  e.target.value='';
+  var reader=new FileReader();
+  reader.onload=function(ev){
+    try{
+      var data=new Uint8Array(ev.target.result);
+      var wb=XLSX.read(data,{type:'array'});
+      var ws=wb.Sheets[wb.SheetNames[0]];
+      var rows=XLSX.utils.sheet_to_json(ws,{defval:''});
+      okrImportRows(rows);
+    }catch(err){
+      alert('Gagal membaca file Excel: '+err.message);
+    }
+  };
+  reader.readAsArrayBuffer(file);
+}
+
+function okrImportRows(rows){
+  if(!rows||rows.length===0){ alert('File Excel kosong atau tidak ada data.'); return; }
+
+  // Flexible column mapping
+  var COL_ALIASES={
+    divisi:['divisi','division','div'],
+    bulan:['bulan','month','bln'],
+    tahun:['tahun','year','thn'],
+    objective:['objective','obj','tujuan','objectives'],
+    keyResult:['key result','key results','keyresult','kr','hasil'],
+    target:['target'],
+    actual:['actual','aktual','realisasi','pencapaian'],
+    bobot:['bobot','bobot (%)','bobot(%)','weight','bobot%'],
+    actionPlan:['action plan','actionplan','rencana aksi','action','rencana']
+  };
+
+  var firstRow=rows[0];
+  var keys=Object.keys(firstRow);
+  var colMap={};
+  keys.forEach(function(k){
+    var kl=k.toLowerCase().trim();
+    Object.keys(COL_ALIASES).forEach(function(field){
+      if(!colMap[field]&&COL_ALIASES[field].indexOf(kl)!==-1){
+        colMap[field]=k;
+      }
+    });
+  });
+
+  if(!colMap.divisi||!colMap.bulan||!colMap.tahun){
+    alert('Kolom wajib tidak ditemukan: Divisi, Bulan, Tahun.\nPastikan header sesuai dengan template yang didownload.');
+    return;
+  }
+
+  var bulanNames=['januari','februari','maret','april','mei','juni','juli','agustus','september','oktober','november','desember'];
+  var parsed={};
+  var skipped=0;
+
+  rows.forEach(function(row){
+    var divisi=String(row[colMap.divisi]||'').trim();
+    var bulanStr=String(row[colMap.bulan]||'').trim().toLowerCase();
+    var tahunStr=String(row[colMap.tahun]||'').trim();
+
+    // Normalize divisi (case-insensitive match)
+    var divisiMatch=OKR_DIVISI.filter(function(d){ return d.toLowerCase()===divisi.toLowerCase(); })[0];
+    if(!divisiMatch){ skipped++; return; }
+
+    // Parse bulan — accept name or number
+    var bulanNum=parseInt(bulanStr);
+    if(isNaN(bulanNum)){ bulanNum=bulanNames.indexOf(bulanStr)+1; }
+    if(bulanNum<1||bulanNum>12){ skipped++; return; }
+
+    var tahunNum=parseInt(tahunStr);
+    if(isNaN(tahunNum)||tahunNum<2020||tahunNum>2099){ skipped++; return; }
+
+    var objective=colMap.objective?String(row[colMap.objective]||'').trim():'';
+    var keyResult=colMap.keyResult?String(row[colMap.keyResult]||'').trim():'';
+    if(!objective&&!keyResult){ skipped++; return; }
+
+    var targetVal=colMap.target?(parseFloat(row[colMap.target])||0):0;
+    var bobotVal=colMap.bobot?(parseFloat(row[colMap.bobot])||0):0;
+    var actionPlan=colMap.actionPlan?String(row[colMap.actionPlan]||'').trim():'';
+
+    var actualRaw=colMap.actual?row[colMap.actual]:null;
+    var actualVal=(actualRaw!==null&&actualRaw!==undefined&&actualRaw!=='')?parseFloat(actualRaw):null;
+    if(actualVal!==null&&isNaN(actualVal)) actualVal=null;
+
+    var key=okrKeyOf(tahunNum,bulanNum);
+    if(!parsed[key]) parsed[key]={};
+    if(!parsed[key][divisiMatch]) parsed[key][divisiMatch]=[];
+    parsed[key][divisiMatch].push({
+      id:'r'+Date.now()+Math.random().toString(36).substr(2,4),
+      objective:objective,keyResult:keyResult,
+      target:targetVal,actual:actualVal,
+      bobot:bobotVal,actionPlan:actionPlan
+    });
+  });
+
+  var totalDivisi=0,totalRows=0;
+  Object.keys(parsed).forEach(function(k){
+    Object.keys(parsed[k]).forEach(function(d){
+      totalDivisi++;
+      totalRows+=parsed[k][d].length;
+    });
+  });
+
+  if(totalRows===0){
+    alert('Tidak ada data valid ditemukan.'+(skipped>0?'\n'+skipped+' baris dilewati (divisi tidak dikenali atau bulan/tahun tidak valid).':''));
+    return;
+  }
+
+  var msg='Akan mengimport '+totalRows+' Key Result untuk '+totalDivisi+' divisi.';
+  if(skipped>0) msg+='\n('+skipped+' baris dilewati karena data tidak valid)';
+  msg+='\n\nData yang sudah ada di bulan yang sama akan ditimpa. Lanjutkan?';
+  if(!confirm(msg)) return;
+
+  Object.keys(parsed).forEach(function(k){
+    if(!okrData[k]) okrData[k]={};
+    Object.keys(parsed[k]).forEach(function(d){
+      okrData[k][d]=parsed[k][d];
+    });
+  });
+  okrSaveLS();
+
+  // Navigate to first imported month
+  var firstKey=Object.keys(parsed).sort()[0];
+  if(firstKey){
+    var parts=firstKey.split('-');
+    okrCurYear=parseInt(parts[0]);
+    okrCurMonth=parseInt(parts[1]);
+  }
+  okrRender();
+  notify('Import berhasil: '+totalRows+' Key Result dari '+totalDivisi+' divisi ✓');
+}
+
 // ─── SAVING COST ───
 function calcSaving(){
   var total=Math.max(0,parseInt(document.getElementById('sv-total').value)||0);
