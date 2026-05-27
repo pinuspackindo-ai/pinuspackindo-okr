@@ -2373,20 +2373,24 @@ function okrImportRows(rows){
 
     var key=okrKeyOf(tahunNum,bulanNum);
     if(!parsed[key]) parsed[key]={};
-    if(!parsed[key][divisiMatch]) parsed[key][divisiMatch]=[];
-    parsed[key][divisiMatch].push({
+    if(!parsed[key][divisiMatch]) parsed[key][divisiMatch]={rows:[],actionPlan:''};
+    parsed[key][divisiMatch].rows.push({
       id:'r'+Date.now()+Math.random().toString(36).substr(2,4),
       objective:objective,keyResult:keyResult,
       target:targetVal,actual:actualVal,
-      bobot:bobotVal,actionPlan:actionPlan
+      bobot:bobotVal
     });
+    // Action plan dari Excel: pakai yang pertama non-kosong per divisi
+    if(!parsed[key][divisiMatch].actionPlan && actionPlan){
+      parsed[key][divisiMatch].actionPlan=actionPlan;
+    }
   });
 
   var totalDivisi=0,totalRows=0;
   Object.keys(parsed).forEach(function(k){
     Object.keys(parsed[k]).forEach(function(d){
       totalDivisi++;
-      totalRows+=parsed[k][d].length;
+      totalRows+=parsed[k][d].rows.length;
     });
   });
 
