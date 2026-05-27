@@ -358,12 +358,12 @@
       "actionPlan": "Drafting SOP ketidakhadiran"
     }
   },
-  "_ts": 1779902454312,
+  "_ts": 1779902496255,
   "_s_omzet_2026_05": {
     "value": 4000000000,
     "evidence": null,
     "evidenceName": null,
     "savedAt": "2026-05-27T16:21:23.622Z",
-    "locked": true
+    "locked": false
   }
 }
