@@ -1989,28 +1989,40 @@ function okrSaveLS(){
 function okrKey(){return okrCurYear+'-'+String(okrCurMonth).padStart(2,'0');}
 function okrKeyOf(y,m){return y+'-'+String(m).padStart(2,'0');}
 
+function okrDownloadData(){
+  var json=JSON.stringify(okrData,null,2);
+  var blob=new Blob([json],{type:'application/json'});
+  var a=document.createElement('a');a.href=URL.createObjectURL(blob);
+  a.download='okr_data.json';a.click();
+  notify('Simpan okr_data.json ke folder project → auto-sync ke GitHub ✓');
+}
+
+function okrLoadCloud(showMsg){
+  fetch('/okr_data.json?_='+Date.now())
+    .then(function(r){return r.ok?r.json():null;})
+    .then(function(cloud){
+      if(!cloud||typeof cloud!=='object'){if(showMsg)notify('Tidak ada data di cloud.','error');return;}
+      var cloudKeys=Object.keys(cloud).filter(function(k){return k!=='_ts';});
+      if(!cloudKeys.length){if(showMsg)notify('Cloud data masih kosong.','error');return;}
+      okrData=cloud;
+      localStorage.setItem(OKR_STORE_KEY,JSON.stringify(cloud));
+      okrRender();
+      if(showMsg)notify('Data berhasil dimuat dari cloud ✓');
+    })
+    .catch(function(){if(showMsg)notify('Gagal terhubung ke cloud.','error');});
+}
+
 function okrInit(){
   okrLoad();
   document.getElementById('okr-f-tahun').value=okrCurYear;
   document.getElementById('okr-f-bulan').value=okrCurMonth;
-  okrRender();
-  fetch('/okr_data.json?_='+Date.now())
-    .then(function(r){return r.ok?r.json():null;})
-    .then(function(cloud){
-      if(!cloud||typeof cloud!=='object')return;
-      var cloudKeys=Object.keys(cloud).filter(function(k){return k!=='_ts';});
-      if(!cloudKeys.length)return;
-      var localTs=okrData._ts||0;
-      var cloudTs=cloud._ts||0;
-      var localEmpty=Object.keys(okrData).filter(function(k){return k!=='_ts';}).length===0;
-      if(cloudTs>localTs||localEmpty){
-        okrData=cloud;
-        localStorage.setItem(OKR_STORE_KEY,JSON.stringify(cloud));
-        okrRender();
-        if(!localEmpty)notify('Data diperbarui dari cloud sync ✓');
-      }
-    })
-    .catch(function(){});
+  var hasLocal=Object.keys(okrData).filter(function(k){return k!=='_ts';}).length>0;
+  if(hasLocal){
+    okrRender();
+  } else {
+    okrLoadCloud(false);
+    okrRender();
+  }
 }
 
 function okrPrevMonth(){
