@@ -2345,7 +2345,19 @@ function okrImportRows(rows){
     if(tahunStr) _lastTahun=tahunStr;
     if(objective) _lastObjective=objective;
 
+    // Skip baris tanpa Key Result (baris kosong, baris total bobot, dll)
+    var keyResult=colMap.keyResult?String(row[colMap.keyResult]||'').trim():'';
+    if(!keyResult){ skipped++; return; }
+
+    // Normalize divisi — exact match dulu, lalu fuzzy (e.g. "General Affairs" → "General Affair")
     var divisiMatch=OKR_DIVISI.filter(function(d){ return d.toLowerCase()===divisi.toLowerCase(); })[0];
+    if(!divisiMatch){
+      var vl=divisi.toLowerCase();
+      divisiMatch=OKR_DIVISI.filter(function(d){
+        var dl=d.toLowerCase();
+        return vl.indexOf(dl)>=0||dl.indexOf(vl)>=0;
+      })[0];
+    }
     if(!divisiMatch){ skipped++; return; }
 
     var bulanNum=parseInt(bulanStr);
@@ -2354,9 +2366,6 @@ function okrImportRows(rows){
 
     var tahunNum=parseInt(tahunStr);
     if(isNaN(tahunNum)||tahunNum<2020||tahunNum>2099){ skipped++; return; }
-
-    var keyResult=colMap.keyResult?String(row[colMap.keyResult]||'').trim():'';
-    if(!objective&&!keyResult){ skipped++; return; }
 
     var targetVal=colMap.target?(_parseNum(row[colMap.target])||0):0;
     var bobotVal=colMap.bobot?(_parseNum(row[colMap.bobot])||0):0;
