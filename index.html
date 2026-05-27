@@ -1596,6 +1596,15 @@ function storeUnlock(month){
   okrSaveLS(); storeRender();
 }
 
+function storeDelete(month){
+  if(!confirm('Hapus data '+STORE_BULAN[month-1]+' '+storeYear+'?\nData tidak dapat dikembalikan.')) return;
+  var key=_sk(storeCurSub,storeYear,month);
+  if(okrData[key]) delete okrData[key];
+  okrSaveLS();
+  storeRender();
+  notify('Data '+STORE_BULAN[month-1]+' '+storeYear+' dihapus.');
+}
+
 function storeViewEv(month){
   var d=_sg(storeCurSub,storeYear,month);
   if(!d.evidence){notify('Tidak ada bukti tersimpan.','error');return;}
