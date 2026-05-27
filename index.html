@@ -1995,7 +1995,7 @@ function okrRender(){
   var wrap = document.getElementById('okr-tables-wrap');
   if(!wrap) return;
 
-  var hasDivisi = OKR_DIVISI.some(function(d){ return monthData[d]&&monthData[d].length>0; });
+  var hasDivisi = OKR_DIVISI.some(function(d){ return okrGetRows(monthData[d]).length>0; });
   if(!hasDivisi){
     wrap.innerHTML='<div class="empty"><p>Belum ada OKR '+OKR_BULAN[okrCurMonth-1]+' '+okrCurYear+'</p><span>Klik &ldquo;+ New OKR&rdquo; untuk membuat, atau &ldquo;Duplicate Bulan Lalu&rdquo; jika OKR sama dengan bulan sebelumnya.</span></div>';
     return;
@@ -2003,7 +2003,9 @@ function okrRender(){
 
   var html='';
   OKR_DIVISI.forEach(function(div){
-    var rows=monthData[div];
+    var divData=monthData[div];
+    var rows=okrGetRows(divData);
+    var ap=okrGetAP(divData);
     if(!rows||rows.length===0) return;
 
     html+='<div class="card" style="margin-bottom:16px;padding:16px 20px;">';
@@ -2016,7 +2018,6 @@ function okrRender(){
     html+='<th style="width:30px;">No</th><th style="min-width:160px;">Objective</th><th style="min-width:180px;">Key Result</th>';
     html+='<th style="width:70px;text-align:right;">Target</th><th style="width:70px;text-align:right;">Actual</th>';
     html+='<th style="width:65px;text-align:center;">Bobot</th><th style="width:70px;text-align:center;">Score</th>';
-    html+='<th style="min-width:180px;">Action Plan</th>';
     html+='</tr></thead><tbody>';
 
     var scoreAkhir=0; var anyNull=false;
@@ -2039,7 +2040,6 @@ function okrRender(){
       html+='<td style="text-align:right;font-variant-numeric:tabular-nums;color:var(--text-m);">'+(row.actual!==null&&row.actual!==undefined&&row.actual!==''?okrFmt(row.actual):'<span style="color:var(--text-l);">—</span>')+'</td>';
       html+='<td style="text-align:center;">'+(row.bobot||0)+'%</td>';
       html+='<td style="text-align:center;font-weight:700;color:'+scoreColor+';">'+scoreStr+'</td>';
-      html+='<td style="font-size:12px;color:var(--text-m);">'+okrEsc(row.actionPlan||'')+'</td>';
       html+='</tr>';
     });
 
@@ -2048,10 +2048,20 @@ function okrRender(){
     var saCls=!anyNull?(scoreAkhir>=80?'color:var(--success)':scoreAkhir>=50?'color:var(--warning)':'color:var(--danger)'):'';
     html+='<tr class="okr-score-akhir">';
     html+='<td colspan="6" style="text-align:right;font-size:12px;letter-spacing:.5px;padding-right:16px;">SCORE AKHIR</td>';
-    html+='<td style="text-align:center;font-size:1.05rem;'+saCls+'">'+saStr+'</td><td></td>';
+    html+='<td style="text-align:center;font-size:1.05rem;'+saCls+'">'+saStr+'</td>';
     html+='</tr>';
 
-    html+='</tbody></table></div></div>';
+    html+='</tbody></table></div>';
+
+    // Action Plan divisi (di bawah tabel)
+    if(ap){
+      html+='<div style="margin-top:12px;padding:10px 14px;background:var(--bg);border-radius:var(--radius-sm);border-left:3px solid var(--primary);">';
+      html+='<div style="font-size:10px;font-weight:700;color:var(--primary-d);text-transform:uppercase;letter-spacing:.8px;margin-bottom:4px;">Action Plan</div>';
+      html+='<div style="font-size:13px;color:var(--text);white-space:pre-wrap;line-height:1.6;">'+okrEsc(ap)+'</div>';
+      html+='</div>';
+    }
+
+    html+='</div>';
   });
 
   wrap.innerHTML=html||'<div class="empty"><p>Belum ada data.</p></div>';
@@ -2087,11 +2097,16 @@ function okrDuplicate(){
   var count=0;
   Object.keys(prevData).forEach(function(div){
     if(!okrData[curKey][div]){
-      okrData[curKey][div]=prevData[div].map(function(row){
-        return {id:'r'+Date.now()+Math.random().toString(36).substr(2,4),
-          objective:row.objective,keyResult:row.keyResult,
-          target:row.target,actual:null,bobot:row.bobot,actionPlan:row.actionPlan};
-      });
+      var prevRows=okrGetRows(prevData[div]);
+      var prevAP=okrGetAP(prevData[div]);
+      okrData[curKey][div]={
+        rows:prevRows.map(function(row){
+          return {id:'r'+Date.now()+Math.random().toString(36).substr(2,4),
+            objective:row.objective,keyResult:row.keyResult,
+            target:row.target,actual:null,bobot:row.bobot};
+        }),
+        actionPlan:prevAP
+      };
       count++;
     }
   });
@@ -2111,6 +2126,7 @@ function okrOpenNew(){
   document.getElementById('okr-f-tahun').value=okrCurYear;
   _okrRowId=0;
   document.getElementById('okr-rows-wrap').innerHTML='';
+  document.getElementById('okr-f-ap').value='';
   okrAddRow();
   document.getElementById('okr-bobot-warn').style.display='none';
   document.getElementById('okr-modal').classList.add('open');
@@ -2127,7 +2143,9 @@ function okrOpenEdit(div){
   document.getElementById('okr-f-tahun').value=okrCurYear;
   _okrRowId=0;
   document.getElementById('okr-rows-wrap').innerHTML='';
-  var rows=(okrData[okrKey()]&&okrData[okrKey()][div])||[];
+  var divData=(okrData[okrKey()]&&okrData[okrKey()][div])||null;
+  var rows=okrGetRows(divData);
+  document.getElementById('okr-f-ap').value=okrGetAP(divData);
   if(rows.length===0){ okrAddRow(); }
   else { rows.forEach(function(r){ okrAddRow(r); }); }
   okrUpdateBobotWarn();
