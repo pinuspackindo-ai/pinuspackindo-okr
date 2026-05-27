@@ -1969,9 +1969,9 @@ function okrDownloadData(){
   notify('Simpan okr_data.json ke folder project → auto-sync ke GitHub ✓');
 }
 
-// Load dari cloud (okr_data.json di Vercel/GitHub)
+// Load dari cloud — GET /api/okr (Vercel serverless atau Flask, selalu fresh dari GitHub)
 function okrLoadCloud(showMsg){
-  fetch('/okr_data.json?_='+Date.now())
+  fetch('/api/okr?_='+Date.now())
     .then(function(r){ return r.ok?r.json():null; })
     .then(function(cloud){
       if(!cloud||typeof cloud!=='object') { if(showMsg) notify('Tidak ada data di cloud.','error'); return; }
@@ -1995,7 +1995,7 @@ function okrInit(){
   okrRender();
   // Auto-check cloud: update lokal hanya jika cloud lebih baru (cek _ts)
   // Browser lain cukup refresh → data otomatis ter-update tanpa klik Load Cloud
-  fetch('/okr_data.json?_='+Date.now())
+  fetch('/api/okr?_='+Date.now())
     .then(function(r){ return r.ok?r.json():null; })
     .then(function(cloud){
       if(!cloud||typeof cloud!=='object') return;
