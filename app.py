@@ -93,6 +93,47 @@ def to_xlsx(df, sheet='Data'):
     buf.seek(0)
     return buf
 
+# ─── GITHUB PUSH ─────────────────────────────────────────────
+
+def _push_github_bg(data_str):
+    """Push okr_data.json ke GitHub via Contents API. Dijalankan di background thread."""
+    if not GITHUB_TOKEN or not GITHUB_REPO:
+        return
+    api_url = 'https://api.github.com/repos/{}/contents/{}'.format(GITHUB_REPO, GITHUB_FILE)
+    headers = {
+        'Authorization': 'token ' + GITHUB_TOKEN,
+        'Accept': 'application/vnd.github.v3+json',
+        'Content-Type': 'application/json',
+        'User-Agent': 'PINUS-OKR-App',
+    }
+    # 1. GET SHA file saat ini (wajib untuk update)
+    sha = ''
+    try:
+        req = urllib.request.Request(
+            api_url + '?ref=' + GITHUB_BRANCH, headers=headers)
+        with urllib.request.urlopen(req, timeout=10) as resp:
+            info = json.loads(resp.read().decode('utf-8'))
+            sha = info.get('sha', '')
+    except Exception:
+        pass  # File belum ada di repo → sha kosong → create baru
+    # 2. PUT update / create file
+    payload = {
+        'message': 'chore: update OKR data',
+        'content': base64.b64encode(data_str.encode('utf-8')).decode('ascii'),
+        'branch':  GITHUB_BRANCH,
+    }
+    if sha:
+        payload['sha'] = sha
+    body = json.dumps(payload, ensure_ascii=False).encode('utf-8')
+    try:
+        req = urllib.request.Request(api_url, data=body, headers=headers, method='PUT')
+        with urllib.request.urlopen(req, timeout=15) as resp:
+            print('[GitHub] Push OK — status', resp.status)
+    except urllib.error.HTTPError as e:
+        print('[GitHub] HTTPError', e.code, e.reason, e.read().decode())
+    except Exception as e:
+        print('[GitHub] Push error:', e)
+
 # ─── ROUTES ──────────────────────────────────────────────────
 
 OKR_DATA_PATH = os.path.join(os.path.dirname(__file__), 'okr_data.json')
@@ -112,13 +153,17 @@ def okr_data_get():
 
 @app.route('/api/okr', methods=['POST'])
 def okr_data_save():
-    """Save OKR data to okr_data.json — auto_sync will push to GitHub."""
+    """Save OKR data ke okr_data.json, lalu push ke GitHub secara otomatis."""
     data = request.get_json(silent=True)
     if not isinstance(data, dict):
         return jsonify({'ok': False, 'msg': 'Invalid data'}), 400
+    data_str = json.dumps(data, ensure_ascii=False, indent=2)
     with open(OKR_DATA_PATH, 'w', encoding='utf-8') as f:
-        json.dump(data, f, ensure_ascii=False, indent=2)
-    return jsonify({'ok': True})
+        f.write(data_str)
+    # Push ke GitHub di background thread (non-blocking, tidak memperlambat response)
+    if GITHUB_TOKEN and GITHUB_REPO:
+        threading.Thread(target=_push_github_bg, args=(data_str,), daemon=True).start()
+    return jsonify({'ok': True, 'github': bool(GITHUB_TOKEN and GITHUB_REPO)})
 
 @app.route('/login', methods=['POST'])
 def login():
