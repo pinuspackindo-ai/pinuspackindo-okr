@@ -2464,6 +2464,35 @@ function okrRender(){
     html+='</div>';
   });
   wrap.innerHTML=html||'<div class="empty"><p>Belum ada data.</p></div>';
+
+  // ── Global OKR Score Card ──
+  var gWrap=document.getElementById('okr-global-wrap');
+  if(gWrap){
+    if(_divScores.length===0){
+      gWrap.innerHTML='';
+    } else {
+      var gAvg=_divScores.reduce(function(a,b){return a+b;},0)/_divScores.length;
+      var gColor=gAvg>=80?'var(--success)':gAvg>=50?'var(--warning)':'var(--danger)';
+      var gLabel=gAvg>=80?'Performa Baik 🎯':gAvg>=50?'Perlu Perhatian ⚠️':'Kritis ❗';
+      var gNote=_divScores.length<_divCount
+        ?(_divScores.length+' dari '+_divCount+' divisi ('+(_divCount-_divScores.length)+' belum lengkap)')
+        :(_divCount+' divisi terukur');
+      gWrap.innerHTML=
+        '<div style="background:var(--bg2);border:2px solid '+gColor+';border-radius:var(--radius);padding:14px 22px;display:flex;align-items:center;gap:22px;box-shadow:0 0 0 4px '+gColor+'22;">'+
+        '<div style="text-align:center;min-width:80px;">'+
+        '<div style="font-size:10px;font-weight:700;color:var(--text-l);text-transform:uppercase;letter-spacing:1px;margin-bottom:4px;">Score Global OKR</div>'+
+        '<div style="font-size:2.8rem;font-weight:800;color:'+gColor+';line-height:1;letter-spacing:-.04em;">'+gAvg.toFixed(1)+'</div>'+
+        '</div>'+
+        '<div style="flex:1;border-left:1px solid var(--border);padding-left:22px;">'+
+        '<div style="font-size:14px;font-weight:700;color:'+gColor+';margin-bottom:2px;">'+gLabel+'</div>'+
+        '<div style="font-size:12px;color:var(--text-m);margin-bottom:8px;">Rata-rata Score Akhir — '+gNote+'</div>'+
+        '<div style="height:7px;background:var(--border);border-radius:99px;overflow:hidden;">'+
+        '<div style="width:'+Math.min(gAvg,100).toFixed(1)+'%;height:100%;background:'+gColor+';border-radius:99px;transition:width .8s cubic-bezier(.16,1,.3,1);"></div>'+
+        '</div>'+
+        '</div>'+
+        '</div>';
+    }
+  }
 }
 
 function okrEsc(s){return String(s).replace(/&/g,'&amp;').replace(/</g,'&lt;').replace(/>/g,'&gt;').replace(/"/g,'&quot;');}
