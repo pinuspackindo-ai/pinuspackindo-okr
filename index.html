@@ -331,18 +331,18 @@ tbody tr:hover td{background:var(--bg);}
     <!-- ═══════════════ PANEL DASHBOARD OKR ═══════════════ -->
     <div id="panel-dashboard" class="panel active">
       <!-- Header: bulan nav + tombol aksi -->
-      <div style="display:flex;align-items:center;justify-content:space-between;margin-bottom:20px;flex-wrap:wrap;gap:12px;">
+      <div style="background:var(--primary);border-radius:var(--radius);padding:10px 16px;display:flex;align-items:center;justify-content:space-between;margin-bottom:20px;flex-wrap:wrap;gap:12px;">
         <div style="display:flex;align-items:center;gap:8px;">
           <button class="okr-month-btn" onclick="okrPrevMonth()">&#8249;</button>
-          <span id="okr-month-label" style="font-size:15px;font-weight:700;color:var(--text);min-width:150px;text-align:center;">—</span>
+          <span id="okr-month-label" style="font-size:15px;font-weight:700;color:#fff;min-width:150px;text-align:center;">—</span>
           <button class="okr-month-btn" onclick="okrNextMonth()">&#8250;</button>
         </div>
-        <div style="display:flex;gap:6px;flex-wrap:wrap;justify-content:flex-end;">
-          <button class="btn" style="background:var(--bg);border:1.5px solid var(--border);color:var(--text);padding:5px 10px;font-size:12px;" onclick="okrDuplicate()">&#x1F4CB; Duplikat</button>
-          <button class="btn" style="background:var(--bg);border:1.5px solid var(--border);color:var(--text);padding:5px 10px;font-size:12px;" onclick="okrDownloadTemplate()">&#x2B07; Template</button>
-          <button class="btn" style="background:var(--bg);border:1.5px solid var(--border);color:var(--text);padding:5px 10px;font-size:12px;" onclick="okrImportClick()">&#x1F4C2; Import Excel</button>
+        <div style="display:flex;gap:6px;flex-wrap:wrap;justify-content:flex-end;align-items:center;">
+          <button class="btn" id="okr-dup-btn" style="background:rgba(255,255,255,.15);border:1.5px solid rgba(255,255,255,.3);color:#fff;padding:5px 10px;font-size:12px;" onclick="okrDuplicate()">&#x1F4CB; Duplikat</button>
+          <button class="btn" style="background:rgba(255,255,255,.15);border:1.5px solid rgba(255,255,255,.3);color:#fff;padding:5px 10px;font-size:12px;" onclick="okrDownloadTemplate()">&#x2B07; Template</button>
+          <button class="btn" style="background:rgba(255,255,255,.15);border:1.5px solid rgba(255,255,255,.3);color:#fff;padding:5px 10px;font-size:12px;" onclick="okrImportClick()">&#x1F4C2; Import Excel</button>
           <input type="file" id="okr-file-input" accept=".xlsx,.xls" style="display:none;" onchange="okrProcessFile(event)">
-          <button class="btn btn-primary" style="padding:5px 10px;font-size:12px;width:auto;" onclick="okrOpenNew()">+ New OKR</button>
+          <button class="btn btn-primary" style="padding:5px 10px;font-size:12px;width:auto;background:#fff;color:var(--primary);border-color:#fff;" onclick="okrOpenNew()">+ New OKR</button>
         </div>
       </div>
       <!-- Judul OKR -->
@@ -2381,8 +2381,10 @@ function okrRender(){
   if(!wrap) return;
 
   var hasDivisi = _RD.some(function(d){ return okrGetRows(monthData[d]).length>0; });
+  var _dupBtn=document.getElementById('okr-dup-btn');
+  if(_dupBtn) _dupBtn.style.display=hasDivisi?'none':'';
   if(!hasDivisi){
-    wrap.innerHTML='<div class="empty"><p>Belum ada OKR '+_labelBulan+' '+okrCurYear+'</p><span>Klik &ldquo;+ New OKR&rdquo; untuk membuat, atau &ldquo;Duplicate Bulan Lalu&rdquo; jika OKR sama dengan bulan sebelumnya.</span></div>';
+    wrap.innerHTML='<div class="empty"><p>Belum ada OKR '+_labelBulan+' '+okrCurYear+'</p><span>Klik &ldquo;+ New OKR&rdquo; untuk membuat, atau &ldquo;Duplikat Bulan Lalu&rdquo; jika OKR sama dengan bulan sebelumnya.</span></div>';
     var gWclr=document.getElementById('okr-global-wrap'); if(gWclr) gWclr.innerHTML='';
     return;
   }
