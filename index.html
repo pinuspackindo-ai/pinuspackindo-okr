@@ -2177,12 +2177,11 @@ function okrAddRow(data){
     '<div><label class="okr-lbl">Objective</label><input class="okr-inp" type="text" id="okr-obj-'+id+'" placeholder="Tujuan utama..." value="'+(data&&data.objective?okrEsc(data.objective):'')+'"></div>'+
     '<div><label class="okr-lbl">Key Result</label><input class="okr-inp" type="text" id="okr-kr-'+id+'" placeholder="Hasil yang terukur..." value="'+(data&&data.keyResult?okrEsc(data.keyResult):'')+'"></div>'+
     '</div>'+
-    '<div style="display:grid;grid-template-columns:1fr 1fr 1fr 1fr;gap:10px;">'+
+    '<div style="display:grid;grid-template-columns:1fr 1fr 1fr;gap:10px;">'+
     '<div><label class="okr-lbl">Target</label><input class="okr-inp" type="number" id="okr-target-'+id+'" placeholder="0" value="'+(data&&data.target!==undefined?data.target:'')+'"></div>'+
     '<div><label class="okr-lbl">Bobot (%)</label><input class="okr-inp" type="number" id="okr-bobot-'+id+'" placeholder="0" min="0" max="100" oninput="okrUpdateBobotWarn()" value="'+(data&&data.bobot!==undefined?data.bobot:'')+'"></div>'+
     '<div><label class="okr-lbl">Actual '+(isNew?'<span style="font-weight:400;color:var(--text-l);">(otomatis)</span>':'</label><label class="okr-lbl">&nbsp;')+'</label>'+
     '<input class="okr-inp" type="number" id="okr-actual-'+id+'" placeholder="—" value="'+av+'" '+(isNew?'disabled title="Akan diisi otomatis dari modul lain"':'')+'></div>'+
-    '<div><label class="okr-lbl">Action Plan</label><input class="okr-inp" type="text" id="okr-ap-'+id+'" placeholder="Rencana aksi..." value="'+(data&&data.actionPlan?okrEsc(data.actionPlan):'')+'"></div>'+
     '</div>';
 
   wrap.appendChild(div);
@@ -2222,19 +2221,19 @@ function okrSave(){
     var target=document.getElementById('okr-target-'+id);
     var bobot=document.getElementById('okr-bobot-'+id);
     var actual=document.getElementById('okr-actual-'+id);
-    var ap=document.getElementById('okr-ap-'+id);
     if(!obj||(!obj.value.trim()&&!kr.value.trim())) return;
     var av=actual&&actual.value!==''?parseFloat(actual.value):null;
     rows.push({id:'r'+Date.now()+Math.random().toString(36).substr(2,4),
       objective:obj.value.trim(),keyResult:kr.value.trim(),
       target:parseFloat(target.value)||0,actual:av,
-      bobot:parseFloat(bobot.value)||0,actionPlan:ap?ap.value.trim():''});
+      bobot:parseFloat(bobot.value)||0});
   });
   if(rows.length===0){ alert('Isi minimal 1 Key Result.'); return; }
 
+  var apVal=document.getElementById('okr-f-ap').value.trim();
   var key=okrKeyOf(tahun,bulan);
   if(!okrData[key]) okrData[key]={};
-  okrData[key][divisi]=rows;
+  okrData[key][divisi]={rows:rows,actionPlan:apVal};
   okrSaveLS();
 
   // Update tampilan ke bulan yang disimpan
