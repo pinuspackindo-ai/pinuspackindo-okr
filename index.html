@@ -2281,7 +2281,7 @@ function okrProcessFile(e){
         if(!Array.isArray(rows)||rows.length===0){ alert('Sheet Excel kosong atau tidak ada data.'); return; }
         importResult=okrImportRows(rows);
       }catch(err){
-        alert('Gagal membaca file Excel: '+err.message);
+        alert('Gagal membaca file Excel:\n'+err.message+'\n\n('+err.stack+')');
         return;
       }
       // Render & notify OUTSIDE try-catch so render errors are separate
