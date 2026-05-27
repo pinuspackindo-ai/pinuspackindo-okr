@@ -2288,7 +2288,15 @@ function okrProcessFile(e){
       if(importResult){
         okrCurYear=importResult.year;
         okrCurMonth=importResult.month;
-        okrRender();
+        // DEBUG: show state before render
+        var _dbgKey=okrCurYear+'-'+String(okrCurMonth).padStart(2,'0');
+        var _dbgDivisi=okrData[_dbgKey]?Object.keys(okrData[_dbgKey]):[];
+        alert('[DEBUG] Key: '+_dbgKey+'\nDivisi ditemukan: '+_dbgDivisi.length+'\n'+_dbgDivisi.join(', ')||'(kosong)');
+        try{
+          okrRender();
+        }catch(renderErr){
+          alert('[DEBUG] okrRender ERROR:\n'+renderErr.message+'\n\n'+renderErr.stack);
+        }
         notify('Import berhasil: '+importResult.totalRows+' Key Result dari '+importResult.totalDivisi+' divisi ✓');
       }
     };
