@@ -2410,8 +2410,9 @@ function okrRender(){
     rows.forEach(function(row,i){
       var scoreVal=null;var scoreStr='—';
       if(row.actual!==null&&row.actual!==undefined&&row.actual!==''&&row.target>0){
-        scoreVal=Math.min((parseFloat(row.actual)/parseFloat(row.target))*parseFloat(row.bobot),parseFloat(row.bobot));
-        scoreStr=scoreVal.toFixed(1);scoreAkhir+=scoreVal;
+        var pct_ach=Math.min(parseFloat(row.actual)/parseFloat(row.target)*100,100);
+        scoreVal=pct_ach;
+        scoreStr=scoreVal.toFixed(1);scoreAkhir+=pct_ach*(parseFloat(row.bobot)||0)/100;
       }else{anyNull=true;}
       var pct=row.target>0&&row.actual!=null&&row.actual!==''?(parseFloat(row.actual)/parseFloat(row.target)*100):0;
       var scoreColor=scoreVal!==null?(pct>=80?'var(--success)':pct>=50?'var(--warning)':'var(--danger)'):'var(--text-l)';
