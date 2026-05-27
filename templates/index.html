@@ -1621,11 +1621,11 @@ function storeRender(){
   html+='<div style="overflow-x:auto;"><table class="okr-table" style="width:100%;">';
   html+='<thead><tr>';
   html+='<th style="width:36px;text-align:center;">No</th>';
-  html+='<th style="min-width:100px;">Bulan</th>';
-  html+='<th style="min-width:130px;">'+sub.desc+' ('+sub.unit+')</th>';
-  html+='<th style="width:110px;text-align:center;">OKR Actual</th>';
-  html+='<th style="width:110px;text-align:center;">Bukti Upload</th>';
-  html+='<th style="width:170px;text-align:center;">Aksi</th>';
+  html+='<th style="min-width:90px;">Bulan</th>';
+  html+='<th style="min-width:140px;">'+sub.desc+' ('+sub.unit+')</th>';
+  html+='<th style="min-width:150px;text-align:center;">OKR Actual</th>';
+  html+='<th style="width:105px;text-align:center;">Bukti Upload</th>';
+  html+='<th style="width:160px;text-align:center;">Aksi</th>';
   html+='</tr></thead><tbody>';
 
   for(var m=1;m<=12;m++){
@@ -1790,12 +1790,15 @@ function storeUnlock(month){
 }
 
 function storeDelete(month){
-  if(!confirm('Hapus data '+STORE_BULAN[month-1]+' '+storeYear+'?\nData tidak dapat dikembalikan.')) return;
+  if(!confirm('Hapus data '+STORE_BULAN[month-1]+' '+storeYear+'?\nData & nilai OKR Actual terkait akan dihapus.')) return;
   var key=_sk(storeCurSub,storeYear,month);
   if(okrData[key]) delete okrData[key];
+  // Hapus juga nilai OKR actual yang terhubung
+  storeSyncOKR(storeCurSub,storeYear,month,null);
   okrSaveLS();
   storeRender();
-  notify('Data '+STORE_BULAN[month-1]+' '+storeYear+' dihapus.');
+  if(okrCurYear===storeYear&&okrCurMonth===month) okrRender();
+  notify('Data '+STORE_BULAN[month-1]+' '+storeYear+' & OKR Actual dihapus.');
 }
 
 function storeViewEv(month){
@@ -2431,9 +2434,10 @@ function okrRender(){
     rows.forEach(function(row,i){
       var scoreVal=null;var scoreStr='—';
       if(row.actual!==null&&row.actual!==undefined&&row.actual!==''&&row.target>0){
+        // Score per KR: 0–100 (bukan 0–bobot). Max 100 walau actual > target.
         var pct_ach=Math.min(parseFloat(row.actual)/parseFloat(row.target)*100,100);
         scoreVal=pct_ach;
-        scoreStr=scoreVal.toFixed(1);scoreAkhir+=pct_ach*(parseFloat(row.bobot)||0)/100;
+        scoreStr=pct_ach.toFixed(1);scoreAkhir+=pct_ach*(parseFloat(row.bobot)||0)/100;
       }else{anyNull=true;}
       var pct=row.target>0&&row.actual!=null&&row.actual!==''?(parseFloat(row.actual)/parseFloat(row.target)*100):0;
       var scoreColor=scoreVal!==null?(pct>=80?'var(--success)':pct>=50?'var(--warning)':'var(--danger)'):'var(--text-l)';
