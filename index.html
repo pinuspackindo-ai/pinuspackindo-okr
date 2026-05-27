@@ -1949,7 +1949,12 @@ var OKR_BULAN  = ['Januari','Februari','Maret','April','Mei','Juni',
 function okrLoad(){
   try{ okrData=JSON.parse(localStorage.getItem(OKR_STORE_KEY)||'{}'); }catch(e){ okrData={}; }
 }
-function okrSaveLS(){ localStorage.setItem(OKR_STORE_KEY,JSON.stringify(okrData)); }
+function okrSaveLS(){
+  okrData._ts=Date.now(); // timestamp untuk cloud sync comparison
+  localStorage.setItem(OKR_STORE_KEY,JSON.stringify(okrData));
+  // POST ke Flask jika tersedia (silently fail di Vercel/static)
+  fetch('/api/okr',{method:'POST',headers:{'Content-Type':'application/json'},body:JSON.stringify(okrData)}).catch(function(){});
+}
 function okrKey(){ return okrCurYear+'-'+String(okrCurMonth).padStart(2,'0'); }
 function okrKeyOf(y,m){ return y+'-'+String(m).padStart(2,'0'); }
 
@@ -1957,7 +1962,27 @@ function okrInit(){
   okrLoad();
   document.getElementById('okr-f-tahun').value = okrCurYear;
   document.getElementById('okr-f-bulan').value = okrCurMonth;
-  okrRender();
+  okrRender(); // render dari localStorage dulu (cepat, tidak tunggu network)
+
+  // Cek cloud data di background — update jika lebih baru
+  fetch('/okr_data.json?_='+Date.now())
+    .then(function(r){ return r.ok?r.json():null; })
+    .then(function(cloud){
+      if(!cloud||typeof cloud!=='object') return;
+      var cloudKeys=Object.keys(cloud).filter(function(k){return k!=='_ts';});
+      if(!cloudKeys.length) return; // cloud kosong
+      var localTs=okrData._ts||0;
+      var cloudTs=cloud._ts||0;
+      var localEmpty=Object.keys(okrData).filter(function(k){return k!=='_ts';}).length===0;
+      if(cloudTs>localTs||localEmpty){
+        // Cloud lebih baru atau local kosong → pakai cloud
+        okrData=cloud;
+        localStorage.setItem(OKR_STORE_KEY,JSON.stringify(cloud));
+        okrRender();
+        if(!localEmpty) notify('Data diperbarui dari cloud sync ✓');
+      }
+    })
+    .catch(function(){}); // tidak ada cloud data, lanjut pakai localStorage
 }
 
 // ── NAVIGATION ──

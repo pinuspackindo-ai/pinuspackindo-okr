@@ -5,6 +5,7 @@ import re
 from datetime import datetime
 import uuid
 import os
+import json
 
 app = Flask(__name__)
 app.secret_key = 'pinus_packindo_secret_2025'
@@ -81,9 +82,30 @@ def to_xlsx(df, sheet='Data'):
 
 # ─── ROUTES ──────────────────────────────────────────────────
 
+OKR_DATA_PATH = os.path.join(os.path.dirname(__file__), 'okr_data.json')
+
 @app.route('/')
 def index():
     return render_template('index.html')
+
+# ── OKR Cloud Sync ───────────────────────────────────────────
+@app.route('/okr_data.json')
+def okr_data_get():
+    """Serve okr_data.json — used by frontend to load cross-browser data."""
+    if os.path.exists(OKR_DATA_PATH):
+        with open(OKR_DATA_PATH, 'r', encoding='utf-8') as f:
+            return jsonify(json.load(f))
+    return jsonify({})
+
+@app.route('/api/okr', methods=['POST'])
+def okr_data_save():
+    """Save OKR data to okr_data.json — auto_sync will push to GitHub."""
+    data = request.get_json(silent=True)
+    if not isinstance(data, dict):
+        return jsonify({'ok': False, 'msg': 'Invalid data'}), 400
+    with open(OKR_DATA_PATH, 'w', encoding='utf-8') as f:
+        json.dump(data, f, ensure_ascii=False, indent=2)
+    return jsonify({'ok': True})
 
 @app.route('/login', methods=['POST'])
 def login():
