@@ -14,10 +14,16 @@ import urllib.error
 # ─── GITHUB CONFIG ──────────────────────────────────────────────────────────
 # Isi GITHUB_TOKEN dan GITHUB_REPO sekali, lalu restart Flask.
 # Data OKR akan otomatis terpush ke GitHub setiap kali disimpan.
-GITHUB_TOKEN  = ''             # Personal Access Token (Settings → Developer → Fine-grained / Classic, scope: repo)
-GITHUB_REPO   = 'pinuspackindo-ai/pinus-okr'  # Format: "username/nama-repo"
+GITHUB_TOKEN  = ''                                    # Diisi otomatis dari local_config.py
+GITHUB_REPO   = 'pinuspackindo-ai/pinuspackindo-okr'  # Format: "username/nama-repo"
 GITHUB_BRANCH = 'main'         # Branch aktif (biasanya main atau master)
 GITHUB_FILE   = 'okr_data.json'  # Path file di dalam repo (jangan diubah)
+# Token dibaca dari local_config.py (tidak masuk GitHub — aman)
+try:
+    from local_config import GITHUB_TOKEN as _LC_TOKEN
+    if _LC_TOKEN: GITHUB_TOKEN = _LC_TOKEN
+except ImportError:
+    pass
 # ────────────────────────────────────────────────────────────────────────────
 
 app = Flask(__name__)

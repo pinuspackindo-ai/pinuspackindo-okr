@@ -310,7 +310,7 @@ tbody tr:hover td{background:var(--bg);}
 
 <main class="main" id="main-app">
   <div class="topbar">
-    <span class="topbar-title" id="topbar-title">Analisa Instock</span>
+    <span class="topbar-title" id="topbar-title">Dashboard OKR</span>
     <span class="topbar-badge">
       <span id="topbar-date"></span> &nbsp;·&nbsp;
       <span id="topbar-time" style="font-variant-numeric:tabular-nums;font-weight:500;"></span> &nbsp;·&nbsp;
@@ -1986,6 +1986,9 @@ function okrLoadCloud(showMsg){
 }
 
 function okrInit(){
+  // Pastikan tahun & bulan valid walau okrInit dipanggil sebelum deklarasi var dieksekusi
+  if(!okrCurYear)  okrCurYear  = new Date().getFullYear();
+  if(!okrCurMonth) okrCurMonth = new Date().getMonth()+1;
   okrLoad();
   document.getElementById('okr-f-tahun').value = okrCurYear;
   document.getElementById('okr-f-bulan').value = okrCurMonth;
@@ -2056,8 +2059,11 @@ function okrRender(){
 
     html+='<div class="card" style="margin-bottom:16px;padding:16px 20px;">';
     html+='<div class="card-title" style="justify-content:space-between;margin-bottom:6px;">';
-    html+='<span>&#9733; '+div+'</span>';
+    html+='<span style="font-size:16px;font-weight:800;color:var(--text);letter-spacing:.5px;text-transform:uppercase;">&#9733; '+div+'</span>';
+    html+='<div style="display:flex;gap:6px;">';
     html+='<button style="background:var(--bg);border:1.5px solid var(--border);border-radius:var(--radius-sm);padding:5px 14px;cursor:pointer;font-size:12px;font-family:var(--font);color:var(--text);" onclick="okrOpenEdit(\''+okrEsc(div)+'\')">&#x270F;&#xFE0F; Edit OKR</button>';
+    html+='<button style="background:var(--bg);border:1.5px solid #fca5a5;border-radius:var(--radius-sm);padding:5px 10px;cursor:pointer;font-size:13px;color:#dc2626;" onclick="okrDeleteDivisi(\''+okrEsc(div)+'\')" title="Hapus OKR '+okrEsc(div)+'">&#x1F5D1;</button>';
+    html+='</div>';
     html+='</div>';
 
     // Objective tampil sekali di bawah nama divisi
@@ -2169,6 +2175,21 @@ function okrDuplicate(){
   });
   okrSaveLS(); okrRender();
   notify(count+' divisi berhasil diduplikasi dari '+OKR_BULAN[pm-1]+' '+py+' ✓');
+}
+
+// ── HAPUS DIVISI ──
+function okrDeleteDivisi(div){
+  var labelBulan=(typeof OKR_BULAN!=='undefined'?OKR_BULAN:['Januari','Februari','Maret','April','Mei','Juni','Juli','Agustus','September','Oktober','November','Desember'])[okrCurMonth-1]||('Bulan '+okrCurMonth);
+  var msg='Hapus OKR '+div+' untuk '+labelBulan+' '+okrCurYear+'?\n\nData yang dihapus tidak dapat dikembalikan.';
+  if(!confirm(msg)) return;
+  var key=okrKey();
+  if(okrData[key]&&okrData[key][div]){
+    delete okrData[key][div];
+    if(Object.keys(okrData[key]).length===0) delete okrData[key];
+    okrSaveLS();
+    okrRender();
+    notify('OKR '+div+' berhasil dihapus.');
+  }
 }
 
 // ── MODAL NEW / EDIT ──
