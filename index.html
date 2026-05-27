@@ -2419,16 +2419,16 @@ function okrRender(){
     html+='<th style="width:65px;text-align:center;">Bobot</th><th style="width:70px;text-align:center;">Score</th>';
     html+='</tr></thead><tbody>';
 
-    var scoreAkhir=0; var anyNull=false;
+    var scoreAkhir=0; var hasAnyScore=false;
     rows.forEach(function(row,i){
       var scoreVal=null; var scoreStr='—';
       if(row.actual!==null&&row.actual!==undefined&&row.actual!==''&&row.target>0){
-        // Score per KR: 0–100 (bukan 0–bobot). Max 100 walau actual > target.
-        var pct_ach=Math.min(parseFloat(row.actual)/parseFloat(row.target)*100, 100);
-        scoreVal=pct_ach;
-        scoreStr=pct_ach.toFixed(1);
-        scoreAkhir+=pct_ach*(parseFloat(row.bobot)||0)/100;
-      } else { anyNull=true; }
+        // Score = actual / target × bobot (tanpa batas maksimal)
+        scoreVal=(parseFloat(row.actual)/parseFloat(row.target))*(parseFloat(row.bobot)||0);
+        scoreStr=scoreVal.toFixed(1);
+        scoreAkhir+=scoreVal;
+        hasAnyScore=true;
+      }
 
       var pct=row.target>0&&row.actual!=null&&row.actual!==''?(parseFloat(row.actual)/parseFloat(row.target)*100):0;
       var scoreColor=scoreVal!==null?(pct>=80?'var(--success)':pct>=50?'var(--warning)':'var(--danger)'):'var(--text-l)';
@@ -2443,11 +2443,11 @@ function okrRender(){
       html+='</tr>';
     });
 
-    // Score akhir row
-    var saStr=anyNull?'—':scoreAkhir.toFixed(1);
-    var saCls=!anyNull?(scoreAkhir>=80?'color:var(--success)':scoreAkhir>=50?'color:var(--warning)':'color:var(--danger)'):'';
+    // Score Akhir = penjumlahan score tiap baris (tampil meski sebagian belum ada actual)
+    var saStr=hasAnyScore?scoreAkhir.toFixed(1):'—';
+    var saCls=hasAnyScore?(scoreAkhir>=80?'color:var(--success)':scoreAkhir>=50?'color:var(--warning)':'color:var(--danger)'):'';
     _divCount++;
-    if(!anyNull) _divScores.push(scoreAkhir);
+    if(hasAnyScore) _divScores.push(scoreAkhir);
     html+='<tr class="okr-score-akhir">';
     html+='<td colspan="5" style="text-align:right;font-size:12px;letter-spacing:.5px;padding-right:16px;">SCORE AKHIR</td>';
     html+='<td style="text-align:center;font-size:1.05rem;'+saCls+'">'+saStr+'</td>';
