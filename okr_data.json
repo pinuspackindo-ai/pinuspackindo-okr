@@ -358,7 +358,7 @@
       "actionPlan": "Drafting SOP ketidakhadiran"
     }
   },
-  "_ts": 1779898957223,
+  "_ts": 1779898959523,
   "_s_omzet_2026_05": {
     "value": 4000000000,
     "evidence": null,
@@ -367,35 +367,6 @@
     "locked": true
   },
   "2026-06": {
-    "General Affair": {
-      "rows": [
-        {
-          "id": "r1779898939051tqd3",
-          "objective": "Inventaris utuh terawat, pengadaan tepat waktu, operasional aman lancar, user puas.",
-          "keyResult": "Tingkat akurasi stok inventaris data vs fisik",
-          "target": 98,
-          "actual": null,
-          "bobot": 40
-        },
-        {
-          "id": "r1779898939051ljc3",
-          "objective": "Inventaris utuh terawat, pengadaan tepat waktu, operasional aman lancar, user puas.",
-          "keyResult": "Tingkat akurasi lead time pengadaan / maintenance",
-          "target": 95,
-          "actual": null,
-          "bobot": 35
-        },
-        {
-          "id": "r177989893905145li",
-          "objective": "Inventaris utuh terawat, pengadaan tepat waktu, operasional aman lancar, user puas.",
-          "keyResult": "Laporan inventaris akurat dan on time",
-          "target": 100,
-          "actual": null,
-          "bobot": 25
-        }
-      ],
-      "actionPlan": "Kaji ulang cctv warehouse"
-    },
     "Internal Audit": {
       "rows": [
         {
