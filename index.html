@@ -2128,6 +2128,7 @@ function okrOpenNew(){
   document.getElementById('okr-f-tahun').value=okrCurYear;
   _okrRowId=0;
   document.getElementById('okr-rows-wrap').innerHTML='';
+  document.getElementById('okr-f-obj').value='';
   document.getElementById('okr-f-ap').value='';
   okrAddRow();
   document.getElementById('okr-bobot-warn').style.display='none';
@@ -2147,6 +2148,8 @@ function okrOpenEdit(div){
   document.getElementById('okr-rows-wrap').innerHTML='';
   var divData=(okrData[okrKey()]&&okrData[okrKey()][div])||null;
   var rows=okrGetRows(divData);
+  // Isi objective dari baris pertama (sama untuk semua KR)
+  document.getElementById('okr-f-obj').value=rows.length>0?(rows[0].objective||''):'';
   document.getElementById('okr-f-ap').value=okrGetAP(divData);
   if(rows.length===0){ okrAddRow(); }
   else { rows.forEach(function(r){ okrAddRow(r); }); }
