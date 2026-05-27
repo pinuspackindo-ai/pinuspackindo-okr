@@ -2297,9 +2297,14 @@ function okrProcessFile(e){
       if(importResult){
         okrCurYear=importResult.year;
         okrCurMonth=importResult.month;
-        okrLoad(); // reload fresh dari localStorage setelah save
-        okrRender();
-        notify('Import berhasil: '+importResult.totalRows+' Key Result dari '+importResult.totalDivisi+' divisi ✓');
+        // Jalankan render di main event loop (bukan di dalam FileReader async callback)
+        // agar semua global pasti ter-akses dengan benar
+        var _ir=importResult;
+        setTimeout(function(){
+          okrLoad();
+          okrRender();
+          notify('Import berhasil: '+_ir.totalRows+' Key Result dari '+_ir.totalDivisi+' divisi ✓');
+        }, 50);
       }
     };
     reader.readAsArrayBuffer(file);

@@ -2282,8 +2282,12 @@ function okrProcessFile(e){
       if(importResult){
         okrCurYear=importResult.year;
         okrCurMonth=importResult.month;
-        okrRender();
-        notify('Import berhasil: '+importResult.totalRows+' Key Result dari '+importResult.totalDivisi+' divisi ✓');
+        var _ir=importResult;
+        setTimeout(function(){
+          okrLoad();
+          okrRender();
+          notify('Import berhasil: '+_ir.totalRows+' Key Result dari '+_ir.totalDivisi+' divisi ✓');
+        }, 50);
       }
     };
     reader.readAsArrayBuffer(file);
