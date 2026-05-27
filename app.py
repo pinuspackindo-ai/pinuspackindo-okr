@@ -15,7 +15,7 @@ import urllib.error
 # Isi GITHUB_TOKEN dan GITHUB_REPO sekali, lalu restart Flask.
 # Data OKR akan otomatis terpush ke GitHub setiap kali disimpan.
 GITHUB_TOKEN  = ''             # Personal Access Token (Settings → Developer → Fine-grained / Classic, scope: repo)
-GITHUB_REPO   = ''             # Format: "username/nama-repo"   contoh: "budi/pinus-okr"
+GITHUB_REPO   = 'pinuspackindo-ai/pinus-okr'  # Format: "username/nama-repo"
 GITHUB_BRANCH = 'main'         # Branch aktif (biasanya main atau master)
 GITHUB_FILE   = 'okr_data.json'  # Path file di dalam repo (jangan diubah)
 # ────────────────────────────────────────────────────────────────────────────
