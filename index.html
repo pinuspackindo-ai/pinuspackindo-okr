@@ -1293,7 +1293,7 @@ function doLogin(){
   if(pwd==='010101'){
     const o=document.getElementById('pwd-overlay');
     o.style.transition='opacity .4s'; o.style.opacity='0';
-    setTimeout(()=>{o.remove();document.getElementById('sidebar').style.display='flex';document.getElementById('main-app').style.display='flex';},400);
+    setTimeout(()=>{o.remove();document.getElementById('sidebar').style.display='flex';document.getElementById('main-app').style.display='flex';okrInit();},400);
   } else {
     err.textContent='Password salah.';
     document.getElementById('pwd-input').value='';
