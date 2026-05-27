@@ -2068,7 +2068,12 @@ function okrRender(){
 }
 
 function okrEsc(s){ return String(s).replace(/&/g,'&amp;').replace(/</g,'&lt;').replace(/>/g,'&gt;').replace(/"/g,'&quot;'); }
-function okrFmt(n){ var x=parseFloat(n); return isNaN(x)?'—':x%1===0?x.toString():x.toFixed(2); }
+function okrFmt(n){
+  var x=parseFloat(n); if(isNaN(x)) return '—';
+  var s=x%1===0?x.toFixed(0):x.toFixed(2);
+  var p=s.split('.'); p[0]=p[0].replace(/\B(?=(\d{3})+(?!\d))/g,',');
+  return p.join('.');
+}
 
 // Helper: backward-compat accessor (old=array, new={rows,actionPlan})
 function okrGetRows(divData){
