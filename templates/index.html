@@ -1988,18 +1988,27 @@ function okrNextMonth(){
 }
 
 function okrRender(){
-  document.getElementById('okr-month-label').textContent=OKR_BULAN[okrCurMonth-1]+' '+okrCurYear;
+  var _RD=(typeof OKR_DIVISI!=='undefined'&&Array.isArray(OKR_DIVISI))
+    ?OKR_DIVISI
+    :['Store','Distribution Sales','Warehouse','Inventory','Purchasing',
+      'Finance & Accounting','General Affair','HRD','Internal Audit'];
+  var _RB=(typeof OKR_BULAN!=='undefined'&&Array.isArray(OKR_BULAN))
+    ?OKR_BULAN
+    :['Januari','Februari','Maret','April','Mei','Juni',
+      'Juli','Agustus','September','Oktober','November','Desember'];
+  var _labelBulan=_RB[okrCurMonth-1]||('Bulan '+okrCurMonth);
+  document.getElementById('okr-month-label').textContent=_labelBulan+' '+okrCurYear;
   var key=okrKey();
   var monthData=okrData[key]||{};
   var wrap=document.getElementById('okr-tables-wrap');
   if(!wrap)return;
-  var hasDivisi=OKR_DIVISI.some(function(d){return okrGetRows(monthData[d]).length>0;});
+  var hasDivisi=_RD.some(function(d){return okrGetRows(monthData[d]).length>0;});
   if(!hasDivisi){
-    wrap.innerHTML='<div class="empty"><p>Belum ada OKR '+OKR_BULAN[okrCurMonth-1]+' '+okrCurYear+'</p><span>Klik &ldquo;+ New OKR&rdquo; untuk membuat, atau &ldquo;Duplicate Bulan Lalu&rdquo; jika poin sama.</span></div>';
+    wrap.innerHTML='<div class="empty"><p>Belum ada OKR '+_labelBulan+' '+okrCurYear+'</p><span>Klik &ldquo;+ New OKR&rdquo; untuk membuat, atau &ldquo;Duplicate Bulan Lalu&rdquo; jika poin sama.</span></div>';
     return;
   }
   var html='';
-  OKR_DIVISI.forEach(function(div){
+  _RD.forEach(function(div){
     var divData=monthData[div];
     var rows=okrGetRows(divData);
     var ap=okrGetAP(divData);
