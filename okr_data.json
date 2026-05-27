@@ -358,7 +358,7 @@
       "actionPlan": "Drafting SOP ketidakhadiran"
     }
   },
-  "_ts": 1779898943325,
+  "_ts": 1779898945742,
   "_s_omzet_2026_05": {
     "value": 4000000000,
     "evidence": null,
@@ -367,43 +367,6 @@
     "locked": true
   },
   "2026-06": {
-    "Distribution Sales": {
-      "rows": [
-        {
-          "id": "r1779898939051w9co",
-          "objective": "Mencapai target penjualan, pelanggan puas.",
-          "keyResult": "Jumlah omset global",
-          "target": 3400000000,
-          "actual": null,
-          "bobot": 35
-        },
-        {
-          "id": "r177989893905111fp",
-          "objective": "Mencapai target penjualan, pelanggan puas.",
-          "keyResult": "Retensi pelanggan",
-          "target": 2,
-          "actual": null,
-          "bobot": 30
-        },
-        {
-          "id": "r1779898939051lhne",
-          "objective": "Mencapai target penjualan, pelanggan puas.",
-          "keyResult": "Customers baru",
-          "target": 10,
-          "actual": null,
-          "bobot": 25
-        },
-        {
-          "id": "r1779898939051rinq",
-          "objective": "Mencapai target penjualan, pelanggan puas.",
-          "keyResult": "Kepuasan pelanggan",
-          "target": 90,
-          "actual": null,
-          "bobot": 10
-        }
-      ],
-      "actionPlan": "Training new telesales"
-    },
     "General Affair": {
       "rows": [
         {
