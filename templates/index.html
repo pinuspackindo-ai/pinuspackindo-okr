@@ -1708,6 +1708,9 @@ function storeRender(){
 function storeUpload(month,inp){
   var file=inp.files[0]; if(!file) return;
   if(file.size>5*1024*1024){notify('File terlalu besar (maks 5MB).','error');inp.value='';return;}
+  // Simpan nilai input saat ini agar tidak hilang setelah re-render
+  var curInpEl=document.getElementById('store-inp-'+month);
+  var curVal=curInpEl&&curInpEl.value.trim()!==''?parseFloat(curInpEl.value):undefined;
   var img_=new Image();
   var url=URL.createObjectURL(file);
   img_.onload=function(){
@@ -1720,6 +1723,7 @@ function storeUpload(month,inp){
     URL.revokeObjectURL(url);
     var b64=canvas.toDataURL('image/jpeg',0.78);
     var d=_sg(storeCurSub,storeYear,month);
+    if(curVal!==undefined&&!isNaN(curVal)) d.value=curVal;
     d.evidence=b64;d.evidenceName=file.name;
     _ss(storeCurSub,storeYear,month,d);
     storeRender();
@@ -1730,6 +1734,7 @@ function storeUpload(month,inp){
     var reader=new FileReader();
     reader.onload=function(e){
       var d=_sg(storeCurSub,storeYear,month);
+      if(curVal!==undefined&&!isNaN(curVal)) d.value=curVal;
       d.evidence=e.target.result;d.evidenceName=file.name;
       _ss(storeCurSub,storeYear,month,d);
       storeRender();
