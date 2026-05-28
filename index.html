@@ -2550,7 +2550,7 @@ function invRenderRnDo(){
     html+='<td style="text-align:center;">';
     if(locked&&hasEv){html+='<button onclick="invRnDoViewEv('+day+')" style="background:none;border:1.5px solid var(--primary);color:var(--primary);border-radius:var(--radius-sm);padding:4px 10px;cursor:pointer;font-size:12px;font-family:var(--font);">&#x1F441; Lihat</button>';}
     else if(!locked){
-      html+='<label for="inv-rndo-ev-'+day+'" style="cursor:pointer;display:inline-flex;align-items:center;gap:4px;padding:4px 10px;border:1.5px '+(hasEv?'solid #10b981':'dashed var(--danger)')+';border-radius:var(--radius-sm);font-size:12px;color:'+(hasEv?'#10b981':'var(--danger)')+';max-width:110px;">';
+      html+='<label for="inv-rndo-ev-'+day+'" style="cursor:pointer;display:inline-flex;align-items:center;gap:4px;padding:4px 10px;border:1.5px '+(hasEv?'solid var(--success)':'dashed var(--border)')+';border-radius:var(--radius-sm);font-size:12px;color:'+(hasEv?'var(--success)':'var(--text-m)')+';max-width:110px;">';
       if(hasEv){html+='&#x2705; <span style="overflow:hidden;text-overflow:ellipsis;white-space:nowrap;max-width:70px;">'+okrEsc(d.evidenceName||'OK')+'</span>';}
       else{html+='&#x1F4CE; Upload';}
       html+='</label><input type="file" id="inv-rndo-ev-'+day+'" accept="image/*" style="display:none;" onchange="invRnDoUpload('+day+',this)">';
@@ -2636,7 +2636,7 @@ function invRenderReportOt(){
     }else{
       html+='<div style="display:flex;align-items:center;gap:6px;flex-wrap:wrap;">';
       html+='<input type="number" id="inv-rot-p-'+i+'" min="0" value="'+temuan+'" style="width:80px;padding:5px 8px;border:1.5px solid var(--border);border-radius:var(--radius-sm);font-family:var(--font);font-size:13px;background:var(--bg2);">';
-      html+='<label for="inv-rot-pev-'+i+'" style="cursor:pointer;display:inline-flex;align-items:center;gap:4px;padding:4px 10px;border:1.5px '+(pEv?'solid #10b981':'dashed var(--danger)')+';border-radius:var(--radius-sm);font-size:12px;color:'+(pEv?'#10b981':'var(--danger)')+';">';
+      html+='<label for="inv-rot-pev-'+i+'" style="cursor:pointer;display:inline-flex;align-items:center;gap:4px;padding:4px 10px;border:1.5px '+(pEv?'solid var(--success)':'dashed var(--border)')+';border-radius:var(--radius-sm);font-size:12px;color:'+(pEv?'var(--success)':'var(--text-m)')+';max-width:110px;">';
       if(pEv){html+='&#x2705; <span style="max-width:80px;overflow:hidden;text-overflow:ellipsis;white-space:nowrap;">'+okrEsc(pEvName||'OK')+'</span>';}
       else{html+='&#x1F4CE; Bukti';}
       html+='</label>';
@@ -2671,7 +2671,7 @@ function invRenderReportOt(){
   }else{
     html+='<div style="display:flex;align-items:center;gap:10px;flex-wrap:wrap;">';
     html+='<input type="date" id="inv-rot-date"'+(rot.ontimeDate?' value="'+rot.ontimeDate+'"':'')+' style="padding:7px 10px;border:1.5px solid var(--border);border-radius:var(--radius-sm);font-family:var(--font);font-size:13px;">';
-    html+='<label for="inv-rot-oev" style="cursor:pointer;display:inline-flex;align-items:center;gap:4px;padding:5px 12px;border:1.5px '+(rot.ontimeEv?'solid #10b981':'dashed var(--danger)')+';border-radius:var(--radius-sm);font-size:12px;color:'+(rot.ontimeEv?'#10b981':'var(--danger)')+';">';
+    html+='<label for="inv-rot-oev" style="cursor:pointer;display:inline-flex;align-items:center;gap:4px;padding:5px 12px;border:1.5px '+(rot.ontimeEv?'solid var(--success)':'dashed var(--border)')+';border-radius:var(--radius-sm);font-size:12px;color:'+(rot.ontimeEv?'var(--success)':'var(--text-m)')+';">';
     if(rot.ontimeEv){html+='&#x2705; <span style="max-width:80px;overflow:hidden;text-overflow:ellipsis;white-space:nowrap;">'+okrEsc(rot.ontimeEvName||'OK')+'</span>';}
     else{html+='&#x1F4CE; Bukti';}
     html+='</label><input type="file" id="inv-rot-oev" accept="image/*" style="display:none;" onchange="invRotOntimeUpload(this)">';
