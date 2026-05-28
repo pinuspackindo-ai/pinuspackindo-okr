@@ -453,6 +453,48 @@ tbody tr:hover td{background:var(--bg);}
       </div>
     </div>
 
+    <!-- ════════ PANEL WAREHOUSE ════════ -->
+    <div id="panel-warehouse" class="panel">
+      <div style="position:sticky;top:53px;z-index:40;background:var(--bg);padding-bottom:16px;">
+        <div style="display:flex;align-items:flex-start;justify-content:space-between;margin-bottom:12px;gap:12px;flex-wrap:wrap;">
+          <div>
+            <div style="font-size:18px;font-weight:800;color:var(--text);">&#x1F3ED; Warehouse <span style="font-size:13px;font-weight:400;color:var(--text-m);">— Data Operasional Bulanan</span></div>
+            <div style="font-size:12px;color:var(--text-l);margin-top:3px;">Isi data per bulan &#x2192; upload bukti &#x2192; klik &#x1F4BE; Simpan &#x2192; otomatis tersync ke Dashboard OKR</div>
+          </div>
+          <div style="display:flex;align-items:center;gap:8px;">
+            <span style="font-size:12px;color:var(--text-m);">Tahun:</span>
+            <select id="warehouse-year-sel" class="store-year-sel" onchange="warehouseYearChange(this.value)"></select>
+          </div>
+        </div>
+        <div class="store-tabs" style="margin-bottom:0;">
+          <button class="store-tab active" id="warehouse-tab-akurasi_w"    onclick="warehouseShowSub('akurasi_w',this)">&#x1F4E6; Akurasi Stock</button>
+          <button class="store-tab"        id="warehouse-tab-default_diary" onclick="warehouseShowSub('default_diary',this)">&#x1F4D4; Default Diary</button>
+          <button class="store-tab"        id="warehouse-tab-cartrack"      onclick="warehouseShowSub('cartrack',this)">&#x1F697; Cartrack</button>
+          <button class="store-tab"        id="warehouse-tab-impl_audit_w"  onclick="warehouseShowSub('impl_audit_w',this)">&#x2705; Implementasi Rekomendasi Audit</button>
+        </div>
+      </div>
+      <div id="warehouse-content"></div>
+    </div>
+
+    <!-- Warehouse: Save Confirm Modal -->
+    <div id="warehouse-confirm-modal" style="display:none;position:fixed;inset:0;background:rgba(0,0,0,.5);z-index:650;align-items:center;justify-content:center;">
+      <div style="background:var(--bg2);border-radius:var(--radius);padding:24px 28px;max-width:380px;width:92%;box-shadow:var(--shadow);">
+        <div style="font-size:15px;font-weight:700;color:var(--text);margin-bottom:16px;">&#x2705; Konfirmasi Simpan Data</div>
+        <div style="background:var(--bg);border-radius:var(--radius-sm);padding:14px 16px;margin-bottom:14px;font-size:13px;line-height:2;">
+          <div><span style="color:var(--text-m);">Modul &nbsp;</span><strong id="wc-sub"></strong></div>
+          <div><span style="color:var(--text-m);">Bulan &nbsp;</span><strong id="wc-bulan"></strong></div>
+          <div><span style="color:var(--text-m);">Nilai &nbsp;&nbsp;</span><strong id="wc-val"></strong></div>
+          <div><span style="color:var(--text-m);">Bukti &nbsp;&nbsp;</span><span id="wc-ev"></span></div>
+        </div>
+        <div style="font-size:12px;color:var(--text-m);margin-bottom:18px;padding:8px 12px;background:#fef3c7;border-radius:var(--radius-sm);border-left:3px solid #f59e0b;">Setelah disimpan data terkunci. Gunakan tombol &#x270F;&#xFE0F; Edit untuk membuka kunci.</div>
+        <input type="hidden" id="wc-month">
+        <div style="display:flex;gap:8px;justify-content:flex-end;">
+          <button onclick="warehouseCloseConfirm()" style="background:var(--bg);border:1.5px solid var(--border);color:var(--text);padding:8px 18px;border-radius:var(--radius-sm);cursor:pointer;font-family:var(--font);font-size:13px;">Batal</button>
+          <button onclick="warehouseDoSave()" style="background:var(--primary);border:none;color:#fff;padding:8px 22px;border-radius:var(--radius-sm);cursor:pointer;font-family:var(--font);font-size:13px;font-weight:700;">&#x1F4BE; Ya, Simpan</button>
+        </div>
+      </div>
+    </div>
+
     <!-- PANEL INSTOCK -->
     <div id="panel-instock" class="panel">
       <div class="module-info">
