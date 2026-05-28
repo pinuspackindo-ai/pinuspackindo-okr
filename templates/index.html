@@ -3681,7 +3681,7 @@ function showPanel(name,btn){
     initLaporan();
     showLapDiv(_lapCurrentDiv,document.getElementById('nav-sub-'+_lapCurrentDiv));
   }
-  if(name==='dashboard'){okrRender();}
+  if(name==='dashboard'){okrLoad();okrRender();}
   if(name==='store'){storeInit();}
   if(name==='distrib'){distribInit();}
   if(name==='warehouse'){warehouseInit();}
