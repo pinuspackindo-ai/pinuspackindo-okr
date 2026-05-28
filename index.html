@@ -2390,7 +2390,7 @@ var INVENTORY_SUBS=[
    okrMatch:function(kr){return /akurasi.*administrasi|akurasi.*inputan/i.test(kr);}},
   {id:'report_ot', label:'Report Akurat & Ontime', icon:'📊', unit:'%',
    desc:'Akurasi & Ontime Laporan',      source:'Data Laporan Internal',
-   okrMatch:function(kr){return /akurasi.*ontime|ontime.*laporan/i.test(kr);}}
+   okrMatch:function(kr){return /laporan.*ontime|akurat.*ontime|akurasi.*ontime|ontime.*laporan|ontime.*akurat/i.test(kr);}}
 ];
 var inventoryCurSub='akurasi_i';
 var inventoryYear=new Date().getFullYear();
@@ -3527,6 +3527,7 @@ function showPanel(name,btn){
   document.getElementById('topbar-title').textContent=panelTitles[name]||name;
   document.getElementById('lap-subnav').style.display=name==='laporan'?'block':'none';
   if(name==='laporan'){initLaporan();showLapDiv(_lapCurrentDiv,document.getElementById('nav-sub-'+_lapCurrentDiv));}
+  if(name==='dashboard'){okrRender();}
   if(name==='store'){storeInit();}
   if(name==='distrib'){distribInit();}
   if(name==='warehouse'){warehouseInit();}
@@ -4162,7 +4163,8 @@ var OKR_BULAN  = ['Januari','Februari','Maret','April','Mei','Juni',
                   'Juli','Agustus','September','Oktober','November','Desember'];
 
 function okrLoad(){
-  try{ okrData=JSON.parse(localStorage.getItem(OKR_STORE_KEY)||'{}'); }catch(e){ okrData={}; }
+  var _k=typeof OKR_STORE_KEY!=='undefined'&&OKR_STORE_KEY?OKR_STORE_KEY:'pinus_okr_v1';
+  try{ okrData=JSON.parse(localStorage.getItem(_k)||'{}'); }catch(e){ okrData={}; }
 }
 function okrSaveLS(){
   okrData._ts=Date.now();
