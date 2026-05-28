@@ -3296,9 +3296,9 @@ function purchInstockDelete(day){
   purchInstockSyncOKR(y,m);okrSaveLS();purchInstockRender();notify('Data dihapus');
 }
 function purchInstockSyncOKR(year,month){
-  var daysInM=new Date(year,month,0).getDate(),totalWD=0,savedD=0;
-  for(var dd=1;dd<=daysInM;dd++){var dt=new Date(year,month-1,dd);if(dt.getDay()===0)continue;totalWD++;var d=_pgIns(year,month,dd);if(d.locked&&d.file1&&d.file2)savedD++;}
-  var score=totalWD>0?Math.round(savedD/totalWD*10000)/100:0;
+  var daysInM=new Date(year,month,0).getDate(),scoreSum=0,scoreDays=0;
+  for(var dd=1;dd<=daysInM;dd++){var dt=new Date(year,month-1,dd);if(dt.getDay()===0)continue;var d=_pgIns(year,month,dd);if(d.locked&&d.file1&&d.file2&&d.score!==null&&d.score!==undefined){scoreSum+=d.score;scoreDays++;}}
+  var score=scoreDays>0?Math.round(scoreSum/scoreDays*100)/100:0;
   purchasingSyncOKR('instock_p',year,month,score);
 }
 
