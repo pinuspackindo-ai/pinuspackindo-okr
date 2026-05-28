@@ -2944,7 +2944,7 @@ var _purchPending=null;
 
 // ── Storage helpers ──
 function _pkIns(y,m,d){return '_p_ins_'+y+'_'+String(m).padStart(2,'0')+'_'+String(d).padStart(2,'0');}
-function _pgIns(y,m,d){return okrData[_pkIns(y,m,d)]||{file1:null,file1Name:null,file2:null,file2Name:null,savedAt:null,locked:false};}
+function _pgIns(y,m,d){return okrData[_pkIns(y,m,d)]||{file1:null,file1Name:null,file2:null,file2Name:null,score:null,savedAt:null,locked:false};}
 function _psIns(y,m,d,o){okrData[_pkIns(y,m,d)]=o;}
 function _pkApo(y,m){return '_p_apo_'+y+'_'+String(m).padStart(2,'0');}
 function _pgApo(y,m){return okrData[_pkApo(y,m)]||{file1:null,file1Name:null,file2:null,file2Name:null,lateScore:null,accScore:null,finalScore:null,savedAt:null,locked:false};}
@@ -3074,9 +3074,9 @@ function purchInstockRender(){
   var BUL=STORE_BULAN;
   var BULS=['Jan','Feb','Mar','Apr','Mei','Jun','Jul','Agu','Sep','Okt','Nov','Des'];
   var DAYS=['Min','Sen','Sel','Rab','Kam','Jum','Sab'];
-  var daysInM=new Date(y,m,0).getDate(),totalWD=0,savedD=0;
-  for(var dd=1;dd<=daysInM;dd++){var dt=new Date(y,m-1,dd);if(dt.getDay()===0)continue;totalWD++;var dd_=_pgIns(y,m,dd);if(dd_.locked&&dd_.file1&&dd_.file2)savedD++;}
-  var score=totalWD>0?Math.round(savedD/totalWD*10000)/100:0;
+  var daysInM=new Date(y,m,0).getDate(),totalWD=0,savedD=0,scoreSum=0,scoreDays=0;
+  for(var dd=1;dd<=daysInM;dd++){var dt=new Date(y,m-1,dd);if(dt.getDay()===0)continue;totalWD++;var dd_=_pgIns(y,m,dd);if(dd_.locked&&dd_.file1&&dd_.file2){savedD++;if(dd_.score!==null&&dd_.score!==undefined){scoreSum+=dd_.score;scoreDays++;}}}
+  var score=scoreDays>0?Math.round(scoreSum/scoreDays*100)/100:0;
   var linked=purchasingIsLinked(y,m);var cls=scoreClass(score);
   var html='';
   html+='<div style="display:flex;align-items:center;gap:12px;margin-bottom:14px;flex-wrap:wrap;">';
@@ -3089,7 +3089,7 @@ function purchInstockRender(){
   html+=linked?'<span style="font-size:11px;color:var(--success);font-weight:600;">&#x1F517; Tersambung OKR</span>':'<span style="font-size:11px;color:var(--text-l);">Tidak tersambung</span>';
   html+='</div>';
   html+='<div class="card" style="padding:0;overflow:hidden;"><div class="table-wrap"><table><thead><tr>';
-  html+='<th style="min-width:110px;">Tanggal</th><th style="min-width:200px;">File 1 (Excel 1)</th><th style="min-width:200px;">File 2 (Excel 2)</th><th style="min-width:120px;text-align:center;">Aksi</th>';
+  html+='<th style="min-width:110px;">Tanggal</th><th style="min-width:200px;">File 1 (Excel 1)</th><th style="min-width:200px;">File 2 (Excel 2)</th><th style="min-width:100px;text-align:center;">Score (%)</th><th style="min-width:120px;text-align:center;">Aksi</th>';
   html+='</tr></thead><tbody>';
   for(var dd=1;dd<=daysInM;dd++){
     var dt=new Date(y,m-1,dd);if(dt.getDay()===0)continue;
@@ -3290,7 +3290,7 @@ function purchKpenRender(){
       if(sc!==null)html+='<div style="font-size:9px;color:var(--text-l);">'+d.accRows+' / '+d.totalRows+' akurat</div>';
       html+='</td>';
       html+='<td style="text-align:center;">'+(linked?(sc!==null?'<span style="color:var(--success);font-weight:600;">'+sc.toFixed(1)+'%</span>':'<span style="color:var(--text-l);">&#x2014;</span>'):'<span style="font-size:10px;color:var(--text-l);">Tidak tersambung</span>')+'</td>';
-      html+='<td style="text-align:center;white-space:nowrap;"><button onclick="purchKpenEdit('+m+')" style="background:none;border:none;cursor:pointer;font-size:16px;">&#x270F;&#xFE0F;</button><button onclick="purchKpenDelete('+m+')" style="background:none;border:none;cursor:pointer;font-size:16px;">&#x1F5D1;&#xFE0F;</button></td>';
+      html+='<td style="text-align:center;white-space:nowrap;"><div style="display:flex;gap:4px;justify-content:center;align-items:center;"><button onclick="purchKpenEdit('+m+')" style="background:none;border:1px solid var(--border);color:var(--text-m);border-radius:var(--radius-sm);padding:4px 10px;cursor:pointer;font-size:11px;font-family:var(--font);">&#x270F;&#xFE0F; Edit</button><button onclick="purchKpenDelete('+m+')" style="background:none;border:1.5px solid #fca5a5;color:#dc2626;border-radius:var(--radius-sm);padding:4px 8px;cursor:pointer;font-size:12px;font-family:var(--font);">&#x1F5D1;</button></div></td>';
     } else {
       html+='<td><div style="display:flex;align-items:center;gap:6px;flex-wrap:wrap;">';
       html+='<label style="cursor:pointer;display:inline-flex;align-items:center;gap:4px;font-size:11px;background:var(--bg);border:1px solid var(--border);border-radius:4px;padding:3px 8px;white-space:nowrap;"><input type="file" accept=".xlsx,.xls,.csv" id="pkpen-f-'+m+'" style="display:none;" onchange="purchKpenFileChange('+m+',this)">&#x1F4CE; File Penerimaan</label>';
@@ -3397,7 +3397,7 @@ function purchSavingRender(){
       if(d.evidence){html+='<div style="display:flex;align-items:center;gap:6px;flex-wrap:wrap;"><span style="font-size:11px;color:var(--success);">&#x2713; '+esc(d.evidenceName||'Bukti')+'</span><button onclick="purchDownloadFile(\'psv\',\'ev\','+dd+')" style="font-size:10px;background:var(--primary-l);border:1px solid var(--primary);color:var(--primary);border-radius:4px;padding:2px 6px;cursor:pointer;">View</button></div>';}
       else html+='<span style="color:var(--text-l);font-size:11px;">&#x2014;</span>';
       html+='</td>';
-      html+='<td style="text-align:center;white-space:nowrap;"><button onclick="purchSavingEdit('+dd+')" style="background:none;border:none;cursor:pointer;font-size:16px;">&#x270F;&#xFE0F;</button><button onclick="purchSavingDelete('+dd+')" style="background:none;border:none;cursor:pointer;font-size:16px;">&#x1F5D1;&#xFE0F;</button></td>';
+      html+='<td style="text-align:center;white-space:nowrap;"><div style="display:flex;gap:4px;justify-content:center;align-items:center;"><button onclick="purchSavingEdit('+dd+')" style="background:none;border:1px solid var(--border);color:var(--text-m);border-radius:var(--radius-sm);padding:4px 10px;cursor:pointer;font-size:11px;font-family:var(--font);">&#x270F;&#xFE0F; Edit</button><button onclick="purchSavingDelete('+dd+')" style="background:none;border:1.5px solid #fca5a5;color:#dc2626;border-radius:var(--radius-sm);padding:4px 8px;cursor:pointer;font-size:12px;font-family:var(--font);">&#x1F5D1;</button></div></td>';
     } else {
       html+='<td><input type="text" id="psv-txt-'+dd+'" value="'+esc(d.text||'')+'" placeholder="CONTOH: ITEM A; ITEM B" oninput="this.value=this.value.toUpperCase();purchSavingTextBuf('+dd+',this.value);" style="width:100%;padding:5px 8px;border:1.5px solid var(--border);border-radius:4px;font-size:12px;font-family:monospace;text-transform:uppercase;" /></td>';
       html+='<td><div style="display:flex;align-items:center;gap:6px;flex-wrap:wrap;">';
@@ -3479,7 +3479,7 @@ function purchImplRender(){
       else html+='<span style="color:var(--text-l);font-size:11px;">&#x2014;</span>';
       html+='</div></td>';
       html+='<td style="text-align:center;">'+(linked?(v!==null?'<span style="color:var(--success);font-weight:600;">'+v.toFixed(1)+'%</span>':'<span style="color:var(--text-l);">&#x2014;</span>'):'<span style="font-size:10px;color:var(--text-l);">Tidak tersambung</span>')+'</td>';
-      html+='<td style="text-align:center;white-space:nowrap;"><button onclick="purchImplEdit('+m+')" style="background:none;border:none;cursor:pointer;font-size:16px;">&#x270F;&#xFE0F;</button><button onclick="purchImplDelete('+m+')" style="background:none;border:none;cursor:pointer;font-size:16px;">&#x1F5D1;&#xFE0F;</button></td>';
+      html+='<td style="text-align:center;white-space:nowrap;"><div style="display:flex;gap:4px;justify-content:center;align-items:center;"><button onclick="purchImplEdit('+m+')" style="background:none;border:1px solid var(--border);color:var(--text-m);border-radius:var(--radius-sm);padding:4px 10px;cursor:pointer;font-size:11px;font-family:var(--font);">&#x270F;&#xFE0F; Edit</button><button onclick="purchImplDelete('+m+')" style="background:none;border:1.5px solid #fca5a5;color:#dc2626;border-radius:var(--radius-sm);padding:4px 8px;cursor:pointer;font-size:12px;font-family:var(--font);">&#x1F5D1;</button></div></td>';
     } else {
       html+='<td style="text-align:center;"><input type="number" min="0" max="100" step="0.1" id="pir-val-'+m+'" value="'+(d.value!==null?d.value:'')+'" placeholder="0&#x2013;100" style="width:90px;padding:5px 8px;border:1.5px solid var(--border);border-radius:4px;font-size:13px;text-align:center;font-family:var(--font);" /></td>';
       html+='<td><div style="display:flex;align-items:center;gap:6px;flex-wrap:wrap;">';
