@@ -1675,11 +1675,12 @@ function storeRender(){
     var hasEv=!!d.evidence;
     var locked=!!d.locked;
 
-    // Cek OKR actual saat ini
+    // Cek OKR actual saat ini (hanya Mei 2026 ke atas yang tersambung)
+    var isLinked=storeYear>2026||(storeYear===2026&&m>=5);
     var mkOkr=storeYear+'-'+String(m).padStart(2,'0');
-    var okrActualStr='—';
+    var okrActualStr=isLinked?'—':'<span style="color:var(--text-l);font-size:11px;">Tidak tersambung</span>';
     var okrActualColor='var(--text-l)';
-    if(okrData[mkOkr]&&okrData[mkOkr]['Store']){
+    if(isLinked&&okrData[mkOkr]&&okrData[mkOkr]['Store']){
       var rs=okrGetRows(okrData[mkOkr]['Store']);
       for(var ri=0;ri<rs.length;ri++){
         if(sub.okrMatch(rs[ri].keyResult)){
@@ -1854,6 +1855,7 @@ function storeViewEv(month){
 function storeCloseEv(){document.getElementById('store-ev-modal').style.display='none';}
 
 function storeSyncOKR(subId,year,month,value){
+  if(!(year>2026||(year===2026&&month>=5))) return; // Mei 2026 ke atas saja
   var sub=STORE_SUBS.find(function(s){return s.id===subId;});
   if(!sub) return;
   var mk=year+'-'+String(month).padStart(2,'0');
