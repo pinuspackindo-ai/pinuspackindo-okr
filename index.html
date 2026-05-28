@@ -2329,12 +2329,548 @@ function warehouseSyncOKR(subId,year,month,value){
   if(typeof divData==='object'&&!Array.isArray(divData)) divData.rows=rows;
 }
 
+// ══════════════════════════════════════════════════════════════
+// INVENTORY MODULE — Data Operasional Bulanan
+// ══════════════════════════════════════════════════════════════
+var INVENTORY_SUBS=[
+  {id:'akurasi_i', label:'Akurasi Stock',         icon:'📦', unit:'%',
+   desc:'Akurasi Stok Fisik vs Data',    source:'LK Audit Stock Opname',
+   okrMatch:function(kr){return /akurasi.*(stok|stock)/i.test(kr);}},
+  {id:'rn_do',     label:'Akurasi RN & DO',        icon:'📋', unit:'%',
+   desc:'Akurasi RN dan DO Harian',      source:'LK Audit RN & DO',
+   okrMatch:function(kr){return /akurasi.*(do|rn)|rn.*do|do.*rn/i.test(kr);}},
+  {id:'inputan_i', label:'Akurasi Inputan',        icon:'⌨️',  unit:'%',
+   desc:'Akurasi Inputan Administrasi',  source:'LK Audit Inputan',
+   okrMatch:function(kr){return /akurasi.*administrasi|akurasi.*inputan/i.test(kr);}},
+  {id:'report_ot', label:'Report Akurat & Ontime', icon:'📊', unit:'%',
+   desc:'Akurasi & Ontime Laporan',      source:'Data Laporan Internal',
+   okrMatch:function(kr){return /akurasi.*ontime|ontime.*laporan/i.test(kr);}}
+];
+var inventoryCurSub='akurasi_i';
+var inventoryYear=new Date().getFullYear();
+var invRnDoMonth=new Date().getMonth()+1;
+var invRotMonth=new Date().getMonth()+1;
+var _INV_ROT_POIN=[{max:15,bobot:2},{max:5,bobot:5},{max:5,bobot:5},{max:10,bobot:2},{max:5,bobot:5}];
+var _INV_ROT_TOTAL=40;
+
+function _ik(s,y,m){return '_inv_'+s+'_'+y+'_'+String(m).padStart(2,'0');}
+function _ig(s,y,m){return okrData[_ik(s,y,m)]||{value:null,evidence:null,evidenceName:null,savedAt:null,locked:false};}
+function _iset(s,y,m,o){okrData[_ik(s,y,m)]=o;}
+function _irkKey(y,m,d){return '_inv_rn_do_'+y+'_'+String(m).padStart(2,'0')+'_'+String(d).padStart(2,'0');}
+function _irkg(y,m,d){return okrData[_irkKey(y,m,d)]||{value:null,evidence:null,evidenceName:null,savedAt:null,locked:false};}
+function _irks(y,m,d,o){okrData[_irkKey(y,m,d)]=o;}
+function _irotKey(y,m){return '_inv_rot_'+y+'_'+String(m).padStart(2,'0');}
+function _irotg(y,m){var def=okrData[_irotKey(y,m)];if(def)return def;return {poin:[0,0,0,0,0],poinEv:[null,null,null,null,null],poinEvName:[null,null,null,null,null],ontimeDate:'',ontimeEv:null,ontimeEvName:null,akurasiScore:null,ontimeScore:null,totalScore:null,savedAt:null,locked:false};}
+function _irots(y,m,o){okrData[_irotKey(y,m)]=o;}
+
+function inventoryIsLinked(year,month){return year>2026||(year===2026&&month>=5);}
+
+function inventoryInit(){
+  if(!inventoryYear) inventoryYear=new Date().getFullYear();
+  var sel=document.getElementById('inventory-year-sel');
+  if(sel){
+    sel.innerHTML='';
+    var y=new Date().getFullYear();
+    for(var i=y-1;i<=y+1;i++){var opt=document.createElement('option');opt.value=i;opt.textContent=i;if(i===inventoryYear)opt.selected=true;sel.appendChild(opt);}
+  }
+  inventoryRender();
+}
+function inventoryYearChange(y){inventoryYear=parseInt(y)||new Date().getFullYear();inventoryRender();}
+function inventoryShowSub(subId,btn){
+  inventoryCurSub=subId;
+  document.querySelectorAll('#panel-inventory .store-tab').forEach(function(t){t.classList.remove('active');});
+  if(btn) btn.classList.add('active');
+  inventoryRender();
+}
+function inventoryRender(){
+  if(inventoryCurSub==='rn_do') return invRenderRnDo();
+  if(inventoryCurSub==='report_ot') return invRenderReportOt();
+  invRenderMonthly(inventoryCurSub);
+}
+
+// ── MONTHLY RENDER (akurasi_i, inputan_i) ──────────────────────
+function invRenderMonthly(subId){
+  var sub=INVENTORY_SUBS.find(function(s){return s.id===subId;});
+  if(!sub)return;
+  var wrap=document.getElementById('inventory-content');if(!wrap)return;
+  var html='';
+  html+='<div style="margin-bottom:14px;display:flex;flex-wrap:wrap;gap:8px;">';
+  html+='<span style="display:inline-flex;align-items:center;gap:8px;padding:7px 14px;background:var(--bg);border:1px solid var(--border);border-radius:var(--radius-sm);font-size:12px;color:var(--text-m);">ℹ️ Sumber: <strong style="color:var(--text);">'+sub.source+'</strong></span>';
+  html+='<span style="display:inline-flex;align-items:center;gap:6px;padding:7px 14px;background:#eff6ff;border:1px solid #bfdbfe;border-radius:var(--radius-sm);font-size:12px;color:var(--primary);">🔗 OKR: <strong>Inventory</strong> &mdash; tersambung Mei 2026 &rarr;</span>';
+  html+='</div>';
+  html+='<div class="card" style="padding:0;overflow:hidden;"><div style="overflow-x:auto;"><table class="okr-table" style="width:100%;"><thead><tr>';
+  html+='<th style="width:36px;text-align:center;">No</th><th style="min-width:90px;">Bulan</th>';
+  html+='<th style="min-width:140px;">'+sub.desc+' (%)</th>';
+  html+='<th style="min-width:150px;text-align:center;">OKR Actual</th>';
+  html+='<th style="width:110px;text-align:center;">Bukti <span style="color:var(--danger);font-size:11px;">*wajib</span></th>';
+  html+='<th style="width:160px;text-align:center;">Aksi</th>';
+  html+='</tr></thead><tbody>';
+  for(var m=1;m<=12;m++){
+    var d=_ig(subId,inventoryYear,m);
+    var hasVal=d.value!==null&&d.value!=='';
+    var hasEv=!!d.evidence;var locked=!!d.locked;
+    var isLinked=inventoryIsLinked(inventoryYear,m);
+    var mkOkr=inventoryYear+'-'+String(m).padStart(2,'0');
+    var okrActualStr=isLinked?'—':'<span style="color:var(--text-l);font-size:11px;">Tidak tersambung</span>';
+    var okrActualColor='var(--text-l)';
+    if(isLinked&&okrData[mkOkr]&&okrData[mkOkr]['Inventory']){
+      var rs=okrGetRows(okrData[mkOkr]['Inventory']);
+      for(var ri=0;ri<rs.length;ri++){if(sub.okrMatch(rs[ri].keyResult)){if(rs[ri].actual!==null&&rs[ri].actual!==undefined&&rs[ri].actual!==''){okrActualStr=distribFmt(rs[ri].actual,'%');okrActualColor='var(--primary)';}break;}}
+    }
+    var rowBg=locked?'background:rgba(59,130,246,.04);':'';
+    html+='<tr style="'+rowBg+'">';
+    html+='<td style="text-align:center;color:var(--text-m);font-size:12px;">'+m+'</td>';
+    html+='<td style="font-weight:600;font-size:13px;">'+STORE_BULAN[m-1]+'</td>';
+    if(locked){html+='<td style="font-weight:700;font-size:13px;color:var(--text);">'+distribFmt(d.value,'%')+'</td>';}
+    else{html+='<td><input type="number" id="inv-mi-'+m+'" min="0" max="100" step="0.01" placeholder="0"'+(hasVal?' value="'+d.value+'"':'')+' style="width:100%;padding:5px 8px;border:1.5px solid var(--border);border-radius:var(--radius-sm);font-family:var(--font);font-size:13px;background:var(--bg2);color:var(--text);"></td>';}
+    html+='<td style="text-align:center;font-size:12px;font-weight:600;color:'+okrActualColor+';">'+okrActualStr+'</td>';
+    html+='<td style="text-align:center;">';
+    if(locked&&hasEv){html+='<button onclick="invViewEvMonthly(\''+subId+'\','+m+')" style="background:none;border:1.5px solid var(--primary);color:var(--primary);border-radius:var(--radius-sm);padding:4px 10px;cursor:pointer;font-size:12px;font-family:var(--font);">&#x1F441; Lihat</button>';}
+    else if(!locked){
+      html+='<label for="inv-ev-mi-'+m+'" style="cursor:pointer;display:inline-flex;align-items:center;gap:4px;padding:4px 10px;border:1.5px '+(hasEv?'solid #10b981':'dashed var(--danger)')+';border-radius:var(--radius-sm);font-size:12px;color:'+(hasEv?'#10b981':'var(--danger)')+';max-width:110px;">';
+      if(hasEv){html+='&#x2705; <span style="overflow:hidden;text-overflow:ellipsis;white-space:nowrap;max-width:70px;">'+okrEsc(d.evidenceName||'OK')+'</span>';}
+      else{html+='&#x1F4CE; Upload';}
+      html+='</label><input type="file" id="inv-ev-mi-'+m+'" accept="image/*" style="display:none;" onchange="invUploadMonthly(\''+subId+'\','+m+',this)">';
+    }else{html+='<span style="color:var(--text-l);font-size:11px;">—</span>';}
+    html+='</td>';
+    html+='<td style="text-align:center;">';
+    if(locked){
+      html+='<div style="display:flex;align-items:center;gap:5px;justify-content:center;">';
+      html+='<span style="font-size:12px;color:var(--text-l);">&#x1F512;</span>';
+      html+='<button onclick="invUnlockMonthly(\''+subId+'\','+m+')" style="background:none;border:1px solid var(--border);color:var(--text-m);border-radius:var(--radius-sm);padding:4px 10px;cursor:pointer;font-size:11px;font-family:var(--font);">&#x270F;&#xFE0F; Edit</button>';
+      html+='<button onclick="invDeleteMonthly(\''+subId+'\','+m+')" style="background:none;border:1.5px solid #fca5a5;color:#dc2626;border-radius:var(--radius-sm);padding:4px 8px;cursor:pointer;font-size:12px;font-family:var(--font);">&#x1F5D1;</button>';
+      html+='</div>';
+    }else{
+      html+='<div style="display:flex;align-items:center;gap:5px;justify-content:center;">';
+      html+='<button onclick="invConfirmMonthly(\''+subId+'\','+m+')" style="background:var(--primary);border:none;color:#fff;border-radius:var(--radius-sm);padding:5px 12px;cursor:pointer;font-size:12px;font-family:var(--font);font-weight:600;">&#x1F4BE; Simpan</button>';
+      html+='<button onclick="invDeleteMonthly(\''+subId+'\','+m+')" style="background:none;border:1.5px solid #fca5a5;color:#dc2626;border-radius:var(--radius-sm);padding:5px 8px;cursor:pointer;font-size:12px;font-family:var(--font);">&#x1F5D1;</button>';
+      html+='</div>';
+    }
+    html+='</td></tr>';
+  }
+  html+='</tbody></table></div></div>';
+  wrap.innerHTML=html;
+}
+
+// ── RN & DO RENDER (per hari kerja) ────────────────────────────
+function invRenderRnDo(){
+  var wrap=document.getElementById('inventory-content');if(!wrap)return;
+  var BUL=['Januari','Februari','Maret','April','Mei','Juni','Juli','Agustus','September','Oktober','November','Desember'];
+  var BULS=['Jan','Feb','Mar','Apr','Mei','Jun','Jul','Agu','Sep','Okt','Nov','Des'];
+  var HARI=['Minggu','Senin','Selasa','Rabu','Kamis','Jumat','Sabtu'];
+  var html='';
+  html+='<div style="margin-bottom:14px;display:flex;flex-wrap:wrap;gap:8px;">';
+  html+='<span style="display:inline-flex;align-items:center;gap:8px;padding:7px 14px;background:var(--bg);border:1px solid var(--border);border-radius:var(--radius-sm);font-size:12px;color:var(--text-m);">ℹ️ Sumber: <strong style="color:var(--text);">LK Audit RN &amp; DO</strong></span>';
+  html+='<span style="display:inline-flex;align-items:center;gap:6px;padding:7px 14px;background:#eff6ff;border:1px solid #bfdbfe;border-radius:var(--radius-sm);font-size:12px;color:var(--primary);">🔗 OKR: <strong>Inventory</strong> &mdash; tersambung Mei 2026 &rarr;</span>';
+  html+='</div>';
+  // Month selector
+  html+='<div style="display:flex;align-items:center;gap:10px;margin-bottom:16px;flex-wrap:wrap;">';
+  html+='<span style="font-size:13px;font-weight:600;color:var(--text);">Pilih Bulan:</span>';
+  html+='<select id="inv-rndo-month-sel" onchange="invRnDoMonthChange(this.value)" class="store-year-sel">';
+  for(var mi=0;mi<12;mi++){html+='<option value="'+(mi+1)+'"'+(mi+1===invRnDoMonth?' selected':'')+'>'+BULS[mi]+' '+inventoryYear+'</option>';}
+  html+='</select>';
+  // Show monthly average
+  var isLinkedMonth=inventoryIsLinked(inventoryYear,invRnDoMonth);
+  var daysInMonth=new Date(inventoryYear,invRnDoMonth,0).getDate();
+  var savedVals=[];
+  for(var dd=1;dd<=daysInMonth;dd++){var dtc=new Date(inventoryYear,invRnDoMonth-1,dd);if(dtc.getDay()===0)continue;var dc=_irkg(inventoryYear,invRnDoMonth,dd);if(dc.locked&&dc.value!==null&&dc.value!=='')savedVals.push(Number(dc.value));}
+  var avgStr=savedVals.length>0?(savedVals.reduce(function(a,b){return a+b;},0)/savedVals.length).toFixed(2)+' % ('+savedVals.length+' hari)'  :'—';
+  html+='<span style="font-size:12px;color:var(--text-m);margin-left:8px;">Rata-rata bulan: <strong style="color:var(--primary);">'+avgStr+'</strong></span>';
+  html+='</div>';
+  // Table
+  html+='<div class="card" style="padding:0;overflow:hidden;"><div style="overflow-x:auto;"><table class="okr-table" style="width:100%;"><thead><tr>';
+  html+='<th style="width:36px;text-align:center;">No</th><th style="min-width:95px;">Tanggal</th><th style="min-width:70px;">Hari</th>';
+  html+='<th style="min-width:140px;">Akurasi RN &amp; DO (%)</th>';
+  html+='<th style="width:110px;text-align:center;">Bukti <span style="color:var(--danger);font-size:11px;">*wajib</span></th>';
+  html+='<th style="width:160px;text-align:center;">Aksi</th>';
+  html+='</tr></thead><tbody>';
+  var rowNum=0;
+  for(var day=1;day<=daysInMonth;day++){
+    var dt=new Date(inventoryYear,invRnDoMonth-1,day);
+    var dow=dt.getDay();if(dow===0)continue;
+    rowNum++;
+    var d=_irkg(inventoryYear,invRnDoMonth,day);
+    var hasVal=d.value!==null&&d.value!=='';
+    var hasEv=!!d.evidence;var locked=!!d.locked;
+    var dateStr=String(day).padStart(2,'0')+'/'+String(invRnDoMonth).padStart(2,'0')+'/'+inventoryYear;
+    var rowBg=locked?'background:rgba(59,130,246,.04);':'';
+    html+='<tr style="'+rowBg+'">';
+    html+='<td style="text-align:center;color:var(--text-m);font-size:12px;">'+rowNum+'</td>';
+    html+='<td style="font-weight:600;font-size:13px;">'+dateStr+'</td>';
+    html+='<td style="font-size:12px;color:var(--text-m);">'+HARI[dow]+'</td>';
+    if(locked){html+='<td style="font-weight:700;font-size:13px;color:var(--text);">'+distribFmt(d.value,'%')+'</td>';}
+    else{html+='<td><input type="number" id="inv-rndo-inp-'+day+'" min="0" max="100" step="0.01" placeholder="0"'+(hasVal?' value="'+d.value+'"':'')+' style="width:100%;padding:5px 8px;border:1.5px solid var(--border);border-radius:var(--radius-sm);font-family:var(--font);font-size:13px;background:var(--bg2);color:var(--text);"></td>';}
+    html+='<td style="text-align:center;">';
+    if(locked&&hasEv){html+='<button onclick="invRnDoViewEv('+day+')" style="background:none;border:1.5px solid var(--primary);color:var(--primary);border-radius:var(--radius-sm);padding:4px 10px;cursor:pointer;font-size:12px;font-family:var(--font);">&#x1F441; Lihat</button>';}
+    else if(!locked){
+      html+='<label for="inv-rndo-ev-'+day+'" style="cursor:pointer;display:inline-flex;align-items:center;gap:4px;padding:4px 10px;border:1.5px '+(hasEv?'solid #10b981':'dashed var(--danger)')+';border-radius:var(--radius-sm);font-size:12px;color:'+(hasEv?'#10b981':'var(--danger)')+';max-width:110px;">';
+      if(hasEv){html+='&#x2705; <span style="overflow:hidden;text-overflow:ellipsis;white-space:nowrap;max-width:70px;">'+okrEsc(d.evidenceName||'OK')+'</span>';}
+      else{html+='&#x1F4CE; Upload';}
+      html+='</label><input type="file" id="inv-rndo-ev-'+day+'" accept="image/*" style="display:none;" onchange="invRnDoUpload('+day+',this)">';
+    }else{html+='<span style="color:var(--text-l);font-size:11px;">—</span>';}
+    html+='</td>';
+    html+='<td style="text-align:center;">';
+    if(locked){
+      html+='<div style="display:flex;align-items:center;gap:5px;justify-content:center;">';
+      html+='<span style="font-size:12px;color:var(--text-l);">&#x1F512;</span>';
+      html+='<button onclick="invRnDoUnlock('+day+')" style="background:none;border:1px solid var(--border);color:var(--text-m);border-radius:var(--radius-sm);padding:4px 10px;cursor:pointer;font-size:11px;font-family:var(--font);">&#x270F;&#xFE0F; Edit</button>';
+      html+='<button onclick="invRnDoDelete('+day+')" style="background:none;border:1.5px solid #fca5a5;color:#dc2626;border-radius:var(--radius-sm);padding:4px 8px;cursor:pointer;font-size:12px;font-family:var(--font);">&#x1F5D1;</button>';
+      html+='</div>';
+    }else{
+      html+='<div style="display:flex;align-items:center;gap:5px;justify-content:center;">';
+      html+='<button onclick="invRnDoConfirmSave('+day+')" style="background:var(--primary);border:none;color:#fff;border-radius:var(--radius-sm);padding:5px 12px;cursor:pointer;font-size:12px;font-family:var(--font);font-weight:600;">&#x1F4BE; Simpan</button>';
+      html+='<button onclick="invRnDoDelete('+day+')" style="background:none;border:1.5px solid #fca5a5;color:#dc2626;border-radius:var(--radius-sm);padding:5px 8px;cursor:pointer;font-size:12px;font-family:var(--font);">&#x1F5D1;</button>';
+      html+='</div>';
+    }
+    html+='</td></tr>';
+  }
+  if(rowNum===0){html+='<tr><td colspan="6" style="text-align:center;color:var(--text-l);padding:24px;">Tidak ada hari kerja di bulan ini.</td></tr>';}
+  html+='</tbody></table></div></div>';
+  wrap.innerHTML=html;
+}
+
+// ── REPORT AKURAT & ONTIME RENDER ──────────────────────────────
+function invRenderReportOt(){
+  var wrap=document.getElementById('inventory-content');if(!wrap)return;
+  var BULS=['Jan','Feb','Mar','Apr','Mei','Jun','Jul','Agu','Sep','Okt','Nov','Des'];
+  var html='';
+  html+='<div style="margin-bottom:14px;display:flex;flex-wrap:wrap;gap:8px;">';
+  html+='<span style="display:inline-flex;align-items:center;gap:8px;padding:7px 14px;background:var(--bg);border:1px solid var(--border);border-radius:var(--radius-sm);font-size:12px;color:var(--text-m);">ℹ️ Sumber: <strong style="color:var(--text);">Data Laporan Internal</strong></span>';
+  html+='<span style="display:inline-flex;align-items:center;gap:6px;padding:7px 14px;background:#eff6ff;border:1px solid #bfdbfe;border-radius:var(--radius-sm);font-size:12px;color:var(--primary);">🔗 OKR: <strong>Inventory</strong> &mdash; tersambung Mei 2026 &rarr;</span>';
+  html+='</div>';
+  // Month selector
+  html+='<div style="display:flex;align-items:center;gap:10px;margin-bottom:20px;flex-wrap:wrap;">';
+  html+='<span style="font-size:13px;font-weight:600;color:var(--text);">Pilih Bulan:</span>';
+  html+='<select id="inv-rot-month-sel" onchange="invRotMonthChange(this.value)" class="store-year-sel">';
+  for(var mi=0;mi<12;mi++){html+='<option value="'+(mi+1)+'"'+(mi+1===invRotMonth?' selected':'')+'>'+BULS[mi]+' '+inventoryYear+'</option>';}
+  html+='</select>';
+  html+='</div>';
+
+  var y=inventoryYear,m=invRotMonth;
+  var rot=_irotg(y,m);
+  var locked=!!rot.locked;
+  var isLinked=inventoryIsLinked(y,m);
+
+  // Score summary (if locked)
+  if(locked&&rot.totalScore!==null){
+    var cls=scoreClass(rot.totalScore);
+    html+='<div style="display:flex;gap:10px;margin-bottom:20px;flex-wrap:wrap;">';
+    html+='<div style="flex:1;min-width:130px;background:var(--bg);border-radius:var(--radius);border:1px solid var(--border);padding:14px 10px;text-align:center;">';
+    html+='<div style="font-size:11px;font-weight:600;color:var(--text-m);margin-bottom:6px;">AKURASI</div>';
+    html+='<div class="final-big '+scoreClass(rot.akurasiScore||0)+'" style="font-size:1.6rem;">'+(rot.akurasiScore!==null?rot.akurasiScore.toFixed(1)+'%':'—')+'</div></div>';
+    html+='<div style="flex:1;min-width:160px;background:var(--bg2);border:2px solid var(--primary);border-radius:var(--radius);box-shadow:0 0 0 3px var(--primary-l);padding:16px 10px;text-align:center;">';
+    html+='<div style="font-size:11px;font-weight:600;color:var(--primary);margin-bottom:6px;">SCORE TOTAL</div>';
+    html+='<div class="final-big '+cls+'" style="font-size:2rem;">'+rot.totalScore.toFixed(1)+'%</div>';
+    html+='<div style="margin-top:8px;"><div class="progress-track"><div class="progress-fill '+cls+'" style="width:'+rot.totalScore.toFixed(1)+'%"></div></div></div></div>';
+    html+='<div style="flex:1;min-width:130px;background:var(--bg);border-radius:var(--radius);border:1px solid var(--border);padding:14px 10px;text-align:center;">';
+    html+='<div style="font-size:11px;font-weight:600;color:var(--text-m);margin-bottom:6px;">ONTIME</div>';
+    html+='<div class="final-big '+scoreClass(rot.ontimeScore||0)+'" style="font-size:1.6rem;">'+(rot.ontimeScore!==null?rot.ontimeScore.toFixed(1)+'%':'—')+'</div></div>';
+    html+='</div>';
+  }
+
+  // "Tidak tersambung" info
+  if(!isLinked){html+='<div style="padding:10px 14px;background:var(--bg);border-radius:var(--radius-sm);border-left:3px solid var(--text-l);font-size:12px;color:var(--text-l);margin-bottom:16px;">Bulan ini belum tersambung ke OKR Inventory (mulai Mei 2026).</div>';}
+
+  // AKURASI SECTION
+  html+='<div class="card" style="margin-bottom:16px;">';
+  html+='<div style="font-size:14px;font-weight:700;color:var(--text);margin-bottom:4px;">Akurasi &mdash; 5 Poin Penilaian</div>';
+  html+='<div style="font-size:12px;color:var(--text-m);margin-bottom:14px;">Isi jumlah temuan per poin &amp; upload bukti (wajib). Pengurangan = Temuan &times; Bobot. Skor = (total sisa) / 40 &times; 100%.</div>';
+  for(var i=0;i<5;i++){
+    var p=_INV_ROT_POIN[i];
+    var temuan=rot.poin&&rot.poin[i]!==undefined?rot.poin[i]:0;
+    var pEv=rot.poinEv&&rot.poinEv[i]?rot.poinEv[i]:null;
+    var pEvName=rot.poinEvName&&rot.poinEvName[i]?rot.poinEvName[i]:null;
+    var sisa=Math.max(0,p.max-Math.min(p.max,temuan*p.bobot));
+    html+='<div style="display:flex;align-items:center;gap:10px;padding:10px 0;border-bottom:1px solid var(--border);flex-wrap:wrap;">';
+    html+='<div style="min-width:130px;"><span style="font-size:12px;font-weight:700;color:var(--text);">Poin '+(i+1)+'</span> <span style="font-size:11px;color:var(--text-m);">Maks '+p.max+' | Bobot '+p.bobot+'/temuan</span></div>';
+    if(locked){
+      html+='<span style="font-size:13px;font-weight:600;color:var(--text);">Temuan: '+temuan+' &mdash; Sisa: '+sisa+'/'+p.max+'</span>';
+      html+='<span style="font-size:12px;margin-left:auto;">'+(pEv?'<button onclick="invRotViewEv('+i+',false)" style="background:none;border:1.5px solid var(--primary);color:var(--primary);border-radius:var(--radius-sm);padding:3px 8px;cursor:pointer;font-size:11px;font-family:var(--font);">&#x1F441; Bukti</button>':'<span style="color:var(--text-l);">—</span>')+'</span>';
+    }else{
+      html+='<div style="display:flex;align-items:center;gap:6px;flex-wrap:wrap;">';
+      html+='<input type="number" id="inv-rot-p-'+i+'" min="0" value="'+temuan+'" style="width:80px;padding:5px 8px;border:1.5px solid var(--border);border-radius:var(--radius-sm);font-family:var(--font);font-size:13px;background:var(--bg2);">';
+      html+='<label for="inv-rot-pev-'+i+'" style="cursor:pointer;display:inline-flex;align-items:center;gap:4px;padding:4px 10px;border:1.5px '+(pEv?'solid #10b981':'dashed var(--danger)')+';border-radius:var(--radius-sm);font-size:12px;color:'+(pEv?'#10b981':'var(--danger)')+';">';
+      if(pEv){html+='&#x2705; <span style="max-width:80px;overflow:hidden;text-overflow:ellipsis;white-space:nowrap;">'+okrEsc(pEvName||'OK')+'</span>';}
+      else{html+='&#x1F4CE; Bukti';}
+      html+='</label>';
+      html+='<input type="file" id="inv-rot-pev-'+i+'" accept="image/*" style="display:none;" onchange="invRotPoinUpload('+i+',this)">';
+      html+='</div>';
+      html+='<span style="font-size:11px;color:'+(sisa<p.max?'var(--danger)':'var(--success)')+';margin-left:auto;">Sisa: '+sisa+'/'+p.max+'</span>';
+    }
+    html+='</div>';
+  }
+  // Score akurasi preview (when unlocked)
+  if(!locked){
+    var sisaTotal=_INV_ROT_POIN.reduce(function(acc,p,i){var inp=document.getElementById('inv-rot-p-'+i);var t=inp?parseInt(inp.value)||0:rot.poin[i]||0;return acc+Math.max(0,p.max-Math.min(p.max,t*p.bobot));},0);
+    // Can't calculate from DOM before it's rendered — show stored value
+    html+='<div style="margin-top:12px;padding:10px 14px;background:var(--bg);border-radius:var(--radius-sm);font-size:13px;"><span style="font-weight:600;">Estimasi Score Akurasi:</span> <span style="color:var(--primary);font-weight:700;">'+((rot.poin.reduce(function(acc,t,i){var p=_INV_ROT_POIN[i];return acc+Math.max(0,p.max-Math.min(p.max,t*p.bobot));},0)/_INV_ROT_TOTAL*100).toFixed(1))+'%</span> <span style="font-size:11px;color:var(--text-m);">(berdasarkan data tersimpan; update saat Save)</span></div>';
+  }
+  html+='</div>';
+
+  // ONTIME SECTION
+  var nextM=m===12?1:m+1; var nextY=m===12?y+1:y;
+  var BULFULL=['Januari','Februari','Maret','April','Mei','Juni','Juli','Agustus','September','Oktober','November','Desember'];
+  var deadlineTxt='5 '+BULFULL[nextM-1]+' '+nextY;
+  html+='<div class="card" style="margin-bottom:16px;">';
+  html+='<div style="font-size:14px;font-weight:700;color:var(--text);margin-bottom:4px;">Ontime Laporan</div>';
+  html+='<div style="font-size:12px;color:var(--text-m);margin-bottom:12px;">Deadline: <strong>'+deadlineTxt+'</strong>. Keterlambatan maks 25 hari (turun linear ke 0%). Wajib upload bukti.</div>';
+  if(locked){
+    html+='<div style="display:flex;align-items:center;gap:14px;flex-wrap:wrap;padding:10px 0;">';
+    html+='<span style="font-size:13px;font-weight:600;color:var(--text);">Tanggal Submit: '+okrEsc(rot.ontimeDate||'—')+'</span>';
+    html+='<span class="score-num '+scoreClass(rot.ontimeScore||0)+'" style="font-size:1.3rem;">'+(rot.ontimeScore!==null?rot.ontimeScore.toFixed(1)+'%':'—')+'</span>';
+    html+='<span style="font-size:12px;color:var(--text-m);">'+(rot.ontimeScore===100?'Ontime':'Terlambat')+'</span>';
+    if(rot.ontimeEv){html+='<button onclick="invRotViewEv(-1,true)" style="background:none;border:1.5px solid var(--primary);color:var(--primary);border-radius:var(--radius-sm);padding:3px 8px;cursor:pointer;font-size:11px;font-family:var(--font);">&#x1F441; Bukti</button>';}
+    html+='</div>';
+  }else{
+    html+='<div style="display:flex;align-items:center;gap:10px;flex-wrap:wrap;">';
+    html+='<input type="date" id="inv-rot-date"'+(rot.ontimeDate?' value="'+rot.ontimeDate+'"':'')+' style="padding:7px 10px;border:1.5px solid var(--border);border-radius:var(--radius-sm);font-family:var(--font);font-size:13px;">';
+    html+='<label for="inv-rot-oev" style="cursor:pointer;display:inline-flex;align-items:center;gap:4px;padding:5px 12px;border:1.5px '+(rot.ontimeEv?'solid #10b981':'dashed var(--danger)')+';border-radius:var(--radius-sm);font-size:12px;color:'+(rot.ontimeEv?'#10b981':'var(--danger)')+';">';
+    if(rot.ontimeEv){html+='&#x2705; <span style="max-width:80px;overflow:hidden;text-overflow:ellipsis;white-space:nowrap;">'+okrEsc(rot.ontimeEvName||'OK')+'</span>';}
+    else{html+='&#x1F4CE; Bukti';}
+    html+='</label><input type="file" id="inv-rot-oev" accept="image/*" style="display:none;" onchange="invRotOntimeUpload(this)">';
+    html+='</div>';
+  }
+  html+='</div>';
+
+  // ACTION BUTTONS
+  if(locked){
+    html+='<div style="display:flex;gap:10px;justify-content:flex-end;">';
+    html+='<button onclick="invRotUnlock()" style="background:none;border:1.5px solid var(--border);color:var(--text-m);border-radius:var(--radius-sm);padding:8px 18px;cursor:pointer;font-family:var(--font);font-size:13px;">&#x270F;&#xFE0F; Edit</button>';
+    html+='<button onclick="invRotDelete()" style="background:none;border:1.5px solid #fca5a5;color:#dc2626;border-radius:var(--radius-sm);padding:8px 14px;cursor:pointer;font-family:var(--font);font-size:13px;">&#x1F5D1; Hapus</button>';
+    html+='</div>';
+  }else{
+    html+='<div style="display:flex;gap:10px;justify-content:flex-end;">';
+    html+='<button onclick="invRotSave()" style="background:var(--primary);border:none;color:#fff;border-radius:var(--radius-sm);padding:9px 24px;cursor:pointer;font-family:var(--font);font-size:13px;font-weight:700;">&#x1F4BE; Simpan</button>';
+    html+='</div>';
+  }
+  wrap.innerHTML=html;
+}
+
+// ── MONTHLY ACTIONS ─────────────────────────────────────────────
+function invUploadMonthly(subId,month,inp){
+  var file=inp.files[0]; if(!file) return;
+  if(file.size>5*1024*1024){notify('File terlalu besar (maks 5MB).','error');inp.value='';return;}
+  var curEl=document.getElementById('inv-mi-'+month);
+  var curVal=curEl&&curEl.value.trim()!==''?parseFloat(curEl.value):undefined;
+  function _save(b64){var d=_ig(subId,inventoryYear,month);if(curVal!==undefined&&!isNaN(curVal))d.value=curVal;d.evidence=b64;d.evidenceName=file.name;_iset(subId,inventoryYear,month,d);invRenderMonthly(subId);notify('Bukti "'+file.name+'" diupload ✓');}
+  var img_=new Image();var url=URL.createObjectURL(file);
+  img_.onload=function(){var c=document.createElement('canvas');var mxW=1400,mxH=1050,w=img_.width,h=img_.height;if(w>mxW){h=Math.round(h*mxW/w);w=mxW;}if(h>mxH){w=Math.round(w*mxH/h);h=mxH;}c.width=w;c.height=h;c.getContext('2d').drawImage(img_,0,0,w,h);URL.revokeObjectURL(url);_save(c.toDataURL('image/jpeg',0.78));};
+  img_.onerror=function(){URL.revokeObjectURL(url);var r=new FileReader();r.onload=function(e){_save(e.target.result);};r.readAsDataURL(file);};
+  img_.src=url;
+}
+function invConfirmMonthly(subId,month){
+  var sub=INVENTORY_SUBS.find(function(s){return s.id===subId;});
+  var inp=document.getElementById('inv-mi-'+month);
+  var val=inp?(inp.value.trim()===''?null:parseFloat(inp.value)):null;
+  if(val===null||isNaN(val)){notify('Isi nilai terlebih dahulu.','error');return;}
+  var d=_ig(subId,inventoryYear,month);
+  d.value=val; _iset(subId,inventoryYear,month,d);
+  if(!d.evidence){notify('Bukti upload wajib dilampirkan sebelum menyimpan.','error');return;}
+  document.getElementById('ic-sub').textContent=sub.icon+' '+sub.label;
+  document.getElementById('ic-bulan').textContent=STORE_BULAN[month-1]+' '+inventoryYear;
+  document.getElementById('ic-val').textContent=distribFmt(val,'%');
+  document.getElementById('ic-ev').innerHTML='&#x2705; '+okrEsc(d.evidenceName||'File terupload');
+  document.getElementById('ic-month').value=month;
+  document.getElementById('ic-day').value='';
+  document.getElementById('ic-type').value='monthly:'+subId;
+  document.getElementById('inv-confirm-modal').style.display='flex';
+}
+function invDoSave(){
+  var type=document.getElementById('ic-type').value;
+  var month=parseInt(document.getElementById('ic-month').value);
+  if(type==='rndo'){
+    var day=parseInt(document.getElementById('ic-day').value);
+    var d=_irkg(inventoryYear,invRnDoMonth,day);
+    d.locked=true;d.savedAt=new Date().toISOString();
+    _irks(inventoryYear,invRnDoMonth,day,d);
+    invRnDoSyncOKR(inventoryYear,invRnDoMonth);
+    okrSaveLS();invCloseConfirm();invRenderRnDo();
+    if(okrCurYear===inventoryYear&&okrCurMonth===invRnDoMonth)okrRender();
+    notify('Data tersimpan ✓');
+  }else if(type.indexOf('monthly:')===0){
+    var subId=type.split(':')[1];
+    var d=_ig(subId,inventoryYear,month);
+    d.locked=true;d.savedAt=new Date().toISOString();
+    _iset(subId,inventoryYear,month,d);
+    inventorySyncOKR(subId,inventoryYear,month,d.value);
+    okrSaveLS();invCloseConfirm();invRenderMonthly(subId);
+    if(okrCurYear===inventoryYear&&okrCurMonth===month)okrRender();
+    notify('Data '+STORE_BULAN[month-1]+' '+inventoryYear+' tersimpan ✓');
+  }
+}
+function invCloseConfirm(){document.getElementById('inv-confirm-modal').style.display='none';}
+function invUnlockMonthly(subId,month){
+  if(!confirm('Buka kunci data '+STORE_BULAN[month-1]+' '+inventoryYear+' untuk diedit?'))return;
+  var d=_ig(subId,inventoryYear,month);d.locked=false;_iset(subId,inventoryYear,month,d);okrSaveLS();invRenderMonthly(subId);
+}
+function invDeleteMonthly(subId,month){
+  if(!confirm('Hapus data '+STORE_BULAN[month-1]+' '+inventoryYear+'?'))return;
+  var key=_ik(subId,inventoryYear,month);if(okrData[key])delete okrData[key];
+  inventorySyncOKR(subId,inventoryYear,month,null);okrSaveLS();invRenderMonthly(subId);
+  if(okrCurYear===inventoryYear&&okrCurMonth===month)okrRender();
+  notify('Data dihapus.');
+}
+function invViewEvMonthly(subId,month){
+  var d=_ig(subId,inventoryYear,month);if(!d.evidence){notify('Tidak ada bukti.','error');return;}
+  document.getElementById('sem-name').textContent=d.evidenceName||'Bukti';
+  var img=document.getElementById('sem-img');
+  if(d.evidence.startsWith('data:image')){img.src=d.evidence;img.style.display='block';}else{img.style.display='none';}
+  document.getElementById('store-ev-modal').style.display='flex';
+}
+
+// ── RN & DO ACTIONS ─────────────────────────────────────────────
+function invRnDoMonthChange(m){invRnDoMonth=parseInt(m)||new Date().getMonth()+1;invRenderRnDo();}
+function invRnDoUpload(day,inp){
+  var file=inp.files[0]; if(!file) return;
+  if(file.size>5*1024*1024){notify('File terlalu besar (maks 5MB).','error');inp.value='';return;}
+  var curEl=document.getElementById('inv-rndo-inp-'+day);
+  var curVal=curEl&&curEl.value.trim()!==''?parseFloat(curEl.value):undefined;
+  function _save(b64){var d=_irkg(inventoryYear,invRnDoMonth,day);if(curVal!==undefined&&!isNaN(curVal))d.value=curVal;d.evidence=b64;d.evidenceName=file.name;_irks(inventoryYear,invRnDoMonth,day,d);invRenderRnDo();notify('Bukti "'+file.name+'" diupload ✓');}
+  var img_=new Image();var url=URL.createObjectURL(file);
+  img_.onload=function(){var c=document.createElement('canvas');var mxW=1400,mxH=1050,w=img_.width,h=img_.height;if(w>mxW){h=Math.round(h*mxW/w);w=mxW;}if(h>mxH){w=Math.round(w*mxH/h);h=mxH;}c.width=w;c.height=h;c.getContext('2d').drawImage(img_,0,0,w,h);URL.revokeObjectURL(url);_save(c.toDataURL('image/jpeg',0.78));};
+  img_.onerror=function(){URL.revokeObjectURL(url);var r=new FileReader();r.onload=function(e){_save(e.target.result);};r.readAsDataURL(file);};
+  img_.src=url;
+}
+function invRnDoConfirmSave(day){
+  var inp=document.getElementById('inv-rndo-inp-'+day);
+  var val=inp?(inp.value.trim()===''?null:parseFloat(inp.value)):null;
+  if(val===null||isNaN(val)){notify('Isi nilai terlebih dahulu.','error');return;}
+  var d=_irkg(inventoryYear,invRnDoMonth,day);
+  d.value=val;_irks(inventoryYear,invRnDoMonth,day,d);
+  if(!d.evidence){notify('Bukti upload wajib dilampirkan.','error');return;}
+  document.getElementById('ic-sub').textContent='📋 Akurasi RN & DO';
+  document.getElementById('ic-bulan').textContent=String(day).padStart(2,'0')+'/'+String(invRnDoMonth).padStart(2,'0')+'/'+inventoryYear;
+  document.getElementById('ic-val').textContent=distribFmt(val,'%');
+  document.getElementById('ic-ev').innerHTML='&#x2705; '+okrEsc(d.evidenceName||'File terupload');
+  document.getElementById('ic-month').value=invRnDoMonth;
+  document.getElementById('ic-day').value=day;
+  document.getElementById('ic-type').value='rndo';
+  document.getElementById('inv-confirm-modal').style.display='flex';
+}
+function invRnDoViewEv(day){
+  var d=_irkg(inventoryYear,invRnDoMonth,day);if(!d.evidence){notify('Tidak ada bukti.','error');return;}
+  document.getElementById('sem-name').textContent=d.evidenceName||'Bukti';
+  var img=document.getElementById('sem-img');
+  if(d.evidence.startsWith('data:image')){img.src=d.evidence;img.style.display='block';}else{img.style.display='none';}
+  document.getElementById('store-ev-modal').style.display='flex';
+}
+function invRnDoUnlock(day){
+  if(!confirm('Buka kunci data '+String(day).padStart(2,'0')+'/'+String(invRnDoMonth).padStart(2,'0')+' untuk diedit?'))return;
+  var d=_irkg(inventoryYear,invRnDoMonth,day);d.locked=false;_irks(inventoryYear,invRnDoMonth,day,d);okrSaveLS();invRenderRnDo();
+}
+function invRnDoDelete(day){
+  if(!confirm('Hapus data '+String(day).padStart(2,'0')+'/'+String(invRnDoMonth).padStart(2,'0')+'?'))return;
+  var key=_irkKey(inventoryYear,invRnDoMonth,day);if(okrData[key])delete okrData[key];
+  invRnDoSyncOKR(inventoryYear,invRnDoMonth);okrSaveLS();invRenderRnDo();
+  if(okrCurYear===inventoryYear&&okrCurMonth===invRnDoMonth)okrRender();
+  notify('Data dihapus.');
+}
+function invRnDoSyncOKR(year,month){
+  if(!inventoryIsLinked(year,month))return;
+  var mk=year+'-'+String(month).padStart(2,'0');
+  if(!okrData[mk]||!okrData[mk]['Inventory'])return;
+  var daysInM=new Date(year,month,0).getDate();
+  var vals=[];
+  for(var dd=1;dd<=daysInM;dd++){var dt=new Date(year,month-1,dd);if(dt.getDay()===0)continue;var d=_irkg(year,month,dd);if(d.locked&&d.value!==null&&d.value!=='')vals.push(Number(d.value));}
+  var avg=vals.length>0?Math.round(vals.reduce(function(a,b){return a+b;},0)/vals.length*100)/100:null;
+  var sub=INVENTORY_SUBS.find(function(s){return s.id==='rn_do';});
+  var divData=okrData[mk]['Inventory'];
+  var rows=okrGetRows(divData);
+  rows.forEach(function(row){if(sub.okrMatch(row.keyResult))row.actual=avg;});
+  if(typeof divData==='object'&&!Array.isArray(divData))divData.rows=rows;
+}
+
+// ── REPORT OT ACTIONS ───────────────────────────────────────────
+function invRotMonthChange(m){invRotMonth=parseInt(m)||new Date().getMonth()+1;invRenderReportOt();}
+function invRotPoinUpload(i,inp){
+  var file=inp.files[0]; if(!file) return;
+  if(file.size>5*1024*1024){notify('File terlalu besar (maks 5MB).','error');inp.value='';return;}
+  function _save(b64){var rot=_irotg(inventoryYear,invRotMonth);if(!rot.poinEv)rot.poinEv=[null,null,null,null,null];if(!rot.poinEvName)rot.poinEvName=[null,null,null,null,null];rot.poinEv[i]=b64;rot.poinEvName[i]=file.name;_irots(inventoryYear,invRotMonth,rot);invRenderReportOt();notify('Bukti Poin '+(i+1)+' diupload ✓');}
+  var img_=new Image();var url=URL.createObjectURL(file);
+  img_.onload=function(){var c=document.createElement('canvas');var mxW=1400,mxH=1050,w=img_.width,h=img_.height;if(w>mxW){h=Math.round(h*mxW/w);w=mxW;}if(h>mxH){w=Math.round(w*mxH/h);h=mxH;}c.width=w;c.height=h;c.getContext('2d').drawImage(img_,0,0,w,h);URL.revokeObjectURL(url);_save(c.toDataURL('image/jpeg',0.78));};
+  img_.onerror=function(){URL.revokeObjectURL(url);var r=new FileReader();r.onload=function(e){_save(e.target.result);};r.readAsDataURL(file);};
+  img_.src=url;
+}
+function invRotOntimeUpload(inp){
+  var file=inp.files[0]; if(!file) return;
+  if(file.size>5*1024*1024){notify('File terlalu besar (maks 5MB).','error');inp.value='';return;}
+  function _save(b64){var rot=_irotg(inventoryYear,invRotMonth);rot.ontimeEv=b64;rot.ontimeEvName=file.name;_irots(inventoryYear,invRotMonth,rot);invRenderReportOt();notify('Bukti ontime diupload ✓');}
+  var img_=new Image();var url=URL.createObjectURL(file);
+  img_.onload=function(){var c=document.createElement('canvas');var mxW=1400,mxH=1050,w=img_.width,h=img_.height;if(w>mxW){h=Math.round(h*mxW/w);w=mxW;}if(h>mxH){w=Math.round(w*mxH/h);h=mxH;}c.width=w;c.height=h;c.getContext('2d').drawImage(img_,0,0,w,h);URL.revokeObjectURL(url);_save(c.toDataURL('image/jpeg',0.78));};
+  img_.onerror=function(){URL.revokeObjectURL(url);var r=new FileReader();r.onload=function(e){_save(e.target.result);};r.readAsDataURL(file);};
+  img_.src=url;
+}
+function invRotSave(){
+  var y=inventoryYear,m=invRotMonth;
+  var rot=_irotg(y,m);
+  if(rot.locked){notify('Data sudah tersimpan. Klik Edit untuk mengubah.','error');return;}
+  var poin=[];
+  for(var i=0;i<5;i++){var inp=document.getElementById('inv-rot-p-'+i);poin.push(inp?Math.max(0,parseInt(inp.value)||0):rot.poin[i]||0);}
+  for(var i=0;i<5;i++){if(!rot.poinEv||!rot.poinEv[i]){notify('Bukti Poin '+(i+1)+' wajib diupload.','error');return;}}
+  var dateEl=document.getElementById('inv-rot-date');
+  var ontimeDate=dateEl?dateEl.value:'';
+  if(!ontimeDate){notify('Tanggal pengiriman laporan wajib diisi.','error');return;}
+  if(!rot.ontimeEv){notify('Bukti tanggal pengiriman wajib diupload.','error');return;}
+  var sisa=_INV_ROT_POIN.map(function(p,i){return Math.max(0,p.max-Math.min(p.max,poin[i]*p.bobot));});
+  var akurasiScore=sisa.reduce(function(a,b){return a+b;},0)/_INV_ROT_TOTAL*100;
+  var nextM=m===12?1:m+1; var nextY=m===12?y+1:y;
+  var deadline=new Date(nextY,nextM-1,5);
+  var late=Math.max(0,Math.ceil((new Date(ontimeDate+'T00:00:00')-deadline)/86400000));
+  var ontimeScore=Math.max(0,(25-late)/25*100);
+  var totalScore=akurasiScore*0.5+ontimeScore*0.5;
+  rot.poin=poin;rot.ontimeDate=ontimeDate;
+  rot.akurasiScore=akurasiScore;rot.ontimeScore=ontimeScore;rot.totalScore=totalScore;
+  rot.savedAt=new Date().toISOString();rot.locked=true;
+  _irots(y,m,rot);
+  inventorySyncOKR('report_ot',y,m,totalScore);
+  okrSaveLS();invRenderReportOt();
+  if(okrCurYear===y&&okrCurMonth===m)okrRender();
+  notify('Data '+STORE_BULAN[m-1]+' '+y+' tersimpan ✓');
+}
+function invRotUnlock(){
+  var y=inventoryYear,m=invRotMonth;
+  if(!confirm('Buka kunci data '+STORE_BULAN[m-1]+' '+y+' untuk diedit?'))return;
+  var rot=_irotg(y,m);rot.locked=false;_irots(y,m,rot);okrSaveLS();invRenderReportOt();
+}
+function invRotDelete(){
+  var y=inventoryYear,m=invRotMonth;
+  if(!confirm('Hapus semua data Report OT '+STORE_BULAN[m-1]+' '+y+'?'))return;
+  var key=_irotKey(y,m);if(okrData[key])delete okrData[key];
+  inventorySyncOKR('report_ot',y,m,null);okrSaveLS();invRenderReportOt();
+  if(okrCurYear===y&&okrCurMonth===m)okrRender();
+  notify('Data dihapus.');
+}
+function invRotViewEv(poinIdx,isOntime){
+  var rot=_irotg(inventoryYear,invRotMonth);
+  var ev=isOntime?rot.ontimeEv:(rot.poinEv&&rot.poinEv[poinIdx]?rot.poinEv[poinIdx]:null);
+  var evName=isOntime?rot.ontimeEvName:(rot.poinEvName&&rot.poinEvName[poinIdx]?rot.poinEvName[poinIdx]:'Bukti');
+  if(!ev){notify('Tidak ada bukti.','error');return;}
+  document.getElementById('sem-name').textContent=evName||'Bukti';
+  var img=document.getElementById('sem-img');
+  if(ev.startsWith('data:image')){img.src=ev;img.style.display='block';}else{img.style.display='none';}
+  document.getElementById('store-ev-modal').style.display='flex';
+}
+
+// ── OKR SYNC ────────────────────────────────────────────────────
+function inventorySyncOKR(subId,year,month,value){
+  if(!inventoryIsLinked(year,month))return;
+  var sub=INVENTORY_SUBS.find(function(s){return s.id===subId;});
+  if(!sub)return;
+  var mk=year+'-'+String(month).padStart(2,'0');
+  if(!okrData[mk]||!okrData[mk]['Inventory'])return;
+  var divData=okrData[mk]['Inventory'];
+  var rows=okrGetRows(divData);
+  rows.forEach(function(row){if(sub.okrMatch(row.keyResult))row.actual=value;});
+  if(typeof divData==='object'&&!Array.isArray(divData))divData.rows=rows;
+}
+
 // ─── PANEL ───
 const panelTitles={
   dashboard:'Dashboard OKR',
   store:'Store — Data Operasional',
   distrib:'Distribution Sales — Data Operasional',
   warehouse:'Warehouse — Data Operasional',
+  inventory:'Inventory — Data Operasional',
   instock:'Analisa Instock',
   po:'Analisa PO',
   penerimaan:'Analisa Kualitas Penerimaan',
@@ -2354,6 +2890,7 @@ function showPanel(name,btn){
   if(name==='store'){storeInit();}
   if(name==='distrib'){distribInit();}
   if(name==='warehouse'){warehouseInit();}
+  if(name==='inventory'){inventoryInit();}
 }
 function showLapDiv(div,btn){
   _lapCurrentDiv=div;
