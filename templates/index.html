@@ -4206,6 +4206,11 @@ function okrLoad(){
 function okrSaveLS(){
   okrData._ts=Date.now();
   localStorage.setItem(OKR_STORE_KEY,JSON.stringify(okrData));
+  // Jangan POST ke cloud selama initial cloud-load (cegah wipe data)
+  if(_okrSyncBlocked) return;
+  // Jangan POST jika data kosong (hanya _ts) — cegah overwrite cloud dengan data kosong
+  var dataKeys=Object.keys(okrData).filter(function(k){return k!=='_ts';});
+  if(!dataKeys.length) return;
   fetch('/api/okr',{method:'POST',headers:{'Content-Type':'application/json'},body:JSON.stringify(okrData)}).catch(function(){});
 }
 function okrKey(){return okrCurYear+'-'+String(okrCurMonth).padStart(2,'0');}
@@ -4242,11 +4247,14 @@ function okrInit(){
   document.getElementById('okr-f-tahun').value=okrCurYear;
   document.getElementById('okr-f-bulan').value=okrCurMonth;
   okrRender();
+  // Block cloud POST selama initial cloud-load untuk cegah race condition (data wipe)
+  _okrSyncBlocked=true;
   // Auto-check cloud: update lokal hanya jika cloud lebih baru (cek _ts)
   // Browser lain cukup refresh → data otomatis ter-update tanpa klik Load Cloud
   fetch('/api/okr?_='+Date.now())
     .then(function(r){return r.ok?r.json():null;})
     .then(function(cloud){
+      _okrSyncBlocked=false; // unblock setelah cloud load selesai
       if(!cloud||typeof cloud!=='object') return;
       var cloudKeys=Object.keys(cloud).filter(function(k){return k!=='_ts';});
       if(!cloudKeys.length) return;
@@ -4259,7 +4267,7 @@ function okrInit(){
         if(localTs>0) notify('Data diperbarui dari cloud ✓');
       }
     })
-    .catch(function(){});
+    .catch(function(){ _okrSyncBlocked=false; }); // unblock juga jika error
 }
 
 function okrPrevMonth(){
