@@ -3211,9 +3211,9 @@ function purchInstockRender(){
   var BUL=STORE_BULAN;
   var BULS=['Jan','Feb','Mar','Apr','Mei','Jun','Jul','Agu','Sep','Okt','Nov','Des'];
   var DAYS=['Min','Sen','Sel','Rab','Kam','Jum','Sab'];
-  var daysInM=new Date(y,m,0).getDate(),totalWD=0,savedD=0;
-  for(var dd=1;dd<=daysInM;dd++){var dt=new Date(y,m-1,dd);if(dt.getDay()===0)continue;totalWD++;var dd_=_pgIns(y,m,dd);if(dd_.locked&&dd_.file1&&dd_.file2)savedD++;}
-  var score=totalWD>0?Math.round(savedD/totalWD*10000)/100:0;
+  var daysInM=new Date(y,m,0).getDate(),totalWD=0,savedD=0,scoreSum=0,scoreDays=0;
+  for(var dd=1;dd<=daysInM;dd++){var dt=new Date(y,m-1,dd);if(dt.getDay()===0)continue;totalWD++;var dd_=_pgIns(y,m,dd);if(dd_.locked&&dd_.file1&&dd_.file2){savedD++;if(dd_.score!==null&&dd_.score!==undefined){scoreSum+=dd_.score;scoreDays++;}}}
+  var score=scoreDays>0?Math.round(scoreSum/scoreDays*100)/100:0;
   var linked=purchasingIsLinked(y,m);var cls=scoreClass(score);
   var html='';
   html+='<div style="display:flex;align-items:center;gap:12px;margin-bottom:14px;flex-wrap:wrap;">';
@@ -3226,7 +3226,7 @@ function purchInstockRender(){
   html+=linked?'<span style="font-size:11px;color:var(--success);font-weight:600;">&#x1F517; Tersambung OKR</span>':'<span style="font-size:11px;color:var(--text-l);">Tidak tersambung</span>';
   html+='</div>';
   html+='<div class="card" style="padding:0;overflow:hidden;"><div class="table-wrap"><table><thead><tr>';
-  html+='<th style="min-width:110px;">Tanggal</th><th style="min-width:200px;">File 1 (Excel 1)</th><th style="min-width:200px;">File 2 (Excel 2)</th><th style="min-width:120px;text-align:center;">Aksi</th>';
+  html+='<th style="min-width:110px;">Tanggal</th><th style="min-width:200px;">File 1 (Excel 1)</th><th style="min-width:200px;">File 2 (Excel 2)</th><th style="min-width:100px;text-align:center;">Score (%)</th><th style="min-width:120px;text-align:center;">Aksi</th>';
   html+='</tr></thead><tbody>';
   for(var dd=1;dd<=daysInM;dd++){
     var dt=new Date(y,m-1,dd);if(dt.getDay()===0)continue;
