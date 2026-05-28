@@ -4271,11 +4271,14 @@ function okrInit(){
   document.getElementById('okr-f-tahun').value = okrCurYear;
   document.getElementById('okr-f-bulan').value = okrCurMonth;
   okrRender();
+  // Block cloud POST selama initial cloud-load untuk cegah race condition (data wipe)
+  _okrSyncBlocked=true;
   // Auto-check cloud: update lokal hanya jika cloud lebih baru (cek _ts)
   // Browser lain cukup refresh → data otomatis ter-update tanpa klik Load Cloud
   fetch('/api/okr?_='+Date.now())
     .then(function(r){ return r.ok?r.json():null; })
     .then(function(cloud){
+      _okrSyncBlocked=false; // unblock setelah cloud load selesai
       if(!cloud||typeof cloud!=='object') return;
       var cloudKeys=Object.keys(cloud).filter(function(k){return k!=='_ts';});
       if(!cloudKeys.length) return;
@@ -4288,7 +4291,7 @@ function okrInit(){
         if(localTs>0) notify('Data diperbarui dari cloud ✓');
       }
     })
-    .catch(function(){});
+    .catch(function(){ _okrSyncBlocked=false; }); // unblock juga jika error
 }
 
 // ── NAVIGATION ──
