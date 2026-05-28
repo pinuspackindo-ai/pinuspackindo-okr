@@ -3623,7 +3623,7 @@ function purchImplRender(){
       else html+='<span style="color:var(--text-l);font-size:11px;">&#x2014;</span>';
       html+='</div></td>';
       html+='<td style="text-align:center;">'+(linked?(v!==null?'<span style="color:var(--success);font-weight:600;">'+v.toFixed(1)+'%</span>':'<span style="color:var(--text-l);">&#x2014;</span>'):'<span style="font-size:10px;color:var(--text-l);">Tidak tersambung</span>')+'</td>';
-      html+='<td style="text-align:center;white-space:nowrap;"><button onclick="purchImplEdit('+m+')" style="background:none;border:none;cursor:pointer;font-size:16px;">&#x270F;&#xFE0F;</button><button onclick="purchImplDelete('+m+')" style="background:none;border:none;cursor:pointer;font-size:16px;">&#x1F5D1;&#xFE0F;</button></td>';
+      html+='<td style="text-align:center;white-space:nowrap;"><div style="display:flex;gap:4px;justify-content:center;align-items:center;"><button onclick="purchImplEdit('+m+')" style="background:none;border:1px solid var(--border);color:var(--text-m);border-radius:var(--radius-sm);padding:4px 10px;cursor:pointer;font-size:11px;font-family:var(--font);">&#x270F;&#xFE0F; Edit</button><button onclick="purchImplDelete('+m+')" style="background:none;border:1.5px solid #fca5a5;color:#dc2626;border-radius:var(--radius-sm);padding:4px 8px;cursor:pointer;font-size:12px;font-family:var(--font);">&#x1F5D1;</button></div></td>';
     } else {
       html+='<td style="text-align:center;"><input type="number" min="0" max="100" step="0.1" id="pir-val-'+m+'" value="'+(d.value!==null?d.value:'')+'" placeholder="0&#x2013;100" style="width:90px;padding:5px 8px;border:1.5px solid var(--border);border-radius:4px;font-size:13px;text-align:center;font-family:var(--font);" /></td>';
       html+='<td><div style="display:flex;align-items:center;gap:6px;flex-wrap:wrap;">';
@@ -3643,7 +3643,11 @@ function purchImplEvidenceChange(month,inp){
   var y=purchasingYear;
   var reader=new FileReader();
   reader.onload=function(e){
-    var d=_pgIr(y,month);d.evidence=e.target.result;d.evidenceName=file.name;
+    var valEl=document.getElementById('pir-val-'+month);
+    var curVal=valEl&&valEl.value!==''?parseFloat(valEl.value):null;
+    var d=_pgIr(y,month);
+    if(curVal!==null&&!isNaN(curVal))d.value=curVal;
+    d.evidence=e.target.result;d.evidenceName=file.name;
     _psIr(y,month,d);okrSaveLS();purchImplRender();
     notify('"'+file.name+'" diupload ✓');
   };
