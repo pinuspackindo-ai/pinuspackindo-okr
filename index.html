@@ -359,21 +359,23 @@ tbody tr:hover td{background:var(--bg);}
 
     <!-- ════════ PANEL STORE ════════ -->
     <div id="panel-store" class="panel">
-      <div style="display:flex;align-items:flex-start;justify-content:space-between;margin-bottom:20px;gap:12px;flex-wrap:wrap;">
-        <div>
-          <div style="font-size:18px;font-weight:800;color:var(--text);">&#x1F4E6; Store <span style="font-size:13px;font-weight:400;color:var(--text-m);">— Data Operasional Bulanan</span></div>
-          <div style="font-size:12px;color:var(--text-l);margin-top:3px;">Isi data per bulan → upload bukti → klik 💾 Simpan → otomatis tersync ke Dashboard OKR</div>
+      <div style="position:sticky;top:53px;z-index:40;background:var(--bg);padding-bottom:16px;">
+        <div style="display:flex;align-items:flex-start;justify-content:space-between;margin-bottom:12px;gap:12px;flex-wrap:wrap;">
+          <div>
+            <div style="font-size:18px;font-weight:800;color:var(--text);">&#x1F4E6; Store <span style="font-size:13px;font-weight:400;color:var(--text-m);">— Data Operasional Bulanan</span></div>
+            <div style="font-size:12px;color:var(--text-l);margin-top:3px;">Isi data per bulan → upload bukti → klik 💾 Simpan → otomatis tersync ke Dashboard OKR</div>
+          </div>
+          <div style="display:flex;align-items:center;gap:8px;">
+            <span style="font-size:12px;color:var(--text-m);">Tahun:</span>
+            <select id="store-year-sel" class="store-year-sel" onchange="storeYearChange(this.value)"></select>
+          </div>
         </div>
-        <div style="display:flex;align-items:center;gap:8px;">
-          <span style="font-size:12px;color:var(--text-m);">Tahun:</span>
-          <select id="store-year-sel" class="store-year-sel" onchange="storeYearChange(this.value)"></select>
+        <div class="store-tabs" style="margin-bottom:0;">
+          <button class="store-tab active" id="store-tab-omzet"      onclick="storeShowSub('omzet',this)">&#x1F4B0; Omzet</button>
+          <button class="store-tab"        id="store-tab-akurasi"    onclick="storeShowSub('akurasi',this)">&#x1F4E6; Akurasi Stock</button>
+          <button class="store-tab"        id="store-tab-csat"       onclick="storeShowSub('csat',this)">&#x2B50; CSAT</button>
+          <button class="store-tab"        id="store-tab-impl_audit" onclick="storeShowSub('impl_audit',this)">&#x1F4CB; Implementasi Rekomendasi Audit</button>
         </div>
-      </div>
-      <div class="store-tabs">
-        <button class="store-tab active" id="store-tab-omzet"      onclick="storeShowSub('omzet',this)">&#x1F4B0; Omzet</button>
-        <button class="store-tab"        id="store-tab-akurasi"    onclick="storeShowSub('akurasi',this)">&#x1F4E6; Akurasi Stock</button>
-        <button class="store-tab"        id="store-tab-csat"       onclick="storeShowSub('csat',this)">&#x2B50; CSAT</button>
-        <button class="store-tab"        id="store-tab-impl_audit" onclick="storeShowSub('impl_audit',this)">&#x1F4CB; Implementasi Rekomendasi Audit</button>
       </div>
       <div id="store-content"></div>
     </div>
