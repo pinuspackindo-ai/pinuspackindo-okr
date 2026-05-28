@@ -3236,7 +3236,9 @@ function purchInstockRender(){
     if(d.locked){
       html+='<td>';if(d.file1){html+='<div style="display:flex;align-items:center;gap:6px;flex-wrap:wrap;"><span style="font-size:11px;color:var(--success);">&#x2713; '+esc(d.file1Name||'File 1')+'</span><button onclick="purchDownloadFile(\'pins\',\'file1\','+dd+')" style="font-size:10px;background:var(--primary-l);border:1px solid var(--primary);color:var(--primary);border-radius:4px;padding:2px 8px;cursor:pointer;white-space:nowrap;">&#x2B07; View</button></div>';}else html+='<span style="color:var(--text-l);font-size:11px;">&#x2014;</span>';html+='</td>';
       html+='<td>';if(d.file2){html+='<div style="display:flex;align-items:center;gap:6px;flex-wrap:wrap;"><span style="font-size:11px;color:var(--success);">&#x2713; '+esc(d.file2Name||'File 2')+'</span><button onclick="purchDownloadFile(\'pins\',\'file2\','+dd+')" style="font-size:10px;background:var(--primary-l);border:1px solid var(--primary);color:var(--primary);border-radius:4px;padding:2px 8px;cursor:pointer;white-space:nowrap;">&#x2B07; View</button></div>';}else html+='<span style="color:var(--text-l);font-size:11px;">&#x2014;</span>';html+='</td>';
-      html+='<td style="text-align:center;white-space:nowrap;"><button onclick="purchInstockEdit('+dd+')" style="background:none;border:none;cursor:pointer;font-size:16px;" title="Edit">&#x270F;&#xFE0F;</button><button onclick="purchInstockDelete('+dd+')" style="background:none;border:none;cursor:pointer;font-size:16px;" title="Hapus">&#x1F5D1;&#xFE0F;</button></td>';
+      var sc=d.score;var scCls=sc!==null&&sc!==undefined?scoreClass(sc):'';
+      html+='<td style="text-align:center;">'+(sc!==null&&sc!==undefined?'<span class="metric-value '+scCls+'" style="font-size:.9rem;">'+parseFloat(sc).toFixed(1)+'%</span>':'<span style="color:var(--text-l);font-size:11px;">&#x2014;</span>')+'</td>';
+      html+='<td style="text-align:center;white-space:nowrap;"><div style="display:flex;gap:4px;justify-content:center;align-items:center;"><button onclick="purchInstockEdit('+dd+')" style="background:none;border:1px solid var(--border);color:var(--text-m);border-radius:var(--radius-sm);padding:4px 10px;cursor:pointer;font-size:11px;font-family:var(--font);">&#x270F;&#xFE0F; Edit</button><button onclick="purchInstockDelete('+dd+')" style="background:none;border:1.5px solid #fca5a5;color:#dc2626;border-radius:var(--radius-sm);padding:4px 8px;cursor:pointer;font-size:12px;font-family:var(--font);">&#x1F5D1;</button></div></td>';
     } else {
       html+='<td><div style="display:flex;align-items:center;gap:6px;flex-wrap:wrap;">';
       html+='<label style="cursor:pointer;display:inline-flex;align-items:center;gap:4px;font-size:11px;background:var(--bg);border:1px solid var(--border);border-radius:4px;padding:3px 8px;white-space:nowrap;"><input type="file" accept=".xlsx,.xls,.csv" id="pins-f1-'+dd+'" style="display:none;" onchange="purchInstockFileChange('+dd+',1,this)">&#x1F4CE; File 1</label>';
@@ -3246,6 +3248,7 @@ function purchInstockRender(){
       html+='<label style="cursor:pointer;display:inline-flex;align-items:center;gap:4px;font-size:11px;background:var(--bg);border:1px solid var(--border);border-radius:4px;padding:3px 8px;white-space:nowrap;"><input type="file" accept=".xlsx,.xls,.csv" id="pins-f2-'+dd+'" style="display:none;" onchange="purchInstockFileChange('+dd+',2,this)">&#x1F4CE; File 2</label>';
       if(d.file2)html+='<span style="font-size:10px;color:var(--success);">&#x2713; '+esc(d.file2Name||'')+'</span>';
       html+='</div></td>';
+      html+='<td style="text-align:center;"><input type="number" min="0" max="100" step="0.1" id="pins-sc-'+dd+'" value="'+(d.score!==null&&d.score!==undefined?d.score:'')+'" placeholder="0-100" style="width:72px;padding:4px 6px;border:1.5px solid var(--border);border-radius:4px;font-size:12px;text-align:center;font-family:var(--font);" /></td>';
       var canSave=!!(d.file1&&d.file2);
       html+='<td style="text-align:center;"><button onclick="purchInstockConfirmSave('+dd+')" '+(canSave?'':'disabled ')+' style="font-size:11px;background:'+(canSave?'var(--primary)':'var(--border)')+';border:none;color:'+(canSave?'#fff':'var(--text-l)')+';border-radius:4px;padding:4px 12px;cursor:'+(canSave?'pointer':'not-allowed')+';">&#x1F4BE; Simpan</button></td>';
     }
@@ -3271,7 +3274,10 @@ function purchInstockConfirmSave(day){
   var y=purchasingYear,m=purchInstockMonth;
   var d=_pgIns(y,m,day);
   if(!d.file1||!d.file2){notify('Upload kedua file terlebih dahulu','error');return;}
-  _purchPending={type:'instock',year:y,month:m,day:day,file1:d.file1,file1Name:d.file1Name,file2:d.file2,file2Name:d.file2Name};
+  var scEl=document.getElementById('pins-sc-'+day);
+  var sc=scEl&&scEl.value!==''?parseFloat(scEl.value):null;
+  if(sc!==null&&(isNaN(sc)||sc<0||sc>100)){notify('Score harus antara 0 dan 100','error');return;}
+  _purchPending={type:'instock',year:y,month:m,day:day,file1:d.file1,file1Name:d.file1Name,file2:d.file2,file2Name:d.file2Name,score:sc};
   document.getElementById('pc-sub').textContent='In Stock';
   document.getElementById('pc-bulan').textContent=day+' '+STORE_BULAN[m-1]+' '+y;
   document.getElementById('pc-val').textContent='File 1 + File 2 siap disimpan';
