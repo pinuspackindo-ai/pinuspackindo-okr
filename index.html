@@ -2958,6 +2958,9 @@ function _psSv(y,m,d,o){okrData[_pkSv(y,m,d)]=o;}
 function _pkSvRn(y,m){return '_p_sv_rn_'+y+'_'+String(m).padStart(2,'0');}
 function _pgSvRn(y,m){return okrData[_pkSvRn(y,m)]||0;}
 function _psSvRn(y,m,v){okrData[_pkSvRn(y,m)]=v;}
+function _pkSvRnLk(y,m){return '_p_sv_rn_lk_'+y+'_'+String(m).padStart(2,'0');}
+function _pgSvRnLk(y,m){return okrData[_pkSvRnLk(y,m)]||false;}
+function _psSvRnLk(y,m,v){okrData[_pkSvRnLk(y,m)]=v;}
 function _pkIr(y,m){return '_p_ir_'+y+'_'+String(m).padStart(2,'0');}
 function _pgIr(y,m){return okrData[_pkIr(y,m)]||{value:null,evidence:null,evidenceName:null,savedAt:null,locked:false};}
 function _psIr(y,m,o){okrData[_pkIr(y,m)]=o;}
@@ -3160,9 +3163,9 @@ function purchInstockDelete(day){
   purchInstockSyncOKR(y,m);okrSaveLS();purchInstockRender();notify('Data dihapus');
 }
 function purchInstockSyncOKR(year,month){
-  var daysInM=new Date(year,month,0).getDate(),totalWD=0,savedD=0;
-  for(var dd=1;dd<=daysInM;dd++){var dt=new Date(year,month-1,dd);if(dt.getDay()===0)continue;totalWD++;var d=_pgIns(year,month,dd);if(d.locked&&d.file1&&d.file2)savedD++;}
-  var score=totalWD>0?Math.round(savedD/totalWD*10000)/100:0;
+  var daysInM=new Date(year,month,0).getDate(),scoreSum=0,scoreDays=0;
+  for(var dd=1;dd<=daysInM;dd++){var dt=new Date(year,month-1,dd);if(dt.getDay()===0)continue;var d=_pgIns(year,month,dd);if(d.locked&&d.file1&&d.file2&&d.score!==null&&d.score!==undefined){scoreSum+=d.score;scoreDays++;}}
+  var score=scoreDays>0?Math.round(scoreSum/scoreDays*100)/100:0;
   purchasingSyncOKR('instock_p',year,month,score);
 }
 
