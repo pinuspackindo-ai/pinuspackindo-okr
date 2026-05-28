@@ -2448,10 +2448,11 @@ function invRenderMonthly(subId){
   html+='<th style="width:36px;text-align:center;">No</th><th style="min-width:90px;">Bulan</th>';
   html+='<th style="min-width:140px;">'+sub.desc+' (%)</th>';
   html+='<th style="min-width:150px;text-align:center;">OKR Actual</th>';
-  html+='<th style="width:110px;text-align:center;">Bukti <span style="color:var(--danger);font-size:11px;">*wajib</span></th>';
+  html+='<th style="width:110px;text-align:center;">Bukti Upload</th>';
   html+='<th style="width:160px;text-align:center;">Aksi</th>';
   html+='</tr></thead><tbody>';
-  for(var m=1;m<=12;m++){
+  var _cmI=new Date().getMonth()+1;var _mOrdI=[];for(var _oi=0;_oi<12;_oi++)_mOrdI.push(((_cmI-1+_oi)%12)+1);
+  for(var _miI=0;_miI<12;_miI++){var m=_mOrdI[_miI];
     var d=_ig(subId,inventoryYear,m);
     var hasVal=d.value!==null&&d.value!=='';
     var hasEv=!!d.evidence;var locked=!!d.locked;
@@ -2465,7 +2466,7 @@ function invRenderMonthly(subId){
     }
     var rowBg=locked?'background:rgba(59,130,246,.04);':'';
     html+='<tr style="'+rowBg+'">';
-    html+='<td style="text-align:center;color:var(--text-m);font-size:12px;">'+m+'</td>';
+    html+='<td style="text-align:center;color:var(--text-m);font-size:12px;">'+(_miI+1)+'</td>';
     html+='<td style="font-weight:600;font-size:13px;">'+STORE_BULAN[m-1]+'</td>';
     if(locked){html+='<td style="font-weight:700;font-size:13px;color:var(--text);">'+distribFmt(d.value,'%')+'</td>';}
     else{html+='<td><input type="number" id="inv-mi-'+m+'" min="0" max="100" step="0.01" placeholder="0"'+(hasVal?' value="'+d.value+'"':'')+' style="width:100%;padding:5px 8px;border:1.5px solid var(--border);border-radius:var(--radius-sm);font-family:var(--font);font-size:13px;background:var(--bg2);color:var(--text);"></td>';}
@@ -2473,7 +2474,7 @@ function invRenderMonthly(subId){
     html+='<td style="text-align:center;">';
     if(locked&&hasEv){html+='<button onclick="invViewEvMonthly(\''+subId+'\','+m+')" style="background:none;border:1.5px solid var(--primary);color:var(--primary);border-radius:var(--radius-sm);padding:4px 10px;cursor:pointer;font-size:12px;font-family:var(--font);">&#x1F441; Lihat</button>';}
     else if(!locked){
-      html+='<label for="inv-ev-mi-'+m+'" style="cursor:pointer;display:inline-flex;align-items:center;gap:4px;padding:4px 10px;border:1.5px '+(hasEv?'solid #10b981':'dashed var(--danger)')+';border-radius:var(--radius-sm);font-size:12px;color:'+(hasEv?'#10b981':'var(--danger)')+';max-width:110px;">';
+      html+='<label for="inv-ev-mi-'+m+'" style="cursor:pointer;display:inline-flex;align-items:center;gap:4px;padding:4px 10px;border:1.5px '+(hasEv?'solid var(--success)':'dashed var(--border)')+';border-radius:var(--radius-sm);font-size:12px;color:'+(hasEv?'var(--success)':'var(--text-m)')+';max-width:110px;">';
       if(hasEv){html+='&#x2705; <span style="overflow:hidden;text-overflow:ellipsis;white-space:nowrap;max-width:70px;">'+okrEsc(d.evidenceName||'OK')+'</span>';}
       else{html+='&#x1F4CE; Upload';}
       html+='</label><input type="file" id="inv-ev-mi-'+m+'" accept="image/*" style="display:none;" onchange="invUploadMonthly(\''+subId+'\','+m+',this)">';
@@ -2527,7 +2528,7 @@ function invRenderRnDo(){
   html+='<div class="card" style="padding:0;overflow:hidden;"><div style="overflow-x:auto;"><table class="okr-table" style="width:100%;"><thead><tr>';
   html+='<th style="width:36px;text-align:center;">No</th><th style="min-width:95px;">Tanggal</th><th style="min-width:70px;">Hari</th>';
   html+='<th style="min-width:140px;">Akurasi RN &amp; DO (%)</th>';
-  html+='<th style="width:110px;text-align:center;">Bukti <span style="color:var(--danger);font-size:11px;">*wajib</span></th>';
+  html+='<th style="width:110px;text-align:center;">Bukti Upload</th>';
   html+='<th style="width:160px;text-align:center;">Aksi</th>';
   html+='</tr></thead><tbody>';
   var rowNum=0;
