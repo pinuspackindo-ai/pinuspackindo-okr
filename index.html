@@ -4278,10 +4278,25 @@ function okrInit(){
   fetch('/api/okr?_='+Date.now())
     .then(function(r){ return r.ok?r.json():null; })
     .then(function(cloud){
-      _okrSyncBlocked=false; // unblock setelah cloud load selesai
-      if(!cloud||typeof cloud!=='object') return;
+      if(!cloud||typeof cloud!=='object') cloud={};
       var cloudKeys=Object.keys(cloud).filter(function(k){return k!=='_ts';});
-      if(!cloudKeys.length) return;
+      if(!cloudKeys.length){
+        // API return kosong (token belum di-set) → fallback ke raw GitHub URL
+        var _RAW='https://raw.githubusercontent.com/pinuspackindo-ai/pinuspackindo-okr/main/okr_data.json?_='+Date.now();
+        fetch(_RAW).then(function(r){return r.ok?r.json():null;}).then(function(raw){
+          _okrSyncBlocked=false;
+          if(!raw||typeof raw!=='object') return;
+          var rawKeys=Object.keys(raw).filter(function(k){return k!=='_ts';});
+          if(!rawKeys.length) return;
+          var localTs=okrData._ts||0; var rawTs=raw._ts||0;
+          var localDataKeys=Object.keys(okrData).filter(function(k){return k!=='_ts';});
+          if(rawTs>localTs||localDataKeys.length===0){
+            okrData=raw;localStorage.setItem(OKR_STORE_KEY,JSON.stringify(raw));okrRender();
+          }
+        }).catch(function(){_okrSyncBlocked=false;});
+        return;
+      }
+      _okrSyncBlocked=false; // unblock setelah cloud load selesai
       var localTs=okrData._ts||0;
       var cloudTs=cloud._ts||0;
       // Juga load jika local tidak punya data (hanya _ts) — cegah stuck dengan localStorage kosong
