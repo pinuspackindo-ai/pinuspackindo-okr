@@ -298,6 +298,7 @@ tbody tr:hover td{background:var(--bg);}
     <button class="nav-item" id="nav-store" onclick="showPanel('store',this)">&#x1F4E6; Store</button>
     <button class="nav-item" id="nav-distrib" onclick="showPanel('distrib',this)">&#x1F69A; Distribution Sales</button>
     <button class="nav-item" id="nav-warehouse" onclick="showPanel('warehouse',this)">&#x1F3ED; Warehouse</button>
+    <button class="nav-item" id="nav-inventory" onclick="showPanel('inventory',this)">&#x1F4E6; Inventory</button>
     <div class="nav-label" style="margin-top:10px;">Modul Analisa</div>
     <button class="nav-item" onclick="showPanel('instock',this)">Analisa Instock</button>
     <button class="nav-item" onclick="showPanel('po',this)">Analisa PO</button>
@@ -1657,6 +1658,7 @@ function storeConfirmSave(month){
   if(val===null||isNaN(val)){notify('Isi nilai terlebih dahulu.','error');return;}
   var d=_sg(storeCurSub,storeYear,month);
   d.value=val; _ss(storeCurSub,storeYear,month,d);
+  if(!d.evidence){notify('Bukti upload wajib dilampirkan sebelum menyimpan.','error');return;}
   document.getElementById('sc-sub').textContent=sub.icon+' '+sub.label;
   document.getElementById('sc-bulan').textContent=STORE_BULAN[month-1]+' '+storeYear;
   document.getElementById('sc-val').textContent=storeFmt(val,sub.unit);
@@ -1948,6 +1950,7 @@ function distribConfirmSave(month){
   if(val===null||isNaN(val)){notify('Isi nilai terlebih dahulu.','error');return;}
   var d=_dg(distribCurSub,distribYear,month);
   d.value=val; _ds(distribCurSub,distribYear,month,d);
+  if(!d.evidence){notify('Bukti upload wajib dilampirkan sebelum menyimpan.','error');return;}
   document.getElementById('dc-sub').textContent=sub.icon+' '+sub.label;
   document.getElementById('dc-bulan').textContent=STORE_BULAN[month-1]+' '+distribYear;
   document.getElementById('dc-val').textContent=distribFmt(val,sub.unit);
@@ -2214,6 +2217,7 @@ function warehouseConfirmSave(month){
   if(val===null||isNaN(val)){notify('Isi nilai terlebih dahulu.','error');return;}
   var d=_wg(warehouseCurSub,warehouseYear,month);
   d.value=val; _ws(warehouseCurSub,warehouseYear,month,d);
+  if(!d.evidence){notify('Bukti upload wajib dilampirkan sebelum menyimpan.','error');return;}
   document.getElementById('wc-sub').textContent=sub.icon+' '+sub.label;
   document.getElementById('wc-bulan').textContent=STORE_BULAN[month-1]+' '+warehouseYear;
   document.getElementById('wc-val').textContent=distribFmt(val,sub.unit);
