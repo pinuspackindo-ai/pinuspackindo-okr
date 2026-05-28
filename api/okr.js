@@ -23,16 +23,27 @@ module.exports = async function handler(req, res) {
 
   // ── GET: baca data dari GitHub ──────────────────────────────
   if (req.method === 'GET') {
-    if (!TOKEN) return res.status(200).json({});
-    try {
-      const r = await fetch(`${API}?ref=${BRANCH}`, { headers: ghHeaders(TOKEN) });
-      if (!r.ok) return res.status(200).json({});
-      const info = await r.json();
-      const raw  = Buffer.from(info.content.replace(/\n/g, ''), 'base64').toString('utf8');
-      return res.status(200).json(JSON.parse(raw));
-    } catch (e) {
-      return res.status(200).json({});
+    // Coba via Contents API (butuh token) → fallback ke raw URL (publik, tanpa token)
+    if (TOKEN) {
+      try {
+        const r = await fetch(`${API}?ref=${BRANCH}`, { headers: ghHeaders(TOKEN) });
+        if (r.ok) {
+          const info = await r.json();
+          const raw  = Buffer.from(info.content.replace(/\n/g, ''), 'base64').toString('utf8');
+          return res.status(200).json(JSON.parse(raw));
+        }
+      } catch (e) {}
     }
+    // Fallback: baca dari raw URL (repo publik — tidak butuh token)
+    try {
+      const rawUrl = `https://raw.githubusercontent.com/${REPO}/${BRANCH}/${FILE}?_=${Date.now()}`;
+      const r = await fetch(rawUrl);
+      if (r.ok) {
+        const text = await r.text();
+        return res.status(200).json(JSON.parse(text));
+      }
+    } catch (e) {}
+    return res.status(200).json({});
   }
 
   // ── POST: simpan data ke GitHub ─────────────────────────────
