@@ -2941,6 +2941,7 @@ var purchasingYear=new Date().getFullYear();
 var purchInstockMonth=new Date().getMonth()+1;
 var purchSavingMonth=new Date().getMonth()+1;
 var _purchPending=null;
+var _okrSyncBlocked=false; // block cloud POST selama initial cloud-load untuk cegah data wipe
 
 // ── Storage helpers ──
 function _pkIns(y,m,d){return '_p_ins_'+y+'_'+String(m).padStart(2,'0')+'_'+String(d).padStart(2,'0');}
@@ -4227,7 +4228,11 @@ function okrLoad(){
 function okrSaveLS(){
   okrData._ts=Date.now();
   localStorage.setItem(OKR_STORE_KEY,JSON.stringify(okrData));
-  // POST ke Flask lokal jika tersedia (auto-fail di Vercel)
+  // Jangan POST ke cloud selama initial cloud-load (cegah wipe data)
+  if(_okrSyncBlocked) return;
+  // Jangan POST jika data kosong (hanya _ts) — cegah overwrite cloud dengan data kosong
+  var dataKeys=Object.keys(okrData).filter(function(k){return k!=='_ts';});
+  if(!dataKeys.length) return;
   fetch('/api/okr',{method:'POST',headers:{'Content-Type':'application/json'},body:JSON.stringify(okrData)}).catch(function(){});
 }
 function okrKey(){ return okrCurYear+'-'+String(okrCurMonth).padStart(2,'0'); }
