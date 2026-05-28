@@ -2992,6 +2992,9 @@ function purchasingSyncOKR(subId,year,month,value){
 // ── Init & navigation ──
 function purchasingInit(){
   if(!purchasingYear)purchasingYear=new Date().getFullYear();
+  // Selalu reset ke bulan berjalan saat masuk modul Purchasing
+  purchInstockMonth=new Date().getMonth()+1;
+  purchSavingMonth=new Date().getMonth()+1;
   var sel=document.getElementById('purchasing-year-sel');
   if(sel){var cy=new Date().getFullYear();sel.innerHTML='';for(var y=cy;y>=cy-3;y--){sel.innerHTML+='<option value="'+y+'"'+(y===purchasingYear?' selected':'')+'>'+y+'</option>';}}
   purchasingRender();
@@ -4332,6 +4335,8 @@ function okrRender(){
     var _srot=_irotg(okrCurYear,_sm);
     if(_srot.locked&&_srot.totalScore!==null)inventorySyncOKR('report_ot',okrCurYear,_sm,_srot.totalScore);
   }
+  // Sync In Stock → OKR Purchasing untuk bulan yang sedang ditampilkan
+  purchInstockSyncOKR(okrCurYear,okrCurMonth);
   var _RD = (typeof OKR_DIVISI!=='undefined'&&Array.isArray(OKR_DIVISI))
     ? OKR_DIVISI
     : ['Store','Distribution Sales','Warehouse','Inventory','Purchasing',
