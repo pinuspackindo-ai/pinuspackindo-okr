@@ -2974,7 +2974,7 @@ function invRotMonthChange(m){invRotMonth=parseInt(m)||new Date().getMonth()+1;i
 function invRotPoinUpload(i,inp){
   var file=inp.files[0]; if(!file) return;
   if(file.size>5*1024*1024){notify('File terlalu besar (maks 5MB).','error');inp.value='';return;}
-  function _save(b64){var rot=_irotg(inventoryYear,invRotMonth);if(!rot.poinEv)rot.poinEv=[null,null,null,null,null];if(!rot.poinEvName)rot.poinEvName=[null,null,null,null,null];rot.poinEv[i]=b64;rot.poinEvName[i]=file.name;_irots(inventoryYear,invRotMonth,rot);invRenderReportOt();notify('Bukti Poin '+(i+1)+' diupload ✓');}
+  function _save(b64){var _cp=[];for(var _j=0;_j<5;_j++){var _pe=document.getElementById('inv-rot-p-'+_j);_cp.push(_pe?Math.max(0,parseInt(_pe.value)||0):(0));}var rot=_irotg(inventoryYear,invRotMonth);rot.poin=_cp;if(!rot.poinEv)rot.poinEv=[null,null,null,null,null];if(!rot.poinEvName)rot.poinEvName=[null,null,null,null,null];rot.poinEv[i]=b64;rot.poinEvName[i]=file.name;_irots(inventoryYear,invRotMonth,rot);invRenderReportOt();notify('Bukti Poin '+(i+1)+' diupload ✓');}
   var img_=new Image();var url=URL.createObjectURL(file);
   img_.onload=function(){var c=document.createElement('canvas');var mxW=1400,mxH=1050,w=img_.width,h=img_.height;if(w>mxW){h=Math.round(h*mxW/w);w=mxW;}if(h>mxH){w=Math.round(w*mxH/h);h=mxH;}c.width=w;c.height=h;c.getContext('2d').drawImage(img_,0,0,w,h);URL.revokeObjectURL(url);_save(c.toDataURL('image/jpeg',0.78));};
   img_.onerror=function(){URL.revokeObjectURL(url);var r=new FileReader();r.onload=function(e){_save(e.target.result);};r.readAsDataURL(file);};
@@ -2983,7 +2983,7 @@ function invRotPoinUpload(i,inp){
 function invRotOntimeUpload(inp){
   var file=inp.files[0]; if(!file) return;
   if(file.size>5*1024*1024){notify('File terlalu besar (maks 5MB).','error');inp.value='';return;}
-  function _save(b64){var rot=_irotg(inventoryYear,invRotMonth);rot.ontimeEv=b64;rot.ontimeEvName=file.name;_irots(inventoryYear,invRotMonth,rot);invRenderReportOt();notify('Bukti ontime diupload ✓');}
+  function _save(b64){var _cp=[];for(var _j=0;_j<5;_j++){var _pe=document.getElementById('inv-rot-p-'+_j);_cp.push(_pe?Math.max(0,parseInt(_pe.value)||0):0);}var _dateEl=document.getElementById('inv-rot-date');var _curDate=_dateEl?_dateEl.value:'';var rot=_irotg(inventoryYear,invRotMonth);rot.poin=_cp;if(_curDate)rot.ontimeDate=_curDate;rot.ontimeEv=b64;rot.ontimeEvName=file.name;_irots(inventoryYear,invRotMonth,rot);invRenderReportOt();notify('Bukti ontime diupload ✓');}
   var img_=new Image();var url=URL.createObjectURL(file);
   img_.onload=function(){var c=document.createElement('canvas');var mxW=1400,mxH=1050,w=img_.width,h=img_.height;if(w>mxW){h=Math.round(h*mxW/w);w=mxW;}if(h>mxH){w=Math.round(w*mxH/h);h=mxH;}c.width=w;c.height=h;c.getContext('2d').drawImage(img_,0,0,w,h);URL.revokeObjectURL(url);_save(c.toDataURL('image/jpeg',0.78));};
   img_.onerror=function(){URL.revokeObjectURL(url);var r=new FileReader();r.onload=function(e){_save(e.target.result);};r.readAsDataURL(file);};
