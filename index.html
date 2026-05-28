@@ -2393,7 +2393,7 @@ var INVENTORY_SUBS=[
    okrMatch:function(kr){return /akurasi.*administrasi|akurasi.*inputan/i.test(kr);}},
   {id:'report_ot', label:'Report Akurat & Ontime', icon:'📊', unit:'%',
    desc:'Akurasi & Ontime Laporan',      source:'Data Laporan Internal',
-   okrMatch:function(kr){return /laporan.*ontime|akurat.*ontime|akurasi.*ontime|ontime.*laporan|ontime.*akurat/i.test(kr);}}
+   okrMatch:function(kr){return /laporan.*on.?time|akurat.*on.?time|akurasi.*on.?time|on.?time.*laporan|on.?time.*akurat/i.test(kr);}}
 ];
 var inventoryCurSub='akurasi_i';
 var inventoryYear=new Date().getFullYear();
