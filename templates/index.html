@@ -2777,8 +2777,8 @@ function invRenderReportOt(){
   var locked=!!rot.locked;
   var isLinked=inventoryIsLinked(y,m);
 
-  // Auto-sync ke OKR untuk data yang sudah tersimpan sebelum fitur sync ditambahkan
-  if(locked&&rot.totalScore!==null&&isLinked){inventorySyncOKR('report_ot',y,m,rot.totalScore);okrSaveLS();}
+  // Auto-sync ke OKR untuk data yang sudah tersimpan (in-memory saja, tidak save ke cloud dari render)
+  if(locked&&rot.totalScore!==null&&isLinked){inventorySyncOKR('report_ot',y,m,rot.totalScore);}
 
   if(locked&&rot.totalScore!==null){
     var cls=scoreClass(rot.totalScore);
@@ -4273,8 +4273,14 @@ function okrInit(){
           if(!rawKeys.length) return;
           var localTs=okrData._ts||0; var rawTs=raw._ts||0;
           var localDataKeys=Object.keys(okrData).filter(function(k){return k!=='_ts';});
+          var localOkrKeys=localDataKeys.filter(function(k){return !k.startsWith('_');});
           if(rawTs>localTs||localDataKeys.length===0){
             okrData=raw;localStorage.setItem(OKR_STORE_KEY,JSON.stringify(raw));okrRender();
+          } else if(localOkrKeys.length===0){
+            var rawOkrKeys=rawKeys.filter(function(k){return !k.startsWith('_');});
+            rawOkrKeys.forEach(function(k){okrData[k]=raw[k];});
+            okrData._ts=Date.now();
+            localStorage.setItem(OKR_STORE_KEY,JSON.stringify(okrData));okrRender();
           }
         }).catch(function(){_okrSyncBlocked=false;});
         return;
@@ -4285,11 +4291,19 @@ function okrInit(){
       // Juga load jika local tidak punya data (hanya _ts) — cegah stuck dengan localStorage kosong
       var localDataKeys=Object.keys(okrData).filter(function(k){return k!=='_ts';});
       var localEmpty=localDataKeys.length===0;
+      var localOkrKeys=localDataKeys.filter(function(k){return !k.startsWith('_');});
+      var cloudOkrKeys=Object.keys(cloud).filter(function(k){return k!=='_ts'&&!k.startsWith('_');});
       if(cloudTs>localTs||localEmpty){
         okrData=cloud;
         localStorage.setItem(OKR_STORE_KEY,JSON.stringify(cloud));
         okrRender();
         if(localTs>0&&!localEmpty) notify('Data diperbarui dari cloud ✓');
+      } else if(localOkrKeys.length===0&&cloudOkrKeys.length>0){
+        cloudOkrKeys.forEach(function(k){okrData[k]=cloud[k];});
+        okrData._ts=Date.now();
+        localStorage.setItem(OKR_STORE_KEY,JSON.stringify(okrData));
+        okrRender();
+        notify('Struktur OKR dipulihkan dari cloud ✓');
       }
     })
     .catch(function(){ _okrSyncBlocked=false; }); // unblock juga jika error
