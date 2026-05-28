@@ -4300,6 +4300,11 @@ function okrNextMonth(){
 }
 
 function okrRender(){
+  // Sync Report Akurat & Ontime → OKR Inventory sebelum render (untuk semua bulan yg ada data)
+  for(var _sm=1;_sm<=12;_sm++){
+    var _srot=_irotg(okrCurYear,_sm);
+    if(_srot.locked&&_srot.totalScore!==null)inventorySyncOKR('report_ot',okrCurYear,_sm,_srot.totalScore);
+  }
   var _RD=(typeof OKR_DIVISI!=='undefined'&&Array.isArray(OKR_DIVISI))
     ?OKR_DIVISI
     :['Store','Distribution Sales','Warehouse','Inventory','Purchasing',
