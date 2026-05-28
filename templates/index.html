@@ -3367,6 +3367,7 @@ function purchApoFileChange(month,fileNum,inp){
 function purchApoSave(month){
   var y=purchasingYear;var d=_pgApo(y,month);
   if(!d.file1||!d.file2){notify('Upload kedua file terlebih dahulu','error');return;}
+  okrEnsureXLSX(function(){
   try{
     var f1b64=d.file1.indexOf(',')!==-1?d.file1.split(',')[1]:d.file1;
     var f2b64=d.file2.indexOf(',')!==-1?d.file2.split(',')[1]:d.file2;
@@ -3399,6 +3400,7 @@ function purchApoSave(month){
     document.getElementById('pc-ev').textContent=(d.file1Name||'Keterlambatan')+' + '+(d.file2Name||'Akurasi');
     document.getElementById('purch-confirm-modal').style.display='flex';
   } catch(e){notify('Error memproses file: '+e.message,'error');}
+  });
 }
 function purchApoEdit(month){var y=purchasingYear;var d=_pgApo(y,month);d.locked=false;_psApo(y,month,d);okrSaveLS();purchApoRender();}
 function purchApoDelete(month){
