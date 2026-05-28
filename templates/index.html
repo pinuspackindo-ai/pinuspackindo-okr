@@ -3074,6 +3074,7 @@ var purchasingYear=new Date().getFullYear();
 var purchInstockMonth=new Date().getMonth()+1;
 var purchSavingMonth=new Date().getMonth()+1;
 var _purchPending=null;
+var _okrSyncBlocked=false; // block cloud POST selama initial cloud-load untuk cegah data wipe
 
 // ── Storage helpers ──
 function _pkIns(y,m,d){return '_p_ins_'+y+'_'+String(m).padStart(2,'0')+'_'+String(d).padStart(2,'0');}
