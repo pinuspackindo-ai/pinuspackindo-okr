@@ -2776,6 +2776,10 @@ function invRenderReportOt(){
   var rot=_irotg(y,m);
   var locked=!!rot.locked;
   var isLinked=inventoryIsLinked(y,m);
+
+  // Auto-sync ke OKR untuk data yang sudah tersimpan sebelum fitur sync ditambahkan
+  if(locked&&rot.totalScore!==null&&isLinked){inventorySyncOKR('report_ot',y,m,rot.totalScore);okrSaveLS();}
+
   if(locked&&rot.totalScore!==null){
     var cls=scoreClass(rot.totalScore);
     html+='<div style="display:flex;gap:10px;margin-bottom:20px;flex-wrap:wrap;">';
