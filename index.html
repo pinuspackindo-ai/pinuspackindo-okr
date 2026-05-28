@@ -541,6 +541,51 @@ tbody tr:hover td{background:var(--bg);}
       </div>
     </div>
 
+    <!-- ════════ PANEL PURCHASING ════════ -->
+    <div id="panel-purchasing" class="panel">
+      <div style="position:sticky;top:53px;z-index:40;background:var(--bg);padding-bottom:16px;">
+        <div style="display:flex;align-items:flex-start;justify-content:space-between;margin-bottom:12px;gap:12px;flex-wrap:wrap;">
+          <div>
+            <div style="font-size:18px;font-weight:800;color:var(--text);">&#x1F6D2; Purchasing <span style="font-size:13px;font-weight:400;color:var(--text-m);">&#x2014; Data Operasional</span></div>
+            <div style="font-size:12px;color:var(--text-l);margin-top:3px;">Upload data &#x2192; simpan &#x2192; otomatis tersync ke Dashboard OKR</div>
+          </div>
+          <div style="display:flex;align-items:center;gap:8px;">
+            <span style="font-size:12px;color:var(--text-m);">Tahun:</span>
+            <select id="purchasing-year-sel" class="store-year-sel" onchange="purchasingYearChange(this.value)"></select>
+          </div>
+        </div>
+        <div class="store-tabs" style="margin-bottom:0;">
+          <button class="store-tab active" id="purchasing-tab-instock_p"    onclick="purchasingShowSub('instock_p',this)">&#x1F4E6; In Stock</button>
+          <button class="store-tab"        id="purchasing-tab-akurasi_po"   onclick="purchasingShowSub('akurasi_po',this)">&#x1F4C4; Akurasi PO</button>
+          <button class="store-tab"        id="purchasing-tab-kualitas_pen" onclick="purchasingShowSub('kualitas_pen',this)">&#x2705; Kualitas Penerimaan</button>
+          <button class="store-tab"        id="purchasing-tab-saving_cost"  onclick="purchasingShowSub('saving_cost',this)">&#x1F4B0; Saving Cost</button>
+          <button class="store-tab"        id="purchasing-tab-impl_reko_p"  onclick="purchasingShowSub('impl_reko_p',this)">&#x1F4CB; Implementasi Rekomendasi</button>
+        </div>
+      </div>
+      <div id="purchasing-content"></div>
+    </div>
+
+    <!-- Purchasing: Save Confirm Modal -->
+    <div id="purch-confirm-modal" style="display:none;position:fixed;inset:0;background:rgba(0,0,0,.5);z-index:650;align-items:center;justify-content:center;">
+      <div style="background:var(--bg2);border-radius:var(--radius);padding:24px 28px;max-width:420px;width:92%;box-shadow:var(--shadow);">
+        <div style="font-size:15px;font-weight:700;color:var(--text);margin-bottom:16px;">&#x2705; Konfirmasi Simpan Data</div>
+        <div style="background:var(--bg);border-radius:var(--radius-sm);padding:14px 16px;margin-bottom:14px;font-size:13px;line-height:2;">
+          <div><span style="color:var(--text-m);">Modul &nbsp;&nbsp;</span><strong id="pc-sub"></strong></div>
+          <div><span style="color:var(--text-m);">Periode &nbsp;</span><strong id="pc-bulan"></strong></div>
+          <div><span style="color:var(--text-m);">Nilai &nbsp;&nbsp;&nbsp;</span><strong id="pc-val"></strong></div>
+          <div><span style="color:var(--text-m);">File &nbsp;&nbsp;&nbsp;&nbsp;</span><span id="pc-ev"></span></div>
+        </div>
+        <div style="font-size:12px;color:var(--text-m);margin-bottom:18px;padding:8px 12px;background:#fef3c7;border-radius:var(--radius-sm);border-left:3px solid #f59e0b;">Setelah disimpan data terkunci. Gunakan tombol &#x270F;&#xFE0F; Edit untuk membuka kunci.</div>
+        <input type="hidden" id="pc-month">
+        <input type="hidden" id="pc-day">
+        <input type="hidden" id="pc-type">
+        <div style="display:flex;gap:8px;justify-content:flex-end;">
+          <button onclick="purchCloseConfirm()" style="background:var(--bg);border:1.5px solid var(--border);color:var(--text);padding:8px 18px;border-radius:var(--radius-sm);cursor:pointer;font-family:var(--font);font-size:13px;">Batal</button>
+          <button onclick="purchDoSave()" style="background:var(--primary);border:none;color:#fff;padding:8px 22px;border-radius:var(--radius-sm);cursor:pointer;font-family:var(--font);font-size:13px;font-weight:700;">&#x1F4BE; Ya, Simpan</button>
+        </div>
+      </div>
+    </div>
+
     <!-- PANEL INSTOCK -->
     <div id="panel-instock" class="panel">
       <div class="module-info">
