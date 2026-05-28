@@ -4665,7 +4665,13 @@ function okrSave(){
   var _orig=window.showPanel;
   window.showPanel=function(name,btn){
     _orig(name,btn);
-    if(name==='dashboard'){okrLoad();okrRender();}
+    if(name==='dashboard'){
+      okrLoad();
+      // Auto-sync Report Akurat & Ontime → OKR Inventory sebelum render
+      var _y=okrCurYear,_m=okrCurMonth;
+      if(inventoryIsLinked(_y,_m)){var _rot=_irotg(_y,_m);if(_rot.locked&&_rot.totalScore!==null)inventorySyncOKR('report_ot',_y,_m,_rot.totalScore);}
+      okrRender();
+    }
   };
 })();
 
