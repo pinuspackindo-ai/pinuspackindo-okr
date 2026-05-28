@@ -2198,11 +2198,275 @@ function distribSyncOKR(subId,year,month,value){
   });
 }
 
+// ══════════════════════════════════════════════════════════════
+// WAREHOUSE MODULE — Data Operasional Bulanan
+// ══════════════════════════════════════════════════════════════
+var WAREHOUSE_SUBS=[
+  {id:'akurasi_w',     label:'Akurasi Stock',                  icon:'📦', unit:'%',
+   desc:'Akurasi Stok Fisik vs Data',      source:'LK Audit Stock Opname',
+   okrMatch:function(kr){return /akurasi.*(stok|stock)/i.test(kr);}},
+  {id:'default_diary', label:'Default Diary',                  icon:'📋', unit:'%',
+   desc:'Akurasi Default Diary',           source:'LK Audit Default Diary',
+   okrMatch:function(kr){return /default.*diary|diary/i.test(kr);}},
+  {id:'cartrack',      label:'Cartrack',                       icon:'🚗', unit:'%',
+   desc:'Akurasi Cartrack',                source:'LK Audit Cartrack',
+   okrMatch:function(kr){return /cartrack/i.test(kr);}},
+  {id:'impl_audit_w',  label:'Implementasi Rekomendasi Audit', icon:'✅', unit:'%',
+   desc:'Tingkat Implementasi Rekomendasi', source:'LK Stock Opname Audit',
+   okrMatch:function(kr){return /implementasi.*rekomendasi|rekomendasi.*audit/i.test(kr);}}
+];
+var warehouseCurSub='akurasi_w';
+var warehouseYear=new Date().getFullYear();
+
+function _wk(s,y,m){return '_w_'+s+'_'+y+'_'+String(m).padStart(2,'0');}
+function _wg(s,y,m){return okrData[_wk(s,y,m)]||{value:null,evidence:null,evidenceName:null,savedAt:null,locked:false};}
+function _ws(s,y,m,o){okrData[_wk(s,y,m)]=o;}
+
+function warehouseIsLinked(year,month){return year>2026||(year===2026&&month>=5);}
+
+function warehouseInit(){
+  if(!warehouseYear) warehouseYear=new Date().getFullYear();
+  var sel=document.getElementById('warehouse-year-sel');
+  if(sel){
+    sel.innerHTML='';
+    var y=new Date().getFullYear();
+    for(var i=y-1;i<=y+1;i++){
+      var opt=document.createElement('option');
+      opt.value=i; opt.textContent=i;
+      if(i===warehouseYear) opt.selected=true;
+      sel.appendChild(opt);
+    }
+  }
+  warehouseRender();
+}
+
+function warehouseYearChange(y){
+  warehouseYear=parseInt(y)||new Date().getFullYear();
+  warehouseRender();
+}
+
+function warehouseShowSub(subId,btn){
+  warehouseCurSub=subId;
+  document.querySelectorAll('#panel-warehouse .store-tab').forEach(function(t){t.classList.remove('active');});
+  if(btn) btn.classList.add('active');
+  warehouseRender();
+}
+
+function warehouseRender(){
+  var sub=WAREHOUSE_SUBS.find(function(s){return s.id===warehouseCurSub;});
+  if(!sub) return;
+  var wrap=document.getElementById('warehouse-content');
+  if(!wrap) return;
+
+  var html='';
+  html+='<div style="margin-bottom:14px;display:flex;flex-wrap:wrap;gap:8px;">';
+  html+='<span style="display:inline-flex;align-items:center;gap:8px;padding:7px 14px;background:var(--bg);border:1px solid var(--border);border-radius:var(--radius-sm);font-size:12px;color:var(--text-m);">';
+  html+='ℹ️ Sumber: <strong style="color:var(--text);">'+sub.source+'</strong></span>';
+  html+='<span style="display:inline-flex;align-items:center;gap:6px;padding:7px 14px;background:#eff6ff;border:1px solid #bfdbfe;border-radius:var(--radius-sm);font-size:12px;color:var(--primary);">';
+  html+='🔗 OKR: <strong>Warehouse</strong> &mdash; tersambung Mei 2026 &rarr;</span>';
+  html+='</div>';
+
+  html+='<div class="card" style="padding:0;overflow:hidden;">';
+  html+='<div style="overflow-x:auto;"><table class="okr-table" style="width:100%;"><thead><tr>';
+  html+='<th style="width:36px;text-align:center;">No</th>';
+  html+='<th style="min-width:90px;">Bulan</th>';
+  html+='<th style="min-width:140px;">'+sub.desc+' ('+sub.unit+')</th>';
+  html+='<th style="min-width:150px;text-align:center;">OKR Actual</th>';
+  html+='<th style="width:105px;text-align:center;">Bukti Upload</th>';
+  html+='<th style="width:160px;text-align:center;">Aksi</th>';
+  html+='</tr></thead><tbody>';
+
+  for(var m=1;m<=12;m++){
+    var d=_wg(warehouseCurSub,warehouseYear,m);
+    var hasVal=d.value!==null&&d.value!=='';
+    var hasEv=!!d.evidence;
+    var locked=!!d.locked;
+    var isLinked=warehouseIsLinked(warehouseYear,m);
+
+    var mkOkr=warehouseYear+'-'+String(m).padStart(2,'0');
+    var okrActualStr=isLinked?'—':'<span style="color:var(--text-l);font-size:11px;">Tidak tersambung</span>';
+    var okrActualColor='var(--text-l)';
+    if(isLinked&&okrData[mkOkr]&&okrData[mkOkr]['Warehouse']){
+      var rs=okrGetRows(okrData[mkOkr]['Warehouse']);
+      for(var ri=0;ri<rs.length;ri++){
+        if(sub.okrMatch(rs[ri].keyResult)){
+          if(rs[ri].actual!==null&&rs[ri].actual!==undefined&&rs[ri].actual!==''){
+            okrActualStr=distribFmt(rs[ri].actual,sub.unit);
+            okrActualColor='var(--primary)';
+          }
+          break;
+        }
+      }
+    }
+
+    var rowBg=locked?'background:rgba(59,130,246,.04);':'';
+    html+='<tr id="warehouse-row-'+m+'" style="'+rowBg+'">';
+    html+='<td style="text-align:center;color:var(--text-m);font-size:12px;">'+m+'</td>';
+    html+='<td style="font-weight:600;font-size:13px;">'+STORE_BULAN[m-1]+'</td>';
+
+    if(locked){
+      html+='<td style="font-weight:700;font-size:13px;color:var(--text);">'+distribFmt(d.value,sub.unit)+'</td>';
+    }else{
+      html+='<td><input type="number" id="warehouse-inp-'+m+'" min="0" max="100" step="0.01" placeholder="0"';
+      html+=(hasVal?' value="'+d.value+'"':'')+' ';
+      html+='style="width:100%;padding:5px 8px;border:1.5px solid var(--border);border-radius:var(--radius-sm);font-family:var(--font);font-size:13px;background:var(--bg2);color:var(--text);">';
+      html+='</td>';
+    }
+
+    html+='<td style="text-align:center;font-size:12px;font-weight:600;color:'+okrActualColor+';">'+okrActualStr+'</td>';
+
+    html+='<td style="text-align:center;">';
+    if(locked&&hasEv){
+      html+='<button onclick="warehouseViewEv('+m+')" style="background:none;border:1.5px solid var(--primary);color:var(--primary);border-radius:var(--radius-sm);padding:4px 10px;cursor:pointer;font-size:12px;font-family:var(--font);">&#x1F441; Lihat</button>';
+    }else if(!locked){
+      html+='<label for="warehouse-ev-'+m+'" style="cursor:pointer;display:inline-flex;align-items:center;gap:4px;padding:4px 10px;border:1.5px dashed var(--border);border-radius:var(--radius-sm);font-size:12px;color:var(--text-m);max-width:110px;">';
+      if(hasEv){html+='✅ <span style="overflow:hidden;text-overflow:ellipsis;white-space:nowrap;max-width:70px;">'+okrEsc(d.evidenceName||'OK')+'</span>';}
+      else{html+='📎 Upload';}
+      html+='</label>';
+      html+='<input type="file" id="warehouse-ev-'+m+'" accept="image/*" style="display:none;" onchange="warehouseUpload('+m+',this)">';
+    }else{
+      html+='<span style="color:var(--text-l);font-size:11px;">—</span>';
+    }
+    html+='</td>';
+
+    html+='<td style="text-align:center;">';
+    if(locked){
+      html+='<div style="display:flex;align-items:center;gap:5px;justify-content:center;">';
+      html+='<span style="font-size:12px;color:var(--text-l);" title="Tersimpan">&#x1F512;</span>';
+      html+='<button onclick="warehouseUnlock('+m+')" style="background:none;border:1px solid var(--border);color:var(--text-m);border-radius:var(--radius-sm);padding:4px 10px;cursor:pointer;font-size:11px;font-family:var(--font);">&#x270F;&#xFE0F; Edit</button>';
+      html+='<button onclick="warehouseDelete('+m+')" style="background:none;border:1.5px solid #fca5a5;color:#dc2626;border-radius:var(--radius-sm);padding:4px 8px;cursor:pointer;font-size:12px;font-family:var(--font);" title="Hapus data">&#x1F5D1;</button>';
+      html+='</div>';
+    }else{
+      html+='<div style="display:flex;align-items:center;gap:5px;justify-content:center;">';
+      html+='<button onclick="warehouseConfirmSave('+m+')" style="background:var(--primary);border:none;color:#fff;border-radius:var(--radius-sm);padding:5px 12px;cursor:pointer;font-size:12px;font-family:var(--font);font-weight:600;">&#x1F4BE; Simpan</button>';
+      html+='<button onclick="warehouseDelete('+m+')" style="background:none;border:1.5px solid #fca5a5;color:#dc2626;border-radius:var(--radius-sm);padding:5px 8px;cursor:pointer;font-size:12px;font-family:var(--font);" title="Hapus data">&#x1F5D1;</button>';
+      html+='</div>';
+    }
+    html+='</td></tr>';
+  }
+  html+='</tbody></table></div></div>';
+  wrap.innerHTML=html;
+}
+
+function warehouseUpload(month,inp){
+  var file=inp.files[0]; if(!file) return;
+  if(file.size>5*1024*1024){notify('File terlalu besar (maks 5MB).','error');inp.value='';return;}
+  var curInpEl=document.getElementById('warehouse-inp-'+month);
+  var curVal=curInpEl&&curInpEl.value.trim()!==''?parseFloat(curInpEl.value):undefined;
+  var img_=new Image();
+  var url=URL.createObjectURL(file);
+  img_.onload=function(){
+    var canvas=document.createElement('canvas');
+    var mxW=1400,mxH=1050,w=img_.width,h=img_.height;
+    if(w>mxW){h=Math.round(h*mxW/w);w=mxW;}
+    if(h>mxH){w=Math.round(w*mxH/h);h=mxH;}
+    canvas.width=w;canvas.height=h;
+    canvas.getContext('2d').drawImage(img_,0,0,w,h);
+    URL.revokeObjectURL(url);
+    var b64=canvas.toDataURL('image/jpeg',0.78);
+    var d=_wg(warehouseCurSub,warehouseYear,month);
+    if(curVal!==undefined&&!isNaN(curVal)) d.value=curVal;
+    d.evidence=b64;d.evidenceName=file.name;
+    _ws(warehouseCurSub,warehouseYear,month,d);
+    warehouseRender();
+    notify('Bukti "'+file.name+'" berhasil diupload ✓');
+  };
+  img_.onerror=function(){
+    URL.revokeObjectURL(url);
+    var reader=new FileReader();
+    reader.onload=function(e){
+      var d=_wg(warehouseCurSub,warehouseYear,month);
+      if(curVal!==undefined&&!isNaN(curVal)) d.value=curVal;
+      d.evidence=e.target.result;d.evidenceName=file.name;
+      _ws(warehouseCurSub,warehouseYear,month,d);
+      warehouseRender();
+      notify('Bukti "'+file.name+'" berhasil diupload ✓');
+    };
+    reader.readAsDataURL(file);
+  };
+  img_.src=url;
+}
+
+function warehouseConfirmSave(month){
+  var sub=WAREHOUSE_SUBS.find(function(s){return s.id===warehouseCurSub;});
+  var inp=document.getElementById('warehouse-inp-'+month);
+  var val=inp?(inp.value.trim()===''?null:parseFloat(inp.value)):null;
+  if(val===null||isNaN(val)){notify('Isi nilai terlebih dahulu.','error');return;}
+  var d=_wg(warehouseCurSub,warehouseYear,month);
+  d.value=val; _ws(warehouseCurSub,warehouseYear,month,d);
+  document.getElementById('wc-sub').textContent=sub.icon+' '+sub.label;
+  document.getElementById('wc-bulan').textContent=STORE_BULAN[month-1]+' '+warehouseYear;
+  document.getElementById('wc-val').textContent=distribFmt(val,sub.unit);
+  document.getElementById('wc-ev').innerHTML=d.evidence
+    ?'✅ '+okrEsc(d.evidenceName||'File terupload')
+    :'<span style="color:#f59e0b;">⚠️ Belum ada bukti</span>';
+  document.getElementById('wc-month').value=month;
+  document.getElementById('warehouse-confirm-modal').style.display='flex';
+}
+
+function warehouseDoSave(){
+  var month=parseInt(document.getElementById('wc-month').value);
+  var d=_wg(warehouseCurSub,warehouseYear,month);
+  d.locked=true; d.savedAt=new Date().toISOString();
+  _ws(warehouseCurSub,warehouseYear,month,d);
+  warehouseSyncOKR(warehouseCurSub,warehouseYear,month,d.value);
+  okrSaveLS();
+  warehouseCloseConfirm();
+  warehouseRender();
+  if(okrCurYear===warehouseYear&&okrCurMonth===month) okrRender();
+  notify('Data '+STORE_BULAN[month-1]+' '+warehouseYear+' tersimpan & sync ke GitHub ✓');
+}
+
+function warehouseCloseConfirm(){
+  document.getElementById('warehouse-confirm-modal').style.display='none';
+}
+
+function warehouseUnlock(month){
+  if(!confirm('Buka kunci data '+STORE_BULAN[month-1]+' '+warehouseYear+' untuk diedit?')) return;
+  var d=_wg(warehouseCurSub,warehouseYear,month);
+  d.locked=false; _ws(warehouseCurSub,warehouseYear,month,d);
+  okrSaveLS(); warehouseRender();
+}
+
+function warehouseDelete(month){
+  if(!confirm('Hapus data '+STORE_BULAN[month-1]+' '+warehouseYear+'?\nData & nilai OKR Actual terkait akan dihapus.')) return;
+  var key=_wk(warehouseCurSub,warehouseYear,month);
+  if(okrData[key]) delete okrData[key];
+  warehouseSyncOKR(warehouseCurSub,warehouseYear,month,null);
+  okrSaveLS();
+  warehouseRender();
+  if(okrCurYear===warehouseYear&&okrCurMonth===month) okrRender();
+  notify('Data '+STORE_BULAN[month-1]+' '+warehouseYear+' & OKR Actual dihapus.');
+}
+
+function warehouseViewEv(month){
+  var d=_wg(warehouseCurSub,warehouseYear,month);
+  if(!d.evidence){notify('Tidak ada bukti tersimpan.','error');return;}
+  document.getElementById('sem-name').textContent=d.evidenceName||'Bukti';
+  var img=document.getElementById('sem-img');
+  if(d.evidence.startsWith('data:image')){img.src=d.evidence;img.style.display='block';}
+  else{img.style.display='none';}
+  document.getElementById('store-ev-modal').style.display='flex';
+}
+
+function warehouseSyncOKR(subId,year,month,value){
+  if(!warehouseIsLinked(year,month)) return;
+  var sub=WAREHOUSE_SUBS.find(function(s){return s.id===subId;});
+  if(!sub) return;
+  var mk=year+'-'+String(month).padStart(2,'0');
+  if(!okrData[mk]||!okrData[mk]['Warehouse']) return;
+  var divData=okrData[mk]['Warehouse'];
+  var rows=okrGetRows(divData);
+  rows.forEach(function(row){if(sub.okrMatch(row.keyResult)) row.actual=value;});
+  if(typeof divData==='object'&&!Array.isArray(divData)) divData.rows=rows;
+}
+
 // ─── PANEL SWITCH ───
 const panelTitles={
   dashboard:'Dashboard OKR',
   store:'Store — Data Operasional',
   distrib:'Distribution Sales — Data Operasional',
+  warehouse:'Warehouse — Data Operasional',
   instock:'Analisa Instock',
   po:'Analisa PO',
   penerimaan:'Analisa Kualitas Penerimaan',
@@ -2224,6 +2488,7 @@ function showPanel(name,btn){
   }
   if(name==='store'){storeInit();}
   if(name==='distrib'){distribInit();}
+  if(name==='warehouse'){warehouseInit();}
 }
 function showLapDiv(div,btn){
   _lapCurrentDiv=div;
