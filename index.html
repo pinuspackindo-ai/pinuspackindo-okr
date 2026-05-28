@@ -3272,7 +3272,8 @@ function purchKpenRender(){
   html+='<div class="card" style="padding:0;overflow:hidden;"><div class="table-wrap"><table><thead><tr>';
   html+='<th style="min-width:90px;">Bulan</th><th style="min-width:230px;">File Penerimaan</th><th style="min-width:110px;text-align:center;">Score</th><th style="min-width:110px;text-align:center;">OKR Actual</th><th style="min-width:120px;text-align:center;">Aksi</th>';
   html+='</tr></thead><tbody>';
-  for(var m=1;m<=12;m++){
+  var _kpCm=new Date().getMonth()+1;var _kpOrd=[];for(var _kpOi=0;_kpOi<12;_kpOi++)_kpOrd.push(((_kpCm-1+_kpOi)%12)+1);
+  for(var _kpMi=0;_kpMi<12;_kpMi++){var m=_kpOrd[_kpMi];
     var d=_pgKpen(y,m);var linked=purchasingIsLinked(y,m);
     html+='<tr><td style="font-weight:500;">'+BUL[m-1]+'</td>';
     if(d.locked){
@@ -3460,7 +3461,8 @@ function purchImplRender(){
   html+='<div class="card" style="padding:0;overflow:hidden;"><div class="table-wrap"><table><thead><tr>';
   html+='<th style="min-width:90px;">Bulan</th><th style="min-width:130px;text-align:center;">Nilai (%)</th><th style="min-width:250px;">Bukti (LK Penjualan E-Commerce)</th><th style="min-width:110px;text-align:center;">OKR Actual</th><th style="min-width:120px;text-align:center;">Aksi</th>';
   html+='</tr></thead><tbody>';
-  for(var m=1;m<=12;m++){
+  var _irCm=new Date().getMonth()+1;var _irOrd=[];for(var _irOi=0;_irOi<12;_irOi++)_irOrd.push(((_irCm-1+_irOi)%12)+1);
+  for(var _irMi=0;_irMi<12;_irMi++){var m=_irOrd[_irMi];
     var d=_pgIr(y,m);var linked=purchasingIsLinked(y,m);
     html+='<tr><td style="font-weight:500;">'+BUL[m-1]+'</td>';
     if(d.locked){
