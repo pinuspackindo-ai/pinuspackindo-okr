@@ -4348,13 +4348,15 @@ function okrNextMonth(){
 
 // ── RENDER TABLES ──
 function okrRender(){
-  // Sync Report Akurat & Ontime → OKR Inventory sebelum render (untuk semua bulan yg ada data)
-  for(var _sm=1;_sm<=12;_sm++){
-    var _srot=_irotg(okrCurYear,_sm);
-    if(_srot.locked&&_srot.totalScore!==null)inventorySyncOKR('report_ot',okrCurYear,_sm,_srot.totalScore);
+  // Sync Report Akurat & Ontime → OKR Inventory (guard: INVENTORY_SUBS mungkin belum diinit saat okrInit awal)
+  if(typeof INVENTORY_SUBS!=='undefined'&&Array.isArray(INVENTORY_SUBS)){
+    for(var _sm=1;_sm<=12;_sm++){
+      var _srot=_irotg(okrCurYear,_sm);
+      if(_srot.locked&&_srot.totalScore!==null)inventorySyncOKR('report_ot',okrCurYear,_sm,_srot.totalScore);
+    }
   }
   // Sync In Stock → OKR Purchasing untuk bulan yang sedang ditampilkan
-  purchInstockSyncOKR(okrCurYear,okrCurMonth);
+  if(typeof purchInstockSyncOKR==='function')purchInstockSyncOKR(okrCurYear,okrCurMonth);
   var _RD = (typeof OKR_DIVISI!=='undefined'&&Array.isArray(OKR_DIVISI))
     ? OKR_DIVISI
     : ['Store','Distribution Sales','Warehouse','Inventory','Purchasing',
