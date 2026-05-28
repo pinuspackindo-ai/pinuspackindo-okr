@@ -2416,6 +2416,8 @@ function inventoryIsLinked(year,month){return year>2026||(year===2026&&month>=5)
 
 function inventoryInit(){
   if(!inventoryYear) inventoryYear=new Date().getFullYear();
+  invRnDoMonth=new Date().getMonth()+1;
+  invRotMonth=new Date().getMonth()+1;
   var sel=document.getElementById('inventory-year-sel');
   if(sel){
     sel.innerHTML='';
@@ -3544,7 +3546,7 @@ function showPanel(name,btn){
   document.getElementById('topbar-title').textContent=panelTitles[name]||name;
   document.getElementById('lap-subnav').style.display=name==='laporan'?'block':'none';
   if(name==='laporan'){initLaporan();showLapDiv(_lapCurrentDiv,document.getElementById('nav-sub-'+_lapCurrentDiv));}
-  if(name==='dashboard'){okrRender();}
+  if(name==='dashboard'){okrLoad();okrRender();}
   if(name==='store'){storeInit();}
   if(name==='distrib'){distribInit();}
   if(name==='warehouse'){warehouseInit();}
@@ -4595,7 +4597,7 @@ function okrSave(){
   var _orig=window.showPanel;
   window.showPanel=function(name,btn){
     _orig(name,btn);
-    if(name==='dashboard') okrRender();
+    if(name==='dashboard'){okrLoad();okrRender();}
   };
 })();
 
