@@ -566,6 +566,50 @@ tbody tr:hover td{background:var(--bg);}
       </div>
     </div>
 
+    <!-- ════════ PANEL INVENTORY ════════ -->
+    <div id="panel-inventory" class="panel">
+      <div style="position:sticky;top:53px;z-index:40;background:var(--bg);padding-bottom:16px;">
+        <div style="display:flex;align-items:flex-start;justify-content:space-between;margin-bottom:12px;gap:12px;flex-wrap:wrap;">
+          <div>
+            <div style="font-size:18px;font-weight:800;color:var(--text);">&#x1F4E6; Inventory <span style="font-size:13px;font-weight:400;color:var(--text-m);">&#x2014; Data Operasional Bulanan</span></div>
+            <div style="font-size:12px;color:var(--text-l);margin-top:3px;">Isi data &#x2192; upload bukti (wajib) &#x2192; klik &#x1F4BE; Simpan &#x2192; otomatis tersync ke Dashboard OKR</div>
+          </div>
+          <div style="display:flex;align-items:center;gap:8px;">
+            <span style="font-size:12px;color:var(--text-m);">Tahun:</span>
+            <select id="inventory-year-sel" class="store-year-sel" onchange="inventoryYearChange(this.value)"></select>
+          </div>
+        </div>
+        <div class="store-tabs" style="margin-bottom:0;">
+          <button class="store-tab active" id="inventory-tab-akurasi_i"  onclick="inventoryShowSub('akurasi_i',this)">&#x1F4E6; Akurasi Stock</button>
+          <button class="store-tab"        id="inventory-tab-rn_do"      onclick="inventoryShowSub('rn_do',this)">&#x1F4CB; Akurasi RN &amp; DO</button>
+          <button class="store-tab"        id="inventory-tab-inputan_i"  onclick="inventoryShowSub('inputan_i',this)">&#x2328;&#xFE0F; Akurasi Inputan</button>
+          <button class="store-tab"        id="inventory-tab-report_ot"  onclick="inventoryShowSub('report_ot',this)">&#x1F4CA; Report Akurat &amp; Ontime</button>
+        </div>
+      </div>
+      <div id="inventory-content"></div>
+    </div>
+
+    <!-- Inventory: Save Confirm Modal -->
+    <div id="inv-confirm-modal" style="display:none;position:fixed;inset:0;background:rgba(0,0,0,.5);z-index:650;align-items:center;justify-content:center;">
+      <div style="background:var(--bg2);border-radius:var(--radius);padding:24px 28px;max-width:380px;width:92%;box-shadow:var(--shadow);">
+        <div style="font-size:15px;font-weight:700;color:var(--text);margin-bottom:16px;">&#x2705; Konfirmasi Simpan Data</div>
+        <div style="background:var(--bg);border-radius:var(--radius-sm);padding:14px 16px;margin-bottom:14px;font-size:13px;line-height:2;">
+          <div><span style="color:var(--text-m);">Modul &nbsp;&nbsp;</span><strong id="ic-sub"></strong></div>
+          <div><span style="color:var(--text-m);">Periode &nbsp;</span><strong id="ic-bulan"></strong></div>
+          <div><span style="color:var(--text-m);">Nilai &nbsp;&nbsp;&nbsp;</span><strong id="ic-val"></strong></div>
+          <div><span style="color:var(--text-m);">Bukti &nbsp;&nbsp;&nbsp;</span><span id="ic-ev"></span></div>
+        </div>
+        <div style="font-size:12px;color:var(--text-m);margin-bottom:18px;padding:8px 12px;background:#fef3c7;border-radius:var(--radius-sm);border-left:3px solid #f59e0b;">Setelah disimpan data terkunci. Gunakan tombol &#x270F;&#xFE0F; Edit untuk membuka kunci.</div>
+        <input type="hidden" id="ic-month">
+        <input type="hidden" id="ic-day">
+        <input type="hidden" id="ic-type">
+        <div style="display:flex;gap:8px;justify-content:flex-end;">
+          <button onclick="invCloseConfirm()" style="background:var(--bg);border:1.5px solid var(--border);color:var(--text);padding:8px 18px;border-radius:var(--radius-sm);cursor:pointer;font-family:var(--font);font-size:13px;">Batal</button>
+          <button onclick="invDoSave()" style="background:var(--primary);border:none;color:#fff;padding:8px 22px;border-radius:var(--radius-sm);cursor:pointer;font-family:var(--font);font-size:13px;font-weight:700;">&#x1F4BE; Ya, Simpan</button>
+        </div>
+      </div>
+    </div>
+
     <!-- ════════ PANEL INSTOCK ════════ -->
     <div id="panel-instock" class="panel">
       <div class="module-info">
