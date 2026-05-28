@@ -3099,7 +3099,7 @@ function purchInstockRender(){
     if(d.locked){
       html+='<td>';if(d.file1){html+='<div style="display:flex;align-items:center;gap:6px;flex-wrap:wrap;"><span style="font-size:11px;color:var(--success);">&#x2713; '+esc(d.file1Name||'File 1')+'</span><button onclick="purchDownloadFile(\'pins\',\'file1\','+dd+')" style="font-size:10px;background:var(--primary-l);border:1px solid var(--primary);color:var(--primary);border-radius:4px;padding:2px 8px;cursor:pointer;white-space:nowrap;">&#x2B07; View</button></div>';}else html+='<span style="color:var(--text-l);font-size:11px;">&#x2014;</span>';html+='</td>';
       html+='<td>';if(d.file2){html+='<div style="display:flex;align-items:center;gap:6px;flex-wrap:wrap;"><span style="font-size:11px;color:var(--success);">&#x2713; '+esc(d.file2Name||'File 2')+'</span><button onclick="purchDownloadFile(\'pins\',\'file2\','+dd+')" style="font-size:10px;background:var(--primary-l);border:1px solid var(--primary);color:var(--primary);border-radius:4px;padding:2px 8px;cursor:pointer;white-space:nowrap;">&#x2B07; View</button></div>';}else html+='<span style="color:var(--text-l);font-size:11px;">&#x2014;</span>';html+='</td>';
-      html+='<td style="text-align:center;white-space:nowrap;"><button onclick="purchInstockEdit('+dd+')" style="background:none;border:none;cursor:pointer;font-size:16px;" title="Edit">&#x270F;&#xFE0F;</button><button onclick="purchInstockDelete('+dd+')" style="background:none;border:none;cursor:pointer;font-size:16px;" title="Hapus">&#x1F5D1;&#xFE0F;</button></td>';
+      html+='<td style="text-align:center;white-space:nowrap;display:flex;gap:4px;justify-content:center;align-items:center;padding:6px 4px;"><button onclick="purchInstockEdit('+dd+')" style="background:none;border:1px solid var(--border);color:var(--text-m);border-radius:var(--radius-sm);padding:4px 10px;cursor:pointer;font-size:11px;font-family:var(--font);">&#x270F;&#xFE0F; Edit</button><button onclick="purchInstockDelete('+dd+')" style="background:none;border:1.5px solid #fca5a5;color:#dc2626;border-radius:var(--radius-sm);padding:4px 8px;cursor:pointer;font-size:12px;font-family:var(--font);">&#x1F5D1;</button></td>';
     } else {
       html+='<td><div style="display:flex;align-items:center;gap:6px;flex-wrap:wrap;">';
       html+='<label style="cursor:pointer;display:inline-flex;align-items:center;gap:4px;font-size:11px;background:var(--bg);border:1px solid var(--border);border-radius:4px;padding:3px 8px;white-space:nowrap;"><input type="file" accept=".xlsx,.xls,.csv" id="pins-f1-'+dd+'" style="display:none;" onchange="purchInstockFileChange('+dd+',1,this)">&#x1F4CE; File 1</label>';
@@ -3187,7 +3187,7 @@ function purchApoRender(){
       if(fs!==null)html+='<div style="font-size:9px;color:var(--text-l);">Ket:'+d.lateScore.toFixed(0)+'% Aku:'+d.accScore.toFixed(0)+'%</div>';
       html+='</td>';
       html+='<td style="text-align:center;">'+(linked?(fs!==null?'<span style="color:var(--success);font-weight:600;">'+fs.toFixed(1)+'%</span>':'<span style="color:var(--text-l);">&#x2014;</span>'):'<span style="font-size:10px;color:var(--text-l);">Tidak tersambung</span>')+'</td>';
-      html+='<td style="text-align:center;white-space:nowrap;"><button onclick="purchApoEdit('+m+')" style="background:none;border:none;cursor:pointer;font-size:16px;">&#x270F;&#xFE0F;</button><button onclick="purchApoDelete('+m+')" style="background:none;border:none;cursor:pointer;font-size:16px;">&#x1F5D1;&#xFE0F;</button></td>';
+      html+='<td style="text-align:center;white-space:nowrap;"><div style="display:flex;gap:4px;justify-content:center;align-items:center;"><button onclick="purchApoEdit('+m+')" style="background:none;border:1px solid var(--border);color:var(--text-m);border-radius:var(--radius-sm);padding:4px 10px;cursor:pointer;font-size:11px;font-family:var(--font);">&#x270F;&#xFE0F; Edit</button><button onclick="purchApoDelete('+m+')" style="background:none;border:1.5px solid #fca5a5;color:#dc2626;border-radius:var(--radius-sm);padding:4px 8px;cursor:pointer;font-size:12px;font-family:var(--font);">&#x1F5D1;</button></div></td>';
     } else {
       html+='<td><div style="display:flex;align-items:center;gap:6px;flex-wrap:wrap;">';
       html+='<label style="cursor:pointer;display:inline-flex;align-items:center;gap:4px;font-size:11px;background:var(--bg);border:1px solid var(--border);border-radius:4px;padding:3px 8px;white-space:nowrap;"><input type="file" accept=".xlsx,.xls,.csv" id="papo-f1-'+m+'" style="display:none;" onchange="purchApoFileChange('+m+',1,this)">&#x1F4CE; Keterlambatan</label>';
@@ -3223,6 +3223,7 @@ function purchApoFileChange(month,fileNum,inp){
 function purchApoSave(month){
   var y=purchasingYear;var d=_pgApo(y,month);
   if(!d.file1||!d.file2){notify('Upload kedua file terlebih dahulu','error');return;}
+  okrEnsureXLSX(function(){
   try{
     var f1b64=d.file1.indexOf(',')!==-1?d.file1.split(',')[1]:d.file1;
     var f2b64=d.file2.indexOf(',')!==-1?d.file2.split(',')[1]:d.file2;
@@ -3257,6 +3258,7 @@ function purchApoSave(month){
     document.getElementById('pc-ev').textContent=(d.file1Name||'Keterlambatan')+' + '+(d.file2Name||'Akurasi');
     document.getElementById('purch-confirm-modal').style.display='flex';
   } catch(e){notify('Error memproses file: '+e.message,'error');}
+  });
 }
 function purchApoEdit(month){var y=purchasingYear;var d=_pgApo(y,month);d.locked=false;_psApo(y,month,d);okrSaveLS();purchApoRender();}
 function purchApoDelete(month){
@@ -3318,6 +3320,7 @@ function purchKpenFileChange(month,inp){
 function purchKpenSave(month){
   var y=purchasingYear;var d=_pgKpen(y,month);
   if(!d.file){notify('Upload file terlebih dahulu','error');return;}
+  okrEnsureXLSX(function(){
   try{
     var fb64=d.file.indexOf(',')!==-1?d.file.split(',')[1]:d.file;
     var wb=XLSX.read(fb64,{type:'base64',cellDates:true});
@@ -3336,6 +3339,7 @@ function purchKpenSave(month){
     document.getElementById('pc-ev').textContent=d.fileName||'File Penerimaan';
     document.getElementById('purch-confirm-modal').style.display='flex';
   } catch(e){notify('Error memproses file: '+e.message,'error');}
+  });
 }
 function purchKpenEdit(month){var y=purchasingYear;var d=_pgKpen(y,month);d.locked=false;_psKpen(y,month,d);okrSaveLS();purchKpenRender();}
 function purchKpenDelete(month){
@@ -3495,7 +3499,11 @@ function purchImplEvidenceChange(month,inp){
   var y=purchasingYear;
   var reader=new FileReader();
   reader.onload=function(e){
-    var d=_pgIr(y,month);d.evidence=e.target.result;d.evidenceName=file.name;
+    var valEl=document.getElementById('pir-val-'+month);
+    var curVal=valEl&&valEl.value!==''?parseFloat(valEl.value):null;
+    var d=_pgIr(y,month);
+    if(curVal!==null&&!isNaN(curVal))d.value=curVal;
+    d.evidence=e.target.result;d.evidenceName=file.name;
     _psIr(y,month,d);okrSaveLS();purchImplRender();
     notify('"'+file.name+'" diupload ✓');
   };
