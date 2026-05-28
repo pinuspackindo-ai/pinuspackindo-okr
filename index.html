@@ -3376,6 +3376,8 @@ function purchSavingRender(){
   var DAYS=['Min','Sen','Sel','Rab','Kam','Jum','Sab'];
   var daysInM=new Date(y,m,0).getDate(),totalEntries=0;
   var rn=_pgSvRn(y,m)||0;
+  var rnLocked=_pgSvRnLk(y,m);
+  var today=new Date();var rnAvailable=today>=new Date(y,m,1);
   for(var dd=1;dd<=daysInM;dd++){var dt=new Date(y,m-1,dd);if(dt.getDay()===0)continue;var dd_=_pgSv(y,m,dd);if(dd_.locked&&dd_.text){var pts=dd_.text.split(';').filter(function(s){return s.trim()!=='';});totalEntries+=pts.length;}}
   var score=rn>0?Math.min(100,Math.round(totalEntries/rn*10000)/100):0;
   var linked=purchasingIsLinked(y,m);var cls=scoreClass(score);
@@ -3385,8 +3387,17 @@ function purchSavingRender(){
   html+='<select class="store-year-sel" onchange="purchSavingMonth=parseInt(this.value);purchSavingRender();">';
   for(var mi=1;mi<=12;mi++)html+='<option value="'+mi+'"'+(mi===m?' selected':'')+'>'+BUL[mi-1]+'</option>';
   html+='</select></div>';
-  html+='<div style="display:flex;align-items:center;gap:8px;"><span style="font-size:12px;color:var(--text-m);font-weight:600;">Total Item RN bulan ini:</span>';
-  html+='<input type="number" min="0" id="psv-rn" value="'+rn+'" onchange="purchSavingRnChange('+y+','+m+',this.value)" style="width:80px;padding:5px 8px;border:1.5px solid var(--border);border-radius:4px;font-size:13px;font-family:var(--font);" placeholder="0"></div>';
+  html+='<div style="display:flex;align-items:center;gap:8px;flex-wrap:wrap;"><span style="font-size:12px;color:var(--text-m);font-weight:600;">Total Item RN bulan ini:</span>';
+  if(!rnAvailable){
+    html+='<span style="font-size:12px;color:var(--text-l);">Tersedia mulai 1 '+BUL[m%12]+'</span>';
+  } else if(rnLocked){
+    html+='<strong style="font-size:14px;color:var(--text);">'+rn+'</strong>';
+    html+='<button onclick="purchSavingRnEdit('+y+','+m+')" style="background:none;border:1px solid var(--border);color:var(--text-m);border-radius:var(--radius-sm);padding:4px 10px;cursor:pointer;font-size:11px;font-family:var(--font);">&#x270F;&#xFE0F; Edit</button>';
+  } else {
+    html+='<input type="number" min="0" id="psv-rn" value="'+rn+'" style="width:80px;padding:5px 8px;border:1.5px solid var(--border);border-radius:4px;font-size:13px;font-family:var(--font);" placeholder="0">';
+    html+='<button onclick="purchSavingRnSave('+y+','+m+')" style="font-size:11px;background:var(--primary);border:none;color:#fff;border-radius:4px;padding:4px 10px;cursor:pointer;font-family:var(--font);">&#x1F4BE; Simpan</button>';
+  }
+  html+='</div>';
   html+='<div class="metric" style="margin:0;padding:8px 14px;"><div class="metric-label">Score Saving Cost</div><div class="metric-value '+cls+'" style="font-size:1.3rem;">'+score.toFixed(1)+'%</div></div>';
   html+='<div style="font-size:11px;color:var(--text-m);">Total entri: <strong>'+totalEntries+'</strong> &nbsp;/ RN: <strong>'+rn+'</strong></div>';
   html+=linked?'<span style="font-size:11px;color:var(--success);font-weight:600;">&#x1F517; Tersambung OKR</span>':'<span style="font-size:11px;color:var(--text-l);">Tidak tersambung</span>';
@@ -3424,6 +3435,16 @@ function purchSavingRender(){
 }
 function purchSavingRnChange(y,m,val){
   var v=parseFloat(val)||0;_psSvRn(y,m,v);purchSavingCalcSync(y,m);okrSaveLS();purchSavingRender();
+}
+function purchSavingRnSave(y,m){
+  var el=document.getElementById('psv-rn');
+  var v=parseFloat(el?el.value:0)||0;
+  _psSvRn(y,m,v);_psSvRnLk(y,m,true);
+  purchSavingCalcSync(y,m);okrSaveLS();purchSavingRender();
+  notify('Total Item RN disimpan ✓');
+}
+function purchSavingRnEdit(y,m){
+  _psSvRnLk(y,m,false);okrSaveLS();purchSavingRender();
 }
 function purchSavingTextBuf(day,val){
   var y=purchasingYear,m=purchSavingMonth;
