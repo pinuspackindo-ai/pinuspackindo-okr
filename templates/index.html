@@ -3463,6 +3463,7 @@ function purchKpenFileChange(month,inp){
 function purchKpenSave(month){
   var y=purchasingYear;var d=_pgKpen(y,month);
   if(!d.file){notify('Upload file terlebih dahulu','error');return;}
+  okrEnsureXLSX(function(){
   try{
     var fb64=d.file.indexOf(',')!==-1?d.file.split(',')[1]:d.file;
     var wb=XLSX.read(fb64,{type:'base64',cellDates:true});
@@ -3481,6 +3482,7 @@ function purchKpenSave(month){
     document.getElementById('pc-ev').textContent=d.fileName||'File Penerimaan';
     document.getElementById('purch-confirm-modal').style.display='flex';
   } catch(e){notify('Error memproses file: '+e.message,'error');}
+  });
 }
 function purchKpenEdit(month){var y=purchasingYear;var d=_pgKpen(y,month);d.locked=false;_psKpen(y,month,d);okrSaveLS();purchKpenRender();}
 function purchKpenDelete(month){
