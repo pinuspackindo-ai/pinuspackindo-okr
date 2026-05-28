@@ -1807,7 +1807,9 @@ function storeRender(){
   html+='<th style="width:160px;text-align:center;">Aksi</th>';
   html+='</tr></thead><tbody>';
 
-  for(var m=1;m<=12;m++){
+  var _stCm=new Date().getMonth()+1;var _stOrd=[];
+  for(var _stOi=0;_stOi<12;_stOi++)_stOrd.push(((_stCm-1+_stOi)%12)+1);
+  for(var _stMi=0;_stMi<12;_stMi++){var m=_stOrd[_stMi];
     var d=_sg(storeCurSub,storeYear,m);
     var hasVal=d.value!==null&&d.value!=='';
     var hasEv=!!d.evidence;
@@ -1833,7 +1835,7 @@ function storeRender(){
 
     var rowBg=locked?'background:rgba(59,130,246,.04);':'';
     html+='<tr id="store-row-'+m+'" style="'+rowBg+'">';
-    html+='<td style="text-align:center;color:var(--text-m);font-size:12px;">'+m+'</td>';
+    html+='<td style="text-align:center;color:var(--text-m);font-size:12px;">'+(_stMi+1)+'</td>';
     html+='<td style="font-weight:600;font-size:13px;">'+STORE_BULAN[m-1]+'</td>';
 
     // Kolom nilai
@@ -2094,7 +2096,9 @@ function distribRender(){
   html+='<th style="width:160px;text-align:center;">Aksi</th>';
   html+='</tr></thead><tbody>';
 
-  for(var m=1;m<=12;m++){
+  var _dCm=new Date().getMonth()+1;var _dOrd=[];
+  for(var _dOi=0;_dOi<12;_dOi++)_dOrd.push(((_dCm-1+_dOi)%12)+1);
+  for(var _dMi=0;_dMi<12;_dMi++){var m=_dOrd[_dMi];
     var d=_dg(distribCurSub,distribYear,m);
     var hasVal=d.value!==null&&d.value!=='';
     var hasEv=!!d.evidence;
@@ -2125,7 +2129,7 @@ function distribRender(){
 
     var rowBg=locked?'background:rgba(59,130,246,.04);':'';
     html+='<tr id="distrib-row-'+m+'" style="'+rowBg+'">';
-    html+='<td style="text-align:center;color:var(--text-m);font-size:12px;">'+m+'</td>';
+    html+='<td style="text-align:center;color:var(--text-m);font-size:12px;">'+(_dMi+1)+'</td>';
     html+='<td style="font-weight:600;font-size:13px;">'+STORE_BULAN[m-1]+'</td>';
 
     if(locked){
@@ -2369,7 +2373,9 @@ function warehouseRender(){
   html+='<th style="width:160px;text-align:center;">Aksi</th>';
   html+='</tr></thead><tbody>';
 
-  for(var m=1;m<=12;m++){
+  var _wCm=new Date().getMonth()+1;var _wOrd=[];
+  for(var _wOi=0;_wOi<12;_wOi++)_wOrd.push(((_wCm-1+_wOi)%12)+1);
+  for(var _wMi=0;_wMi<12;_wMi++){var m=_wOrd[_wMi];
     var d=_wg(warehouseCurSub,warehouseYear,m);
     var hasVal=d.value!==null&&d.value!=='';
     var hasEv=!!d.evidence;
@@ -2394,7 +2400,7 @@ function warehouseRender(){
 
     var rowBg=locked?'background:rgba(59,130,246,.04);':'';
     html+='<tr id="warehouse-row-'+m+'" style="'+rowBg+'">';
-    html+='<td style="text-align:center;color:var(--text-m);font-size:12px;">'+m+'</td>';
+    html+='<td style="text-align:center;color:var(--text-m);font-size:12px;">'+(_wMi+1)+'</td>';
     html+='<td style="font-weight:600;font-size:13px;">'+STORE_BULAN[m-1]+'</td>';
 
     if(locked){
