@@ -2678,27 +2678,32 @@ function invRenderReportOt(){
   for(var i=0;i<5;i++){
     var p=_INV_ROT_POIN[i];
     var temuan=rot.poin&&rot.poin[i]!==undefined?rot.poin[i]:0;
-    var pEv=rot.poinEv&&rot.poinEv[i]?rot.poinEv[i]:null;
-    var pEvName=rot.poinEvName&&rot.poinEvName[i]?rot.poinEvName[i]:null;
     var sisa=Math.max(0,p.max-Math.min(p.max,temuan*p.bobot));
     html+='<div style="display:flex;align-items:center;gap:10px;padding:10px 0;border-bottom:1px solid var(--border);flex-wrap:wrap;">';
     html+='<div style="min-width:130px;"><span style="font-size:12px;font-weight:700;color:var(--text);">Poin '+(i+1)+'</span> <span style="font-size:11px;color:var(--text-m);">Maks '+p.max+' | Bobot '+p.bobot+'/temuan</span></div>';
     if(locked){
       html+='<span style="font-size:13px;font-weight:600;color:var(--text);">Temuan: '+temuan+' &mdash; Sisa: '+sisa+'/'+p.max+'</span>';
-      html+='<span style="font-size:12px;margin-left:auto;">'+(pEv?'<button onclick="invRotViewEv('+i+',false)" style="background:none;border:1.5px solid var(--primary);color:var(--primary);border-radius:var(--radius-sm);padding:3px 8px;cursor:pointer;font-size:11px;font-family:var(--font);">&#x1F441; Bukti</button>':'<span style="color:var(--text-l);">—</span>')+'</span>';
     }else{
       html+='<div style="display:flex;align-items:center;gap:6px;flex-wrap:wrap;">';
       html+='<input type="number" id="inv-rot-p-'+i+'" min="0" value="'+temuan+'" style="width:80px;padding:5px 8px;border:1.5px solid var(--border);border-radius:var(--radius-sm);font-family:var(--font);font-size:13px;background:var(--bg2);">';
-      html+='<label for="inv-rot-pev-'+i+'" style="cursor:pointer;display:inline-flex;align-items:center;gap:4px;padding:4px 10px;border:1.5px '+(pEv?'solid var(--success)':'dashed var(--border)')+';border-radius:var(--radius-sm);font-size:12px;color:'+(pEv?'var(--success)':'var(--text-m)')+';max-width:110px;">';
-      if(pEv){html+='&#x2705; <span style="max-width:80px;overflow:hidden;text-overflow:ellipsis;white-space:nowrap;">'+okrEsc(pEvName||'OK')+'</span>';}
-      else{html+='&#x1F4CE; Bukti';}
-      html+='</label>';
-      html+='<input type="file" id="inv-rot-pev-'+i+'" accept="image/*" style="display:none;" onchange="invRotPoinUpload('+i+',this)">';
       html+='</div>';
       html+='<span style="font-size:11px;color:'+(sisa<p.max?'var(--danger)':'var(--success)')+';margin-left:auto;">Sisa: '+sisa+'/'+p.max+'</span>';
     }
     html+='</div>';
   }
+  // Single bukti temuan untuk semua poin akurasi
+  var _akEv=rot.akurasiEv||null;var _akEvName=rot.akurasiEvName||null;
+  html+='<div style="margin-top:12px;padding:10px 12px;background:var(--bg);border-radius:var(--radius-sm);display:flex;align-items:center;gap:10px;flex-wrap:wrap;">';
+  html+='<span style="font-size:12px;font-weight:600;color:var(--text);">Bukti Temuan:</span>';
+  if(locked){
+    html+=_akEv?'<button onclick="invRotViewEv(-1,false)" style="background:none;border:1.5px solid var(--primary);color:var(--primary);border-radius:var(--radius-sm);padding:3px 10px;cursor:pointer;font-size:11px;font-family:var(--font);">&#x1F441; Lihat Bukti</button>':'<span style="color:var(--text-l);font-size:12px;">—</span>';
+  }else{
+    html+='<label for="inv-rot-akev" style="cursor:pointer;display:inline-flex;align-items:center;gap:5px;padding:5px 14px;border:1.5px '+(_akEv?'solid var(--success)':'dashed var(--border)')+';border-radius:var(--radius-sm);font-size:12px;color:'+(_akEv?'var(--success)':'var(--text-m)')+'">';
+    if(_akEv){html+='&#x2705; <span style="max-width:130px;overflow:hidden;text-overflow:ellipsis;white-space:nowrap;">'+okrEsc(_akEvName||'OK')+'</span>';}
+    else{html+='&#x1F4CE; Upload Bukti';}
+    html+='</label><input type="file" id="inv-rot-akev" accept="image/*" style="display:none;" onchange="invRotAkurasiUpload(this)">';
+  }
+  html+='</div>';
   // Score akurasi preview (when unlocked)
   if(!locked){
     var sisaTotal=_INV_ROT_POIN.reduce(function(acc,p,i){var inp=document.getElementById('inv-rot-p-'+i);var t=inp?parseInt(inp.value)||0:rot.poin[i]||0;return acc+Math.max(0,p.max-Math.min(p.max,t*p.bobot));},0);
@@ -2882,14 +2887,13 @@ function invRnDoSyncOKR(year,month){
 
 // ── REPORT OT ACTIONS ───────────────────────────────────────────
 function invRotMonthChange(m){invRotMonth=parseInt(m)||new Date().getMonth()+1;invRenderReportOt();}
-function invRotPoinUpload(i,inp){
+function invRotAkurasiUpload(inp){
   var file=inp.files[0]; if(!file) return;
   if(file.size>5*1024*1024){notify('File terlalu besar (maks 5MB).','error');inp.value='';return;}
   function _save(b64){
-    var _cp=[];for(var _j=0;_j<5;_j++){var _pe=document.getElementById('inv-rot-p-'+_j);_cp.push(_pe?Math.max(0,parseInt(_pe.value)||0):(0));}
+    var _cp=[];for(var _j=0;_j<5;_j++){var _pe=document.getElementById('inv-rot-p-'+_j);_cp.push(_pe?Math.max(0,parseInt(_pe.value)||0):0);}
     var rot=_irotg(inventoryYear,invRotMonth);rot.poin=_cp;
-    if(!rot.poinEv)rot.poinEv=[null,null,null,null,null];if(!rot.poinEvName)rot.poinEvName=[null,null,null,null,null];
-    rot.poinEv[i]=b64;rot.poinEvName[i]=file.name;_irots(inventoryYear,invRotMonth,rot);invRenderReportOt();notify('Bukti Poin '+(i+1)+' diupload ✓');
+    rot.akurasiEv=b64;rot.akurasiEvName=file.name;_irots(inventoryYear,invRotMonth,rot);invRenderReportOt();notify('Bukti temuan diupload ✓');
   }
   var img_=new Image();var url=URL.createObjectURL(file);
   img_.onload=function(){var c=document.createElement('canvas');var mxW=1400,mxH=1050,w=img_.width,h=img_.height;if(w>mxW){h=Math.round(h*mxW/w);w=mxW;}if(h>mxH){w=Math.round(w*mxH/h);h=mxH;}c.width=w;c.height=h;c.getContext('2d').drawImage(img_,0,0,w,h);URL.revokeObjectURL(url);_save(c.toDataURL('image/jpeg',0.78));};
@@ -2916,7 +2920,7 @@ function invRotSave(){
   if(rot.locked){notify('Data sudah tersimpan. Klik Edit untuk mengubah.','error');return;}
   var poin=[];
   for(var i=0;i<5;i++){var inp=document.getElementById('inv-rot-p-'+i);poin.push(inp?Math.max(0,parseInt(inp.value)||0):rot.poin[i]||0);}
-  for(var i=0;i<5;i++){if(!rot.poinEv||!rot.poinEv[i]){notify('Bukti Poin '+(i+1)+' wajib diupload.','error');return;}}
+  if(!rot.akurasiEv){notify('Bukti temuan (akurasi) wajib diupload.','error');return;}
   var dateEl=document.getElementById('inv-rot-date');
   var ontimeDate=dateEl?dateEl.value:'';
   if(!ontimeDate){notify('Tanggal pengiriman laporan wajib diisi.','error');return;}
@@ -2952,8 +2956,8 @@ function invRotDelete(){
 }
 function invRotViewEv(poinIdx,isOntime){
   var rot=_irotg(inventoryYear,invRotMonth);
-  var ev=isOntime?rot.ontimeEv:(rot.poinEv&&rot.poinEv[poinIdx]?rot.poinEv[poinIdx]:null);
-  var evName=isOntime?rot.ontimeEvName:(rot.poinEvName&&rot.poinEvName[poinIdx]?rot.poinEvName[poinIdx]:'Bukti');
+  var ev=isOntime?rot.ontimeEv:(poinIdx===-1?rot.akurasiEv:(rot.poinEv&&rot.poinEv[poinIdx]?rot.poinEv[poinIdx]:null));
+  var evName=isOntime?rot.ontimeEvName:(poinIdx===-1?(rot.akurasiEvName||'Bukti Temuan'):(rot.poinEvName&&rot.poinEvName[poinIdx]?rot.poinEvName[poinIdx]:'Bukti'));
   if(!ev){notify('Tidak ada bukti.','error');return;}
   document.getElementById('sem-name').textContent=evName||'Bukti';
   var img=document.getElementById('sem-img');
