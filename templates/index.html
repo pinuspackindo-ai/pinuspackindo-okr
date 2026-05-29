@@ -3437,10 +3437,11 @@ function purchApoSave(month){
   if(!d.file1||!d.file2){notify('Upload kedua file terlebih dahulu','error');return;}
   okrEnsureXLSX(function(){
   try{
+    function _b64toArr(b64){var bin=atob(b64),bytes=new Uint8Array(bin.length);for(var i=0;i<bin.length;i++)bytes[i]=bin.charCodeAt(i);return bytes;}
     var f1b64=d.file1.indexOf(',')!==-1?d.file1.split(',')[1]:d.file1;
     var f2b64=d.file2.indexOf(',')!==-1?d.file2.split(',')[1]:d.file2;
-    var wb1=XLSX.read(f1b64,{type:'base64',cellDates:true});
-    var wb2=XLSX.read(f2b64,{type:'base64',cellDates:true});
+    var wb1=XLSX.read(_b64toArr(f1b64),{type:'array',cellDates:true});
+    var wb2=XLSX.read(_b64toArr(f2b64),{type:'array',cellDates:true});
     var rows1=XLSX.utils.sheet_to_json(wb1.Sheets[wb1.SheetNames[0]],{defval:''});
     var h1=Object.keys(rows1[0]||{});
     var refK=findCol(h1,['orderreference','reference','ordref','po','ponumber','order']);
