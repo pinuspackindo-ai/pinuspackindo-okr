@@ -3534,8 +3534,9 @@ function purchKpenSave(month){
   if(!d.file){notify('Upload file terlebih dahulu','error');return;}
   okrEnsureXLSX(function(){
   try{
+    function _b64toArr(b64){var bin=atob(b64),bytes=new Uint8Array(bin.length);for(var i=0;i<bin.length;i++)bytes[i]=bin.charCodeAt(i);return bytes;}
     var fb64=d.file.indexOf(',')!==-1?d.file.split(',')[1]:d.file;
-    var wb=XLSX.read(fb64,{type:'base64',cellDates:true});
+    var wb=XLSX.read(_b64toArr(fb64),{type:'array',cellDates:true});
     var rows=XLSX.utils.sheet_to_json(wb.Sheets[wb.SheetNames[0]],{defval:''});
     var h=Object.keys(rows[0]||{});
     var rqtyK=findCol(h,['receivedqty','received qty','receivedquantity','qty received','qtyreceived','terima']);
