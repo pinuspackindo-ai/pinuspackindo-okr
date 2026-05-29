@@ -4437,7 +4437,7 @@ function okrRender(){
     var _dkpen=_pgKpen(okrCurYear,okrCurMonth);
     if(_dkpen.locked&&_dkpen.score!==null)purchasingSyncOKR('kualitas_pen',okrCurYear,okrCurMonth,Math.round(_dkpen.score*100)/100);
     var _dir=okrData[_pkIr(okrCurYear,okrCurMonth)];
-    if(_dir&&_dir.locked&&_dir.score!==null)purchasingSyncOKR('impl_reko_p',okrCurYear,okrCurMonth,Math.round(_dir.score*100)/100);
+    if(_dir&&_dir.locked&&_dir.value!==null&&_dir.value!==undefined)purchasingSyncOKR('impl_reko_p',okrCurYear,okrCurMonth,Math.round(_dir.value*100)/100);
   }
   var _RD = (typeof OKR_DIVISI!=='undefined'&&Array.isArray(OKR_DIVISI))
     ? OKR_DIVISI
