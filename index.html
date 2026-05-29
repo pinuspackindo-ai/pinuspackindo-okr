@@ -2454,7 +2454,7 @@ function _irkKey(y,m,d){return '_inv_rn_do_'+y+'_'+String(m).padStart(2,'0')+'_'
 function _irkg(y,m,d){return okrData[_irkKey(y,m,d)]||{value:null,evidence:null,evidenceName:null,savedAt:null,locked:false};}
 function _irks(y,m,d,o){okrData[_irkKey(y,m,d)]=o;}
 function _irotKey(y,m){return '_inv_rot_'+y+'_'+String(m).padStart(2,'0');}
-function _irotg(y,m){var def=okrData[_irotKey(y,m)];if(def)return def;return {poin:[0,0,0,0,0],poinEv:[null,null,null,null,null],poinEvName:[null,null,null,null,null],ontimeDate:'',ontimeEv:null,ontimeEvName:null,akurasiScore:null,ontimeScore:null,totalScore:null,savedAt:null,locked:false};}
+function _irotg(y,m){var def=okrData[_irotKey(y,m)];if(def)return def;return {poin:[0,0,0,0,0],akurasiEv:null,akurasiEvName:null,ontimeDate:'',ontimeEv:null,ontimeEvName:null,akurasiScore:null,ontimeScore:null,totalScore:null,savedAt:null,locked:false};}
 function _irots(y,m,o){okrData[_irotKey(y,m)]=o;}
 
 function inventoryIsLinked(year,month){return year>2026||(year===2026&&month>=5);}
