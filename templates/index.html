@@ -3829,6 +3829,41 @@ function markReady(zoneId,lblId,input){
 
 // ─── SCORE HELPER ───
 function scoreClass(s){return s>=80?'good':s>=50?'warn':'bad';}
+
+// ─── UTILITY HELPERS (dibutuhkan oleh sub-modul purchasing & inventory) ───
+function r2(n){return Math.round(n*100)/100;}
+
+// Exclusion rules untuk analisa in-stock
+var _EXCL_PREFIX=/^\((D|L|N)\)/i;
+var _EXCL_WORDS=/ongkos[\s\-]*kirim|uang[\s\-]*muka|voucher|sampul[\s\-]*juara|jasa[\s\-]*sablon|10\s*l/i;
+function isExcluded(name){var n=String(name).trim();if(_EXCL_PREFIX.test(n))return true;return _EXCL_WORDS.test(n);}
+
+// Cari kolom Excel berdasarkan keyword (case-insensitive, ignore spaces/underscore)
+function findCol(headers,keywords){
+  for(var ki=0;ki<keywords.length;ki++){
+    var kwn=keywords[ki].toLowerCase().replace(/[\s_]/g,'');
+    for(var hi=0;hi<headers.length;hi++){
+      if(String(headers[hi]).toLowerCase().replace(/[\s_]/g,'').indexOf(kwn)>=0) return headers[hi];
+    }
+  }
+  return null;
+}
+
+// Date helpers untuk analisa keterlambatan PO
+function parseDate(val){
+  if(val===null||val===undefined||val==='') return null;
+  if(val instanceof Date) return isNaN(val.getTime())?null:val;
+  if(typeof val==='number'){var d=new Date((val-25569)*86400*1000);return isNaN(d.getTime())?null:d;}
+  var s=String(val).trim(); if(!s||s==='-') return null;
+  var m=s.match(/^(\d{1,2})\/(\d{1,2})\/(\d{4})$/);if(m)return new Date(+m[3],+m[2]-1,+m[1]);
+  m=s.match(/^(\d{4})-(\d{2})-(\d{2})$/);if(m)return new Date(+m[1],+m[2]-1,+m[3]);
+  m=s.match(/^(\d{1,2})-(\d{1,2})-(\d{4})$/);if(m)return new Date(+m[3],+m[2]-1,+m[1]);
+  var d2=new Date(s);return isNaN(d2.getTime())?null:d2;
+}
+function sameDay(d1,d2){return d1.getFullYear()===d2.getFullYear()&&d1.getMonth()===d2.getMonth()&&d1.getDate()===d2.getDate();}
+
+// Keyword akurasi PO (salah input)
+var ACC_KW=['HPP','SUPPLIER','HARGA','KUANTITI','QTY','SALAH','DISKON','LEBIH','KURANG','TEMPO','TERMIN','NAMA'];
 function scoreTitle(s){return s>=80?'PERFORMA BAIK':s>=50?'PERLU PERHATIAN':'KRITIS';}
 function scoreDesc(s){
   return s>=80?'Mayoritas memenuhi standar':
