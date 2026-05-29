@@ -3212,15 +3212,18 @@ function purchDownloadFile(prefix,fileKey,ref){
 
 // ═══════════════════════════════════════════════════════
 // ── Auto-hitung score instock dari file1 & file2 (DataURL base64) ──────────
+function _dataUrlToRows(dataUrl) {
+  var b64 = dataUrl.indexOf(',') >= 0 ? dataUrl.split(',')[1] : dataUrl;
+  var bin = atob(b64), bytes = new Uint8Array(bin.length);
+  for (var i=0;i<bin.length;i++) bytes[i]=bin.charCodeAt(i);
+  var wb = XLSX.read(bytes, {type:'array'});
+  return XLSX.utils.sheet_to_json(wb.Sheets[wb.SheetNames[0]], {defval:null});
+}
 function purchInstockCalcScore(file1DataUrl, file2DataUrl) {
   if (!window.XLSX || !file1DataUrl || !file2DataUrl) return null;
   try {
-    var b64_1 = file1DataUrl.indexOf(',') >= 0 ? file1DataUrl.split(',')[1] : file1DataUrl;
-    var b64_2 = file2DataUrl.indexOf(',') >= 0 ? file2DataUrl.split(',')[1] : file2DataUrl;
-    var wb1 = XLSX.read(b64_1, {type:'base64'});
-    var wb2 = XLSX.read(b64_2, {type:'base64'});
-    var rows1 = XLSX.utils.sheet_to_json(wb1.Sheets[wb1.SheetNames[0]], {defval:null});
-    var rows2 = XLSX.utils.sheet_to_json(wb2.Sheets[wb2.SheetNames[0]], {defval:null});
+    var rows1 = _dataUrlToRows(file1DataUrl);
+    var rows2 = _dataUrlToRows(file2DataUrl);
     if (!rows1.length || !rows2.length) return null;
     var h1 = Object.keys(rows1[0]||{}), h2 = Object.keys(rows2[0]||{});
     var n1  = findCol(h1,['name','nama','product','produk','item']);
