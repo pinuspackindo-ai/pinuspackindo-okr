@@ -4986,6 +4986,17 @@ function okrRender(){
     var _fir=_fag('impl_reko_fa',okrCurYear,okrCurMonth);
     if(_fir.locked&&_fir.value!==null&&_fir.value!==undefined)finaccSyncOKR('impl_reko_fa',okrCurYear,okrCurMonth,Math.round(_fir.value*100)/100);
   }
+  // Sync General Affair sub-modules → OKR
+  if(typeof GA_SUBS!=='undefined'&&Array.isArray(GA_SUBS)){
+    var _gasd=_gasog(okrCurYear,okrCurMonth);
+    if(_gasd.locked&&_gasd.value!==null&&_gasd.value!==undefined)gaSyncOKR('stock_opname',okrCurYear,okrCurMonth,Math.round(_gasd.value*100)/100);
+    for(var _gwm=1;_gwm<=12;_gwm++){
+      var _gwd=_gawpg(okrCurYear,_gwm);
+      var _gwr=(_gwd.rows||[]).filter(function(r){return !r.editing&&r.nama&&r.deadline&&r.realisasi&&r.pelaksana;});
+      if(_gwr.length>0){var _gwa=_gwr.reduce(function(acc,r){return acc+_gaWpRowScore(r);},0)/_gwr.length;gaSyncOKR('wp',okrCurYear,_gwm,Math.round(_gwa*100)/100);}
+    }
+    for(var _grm=1;_grm<=12;_grm++){var _grot2=_garotg(okrCurYear,_grm);if(_grot2.locked&&_grot2.totalScore!==null)gaSyncOKR('rot',okrCurYear,_grm,Math.round(_grot2.totalScore*100)/100);}
+  }
   var _RD = (typeof OKR_DIVISI!=='undefined'&&Array.isArray(OKR_DIVISI))
     ? OKR_DIVISI
     : ['Store','Distribution Sales','Warehouse','Inventory','Purchasing',
