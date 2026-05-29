@@ -4298,7 +4298,10 @@ function okrInit(){
           var localDataKeys=Object.keys(okrData).filter(function(k){return k!=='_ts';});
           var localOkrKeys=localDataKeys.filter(function(k){return !k.startsWith('_');});
           if(rawTs>localTs||localDataKeys.length===0){
-            okrData=raw;localStorage.setItem(OKR_STORE_KEY,JSON.stringify(raw));okrRender();
+            // Raw lebih baru — tapi pertahankan data sub-modul lokal yg tidak ada di raw (cegah wipe)
+            var _lSub={};localDataKeys.forEach(function(k){if(k.startsWith('_'))_lSub[k]=okrData[k];});
+            okrData=raw;Object.keys(_lSub).forEach(function(k){if(!(k in raw))okrData[k]=_lSub[k];});
+            localStorage.setItem(OKR_STORE_KEY,JSON.stringify(okrData));okrRender();
           } else if(localOkrKeys.length===0){
             // Local punya data sub-modul tapi TIDAK punya struktur OKR → merge dari raw
             var rawOkrKeys=rawKeys.filter(function(k){return !k.startsWith('_');});
@@ -4319,8 +4322,12 @@ function okrInit(){
       var localOkrKeys=localDataKeys.filter(function(k){return !k.startsWith('_');});
       var cloudOkrKeys=Object.keys(cloud).filter(function(k){return k!=='_ts'&&!k.startsWith('_');});
       if(cloudTs>localTs||localEmpty){
+        // Cloud lebih baru — tapi pertahankan data sub-modul lokal yg tidak ada di cloud (cegah wipe)
+        var _localSub={};
+        if(!localEmpty){localDataKeys.forEach(function(k){if(k.startsWith('_'))_localSub[k]=okrData[k];});}
         okrData=cloud;
-        localStorage.setItem(OKR_STORE_KEY,JSON.stringify(cloud));
+        Object.keys(_localSub).forEach(function(k){if(!(k in cloud))okrData[k]=_localSub[k];});
+        localStorage.setItem(OKR_STORE_KEY,JSON.stringify(okrData));
         okrRender();
         if(localTs>0&&!localEmpty) notify('Data diperbarui dari cloud ✓');
       } else if(localOkrKeys.length===0&&cloudOkrKeys.length>0){
