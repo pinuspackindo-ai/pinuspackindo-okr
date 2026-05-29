@@ -2980,7 +2980,7 @@ function purchasingSyncOKR(subId,year,month,value){
   var matchers={
     'instock_p':   function(kr){return /in.?stock/i.test(kr);},
     'akurasi_po':  function(kr){return /akurasi.*po|po.*akurasi/i.test(kr);},
-    'kualitas_pen':function(kr){return /kualitas.*(pengadaan|penerimaan)/i.test(kr);},
+    'kualitas_pen':function(kr){return /k[uw]alitas.*(pengadaan|penerimaan)/i.test(kr);},
     'saving_cost': function(kr){return /budget|saving/i.test(kr);},
     'impl_reko_p': function(kr){return /implementasi.*rekomendasi|rekomendasi/i.test(kr);}
   };
