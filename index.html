@@ -4921,7 +4921,8 @@ function okrRender(){
     if(_dir&&_dir.locked&&_dir.value!==null&&_dir.value!==undefined)purchasingSyncOKR('impl_reko_p',okrCurYear,okrCurMonth,Math.round(_dir.value*100)/100);
   }
   // Sync Finance & Accounting sub-modules → OKR
-  if(typeof finaccSyncOKR==='function'){
+  // Guard: FINACC_SUBS adalah var, bisa undefined saat okrRender dipanggil pertama kali (hoisting)
+  if(typeof FINACC_SUBS!=='undefined'&&Array.isArray(FINACC_SUBS)){
     // Monthly subs — sync bulan yang sedang ditampilkan
     ['piutang_jt','akurasi_input_fa','akurasi_saldo_fa'].forEach(function(sid){
       var _fd=_fag(sid,okrCurYear,okrCurMonth);
