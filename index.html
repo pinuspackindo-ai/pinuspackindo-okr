@@ -587,6 +587,50 @@ tbody tr:hover td{background:var(--bg);}
       </div>
     </div>
 
+    <!-- ════════ PANEL FINANCE & ACCOUNTING ════════ -->
+    <div id="panel-financeacc" class="panel">
+      <div style="position:sticky;top:53px;z-index:40;background:var(--bg);padding-bottom:16px;">
+        <div style="display:flex;align-items:flex-start;justify-content:space-between;margin-bottom:12px;gap:12px;flex-wrap:wrap;">
+          <div>
+            <div style="font-size:18px;font-weight:800;color:var(--text);">&#x1F4B0; Finance &amp; Accounting <span style="font-size:13px;font-weight:400;color:var(--text-m);">&#x2014; Data Operasional</span></div>
+            <div style="font-size:12px;color:var(--text-l);margin-top:3px;">Input data &#x2192; simpan &#x2192; otomatis tersync ke Dashboard OKR</div>
+          </div>
+          <div style="display:flex;align-items:center;gap:8px;">
+            <span style="font-size:12px;color:var(--text-m);">Tahun:</span>
+            <select id="financeacc-year-sel" class="store-year-sel" onchange="finaccYearChange(this.value)"></select>
+          </div>
+        </div>
+        <div class="store-tabs" style="margin-bottom:0;">
+          <button class="store-tab active" id="financeacc-tab-piutang_jt"       onclick="finaccShowSub('piutang_jt',this)">&#x1F4B0; Piutang Jatuh Tempo</button>
+          <button class="store-tab"        id="financeacc-tab-akurasi_input_fa"  onclick="finaccShowSub('akurasi_input_fa',this)">&#x2328;&#xFE0F; Akurasi Penginputan</button>
+          <button class="store-tab"        id="financeacc-tab-akurasi_saldo_fa"  onclick="finaccShowSub('akurasi_saldo_fa',this)">&#x1F3E6; Akurasi Saldo Cash &amp; Bank</button>
+          <button class="store-tab"        id="financeacc-tab-report_ot_fa"      onclick="finaccShowSub('report_ot_fa',this)">&#x1F4CA; Report Akurat &amp; Ontime</button>
+          <button class="store-tab"        id="financeacc-tab-impl_reko_fa"      onclick="finaccShowSub('impl_reko_fa',this)">&#x1F4CB; Implementasi Rekomendasi</button>
+        </div>
+      </div>
+      <div id="financeacc-content"></div>
+    </div>
+
+    <!-- FA: Save Confirm Modal -->
+    <div id="facc-confirm-modal" style="display:none;position:fixed;inset:0;background:rgba(0,0,0,.5);z-index:650;align-items:center;justify-content:center;">
+      <div style="background:var(--bg2);border-radius:var(--radius);padding:24px 28px;max-width:420px;width:92%;box-shadow:var(--shadow);">
+        <div style="font-size:15px;font-weight:700;color:var(--text);margin-bottom:16px;">&#x2705; Konfirmasi Simpan Data</div>
+        <div style="background:var(--bg);border-radius:var(--radius-sm);padding:14px 16px;margin-bottom:14px;font-size:13px;line-height:2;">
+          <div><span style="color:var(--text-m);">Modul &nbsp;&nbsp;</span><strong id="facc-cm-sub"></strong></div>
+          <div><span style="color:var(--text-m);">Periode &nbsp;</span><strong id="facc-cm-bln"></strong></div>
+          <div><span style="color:var(--text-m);">Nilai &nbsp;&nbsp;&nbsp;</span><strong id="facc-cm-val"></strong></div>
+          <div><span style="color:var(--text-m);">File &nbsp;&nbsp;&nbsp;&nbsp;</span><span id="facc-cm-ev"></span></div>
+        </div>
+        <div style="font-size:12px;color:var(--text-m);margin-bottom:18px;padding:8px 12px;background:#fef3c7;border-radius:var(--radius-sm);border-left:3px solid #f59e0b;">Setelah disimpan data terkunci. Gunakan tombol &#x270F;&#xFE0F; Edit untuk membuka kunci.</div>
+        <input type="hidden" id="facc-cm-month">
+        <input type="hidden" id="facc-cm-type">
+        <div style="display:flex;gap:8px;justify-content:flex-end;">
+          <button onclick="finaccCloseConfirm()" style="background:var(--bg);border:1.5px solid var(--border);color:var(--text);padding:8px 18px;border-radius:var(--radius-sm);cursor:pointer;font-family:var(--font);font-size:13px;">Batal</button>
+          <button onclick="finaccDoSave()" style="background:var(--primary);border:none;color:#fff;padding:8px 22px;border-radius:var(--radius-sm);cursor:pointer;font-family:var(--font);font-size:13px;font-weight:700;">&#x1F4BE; Ya, Simpan</button>
+        </div>
+      </div>
+    </div>
+
     <!-- PANEL INSTOCK -->
     <div id="panel-instock" class="panel">
       <div class="module-info">
@@ -3665,6 +3709,7 @@ function showPanel(name,btn){
   if(name==='warehouse'){warehouseInit();}
   if(name==='inventory'){inventoryInit();}
   if(name==='purchasing'){purchasingInit();}
+  if(name==='financeacc'){finaccInit();}
 }
 function showLapDiv(div,btn){
   _lapCurrentDiv=div;
