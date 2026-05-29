@@ -5564,6 +5564,382 @@ function okrImportRows(rows){
   return {year:resYear, month:resMonth, totalRows:totalRows, totalDivisi:totalDivisi};
 }
 
+// ─── GENERAL AFFAIR MODULE ───
+var GA_SUBS=[
+  {id:'stock_opname',label:'Akurasi Stock Opname Inventaris',okrMatch:function(kr){return /stok.*(inventaris|opname)|stock.*opname|inventaris.*(fisik|data\s*vs)/i.test(kr);}},
+  {id:'wp',label:'Akurasi Waktu Pengadaan/Maintenance',okrMatch:function(kr){return /lead.?time|akurasi.*(pengadaan|maintenance)|akurasi.*waktu.*(pengadaan|maintenance)/i.test(kr);}},
+  {id:'rot',label:'Report Akurat & Ontime',okrMatch:function(kr){return /laporan.*inventaris|inventaris.*laporan|laporan.*akurat.*ontime|ontime.*laporan/i.test(kr);}},
+];
+var gaCurSub='stock_opname';
+var gaYear=new Date().getFullYear();
+var gaWpMonth=new Date().getMonth()+1;
+var gaRotMonth=new Date().getMonth()+1;
+var _GA_ROT_POIN=[{max:15,bobot:3},{max:5,bobot:5},{max:10,bobot:5}];
+var _GA_ROT_TOTAL=30;
+
+function _gasoKey(y,m){return '_ga_so_'+y+'_'+String(m).padStart(2,'0');}
+function _gasog(y,m){return okrData[_gasoKey(y,m)]||{value:null,evidence:null,evidenceName:null,savedAt:null,locked:false};}
+function _gasos(y,m,o){okrData[_gasoKey(y,m)]=o;}
+function _gawpKey(y,m){return '_ga_wp_'+y+'_'+String(m).padStart(2,'0');}
+function _gawpg(y,m){return okrData[_gawpKey(y,m)]||{rows:[],locked:false};}
+function _gawps(y,m,o){okrData[_gawpKey(y,m)]=o;}
+function _garotKey(y,m){return '_ga_rot_'+y+'_'+String(m).padStart(2,'0');}
+function _garotg(y,m){var d=okrData[_garotKey(y,m)];if(d)return d;var z=[];for(var i=0;i<3;i++)z.push(0);return{poin:z,akurasiEv:null,akurasiEvName:null,ontimeDate:'',ontimeEv:null,ontimeEvName:null,akurasiScore:null,ontimeScore:null,totalScore:null,savedAt:null,locked:false};}
+function _garots(y,m,o){okrData[_garotKey(y,m)]=o;}
+
+function gaIsLinked(year,month){return year>2026||(year===2026&&month>=5);}
+function gaSyncOKR(subId,year,month,value){
+  if(!gaIsLinked(year,month))return;
+  var sub=GA_SUBS.find(function(s){return s.id===subId;});if(!sub)return;
+  var mk=year+'-'+String(month).padStart(2,'0');
+  if(!okrData[mk]||!okrData[mk]['General Affair'])return;
+  var divData=okrData[mk]['General Affair'];var rows=okrGetRows(divData);
+  rows.forEach(function(row){if(sub.okrMatch(row.keyResult))row.actual=value;});
+  if(typeof divData==='object'&&!Array.isArray(divData))divData.rows=rows;
+}
+
+// ── Init / Nav ────────────────────────────────────────────────
+function gaInit(){
+  if(!gaYear)gaYear=new Date().getFullYear();
+  var sel=document.getElementById('ga-year-sel');
+  if(sel){sel.innerHTML='';var y=new Date().getFullYear();for(var i=y-1;i<=y+1;i++){var o=document.createElement('option');o.value=i;o.textContent=i;if(i===gaYear)o.selected=true;sel.appendChild(o);}}
+  document.querySelectorAll('#panel-generalaffair .store-tab').forEach(function(t){t.classList.remove('active');});
+  var at=document.getElementById('ga-tab-'+gaCurSub);if(at)at.classList.add('active');
+  gaRender();
+}
+function gaYearChange(v){gaYear=parseInt(v)||new Date().getFullYear();gaRender();}
+function gaShowSub(sub,btn){
+  gaCurSub=sub;
+  document.querySelectorAll('#panel-generalaffair .store-tab').forEach(function(t){t.classList.remove('active');});
+  if(btn)btn.classList.add('active');gaRender();
+}
+function gaRender(){
+  if(gaCurSub==='stock_opname')gaRenderStockOpname();
+  else if(gaCurSub==='wp')gaRenderWP();
+  else if(gaCurSub==='rot')gaRenderReportOt();
+}
+
+// ── SUB1: Akurasi Stock Opname (monthly %) ────────────────────
+function gaRenderStockOpname(){
+  var wrap=document.getElementById('generalaffair-content');if(!wrap)return;
+  var html='<div style="margin-bottom:4px;font-size:13px;color:var(--text-m);">Masukkan % akurasi stock opname per bulan. Upload bukti wajib sebelum simpan.</div>';
+  html+='<div style="display:grid;grid-template-columns:repeat(auto-fill,minmax(200px,1fr));gap:12px;margin-top:16px;">';
+  for(var mi=1;mi<=12;mi++){
+    var d=_gasog(gaYear,mi);var locked=!!d.locked;var hasVal=d.value!==null&&d.value!==undefined;
+    html+='<div style="background:var(--bg2);border:1.5px solid '+(locked?'var(--success)':'var(--border)')+';border-radius:var(--radius);padding:14px 12px;">';
+    html+='<div style="font-size:11px;font-weight:700;color:var(--text-m);margin-bottom:8px;">'+BULS[mi-1]+' '+gaYear+'</div>';
+    if(locked){
+      html+='<div class="score-num '+(hasVal?scoreClass(d.value):'')+'" style="font-size:1.5rem;margin-bottom:6px;">'+(hasVal?d.value.toFixed(1)+'%':'—')+'</div>';
+      html+='<div style="font-size:11px;color:var(--text-l);margin-bottom:8px;">'+(d.savedAt?new Date(d.savedAt).toLocaleDateString('id-ID'):'')+'</div>';
+      html+='<div style="display:flex;gap:6px;">';
+      if(d.evidence)html+='<button onclick="gaViewEv(\'stock_opname\','+mi+')" style="flex:1;background:none;border:1.5px solid var(--primary);color:var(--primary);border-radius:var(--radius-sm);padding:4px 6px;cursor:pointer;font-size:11px;font-family:var(--font);">&#x1F441; Bukti</button>';
+      html+='<button onclick="gaUnlockMonthly(\'stock_opname\','+mi+')" style="background:none;border:1.5px solid var(--border);color:var(--text-m);border-radius:var(--radius-sm);padding:4px 8px;cursor:pointer;font-size:11px;font-family:var(--font);">&#x270F;&#xFE0F;</button>';
+      html+='<button onclick="gaDeleteMonthly(\'stock_opname\','+mi+')" style="background:none;border:1.5px solid #fca5a5;color:#dc2626;border-radius:var(--radius-sm);padding:4px 8px;cursor:pointer;font-size:11px;font-family:var(--font);">&#x1F5D1;</button>';
+      html+='</div>';
+    }else{
+      html+='<input type="number" id="ga-so-val-'+mi+'" min="0" max="100" step="0.01" placeholder="%" value="'+(hasVal?d.value:'')+'" style="width:100%;padding:7px 10px;border:1.5px solid var(--border);border-radius:var(--radius-sm);font-family:var(--font);font-size:14px;margin-bottom:8px;box-sizing:border-box;">';
+      html+='<label for="ga-so-ev-'+mi+'" style="display:block;cursor:pointer;padding:5px 10px;border:1.5px '+(d.evidence?'solid var(--success)':'dashed var(--border)')+';border-radius:var(--radius-sm);font-size:12px;color:'+(d.evidence?'var(--success)':'var(--text-m)')+';margin-bottom:8px;text-align:center;overflow:hidden;text-overflow:ellipsis;white-space:nowrap;">';
+      html+=d.evidence?'&#x2705; '+okrEsc(d.evidenceName||'OK'):'&#x1F4CE; Upload Bukti';
+      html+='</label><input type="file" id="ga-so-ev-'+mi+'" accept="image/*" style="display:none;" onchange="gaUploadMonthly(\'stock_opname\','+mi+',this)">';
+      html+='<button onclick="gaConfirmMonthly(\'stock_opname\','+mi+')" style="width:100%;background:var(--primary);border:none;color:#fff;border-radius:var(--radius-sm);padding:7px 0;cursor:pointer;font-family:var(--font);font-size:13px;font-weight:700;">&#x1F4BE; Simpan</button>';
+    }
+    html+='</div>';
+  }
+  html+='</div>';
+  wrap.innerHTML=html;
+}
+function gaUploadMonthly(subId,month,inp){
+  var file=inp.files[0];if(!file)return;
+  if(file.size>5*1024*1024){notify('File terlalu besar (maks 5MB).','error');inp.value='';return;}
+  function _sv(b64){var d=_gasog(gaYear,month);var ve=document.getElementById('ga-so-val-'+month);if(ve&&ve.value.trim()!==''){var v=parseFloat(ve.value);if(!isNaN(v))d.value=Math.min(100,Math.max(0,v));}d.evidence=b64;d.evidenceName=file.name;_gasos(gaYear,month,d);gaRenderStockOpname();notify('Bukti diupload ✓');}
+  var img_=new Image();var url=URL.createObjectURL(file);
+  img_.onload=function(){var c=document.createElement('canvas');var mxW=1400,mxH=1050,w=img_.width,h=img_.height;if(w>mxW){h=Math.round(h*mxW/w);w=mxW;}if(h>mxH){w=Math.round(w*mxH/h);h=mxH;}c.width=w;c.height=h;c.getContext('2d').drawImage(img_,0,0,w,h);URL.revokeObjectURL(url);_sv(c.toDataURL('image/jpeg',0.78));};
+  img_.onerror=function(){URL.revokeObjectURL(url);var r=new FileReader();r.onload=function(e){_sv(e.target.result);};r.readAsDataURL(file);};
+  img_.src=url;
+}
+function gaConfirmMonthly(subId,month){
+  var d=_gasog(gaYear,month);var ve=document.getElementById('ga-so-val-'+month);var val=ve?parseFloat(ve.value):NaN;
+  if(isNaN(val)){notify('Isi nilai % terlebih dahulu.','error');return;}
+  val=Math.min(100,Math.max(0,val));
+  if(!d.evidence){notify('Upload bukti terlebih dahulu.','error');return;}
+  document.getElementById('ga-cm-sub').textContent='Akurasi Stock Opname Inventaris';
+  document.getElementById('ga-cm-bln').textContent=BULS[month-1]+' '+gaYear;
+  document.getElementById('ga-cm-val').textContent=val.toFixed(2)+'%';
+  document.getElementById('ga-cm-ev').textContent=d.evidenceName||'';
+  document.getElementById('ga-cm-month').value=month;
+  document.getElementById('ga-cm-type').value=subId;
+  document.getElementById('ga-confirm-modal').style.display='flex';
+}
+function gaDoSave(){
+  var month=parseInt(document.getElementById('ga-cm-month').value);
+  var subId=document.getElementById('ga-cm-type').value;
+  if(subId==='stock_opname'){
+    var ve=document.getElementById('ga-so-val-'+month);var val=ve?Math.min(100,Math.max(0,parseFloat(ve.value)||0)):0;
+    var d=_gasog(gaYear,month);d.value=val;d.savedAt=new Date().toISOString();d.locked=true;
+    _gasos(gaYear,month,d);gaSyncOKR('stock_opname',gaYear,month,Math.round(val*100)/100);
+    okrSaveLS();gaCloseConfirm();gaRenderStockOpname();notify('Data '+BULS[month-1]+' '+gaYear+' tersimpan ✓');
+  }
+}
+function gaCloseConfirm(){document.getElementById('ga-confirm-modal').style.display='none';}
+function gaUnlockMonthly(subId,month){
+  if(!confirm('Buka kunci data '+BULS[month-1]+' '+gaYear+' untuk diedit?'))return;
+  var d=_gasog(gaYear,month);d.locked=false;_gasos(gaYear,month,d);okrSaveLS();gaRenderStockOpname();
+}
+function gaDeleteMonthly(subId,month){
+  if(!confirm('Hapus data '+BULS[month-1]+' '+gaYear+'?'))return;
+  var key=_gasoKey(gaYear,month);if(okrData[key])delete okrData[key];
+  gaSyncOKR('stock_opname',gaYear,month,null);okrSaveLS();gaRenderStockOpname();notify('Data dihapus.');
+}
+function gaViewEv(subId,month){
+  var d=_gasog(gaYear,month);if(!d.evidence){notify('Tidak ada bukti.','error');return;}
+  document.getElementById('sem-name').textContent=d.evidenceName||'Bukti';
+  var img=document.getElementById('sem-img');
+  if(d.evidence.startsWith('data:image')){img.src=d.evidence;img.style.display='block';}else{img.style.display='none';}
+  document.getElementById('store-ev-modal').style.display='flex';
+}
+
+// ── SUB2: Akurasi Waktu Pengadaan/Maintenance (table) ─────────
+function _gaWpRowScore(row){
+  if(!row.nama||!row.deadline||!row.realisasi||!row.pelaksana)return 0;
+  var dl=new Date(row.deadline+'T00:00:00');var rl=new Date(row.realisasi+'T00:00:00');
+  var late=Math.max(0,Math.ceil((rl-dl)/86400000));
+  return Math.max(50,100-(Math.min(late,7)/7)*50);
+}
+function gaWpMonthChange(m){gaWpMonth=parseInt(m)||new Date().getMonth()+1;gaRenderWP();}
+function _gaWpSyncAndSave(y,m){
+  var data=_gawpg(y,m);
+  var dr=(data.rows||[]).filter(function(r){return !r.editing&&r.nama&&r.deadline&&r.realisasi&&r.pelaksana;});
+  if(dr.length>0){var avg=dr.reduce(function(acc,r){return acc+_gaWpRowScore(r);},0)/dr.length;gaSyncOKR('wp',y,m,Math.round(avg*100)/100);}
+  else gaSyncOKR('wp',y,m,null);
+  okrSaveLS();
+}
+function gaRenderWP(){
+  var wrap=document.getElementById('generalaffair-content');if(!wrap)return;
+  var y=gaYear,m=gaWpMonth;var data=_gawpg(y,m);var rows=data.rows||[];
+  var dr=rows.filter(function(r){return !r.editing&&r.nama&&r.deadline&&r.realisasi&&r.pelaksana;});
+  var totalScore=dr.length>0?dr.reduce(function(acc,r){return acc+_gaWpRowScore(r);},0)/dr.length:null;
+  var html='<div style="display:flex;align-items:center;gap:12px;margin-bottom:16px;flex-wrap:wrap;">';
+  html+='<span style="font-size:13px;font-weight:600;color:var(--text);">Pilih Bulan:</span>';
+  html+='<select id="ga-wp-month-sel" onchange="gaWpMonthChange(this.value)" class="store-year-sel">';
+  for(var mi=0;mi<12;mi++){html+='<option value="'+(mi+1)+'"'+(mi+1===m?' selected':'')+'>'+BULS[mi]+' '+y+'</option>';}
+  html+='</select></div>';
+  if(totalScore!==null){
+    var cls=scoreClass(totalScore);
+    html+='<div style="display:flex;align-items:center;gap:16px;padding:14px 18px;background:var(--bg2);border:2px solid var(--primary);border-radius:var(--radius);margin-bottom:16px;flex-wrap:wrap;">';
+    html+='<div><div style="font-size:11px;font-weight:600;color:var(--text-m);">SCORE RATA-RATA</div><div class="final-big '+cls+'" style="font-size:2rem;">'+totalScore.toFixed(1)+'%</div></div>';
+    html+='<div style="font-size:12px;color:var(--text-m);">dari '+dr.length+' item tersimpan</div></div>';
+  }
+  html+='<div class="card">';
+  html+='<div style="font-size:14px;font-weight:700;color:var(--text);margin-bottom:4px;">Akurasi Waktu Pengadaan / Maintenance</div>';
+  html+='<div style="font-size:12px;color:var(--text-m);margin-bottom:14px;">Ontime = 100%. Terlambat: maks 7 hari mengurangi nilai 50% (minimum 50%). Score total = rata-rata semua item.</div>';
+  html+='<div style="overflow-x:auto;"><table style="width:100%;border-collapse:collapse;min-width:680px;font-size:12px;">';
+  html+='<thead><tr style="border-bottom:2px solid var(--border);background:var(--bg);">';
+  ['No','Nama Barang / Pekerjaan','Deadline','Realisasi','Pelaksana','Bukti','Score','Aksi'].forEach(function(h,i){
+    html+='<th style="text-align:'+(i===0||i>=5?'center':'left')+';padding:8px 10px;color:var(--text-m);font-weight:600;white-space:nowrap;">'+h+'</th>';
+  });
+  html+='</tr></thead><tbody>';
+  rows.forEach(function(row,idx){
+    var sc=_gaWpRowScore(row);var complete=!row.editing&&row.nama&&row.deadline&&row.realisasi&&row.pelaksana;
+    if(row.editing){
+      html+='<tr style="background:var(--bg);border-bottom:1px solid var(--border);">';
+      html+='<td style="padding:8px 10px;text-align:center;color:var(--text-l);">'+(idx+1)+'</td>';
+      html+='<td style="padding:6px 8px;"><input id="ga-wp-nm-'+idx+'" type="text" value="'+okrEsc(row.nama||'')+'" placeholder="NAMA BARANG..." oninput="this.value=this.value.toUpperCase()" style="width:100%;padding:5px 8px;border:1.5px solid var(--border);border-radius:var(--radius-sm);font-family:var(--font);font-size:12px;box-sizing:border-box;"></td>';
+      html+='<td style="padding:6px 8px;"><input id="ga-wp-dl-'+idx+'" type="date" value="'+okrEsc(row.deadline||'')+'" style="padding:5px 8px;border:1.5px solid var(--border);border-radius:var(--radius-sm);font-family:var(--font);font-size:12px;"></td>';
+      html+='<td style="padding:6px 8px;"><input id="ga-wp-rl-'+idx+'" type="date" value="'+okrEsc(row.realisasi||'')+'" style="padding:5px 8px;border:1.5px solid var(--border);border-radius:var(--radius-sm);font-family:var(--font);font-size:12px;"></td>';
+      html+='<td style="padding:6px 8px;"><input id="ga-wp-pl-'+idx+'" type="text" value="'+okrEsc(row.pelaksana||'')+'" placeholder="Nama pelaksana..." style="width:100%;padding:5px 8px;border:1.5px solid var(--border);border-radius:var(--radius-sm);font-family:var(--font);font-size:12px;box-sizing:border-box;"></td>';
+      html+='<td style="padding:6px 8px;text-align:center;"><label for="ga-wp-ev-'+idx+'" style="cursor:pointer;display:inline-flex;align-items:center;justify-content:center;gap:3px;padding:4px 10px;border:1.5px '+(row.evidence?'solid var(--success)':'dashed var(--border)')+';border-radius:var(--radius-sm);font-size:11px;color:'+(row.evidence?'var(--success)':'var(--text-m)')+';">'+(row.evidence?'&#x2705;':'&#x1F4CE; Bukti')+'</label><input type="file" id="ga-wp-ev-'+idx+'" accept="image/*" style="display:none;" onchange="gaWpUploadRow('+idx+',this)"></td>';
+      html+='<td style="padding:6px 8px;text-align:center;color:var(--text-l);">—</td>';
+      html+='<td style="padding:6px 8px;text-align:center;"><button onclick="gaWpSaveRow('+idx+')" style="background:var(--primary);border:none;color:#fff;border-radius:var(--radius-sm);padding:5px 12px;cursor:pointer;font-size:11px;font-family:var(--font);">&#x2713; Simpan</button></td>';
+      html+='</tr>';
+    }else{
+      html+='<tr style="border-bottom:1px solid var(--border);">';
+      html+='<td style="padding:8px 10px;text-align:center;color:var(--text-l);">'+(idx+1)+'</td>';
+      html+='<td style="padding:8px 10px;font-weight:600;color:var(--text);">'+okrEsc(row.nama||'—')+'</td>';
+      html+='<td style="padding:8px 10px;color:var(--text);white-space:nowrap;">'+okrEsc(row.deadline||'—')+'</td>';
+      html+='<td style="padding:8px 10px;color:var(--text);white-space:nowrap;">'+okrEsc(row.realisasi||'—')+'</td>';
+      html+='<td style="padding:8px 10px;color:var(--text);">'+okrEsc(row.pelaksana||'—')+'</td>';
+      html+='<td style="padding:8px 10px;text-align:center;">'+(row.evidence?'<button onclick="gaWpViewEv('+idx+')" style="background:none;border:1.5px solid var(--primary);color:var(--primary);border-radius:var(--radius-sm);padding:3px 8px;cursor:pointer;font-size:11px;font-family:var(--font);">&#x1F441;</button>':'<span style="color:var(--text-l);">—</span>')+'</td>';
+      html+='<td style="padding:8px 10px;text-align:center;">'+(complete?'<span class="score-num '+scoreClass(sc)+'" style="font-size:1rem;">'+sc.toFixed(1)+'%</span>':'<span style="color:var(--text-l);">—</span>')+'</td>';
+      html+='<td style="padding:8px 10px;text-align:center;white-space:nowrap;"><button onclick="gaWpEditRow('+idx+')" style="background:none;border:1.5px solid var(--border);color:var(--text-m);border-radius:var(--radius-sm);padding:4px 8px;cursor:pointer;font-size:11px;font-family:var(--font);">&#x270F;&#xFE0F;</button> <button onclick="gaWpDeleteRow('+idx+')" style="background:none;border:1.5px solid #fca5a5;color:#dc2626;border-radius:var(--radius-sm);padding:4px 8px;cursor:pointer;font-size:11px;font-family:var(--font);">&#x1F5D1;</button></td>';
+      html+='</tr>';
+    }
+  });
+  html+='<tr><td colspan="8" style="padding:10px;"><button onclick="gaWpAddRow()" style="background:none;border:1.5px dashed var(--primary);color:var(--primary);border-radius:var(--radius-sm);padding:7px 20px;cursor:pointer;font-family:var(--font);font-size:13px;width:100%;">&#x2795; Tambah Item</button></td></tr>';
+  html+='</tbody></table></div></div>';
+  wrap.innerHTML=html;
+}
+function gaWpAddRow(){
+  var data=_gawpg(gaYear,gaWpMonth);
+  data.rows.push({nama:'',deadline:'',realisasi:'',pelaksana:'',evidence:null,evidenceName:null,editing:true});
+  _gawps(gaYear,gaWpMonth,data);gaRenderWP();
+}
+function gaWpSaveRow(idx){
+  var data=_gawpg(gaYear,gaWpMonth);var row=data.rows[idx];if(!row)return;
+  var nm=document.getElementById('ga-wp-nm-'+idx);var dl=document.getElementById('ga-wp-dl-'+idx);
+  var rl=document.getElementById('ga-wp-rl-'+idx);var pl=document.getElementById('ga-wp-pl-'+idx);
+  if(!nm||!dl||!rl||!pl)return;
+  var nama=(nm.value||'').trim().toUpperCase();var deadline=dl.value;var realisasi=rl.value;var pelaksana=(pl.value||'').trim();
+  if(!nama){notify('Nama barang/pekerjaan wajib diisi.','error');return;}
+  if(!deadline){notify('Deadline wajib diisi.','error');return;}
+  if(!realisasi){notify('Tanggal realisasi wajib diisi.','error');return;}
+  if(!pelaksana){notify('Pelaksana wajib diisi.','error');return;}
+  if(!row.evidence){notify('Bukti wajib diupload.','error');return;}
+  row.nama=nama;row.deadline=deadline;row.realisasi=realisasi;row.pelaksana=pelaksana;row.editing=false;
+  _gawps(gaYear,gaWpMonth,data);_gaWpSyncAndSave(gaYear,gaWpMonth);gaRenderWP();notify('Item disimpan ✓');
+}
+function gaWpEditRow(idx){
+  var data=_gawpg(gaYear,gaWpMonth);if(data.rows[idx])data.rows[idx].editing=true;
+  _gawps(gaYear,gaWpMonth,data);gaRenderWP();
+}
+function gaWpDeleteRow(idx){
+  if(!confirm('Hapus item ini?'))return;
+  var data=_gawpg(gaYear,gaWpMonth);data.rows.splice(idx,1);
+  _gawps(gaYear,gaWpMonth,data);_gaWpSyncAndSave(gaYear,gaWpMonth);gaRenderWP();notify('Item dihapus.');
+}
+function gaWpUploadRow(idx,inp){
+  var file=inp.files[0];if(!file)return;
+  if(file.size>5*1024*1024){notify('File terlalu besar (maks 5MB).','error');inp.value='';return;}
+  function _sv(b64){
+    var data=_gawpg(gaYear,gaWpMonth);var row=data.rows[idx];if(!row)return;
+    var nm=document.getElementById('ga-wp-nm-'+idx);var dl=document.getElementById('ga-wp-dl-'+idx);
+    var rl=document.getElementById('ga-wp-rl-'+idx);var pl=document.getElementById('ga-wp-pl-'+idx);
+    if(nm)row.nama=(nm.value||'').trim().toUpperCase();if(dl)row.deadline=dl.value;
+    if(rl)row.realisasi=rl.value;if(pl)row.pelaksana=(pl.value||'').trim();
+    row.evidence=b64;row.evidenceName=file.name;_gawps(gaYear,gaWpMonth,data);gaRenderWP();notify('Bukti diupload ✓');
+  }
+  var img_=new Image();var url=URL.createObjectURL(file);
+  img_.onload=function(){var c=document.createElement('canvas');var mxW=1400,mxH=1050,w=img_.width,h=img_.height;if(w>mxW){h=Math.round(h*mxW/w);w=mxW;}if(h>mxH){w=Math.round(w*mxH/h);h=mxH;}c.width=w;c.height=h;c.getContext('2d').drawImage(img_,0,0,w,h);URL.revokeObjectURL(url);_sv(c.toDataURL('image/jpeg',0.78));};
+  img_.onerror=function(){URL.revokeObjectURL(url);var r=new FileReader();r.onload=function(e){_sv(e.target.result);};r.readAsDataURL(file);};
+  img_.src=url;
+}
+function gaWpViewEv(idx){
+  var data=_gawpg(gaYear,gaWpMonth);var row=data.rows[idx];
+  if(!row||!row.evidence){notify('Tidak ada bukti.','error');return;}
+  document.getElementById('sem-name').textContent=row.evidenceName||'Bukti';
+  var img=document.getElementById('sem-img');
+  if(row.evidence.startsWith('data:image')){img.src=row.evidence;img.style.display='block';}else{img.style.display='none';}
+  document.getElementById('store-ev-modal').style.display='flex';
+}
+
+// ── SUB3: Report Akurat & Ontime ──────────────────────────────
+function gaRotMonthChange(m){gaRotMonth=parseInt(m)||new Date().getMonth()+1;gaRenderReportOt();}
+function gaRenderReportOt(){
+  var wrap=document.getElementById('generalaffair-content');if(!wrap)return;
+  var BULF=['Januari','Februari','Maret','April','Mei','Juni','Juli','Agustus','September','Oktober','November','Desember'];
+  var y=gaYear,m=gaRotMonth;var rot=_garotg(y,m);var locked=!!rot.locked;var isLinked=gaIsLinked(y,m);
+  var html='<div style="display:flex;align-items:center;gap:12px;margin-bottom:16px;flex-wrap:wrap;">';
+  html+='<span style="font-size:13px;font-weight:600;color:var(--text);">Pilih Bulan:</span>';
+  html+='<select id="ga-rot-month-sel" onchange="gaRotMonthChange(this.value)" class="store-year-sel">';
+  for(var mi=0;mi<12;mi++){html+='<option value="'+(mi+1)+'"'+(mi+1===m?' selected':'')+'>'+BULS[mi]+' '+y+'</option>';}
+  html+='</select></div>';
+  if(locked&&rot.totalScore!==null&&isLinked)gaSyncOKR('rot',y,m,rot.totalScore);
+  if(locked&&rot.totalScore!==null){
+    var cls=scoreClass(rot.totalScore);
+    html+='<div style="display:flex;gap:10px;margin-bottom:20px;flex-wrap:wrap;">';
+    html+='<div style="flex:1;min-width:130px;background:var(--bg);border-radius:var(--radius);border:1px solid var(--border);padding:14px 10px;text-align:center;"><div style="font-size:11px;font-weight:600;color:var(--text-m);margin-bottom:6px;">AKURASI</div><div class="final-big '+scoreClass(rot.akurasiScore||0)+'" style="font-size:1.6rem;">'+(rot.akurasiScore!==null?rot.akurasiScore.toFixed(1)+'%':'—')+'</div></div>';
+    html+='<div style="flex:1;min-width:160px;background:var(--bg2);border:2px solid var(--primary);border-radius:var(--radius);box-shadow:0 0 0 3px var(--primary-l);padding:16px 10px;text-align:center;"><div style="font-size:11px;font-weight:600;color:var(--primary);margin-bottom:6px;">SCORE TOTAL</div><div class="final-big '+cls+'" style="font-size:2rem;">'+rot.totalScore.toFixed(1)+'%</div><div style="margin-top:8px;"><div class="progress-track"><div class="progress-fill '+cls+'" style="width:'+rot.totalScore.toFixed(1)+'%"></div></div></div></div>';
+    html+='<div style="flex:1;min-width:130px;background:var(--bg);border-radius:var(--radius);border:1px solid var(--border);padding:14px 10px;text-align:center;"><div style="font-size:11px;font-weight:600;color:var(--text-m);margin-bottom:6px;">ONTIME</div><div class="final-big '+scoreClass(rot.ontimeScore||0)+'" style="font-size:1.6rem;">'+(rot.ontimeScore!==null?rot.ontimeScore.toFixed(1)+'%':'—')+'</div></div>';
+    html+='</div>';
+  }
+  if(!isLinked)html+='<div style="padding:10px 14px;background:var(--bg);border-radius:var(--radius-sm);border-left:3px solid var(--text-l);font-size:12px;color:var(--text-l);margin-bottom:16px;">Bulan ini belum tersambung ke OKR General Affair (mulai Mei 2026).</div>';
+  html+='<div class="card" style="margin-bottom:16px;">';
+  html+='<div style="font-size:14px;font-weight:700;color:var(--text);margin-bottom:4px;">Akurasi &mdash; 3 Poin Penilaian</div>';
+  html+='<div style="font-size:12px;color:var(--text-m);margin-bottom:14px;">Isi jumlah temuan per poin. Pengurangan = Temuan &times; Bobot. Skor = (total sisa) / 30 &times; 100%.</div>';
+  for(var i=0;i<3;i++){
+    var p=_GA_ROT_POIN[i];var temuan=rot.poin&&rot.poin[i]!==undefined?rot.poin[i]:0;
+    var sisa=Math.max(0,p.max-Math.min(p.max,temuan*p.bobot));
+    html+='<div style="display:flex;align-items:center;gap:10px;padding:10px 0;border-bottom:1px solid var(--border);flex-wrap:wrap;">';
+    html+='<div style="min-width:150px;"><span style="font-size:12px;font-weight:700;color:var(--text);">Poin '+(i+1)+'</span> <span style="font-size:11px;color:var(--text-m);">Maks '+p.max+' | Bobot '+p.bobot+'/temuan</span></div>';
+    if(locked){html+='<span style="font-size:13px;font-weight:600;color:var(--text);">Temuan: '+temuan+' &mdash; Sisa: '+sisa+'/'+p.max+'</span>';}
+    else{html+='<div style="display:flex;align-items:center;gap:6px;"><input type="number" id="ga-rot-p-'+i+'" min="0" value="'+temuan+'" style="width:80px;padding:5px 8px;border:1.5px solid var(--border);border-radius:var(--radius-sm);font-family:var(--font);font-size:13px;background:var(--bg2);"></div><span style="font-size:11px;color:'+(sisa<p.max?'var(--danger)':'var(--success)')+';margin-left:auto;">Sisa: '+sisa+'/'+p.max+'</span>';}
+    html+='</div>';
+  }
+  var _akEv=rot.akurasiEv||null;var _akEvName=rot.akurasiEvName||null;
+  html+='<div style="margin-top:12px;padding:10px 12px;background:var(--bg);border-radius:var(--radius-sm);display:flex;align-items:center;gap:10px;flex-wrap:wrap;">';
+  html+='<span style="font-size:12px;font-weight:600;color:var(--text);">Bukti Temuan:</span>';
+  if(locked){html+=_akEv?'<button onclick="gaRotViewEv(false)" style="background:none;border:1.5px solid var(--primary);color:var(--primary);border-radius:var(--radius-sm);padding:3px 10px;cursor:pointer;font-size:11px;font-family:var(--font);">&#x1F441; Lihat Bukti</button>':'<span style="color:var(--text-l);font-size:12px;">—</span>';}
+  else{html+='<label for="ga-rot-akev" style="cursor:pointer;display:inline-flex;align-items:center;gap:5px;padding:5px 14px;border:1.5px '+(_akEv?'solid var(--success)':'dashed var(--border)')+';border-radius:var(--radius-sm);font-size:12px;color:'+(_akEv?'var(--success)':'var(--text-m)')+'">'+(  _akEv?'&#x2705; <span style="max-width:130px;overflow:hidden;text-overflow:ellipsis;white-space:nowrap;">'+okrEsc(_akEvName||'OK')+'</span>':'&#x1F4CE; Upload Bukti')+'</label><input type="file" id="ga-rot-akev" accept="image/*" style="display:none;" onchange="gaRotAkurasiUpload(this)">';}
+  html+='</div>';
+  if(!locked){var estAku=(rot.poin.reduce(function(acc,t,i){var p=_GA_ROT_POIN[i];return acc+Math.max(0,p.max-Math.min(p.max,t*p.bobot));},0)/_GA_ROT_TOTAL*100).toFixed(1);html+='<div style="margin-top:10px;padding:10px 14px;background:var(--bg);border-radius:var(--radius-sm);font-size:13px;"><span style="font-weight:600;">Estimasi Score Akurasi:</span> <span style="color:var(--primary);font-weight:700;">'+estAku+'%</span></div>';}
+  html+='</div>';
+  var nextM=m===12?1:m+1;var nextY=m===12?y+1:y;
+  html+='<div class="card" style="margin-bottom:16px;">';
+  html+='<div style="font-size:14px;font-weight:700;color:var(--text);margin-bottom:4px;">Ontime Laporan</div>';
+  html+='<div style="font-size:12px;color:var(--text-m);margin-bottom:12px;">Deadline: <strong>5 '+BULF[nextM-1]+' '+nextY+'</strong>. Keterlambatan maks 25 hari (turun linear ke 0%). Wajib upload bukti.</div>';
+  if(locked){
+    html+='<div style="display:flex;align-items:center;gap:14px;flex-wrap:wrap;padding:10px 0;">';
+    html+='<span style="font-size:13px;font-weight:600;color:var(--text);">Tanggal Submit: '+okrEsc(rot.ontimeDate||'—')+'</span>';
+    html+='<span class="score-num '+scoreClass(rot.ontimeScore||0)+'" style="font-size:1.3rem;">'+(rot.ontimeScore!==null?rot.ontimeScore.toFixed(1)+'%':'—')+'</span>';
+    if(rot.ontimeEv)html+='<button onclick="gaRotViewEv(true)" style="background:none;border:1.5px solid var(--primary);color:var(--primary);border-radius:var(--radius-sm);padding:3px 8px;cursor:pointer;font-size:11px;font-family:var(--font);">&#x1F441; Bukti</button>';
+    html+='</div>';
+  }else{
+    html+='<div style="display:flex;align-items:center;gap:10px;flex-wrap:wrap;">';
+    html+='<input type="date" id="ga-rot-date"'+(rot.ontimeDate?' value="'+rot.ontimeDate+'"':'')+' style="padding:7px 10px;border:1.5px solid var(--border);border-radius:var(--radius-sm);font-family:var(--font);font-size:13px;">';
+    html+='<label for="ga-rot-oev" style="cursor:pointer;display:inline-flex;align-items:center;gap:4px;padding:5px 12px;border:1.5px '+(rot.ontimeEv?'solid var(--success)':'dashed var(--border)')+';border-radius:var(--radius-sm);font-size:12px;color:'+(rot.ontimeEv?'var(--success)':'var(--text-m)')+';">'+(rot.ontimeEv?'&#x2705; <span style="max-width:80px;overflow:hidden;text-overflow:ellipsis;white-space:nowrap;">'+okrEsc(rot.ontimeEvName||'OK')+'</span>':'&#x1F4CE; Bukti')+'</label>';
+    html+='<input type="file" id="ga-rot-oev" accept="image/*" style="display:none;" onchange="gaRotOntimeUpload(this)">';
+    html+='</div>';
+  }
+  html+='</div>';
+  if(locked){html+='<div style="display:flex;gap:10px;justify-content:flex-end;"><button onclick="gaRotUnlock()" style="background:none;border:1.5px solid var(--border);color:var(--text-m);border-radius:var(--radius-sm);padding:8px 18px;cursor:pointer;font-family:var(--font);font-size:13px;">&#x270F;&#xFE0F; Edit</button><button onclick="gaRotDelete()" style="background:none;border:1.5px solid #fca5a5;color:#dc2626;border-radius:var(--radius-sm);padding:8px 14px;cursor:pointer;font-family:var(--font);font-size:13px;">&#x1F5D1; Hapus</button></div>';}
+  else{html+='<div style="display:flex;gap:10px;justify-content:flex-end;"><button onclick="gaRotSave()" style="background:var(--primary);border:none;color:#fff;border-radius:var(--radius-sm);padding:9px 24px;cursor:pointer;font-family:var(--font);font-size:13px;font-weight:700;">&#x1F4BE; Simpan</button></div>';}
+  wrap.innerHTML=html;
+}
+function gaRotAkurasiUpload(inp){
+  var file=inp.files[0];if(!file)return;
+  if(file.size>5*1024*1024){notify('File terlalu besar (maks 5MB).','error');inp.value='';return;}
+  function _sv(b64){var _cp=[];for(var _j=0;_j<3;_j++){var _pe=document.getElementById('ga-rot-p-'+_j);_cp.push(_pe?Math.max(0,parseInt(_pe.value)||0):0);}var rot=_garotg(gaYear,gaRotMonth);rot.poin=_cp;rot.akurasiEv=b64;rot.akurasiEvName=file.name;_garots(gaYear,gaRotMonth,rot);gaRenderReportOt();notify('Bukti temuan diupload ✓');}
+  var img_=new Image();var url=URL.createObjectURL(file);
+  img_.onload=function(){var c=document.createElement('canvas');var mxW=1400,mxH=1050,w=img_.width,h=img_.height;if(w>mxW){h=Math.round(h*mxW/w);w=mxW;}if(h>mxH){w=Math.round(w*mxH/h);h=mxH;}c.width=w;c.height=h;c.getContext('2d').drawImage(img_,0,0,w,h);URL.revokeObjectURL(url);_sv(c.toDataURL('image/jpeg',0.78));};
+  img_.onerror=function(){URL.revokeObjectURL(url);var r=new FileReader();r.onload=function(e){_sv(e.target.result);};r.readAsDataURL(file);};
+  img_.src=url;
+}
+function gaRotOntimeUpload(inp){
+  var file=inp.files[0];if(!file)return;
+  if(file.size>5*1024*1024){notify('File terlalu besar (maks 5MB).','error');inp.value='';return;}
+  function _sv(b64){var _cp=[];for(var _j=0;_j<3;_j++){var _pe=document.getElementById('ga-rot-p-'+_j);_cp.push(_pe?Math.max(0,parseInt(_pe.value)||0):0);}var _de=document.getElementById('ga-rot-date');var _cd=_de?_de.value:'';var rot=_garotg(gaYear,gaRotMonth);rot.poin=_cp;if(_cd)rot.ontimeDate=_cd;rot.ontimeEv=b64;rot.ontimeEvName=file.name;_garots(gaYear,gaRotMonth,rot);gaRenderReportOt();notify('Bukti ontime diupload ✓');}
+  var img_=new Image();var url=URL.createObjectURL(file);
+  img_.onload=function(){var c=document.createElement('canvas');var mxW=1400,mxH=1050,w=img_.width,h=img_.height;if(w>mxW){h=Math.round(h*mxW/w);w=mxW;}if(h>mxH){w=Math.round(w*mxH/h);h=mxH;}c.width=w;c.height=h;c.getContext('2d').drawImage(img_,0,0,w,h);URL.revokeObjectURL(url);_sv(c.toDataURL('image/jpeg',0.78));};
+  img_.onerror=function(){URL.revokeObjectURL(url);var r=new FileReader();r.onload=function(e){_sv(e.target.result);};r.readAsDataURL(file);};
+  img_.src=url;
+}
+function gaRotSave(){
+  var y=gaYear,m=gaRotMonth;var rot=_garotg(y,m);
+  if(rot.locked){notify('Data sudah tersimpan. Klik Edit untuk mengubah.','error');return;}
+  var poin=[];for(var i=0;i<3;i++){var inp=document.getElementById('ga-rot-p-'+i);poin.push(inp?Math.max(0,parseInt(inp.value)||0):rot.poin[i]||0);}
+  if(!rot.akurasiEv){notify('Bukti temuan (akurasi) wajib diupload.','error');return;}
+  var dateEl=document.getElementById('ga-rot-date');var ontimeDate=dateEl?dateEl.value:'';
+  if(!ontimeDate){notify('Tanggal pengiriman laporan wajib diisi.','error');return;}
+  if(!rot.ontimeEv){notify('Bukti tanggal pengiriman wajib diupload.','error');return;}
+  var sisa=_GA_ROT_POIN.map(function(p,i){return Math.max(0,p.max-Math.min(p.max,poin[i]*p.bobot));});
+  var akurasiScore=sisa.reduce(function(a,b){return a+b;},0)/_GA_ROT_TOTAL*100;
+  var nextM=m===12?1:m+1;var nextY=m===12?y+1:y;
+  var late=Math.max(0,Math.ceil((new Date(ontimeDate+'T00:00:00')-new Date(nextY,nextM-1,5))/86400000));
+  var ontimeScore=Math.max(0,(25-late)/25*100);
+  rot.poin=poin;rot.ontimeDate=ontimeDate;rot.akurasiScore=akurasiScore;rot.ontimeScore=ontimeScore;rot.totalScore=akurasiScore*0.5+ontimeScore*0.5;
+  rot.savedAt=new Date().toISOString();rot.locked=true;
+  _garots(y,m,rot);gaSyncOKR('rot',y,m,rot.totalScore);okrSaveLS();gaRenderReportOt();
+  notify('Data '+BULS[m-1]+' '+y+' tersimpan ✓');
+}
+function gaRotUnlock(){
+  var y=gaYear,m=gaRotMonth;if(!confirm('Buka kunci data '+BULS[m-1]+' '+y+' untuk diedit?'))return;
+  var rot=_garotg(y,m);rot.locked=false;_garots(y,m,rot);okrSaveLS();gaRenderReportOt();
+}
+function gaRotDelete(){
+  var y=gaYear,m=gaRotMonth;if(!confirm('Hapus semua data Report OT '+BULS[m-1]+' '+y+'?'))return;
+  var key=_garotKey(y,m);if(okrData[key])delete okrData[key];
+  gaSyncOKR('rot',y,m,null);okrSaveLS();gaRenderReportOt();notify('Data dihapus.');
+}
+function gaRotViewEv(isOntime){
+  var rot=_garotg(gaYear,gaRotMonth);
+  var ev=isOntime?rot.ontimeEv:rot.akurasiEv;
+  var evName=isOntime?(rot.ontimeEvName||'Bukti Ontime'):(rot.akurasiEvName||'Bukti Temuan');
+  if(!ev){notify('Tidak ada bukti.','error');return;}
+  document.getElementById('sem-name').textContent=evName;
+  var img=document.getElementById('sem-img');
+  if(ev.startsWith('data:image')){img.src=ev;img.style.display='block';}else{img.style.display='none';}
+  document.getElementById('store-ev-modal').style.display='flex';
+}
+
 // ─── SAVING COST ───
 function calcSaving(){
   var total=Math.max(0,parseInt(document.getElementById('sv-total').value)||0);
