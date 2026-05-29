@@ -5313,6 +5313,7 @@ function okrImportRows(rows){
 }
 
 // ─── GENERAL AFFAIR MODULE ───
+var BULS=STORE_BULAN; // alias nama bulan (reuse global STORE_BULAN)
 var GA_SUBS=[
   {id:'stock_opname',label:'Akurasi Stock Opname Inventaris',okrMatch:function(kr){return /stok.*(inventaris|opname)|stock.*opname|inventaris.*(fisik|data\s*vs)/i.test(kr);}},
   {id:'wp',label:'Akurasi Waktu Pengadaan/Maintenance',okrMatch:function(kr){return /lead.?time|akurasi.*(pengadaan|maintenance)|akurasi.*waktu.*(pengadaan|maintenance)/i.test(kr);}},
