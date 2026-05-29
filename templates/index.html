@@ -4428,6 +4428,15 @@ function okrRender(){
   }
   // Sync In Stock → OKR Purchasing untuk bulan yang sedang ditampilkan
   if(typeof purchInstockSyncOKR==='function')purchInstockSyncOKR(okrCurYear,okrCurMonth);
+  // Sync purchasing monthly sub-modules (APO, Kpen, Impl Reko) → OKR Purchasing
+  if(typeof purchasingSyncOKR==='function'){
+    var _dapo=_pgApo(okrCurYear,okrCurMonth);
+    if(_dapo.locked&&_dapo.finalScore!==null)purchasingSyncOKR('akurasi_po',okrCurYear,okrCurMonth,Math.round(_dapo.finalScore*100)/100);
+    var _dkpen=_pgKpen(okrCurYear,okrCurMonth);
+    if(_dkpen.locked&&_dkpen.score!==null)purchasingSyncOKR('kualitas_pen',okrCurYear,okrCurMonth,Math.round(_dkpen.score*100)/100);
+    var _dir=okrData[_pkIr(okrCurYear,okrCurMonth)];
+    if(_dir&&_dir.locked&&_dir.score!==null)purchasingSyncOKR('impl_reko_p',okrCurYear,okrCurMonth,Math.round(_dir.score*100)/100);
+  }
   var _RD=(typeof OKR_DIVISI!=='undefined'&&Array.isArray(OKR_DIVISI))
     ?OKR_DIVISI
     :['Store','Distribution Sales','Warehouse','Inventory','Purchasing',
