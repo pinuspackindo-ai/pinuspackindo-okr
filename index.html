@@ -6325,56 +6325,63 @@ function hrdRecUploadRow(idx,inp){
 }
 function hrdRecViewEv(idx){var data=_hrdRecG(hrdYear,hrdRecruitMonth);var row=data.rows[idx];if(!row||!row.evidence){notify('Tidak ada bukti.','error');return;}document.getElementById('sem-name').textContent=row.evidenceName||'Bukti';var img=document.getElementById('sem-img');if(row.evidence.startsWith('data:image')){img.src=row.evidence;img.style.display='block';}else{img.style.display='none';}document.getElementById('store-ev-modal').style.display='flex';}
 
-// ── SUB6: Kinerja Karyawan (all months in one page) ──────────
+// ── SUB6: Kinerja Karyawan ────────────────────────────────────
 function _hrdKinMonthAvg(y,m){
   var data=_hrdKinG(y,m);var dr=(data.rows||[]).filter(function(r){return !r.editing&&r.nama&&r.score!==null&&r.score!==undefined;});
   return dr.length>0?dr.reduce(function(acc,r){return acc+r.score;},0)/dr.length:null;
 }
+function hrdKinMonthChange(m){hrdKinMonth=parseInt(m)||new Date().getMonth()+1;hrdRenderKinerja();}
 function hrdRenderKinerja(){
   var wrap=document.getElementById('hrd-content');if(!wrap)return;
-  var y=hrdYear;var html='<div style="margin-bottom:12px;font-size:13px;color:var(--text-m);">Data kinerja karyawan baru per bulan. Score = rata-rata skor seluruh karyawan tersimpan tiap bulan.</div>';
-  for(var mi=1;mi<=12;mi++){
-    var data=_hrdKinG(y,mi);var rows=data.rows||[];var avg=_hrdKinMonthAvg(y,mi);
-    var dr=rows.filter(function(r){return !r.editing&&r.nama&&r.score!==null;});
-    var _mi=mi;
-    html+='<div style="margin-bottom:14px;border:1.5px solid '+(dr.length>0?'var(--success)':'var(--border)')+';border-radius:var(--radius);overflow:hidden;">';
-    html+='<div style="display:flex;align-items:center;gap:10px;padding:9px 14px;background:var(--bg2);border-bottom:1px solid var(--border);">';
-    html+='<div style="font-size:13px;font-weight:700;color:var(--text);flex:1;">'+BULS[mi-1]+' '+y+'</div>';
-    if(avg!==null)html+='<span class="score-num '+scoreClass(avg)+'" style="font-size:1rem;">Avg: '+avg.toFixed(1)+'%</span>';
-    html+='<button onclick="hrdKinAddRow('+mi+')" style="background:none;border:1.5px dashed var(--primary);color:var(--primary);border-radius:var(--radius-sm);padding:3px 12px;cursor:pointer;font-size:12px;font-family:var(--font);">&#x2795; Tambah</button>';
-    html+='</div>';
-    if(rows.length===0){
-      html+='<div style="padding:10px 14px;background:var(--bg);font-size:12px;color:var(--text-l);text-align:center;">Belum ada data karyawan</div>';
-    }else{
-      html+='<div style="overflow-x:auto;background:var(--bg);"><table style="width:100%;border-collapse:collapse;min-width:460px;font-size:12px;">';
-      html+='<thead><tr style="border-bottom:1px solid var(--border);">';
-      ['No','Nama Karyawan','Tgl Masuk','Score (%)','Bukti','Aksi'].forEach(function(h,i){html+='<th style="text-align:'+(i===0||i>=3?'center':'left')+';padding:7px 10px;color:var(--text-m);font-weight:600;white-space:nowrap;">'+h+'</th>';});
-      html+='</tr></thead><tbody>';
-      rows.forEach(function(row,idx){
-        if(row.editing){
-          html+='<tr style="background:var(--bg);border-bottom:1px solid var(--border);">';
-          html+='<td style="padding:6px 10px;text-align:center;color:var(--text-l);">'+(idx+1)+'</td>';
-          html+='<td style="padding:5px 8px;"><input id="hrd-kin-nm-'+_mi+'-'+idx+'" type="text" value="'+okrEsc(row.nama||'')+'" placeholder="Nama karyawan..." style="width:100%;padding:5px 8px;border:1.5px solid var(--border);border-radius:var(--radius-sm);font-family:var(--font);font-size:12px;box-sizing:border-box;"></td>';
-          html+='<td style="padding:5px 8px;"><input id="hrd-kin-tg-'+_mi+'-'+idx+'" type="date" value="'+okrEsc(row.tanggalMasuk||'')+'" style="padding:5px 8px;border:1.5px solid var(--border);border-radius:var(--radius-sm);font-family:var(--font);font-size:12px;"></td>';
-          html+='<td style="padding:5px 8px;text-align:center;"><input id="hrd-kin-sc-'+_mi+'-'+idx+'" type="number" min="0" max="100" step="0.01" value="'+(row.score!==null&&row.score!==undefined?row.score:'')+'" placeholder="%" style="width:70px;padding:5px 6px;border:1.5px solid var(--border);border-radius:var(--radius-sm);font-family:var(--font);font-size:12px;text-align:center;"></td>';
-          html+='<td style="padding:5px 8px;text-align:center;"><label for="hrd-kin-ev-'+_mi+'-'+idx+'" style="cursor:pointer;display:inline-flex;align-items:center;gap:3px;padding:4px 8px;border:1.5px '+(row.evidence?'solid var(--success)':'dashed var(--border)')+';border-radius:var(--radius-sm);font-size:11px;color:'+(row.evidence?'var(--success)':'var(--text-m)')+';">'+(row.evidence?'&#x2705;':'&#x1F4CE;')+'</label><input type="file" id="hrd-kin-ev-'+_mi+'-'+idx+'" accept="image/*" style="display:none;" onchange="hrdKinUploadRow('+_mi+','+idx+',this)"></td>';
-          html+='<td style="padding:5px 8px;text-align:center;"><button onclick="hrdKinSaveRow('+_mi+','+idx+')" style="background:var(--primary);border:none;color:#fff;border-radius:var(--radius-sm);padding:5px 12px;cursor:pointer;font-size:11px;font-family:var(--font);">&#x2713; Simpan</button></td>';
-          html+='</tr>';
-        }else{
-          html+='<tr style="border-bottom:1px solid var(--border);">';
-          html+='<td style="padding:7px 10px;text-align:center;color:var(--text-l);">'+(idx+1)+'</td>';
-          html+='<td style="padding:7px 10px;font-weight:600;color:var(--text);">'+okrEsc(row.nama||'—')+'</td>';
-          html+='<td style="padding:7px 10px;white-space:nowrap;">'+okrEsc(row.tanggalMasuk||'—')+'</td>';
-          html+='<td style="padding:7px 10px;text-align:center;">'+(row.score!==null&&row.score!==undefined?'<span class="score-num '+scoreClass(row.score)+'" style="font-size:1rem;">'+row.score.toFixed(1)+'%</span>':'—')+'</td>';
-          html+='<td style="padding:7px 10px;text-align:center;">'+(row.evidence?'<button onclick="hrdKinViewEv('+_mi+','+idx+')" style="background:none;border:1.5px solid var(--primary);color:var(--primary);border-radius:var(--radius-sm);padding:3px 8px;cursor:pointer;font-size:11px;font-family:var(--font);">&#x1F441;</button>':'<span style="color:var(--text-l);">—</span>')+'</td>';
-          html+='<td style="padding:7px 10px;text-align:center;white-space:nowrap;"><button onclick="hrdKinEditRow('+_mi+','+idx+')" style="background:none;border:1.5px solid var(--border);color:var(--text-m);border-radius:var(--radius-sm);padding:4px 8px;cursor:pointer;font-size:11px;font-family:var(--font);">&#x270F;&#xFE0F;</button> <button onclick="hrdKinDeleteRow('+_mi+','+idx+')" style="background:none;border:1.5px solid #fca5a5;color:#dc2626;border-radius:var(--radius-sm);padding:4px 8px;cursor:pointer;font-size:11px;font-family:var(--font);">&#x1F5D1;</button></td>';
-          html+='</tr>';
-        }
-      });
-      html+='</tbody></table></div>';
-    }
-    html+='</div>';
+  var y=hrdYear,mi=hrdKinMonth;
+  var html='<div style="display:flex;align-items:center;gap:12px;margin-bottom:16px;flex-wrap:wrap;">';
+  html+='<span style="font-size:13px;font-weight:600;color:var(--text);">Pilih Bulan:</span>';
+  html+='<select id="hrd-kin-msel" onchange="hrdKinMonthChange(this.value)" class="store-year-sel">';
+  for(var mo=0;mo<12;mo++){html+='<option value="'+(mo+1)+'"'+(mo+1===mi?' selected':'')+'>'+BULS[mo]+' '+y+'</option>';}
+  html+='</select></div>';
+  var data=_hrdKinG(y,mi);var rows=data.rows||[];var avg=_hrdKinMonthAvg(y,mi);
+  var dr=rows.filter(function(r){return !r.editing&&r.nama&&r.score!==null;});
+  if(avg!==null){
+    html+='<div style="display:flex;align-items:center;gap:16px;padding:14px 18px;background:var(--bg2);border:2px solid var(--primary);border-radius:var(--radius);margin-bottom:16px;flex-wrap:wrap;">';
+    html+='<div><div style="font-size:11px;font-weight:600;color:var(--text-m);">SCORE RATA-RATA</div><div class="final-big '+scoreClass(avg)+'" style="font-size:2rem;">'+avg.toFixed(1)+'%</div></div>';
+    html+='<div style="font-size:12px;color:var(--text-m);">dari '+dr.length+' karyawan tersimpan</div></div>';
   }
+  html+='<div class="card"><div style="display:flex;align-items:center;justify-content:space-between;margin-bottom:4px;gap:10px;flex-wrap:wrap;">';
+  html+='<div style="font-size:14px;font-weight:700;color:var(--text);">&#x2B50; Kinerja Karyawan — '+BULS[mi-1]+' '+y+'</div>';
+  html+='<button onclick="hrdKinAddRow('+mi+')" style="background:none;border:1.5px dashed var(--primary);color:var(--primary);border-radius:var(--radius-sm);padding:5px 16px;cursor:pointer;font-size:12px;font-family:var(--font);">&#x2795; Tambah</button>';
+  html+='</div>';
+  html+='<div style="font-size:12px;color:var(--text-m);margin-bottom:14px;">Score = rata-rata skor seluruh karyawan tersimpan bulan ini.</div>';
+  if(rows.length===0){
+    html+='<div style="padding:20px;font-size:13px;color:var(--text-l);text-align:center;">Belum ada data karyawan untuk '+BULS[mi-1]+' '+y+'</div>';
+  }else{
+    html+='<div style="overflow-x:auto;"><table style="width:100%;border-collapse:collapse;min-width:460px;font-size:12px;">';
+    html+='<thead><tr style="border-bottom:2px solid var(--border);background:var(--bg);">';
+    ['No','Nama Karyawan','Tgl Masuk','Score (%)','Bukti','Aksi'].forEach(function(h,i){html+='<th style="text-align:'+(i===0||i>=3?'center':'left')+';padding:8px 10px;color:var(--text-m);font-weight:600;white-space:nowrap;">'+h+'</th>';});
+    html+='</tr></thead><tbody>';
+    rows.forEach(function(row,idx){
+      if(row.editing){
+        html+='<tr style="background:var(--bg);border-bottom:1px solid var(--border);">';
+        html+='<td style="padding:6px 10px;text-align:center;color:var(--text-l);">'+(idx+1)+'</td>';
+        html+='<td style="padding:5px 8px;"><input id="hrd-kin-nm-'+mi+'-'+idx+'" type="text" value="'+okrEsc(row.nama||'')+'" placeholder="Nama karyawan..." style="width:100%;padding:5px 8px;border:1.5px solid var(--border);border-radius:var(--radius-sm);font-family:var(--font);font-size:12px;box-sizing:border-box;"></td>';
+        html+='<td style="padding:5px 8px;"><input id="hrd-kin-tg-'+mi+'-'+idx+'" type="date" value="'+okrEsc(row.tanggalMasuk||'')+'" style="padding:5px 8px;border:1.5px solid var(--border);border-radius:var(--radius-sm);font-family:var(--font);font-size:12px;"></td>';
+        html+='<td style="padding:5px 8px;text-align:center;"><input id="hrd-kin-sc-'+mi+'-'+idx+'" type="number" min="0" max="100" step="0.01" value="'+(row.score!==null&&row.score!==undefined?row.score:'')+'" placeholder="%" style="width:70px;padding:5px 6px;border:1.5px solid var(--border);border-radius:var(--radius-sm);font-family:var(--font);font-size:12px;text-align:center;"></td>';
+        html+='<td style="padding:5px 8px;text-align:center;"><label for="hrd-kin-ev-'+mi+'-'+idx+'" style="cursor:pointer;display:inline-flex;align-items:center;gap:3px;padding:4px 8px;border:1.5px '+(row.evidence?'solid var(--success)':'dashed var(--border)')+';border-radius:var(--radius-sm);font-size:11px;color:'+(row.evidence?'var(--success)':'var(--text-m)')+';">'+(row.evidence?'&#x2705;':'&#x1F4CE;')+'</label><input type="file" id="hrd-kin-ev-'+mi+'-'+idx+'" accept="image/*" style="display:none;" onchange="hrdKinUploadRow('+mi+','+idx+',this)"></td>';
+        html+='<td style="padding:5px 8px;text-align:center;"><button onclick="hrdKinSaveRow('+mi+','+idx+')" style="background:var(--primary);border:none;color:#fff;border-radius:var(--radius-sm);padding:5px 12px;cursor:pointer;font-size:11px;font-family:var(--font);">&#x2713; Simpan</button></td>';
+        html+='</tr>';
+      }else{
+        html+='<tr style="border-bottom:1px solid var(--border);">';
+        html+='<td style="padding:7px 10px;text-align:center;color:var(--text-l);">'+(idx+1)+'</td>';
+        html+='<td style="padding:7px 10px;font-weight:600;color:var(--text);">'+okrEsc(row.nama||'—')+'</td>';
+        html+='<td style="padding:7px 10px;white-space:nowrap;">'+okrEsc(row.tanggalMasuk||'—')+'</td>';
+        html+='<td style="padding:7px 10px;text-align:center;">'+(row.score!==null&&row.score!==undefined?'<span class="score-num '+scoreClass(row.score)+'" style="font-size:1rem;">'+row.score.toFixed(1)+'%</span>':'—')+'</td>';
+        html+='<td style="padding:7px 10px;text-align:center;">'+(row.evidence?'<button onclick="hrdKinViewEv('+mi+','+idx+')" style="background:none;border:1.5px solid var(--primary);color:var(--primary);border-radius:var(--radius-sm);padding:3px 8px;cursor:pointer;font-size:11px;font-family:var(--font);">&#x1F441;</button>':'<span style="color:var(--text-l);">—</span>')+'</td>';
+        html+='<td style="padding:7px 10px;text-align:center;white-space:nowrap;"><button onclick="hrdKinEditRow('+mi+','+idx+')" style="background:none;border:1.5px solid var(--border);color:var(--text-m);border-radius:var(--radius-sm);padding:4px 8px;cursor:pointer;font-size:11px;font-family:var(--font);">&#x270F;&#xFE0F;</button> <button onclick="hrdKinDeleteRow('+mi+','+idx+')" style="background:none;border:1.5px solid #fca5a5;color:#dc2626;border-radius:var(--radius-sm);padding:4px 8px;cursor:pointer;font-size:11px;font-family:var(--font);">&#x1F5D1;</button></td>';
+        html+='</tr>';
+      }
+    });
+    html+='</tbody></table></div>';
+  }
+  html+='</div>';
   wrap.innerHTML=html;
 }
 function hrdKinAddRow(mi){var data=_hrdKinG(hrdYear,mi);data.rows.push({nama:'',tanggalMasuk:'',score:null,evidence:null,evidenceName:null,editing:true});_hrdKinS(hrdYear,mi,data);hrdRenderKinerja();}
