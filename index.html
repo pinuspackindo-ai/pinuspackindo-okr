@@ -6566,16 +6566,12 @@ function talRender(){
         if(hasPrg&&row.bobot){html+='<span class="score-num '+scoreClass(parseFloat(row.progress))+'" style="font-size:1rem;font-weight:700;">'+sc.toFixed(2)+'</span>';}
         else{html+='<span style="color:var(--text-l);">—</span>';}
         html+='</td>';
-        // Review Atasan
+        // Review Atasan — always editable inline
         html+='<td style="padding:6px 8px;">';
-        if(talAdsanMode){
-          html+='<div style="display:flex;gap:4px;align-items:center;">';
-          html+='<input id="tal-rli-'+idx+'" type="text" value="'+okrEsc(row.review||'')+'" placeholder="Review..." style="flex:1;min-width:80px;padding:4px 8px;border:1.5px solid var(--border);border-radius:var(--radius-sm);font-family:var(--font);font-size:11px;">';
-          html+='<button onclick="talSaveReview('+idx+')" style="background:none;border:1.5px solid var(--primary);color:var(--primary);border-radius:50%;width:22px;height:22px;cursor:pointer;font-size:12px;display:flex;align-items:center;justify-content:center;flex-shrink:0;">&#x2713;</button>';
-          html+='</div>';
-        }else{
-          html+='<span style="font-size:12px;color:'+(row.review?'var(--text)':'var(--text-l)')+';">'+okrEsc(row.review||'—')+'</span>';
-        }
+        html+='<div style="display:flex;gap:4px;align-items:center;">';
+        html+='<input id="tal-rli-'+idx+'" type="text" value="'+okrEsc(row.review||'')+'" placeholder="Review atasan..." style="flex:1;min-width:80px;padding:4px 8px;border:1.5px solid var(--border);border-radius:var(--radius-sm);font-family:var(--font);font-size:11px;">';
+        html+='<button onclick="talSaveReview('+idx+')" style="background:none;border:1.5px solid var(--primary);color:var(--primary);border-radius:50%;width:22px;height:22px;cursor:pointer;font-size:12px;display:flex;align-items:center;justify-content:center;flex-shrink:0;">&#x2713;</button>';
+        html+='</div>';
         html+='</td>';
         // Aksi
         html+='<td style="padding:8px 10px;text-align:center;white-space:nowrap;">';
