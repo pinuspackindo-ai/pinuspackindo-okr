@@ -6192,33 +6192,36 @@ function hrdKdkViewEv(mi,section){
   document.getElementById('store-ev-modal').style.display='flex';
 }
 
-// ── SUBs 2,3,4: Monthly % grid ───────────────────────────────
+// ── SUBs 2,3,4: Monthly % table ──────────────────────────────
 function hrdRenderSim(subId){
   var wrap=document.getElementById('hrd-content');if(!wrap)return;
-  var desc={kedisiplinan:'Masukkan % tingkat kedisiplinan karyawan per bulan.',kpi:'Masukkan skor pencapaian KPI karyawan per bulan.',akurasi_adm:'Masukkan skor akurasi & ontime administrasi HR per bulan.'};
-  var html='<div style="margin-bottom:4px;font-size:13px;color:var(--text-m);">'+(desc[subId]||'')+'</div>';
-  html+='<div style="display:grid;grid-template-columns:repeat(auto-fill,minmax(200px,1fr));gap:12px;margin-top:16px;">';
+  var titles={kedisiplinan:'&#x1F4CA; Kedisiplinan Karyawan',kpi:'&#x1F3AF; KPI Karyawan',akurasi_adm:'&#x1F5C2;&#xFE0F; Akurasi &amp; Ontime Administrasi'};
+  var desc={kedisiplinan:'Tingkat kedisiplinan karyawan per bulan (%). Masukkan nilai lalu upload bukti dan simpan.',kpi:'Skor pencapaian KPI seluruh karyawan per bulan (%). Masukkan nilai lalu upload bukti dan simpan.',akurasi_adm:'Skor akurasi &amp; ketepatan waktu administrasi HR per bulan (%). Masukkan nilai lalu upload bukti dan simpan.'};
+  var html='<div class="card">';
+  html+='<div style="font-size:14px;font-weight:700;color:var(--text);margin-bottom:4px;">'+(titles[subId]||subId)+'</div>';
+  html+='<div style="font-size:12px;color:var(--text-m);margin-bottom:16px;">'+(desc[subId]||'')+'</div>';
+  html+='<div style="overflow-x:auto;"><table style="width:100%;border-collapse:collapse;font-size:13px;">';
+  html+='<thead><tr style="border-bottom:2px solid var(--border);background:var(--bg);">';
+  ['No','Bulan','Nilai (%)','Bukti','Aksi'].forEach(function(h,i){html+='<th style="text-align:'+(i===0?'center':'left')+';padding:9px 12px;color:var(--text-m);font-weight:600;white-space:nowrap;">'+h+'</th>';});
+  html+='</tr></thead><tbody>';
   for(var mi=1;mi<=12;mi++){
     var d=_hrdSimG(subId,hrdYear,mi);var locked=!!d.locked;var hasVal=d.value!==null&&d.value!==undefined;
-    html+='<div style="background:var(--bg2);border:1.5px solid '+(locked?'var(--success)':'var(--border)')+';border-radius:var(--radius);padding:14px 12px;">';
-    html+='<div style="font-size:11px;font-weight:700;color:var(--text-m);margin-bottom:8px;">'+BULS[mi-1]+' '+hrdYear+'</div>';
+    html+='<tr style="border-bottom:1px solid var(--border);'+(locked?'background:var(--bg2);':'')+'">';
+    html+='<td style="padding:8px 12px;text-align:center;color:var(--text-l);font-size:12px;">'+mi+'</td>';
+    html+='<td style="padding:8px 12px;font-weight:'+(locked?'600':'400')+';color:var(--text);white-space:nowrap;">'+BULS[mi-1]+' '+hrdYear+'</td>';
     if(locked){
-      html+='<div class="score-num '+(hasVal?scoreClass(d.value):'')+'" style="font-size:1.5rem;margin-bottom:6px;">'+(hasVal?d.value.toFixed(1)+'%':'—')+'</div>';
-      html+='<div style="font-size:11px;color:var(--text-l);margin-bottom:8px;">'+(d.savedAt?new Date(d.savedAt).toLocaleDateString('id-ID'):'')+'</div>';
-      html+='<div style="display:flex;gap:6px;">';
-      if(d.evidence)html+='<button onclick="hrdSimViewEv(\''+subId+'\','+mi+')" style="flex:1;background:none;border:1.5px solid var(--primary);color:var(--primary);border-radius:var(--radius-sm);padding:4px 6px;cursor:pointer;font-size:11px;font-family:var(--font);">&#x1F441; Bukti</button>';
-      html+='<button onclick="hrdSimEdit(\''+subId+'\','+mi+')" style="background:none;border:1.5px solid var(--border);color:var(--text-m);border-radius:var(--radius-sm);padding:4px 8px;cursor:pointer;font-size:11px;font-family:var(--font);">&#x270F;&#xFE0F;</button>';
-      html+='<button onclick="hrdSimDelete(\''+subId+'\','+mi+')" style="background:none;border:1.5px solid #fca5a5;color:#dc2626;border-radius:var(--radius-sm);padding:4px 8px;cursor:pointer;font-size:11px;font-family:var(--font);">&#x1F5D1;</button>';
-      html+='</div>';
+      html+='<td style="padding:8px 12px;"><span class="score-num '+scoreClass(d.value)+'" style="font-size:1.1rem;">'+(hasVal?d.value.toFixed(1)+'%':'—')+'</span></td>';
+      html+='<td style="padding:8px 12px;">'+(d.evidence?'<button onclick="hrdSimViewEv(\''+subId+'\','+mi+')" style="background:none;border:1.5px solid var(--primary);color:var(--primary);border-radius:var(--radius-sm);padding:4px 10px;cursor:pointer;font-size:11px;font-family:var(--font);">&#x1F441; Lihat</button>':'<span style="color:var(--text-l);font-size:12px;">—</span>')+'</td>';
+      html+='<td style="padding:8px 12px;white-space:nowrap;"><button onclick="hrdSimEdit(\''+subId+'\','+mi+')" style="background:none;border:1.5px solid var(--border);color:var(--text-m);border-radius:var(--radius-sm);padding:4px 8px;cursor:pointer;font-size:11px;font-family:var(--font);">&#x270F;&#xFE0F;</button> <button onclick="hrdSimDelete(\''+subId+'\','+mi+')" style="background:none;border:1.5px solid #fca5a5;color:#dc2626;border-radius:var(--radius-sm);padding:4px 8px;cursor:pointer;font-size:11px;font-family:var(--font);">&#x1F5D1;</button></td>';
     }else{
-      html+='<input type="number" id="hrd-sim-val-'+subId+'-'+mi+'" min="0" max="100" step="0.01" placeholder="%" value="'+(hasVal?d.value:'')+'" style="width:100%;padding:7px 10px;border:1.5px solid var(--border);border-radius:var(--radius-sm);font-family:var(--font);font-size:14px;margin-bottom:8px;box-sizing:border-box;">';
-      html+='<label for="hrd-sim-ev-'+subId+'-'+mi+'" style="display:block;cursor:pointer;padding:5px 10px;border:1.5px '+(d.evidence?'solid var(--success)':'dashed var(--border)')+';border-radius:var(--radius-sm);font-size:12px;color:'+(d.evidence?'var(--success)':'var(--text-m)')+';margin-bottom:8px;text-align:center;overflow:hidden;text-overflow:ellipsis;white-space:nowrap;">'+(d.evidence?'&#x2705; '+okrEsc(d.evidenceName||'OK'):'&#x1F4CE; Upload Bukti')+'</label>';
-      html+='<input type="file" id="hrd-sim-ev-'+subId+'-'+mi+'" accept="image/*" style="display:none;" onchange="hrdSimUpload(\''+subId+'\','+mi+',this)">';
-      html+='<button onclick="hrdSimSave(\''+subId+'\','+mi+')" style="width:100%;background:var(--primary);border:none;color:#fff;border-radius:var(--radius-sm);padding:7px 0;cursor:pointer;font-family:var(--font);font-size:13px;font-weight:700;">&#x1F4BE; Simpan</button>';
+      html+='<td style="padding:6px 12px;"><input type="number" id="hrd-sim-val-'+subId+'-'+mi+'" min="0" max="100" step="0.01" placeholder="0 – 100" value="'+(hasVal?d.value:'')+'" style="width:110px;padding:6px 10px;border:1.5px solid var(--border);border-radius:var(--radius-sm);font-family:var(--font);font-size:13px;"></td>';
+      html+='<td style="padding:6px 12px;"><label for="hrd-sim-ev-'+subId+'-'+mi+'" style="display:inline-flex;align-items:center;gap:4px;cursor:pointer;padding:5px 12px;border:1.5px '+(d.evidence?'solid var(--success)':'dashed var(--border)')+';border-radius:var(--radius-sm);font-size:12px;color:'+(d.evidence?'var(--success)':'var(--text-m)')+';white-space:nowrap;">'+(d.evidence?'&#x2705; '+okrEsc(d.evidenceName||'OK'):'&#x1F4CE; Upload')+'</label><input type="file" id="hrd-sim-ev-'+subId+'-'+mi+'" accept="image/*" style="display:none;" onchange="hrdSimUpload(\''+subId+'\','+mi+',this)"></td>';
+      html+='<td style="padding:6px 12px;"><button onclick="hrdSimSave(\''+subId+'\','+mi+')" style="background:var(--primary);border:none;color:#fff;border-radius:var(--radius-sm);padding:6px 16px;cursor:pointer;font-family:var(--font);font-size:12px;font-weight:700;white-space:nowrap;">&#x1F4BE; Simpan</button></td>';
     }
-    html+='</div>';
+    html+='</tr>';
   }
-  html+='</div>';wrap.innerHTML=html;
+  html+='</tbody></table></div></div>';
+  wrap.innerHTML=html;
 }
 function hrdSimUpload(subId,mi,inp){
   var file=inp.files[0];if(!file)return;
