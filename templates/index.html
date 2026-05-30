@@ -364,6 +364,7 @@ tbody tr:hover td{background:var(--bg);}
   <nav class="sidebar-nav">
     <div class="nav-label">Utama</div>
     <button class="nav-item active" id="nav-dashboard" onclick="showPanel('dashboard',this)">&#x1F4CA; Dashboard OKR</button>
+    <button class="nav-item" id="nav-tal" onclick="showPanel('tal',this)">&#x1F4CB; TAL</button>
     <div class="nav-label" style="margin-top:10px;">Modul Data</div>
     <button class="nav-item" id="nav-store" onclick="showPanel('store',this)">&#x1F4E6; Store</button>
     <button class="nav-item" id="nav-distrib" onclick="showPanel('distrib',this)">&#x1F69A; Distribution Sales</button>
@@ -373,7 +374,6 @@ tbody tr:hover td{background:var(--bg);}
     <button class="nav-item" id="nav-financeacc" onclick="showPanel('financeacc',this)">&#x1F4B0; Finance &amp; Accounting</button>
     <button class="nav-item" id="nav-generalaffair" onclick="showPanel('generalaffair',this)">&#x1F3E2; General Affair</button>
     <button class="nav-item" id="nav-hrd" onclick="showPanel('hrd',this)">&#x1F465; HRD</button>
-    <button class="nav-item" id="nav-tal" onclick="showPanel('tal',this)">&#x1F4CB; TAL</button>
     <div class="nav-label" style="margin-top:10px;">Modul Analisa</div>
     <button class="nav-item" onclick="showPanel('instock',this)">Analisa Instock</button>
     <button class="nav-item" onclick="showPanel('po',this)">Analisa PO</button>
@@ -6123,7 +6123,6 @@ var TAL_DIV_NAMES=['STORE','MARKETING','FINANCE','HRD','GENERAL AFFAIR','PURCHAS
 var talCurDiv=0;
 var talYear=new Date().getFullYear();
 var talMonth=new Date().getMonth()+1;
-var talAdsanMode=false;
 
 function _talKey(d,y,m){return '_tal_d'+d+'_'+y+'_'+String(m).padStart(2,'0');}
 function _talG(d,y,m){return okrData[_talKey(d,y,m)]||{rows:[]};}
@@ -6186,9 +6185,7 @@ function talRender(){
   html+='<div style="display:flex;align-items:center;justify-content:space-between;margin-bottom:14px;gap:10px;flex-wrap:wrap;">';
   html+='<div style="font-size:14px;font-weight:700;color:var(--text);">&#x1F4CB; TAL &mdash; <span style="color:var(--primary);">'+TAL_DIV_NAMES[d]+'</span> &nbsp;|&nbsp; '+BULS[m-1]+' '+y+'</div>';
   html+='<div style="display:flex;gap:8px;flex-wrap:wrap;">';
-  html+='<button onclick="talDuplicate()" style="background:none;border:1.5px solid var(--border);color:var(--text-m);border-radius:var(--radius-sm);padding:6px 14px;cursor:pointer;font-size:12px;font-family:var(--font);">&#x1F4CB; Duplikat Bulan Lalu</button>';
-  if(talAdsanMode){html+='<button onclick="talAdsanMode=false;talRender();" style="background:#dcfce7;border:1.5px solid #16a34a;color:#16a34a;border-radius:var(--radius-sm);padding:6px 14px;cursor:pointer;font-size:12px;font-family:var(--font);">&#x1F513; Atasan Aktif</button>';}
-  else{html+='<button onclick="talToggleAtasan()" style="background:none;border:1.5px solid var(--border);color:var(--text-m);border-radius:var(--radius-sm);padding:6px 14px;cursor:pointer;font-size:12px;font-family:var(--font);">&#x1F512; Mode Atasan</button>';}
+  if(rows.length===0){html+='<button onclick="talDuplicate()" style="background:none;border:1.5px solid var(--border);color:var(--text-m);border-radius:var(--radius-sm);padding:6px 14px;cursor:pointer;font-size:12px;font-family:var(--font);">&#x1F4CB; Duplikat Bulan Lalu</button>';}
   html+='<button onclick="talAddRow()" style="background:var(--primary);border:none;color:#fff;border-radius:var(--radius-sm);padding:6px 16px;cursor:pointer;font-size:12px;font-family:var(--font);font-weight:600;">&#x2795; Tambah TAL</button>';
   html+='</div></div>';
 
@@ -6214,8 +6211,7 @@ function talRender(){
         html+='<td style="padding:5px 6px;text-align:center;"><input id="tal-bbt-'+idx+'" type="number" min="0.01" max="100" step="0.01" value="'+(row.bobot!==null&&row.bobot!==undefined?row.bobot:'')+'" placeholder="%" style="width:58px;padding:5px 6px;border:1.5px solid var(--border);border-radius:var(--radius-sm);font-family:var(--font);font-size:12px;text-align:center;"></td>';
         html+='<td style="padding:5px 6px;text-align:center;color:var(--text-l);">—</td>';
         html+='<td style="padding:5px 6px;">';
-        if(talAdsanMode){html+='<input id="tal-rvw-'+idx+'" type="text" value="'+okrEsc(row.review||'')+'" placeholder="Review atasan..." style="width:100%;padding:5px 8px;border:1.5px solid var(--border);border-radius:var(--radius-sm);font-family:var(--font);font-size:12px;box-sizing:border-box;">';}
-        else{html+='<span style="font-size:11px;color:var(--text-l);">&#x1F512; Mode Atasan</span>';}
+        html+='<input id="tal-rvw-'+idx+'" type="text" value="'+okrEsc(row.review||'')+'" placeholder="Review atasan..." style="width:100%;padding:5px 8px;border:1.5px solid var(--border);border-radius:var(--radius-sm);font-family:var(--font);font-size:12px;box-sizing:border-box;">';
         html+='</td>';
         html+='<td style="padding:5px 6px;text-align:center;white-space:nowrap;">';
         html+='<button onclick="talSaveRow('+idx+')" style="background:var(--primary);border:none;color:#fff;border-radius:var(--radius-sm);padding:5px 12px;cursor:pointer;font-size:11px;font-family:var(--font);font-weight:600;">&#x2713; Simpan</button> ';
@@ -6239,15 +6235,12 @@ function talRender(){
         if(hasPrg&&row.bobot){html+='<span class="score-num '+scoreClass(parseFloat(row.progress))+'" style="font-size:1rem;font-weight:700;">'+sc.toFixed(2)+'</span>';}
         else{html+='<span style="color:var(--text-l);">—</span>';}
         html+='</td>';
+        // Review Atasan — always editable inline
         html+='<td style="padding:6px 8px;">';
-        if(talAdsanMode){
-          html+='<div style="display:flex;gap:4px;align-items:center;">';
-          html+='<input id="tal-rli-'+idx+'" type="text" value="'+okrEsc(row.review||'')+'" placeholder="Review..." style="flex:1;min-width:80px;padding:4px 8px;border:1.5px solid var(--border);border-radius:var(--radius-sm);font-family:var(--font);font-size:11px;">';
-          html+='<button onclick="talSaveReview('+idx+')" style="background:none;border:1.5px solid var(--primary);color:var(--primary);border-radius:50%;width:22px;height:22px;cursor:pointer;font-size:12px;display:flex;align-items:center;justify-content:center;flex-shrink:0;">&#x2713;</button>';
-          html+='</div>';
-        }else{
-          html+='<span style="font-size:12px;color:'+(row.review?'var(--text)':'var(--text-l)')+';">'+okrEsc(row.review||'—')+'</span>';
-        }
+        html+='<div style="display:flex;gap:4px;align-items:center;">';
+        html+='<input id="tal-rli-'+idx+'" type="text" value="'+okrEsc(row.review||'')+'" placeholder="Review atasan..." style="flex:1;min-width:80px;padding:4px 8px;border:1.5px solid var(--border);border-radius:var(--radius-sm);font-family:var(--font);font-size:11px;">';
+        html+='<button onclick="talSaveReview('+idx+')" style="background:none;border:1.5px solid var(--primary);color:var(--primary);border-radius:50%;width:22px;height:22px;cursor:pointer;font-size:12px;display:flex;align-items:center;justify-content:center;flex-shrink:0;">&#x2713;</button>';
+        html+='</div>';
         html+='</td>';
         html+='<td style="padding:8px 10px;text-align:center;white-space:nowrap;">';
         html+='<button onclick="talEditRow('+idx+')" style="background:none;border:1.5px solid var(--border);color:var(--text-m);border-radius:var(--radius-sm);padding:4px 8px;cursor:pointer;font-size:11px;font-family:var(--font);">&#x270F;&#xFE0F;</button> ';
