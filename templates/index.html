@@ -745,6 +745,31 @@ tbody tr:hover td{background:var(--bg);}
       </div>
     </div>
 
+    <!-- PANEL HRD -->
+    <div id="panel-hrd" class="panel">
+      <div style="position:sticky;top:53px;z-index:40;background:var(--bg);padding-bottom:16px;">
+        <div style="display:flex;align-items:flex-start;justify-content:space-between;margin-bottom:12px;gap:12px;flex-wrap:wrap;">
+          <div>
+            <div style="font-size:18px;font-weight:800;color:var(--text);">&#x1F465; HRD <span style="font-size:13px;font-weight:400;color:var(--text-m);">&#x2014; Data Operasional</span></div>
+            <div style="font-size:12px;color:var(--text-l);margin-top:3px;">Input data &#x2192; simpan &#x2192; otomatis tersync ke Dashboard OKR</div>
+          </div>
+          <div style="display:flex;align-items:center;gap:8px;">
+            <span style="font-size:12px;color:var(--text-m);">Tahun:</span>
+            <select id="hrd-year-sel" class="store-year-sel" onchange="hrdYearChange(this.value)"></select>
+          </div>
+        </div>
+        <div class="store-tabs" style="margin-bottom:0;">
+          <button class="store-tab active" id="hrd-tab-kdk"           onclick="hrdShowSub('kdk',this)">&#x1F4CB; Kedisiplinan &amp; Kepatuhan Store</button>
+          <button class="store-tab"        id="hrd-tab-kedisiplinan"  onclick="hrdShowSub('kedisiplinan',this)">&#x1F4CA; Kedisiplinan Karyawan</button>
+          <button class="store-tab"        id="hrd-tab-kpi"           onclick="hrdShowSub('kpi',this)">&#x1F3AF; KPI Karyawan</button>
+          <button class="store-tab"        id="hrd-tab-akurasi_adm"   onclick="hrdShowSub('akurasi_adm',this)">&#x1F5C2;&#xFE0F; Akurasi &amp; Ontime Adm</button>
+          <button class="store-tab"        id="hrd-tab-recruitment"   onclick="hrdShowSub('recruitment',this)">&#x23F1;&#xFE0F; Recruitment Time</button>
+          <button class="store-tab"        id="hrd-tab-kinerja"       onclick="hrdShowSub('kinerja',this)">&#x2B50; Kinerja Karyawan</button>
+        </div>
+      </div>
+      <div id="hrd-content"></div>
+    </div>
+
     <!-- ════════ PANEL INSTOCK ════════ -->
     <div id="panel-instock" class="panel">
       <div class="module-info">
@@ -4109,6 +4134,7 @@ const panelTitles={
   purchasing:'Purchasing — Data Operasional',
   financeacc:'Finance & Accounting — Data Operasional',
   generalaffair:'General Affair — Data Operasional',
+  hrd:'HRD — Data Operasional',
   instock:'Analisa Instock',
   po:'Analisa PO',
   penerimaan:'Analisa Kualitas Penerimaan',
@@ -4136,6 +4162,7 @@ function showPanel(name,btn){
   if(name==='purchasing'){purchasingInit();}
   if(name==='financeacc'){finaccInit();}
   if(name==='generalaffair'){gaInit();}
+  if(name==='hrd'){hrdInit();}
 }
 function showLapDiv(div,btn){
   _lapCurrentDiv=div;
@@ -4794,6 +4821,21 @@ function okrRender(){
       if(_gwr.length>0){var _gwa=_gwr.reduce(function(acc,r){return acc+_gaWpRowScore(r);},0)/_gwr.length;gaSyncOKR('wp',okrCurYear,_gwm,Math.round(_gwa*100)/100);}
     }
     for(var _grm=1;_grm<=12;_grm++){var _grot2=_garotg(okrCurYear,_grm);if(_grot2.locked&&_grot2.totalScore!==null)gaSyncOKR('rot',okrCurYear,_grm,Math.round(_grot2.totalScore*100)/100);}
+  }
+  // Sync HRD sub-modules → OKR
+  if(typeof HRD_OKR_SUBS!=='undefined'&&Array.isArray(HRD_OKR_SUBS)){
+    var _hkdk=_hrdKdkG(okrCurYear,okrCurMonth);
+    if(_hkdk.locked&&_hkdk.totalScore!==null)hrdSyncStore(okrCurYear,okrCurMonth,Math.round(_hkdk.totalScore*100)/100);
+    ['kedisiplinan','kpi','akurasi_adm'].forEach(function(sid){
+      var _hsd=_hrdSimG(sid,okrCurYear,okrCurMonth);
+      if(_hsd.locked&&_hsd.value!==null&&_hsd.value!==undefined)hrdSyncOKR(sid,okrCurYear,okrCurMonth,Math.round(_hsd.value*100)/100);
+    });
+    for(var _hrm=1;_hrm<=12;_hrm++){
+      var _hrd5=_hrdRecG(okrCurYear,_hrm);
+      var _hrd5r=(_hrd5.rows||[]).filter(function(r){return !r.editing&&r.request&&r.deadline&&r.realisasi;});
+      if(_hrd5r.length>0){var _hrd5a=_hrd5r.map(function(r){return _hrdRecRowScore(r)||0;}).reduce(function(a,b){return a+b;},0)/_hrd5r.length;hrdSyncOKR('recruitment',okrCurYear,_hrm,Math.round(_hrd5a*100)/100);}
+    }
+    for(var _hkm=1;_hkm<=12;_hkm++){var _hkavg=_hrdKinMonthAvg(okrCurYear,_hkm);if(_hkavg!==null)hrdSyncOKR('kinerja',okrCurYear,_hkm,Math.round(_hkavg*100)/100);}
   }
   var _RD=(typeof OKR_DIVISI!=='undefined'&&Array.isArray(OKR_DIVISI))
     ?OKR_DIVISI
