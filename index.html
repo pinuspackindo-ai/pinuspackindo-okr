@@ -6448,7 +6448,6 @@ var TAL_DIV_NAMES=['STORE','MARKETING','FINANCE','HRD','GENERAL AFFAIR','PURCHAS
 var talCurDiv=0;
 var talYear=new Date().getFullYear();
 var talMonth=new Date().getMonth()+1;
-var talAdsanMode=false;
 
 function _talKey(d,y,m){return '_tal_d'+d+'_'+y+'_'+String(m).padStart(2,'0');}
 function _talG(d,y,m){return okrData[_talKey(d,y,m)]||{rows:[]};}
