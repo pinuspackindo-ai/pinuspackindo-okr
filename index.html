@@ -6041,6 +6041,8 @@ function hrdInit(){
 function hrdYearChange(v){hrdYear=parseInt(v)||new Date().getFullYear();hrdRender();}
 function hrdShowSub(sub,btn){
   hrdCurSub=sub;
+  var curM=new Date().getMonth()+1;
+  hrdKdkMonth=curM;hrdKinMonth=curM;hrdRecruitMonth=curM;
   document.querySelectorAll('#panel-hrd .store-tab').forEach(function(t){t.classList.remove('active');});
   if(btn)btn.classList.add('active');hrdRender();
 }
