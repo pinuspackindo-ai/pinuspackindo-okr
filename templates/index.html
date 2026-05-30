@@ -5732,6 +5732,350 @@ function gaRotViewEv(isOntime){
   document.getElementById('store-ev-modal').style.display='flex';
 }
 
+// ─── HRD MODULE ───
+var HRD_OKR_SUBS=[
+  {id:'kedisiplinan',okrMatch:function(kr){return /kedisiplinan.*karyawan|tingkat.*kedisiplinan/i.test(kr);}},
+  {id:'kpi',okrMatch:function(kr){return /kpi|skor.*kpi|pencapaian.*kpi/i.test(kr);}},
+  {id:'akurasi_adm',okrMatch:function(kr){return /akurasi.*administrasi|ketepatan.*waktu.*administrasi|administrasi.*hr/i.test(kr);}},
+  {id:'recruitment',okrMatch:function(kr){return /rekrut|recruitment|ketepatan.*rekrut/i.test(kr);}},
+  {id:'kinerja',okrMatch:function(kr){return /kinerja.*karyawan.*baru|karyawan.*baru|kinerja.*baru/i.test(kr);}},
+];
+var hrdCurSub='kdk';
+var hrdYear=new Date().getFullYear();
+var hrdRecruitMonth=new Date().getMonth()+1;
+
+function _hrdKdkKey(y,m){return '_hrd_kdk_'+y+'_'+String(m).padStart(2,'0');}
+function _hrdKdkG(y,m){var d=okrData[_hrdKdkKey(y,m)];if(d)return d;return{abs:{aktif:null,temuan:0,ev:null,evName:null},kep:{aktif:null,temuan:0,ev:null,evName:null},snk:{jumlah:0,ev:null,evName:null},absScore:null,kepScore:null,snkScore:100,totalScore:null,savedAt:null,locked:false};}
+function _hrdKdkS(y,m,o){okrData[_hrdKdkKey(y,m)]=o;}
+function _hrdSimKey(s,y,m){return '_hrd_'+s+'_'+y+'_'+String(m).padStart(2,'0');}
+function _hrdSimG(s,y,m){return okrData[_hrdSimKey(s,y,m)]||{value:null,evidence:null,evidenceName:null,savedAt:null,locked:false};}
+function _hrdSimS(s,y,m,o){okrData[_hrdSimKey(s,y,m)]=o;}
+function _hrdRecKey(y,m){return '_hrd_rec_'+y+'_'+String(m).padStart(2,'0');}
+function _hrdRecG(y,m){return okrData[_hrdRecKey(y,m)]||{rows:[]};}
+function _hrdRecS(y,m,o){okrData[_hrdRecKey(y,m)]=o;}
+function _hrdKinKey(y,m){return '_hrd_kin_'+y+'_'+String(m).padStart(2,'0');}
+function _hrdKinG(y,m){return okrData[_hrdKinKey(y,m)]||{rows:[]};}
+function _hrdKinS(y,m,o){okrData[_hrdKinKey(y,m)]=o;}
+
+function hrdIsLinked(year,month){return year>2026||(year===2026&&month>=5);}
+function hrdSyncStore(year,month,value){
+  if(!hrdIsLinked(year,month))return;
+  var mk=year+'-'+String(month).padStart(2,'0');
+  if(!okrData[mk]||!okrData[mk]['Store'])return;
+  var divData=okrData[mk]['Store'];var rows=okrGetRows(divData);
+  rows.forEach(function(row){if(/kepatuhan.*kedisiplinan|kedisiplinan.*kepatuhan/i.test(row.keyResult))row.actual=value;});
+  if(typeof divData==='object'&&!Array.isArray(divData))divData.rows=rows;
+}
+function hrdSyncOKR(subId,year,month,value){
+  if(!hrdIsLinked(year,month))return;
+  var sub=HRD_OKR_SUBS.find(function(s){return s.id===subId;});if(!sub)return;
+  var mk=year+'-'+String(month).padStart(2,'0');
+  if(!okrData[mk]||!okrData[mk]['HRD'])return;
+  var divData=okrData[mk]['HRD'];var rows=okrGetRows(divData);
+  rows.forEach(function(row){if(sub.okrMatch(row.keyResult))row.actual=value;});
+  if(typeof divData==='object'&&!Array.isArray(divData))divData.rows=rows;
+}
+
+function hrdInit(){
+  if(!hrdYear)hrdYear=new Date().getFullYear();
+  var sel=document.getElementById('hrd-year-sel');
+  if(sel){sel.innerHTML='';var y=new Date().getFullYear();for(var i=y-1;i<=y+1;i++){var o=document.createElement('option');o.value=i;o.textContent=i;if(i===hrdYear)o.selected=true;sel.appendChild(o);}}
+  document.querySelectorAll('#panel-hrd .store-tab').forEach(function(t){t.classList.remove('active');});
+  var at=document.getElementById('hrd-tab-'+hrdCurSub);if(at)at.classList.add('active');
+  hrdRender();
+}
+function hrdYearChange(v){hrdYear=parseInt(v)||new Date().getFullYear();hrdRender();}
+function hrdShowSub(sub,btn){
+  hrdCurSub=sub;
+  document.querySelectorAll('#panel-hrd .store-tab').forEach(function(t){t.classList.remove('active');});
+  if(btn)btn.classList.add('active');hrdRender();
+}
+function hrdRender(){
+  if(hrdCurSub==='kdk')hrdRenderKdk();
+  else if(hrdCurSub==='kinerja')hrdRenderKinerja();
+  else if(hrdCurSub==='recruitment')hrdRenderRecruitment();
+  else hrdRenderSim(hrdCurSub);
+}
+
+// ── SUB1: Kedisiplinan & Kepatuhan Store ─────────────────────
+function hrdRenderKdk(){
+  var wrap=document.getElementById('hrd-content');if(!wrap)return;
+  var html='<div style="margin-bottom:4px;font-size:13px;color:var(--text-m);">Penilaian HRD per bulan: Absensi (40%) + Kepatuhan (40%) + Sanksi maks 3 (20%). Bukti wajib per seksi.</div>';
+  html+='<div style="display:grid;grid-template-columns:repeat(auto-fill,minmax(280px,1fr));gap:14px;margin-top:16px;">';
+  for(var mi=1;mi<=12;mi++){
+    var d=_hrdKdkG(hrdYear,mi);var locked=!!d.locked;
+    var absS=d.locked&&d.absScore!==null?d.absScore:null;
+    var kepS=d.locked&&d.kepScore!==null?d.kepScore:null;
+    var snkS=d.locked?d.snkScore:100;
+    var totS=d.locked&&d.totalScore!==null?d.totalScore:null;
+    html+='<div style="background:var(--bg2);border:1.5px solid '+(locked?'var(--success)':'var(--border)')+';border-radius:var(--radius);padding:14px;">';
+    html+='<div style="display:flex;align-items:center;justify-content:space-between;margin-bottom:10px;">';
+    html+='<div style="font-size:12px;font-weight:700;color:var(--text);">'+BULS[mi-1]+' '+hrdYear+'</div>';
+    if(locked&&totS!==null)html+='<span class="score-num '+scoreClass(totS)+'" style="font-size:1.1rem;">'+totS.toFixed(1)+'%</span>';
+    html+='</div>';
+    if(locked){
+      html+='<div style="display:flex;gap:5px;margin-bottom:10px;">';
+      if(absS!==null)html+='<div style="flex:1;background:var(--bg);border-radius:var(--radius-sm);padding:5px;text-align:center;font-size:11px;"><div style="color:var(--text-m);">Absensi</div><div class="score-num '+scoreClass(absS)+'" style="font-size:.9rem;">'+absS.toFixed(0)+'%</div></div>';
+      if(kepS!==null)html+='<div style="flex:1;background:var(--bg);border-radius:var(--radius-sm);padding:5px;text-align:center;font-size:11px;"><div style="color:var(--text-m);">Kepatuhan</div><div class="score-num '+scoreClass(kepS)+'" style="font-size:.9rem;">'+kepS.toFixed(0)+'%</div></div>';
+      html+='<div style="flex:1;background:var(--bg);border-radius:var(--radius-sm);padding:5px;text-align:center;font-size:11px;"><div style="color:var(--text-m);">Sanksi</div><div class="score-num '+scoreClass(snkS)+'" style="font-size:.9rem;">'+snkS.toFixed(0)+'%</div></div>';
+      html+='</div>';
+      html+='<div style="font-size:11px;color:var(--text-l);margin-bottom:8px;">'+(d.savedAt?new Date(d.savedAt).toLocaleDateString('id-ID'):'')+'</div>';
+      html+='<div style="display:flex;gap:5px;flex-wrap:wrap;">';
+      if(d.abs.ev)html+='<button onclick="hrdKdkViewEv('+mi+',\'abs\')" style="flex:1;min-width:50px;background:none;border:1.5px solid var(--border);color:var(--text-m);border-radius:var(--radius-sm);padding:4px 4px;cursor:pointer;font-size:10px;font-family:var(--font);">&#x1F441; Abs</button>';
+      if(d.kep.ev)html+='<button onclick="hrdKdkViewEv('+mi+',\'kep\')" style="flex:1;min-width:50px;background:none;border:1.5px solid var(--border);color:var(--text-m);border-radius:var(--radius-sm);padding:4px 4px;cursor:pointer;font-size:10px;font-family:var(--font);">&#x1F441; Kep</button>';
+      if(d.snk.ev)html+='<button onclick="hrdKdkViewEv('+mi+',\'snk\')" style="flex:1;min-width:50px;background:none;border:1.5px solid var(--border);color:var(--text-m);border-radius:var(--radius-sm);padding:4px 4px;cursor:pointer;font-size:10px;font-family:var(--font);">&#x1F441; Snk</button>';
+      html+='<button onclick="hrdKdkEdit('+mi+')" style="background:none;border:1.5px solid var(--border);color:var(--text-m);border-radius:var(--radius-sm);padding:4px 8px;cursor:pointer;font-size:11px;font-family:var(--font);">&#x270F;&#xFE0F;</button>';
+      html+='<button onclick="hrdKdkDelete('+mi+')" style="background:none;border:1.5px solid #fca5a5;color:#dc2626;border-radius:var(--radius-sm);padding:4px 8px;cursor:pointer;font-size:11px;font-family:var(--font);">&#x1F5D1;</button>';
+      html+='</div>';
+    }else{
+      html+='<div style="font-size:11px;font-weight:700;color:var(--primary);margin-bottom:5px;">1. Absensi <span style="color:var(--text-m);font-weight:400;">(40%)</span></div>';
+      html+='<div style="display:flex;gap:8px;margin-bottom:4px;flex-wrap:wrap;">';
+      html+='<div style="display:flex;align-items:center;gap:4px;"><label style="font-size:10px;color:var(--text-m);">Hari Aktif:</label><input type="number" id="hrd-kdk-aa-'+mi+'" min="1" max="31" value="'+(d.abs.aktif||'')+'" placeholder="22" style="width:55px;padding:4px 6px;border:1.5px solid var(--border);border-radius:var(--radius-sm);font-size:12px;font-family:var(--font);" oninput="hrdKdkCalc('+mi+')"></div>';
+      html+='<div style="display:flex;align-items:center;gap:4px;"><label style="font-size:10px;color:var(--text-m);">Temuan:</label><input type="number" id="hrd-kdk-at-'+mi+'" min="0" value="'+(d.abs.temuan||0)+'" style="width:50px;padding:4px 6px;border:1.5px solid var(--border);border-radius:var(--radius-sm);font-size:12px;font-family:var(--font);" oninput="hrdKdkCalc('+mi+')"></div>';
+      html+='</div>';
+      html+='<div style="margin-bottom:8px;"><label for="hrd-kdk-aev-'+mi+'" style="cursor:pointer;display:inline-flex;align-items:center;gap:4px;padding:3px 10px;border:1.5px '+(d.abs.ev?'solid var(--success)':'dashed var(--border)')+';border-radius:var(--radius-sm);font-size:11px;color:'+(d.abs.ev?'var(--success)':'var(--text-m)')+';">'+(d.abs.ev?'&#x2705; '+okrEsc(d.abs.evName||'OK'):'&#x1F4CE; Bukti Absensi')+'</label><input type="file" id="hrd-kdk-aev-'+mi+'" accept="image/*" style="display:none;" onchange="hrdKdkUpload('+mi+',\'abs\',this)"></div>';
+      html+='<div style="font-size:11px;font-weight:700;color:var(--primary);margin-bottom:5px;">2. Kepatuhan <span style="color:var(--text-m);font-weight:400;">(40%)</span></div>';
+      html+='<div style="display:flex;gap:8px;margin-bottom:4px;flex-wrap:wrap;">';
+      html+='<div style="display:flex;align-items:center;gap:4px;"><label style="font-size:10px;color:var(--text-m);">Hari Aktif:</label><input type="number" id="hrd-kdk-ka-'+mi+'" min="1" max="31" value="'+(d.kep.aktif||'')+'" placeholder="22" style="width:55px;padding:4px 6px;border:1.5px solid var(--border);border-radius:var(--radius-sm);font-size:12px;font-family:var(--font);" oninput="hrdKdkCalc('+mi+')"></div>';
+      html+='<div style="display:flex;align-items:center;gap:4px;"><label style="font-size:10px;color:var(--text-m);">Temuan:</label><input type="number" id="hrd-kdk-kt-'+mi+'" min="0" value="'+(d.kep.temuan||0)+'" style="width:50px;padding:4px 6px;border:1.5px solid var(--border);border-radius:var(--radius-sm);font-size:12px;font-family:var(--font);" oninput="hrdKdkCalc('+mi+')"></div>';
+      html+='</div>';
+      html+='<div style="margin-bottom:8px;"><label for="hrd-kdk-kev-'+mi+'" style="cursor:pointer;display:inline-flex;align-items:center;gap:4px;padding:3px 10px;border:1.5px '+(d.kep.ev?'solid var(--success)':'dashed var(--border)')+';border-radius:var(--radius-sm);font-size:11px;color:'+(d.kep.ev?'var(--success)':'var(--text-m)')+';">'+(d.kep.ev?'&#x2705; '+okrEsc(d.kep.evName||'OK'):'&#x1F4CE; Bukti Kepatuhan')+'</label><input type="file" id="hrd-kdk-kev-'+mi+'" accept="image/*" style="display:none;" onchange="hrdKdkUpload('+mi+',\'kep\',this)"></div>';
+      html+='<div style="font-size:11px;font-weight:700;color:var(--primary);margin-bottom:5px;">3. Sanksi <span style="color:var(--text-m);font-weight:400;">(20%, maks 3)</span></div>';
+      html+='<div style="display:flex;align-items:center;gap:8px;margin-bottom:5px;"><label style="font-size:10px;color:var(--text-m);">Jumlah:</label><input type="number" id="hrd-kdk-sn-'+mi+'" min="0" value="'+(d.snk.jumlah||0)+'" style="width:55px;padding:4px 6px;border:1.5px solid var(--border);border-radius:var(--radius-sm);font-size:12px;font-family:var(--font);" oninput="hrdKdkCalc('+mi+')"></div>';
+      html+='<div style="margin-bottom:8px;"><label for="hrd-kdk-sev-'+mi+'" style="cursor:pointer;display:inline-flex;align-items:center;gap:4px;padding:3px 10px;border:1.5px '+(d.snk.ev?'solid var(--success)':'dashed var(--border)')+';border-radius:var(--radius-sm);font-size:11px;color:'+(d.snk.ev?'var(--success)':'var(--text-m)')+';">'+(d.snk.ev?'&#x2705; '+okrEsc(d.snk.evName||'OK'):'&#x1F4CE; Bukti Sanksi')+'</label><input type="file" id="hrd-kdk-sev-'+mi+'" accept="image/*" style="display:none;" onchange="hrdKdkUpload('+mi+',\'snk\',this)"></div>';
+      html+='<div id="hrd-kdk-prev-'+mi+'" style="font-size:11px;color:var(--text-m);padding:5px 8px;background:var(--bg);border-radius:var(--radius-sm);margin-bottom:8px;">Estimasi score tampil setelah hari aktif diisi.</div>';
+      html+='<button onclick="hrdKdkSave('+mi+')" style="width:100%;background:var(--primary);border:none;color:#fff;border-radius:var(--radius-sm);padding:7px 0;cursor:pointer;font-family:var(--font);font-size:13px;font-weight:700;">&#x1F4BE; Simpan</button>';
+    }
+    html+='</div>';
+  }
+  html+='</div>';wrap.innerHTML=html;
+}
+function hrdKdkCalc(mi){
+  var aaEl=document.getElementById('hrd-kdk-aa-'+mi);var atEl=document.getElementById('hrd-kdk-at-'+mi);
+  var kaEl=document.getElementById('hrd-kdk-ka-'+mi);var ktEl=document.getElementById('hrd-kdk-kt-'+mi);
+  var snEl=document.getElementById('hrd-kdk-sn-'+mi);
+  var prev=document.getElementById('hrd-kdk-prev-'+mi);if(!prev)return;
+  var aa=aaEl?parseFloat(aaEl.value)||0:0;var at=atEl?parseFloat(atEl.value)||0:0;
+  var ka=kaEl?parseFloat(kaEl.value)||0:0;var kt=ktEl?parseFloat(ktEl.value)||0:0;
+  var sn=snEl?parseFloat(snEl.value)||0:0;
+  var absS=aa>0?(aa-Math.min(aa,at))/aa*100:null;var kepS=ka>0?(ka-Math.min(ka,kt))/ka*100:null;
+  var snkS=Math.max(0,(3-Math.min(sn,3))/3*100);
+  if(absS===null&&kepS===null){prev.textContent='Estimasi score tampil setelah hari aktif diisi.';return;}
+  var total=(absS!==null?absS:0)*0.4+(kepS!==null?kepS:0)*0.4+snkS*0.2;
+  var parts=[];if(absS!==null)parts.push('Abs:'+absS.toFixed(1)+'%');if(kepS!==null)parts.push('Kep:'+kepS.toFixed(1)+'%');parts.push('Snk:'+snkS.toFixed(1)+'%');
+  prev.innerHTML='<strong>Estimasi: '+total.toFixed(1)+'%</strong> | '+parts.join(' | ');
+}
+function hrdKdkUpload(mi,section,inp){
+  var file=inp.files[0];if(!file)return;
+  if(file.size>5*1024*1024){notify('File terlalu besar (maks 5MB).','error');inp.value='';return;}
+  function _sv(b64){
+    var d=_hrdKdkG(hrdYear,mi);
+    var aaEl=document.getElementById('hrd-kdk-aa-'+mi);var atEl=document.getElementById('hrd-kdk-at-'+mi);
+    var kaEl=document.getElementById('hrd-kdk-ka-'+mi);var ktEl=document.getElementById('hrd-kdk-kt-'+mi);var snEl=document.getElementById('hrd-kdk-sn-'+mi);
+    if(aaEl)d.abs.aktif=parseFloat(aaEl.value)||null;if(atEl)d.abs.temuan=parseFloat(atEl.value)||0;
+    if(kaEl)d.kep.aktif=parseFloat(kaEl.value)||null;if(ktEl)d.kep.temuan=parseFloat(ktEl.value)||0;
+    if(snEl)d.snk.jumlah=parseFloat(snEl.value)||0;
+    if(section==='abs'){d.abs.ev=b64;d.abs.evName=file.name;}else if(section==='kep'){d.kep.ev=b64;d.kep.evName=file.name;}else{d.snk.ev=b64;d.snk.evName=file.name;}
+    _hrdKdkS(hrdYear,mi,d);hrdRenderKdk();notify('Bukti diupload ✓');
+  }
+  var img_=new Image();var url=URL.createObjectURL(file);
+  img_.onload=function(){var c=document.createElement('canvas');var mxW=1400,mxH=1050,w=img_.width,h=img_.height;if(w>mxW){h=Math.round(h*mxW/w);w=mxW;}if(h>mxH){w=Math.round(w*mxH/h);h=mxH;}c.width=w;c.height=h;c.getContext('2d').drawImage(img_,0,0,w,h);URL.revokeObjectURL(url);_sv(c.toDataURL('image/jpeg',0.78));};
+  img_.onerror=function(){URL.revokeObjectURL(url);var r=new FileReader();r.onload=function(e){_sv(e.target.result);};r.readAsDataURL(file);};img_.src=url;
+}
+function hrdKdkSave(mi){
+  var d=_hrdKdkG(hrdYear,mi);
+  var aaEl=document.getElementById('hrd-kdk-aa-'+mi);var atEl=document.getElementById('hrd-kdk-at-'+mi);
+  var kaEl=document.getElementById('hrd-kdk-ka-'+mi);var ktEl=document.getElementById('hrd-kdk-kt-'+mi);var snEl=document.getElementById('hrd-kdk-sn-'+mi);
+  var aa=aaEl?parseFloat(aaEl.value)||0:0;var at=atEl?parseFloat(atEl.value)||0:0;
+  var ka=kaEl?parseFloat(kaEl.value)||0:0;var kt=ktEl?parseFloat(ktEl.value)||0:0;var sn=snEl?parseFloat(snEl.value)||0:0;
+  if(aa<=0){notify('Hari aktif Absensi wajib diisi.','error');return;}
+  if(!d.abs.ev){notify('Bukti Absensi wajib diupload.','error');return;}
+  if(ka<=0){notify('Hari aktif Kepatuhan wajib diisi.','error');return;}
+  if(!d.kep.ev){notify('Bukti Kepatuhan wajib diupload.','error');return;}
+  if(!d.snk.ev){notify('Bukti Sanksi wajib diupload.','error');return;}
+  d.abs.aktif=aa;d.abs.temuan=at;d.kep.aktif=ka;d.kep.temuan=kt;d.snk.jumlah=sn;
+  d.absScore=(aa-Math.min(aa,at))/aa*100;d.kepScore=(ka-Math.min(ka,kt))/ka*100;
+  d.snkScore=Math.max(0,(3-Math.min(sn,3))/3*100);d.totalScore=d.absScore*0.4+d.kepScore*0.4+d.snkScore*0.2;
+  d.savedAt=new Date().toISOString();d.locked=true;_hrdKdkS(hrdYear,mi,d);
+  hrdSyncStore(hrdYear,mi,Math.round(d.totalScore*100)/100);okrSaveLS();hrdRenderKdk();notify('Data '+BULS[mi-1]+' '+hrdYear+' tersimpan ✓');
+}
+function hrdKdkEdit(mi){if(!confirm('Buka kunci data '+BULS[mi-1]+' '+hrdYear+' untuk diedit?'))return;var d=_hrdKdkG(hrdYear,mi);d.locked=false;_hrdKdkS(hrdYear,mi,d);okrSaveLS();hrdRenderKdk();}
+function hrdKdkDelete(mi){if(!confirm('Hapus data '+BULS[mi-1]+' '+hrdYear+'?'))return;var key=_hrdKdkKey(hrdYear,mi);if(okrData[key])delete okrData[key];hrdSyncStore(hrdYear,mi,null);okrSaveLS();hrdRenderKdk();notify('Data dihapus.');}
+function hrdKdkViewEv(mi,section){var d=_hrdKdkG(hrdYear,mi);var ev=section==='abs'?d.abs.ev:section==='kep'?d.kep.ev:d.snk.ev;var evName=section==='abs'?d.abs.evName:section==='kep'?d.kep.evName:d.snk.evName;if(!ev){notify('Tidak ada bukti.','error');return;}document.getElementById('sem-name').textContent=evName||'Bukti';var img=document.getElementById('sem-img');if(ev.startsWith('data:image')){img.src=ev;img.style.display='block';}else{img.style.display='none';}document.getElementById('store-ev-modal').style.display='flex';}
+
+// ── SUBs 2,3,4: Monthly % grid ───────────────────────────────
+function hrdRenderSim(subId){
+  var wrap=document.getElementById('hrd-content');if(!wrap)return;
+  var desc={kedisiplinan:'Masukkan % tingkat kedisiplinan karyawan per bulan.',kpi:'Masukkan skor pencapaian KPI karyawan per bulan.',akurasi_adm:'Masukkan skor akurasi & ontime administrasi HR per bulan.'};
+  var html='<div style="margin-bottom:4px;font-size:13px;color:var(--text-m);">'+(desc[subId]||'')+'</div>';
+  html+='<div style="display:grid;grid-template-columns:repeat(auto-fill,minmax(200px,1fr));gap:12px;margin-top:16px;">';
+  for(var mi=1;mi<=12;mi++){
+    var d=_hrdSimG(subId,hrdYear,mi);var locked=!!d.locked;var hasVal=d.value!==null&&d.value!==undefined;
+    html+='<div style="background:var(--bg2);border:1.5px solid '+(locked?'var(--success)':'var(--border)')+';border-radius:var(--radius);padding:14px 12px;">';
+    html+='<div style="font-size:11px;font-weight:700;color:var(--text-m);margin-bottom:8px;">'+BULS[mi-1]+' '+hrdYear+'</div>';
+    if(locked){
+      html+='<div class="score-num '+(hasVal?scoreClass(d.value):'')+'" style="font-size:1.5rem;margin-bottom:6px;">'+(hasVal?d.value.toFixed(1)+'%':'—')+'</div>';
+      html+='<div style="font-size:11px;color:var(--text-l);margin-bottom:8px;">'+(d.savedAt?new Date(d.savedAt).toLocaleDateString('id-ID'):'')+'</div>';
+      html+='<div style="display:flex;gap:6px;">';
+      if(d.evidence)html+='<button onclick="hrdSimViewEv(\''+subId+'\','+mi+')" style="flex:1;background:none;border:1.5px solid var(--primary);color:var(--primary);border-radius:var(--radius-sm);padding:4px 6px;cursor:pointer;font-size:11px;font-family:var(--font);">&#x1F441; Bukti</button>';
+      html+='<button onclick="hrdSimEdit(\''+subId+'\','+mi+')" style="background:none;border:1.5px solid var(--border);color:var(--text-m);border-radius:var(--radius-sm);padding:4px 8px;cursor:pointer;font-size:11px;font-family:var(--font);">&#x270F;&#xFE0F;</button>';
+      html+='<button onclick="hrdSimDelete(\''+subId+'\','+mi+')" style="background:none;border:1.5px solid #fca5a5;color:#dc2626;border-radius:var(--radius-sm);padding:4px 8px;cursor:pointer;font-size:11px;font-family:var(--font);">&#x1F5D1;</button>';
+      html+='</div>';
+    }else{
+      html+='<input type="number" id="hrd-sim-val-'+subId+'-'+mi+'" min="0" max="100" step="0.01" placeholder="%" value="'+(hasVal?d.value:'')+'" style="width:100%;padding:7px 10px;border:1.5px solid var(--border);border-radius:var(--radius-sm);font-family:var(--font);font-size:14px;margin-bottom:8px;box-sizing:border-box;">';
+      html+='<label for="hrd-sim-ev-'+subId+'-'+mi+'" style="display:block;cursor:pointer;padding:5px 10px;border:1.5px '+(d.evidence?'solid var(--success)':'dashed var(--border)')+';border-radius:var(--radius-sm);font-size:12px;color:'+(d.evidence?'var(--success)':'var(--text-m)')+';margin-bottom:8px;text-align:center;overflow:hidden;text-overflow:ellipsis;white-space:nowrap;">'+(d.evidence?'&#x2705; '+okrEsc(d.evidenceName||'OK'):'&#x1F4CE; Upload Bukti')+'</label>';
+      html+='<input type="file" id="hrd-sim-ev-'+subId+'-'+mi+'" accept="image/*" style="display:none;" onchange="hrdSimUpload(\''+subId+'\','+mi+',this)">';
+      html+='<button onclick="hrdSimSave(\''+subId+'\','+mi+')" style="width:100%;background:var(--primary);border:none;color:#fff;border-radius:var(--radius-sm);padding:7px 0;cursor:pointer;font-family:var(--font);font-size:13px;font-weight:700;">&#x1F4BE; Simpan</button>';
+    }
+    html+='</div>';
+  }
+  html+='</div>';wrap.innerHTML=html;
+}
+function hrdSimUpload(subId,mi,inp){
+  var file=inp.files[0];if(!file)return;
+  if(file.size>5*1024*1024){notify('File terlalu besar (maks 5MB).','error');inp.value='';return;}
+  function _sv(b64){var d=_hrdSimG(subId,hrdYear,mi);var ve=document.getElementById('hrd-sim-val-'+subId+'-'+mi);if(ve&&ve.value.trim()!==''){var v=parseFloat(ve.value);if(!isNaN(v))d.value=Math.min(100,Math.max(0,v));}d.evidence=b64;d.evidenceName=file.name;_hrdSimS(subId,hrdYear,mi,d);hrdRenderSim(subId);notify('Bukti diupload ✓');}
+  var img_=new Image();var url=URL.createObjectURL(file);
+  img_.onload=function(){var c=document.createElement('canvas');var mxW=1400,mxH=1050,w=img_.width,h=img_.height;if(w>mxW){h=Math.round(h*mxW/w);w=mxW;}if(h>mxH){w=Math.round(w*mxH/h);h=mxH;}c.width=w;c.height=h;c.getContext('2d').drawImage(img_,0,0,w,h);URL.revokeObjectURL(url);_sv(c.toDataURL('image/jpeg',0.78));};
+  img_.onerror=function(){URL.revokeObjectURL(url);var r=new FileReader();r.onload=function(e){_sv(e.target.result);};r.readAsDataURL(file);};img_.src=url;
+}
+function hrdSimSave(subId,mi){
+  var d=_hrdSimG(subId,hrdYear,mi);var ve=document.getElementById('hrd-sim-val-'+subId+'-'+mi);
+  var val=ve?parseFloat(ve.value):NaN;
+  if(!ve||ve.value.trim()===''||isNaN(val)){notify('Isi nilai % terlebih dahulu.','error');return;}
+  val=Math.min(100,Math.max(0,val));if(!d.evidence){notify('Upload bukti terlebih dahulu.','error');return;}
+  d.value=val;d.savedAt=new Date().toISOString();d.locked=true;_hrdSimS(subId,hrdYear,mi,d);
+  hrdSyncOKR(subId,hrdYear,mi,Math.round(val*100)/100);okrSaveLS();hrdRenderSim(subId);notify('Data '+BULS[mi-1]+' '+hrdYear+' tersimpan ✓');
+}
+function hrdSimEdit(subId,mi){if(!confirm('Buka kunci data '+BULS[mi-1]+' '+hrdYear+' untuk diedit?'))return;var d=_hrdSimG(subId,hrdYear,mi);d.locked=false;_hrdSimS(subId,hrdYear,mi,d);okrSaveLS();hrdRenderSim(subId);}
+function hrdSimDelete(subId,mi){if(!confirm('Hapus data '+BULS[mi-1]+' '+hrdYear+'?'))return;var key=_hrdSimKey(subId,hrdYear,mi);if(okrData[key])delete okrData[key];hrdSyncOKR(subId,hrdYear,mi,null);okrSaveLS();hrdRenderSim(subId);notify('Data dihapus.');}
+function hrdSimViewEv(subId,mi){var d=_hrdSimG(subId,hrdYear,mi);if(!d.evidence){notify('Tidak ada bukti.','error');return;}document.getElementById('sem-name').textContent=d.evidenceName||'Bukti';var img=document.getElementById('sem-img');if(d.evidence.startsWith('data:image')){img.src=d.evidence;img.style.display='block';}else{img.style.display='none';}document.getElementById('store-ev-modal').style.display='flex';}
+
+// ── SUB5: Recruitment Time ────────────────────────────────────
+function _hrdRecRowScore(row){if(!row.deadline||!row.realisasi)return null;var dl=new Date(row.deadline+'T00:00:00');var rl=new Date(row.realisasi+'T00:00:00');var late=Math.max(0,Math.ceil((rl-dl)/86400000));return Math.max(0,(30-Math.min(late,30))/30*100);}
+function hrdRecMonthChange(m){hrdRecruitMonth=parseInt(m)||new Date().getMonth()+1;hrdRenderRecruitment();}
+function _hrdRecSyncAndSave(y,m){var data=_hrdRecG(y,m);var dr=(data.rows||[]).filter(function(r){return !r.editing&&r.request&&r.deadline&&r.realisasi;});if(dr.length>0){var avg=dr.map(function(r){return _hrdRecRowScore(r)||0;}).reduce(function(a,b){return a+b;},0)/dr.length;hrdSyncOKR('recruitment',y,m,Math.round(avg*100)/100);}else hrdSyncOKR('recruitment',y,m,null);okrSaveLS();}
+function hrdRenderRecruitment(){
+  var wrap=document.getElementById('hrd-content');if(!wrap)return;
+  var y=hrdYear,m=hrdRecruitMonth;var data=_hrdRecG(y,m);var rows=data.rows||[];
+  var dr=rows.filter(function(r){return !r.editing&&r.request&&r.deadline&&r.realisasi;});
+  var totalScore=dr.length>0?dr.map(function(r){return _hrdRecRowScore(r)||0;}).reduce(function(a,b){return a+b;},0)/dr.length:null;
+  var html='<div style="display:flex;align-items:center;gap:12px;margin-bottom:16px;flex-wrap:wrap;">';
+  html+='<span style="font-size:13px;font-weight:600;color:var(--text);">Pilih Bulan:</span>';
+  html+='<select id="hrd-rec-msel" onchange="hrdRecMonthChange(this.value)" class="store-year-sel">';
+  for(var mi=0;mi<12;mi++){html+='<option value="'+(mi+1)+'"'+(mi+1===m?' selected':'')+'>'+BULS[mi]+' '+y+'</option>';}
+  html+='</select></div>';
+  if(totalScore!==null){html+='<div style="display:flex;align-items:center;gap:16px;padding:14px 18px;background:var(--bg2);border:2px solid var(--primary);border-radius:var(--radius);margin-bottom:16px;flex-wrap:wrap;"><div><div style="font-size:11px;font-weight:600;color:var(--text-m);">SCORE RATA-RATA</div><div class="final-big '+scoreClass(totalScore)+'" style="font-size:2rem;">'+totalScore.toFixed(1)+'%</div></div><div style="font-size:12px;color:var(--text-m);">dari '+dr.length+' posisi tersimpan</div></div>';}
+  html+='<div class="card"><div style="font-size:14px;font-weight:700;color:var(--text);margin-bottom:4px;">Recruitment Time</div>';
+  html+='<div style="font-size:12px;color:var(--text-m);margin-bottom:14px;">Ontime = 100%. Keterlambatan hingga 30 hari turun linear ke 0%. Score = rata-rata semua posisi bulan ini.</div>';
+  html+='<div style="overflow-x:auto;"><table style="width:100%;border-collapse:collapse;min-width:600px;font-size:12px;">';
+  html+='<thead><tr style="border-bottom:2px solid var(--border);background:var(--bg);">';
+  ['No','Posisi / Request','Deadline','Realisasi (Offering)','Bukti','Score','Aksi'].forEach(function(h,i){html+='<th style="text-align:'+(i===0||i>=4?'center':'left')+';padding:8px 10px;color:var(--text-m);font-weight:600;white-space:nowrap;">'+h+'</th>';});
+  html+='</tr></thead><tbody>';
+  rows.forEach(function(row,idx){
+    var sc=_hrdRecRowScore(row);var complete=!row.editing&&row.request&&row.deadline&&row.realisasi;
+    var late=complete?Math.max(0,Math.ceil((new Date(row.realisasi+'T00:00:00')-new Date(row.deadline+'T00:00:00'))/86400000)):null;
+    if(row.editing){
+      html+='<tr style="background:var(--bg);border-bottom:1px solid var(--border);">';
+      html+='<td style="padding:8px 10px;text-align:center;color:var(--text-l);">'+(idx+1)+'</td>';
+      html+='<td style="padding:6px 8px;"><input id="hrd-rec-rq-'+idx+'" type="text" value="'+okrEsc(row.request||'')+'" placeholder="Nama posisi..." style="width:100%;padding:5px 8px;border:1.5px solid var(--border);border-radius:var(--radius-sm);font-family:var(--font);font-size:12px;box-sizing:border-box;"></td>';
+      html+='<td style="padding:6px 8px;"><input id="hrd-rec-dl-'+idx+'" type="date" value="'+okrEsc(row.deadline||'')+'" style="padding:5px 8px;border:1.5px solid var(--border);border-radius:var(--radius-sm);font-family:var(--font);font-size:12px;"></td>';
+      html+='<td style="padding:6px 8px;"><input id="hrd-rec-rl-'+idx+'" type="date" value="'+okrEsc(row.realisasi||'')+'" style="padding:5px 8px;border:1.5px solid var(--border);border-radius:var(--radius-sm);font-family:var(--font);font-size:12px;"></td>';
+      html+='<td style="padding:6px 8px;text-align:center;"><label for="hrd-rec-ev-'+idx+'" style="cursor:pointer;display:inline-flex;align-items:center;gap:3px;padding:4px 10px;border:1.5px '+(row.evidence?'solid var(--success)':'dashed var(--border)')+';border-radius:var(--radius-sm);font-size:11px;color:'+(row.evidence?'var(--success)':'var(--text-m)')+';">'+(row.evidence?'&#x2705;':'&#x1F4CE; Bukti')+'</label><input type="file" id="hrd-rec-ev-'+idx+'" accept="image/*" style="display:none;" onchange="hrdRecUploadRow('+idx+',this)"></td>';
+      html+='<td style="text-align:center;color:var(--text-l);">—</td>';
+      html+='<td style="padding:6px 8px;text-align:center;"><button onclick="hrdRecSaveRow('+idx+')" style="background:var(--primary);border:none;color:#fff;border-radius:var(--radius-sm);padding:5px 12px;cursor:pointer;font-size:11px;font-family:var(--font);">&#x2713; Simpan</button></td>';
+      html+='</tr>';
+    }else{
+      html+='<tr style="border-bottom:1px solid var(--border);">';
+      html+='<td style="padding:8px 10px;text-align:center;color:var(--text-l);">'+(idx+1)+'</td>';
+      html+='<td style="padding:8px 10px;font-weight:600;color:var(--text);">'+okrEsc(row.request||'—')+'</td>';
+      html+='<td style="padding:8px 10px;white-space:nowrap;">'+okrEsc(row.deadline||'—')+'</td>';
+      html+='<td style="padding:8px 10px;white-space:nowrap;">'+okrEsc(row.realisasi||'—')+(late!==null?'<br><span style="font-size:10px;color:'+(late===0?'var(--success)':'var(--danger)')+';">'+(late===0?'✓ Ontime':'Telat '+late+' hari')+'</span>':'')+'</td>';
+      html+='<td style="padding:8px 10px;text-align:center;">'+(row.evidence?'<button onclick="hrdRecViewEv('+idx+')" style="background:none;border:1.5px solid var(--primary);color:var(--primary);border-radius:var(--radius-sm);padding:3px 8px;cursor:pointer;font-size:11px;font-family:var(--font);">&#x1F441;</button>':'<span style="color:var(--text-l);">—</span>')+'</td>';
+      html+='<td style="padding:8px 10px;text-align:center;">'+(complete&&sc!==null?'<span class="score-num '+scoreClass(sc)+'" style="font-size:1rem;">'+sc.toFixed(1)+'%</span>':'<span style="color:var(--text-l);">—</span>')+'</td>';
+      html+='<td style="padding:8px 10px;text-align:center;white-space:nowrap;"><button onclick="hrdRecEditRow('+idx+')" style="background:none;border:1.5px solid var(--border);color:var(--text-m);border-radius:var(--radius-sm);padding:4px 8px;cursor:pointer;font-size:11px;font-family:var(--font);">&#x270F;&#xFE0F;</button> <button onclick="hrdRecDeleteRow('+idx+')" style="background:none;border:1.5px solid #fca5a5;color:#dc2626;border-radius:var(--radius-sm);padding:4px 8px;cursor:pointer;font-size:11px;font-family:var(--font);">&#x1F5D1;</button></td>';
+      html+='</tr>';
+    }
+  });
+  html+='<tr><td colspan="7" style="padding:10px;"><button onclick="hrdRecAddRow()" style="background:none;border:1.5px dashed var(--primary);color:var(--primary);border-radius:var(--radius-sm);padding:7px 20px;cursor:pointer;font-family:var(--font);font-size:13px;width:100%;">&#x2795; Tambah Posisi</button></td></tr>';
+  html+='</tbody></table></div></div>';wrap.innerHTML=html;
+}
+function hrdRecAddRow(){var data=_hrdRecG(hrdYear,hrdRecruitMonth);data.rows.push({request:'',deadline:'',realisasi:'',evidence:null,evidenceName:null,editing:true});_hrdRecS(hrdYear,hrdRecruitMonth,data);hrdRenderRecruitment();}
+function hrdRecSaveRow(idx){var data=_hrdRecG(hrdYear,hrdRecruitMonth);var row=data.rows[idx];if(!row)return;var rqEl=document.getElementById('hrd-rec-rq-'+idx);var dlEl=document.getElementById('hrd-rec-dl-'+idx);var rlEl=document.getElementById('hrd-rec-rl-'+idx);if(!rqEl||!dlEl||!rlEl)return;var request=(rqEl.value||'').trim();var deadline=dlEl.value;var realisasi=rlEl.value;if(!request){notify('Nama posisi wajib diisi.','error');return;}if(!deadline){notify('Deadline wajib diisi.','error');return;}if(!realisasi){notify('Tanggal realisasi wajib diisi.','error');return;}if(!row.evidence){notify('Bukti wajib diupload.','error');return;}row.request=request;row.deadline=deadline;row.realisasi=realisasi;row.editing=false;_hrdRecS(hrdYear,hrdRecruitMonth,data);_hrdRecSyncAndSave(hrdYear,hrdRecruitMonth);hrdRenderRecruitment();notify('Data disimpan ✓');}
+function hrdRecEditRow(idx){var data=_hrdRecG(hrdYear,hrdRecruitMonth);if(data.rows[idx])data.rows[idx].editing=true;_hrdRecS(hrdYear,hrdRecruitMonth,data);hrdRenderRecruitment();}
+function hrdRecDeleteRow(idx){if(!confirm('Hapus data ini?'))return;var data=_hrdRecG(hrdYear,hrdRecruitMonth);data.rows.splice(idx,1);_hrdRecS(hrdYear,hrdRecruitMonth,data);_hrdRecSyncAndSave(hrdYear,hrdRecruitMonth);hrdRenderRecruitment();notify('Data dihapus.');}
+function hrdRecUploadRow(idx,inp){
+  var file=inp.files[0];if(!file)return;
+  if(file.size>5*1024*1024){notify('File terlalu besar (maks 5MB).','error');inp.value='';return;}
+  function _sv(b64){var data=_hrdRecG(hrdYear,hrdRecruitMonth);var row=data.rows[idx];if(!row)return;var rqEl=document.getElementById('hrd-rec-rq-'+idx);var dlEl=document.getElementById('hrd-rec-dl-'+idx);var rlEl=document.getElementById('hrd-rec-rl-'+idx);if(rqEl)row.request=(rqEl.value||'').trim();if(dlEl)row.deadline=dlEl.value;if(rlEl)row.realisasi=rlEl.value;row.evidence=b64;row.evidenceName=file.name;_hrdRecS(hrdYear,hrdRecruitMonth,data);hrdRenderRecruitment();notify('Bukti diupload ✓');}
+  var img_=new Image();var url=URL.createObjectURL(file);
+  img_.onload=function(){var c=document.createElement('canvas');var mxW=1400,mxH=1050,w=img_.width,h=img_.height;if(w>mxW){h=Math.round(h*mxW/w);w=mxW;}if(h>mxH){w=Math.round(w*mxH/h);h=mxH;}c.width=w;c.height=h;c.getContext('2d').drawImage(img_,0,0,w,h);URL.revokeObjectURL(url);_sv(c.toDataURL('image/jpeg',0.78));};
+  img_.onerror=function(){URL.revokeObjectURL(url);var r=new FileReader();r.onload=function(e){_sv(e.target.result);};r.readAsDataURL(file);};img_.src=url;
+}
+function hrdRecViewEv(idx){var data=_hrdRecG(hrdYear,hrdRecruitMonth);var row=data.rows[idx];if(!row||!row.evidence){notify('Tidak ada bukti.','error');return;}document.getElementById('sem-name').textContent=row.evidenceName||'Bukti';var img=document.getElementById('sem-img');if(row.evidence.startsWith('data:image')){img.src=row.evidence;img.style.display='block';}else{img.style.display='none';}document.getElementById('store-ev-modal').style.display='flex';}
+
+// ── SUB6: Kinerja Karyawan (all months in one page) ──────────
+function _hrdKinMonthAvg(y,m){var data=_hrdKinG(y,m);var dr=(data.rows||[]).filter(function(r){return !r.editing&&r.nama&&r.score!==null&&r.score!==undefined;});return dr.length>0?dr.reduce(function(acc,r){return acc+r.score;},0)/dr.length:null;}
+function hrdRenderKinerja(){
+  var wrap=document.getElementById('hrd-content');if(!wrap)return;
+  var y=hrdYear;var html='<div style="margin-bottom:12px;font-size:13px;color:var(--text-m);">Data kinerja karyawan baru per bulan. Score = rata-rata skor seluruh karyawan tersimpan tiap bulan.</div>';
+  for(var mi=1;mi<=12;mi++){
+    var data=_hrdKinG(y,mi);var rows=data.rows||[];var avg=_hrdKinMonthAvg(y,mi);
+    var dr=rows.filter(function(r){return !r.editing&&r.nama&&r.score!==null;});
+    var _mi=mi;
+    html+='<div style="margin-bottom:14px;border:1.5px solid '+(dr.length>0?'var(--success)':'var(--border)')+';border-radius:var(--radius);overflow:hidden;">';
+    html+='<div style="display:flex;align-items:center;gap:10px;padding:9px 14px;background:var(--bg2);border-bottom:1px solid var(--border);">';
+    html+='<div style="font-size:13px;font-weight:700;color:var(--text);flex:1;">'+BULS[mi-1]+' '+y+'</div>';
+    if(avg!==null)html+='<span class="score-num '+scoreClass(avg)+'" style="font-size:1rem;">Avg: '+avg.toFixed(1)+'%</span>';
+    html+='<button onclick="hrdKinAddRow('+mi+')" style="background:none;border:1.5px dashed var(--primary);color:var(--primary);border-radius:var(--radius-sm);padding:3px 12px;cursor:pointer;font-size:12px;font-family:var(--font);">&#x2795; Tambah</button>';
+    html+='</div>';
+    if(rows.length===0){html+='<div style="padding:10px 14px;background:var(--bg);font-size:12px;color:var(--text-l);text-align:center;">Belum ada data karyawan</div>';}
+    else{
+      html+='<div style="overflow-x:auto;background:var(--bg);"><table style="width:100%;border-collapse:collapse;min-width:460px;font-size:12px;">';
+      html+='<thead><tr style="border-bottom:1px solid var(--border);">';
+      ['No','Nama Karyawan','Tgl Masuk','Score (%)','Bukti','Aksi'].forEach(function(h,i){html+='<th style="text-align:'+(i===0||i>=3?'center':'left')+';padding:7px 10px;color:var(--text-m);font-weight:600;white-space:nowrap;">'+h+'</th>';});
+      html+='</tr></thead><tbody>';
+      rows.forEach(function(row,idx){
+        if(row.editing){
+          html+='<tr style="background:var(--bg);border-bottom:1px solid var(--border);">';
+          html+='<td style="padding:6px 10px;text-align:center;color:var(--text-l);">'+(idx+1)+'</td>';
+          html+='<td style="padding:5px 8px;"><input id="hrd-kin-nm-'+_mi+'-'+idx+'" type="text" value="'+okrEsc(row.nama||'')+'" placeholder="Nama karyawan..." style="width:100%;padding:5px 8px;border:1.5px solid var(--border);border-radius:var(--radius-sm);font-family:var(--font);font-size:12px;box-sizing:border-box;"></td>';
+          html+='<td style="padding:5px 8px;"><input id="hrd-kin-tg-'+_mi+'-'+idx+'" type="date" value="'+okrEsc(row.tanggalMasuk||'')+'" style="padding:5px 8px;border:1.5px solid var(--border);border-radius:var(--radius-sm);font-family:var(--font);font-size:12px;"></td>';
+          html+='<td style="padding:5px 8px;text-align:center;"><input id="hrd-kin-sc-'+_mi+'-'+idx+'" type="number" min="0" max="100" step="0.01" value="'+(row.score!==null&&row.score!==undefined?row.score:'')+'" placeholder="%" style="width:70px;padding:5px 6px;border:1.5px solid var(--border);border-radius:var(--radius-sm);font-family:var(--font);font-size:12px;text-align:center;"></td>';
+          html+='<td style="padding:5px 8px;text-align:center;"><label for="hrd-kin-ev-'+_mi+'-'+idx+'" style="cursor:pointer;display:inline-flex;align-items:center;gap:3px;padding:4px 8px;border:1.5px '+(row.evidence?'solid var(--success)':'dashed var(--border)')+';border-radius:var(--radius-sm);font-size:11px;color:'+(row.evidence?'var(--success)':'var(--text-m)')+';">'+(row.evidence?'&#x2705;':'&#x1F4CE;')+'</label><input type="file" id="hrd-kin-ev-'+_mi+'-'+idx+'" accept="image/*" style="display:none;" onchange="hrdKinUploadRow('+_mi+','+idx+',this)"></td>';
+          html+='<td style="padding:5px 8px;text-align:center;"><button onclick="hrdKinSaveRow('+_mi+','+idx+')" style="background:var(--primary);border:none;color:#fff;border-radius:var(--radius-sm);padding:5px 12px;cursor:pointer;font-size:11px;font-family:var(--font);">&#x2713; Simpan</button></td>';
+          html+='</tr>';
+        }else{
+          html+='<tr style="border-bottom:1px solid var(--border);">';
+          html+='<td style="padding:7px 10px;text-align:center;color:var(--text-l);">'+(idx+1)+'</td>';
+          html+='<td style="padding:7px 10px;font-weight:600;color:var(--text);">'+okrEsc(row.nama||'—')+'</td>';
+          html+='<td style="padding:7px 10px;white-space:nowrap;">'+okrEsc(row.tanggalMasuk||'—')+'</td>';
+          html+='<td style="padding:7px 10px;text-align:center;">'+(row.score!==null&&row.score!==undefined?'<span class="score-num '+scoreClass(row.score)+'" style="font-size:1rem;">'+row.score.toFixed(1)+'%</span>':'—')+'</td>';
+          html+='<td style="padding:7px 10px;text-align:center;">'+(row.evidence?'<button onclick="hrdKinViewEv('+_mi+','+idx+')" style="background:none;border:1.5px solid var(--primary);color:var(--primary);border-radius:var(--radius-sm);padding:3px 8px;cursor:pointer;font-size:11px;font-family:var(--font);">&#x1F441;</button>':'<span style="color:var(--text-l);">—</span>')+'</td>';
+          html+='<td style="padding:7px 10px;text-align:center;white-space:nowrap;"><button onclick="hrdKinEditRow('+_mi+','+idx+')" style="background:none;border:1.5px solid var(--border);color:var(--text-m);border-radius:var(--radius-sm);padding:4px 8px;cursor:pointer;font-size:11px;font-family:var(--font);">&#x270F;&#xFE0F;</button> <button onclick="hrdKinDeleteRow('+_mi+','+idx+')" style="background:none;border:1.5px solid #fca5a5;color:#dc2626;border-radius:var(--radius-sm);padding:4px 8px;cursor:pointer;font-size:11px;font-family:var(--font);">&#x1F5D1;</button></td>';
+          html+='</tr>';
+        }
+      });
+      html+='</tbody></table></div>';
+    }
+    html+='</div>';
+  }
+  wrap.innerHTML=html;
+}
+function hrdKinAddRow(mi){var data=_hrdKinG(hrdYear,mi);data.rows.push({nama:'',tanggalMasuk:'',score:null,evidence:null,evidenceName:null,editing:true});_hrdKinS(hrdYear,mi,data);hrdRenderKinerja();}
+function hrdKinSaveRow(mi,idx){var data=_hrdKinG(hrdYear,mi);var row=data.rows[idx];if(!row)return;var nmEl=document.getElementById('hrd-kin-nm-'+mi+'-'+idx);var tgEl=document.getElementById('hrd-kin-tg-'+mi+'-'+idx);var scEl=document.getElementById('hrd-kin-sc-'+mi+'-'+idx);if(!nmEl||!scEl)return;var nama=(nmEl.value||'').trim();var tanggalMasuk=tgEl?tgEl.value:'';var score=parseFloat(scEl.value);if(!nama){notify('Nama karyawan wajib diisi.','error');return;}if(isNaN(score)||scEl.value.trim()===''){notify('Score wajib diisi.','error');return;}if(!row.evidence){notify('Bukti wajib diupload.','error');return;}row.nama=nama;row.tanggalMasuk=tanggalMasuk;row.score=Math.min(100,Math.max(0,score));row.editing=false;_hrdKinS(hrdYear,mi,data);var avg=_hrdKinMonthAvg(hrdYear,mi);if(avg!==null)hrdSyncOKR('kinerja',hrdYear,mi,Math.round(avg*100)/100);okrSaveLS();hrdRenderKinerja();notify('Data disimpan ✓');}
+function hrdKinEditRow(mi,idx){var data=_hrdKinG(hrdYear,mi);if(data.rows[idx])data.rows[idx].editing=true;_hrdKinS(hrdYear,mi,data);hrdRenderKinerja();}
+function hrdKinDeleteRow(mi,idx){if(!confirm('Hapus data karyawan ini?'))return;var data=_hrdKinG(hrdYear,mi);data.rows.splice(idx,1);_hrdKinS(hrdYear,mi,data);var avg=_hrdKinMonthAvg(hrdYear,mi);hrdSyncOKR('kinerja',hrdYear,mi,avg!==null?Math.round(avg*100)/100:null);okrSaveLS();hrdRenderKinerja();notify('Data dihapus.');}
+function hrdKinUploadRow(mi,idx,inp){
+  var file=inp.files[0];if(!file)return;
+  if(file.size>5*1024*1024){notify('File terlalu besar (maks 5MB).','error');inp.value='';return;}
+  function _sv(b64){var data=_hrdKinG(hrdYear,mi);var row=data.rows[idx];if(!row)return;var nmEl=document.getElementById('hrd-kin-nm-'+mi+'-'+idx);var tgEl=document.getElementById('hrd-kin-tg-'+mi+'-'+idx);var scEl=document.getElementById('hrd-kin-sc-'+mi+'-'+idx);if(nmEl)row.nama=(nmEl.value||'').trim();if(tgEl)row.tanggalMasuk=tgEl.value;if(scEl&&scEl.value.trim()!==''){var s=parseFloat(scEl.value);if(!isNaN(s))row.score=Math.min(100,Math.max(0,s));}row.evidence=b64;row.evidenceName=file.name;_hrdKinS(hrdYear,mi,data);hrdRenderKinerja();notify('Bukti diupload ✓');}
+  var img_=new Image();var url=URL.createObjectURL(file);
+  img_.onload=function(){var c=document.createElement('canvas');var mxW=1400,mxH=1050,w=img_.width,h=img_.height;if(w>mxW){h=Math.round(h*mxW/w);w=mxW;}if(h>mxH){w=Math.round(w*mxH/h);h=mxH;}c.width=w;c.height=h;c.getContext('2d').drawImage(img_,0,0,w,h);URL.revokeObjectURL(url);_sv(c.toDataURL('image/jpeg',0.78));};
+  img_.onerror=function(){URL.revokeObjectURL(url);var r=new FileReader();r.onload=function(e){_sv(e.target.result);};r.readAsDataURL(file);};img_.src=url;
+}
+function hrdKinViewEv(mi,idx){var data=_hrdKinG(hrdYear,mi);var row=data.rows[idx];if(!row||!row.evidence){notify('Tidak ada bukti.','error');return;}document.getElementById('sem-name').textContent=row.evidenceName||'Bukti';var img=document.getElementById('sem-img');if(row.evidence.startsWith('data:image')){img.src=row.evidence;img.style.display='block';}else{img.style.display='none';}document.getElementById('store-ev-modal').style.display='flex';}
+
 // ─── SAVING COST ───
 function calcSaving(){
   var total=Math.max(0,parseInt(document.getElementById('sv-total').value)||0);
