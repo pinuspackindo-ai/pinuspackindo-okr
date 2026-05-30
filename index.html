@@ -6615,7 +6615,7 @@ function talSaveRow(idx){
   row.tal=tal;row.deadline=dlEl?dlEl.value:'';row.target=(tgEl?tgEl.value:'').trim();
   row.bobot=Math.min(100,Math.max(0.01,bobot));
   row.progress=pEl&&pEl.value.trim()!==''?Math.min(100,Math.max(0,parseFloat(pEl.value)||0)):null;
-  if(talAdsanMode&&rEl)row.review=(rEl.value||'').trim();
+  if(rEl)row.review=(rEl.value||'').trim();
   row.editing=false;row.savedAt=new Date().toISOString();
   _talS(d,y,m,data);okrSaveLS();talRender();notify('TAL tersimpan ✓');
 }
@@ -6645,7 +6645,6 @@ function talSaveProgress(idx){
   _talS(d,y,m,data);okrSaveLS();talRender();notify('Progress diupdate ✓');
 }
 function talSaveReview(idx){
-  if(!talAdsanMode){notify('Mode Atasan diperlukan.','error');return;}
   var d=talCurDiv,y=talYear,m=talMonth;
   var data=_talG(d,y,m);var row=data.rows[idx];if(!row)return;
   var el=document.getElementById('tal-rli-'+idx);if(!el)return;
@@ -6666,14 +6665,6 @@ function talDuplicate(){
   cur.rows=newRows;_talS(d,y,m,cur);okrSaveLS();talRender();
   notify('Duplikat dari '+BULS[pm-1]+' '+py+' berhasil ✓');
 }
-function talToggleAtasan(){
-  var pin=prompt('Masukkan PIN Atasan:');
-  if(pin===null)return;
-  var sp=okrData._talPin||'tal2026';
-  if(pin===sp){talAdsanMode=true;talRender();notify('Mode Atasan aktif ✓');}
-  else{notify('PIN salah.','error');}
-}
-
 // ─── SAVING COST ───
 function calcSaving(){
   var total=Math.max(0,parseInt(document.getElementById('sv-total').value)||0);
