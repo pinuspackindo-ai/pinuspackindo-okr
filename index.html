@@ -6443,6 +6443,247 @@ function hrdKinUploadRow(mi,idx,inp){
 }
 function hrdKinViewEv(mi,idx){var data=_hrdKinG(hrdYear,mi);var row=data.rows[idx];if(!row||!row.evidence){notify('Tidak ada bukti.','error');return;}document.getElementById('sem-name').textContent=row.evidenceName||'Bukti';var img=document.getElementById('sem-img');if(row.evidence.startsWith('data:image')){img.src=row.evidence;img.style.display='block';}else{img.style.display='none';}document.getElementById('store-ev-modal').style.display='flex';}
 
+// ─── TAL MODULE ───
+var TAL_DIV_NAMES=['STORE','MARKETING','FINANCE','HRD','GENERAL AFFAIR','PURCHASING','IT','OPERASIONAL','MANAGEMENT'];
+var talCurDiv=0;
+var talYear=new Date().getFullYear();
+var talMonth=new Date().getMonth()+1;
+var talAdsanMode=false;
+
+function _talKey(d,y,m){return '_tal_d'+d+'_'+y+'_'+String(m).padStart(2,'0');}
+function _talG(d,y,m){return okrData[_talKey(d,y,m)]||{rows:[]};}
+function _talS(d,y,m,o){okrData[_talKey(d,y,m)]=o;}
+
+function talRowScore(row){
+  if(row.progress===null||row.progress===undefined||row.progress==='')return 0;
+  return Math.round(parseFloat(row.progress)*(row.bobot||0)/100*100)/100;
+}
+function talTotalScore(d,y,m){
+  return Math.round((_talG(d,y,m).rows||[]).filter(function(r){return !r.editing&&r.tal;}).reduce(function(acc,r){return acc+talRowScore(r);},0)*100)/100;
+}
+
+function talInit(){
+  talYear=new Date().getFullYear();
+  talMonth=new Date().getMonth()+1;
+  // Build division tabs
+  var tc=document.getElementById('tal-div-tabs');
+  if(tc){
+    tc.innerHTML='';
+    TAL_DIV_NAMES.forEach(function(nm,idx){
+      var b=document.createElement('button');
+      b.className='store-tab'+(idx===talCurDiv?' active':'');
+      b.id='tal-tab-'+idx;b.textContent=nm;
+      b.onclick=(function(i,el){return function(){talShowDiv(i,el);};})(idx,b);
+      tc.appendChild(b);
+    });
+  }
+  // Year selector
+  var ysel=document.getElementById('tal-year-sel');
+  if(ysel){ysel.innerHTML='';var cy=new Date().getFullYear();for(var i=cy-1;i<=cy+1;i++){var o=document.createElement('option');o.value=i;o.textContent=i;if(i===talYear)o.selected=true;ysel.appendChild(o);}}
+  // Month selector
+  var msel=document.getElementById('tal-month-sel');
+  if(msel){msel.innerHTML='';for(var mi=1;mi<=12;mi++){var o2=document.createElement('option');o2.value=mi;o2.textContent=BULS[mi-1];if(mi===talMonth)o2.selected=true;msel.appendChild(o2);}}
+  talRender();
+}
+function talYearChange(v){talYear=parseInt(v)||new Date().getFullYear();talRender();}
+function talMonthChange(v){talMonth=parseInt(v)||new Date().getMonth()+1;talRender();}
+function talShowDiv(idx,btn){
+  talCurDiv=idx;
+  document.querySelectorAll('#panel-tal .store-tab').forEach(function(t){t.classList.remove('active');});
+  if(btn)btn.classList.add('active');
+  talRender();
+}
+
+function talRender(){
+  var wrap=document.getElementById('tal-content');if(!wrap)return;
+  var d=talCurDiv,y=talYear,m=talMonth;
+  var data=_talG(d,y,m);var rows=data.rows||[];
+  var saved=rows.filter(function(r){return !r.editing&&r.tal;});
+  var total=talTotalScore(d,y,m);
+  var totalBobot=saved.reduce(function(acc,r){return acc+(r.bobot||0);},0);
+  var html='';
+
+  if(saved.length>0){
+    html+='<div style="display:flex;align-items:center;gap:16px;padding:14px 18px;background:var(--bg2);border:2px solid var(--primary);border-radius:var(--radius);margin-bottom:16px;flex-wrap:wrap;">';
+    html+='<div><div style="font-size:11px;font-weight:600;color:var(--text-m);">SCORE AKHIR</div>';
+    html+='<div class="final-big '+scoreClass(total)+'" style="font-size:2rem;">'+total.toFixed(2)+'</div></div>';
+    html+='<div style="font-size:12px;color:var(--text-m);">'+saved.length+' TAL &bull; Total bobot: <strong>'+totalBobot+'%</strong></div>';
+    html+='</div>';
+  }
+
+  html+='<div class="card">';
+  html+='<div style="display:flex;align-items:center;justify-content:space-between;margin-bottom:14px;gap:10px;flex-wrap:wrap;">';
+  html+='<div style="font-size:14px;font-weight:700;color:var(--text);">&#x1F4CB; TAL &mdash; <span style="color:var(--primary);">'+TAL_DIV_NAMES[d]+'</span> &nbsp;|&nbsp; '+BULS[m-1]+' '+y+'</div>';
+  html+='<div style="display:flex;gap:8px;flex-wrap:wrap;">';
+  html+='<button onclick="talDuplicate()" style="background:none;border:1.5px solid var(--border);color:var(--text-m);border-radius:var(--radius-sm);padding:6px 14px;cursor:pointer;font-size:12px;font-family:var(--font);">&#x1F4CB; Duplikat Bulan Lalu</button>';
+  if(talAdsanMode){html+='<button onclick="talAdsanMode=false;talRender();" style="background:#dcfce7;border:1.5px solid #16a34a;color:#16a34a;border-radius:var(--radius-sm);padding:6px 14px;cursor:pointer;font-size:12px;font-family:var(--font);">&#x1F513; Atasan Aktif</button>';}
+  else{html+='<button onclick="talToggleAtasan()" style="background:none;border:1.5px solid var(--border);color:var(--text-m);border-radius:var(--radius-sm);padding:6px 14px;cursor:pointer;font-size:12px;font-family:var(--font);">&#x1F512; Mode Atasan</button>';}
+  html+='<button onclick="talAddRow()" style="background:var(--primary);border:none;color:#fff;border-radius:var(--radius-sm);padding:6px 16px;cursor:pointer;font-size:12px;font-family:var(--font);font-weight:600;">&#x2795; Tambah TAL</button>';
+  html+='</div></div>';
+
+  if(rows.length===0){
+    html+='<div style="padding:36px;text-align:center;color:var(--text-l);font-size:13px;">Belum ada TAL untuk <strong>'+TAL_DIV_NAMES[d]+'</strong> — '+BULS[m-1]+' '+y+'.<br><br>Klik <strong style="color:var(--primary);">&#x2795; Tambah TAL</strong> atau <strong>Duplikat Bulan Lalu</strong>.</div>';
+  }else{
+    html+='<div style="overflow-x:auto;">';
+    html+='<table style="width:100%;border-collapse:collapse;font-size:12px;min-width:780px;">';
+    html+='<thead><tr style="border-bottom:2px solid var(--border);background:var(--bg);">';
+    ['No','TAL','Deadline','Target','Progress (%)','Bobot (%)','Score','Review Atasan','Aksi'].forEach(function(h,i){
+      html+='<th style="text-align:'+(i===0||i>=4?'center':'left')+';padding:9px 10px;color:var(--text-m);font-weight:600;white-space:nowrap;">'+h+'</th>';
+    });
+    html+='</tr></thead><tbody>';
+
+    rows.forEach(function(row,idx){
+      if(row.editing){
+        html+='<tr style="background:var(--bg);border-bottom:1px solid var(--border);">';
+        html+='<td style="padding:7px 8px;text-align:center;color:var(--text-l);">'+(idx+1)+'</td>';
+        html+='<td style="padding:5px 6px;min-width:160px;"><input id="tal-tal-'+idx+'" type="text" value="'+okrEsc(row.tal||'')+'" placeholder="Deskripsi TAL..." style="width:100%;padding:5px 8px;border:1.5px solid var(--border);border-radius:var(--radius-sm);font-family:var(--font);font-size:12px;box-sizing:border-box;"></td>';
+        html+='<td style="padding:5px 6px;"><input id="tal-dl-'+idx+'" type="date" value="'+okrEsc(row.deadline||'')+'" style="padding:5px 6px;border:1.5px solid var(--border);border-radius:var(--radius-sm);font-family:var(--font);font-size:12px;"></td>';
+        html+='<td style="padding:5px 6px;min-width:110px;"><input id="tal-tgt-'+idx+'" type="text" value="'+okrEsc(row.target||'')+'" placeholder="Target..." style="width:100%;padding:5px 8px;border:1.5px solid var(--border);border-radius:var(--radius-sm);font-family:var(--font);font-size:12px;box-sizing:border-box;"></td>';
+        html+='<td style="padding:5px 6px;text-align:center;"><input id="tal-prg-'+idx+'" type="number" min="0" max="100" step="0.01" value="'+(row.progress!==null&&row.progress!==undefined?row.progress:'')+'" placeholder="%" style="width:65px;padding:5px 6px;border:1.5px solid var(--border);border-radius:var(--radius-sm);font-family:var(--font);font-size:12px;text-align:center;"></td>';
+        html+='<td style="padding:5px 6px;text-align:center;"><input id="tal-bbt-'+idx+'" type="number" min="0.01" max="100" step="0.01" value="'+(row.bobot!==null&&row.bobot!==undefined?row.bobot:'')+'" placeholder="%" style="width:58px;padding:5px 6px;border:1.5px solid var(--border);border-radius:var(--radius-sm);font-family:var(--font);font-size:12px;text-align:center;"></td>';
+        html+='<td style="padding:5px 6px;text-align:center;color:var(--text-l);">—</td>';
+        html+='<td style="padding:5px 6px;">';
+        if(talAdsanMode){html+='<input id="tal-rvw-'+idx+'" type="text" value="'+okrEsc(row.review||'')+'" placeholder="Review atasan..." style="width:100%;padding:5px 8px;border:1.5px solid var(--border);border-radius:var(--radius-sm);font-family:var(--font);font-size:12px;box-sizing:border-box;">';}
+        else{html+='<span style="font-size:11px;color:var(--text-l);">&#x1F512; Mode Atasan</span>';}
+        html+='</td>';
+        html+='<td style="padding:5px 6px;text-align:center;white-space:nowrap;">';
+        html+='<button onclick="talSaveRow('+idx+')" style="background:var(--primary);border:none;color:#fff;border-radius:var(--radius-sm);padding:5px 12px;cursor:pointer;font-size:11px;font-family:var(--font);font-weight:600;">&#x2713; Simpan</button> ';
+        html+='<button onclick="talCancelEdit('+idx+')" style="background:none;border:1.5px solid var(--border);color:var(--text-m);border-radius:var(--radius-sm);padding:5px 8px;cursor:pointer;font-size:11px;font-family:var(--font);">&#x2715;</button>';
+        html+='</td></tr>';
+      }else{
+        var sc=talRowScore(row);
+        var hasPrg=row.progress!==null&&row.progress!==undefined&&row.progress!=='';
+        html+='<tr style="border-bottom:1px solid var(--border);">';
+        html+='<td style="padding:8px 10px;text-align:center;color:var(--text-l);">'+(idx+1)+'</td>';
+        html+='<td style="padding:8px 10px;font-weight:600;color:var(--text);">'+okrEsc(row.tal||'—')+'</td>';
+        html+='<td style="padding:8px 10px;white-space:nowrap;font-size:11px;color:var(--text-m);">'+okrEsc(row.deadline||'—')+'</td>';
+        html+='<td style="padding:8px 10px;color:var(--text-m);">'+okrEsc(row.target||'—')+'</td>';
+        // Progress — always inline editable
+        html+='<td style="padding:6px 8px;text-align:center;">';
+        html+='<div style="display:inline-flex;align-items:center;gap:4px;">';
+        html+='<input id="tal-pli-'+idx+'" type="number" min="0" max="100" step="0.01" value="'+(hasPrg?row.progress:'')+'" placeholder="%" style="width:62px;padding:4px 6px;border:1.5px solid '+(hasPrg?'var(--primary)':'var(--border)')+';border-radius:var(--radius-sm);font-family:var(--font);font-size:12px;text-align:center;">';
+        html+='<button onclick="talSaveProgress('+idx+')" style="background:var(--primary);border:none;color:#fff;border-radius:50%;width:22px;height:22px;cursor:pointer;font-size:12px;line-height:1;display:flex;align-items:center;justify-content:center;flex-shrink:0;">&#x2713;</button>';
+        html+='</div></td>';
+        // Bobot
+        html+='<td style="padding:8px 10px;text-align:center;color:var(--text-m);">'+(row.bobot||0)+'%</td>';
+        // Score = Progress × Bobot / 100
+        html+='<td style="padding:8px 10px;text-align:center;">';
+        if(hasPrg&&row.bobot){html+='<span class="score-num '+scoreClass(parseFloat(row.progress))+'" style="font-size:1rem;font-weight:700;">'+sc.toFixed(2)+'</span>';}
+        else{html+='<span style="color:var(--text-l);">—</span>';}
+        html+='</td>';
+        // Review Atasan
+        html+='<td style="padding:6px 8px;">';
+        if(talAdsanMode){
+          html+='<div style="display:flex;gap:4px;align-items:center;">';
+          html+='<input id="tal-rli-'+idx+'" type="text" value="'+okrEsc(row.review||'')+'" placeholder="Review..." style="flex:1;min-width:80px;padding:4px 8px;border:1.5px solid var(--border);border-radius:var(--radius-sm);font-family:var(--font);font-size:11px;">';
+          html+='<button onclick="talSaveReview('+idx+')" style="background:none;border:1.5px solid var(--primary);color:var(--primary);border-radius:50%;width:22px;height:22px;cursor:pointer;font-size:12px;display:flex;align-items:center;justify-content:center;flex-shrink:0;">&#x2713;</button>';
+          html+='</div>';
+        }else{
+          html+='<span style="font-size:12px;color:'+(row.review?'var(--text)':'var(--text-l)')+';">'+okrEsc(row.review||'—')+'</span>';
+        }
+        html+='</td>';
+        // Aksi
+        html+='<td style="padding:8px 10px;text-align:center;white-space:nowrap;">';
+        html+='<button onclick="talEditRow('+idx+')" style="background:none;border:1.5px solid var(--border);color:var(--text-m);border-radius:var(--radius-sm);padding:4px 8px;cursor:pointer;font-size:11px;font-family:var(--font);">&#x270F;&#xFE0F;</button> ';
+        html+='<button onclick="talDeleteRow('+idx+')" style="background:none;border:1.5px solid #fca5a5;color:#dc2626;border-radius:var(--radius-sm);padding:4px 8px;cursor:pointer;font-size:11px;font-family:var(--font);">&#x1F5D1;</button>';
+        html+='</td></tr>';
+      }
+    });
+
+    // Score Akhir footer
+    html+='<tr style="border-top:2px solid var(--border);background:var(--bg2);">';
+    html+='<td colspan="6" style="padding:11px 14px;font-weight:700;font-size:13px;color:var(--text);text-align:right;">&#x1F3AF; Score Akhir &nbsp;=&nbsp; &#x2211; (Progress &times; Bobot / 100)</td>';
+    html+='<td style="padding:11px 14px;text-align:center;">';
+    if(saved.length>0){html+='<span class="score-num '+scoreClass(total)+'" style="font-size:1.5rem;font-weight:800;">'+total.toFixed(2)+'</span>';}
+    else{html+='<span style="color:var(--text-l);">—</span>';}
+    html+='</td>';
+    html+='<td colspan="2" style="padding:11px 14px;"></td>';
+    html+='</tr>';
+
+    html+='</tbody></table></div>';
+  }
+  html+='</div>';
+  wrap.innerHTML=html;
+}
+
+function talAddRow(){
+  var d=talCurDiv,y=talYear,m=talMonth;
+  var data=_talG(d,y,m);
+  data.rows.push({tal:'',deadline:'',target:'',bobot:null,progress:null,review:'',editing:true,savedAt:null});
+  _talS(d,y,m,data);talRender();
+}
+function talSaveRow(idx){
+  var d=talCurDiv,y=talYear,m=talMonth;
+  var data=_talG(d,y,m);var row=data.rows[idx];if(!row)return;
+  var tEl=document.getElementById('tal-tal-'+idx);var dlEl=document.getElementById('tal-dl-'+idx);
+  var tgEl=document.getElementById('tal-tgt-'+idx);var pEl=document.getElementById('tal-prg-'+idx);
+  var bEl=document.getElementById('tal-bbt-'+idx);var rEl=document.getElementById('tal-rvw-'+idx);
+  if(!tEl)return;
+  var tal=(tEl.value||'').trim();if(!tal){notify('Deskripsi TAL wajib diisi.','error');return;}
+  var bobot=bEl&&bEl.value.trim()!==''?parseFloat(bEl.value):0;
+  if(!bobot||bobot<=0){notify('Bobot (%) wajib diisi dan > 0.','error');return;}
+  row.tal=tal;row.deadline=dlEl?dlEl.value:'';row.target=(tgEl?tgEl.value:'').trim();
+  row.bobot=Math.min(100,Math.max(0.01,bobot));
+  row.progress=pEl&&pEl.value.trim()!==''?Math.min(100,Math.max(0,parseFloat(pEl.value)||0)):null;
+  if(talAdsanMode&&rEl)row.review=(rEl.value||'').trim();
+  row.editing=false;row.savedAt=new Date().toISOString();
+  _talS(d,y,m,data);okrSaveLS();talRender();notify('TAL tersimpan ✓');
+}
+function talCancelEdit(idx){
+  var d=talCurDiv,y=talYear,m=talMonth;
+  var data=_talG(d,y,m);var row=data.rows[idx];if(!row)return;
+  if(!row.tal&&!row.savedAt){data.rows.splice(idx,1);}else{row.editing=false;}
+  _talS(d,y,m,data);talRender();
+}
+function talEditRow(idx){
+  var d=talCurDiv,y=talYear,m=talMonth;
+  var data=_talG(d,y,m);if(data.rows[idx])data.rows[idx].editing=true;
+  _talS(d,y,m,data);talRender();
+}
+function talDeleteRow(idx){
+  if(!confirm('Hapus TAL ini?'))return;
+  var d=talCurDiv,y=talYear,m=talMonth;
+  var data=_talG(d,y,m);data.rows.splice(idx,1);
+  _talS(d,y,m,data);okrSaveLS();talRender();notify('TAL dihapus.');
+}
+function talSaveProgress(idx){
+  var d=talCurDiv,y=talYear,m=talMonth;
+  var data=_talG(d,y,m);var row=data.rows[idx];if(!row)return;
+  var el=document.getElementById('tal-pli-'+idx);if(!el)return;
+  row.progress=el.value.trim()===''?null:Math.min(100,Math.max(0,parseFloat(el.value)||0));
+  row.savedAt=new Date().toISOString();
+  _talS(d,y,m,data);okrSaveLS();talRender();notify('Progress diupdate ✓');
+}
+function talSaveReview(idx){
+  if(!talAdsanMode){notify('Mode Atasan diperlukan.','error');return;}
+  var d=talCurDiv,y=talYear,m=talMonth;
+  var data=_talG(d,y,m);var row=data.rows[idx];if(!row)return;
+  var el=document.getElementById('tal-rli-'+idx);if(!el)return;
+  row.review=(el.value||'').trim();row.savedAt=new Date().toISOString();
+  _talS(d,y,m,data);okrSaveLS();talRender();notify('Review disimpan ✓');
+}
+function talDuplicate(){
+  var d=talCurDiv,y=talYear,m=talMonth;
+  var pm=m-1,py=y;if(pm<1){pm=12;py=y-1;}
+  var prev=_talG(d,py,pm);
+  if(!prev.rows||prev.rows.length===0){notify('Tidak ada data '+BULS[pm-1]+' '+py+' untuk diduplikat.','error');return;}
+  var cur=_talG(d,y,m);
+  if(cur.rows&&cur.rows.length>0){if(!confirm('Data '+BULS[m-1]+' '+y+' sudah ada. Lanjutkan dan gabungkan?'))return;}
+  var newRows=(cur.rows||[]).slice();
+  prev.rows.filter(function(r){return !r.editing&&r.tal;}).forEach(function(r){
+    newRows.push({tal:r.tal,deadline:r.deadline,target:r.target,bobot:r.bobot,progress:null,review:'',editing:false,savedAt:new Date().toISOString()});
+  });
+  cur.rows=newRows;_talS(d,y,m,cur);okrSaveLS();talRender();
+  notify('Duplikat dari '+BULS[pm-1]+' '+py+' berhasil ✓');
+}
+function talToggleAtasan(){
+  var pin=prompt('Masukkan PIN Atasan:');
+  if(pin===null)return;
+  var sp=okrData._talPin||'tal2026';
+  if(pin===sp){talAdsanMode=true;talRender();notify('Mode Atasan aktif ✓');}
+  else{notify('PIN salah.','error');}
+}
+
 // ─── SAVING COST ───
 function calcSaving(){
   var total=Math.max(0,parseInt(document.getElementById('sv-total').value)||0);
