@@ -5800,57 +5800,61 @@ function hrdRender(){
 }
 
 // ── SUB1: Kedisiplinan & Kepatuhan Store ─────────────────────
+function hrdKdkMonthChange(m){hrdKdkMonth=parseInt(m)||new Date().getMonth()+1;hrdRenderKdk();}
 function hrdRenderKdk(){
   var wrap=document.getElementById('hrd-content');if(!wrap)return;
-  var html='<div style="margin-bottom:4px;font-size:13px;color:var(--text-m);">Penilaian HRD per bulan: Absensi (40%) + Kepatuhan (40%) + Sanksi maks 3 (20%). Bukti wajib per seksi.</div>';
-  html+='<div style="display:grid;grid-template-columns:repeat(auto-fill,minmax(280px,1fr));gap:14px;margin-top:16px;">';
-  for(var mi=1;mi<=12;mi++){
-    var d=_hrdKdkG(hrdYear,mi);var locked=!!d.locked;
-    var absS=d.locked&&d.absScore!==null?d.absScore:null;
-    var kepS=d.locked&&d.kepScore!==null?d.kepScore:null;
-    var snkS=d.locked?d.snkScore:100;
-    var totS=d.locked&&d.totalScore!==null?d.totalScore:null;
-    html+='<div style="background:var(--bg2);border:1.5px solid '+(locked?'var(--success)':'var(--border)')+';border-radius:var(--radius);padding:14px;">';
-    html+='<div style="display:flex;align-items:center;justify-content:space-between;margin-bottom:10px;">';
-    html+='<div style="font-size:12px;font-weight:700;color:var(--text);">'+BULS[mi-1]+' '+hrdYear+'</div>';
-    if(locked&&totS!==null)html+='<span class="score-num '+scoreClass(totS)+'" style="font-size:1.1rem;">'+totS.toFixed(1)+'%</span>';
-    html+='</div>';
-    if(locked){
-      html+='<div style="display:flex;gap:5px;margin-bottom:10px;">';
-      if(absS!==null)html+='<div style="flex:1;background:var(--bg);border-radius:var(--radius-sm);padding:5px;text-align:center;font-size:11px;"><div style="color:var(--text-m);">Absensi</div><div class="score-num '+scoreClass(absS)+'" style="font-size:.9rem;">'+absS.toFixed(0)+'%</div></div>';
-      if(kepS!==null)html+='<div style="flex:1;background:var(--bg);border-radius:var(--radius-sm);padding:5px;text-align:center;font-size:11px;"><div style="color:var(--text-m);">Kepatuhan</div><div class="score-num '+scoreClass(kepS)+'" style="font-size:.9rem;">'+kepS.toFixed(0)+'%</div></div>';
-      html+='<div style="flex:1;background:var(--bg);border-radius:var(--radius-sm);padding:5px;text-align:center;font-size:11px;"><div style="color:var(--text-m);">Sanksi</div><div class="score-num '+scoreClass(snkS)+'" style="font-size:.9rem;">'+snkS.toFixed(0)+'%</div></div>';
-      html+='</div>';
-      html+='<div style="font-size:11px;color:var(--text-l);margin-bottom:8px;">'+(d.savedAt?new Date(d.savedAt).toLocaleDateString('id-ID'):'')+'</div>';
-      html+='<div style="display:flex;gap:5px;flex-wrap:wrap;">';
-      if(d.abs.ev)html+='<button onclick="hrdKdkViewEv('+mi+',\'abs\')" style="flex:1;min-width:50px;background:none;border:1.5px solid var(--border);color:var(--text-m);border-radius:var(--radius-sm);padding:4px 4px;cursor:pointer;font-size:10px;font-family:var(--font);">&#x1F441; Abs</button>';
-      if(d.kep.ev)html+='<button onclick="hrdKdkViewEv('+mi+',\'kep\')" style="flex:1;min-width:50px;background:none;border:1.5px solid var(--border);color:var(--text-m);border-radius:var(--radius-sm);padding:4px 4px;cursor:pointer;font-size:10px;font-family:var(--font);">&#x1F441; Kep</button>';
-      if(d.snk.ev)html+='<button onclick="hrdKdkViewEv('+mi+',\'snk\')" style="flex:1;min-width:50px;background:none;border:1.5px solid var(--border);color:var(--text-m);border-radius:var(--radius-sm);padding:4px 4px;cursor:pointer;font-size:10px;font-family:var(--font);">&#x1F441; Snk</button>';
-      html+='<button onclick="hrdKdkEdit('+mi+')" style="background:none;border:1.5px solid var(--border);color:var(--text-m);border-radius:var(--radius-sm);padding:4px 8px;cursor:pointer;font-size:11px;font-family:var(--font);">&#x270F;&#xFE0F;</button>';
-      html+='<button onclick="hrdKdkDelete('+mi+')" style="background:none;border:1.5px solid #fca5a5;color:#dc2626;border-radius:var(--radius-sm);padding:4px 8px;cursor:pointer;font-size:11px;font-family:var(--font);">&#x1F5D1;</button>';
-      html+='</div>';
-    }else{
-      html+='<div style="font-size:11px;font-weight:700;color:var(--primary);margin-bottom:5px;">1. Absensi <span style="color:var(--text-m);font-weight:400;">(40%)</span></div>';
-      html+='<div style="display:flex;gap:8px;margin-bottom:4px;flex-wrap:wrap;">';
-      html+='<div style="display:flex;align-items:center;gap:4px;"><label style="font-size:10px;color:var(--text-m);">Hari Aktif:</label><input type="number" id="hrd-kdk-aa-'+mi+'" min="1" max="31" value="'+(d.abs.aktif||'')+'" placeholder="22" style="width:55px;padding:4px 6px;border:1.5px solid var(--border);border-radius:var(--radius-sm);font-size:12px;font-family:var(--font);" oninput="hrdKdkCalc('+mi+')"></div>';
-      html+='<div style="display:flex;align-items:center;gap:4px;"><label style="font-size:10px;color:var(--text-m);">Temuan:</label><input type="number" id="hrd-kdk-at-'+mi+'" min="0" value="'+(d.abs.temuan||0)+'" style="width:50px;padding:4px 6px;border:1.5px solid var(--border);border-radius:var(--radius-sm);font-size:12px;font-family:var(--font);" oninput="hrdKdkCalc('+mi+')"></div>';
-      html+='</div>';
-      html+='<div style="margin-bottom:8px;"><label for="hrd-kdk-aev-'+mi+'" style="cursor:pointer;display:inline-flex;align-items:center;gap:4px;padding:3px 10px;border:1.5px '+(d.abs.ev?'solid var(--success)':'dashed var(--border)')+';border-radius:var(--radius-sm);font-size:11px;color:'+(d.abs.ev?'var(--success)':'var(--text-m)')+';">'+(d.abs.ev?'&#x2705; '+okrEsc(d.abs.evName||'OK'):'&#x1F4CE; Bukti Absensi')+'</label><input type="file" id="hrd-kdk-aev-'+mi+'" accept="image/*" style="display:none;" onchange="hrdKdkUpload('+mi+',\'abs\',this)"></div>';
-      html+='<div style="font-size:11px;font-weight:700;color:var(--primary);margin-bottom:5px;">2. Kepatuhan <span style="color:var(--text-m);font-weight:400;">(40%)</span></div>';
-      html+='<div style="display:flex;gap:8px;margin-bottom:4px;flex-wrap:wrap;">';
-      html+='<div style="display:flex;align-items:center;gap:4px;"><label style="font-size:10px;color:var(--text-m);">Hari Aktif:</label><input type="number" id="hrd-kdk-ka-'+mi+'" min="1" max="31" value="'+(d.kep.aktif||'')+'" placeholder="22" style="width:55px;padding:4px 6px;border:1.5px solid var(--border);border-radius:var(--radius-sm);font-size:12px;font-family:var(--font);" oninput="hrdKdkCalc('+mi+')"></div>';
-      html+='<div style="display:flex;align-items:center;gap:4px;"><label style="font-size:10px;color:var(--text-m);">Temuan:</label><input type="number" id="hrd-kdk-kt-'+mi+'" min="0" value="'+(d.kep.temuan||0)+'" style="width:50px;padding:4px 6px;border:1.5px solid var(--border);border-radius:var(--radius-sm);font-size:12px;font-family:var(--font);" oninput="hrdKdkCalc('+mi+')"></div>';
-      html+='</div>';
-      html+='<div style="margin-bottom:8px;"><label for="hrd-kdk-kev-'+mi+'" style="cursor:pointer;display:inline-flex;align-items:center;gap:4px;padding:3px 10px;border:1.5px '+(d.kep.ev?'solid var(--success)':'dashed var(--border)')+';border-radius:var(--radius-sm);font-size:11px;color:'+(d.kep.ev?'var(--success)':'var(--text-m)')+';">'+(d.kep.ev?'&#x2705; '+okrEsc(d.kep.evName||'OK'):'&#x1F4CE; Bukti Kepatuhan')+'</label><input type="file" id="hrd-kdk-kev-'+mi+'" accept="image/*" style="display:none;" onchange="hrdKdkUpload('+mi+',\'kep\',this)"></div>';
-      html+='<div style="font-size:11px;font-weight:700;color:var(--primary);margin-bottom:5px;">3. Sanksi <span style="color:var(--text-m);font-weight:400;">(20%, maks 3)</span></div>';
-      html+='<div style="display:flex;align-items:center;gap:8px;margin-bottom:5px;"><label style="font-size:10px;color:var(--text-m);">Jumlah:</label><input type="number" id="hrd-kdk-sn-'+mi+'" min="0" value="'+(d.snk.jumlah||0)+'" style="width:55px;padding:4px 6px;border:1.5px solid var(--border);border-radius:var(--radius-sm);font-size:12px;font-family:var(--font);" oninput="hrdKdkCalc('+mi+')"></div>';
-      html+='<div style="margin-bottom:8px;"><label for="hrd-kdk-sev-'+mi+'" style="cursor:pointer;display:inline-flex;align-items:center;gap:4px;padding:3px 10px;border:1.5px '+(d.snk.ev?'solid var(--success)':'dashed var(--border)')+';border-radius:var(--radius-sm);font-size:11px;color:'+(d.snk.ev?'var(--success)':'var(--text-m)')+';">'+(d.snk.ev?'&#x2705; '+okrEsc(d.snk.evName||'OK'):'&#x1F4CE; Bukti Sanksi')+'</label><input type="file" id="hrd-kdk-sev-'+mi+'" accept="image/*" style="display:none;" onchange="hrdKdkUpload('+mi+',\'snk\',this)"></div>';
-      html+='<div id="hrd-kdk-prev-'+mi+'" style="font-size:11px;color:var(--text-m);padding:5px 8px;background:var(--bg);border-radius:var(--radius-sm);margin-bottom:8px;">Estimasi score tampil setelah hari aktif diisi.</div>';
-      html+='<button onclick="hrdKdkSave('+mi+')" style="width:100%;background:var(--primary);border:none;color:#fff;border-radius:var(--radius-sm);padding:7px 0;cursor:pointer;font-family:var(--font);font-size:13px;font-weight:700;">&#x1F4BE; Simpan</button>';
-    }
-    html+='</div>';
+  var y=hrdYear,mi=hrdKdkMonth;
+  var html='<div style="display:flex;align-items:center;gap:12px;margin-bottom:16px;flex-wrap:wrap;">';
+  html+='<span style="font-size:13px;font-weight:600;color:var(--text);">Pilih Bulan:</span>';
+  html+='<select id="hrd-kdk-msel" onchange="hrdKdkMonthChange(this.value)" class="store-year-sel">';
+  for(var mo=0;mo<12;mo++){html+='<option value="'+(mo+1)+'"'+(mo+1===mi?' selected':'')+'>'+BULS[mo]+' '+y+'</option>';}
+  html+='</select></div>';
+  var d=_hrdKdkG(y,mi);var locked=!!d.locked;
+  var absS=locked&&d.absScore!==null?d.absScore:null;
+  var kepS=locked&&d.kepScore!==null?d.kepScore:null;
+  var snkS=locked?d.snkScore:100;
+  var totS=locked&&d.totalScore!==null?d.totalScore:null;
+  if(locked&&totS!==null){
+    html+='<div style="display:flex;align-items:center;gap:16px;padding:14px 18px;background:var(--bg2);border:2px solid var(--primary);border-radius:var(--radius);margin-bottom:16px;flex-wrap:wrap;">';
+    html+='<div><div style="font-size:11px;font-weight:600;color:var(--text-m);">SCORE TOTAL</div><div class="final-big '+scoreClass(totS)+'" style="font-size:2rem;">'+totS.toFixed(1)+'%</div></div>';
+    html+='<div style="display:flex;gap:10px;flex-wrap:wrap;">';
+    if(absS!==null)html+='<div style="background:var(--bg);border-radius:var(--radius-sm);padding:8px 14px;text-align:center;font-size:12px;"><div style="color:var(--text-m);">Absensi (40%)</div><div class="score-num '+scoreClass(absS)+'" style="font-size:1.1rem;">'+absS.toFixed(1)+'%</div></div>';
+    if(kepS!==null)html+='<div style="background:var(--bg);border-radius:var(--radius-sm);padding:8px 14px;text-align:center;font-size:12px;"><div style="color:var(--text-m);">Kepatuhan (40%)</div><div class="score-num '+scoreClass(kepS)+'" style="font-size:1.1rem;">'+kepS.toFixed(1)+'%</div></div>';
+    html+='<div style="background:var(--bg);border-radius:var(--radius-sm);padding:8px 14px;text-align:center;font-size:12px;"><div style="color:var(--text-m);">Sanksi (20%)</div><div class="score-num '+scoreClass(snkS)+'" style="font-size:1.1rem;">'+snkS.toFixed(1)+'%</div></div>';
+    html+='</div></div>';
   }
-  html+='</div>';wrap.innerHTML=html;
+  html+='<div class="card"><div style="font-size:14px;font-weight:700;color:var(--text);margin-bottom:4px;">&#x1F4CB; Kedisiplinan &amp; Kepatuhan Store — '+BULS[mi-1]+' '+y+'</div>';
+  html+='<div style="font-size:12px;color:var(--text-m);margin-bottom:14px;">Absensi (40%) + Kepatuhan (40%) + Sanksi maks 3 (20%). Bukti wajib per seksi.</div>';
+  if(locked){
+    html+='<div style="font-size:11px;color:var(--text-l);margin-bottom:12px;">Tersimpan: '+(d.savedAt?new Date(d.savedAt).toLocaleDateString('id-ID'):'')+'</div>';
+    html+='<div style="display:flex;gap:8px;flex-wrap:wrap;">';
+    if(d.abs.ev)html+='<button onclick="hrdKdkViewEv('+mi+',\'abs\')" style="background:none;border:1.5px solid var(--border);color:var(--text-m);border-radius:var(--radius-sm);padding:5px 12px;cursor:pointer;font-size:11px;font-family:var(--font);">&#x1F441; Bukti Absensi</button>';
+    if(d.kep.ev)html+='<button onclick="hrdKdkViewEv('+mi+',\'kep\')" style="background:none;border:1.5px solid var(--border);color:var(--text-m);border-radius:var(--radius-sm);padding:5px 12px;cursor:pointer;font-size:11px;font-family:var(--font);">&#x1F441; Bukti Kepatuhan</button>';
+    if(d.snk.ev)html+='<button onclick="hrdKdkViewEv('+mi+',\'snk\')" style="background:none;border:1.5px solid var(--border);color:var(--text-m);border-radius:var(--radius-sm);padding:5px 12px;cursor:pointer;font-size:11px;font-family:var(--font);">&#x1F441; Bukti Sanksi</button>';
+    html+='<button onclick="hrdKdkEdit('+mi+')" style="background:none;border:1.5px solid var(--border);color:var(--text-m);border-radius:var(--radius-sm);padding:5px 10px;cursor:pointer;font-size:11px;font-family:var(--font);">&#x270F;&#xFE0F; Edit</button>';
+    html+='<button onclick="hrdKdkDelete('+mi+')" style="background:none;border:1.5px solid #fca5a5;color:#dc2626;border-radius:var(--radius-sm);padding:5px 10px;cursor:pointer;font-size:11px;font-family:var(--font);">&#x1F5D1; Hapus</button>';
+    html+='</div>';
+  }else{
+    html+='<div style="font-size:12px;font-weight:700;color:var(--primary);margin-bottom:6px;">1. Absensi <span style="color:var(--text-m);font-weight:400;">(40%)</span></div>';
+    html+='<div style="display:flex;gap:12px;margin-bottom:8px;flex-wrap:wrap;">';
+    html+='<div style="display:flex;align-items:center;gap:6px;"><label style="font-size:11px;color:var(--text-m);">Hari Aktif:</label><input type="number" id="hrd-kdk-aa-'+mi+'" min="1" max="31" value="'+(d.abs.aktif||'')+'" placeholder="22" style="width:65px;padding:6px 8px;border:1.5px solid var(--border);border-radius:var(--radius-sm);font-size:13px;font-family:var(--font);" oninput="hrdKdkCalc('+mi+')"></div>';
+    html+='<div style="display:flex;align-items:center;gap:6px;"><label style="font-size:11px;color:var(--text-m);">Temuan:</label><input type="number" id="hrd-kdk-at-'+mi+'" min="0" value="'+(d.abs.temuan||0)+'" style="width:60px;padding:6px 8px;border:1.5px solid var(--border);border-radius:var(--radius-sm);font-size:13px;font-family:var(--font);" oninput="hrdKdkCalc('+mi+')"></div>';
+    html+='</div>';
+    html+='<div style="margin-bottom:14px;"><label for="hrd-kdk-aev-'+mi+'" style="cursor:pointer;display:inline-flex;align-items:center;gap:5px;padding:5px 14px;border:1.5px '+(d.abs.ev?'solid var(--success)':'dashed var(--border)')+';border-radius:var(--radius-sm);font-size:12px;color:'+(d.abs.ev?'var(--success)':'var(--text-m)')+';">'+(d.abs.ev?'&#x2705; '+okrEsc(d.abs.evName||'OK'):'&#x1F4CE; Bukti Absensi')+'</label><input type="file" id="hrd-kdk-aev-'+mi+'" accept="image/*" style="display:none;" onchange="hrdKdkUpload('+mi+',\'abs\',this)"></div>';
+    html+='<div style="font-size:12px;font-weight:700;color:var(--primary);margin-bottom:6px;">2. Kepatuhan <span style="color:var(--text-m);font-weight:400;">(40%)</span></div>';
+    html+='<div style="display:flex;gap:12px;margin-bottom:8px;flex-wrap:wrap;">';
+    html+='<div style="display:flex;align-items:center;gap:6px;"><label style="font-size:11px;color:var(--text-m);">Hari Aktif:</label><input type="number" id="hrd-kdk-ka-'+mi+'" min="1" max="31" value="'+(d.kep.aktif||'')+'" placeholder="22" style="width:65px;padding:6px 8px;border:1.5px solid var(--border);border-radius:var(--radius-sm);font-size:13px;font-family:var(--font);" oninput="hrdKdkCalc('+mi+')"></div>';
+    html+='<div style="display:flex;align-items:center;gap:6px;"><label style="font-size:11px;color:var(--text-m);">Temuan:</label><input type="number" id="hrd-kdk-kt-'+mi+'" min="0" value="'+(d.kep.temuan||0)+'" style="width:60px;padding:6px 8px;border:1.5px solid var(--border);border-radius:var(--radius-sm);font-size:13px;font-family:var(--font);" oninput="hrdKdkCalc('+mi+')"></div>';
+    html+='</div>';
+    html+='<div style="margin-bottom:14px;"><label for="hrd-kdk-kev-'+mi+'" style="cursor:pointer;display:inline-flex;align-items:center;gap:5px;padding:5px 14px;border:1.5px '+(d.kep.ev?'solid var(--success)':'dashed var(--border)')+';border-radius:var(--radius-sm);font-size:12px;color:'+(d.kep.ev?'var(--success)':'var(--text-m)')+';">'+(d.kep.ev?'&#x2705; '+okrEsc(d.kep.evName||'OK'):'&#x1F4CE; Bukti Kepatuhan')+'</label><input type="file" id="hrd-kdk-kev-'+mi+'" accept="image/*" style="display:none;" onchange="hrdKdkUpload('+mi+',\'kep\',this)"></div>';
+    html+='<div style="font-size:12px;font-weight:700;color:var(--primary);margin-bottom:6px;">3. Sanksi <span style="color:var(--text-m);font-weight:400;">(20%, maks 3)</span></div>';
+    html+='<div style="display:flex;align-items:center;gap:8px;margin-bottom:8px;"><label style="font-size:11px;color:var(--text-m);">Jumlah:</label><input type="number" id="hrd-kdk-sn-'+mi+'" min="0" value="'+(d.snk.jumlah||0)+'" style="width:65px;padding:6px 8px;border:1.5px solid var(--border);border-radius:var(--radius-sm);font-size:13px;font-family:var(--font);" oninput="hrdKdkCalc('+mi+')"></div>';
+    html+='<div style="margin-bottom:14px;"><label for="hrd-kdk-sev-'+mi+'" style="cursor:pointer;display:inline-flex;align-items:center;gap:5px;padding:5px 14px;border:1.5px '+(d.snk.ev?'solid var(--success)':'dashed var(--border)')+';border-radius:var(--radius-sm);font-size:12px;color:'+(d.snk.ev?'var(--success)':'var(--text-m)')+';">'+(d.snk.ev?'&#x2705; '+okrEsc(d.snk.evName||'OK'):'&#x1F4CE; Bukti Sanksi')+'</label><input type="file" id="hrd-kdk-sev-'+mi+'" accept="image/*" style="display:none;" onchange="hrdKdkUpload('+mi+',\'snk\',this)"></div>';
+    html+='<div id="hrd-kdk-prev-'+mi+'" style="font-size:12px;color:var(--text-m);padding:8px 12px;background:var(--bg);border-radius:var(--radius-sm);margin-bottom:12px;">Estimasi score tampil setelah hari aktif diisi.</div>';
+    html+='<button onclick="hrdKdkSave('+mi+')" style="background:var(--primary);border:none;color:#fff;border-radius:var(--radius-sm);padding:9px 28px;cursor:pointer;font-family:var(--font);font-size:13px;font-weight:700;">&#x1F4BE; Simpan '+BULS[mi-1]+' '+y+'</button>';
+  }
+  html+='</div>';
+  wrap.innerHTML=html;
 }
 function hrdKdkCalc(mi){
   var aaEl=document.getElementById('hrd-kdk-aa-'+mi);var atEl=document.getElementById('hrd-kdk-at-'+mi);
