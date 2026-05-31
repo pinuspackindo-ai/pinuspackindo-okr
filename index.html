@@ -1741,8 +1741,142 @@ function notify(msg,type='ok'){
   _nt=setTimeout(()=>el.classList.add('hidden'),3500);
 }
 
-function doLogout(){location.reload();}
+// ─── AUTH / LOGIN ─────────────────────────────────────────────
+var APP_USERS=['Owner','HRD','Internal Audit','General Affair','Purchasing',
+  'Inventory','Finance & Accounting','Store','Warehouse','Sales','Admin'];
+var APP_DEFAULT_PWD={
+  'Owner':'01','HRD':'02','Internal Audit':'03','General Affair':'04',
+  'Purchasing':'05','Inventory':'06','Finance & Accounting':'07','Store':'08',
+  'Warehouse':'09','Sales':'10','Admin':'11'
+};
+var APP_CUR_USER=null;
+
+function authGetPwd(u){
+  if(!okrData._userPwd) okrData._userPwd={};
+  return okrData._userPwd[u]||APP_DEFAULT_PWD[u]||'00';
+}
+function authUpdateBadge(){
+  var u=APP_CUR_USER||'';
+  var badge=document.getElementById('sb-user-badge');
+  var nameEl=document.getElementById('sb-user-name');
+  var avEl=document.getElementById('sb-user-avatar');
+  if(badge) badge.style.display=u?'flex':'none';
+  if(nameEl) nameEl.textContent=u||'—';
+  if(avEl) avEl.textContent=u?u.charAt(0).toUpperCase():'?';
+}
+function authInit(){
+  // populate login dropdown
+  var sel=document.getElementById('login-user-sel');
+  if(sel){
+    sel.innerHTML='<option value="">&#x2015; Pilih Username &#x2015;</option>';
+    APP_USERS.forEach(function(u){
+      var o=document.createElement('option');
+      o.value=u;o.textContent=u;
+      sel.appendChild(o);
+    });
+  }
+  // restore session
+  var u=sessionStorage.getItem('okrLoginUser');
+  if(u&&APP_USERS.indexOf(u)>=0){
+    APP_CUR_USER=u;
+    var ov=document.getElementById('login-overlay');
+    if(ov) ov.style.display='none';
+    authUpdateBadge();
+  }
+}
+function doLogin(){
+  var uname=(document.getElementById('login-user-sel').value||'').trim();
+  var pwd=(document.getElementById('login-pwd-input').value||'').trim();
+  var errEl=document.getElementById('login-err');
+  errEl.textContent='';
+  if(!uname){errEl.textContent='Pilih username terlebih dahulu.';return;}
+  if(!pwd){errEl.textContent='Password tidak boleh kosong.';return;}
+  okrLoad();
+  if(pwd===authGetPwd(uname)){
+    APP_CUR_USER=uname;
+    sessionStorage.setItem('okrLoginUser',uname);
+    var ov=document.getElementById('login-overlay');
+    if(ov) ov.style.display='none';
+    authUpdateBadge();
+    document.getElementById('login-pwd-input').value='';
+    document.getElementById('login-user-sel').value='';
+  }else{
+    errEl.textContent='Password salah. Silakan coba lagi.';
+    document.getElementById('login-pwd-input').value='';
+    document.getElementById('login-pwd-input').focus();
+  }
+}
+function doLogout(){
+  sessionStorage.removeItem('okrLoginUser');
+  location.reload();
+}
+function loginToggleEye(){
+  var inp=document.getElementById('login-pwd-input');
+  var btn=document.getElementById('login-eye-btn');
+  if(!inp) return;
+  var show=inp.type==='password';
+  inp.type=show?'text':'password';
+  btn.innerHTML=show?'&#x1F648;':'&#x1F441;';
+}
+
+// ─── PENGATURAN (GANTI PASSWORD) ──────────────────────────────
+var _settEyeOpen=false;
+function pengaturanRender(){
+  var wrap=document.getElementById('pengaturan-content');
+  if(!wrap) return;
+  var u=APP_CUR_USER||'—';
+  okrLoad();
+  var curPwd=authGetPwd(u);
+  _settEyeOpen=false;
+  wrap.innerHTML='<div class="sett-field-wrap">'+
+    '<span class="sett-label">Username</span>'+
+    '<div class="sett-value-box">'+okrEsc(u)+'</div>'+
+    '</div>'+
+    '<div class="sett-field-wrap">'+
+    '<span class="sett-label">Password Saat Ini</span>'+
+    '<div style="display:flex;gap:8px;align-items:stretch;">'+
+    '<div class="sett-value-box" id="sett-cur-pwd" data-pwd="'+okrEsc(curPwd)+'" style="flex:1;font-family:monospace;letter-spacing:6px;">&#x2022;&#x2022;&#x2022;&#x2022;</div>'+
+    '<button onclick="settToggleEye()" id="sett-eye-btn" style="padding:0 14px;background:none;border:1.5px solid var(--border);border-radius:var(--radius-sm);cursor:pointer;font-size:16px;line-height:1;color:var(--text-m);" title="Lihat password">&#x1F441;</button>'+
+    '</div>'+
+    '</div>'+
+    '<div class="sett-field-wrap">'+
+    '<span class="sett-label">Password Baru <span style="text-transform:none;font-weight:400;letter-spacing:0;">(maks. 4 angka)</span></span>'+
+    '<input id="sett-new-pwd" class="sett-input" type="password" inputmode="numeric" pattern="[0-9]*" maxlength="4" placeholder="&#x2022;&#x2022;&#x2022;&#x2022;" '+
+    'oninput="this.value=this.value.replace(/[^0-9]/g,\'\').slice(0,4)" '+
+    'onfocus="this.style.borderColor=\'var(--primary)\'" onblur="this.style.borderColor=\'var(--border)\'" '+
+    'onkeydown="if(event.key===\'Enter\')changePwd()">'+
+    '</div>'+
+    '<div id="sett-pwd-err" style="font-size:12px;color:var(--danger);min-height:18px;margin-bottom:14px;"></div>'+
+    '<button onclick="changePwd()" style="background:var(--primary);border:none;color:#fff;border-radius:var(--radius-sm);padding:11px 28px;cursor:pointer;font-size:14px;font-family:var(--font);font-weight:600;">&#x1F4BE; Simpan Password</button>';
+}
+function settToggleEye(){
+  var el=document.getElementById('sett-cur-pwd');
+  var btn=document.getElementById('sett-eye-btn');
+  if(!el) return;
+  _settEyeOpen=!_settEyeOpen;
+  el.innerHTML=_settEyeOpen?okrEsc(el.dataset.pwd):'&#x2022;&#x2022;&#x2022;&#x2022;';
+  el.style.letterSpacing=_settEyeOpen?'2px':'6px';
+  btn.innerHTML=_settEyeOpen?'&#x1F648;':'&#x1F441;';
+}
+function changePwd(){
+  var u=APP_CUR_USER;
+  if(!u){notify('Tidak ada user aktif.','error');return;}
+  var newPwd=(document.getElementById('sett-new-pwd').value||'').trim();
+  var errEl=document.getElementById('sett-pwd-err');
+  if(!newPwd){errEl.textContent='Password baru tidak boleh kosong.';return;}
+  if(!/^\d{1,4}$/.test(newPwd)){errEl.textContent='Password harus angka, maks. 4 digit.';return;}
+  okrLoad();
+  if(!okrData._userPwd) okrData._userPwd={};
+  okrData._userPwd[u]=newPwd;
+  okrSaveLS();
+  errEl.textContent='';
+  notify('Password berhasil diubah ✓');
+  pengaturanRender();
+}
+// ─────────────────────────────────────────────────────────────
+
 okrInit();
+authInit();
 
 // ══════════════════════════════════════════════════════════════
 // STORE MODULE — Data Operasional Bulanan
