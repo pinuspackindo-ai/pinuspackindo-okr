@@ -60,23 +60,46 @@ body{font-family:var(--font);background:var(--bg);color:var(--text);
   min-height:100vh;display:flex;font-size:14px;line-height:1.5;
   -webkit-font-smoothing:antialiased;}
 
-/* ── PASSWORD ── */
-#pwd-overlay{position:fixed;inset:0;z-index:8000;
+/* ── LOGIN ── */
+#login-overlay{position:fixed;inset:0;z-index:9000;
   background:linear-gradient(135deg,#1e3a5f 0%,#1e293b 100%);
   display:flex;flex-direction:column;align-items:center;justify-content:center;}
-.pwd-box{background:var(--bg2);border-radius:16px;padding:40px 44px;
-  text-align:center;box-shadow:0 24px 64px rgba(0,0,0,.28);width:380px;}
-.pwd-title{font-size:1.3rem;font-weight:700;color:var(--text);
-  letter-spacing:-.02em;margin-bottom:6px;}
-.pwd-sub{font-size:13px;color:var(--text-m);margin-bottom:28px;}
-.pwd-input{width:100%;padding:12px 16px;background:var(--bg);
-  border:1.5px solid var(--border);border-radius:var(--radius-sm);
-  color:var(--text);font-family:var(--font);font-size:15px;
-  letter-spacing:4px;text-align:center;outline:none;
-  margin-bottom:12px;transition:border-color .15s;}
-.pwd-input:focus{border-color:var(--primary);}
-.pwd-err{font-size:12px;color:var(--danger);min-height:18px;margin-bottom:10px;}
-.pwd-footer{font-size:11px;color:rgba(255,255,255,.38);margin-top:28px;}
+.login-box{background:var(--bg2);border-radius:18px;padding:40px 44px;
+  text-align:center;box-shadow:0 24px 64px rgba(0,0,0,.32);width:400px;max-width:94vw;}
+.login-logo{font-size:2.2rem;margin-bottom:10px;}
+.login-title{font-size:1.25rem;font-weight:700;color:var(--text);letter-spacing:-.02em;margin-bottom:4px;}
+.login-sub{font-size:13px;color:var(--text-m);margin-bottom:26px;}
+.login-label{font-size:11px;font-weight:600;color:var(--text-m);text-align:left;display:block;margin-bottom:5px;text-transform:uppercase;letter-spacing:.5px;}
+.login-sel{width:100%;padding:11px 14px;background:var(--bg);border:1.5px solid var(--border);
+  border-radius:var(--radius-sm);color:var(--text);font-family:var(--font);font-size:14px;
+  outline:none;margin-bottom:14px;transition:border-color .15s;cursor:pointer;appearance:auto;}
+.login-sel:focus{border-color:var(--primary);}
+.login-pwd-wrap{position:relative;margin-bottom:6px;}
+.login-pwd{width:100%;padding:11px 44px 11px 14px;background:var(--bg);border:1.5px solid var(--border);
+  border-radius:var(--radius-sm);color:var(--text);font-family:var(--font);font-size:16px;
+  letter-spacing:6px;text-align:center;outline:none;transition:border-color .15s;}
+.login-pwd:focus{border-color:var(--primary);}
+.login-eye{position:absolute;right:10px;top:50%;transform:translateY(-50%);
+  background:none;border:none;cursor:pointer;font-size:16px;line-height:1;color:var(--text-m);padding:4px;}
+.login-err{font-size:12px;color:var(--danger);min-height:18px;margin-bottom:12px;text-align:left;}
+.login-btn{width:100%;padding:12px;background:var(--primary);border:none;color:#fff;
+  border-radius:var(--radius-sm);font-family:var(--font);font-size:15px;font-weight:600;
+  cursor:pointer;transition:background .15s;margin-top:2px;}
+.login-btn:hover{background:var(--primary-d);}
+.login-footer{font-size:11px;color:rgba(255,255,255,.35);margin-top:28px;text-align:center;}
+/* Sidebar user badge */
+.sb-user-badge{display:flex;align-items:center;gap:8px;margin-top:10px;padding:8px 10px;
+  background:rgba(255,255,255,.07);border-radius:var(--radius-sm);border:1px solid var(--sb-border);}
+.sb-user-avatar{width:28px;height:28px;border-radius:50%;background:var(--primary);
+  display:flex;align-items:center;justify-content:center;font-size:12px;font-weight:700;color:#fff;flex-shrink:0;}
+.sb-user-name{font-size:12px;font-weight:600;color:#fff;white-space:nowrap;overflow:hidden;text-overflow:ellipsis;}
+.sb-user-role{font-size:10px;color:var(--sb-text);}
+/* Pengaturan panel */
+.sett-field-wrap{margin-bottom:16px;}
+.sett-label{font-size:12px;font-weight:600;color:var(--text-m);display:block;margin-bottom:6px;text-transform:uppercase;letter-spacing:.4px;}
+.sett-value-box{padding:10px 14px;background:var(--bg);border:1.5px solid var(--border);border-radius:var(--radius-sm);font-size:14px;font-weight:600;color:var(--text);}
+.sett-input{width:100%;padding:10px 14px;background:var(--bg);border:1.5px solid var(--border);border-radius:var(--radius-sm);font-size:15px;font-family:var(--font);outline:none;letter-spacing:4px;text-align:center;transition:border-color .15s;}
+.sett-input:focus{border-color:var(--primary);}
 
 /* ── SIDEBAR ── */
 .sidebar{width:240px;background:var(--sb-bg);display:flex;flex-direction:column;
