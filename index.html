@@ -5492,37 +5492,6 @@ function talDuplicate(){
   cur.rows=newRows;_talS(d,y,m,cur);okrSaveLS();talRender();
   notify('Duplikat dari '+BULS[pm-1]+' '+py+' berhasil ✓');
 }
-// ─── SAVING COST ───
-function calcSaving(){
-  var total=Math.max(0,parseInt(document.getElementById('sv-total').value)||0);
-  var saving=Math.max(0,parseInt(document.getElementById('sv-saving').value)||0);
-  saving=Math.min(saving,total);
-
-  if(total===0){
-    document.getElementById('sv-final-wrap').style.display='none';
-    document.getElementById('sv-result-row').style.display='none';
-    return;
-  }
-
-  var score=saving/total*100;
-  var cls=scoreClass(score);
-
-  // score akhir boxes
-  document.getElementById('sv-f-total').textContent=total;
-  document.getElementById('sv-f-saving').textContent=saving;
-  document.getElementById('sv-f-score').textContent=score.toFixed(1)+'%';
-  document.getElementById('sv-f-score').className='final-big '+cls;
-  document.getElementById('sv-bar').style.width=score.toFixed(1)+'%';
-  document.getElementById('sv-bar').className='progress-fill '+cls;
-  document.getElementById('sv-final-wrap').style.display='block';
-
-  // inline result row
-  var el=document.getElementById('sv-inline-val');
-  el.textContent=score.toFixed(1)+'%';
-  el.className='score-num '+cls;
-  document.getElementById('sv-inline-desc').textContent=saving+' dari '+total+' item berhasil saving';
-  document.getElementById('sv-result-row').style.display='flex';
-}
 </script>
 </body>
 </html>
