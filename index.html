@@ -3559,23 +3559,14 @@ const panelTitles={
   generalaffair:'General Affair — Data Operasional',
   hrd:'HRD — Data Operasional',
   tal:'TAL — Task Achievement List',
-  pengaturan:'Pengaturan Akun',
-  instock:'Analisa Instock',
-  po:'Analisa PO',
-  penerimaan:'Analisa Kualitas Penerimaan',
-  laporan:'Analisa Akurasi dan Ontime Laporan',
-  kedisiplinan:'Analisa Kepatuhan & Kedisiplinan',
-  saving:'Analisa Saving Cost'
+  pengaturan:'Pengaturan Akun'
 };
-var _lapCurrentDiv='fa';
 function showPanel(name,btn){
   document.querySelectorAll('.panel').forEach(function(p){p.classList.remove('active');});
   document.querySelectorAll('.nav-item').forEach(function(b){b.classList.remove('active');});
   document.getElementById('panel-'+name).classList.add('active');
   btn.classList.add('active');
   document.getElementById('topbar-title').textContent=panelTitles[name]||name;
-  document.getElementById('lap-subnav').style.display=name==='laporan'?'block':'none';
-  if(name==='laporan'){initLaporan();showLapDiv(_lapCurrentDiv,document.getElementById('nav-sub-'+_lapCurrentDiv));}
   if(name==='dashboard'){okrLoad();okrRender();}
   if(name==='store'){storeInit();}
   if(name==='distrib'){distribInit();}
@@ -3587,14 +3578,6 @@ function showPanel(name,btn){
   if(name==='hrd'){hrdInit();}
   if(name==='tal'){talInit();}
   if(name==='pengaturan'){pengaturanRender();}
-}
-function showLapDiv(div,btn){
-  _lapCurrentDiv=div;
-  ['fa','ga','inv'].forEach(function(d){document.getElementById('lap-div-'+d).style.display=d===div?'block':'none';});
-  document.querySelectorAll('.nav-sub').forEach(function(b){b.classList.remove('active');});
-  if(btn)btn.classList.add('active');
-  var nm={fa:'Finance & Accounting',ga:'General Affair',inv:'Inventory'};
-  document.getElementById('topbar-title').textContent='Analisa Laporan — '+nm[div];
 }
 
 // ─── FILE READY ───
