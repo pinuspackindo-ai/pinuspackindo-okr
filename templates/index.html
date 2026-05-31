@@ -376,13 +376,42 @@ tbody tr:hover td{background:var(--bg);}
 </head>
 <body>
 
-<!-- ═══════════════ PASSWORD OVERLAY ═══════════════ -->
+<!-- ═══════════════ LOGIN OVERLAY ═══════════════ -->
+<div id="login-overlay">
+  <div class="login-box">
+    <div class="login-logo">&#x1F4CA;</div>
+    <div class="login-title">Pinus Packindo</div>
+    <div class="login-sub">Tools OKR Internal &mdash; Silakan Login</div>
+    <label class="login-label" for="login-user-sel">Username</label>
+    <select id="login-user-sel" class="login-sel">
+      <option value="">&#x2015; Pilih Username &#x2015;</option>
+    </select>
+    <label class="login-label" for="login-pwd-input">Password</label>
+    <div class="login-pwd-wrap">
+      <input id="login-pwd-input" class="login-pwd" type="password"
+        maxlength="4" inputmode="numeric" pattern="[0-9]*"
+        placeholder="&#x2022;&#x2022;&#x2022;&#x2022;"
+        onkeydown="if(event.key==='Enter')doLogin()">
+      <button class="login-eye" id="login-eye-btn" onclick="loginToggleEye()" tabindex="-1" title="Lihat password">&#x1F441;</button>
+    </div>
+    <div class="login-err" id="login-err"></div>
+    <button class="login-btn" onclick="doLogin()">&#x1F513; Masuk</button>
+  </div>
+  <div class="login-footer">&#xa9; 2026 Pinus Packindo &nbsp;&middot;&nbsp; Data diproses lokal</div>
+</div>
 
 <!-- ═══════════════ SIDEBAR ═══════════════ -->
 <aside class="sidebar" id="sidebar">
   <div class="sidebar-logo">
     <div class="logo-title">Pinus Packindo</div>
     <div class="logo-sub">Tools OKR Pinus</div>
+    <div class="sb-user-badge" id="sb-user-badge" style="display:none;">
+      <div class="sb-user-avatar" id="sb-user-avatar">?</div>
+      <div style="min-width:0;">
+        <div class="sb-user-name" id="sb-user-name">—</div>
+        <div class="sb-user-role">User Aktif</div>
+      </div>
+    </div>
   </div>
   <nav class="sidebar-nav">
     <div class="nav-label">Utama</div>
@@ -409,9 +438,11 @@ tbody tr:hover td{background:var(--bg);}
     </div>
     <button class="nav-item" id="nav-kedisiplinan" onclick="showPanel('kedisiplinan',this)">Analisa Kepatuhan &amp; Kedisiplinan</button>
     <button class="nav-item" id="nav-saving" onclick="showPanel('saving',this)">Analisa Saving Cost</button>
+    <div class="nav-label" style="margin-top:10px;">Akun</div>
+    <button class="nav-item" id="nav-pengaturan" onclick="showPanel('pengaturan',this)">&#x2699;&#xFE0F; Pengaturan</button>
   </nav>
   <div class="sidebar-footer">
-    <button class="btn-logout" onclick="doLogout()">Logout</button>
+    <button class="btn-logout" onclick="doLogout()">&#x1F6AA; Logout</button>
     Upload: .xlsx / .xls / .csv<br>
     Data diproses lokal<br>
     Tidak dikirim ke server
@@ -475,6 +506,18 @@ tbody tr:hover td{background:var(--bg);}
         <div id="tal-div-tabs" class="store-tabs" style="margin-bottom:0;"></div>
       </div>
       <div id="tal-content"></div>
+    </div>
+
+    <!-- ════════ PANEL PENGATURAN ════════ -->
+    <div id="panel-pengaturan" class="panel">
+      <div style="margin-bottom:20px;">
+        <div style="font-size:18px;font-weight:800;color:var(--text);">&#x2699;&#xFE0F; Pengaturan Akun</div>
+        <div style="font-size:12px;color:var(--text-l);margin-top:3px;">Kelola password akun Anda</div>
+      </div>
+      <div class="card" style="max-width:440px;">
+        <div style="font-size:13px;font-weight:700;color:var(--text);margin-bottom:18px;padding-bottom:12px;border-bottom:1px solid var(--border);">&#x1F511; Ganti Password</div>
+        <div id="pengaturan-content"></div>
+      </div>
     </div>
 
     <!-- ════════ PANEL STORE ════════ -->
@@ -4180,6 +4223,7 @@ const panelTitles={
   generalaffair:'General Affair — Data Operasional',
   hrd:'HRD — Data Operasional',
   tal:'TAL — Task Achievement List',
+  pengaturan:'Pengaturan Akun',
   instock:'Analisa Instock',
   po:'Analisa PO',
   penerimaan:'Analisa Kualitas Penerimaan',
@@ -4209,6 +4253,7 @@ function showPanel(name,btn){
   if(name==='generalaffair'){gaInit();}
   if(name==='hrd'){hrdInit();}
   if(name==='tal'){talInit();}
+  if(name==='pengaturan'){pengaturanRender();}
 }
 function showLapDiv(div,btn){
   _lapCurrentDiv=div;
