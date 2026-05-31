@@ -6284,12 +6284,6 @@ function talDuplicate(){
   prev.rows.filter(function(r){return !r.editing&&r.tal;}).forEach(function(r){newRows.push({tal:r.tal,deadline:r.deadline,target:r.target,bobot:r.bobot,progress:null,review:'',editing:false,savedAt:new Date().toISOString()});});
   cur.rows=newRows;_talS(d,y,m,cur);okrSaveLS();talRender();notify('Duplikat dari '+BULS[pm-1]+' '+py+' berhasil ✓');
 }
-function talToggleAtasan(){
-  var pin=prompt('Masukkan PIN Atasan:');if(pin===null)return;
-  var sp=okrData._talPin||'tal2026';
-  if(pin===sp){talAdsanMode=true;talRender();notify('Mode Atasan aktif ✓');}else{notify('PIN salah.','error');}
-}
-
 // ─── SAVING COST ───
 function calcSaving(){
   var total=Math.max(0,parseInt(document.getElementById('sv-total').value)||0);
