@@ -360,6 +360,7 @@ tbody tr:hover td{background:var(--bg);}
     <button class="nav-item" id="nav-financeacc" onclick="showPanel('financeacc',this)">&#x1F4B0; Finance &amp; Accounting</button>
     <button class="nav-item" id="nav-generalaffair" onclick="showPanel('generalaffair',this)">&#x1F3E2; General Affair</button>
     <button class="nav-item" id="nav-hrd" onclick="showPanel('hrd',this)">&#x1F465; HRD</button>
+    <button class="nav-item" id="nav-ia" onclick="showPanel('ia',this)">&#x1F50D; Internal Audit</button>
     <div class="nav-label" style="margin-top:10px;">Akun</div>
     <button class="nav-item" id="nav-pengaturan" onclick="showPanel('pengaturan',this)">&#x2699;&#xFE0F; Pengaturan</button>
   </nav>
@@ -777,6 +778,30 @@ tbody tr:hover td{background:var(--bg);}
         </div>
       </div>
       <div id="hrd-content"></div>
+    </div>
+
+    <!-- ════════ PANEL INTERNAL AUDIT ════════ -->
+    <div id="panel-ia" class="panel">
+      <div style="position:sticky;top:53px;z-index:40;background:var(--bg);padding-bottom:16px;">
+        <div style="display:flex;align-items:flex-start;justify-content:space-between;margin-bottom:12px;gap:12px;flex-wrap:wrap;">
+          <div>
+            <div style="font-size:18px;font-weight:800;color:var(--text);">&#x1F50D; Internal Audit <span style="font-size:13px;font-weight:400;color:var(--text-m);">&#x2014; Data Operasional</span></div>
+            <div style="font-size:12px;color:var(--text-l);margin-top:3px;">Rekomendasi, laporan akurat &amp; ontime, dan project inisiatif proaktif</div>
+          </div>
+          <div style="display:flex;align-items:center;gap:8px;flex-wrap:wrap;">
+            <span style="font-size:12px;color:var(--text-m);">Bulan:</span>
+            <select id="ia-month-sel" class="store-year-sel" onchange="iaMonthChange(this.value)"></select>
+            <span style="font-size:12px;color:var(--text-m);">Tahun:</span>
+            <select id="ia-year-sel" class="store-year-sel" onchange="iaYearChange(this.value)"></select>
+          </div>
+        </div>
+        <div class="store-tabs">
+          <button class="store-tab active" onclick="iaShowSub('reko',this)">&#x1F4CB; Rekomendasi Audit</button>
+          <button class="store-tab" onclick="iaShowSub('rot',this)">&#x1F4CA; Report Akurat &amp; Ontime</button>
+          <button class="store-tab" onclick="iaShowSub('project',this)">&#x1F680; Project Baru</button>
+        </div>
+      </div>
+      <div id="ia-content"></div>
     </div>
 
   </div>
