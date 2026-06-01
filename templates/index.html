@@ -11416,8 +11416,8 @@ function talBuildDivCard(d,y,m){
         h+='<button onclick="talSaveReview('+d+','+idx+')" style="background:none;border:1.5px solid var(--primary);color:var(--primary);border-radius:50%;width:22px;height:22px;cursor:pointer;font-size:12px;display:flex;align-items:center;justify-content:center;flex-shrink:0;">&#x2713;</button>';
         h+='</div></td>';
         h+='<td style="padding:8px 10px;text-align:center;white-space:nowrap;">';
-        h+='<button onclick="talEditRow('+d+','+idx+')" style="background:none;border:1.5px solid var(--border);color:var(--text-m);border-radius:var(--radius-sm);padding:4px 8px;cursor:pointer;font-size:11px;font-family:var(--font);">&#x270F;&#xFE0F;</button> ';
-        h+='<button onclick="talDeleteRow('+d+','+idx+')" style="background:none;border:1.5px solid #fca5a5;color:#dc2626;border-radius:var(--radius-sm);padding:4px 8px;cursor:pointer;font-size:11px;font-family:var(--font);">&#x1F5D1;</button>';
+        if(isOwnerOrAdmin()){h+='<button onclick="talEditRow('+d+','+idx+')" style="background:none;border:1.5px solid var(--border);color:var(--text-m);border-radius:var(--radius-sm);padding:4px 8px;cursor:pointer;font-size:11px;font-family:var(--font);">&#x270F;&#xFE0F;</button> ';
+        h+='<button onclick="talDeleteRow('+d+','+idx+')" style="background:none;border:1.5px solid #fca5a5;color:#dc2626;border-radius:var(--radius-sm);padding:4px 8px;cursor:pointer;font-size:11px;font-family:var(--font);">&#x1F5D1;}</button>';
         h+='</td></tr>';
       }
     });
