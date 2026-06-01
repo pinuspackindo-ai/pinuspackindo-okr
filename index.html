@@ -967,6 +967,7 @@ function doLogin(){
     var ov=document.getElementById('login-overlay');
     if(ov) ov.style.display='none';
     authUpdateBadge();
+    authApplyAccess();
     document.getElementById('login-pwd-input').value='';
     document.getElementById('login-user-sel').value='';
   }else{
@@ -997,7 +998,7 @@ function pengaturanRender(){
   okrLoad();
   var curPwd=authGetPwd(u);
   _settEyeOpen=false;
-  wrap.innerHTML='<div class="sett-field-wrap">'+
+  wrap.innerHTML='<div class="card" style="max-width:480px;"><div style="font-size:13px;font-weight:700;color:var(--text);margin-bottom:18px;padding-bottom:12px;border-bottom:1px solid var(--border);">&#x1F511; Ganti Password</div>'+'<div class="sett-field-wrap">'+
     '<span class="sett-label">Username</span>'+
     '<div class="sett-value-box">'+okrEsc(u)+'</div>'+
     '</div>'+
