@@ -1,0 +1,421 @@
+// ─── INTERNAL AUDIT MODULE ───
+var IA_REKO_NAMES = ['Keuangan','Stock Opname Store','Stock Opname Warehouse',
+  'Purchasing','Inventory','Default Diary','Cartrack'];
+
+var IA_ROT_TYPES = [
+  {key:'keuangan',   label:'Keuangan',      deadline_label:'Setiap Minggu (Ahad)',  day:'sunday'},
+  {key:'stokopname', label:'Stock Opname',  deadline_label:'Setiap Selasa',         day:'tuesday'},
+  {key:'defaultdiary',label:'Default Diary',deadline_label:'Setiap Tgl 20',         day:'20'},
+  {key:'cartrack',   label:'Cartrack',      deadline_label:'Setiap Akhir Bulan',    day:'last'}
+];
+
+var _iaCurSub  = 'reko';
+var _iaCurYear = new Date().getFullYear();
+var _iaCurMonth= new Date().getMonth() + 1;
+var _iaRotCurType = 'keuangan';
+
+function iaInit(){
+  var msel=document.getElementById('ia-month-sel');
+  var ysel=document.getElementById('ia-year-sel');
+  if(!msel) return;
+  if(msel.options.length<=1){
+    BULS.forEach(function(mn,i){var o=document.createElement('option');o.value=i+1;o.textContent=mn;msel.appendChild(o);});
+  }
+  msel.value=_iaCurMonth;
+  if(ysel.options.length<=1){
+    var ty=new Date().getFullYear();
+    for(var y=ty-1;y<=ty+1;y++){var o=document.createElement('option');o.value=y;o.textContent=y;ysel.appendChild(o);}
+  }
+  ysel.value=_iaCurYear;
+  var firstTab=document.querySelector('#panel-ia .store-tab');
+  iaShowSub(_iaCurSub, firstTab);
+}
+
+function iaMonthChange(v){_iaCurMonth=parseInt(v);iaRefresh();}
+function iaYearChange(v){_iaCurYear=parseInt(v);iaRefresh();}
+function iaRefresh(){
+  if(_iaCurSub==='reko')    iaRekoRender();
+  else if(_iaCurSub==='rot')   iaRotRender();
+  else if(_iaCurSub==='project')iaProjRender();
+}
+function iaShowSub(sub,btn){
+  _iaCurSub=sub;
+  document.querySelectorAll('#panel-ia .store-tab').forEach(function(b){b.classList.remove('active');});
+  if(btn) btn.classList.add('active');
+  iaRefresh();
+}
+function iaMK(y,m){return y+'-'+String(m).padStart(2,'0');}
+
+function iaSyncOKR(krRegex,year,month,value){
+  var mk=iaMK(year,month);
+  if(!okrData[mk]) return;
+  var divData=okrData[mk]['Internal Audit'];
+  if(!divData) return;
+  var rows=okrGetRows(divData);
+  rows.forEach(function(row){if(krRegex.test(row.keyResult||'')) row.actual=value;});
+  okrSaveLS();
+}
+
+// ════ REKOMENDASI AUDIT ════
+function iaRekoKey(y,m){return '_ia_reko_'+y+'_'+String(m).padStart(2,'0');}
+function iaRekoLoad(y,m){
+  var raw=okrData[iaRekoKey(y,m)];
+  if(!raw) return {rows:IA_REKO_NAMES.map(function(n){return {namaAudit:n,score:'',evidence:'',evidenceName:'',locked:false};})};
+  // ensure all 7 rows exist
+  while(raw.rows.length<IA_REKO_NAMES.length){
+    raw.rows.push({namaAudit:IA_REKO_NAMES[raw.rows.length],score:'',evidence:'',evidenceName:'',locked:false});
+  }
+  return raw;
+}
+function iaRekoSave(y,m,data){
+  okrData[iaRekoKey(y,m)]=data;
+  var scores=data.rows.map(function(r){return parseFloat(r.score)||0;});
+  var avg=scores.reduce(function(a,b){return a+b;},0)/scores.length;
+  iaSyncOKR(/rekomendasi.*audit|implementasi.*rekomendasi/i,y,m,Math.round(avg*10)/10);
+  okrSaveLS();
+}
+function iaRekoRender(){
+  var data=iaRekoLoad(_iaCurYear,_iaCurMonth);
+  var rows=data.rows;
+  var anyScore=rows.some(function(r){return r.score!=='';});
+  var scores=rows.map(function(r){return parseFloat(r.score)||0;});
+  var avgScore=anyScore?(scores.reduce(function(a,b){return a+b;},0)/scores.length):null;
+
+  var h='<div class="card" style="overflow-x:auto;">';
+  h+='<div style="font-size:16px;font-weight:700;color:var(--acc);margin-bottom:16px;">📋 Rekomendasi Audit &nbsp;<span style="font-size:13px;font-weight:400;color:var(--tx2);">'+(BULS[_iaCurMonth-1]||'')+' '+_iaCurYear+'</span></div>';
+  if(avgScore!==null){
+    var cls=scoreClass(avgScore);
+    h+='<div style="margin-bottom:16px;padding:12px 16px;background:var(--bg);border-radius:10px;display:flex;align-items:center;gap:12px;"><span style="font-size:13px;color:var(--tx2);">Score Rata-rata Bulan Ini:</span><span class="'+cls+'" style="font-size:20px;font-weight:800;">'+avgScore.toFixed(1)+'%</span></div>';
+  }
+  h+='<table style="width:100%;border-collapse:collapse;font-size:13px;"><thead><tr style="background:var(--bg);">';
+  h+='<th style="padding:8px 10px;text-align:left;border-bottom:2px solid var(--brd);">No</th>';
+  h+='<th style="padding:8px 10px;text-align:left;border-bottom:2px solid var(--brd);">Nama Audit</th>';
+  h+='<th style="padding:8px 10px;text-align:center;border-bottom:2px solid var(--brd);width:120px;">Score (%)</th>';
+  h+='<th style="padding:8px 10px;text-align:center;border-bottom:2px solid var(--brd);width:160px;">Bukti</th>';
+  h+='<th style="padding:8px 10px;text-align:center;border-bottom:2px solid var(--brd);width:120px;">Aksi</th>';
+  h+='</tr></thead><tbody>';
+
+  rows.forEach(function(row,i){
+    var locked=!!row.locked;
+    var cls=row.score!==''?scoreClass(parseFloat(row.score)||0):'';
+    h+='<tr style="border-bottom:1px solid var(--brd);">';
+    h+='<td style="padding:8px 10px;">'+(i+1)+'</td>';
+    h+='<td style="padding:8px 10px;font-weight:600;">'+okrEsc(row.namaAudit)+'</td>';
+    h+='<td style="padding:8px 10px;text-align:center;">';
+    if(locked){h+='<span class="'+cls+'" style="font-size:15px;font-weight:700;">'+(row.score!==''?row.score+'%':'—')+'</span>';}
+    else{h+='<input type="number" min="0" max="100" style="width:80px;padding:4px 8px;border:1px solid var(--brd);border-radius:6px;background:var(--bg);color:var(--tx);text-align:center;" value="'+okrEsc(row.score)+'" id="ia-reko-score-'+i+'">';}
+    h+='</td><td style="padding:8px 10px;text-align:center;">';
+    if(locked){
+      if(row.evidence){h+='<button onclick="iaRekoViewEvidence('+i+')" style="background:none;border:none;color:var(--acc);cursor:pointer;font-size:13px;">📎 '+okrEsc(row.evidenceName||'Lihat')+'</button>';}
+      else{h+='<span style="color:var(--tx3);font-size:12px;">—</span>';}
+    }else{
+      h+='<div style="display:flex;flex-direction:column;align-items:center;gap:4px;">';
+      if(row.evidence){h+='<span style="font-size:11px;color:var(--acc);">📎 '+okrEsc(row.evidenceName||'File')+'</span>';}
+      h+='<label style="cursor:pointer;padding:4px 10px;background:var(--bg2);border:1px solid var(--brd);border-radius:6px;font-size:11px;">📁 Upload<input type="file" accept="image/*,.pdf" style="display:none;" onchange="iaRekoUpload(event,'+i+')"></label>';
+      h+='</div>';
+    }
+    h+='</td><td style="padding:8px 10px;text-align:center;">';
+    if(locked){h+='<button onclick="iaRekoEdit('+i+')" style="background:none;border:none;color:var(--acc);cursor:pointer;font-size:20px;" title="Edit">✏️</button>';}
+    else{h+='<button onclick="iaRekoSaveRow('+i+')" style="background:var(--acc);border:none;color:#fff;padding:4px 12px;border-radius:6px;cursor:pointer;font-size:12px;">Simpan</button>';}
+    h+='</td></tr>';
+  });
+  h+='</tbody></table></div>';
+  document.getElementById('ia-content').innerHTML=h;
+}
+function iaRekoUpload(event,i){
+  var file=event.target.files[0]; if(!file) return;
+  var reader=new FileReader();
+  reader.onload=function(e){
+    var data=iaRekoLoad(_iaCurYear,_iaCurMonth);
+    data.rows[i].evidence=e.target.result; data.rows[i].evidenceName=file.name;
+    iaRekoSave(_iaCurYear,_iaCurMonth,data); iaRekoRender();
+  }; reader.readAsDataURL(file);
+}
+function iaRekoEdit(i){
+  var data=iaRekoLoad(_iaCurYear,_iaCurMonth);
+  data.rows[i].locked=false; iaRekoSave(_iaCurYear,_iaCurMonth,data); iaRekoRender();
+}
+function iaRekoSaveRow(i){
+  var scoreEl=document.getElementById('ia-reko-score-'+i);
+  var scoreVal=scoreEl?scoreEl.value.trim():'';
+  var data=iaRekoLoad(_iaCurYear,_iaCurMonth);
+  if(scoreVal!==''&&!data.rows[i].evidence){alert('Upload bukti terlebih dahulu sebelum menyimpan score.');return;}
+  if(scoreVal!==''){
+    var num=parseFloat(scoreVal);
+    if(isNaN(num)||num<0||num>100){alert('Score harus antara 0–100.');return;}
+    data.rows[i].score=String(num);
+  }else{data.rows[i].score='';}
+  data.rows[i].locked=true; data.rows[i].savedAt=new Date().toISOString();
+  iaRekoSave(_iaCurYear,_iaCurMonth,data); iaRekoRender();
+}
+function iaRekoViewEvidence(i){
+  var data=iaRekoLoad(_iaCurYear,_iaCurMonth); var ev=data.rows[i].evidence; if(!ev) return;
+  var img=document.getElementById('sem-img');
+  if(ev.startsWith('data:image')){img.src=ev;img.style.display='block';}else{img.style.display='none';}
+  document.getElementById('store-ev-modal').style.display='flex';
+}
+
+// ════ REPORT AKURAT & ONTIME ════
+function iaRotKey(type,y,m){return '_ia_rot_'+type+'_'+y+'_'+String(m).padStart(2,'0');}
+function iaRotDeadlines(typeObj,year,month){
+  var deadlines=[]; var day=typeObj.day;
+  if(day==='sunday'){
+    var d=new Date(year,month-1,1);
+    while(d.getMonth()===month-1){if(d.getDay()===0)deadlines.push(new Date(d));d.setDate(d.getDate()+1);}
+  }else if(day==='tuesday'){
+    var d=new Date(year,month-1,1);
+    while(d.getMonth()===month-1){if(d.getDay()===2)deadlines.push(new Date(d));d.setDate(d.getDate()+1);}
+  }else if(day==='20'){
+    deadlines.push(new Date(year,month-1,20));
+  }else if(day==='last'){
+    deadlines.push(new Date(year,month,0));
+  }
+  return deadlines;
+}
+function iaRotLoad(typeKey,y,m){
+  var typeObj=IA_ROT_TYPES.find(function(t){return t.key===typeKey;});
+  var raw=okrData[iaRotKey(typeKey,y,m)];
+  var deadlines=iaRotDeadlines(typeObj,y,m);
+  if(!raw){
+    raw={rows:deadlines.map(function(d){return {deadline:d.toISOString().slice(0,10),submittedDate:'',temuan:'',evidence:'',evidenceName:'',locked:false};})};
+  }else{
+    while(raw.rows.length<deadlines.length){
+      raw.rows.push({deadline:deadlines[raw.rows.length].toISOString().slice(0,10),submittedDate:'',temuan:'',evidence:'',evidenceName:'',locked:false});
+    }
+  }
+  return raw;
+}
+function iaRotCalcScore(row){
+  if(!row.submittedDate||row.temuan==='') return null;
+  var deadline=new Date(row.deadline); var submitted=new Date(row.submittedDate);
+  var diffDays=Math.ceil((submitted-deadline)/(1000*60*60*24));
+  var late=Math.max(0,diffDays);
+  var ontimeScore=Math.max(0,50*(7-late)/7);
+  var akuratScore=Math.max(0,50-(parseInt(row.temuan)||0));
+  return Math.min(100,ontimeScore+akuratScore);
+}
+function iaRotSave(typeKey,y,m,data){
+  okrData[iaRotKey(typeKey,y,m)]=data;
+  iaRotSyncOKR(y,m); okrSaveLS();
+}
+function iaRotSyncOKR(y,m){
+  var typeScores=IA_ROT_TYPES.map(function(t){
+    var data=iaRotLoad(t.key,y,m);
+    var sc=data.rows.map(function(r){return iaRotCalcScore(r);}).filter(function(s){return s!==null;});
+    return sc.length?sc.reduce(function(a,b){return a+b;},0)/sc.length:0;
+  });
+  var overall=typeScores.reduce(function(a,b){return a+b;},0)/typeScores.length;
+  iaSyncOKR(/laporan.*audit|akurat.*on.?time|report.*akurat/i,y,m,Math.round(overall*10)/10);
+}
+function iaRotRender(){
+  var h='<div class="card">';
+  h+='<div style="font-size:16px;font-weight:700;color:var(--acc);margin-bottom:16px;">📊 Report Akurat &amp; Ontime &nbsp;<span style="font-size:13px;font-weight:400;color:var(--tx2);">'+(BULS[_iaCurMonth-1]||'')+' '+_iaCurYear+'</span></div>';
+
+  // Type tabs
+  h+='<div style="display:flex;gap:8px;flex-wrap:wrap;margin-bottom:16px;">';
+  IA_ROT_TYPES.forEach(function(t){
+    var active=_iaRotCurType===t.key?'background:var(--acc);color:#fff;':'background:var(--bg);color:var(--tx);';
+    h+='<button onclick="iaRotSetType(\''+t.key+'\')" style="'+active+'border:1px solid var(--brd);padding:6px 14px;border-radius:8px;cursor:pointer;font-size:12px;font-weight:600;">'+okrEsc(t.label)+'</button>';
+  });
+  h+='</div>';
+
+  // Overall
+  var typeScores=IA_ROT_TYPES.map(function(t){
+    var data=iaRotLoad(t.key,_iaCurYear,_iaCurMonth);
+    var sc=data.rows.map(function(r){return iaRotCalcScore(r);}).filter(function(s){return s!==null;});
+    return sc.length?sc.reduce(function(a,b){return a+b;},0)/sc.length:0;
+  });
+  var overall=typeScores.reduce(function(a,b){return a+b;},0)/typeScores.length;
+  h+='<div style="margin-bottom:16px;padding:12px 16px;background:var(--bg);border-radius:10px;display:flex;gap:24px;flex-wrap:wrap;align-items:center;">';
+  h+='<span style="font-size:13px;color:var(--tx2);">Score Overall: <span class="'+scoreClass(overall)+'" style="font-weight:800;font-size:18px;">'+overall.toFixed(1)+'%</span></span>';
+  IA_ROT_TYPES.forEach(function(t,idx){
+    h+='<span style="font-size:12px;color:var(--tx2);">'+okrEsc(t.label)+': <span class="'+scoreClass(typeScores[idx])+'" style="font-weight:700;">'+typeScores[idx].toFixed(1)+'%</span></span>';
+  });
+  h+='</div>';
+
+  var typeObj=IA_ROT_TYPES.find(function(t){return t.key===_iaRotCurType;});
+  var data=iaRotLoad(_iaRotCurType,_iaCurYear,_iaCurMonth);
+  h+='<div style="font-size:14px;font-weight:600;color:var(--tx);margin-bottom:12px;">'+okrEsc(typeObj.label)+' — '+okrEsc(typeObj.deadline_label)+'</div>';
+  h+='<div style="overflow-x:auto;"><table style="width:100%;border-collapse:collapse;font-size:12px;"><thead><tr style="background:var(--bg);">';
+  h+='<th style="padding:7px 8px;text-align:left;border-bottom:2px solid var(--brd);">Deadline</th>';
+  h+='<th style="padding:7px 8px;text-align:left;border-bottom:2px solid var(--brd);">Tgl Submit</th>';
+  h+='<th style="padding:7px 8px;text-align:center;border-bottom:2px solid var(--brd);width:80px;">Temuan</th>';
+  h+='<th style="padding:7px 8px;text-align:center;border-bottom:2px solid var(--brd);width:90px;">Score</th>';
+  h+='<th style="padding:7px 8px;text-align:center;border-bottom:2px solid var(--brd);width:150px;">Bukti</th>';
+  h+='<th style="padding:7px 8px;text-align:center;border-bottom:2px solid var(--brd);width:100px;">Aksi</th>';
+  h+='</tr></thead><tbody>';
+
+  data.rows.forEach(function(row,i){
+    var locked=!!row.locked;
+    var score=iaRotCalcScore(row);
+    h+='<tr style="border-bottom:1px solid var(--brd);">';
+    h+='<td style="padding:7px 8px;font-weight:600;">'+okrEsc(row.deadline)+'</td>';
+    h+='<td style="padding:7px 8px;">';
+    if(locked){h+=okrEsc(row.submittedDate||'—');}
+    else{h+='<input type="date" style="padding:3px 6px;border:1px solid var(--brd);border-radius:6px;background:var(--bg);color:var(--tx);font-size:11px;" value="'+okrEsc(row.submittedDate||'')+'" id="ia-rot-date-'+i+'">';}
+    h+='</td><td style="padding:7px 8px;text-align:center;">';
+    if(locked){h+=okrEsc(row.temuan!==''?row.temuan:'—');}
+    else{h+='<input type="number" min="0" style="width:60px;padding:3px 6px;border:1px solid var(--brd);border-radius:6px;background:var(--bg);color:var(--tx);text-align:center;font-size:11px;" value="'+okrEsc(row.temuan||'')+'" id="ia-rot-temuan-'+i+'">';}
+    h+='</td><td style="padding:7px 8px;text-align:center;">';
+    if(score!==null){h+='<span class="'+scoreClass(score)+'" style="font-weight:700;">'+score.toFixed(1)+'</span>';}
+    else{h+='<span style="color:var(--tx3);">—</span>';}
+    h+='</td><td style="padding:7px 8px;text-align:center;">';
+    if(locked){
+      if(row.evidence){h+='<button onclick="iaRotViewEvidence(\''+_iaRotCurType+'\','+i+')" style="background:none;border:none;color:var(--acc);cursor:pointer;font-size:11px;">📎 '+okrEsc(row.evidenceName||'Lihat')+'</button>';}
+      else{h+='<span style="color:var(--tx3);font-size:11px;">—</span>';}
+    }else{
+      h+='<div style="display:flex;flex-direction:column;align-items:center;gap:3px;">';
+      if(row.evidence){h+='<span style="font-size:10px;color:var(--acc);">📎 '+okrEsc(row.evidenceName||'File')+'</span>';}
+      h+='<label style="cursor:pointer;padding:3px 8px;background:var(--bg2);border:1px solid var(--brd);border-radius:5px;font-size:10px;">📁 Upload<input type="file" accept="image/*,.pdf" style="display:none;" onchange="iaRotUpload(event,\''+_iaRotCurType+'\','+i+')"></label>';
+      h+='</div>';
+    }
+    h+='</td><td style="padding:7px 8px;text-align:center;">';
+    if(locked){h+='<button onclick="iaRotEdit(\''+_iaRotCurType+'\','+i+')" style="background:none;border:none;color:var(--acc);cursor:pointer;font-size:20px;" title="Edit">✏️</button>';}
+    else{h+='<button onclick="iaRotSaveRow(\''+_iaRotCurType+'\','+i+')" style="background:var(--acc);border:none;color:#fff;padding:3px 10px;border-radius:6px;cursor:pointer;font-size:11px;">Simpan</button>';}
+    h+='</td></tr>';
+  });
+  h+='</tbody></table></div></div>';
+  document.getElementById('ia-content').innerHTML=h;
+}
+function iaRotSetType(typeKey){_iaRotCurType=typeKey;iaRotRender();}
+function iaRotUpload(event,typeKey,i){
+  var file=event.target.files[0]; if(!file) return;
+  var reader=new FileReader();
+  reader.onload=function(e){
+    var data=iaRotLoad(typeKey,_iaCurYear,_iaCurMonth);
+    data.rows[i].evidence=e.target.result; data.rows[i].evidenceName=file.name;
+    iaRotSave(typeKey,_iaCurYear,_iaCurMonth,data); iaRotRender();
+  }; reader.readAsDataURL(file);
+}
+function iaRotEdit(typeKey,i){
+  var data=iaRotLoad(typeKey,_iaCurYear,_iaCurMonth);
+  data.rows[i].locked=false; iaRotSave(typeKey,_iaCurYear,_iaCurMonth,data); iaRotRender();
+}
+function iaRotSaveRow(typeKey,i){
+  var dateEl=document.getElementById('ia-rot-date-'+i);
+  var temuanEl=document.getElementById('ia-rot-temuan-'+i);
+  var dateVal=dateEl?dateEl.value.trim():'';
+  var temuanVal=temuanEl?temuanEl.value.trim():'';
+  var data=iaRotLoad(typeKey,_iaCurYear,_iaCurMonth);
+  if((dateVal||temuanVal)&&!data.rows[i].evidence){alert('Upload bukti terlebih dahulu sebelum menyimpan.');return;}
+  data.rows[i].submittedDate=dateVal; data.rows[i].temuan=temuanVal;
+  data.rows[i].locked=true; data.rows[i].savedAt=new Date().toISOString();
+  iaRotSave(typeKey,_iaCurYear,_iaCurMonth,data); iaRotRender();
+}
+function iaRotViewEvidence(typeKey,i){
+  var data=iaRotLoad(typeKey,_iaCurYear,_iaCurMonth); var ev=data.rows[i].evidence; if(!ev) return;
+  var img=document.getElementById('sem-img');
+  if(ev.startsWith('data:image')){img.src=ev;img.style.display='block';}else{img.style.display='none';}
+  document.getElementById('store-ev-modal').style.display='flex';
+}
+
+// ════ PROJECT BARU ════
+function iaProjKey(y,m){return '_ia_proj_'+y+'_'+String(m).padStart(2,'0');}
+function iaProjLoad(y,m){
+  var raw=okrData[iaProjKey(y,m)]; if(!raw) return {rows:[]}; return raw;
+}
+function iaProjSave(y,m,data){
+  okrData[iaProjKey(y,m)]=data;
+  var count=data.rows.filter(function(r){return r.locked;}).length;
+  iaSyncOKR(/inisiatif.*proaktif|proaktif/i,y,m,count*50);
+  okrSaveLS();
+}
+function iaProjRender(){
+  var data=iaProjLoad(_iaCurYear,_iaCurMonth);
+  var rows=data.rows;
+  var lockedCount=rows.filter(function(r){return r.locked;}).length;
+  var projScore=lockedCount*50;
+
+  var h='<div class="card">';
+  h+='<div style="font-size:16px;font-weight:700;color:var(--acc);margin-bottom:16px;">🚀 Project Baru &nbsp;<span style="font-size:13px;font-weight:400;color:var(--tx2);">'+(BULS[_iaCurMonth-1]||'')+' '+_iaCurYear+'</span></div>';
+  h+='<div style="margin-bottom:16px;padding:12px 16px;background:var(--bg);border-radius:10px;display:flex;align-items:center;gap:16px;">';
+  h+='<span style="font-size:13px;color:var(--tx2);">Jumlah Project: <strong>'+lockedCount+'</strong></span>';
+  h+='<span style="font-size:13px;color:var(--tx2);">Score OKR: <span class="'+scoreClass(Math.min(100,projScore))+'" style="font-weight:800;font-size:18px;">'+projScore+'%</span></span>';
+  h+='</div>';
+  h+='<div style="margin-bottom:16px;"><button onclick="iaProjAddRow()" style="background:var(--acc);border:none;color:#fff;padding:8px 18px;border-radius:8px;cursor:pointer;font-size:13px;font-weight:600;">➕ Tambah Project</button></div>';
+
+  if(rows.length===0){
+    h+='<div style="text-align:center;padding:40px;color:var(--tx3);">Belum ada project. Klik Tambah Project untuk menambahkan.</div>';
+  }else{
+    rows.forEach(function(row,i){
+      var locked=!!row.locked;
+      h+='<div style="background:var(--bg);border:1px solid var(--brd);border-radius:10px;padding:16px;margin-bottom:12px;">';
+      if(locked){
+        h+='<div style="display:flex;justify-content:space-between;align-items:flex-start;">';
+        h+='<div style="flex:1;"><div style="font-size:14px;font-weight:700;color:var(--tx);margin-bottom:4px;">'+okrEsc(row.namaProject)+'</div>';
+        h+='<div style="font-size:12px;color:var(--tx2);margin-bottom:8px;">'+okrEsc(row.tujuan)+'</div>';
+        if(row.evidence){h+='<button onclick="iaProjViewEvidence('+i+')" style="background:none;border:none;color:var(--acc);cursor:pointer;font-size:12px;">📎 '+okrEsc(row.evidenceName||'Lihat Bukti')+'</button>';}
+        h+='</div><div style="display:flex;gap:6px;">';
+        h+='<button onclick="iaProjEdit('+i+')" style="background:none;border:none;color:var(--acc);cursor:pointer;font-size:20px;" title="Edit">✏️</button>';
+        h+='<button onclick="iaProjDelete('+i+')" style="background:none;border:none;color:#ef4444;cursor:pointer;font-size:20px;" title="Hapus">🗑️</button>';
+        h+='</div></div>';
+      }else{
+        h+='<div style="margin-bottom:10px;"><label style="font-size:11px;color:var(--tx2);font-weight:600;">Nama Project</label>';
+        h+='<input type="text" id="ia-proj-nama-'+i+'" value="'+okrEsc(row.namaProject||'')+'" placeholder="Nama project..." style="width:100%;padding:7px 10px;border:1px solid var(--brd);border-radius:8px;background:var(--bg2);color:var(--tx);font-size:13px;box-sizing:border-box;margin-top:4px;"></div>';
+        h+='<div style="margin-bottom:10px;"><label style="font-size:11px;color:var(--tx2);font-weight:600;">Tujuan</label>';
+        h+='<textarea id="ia-proj-tujuan-'+i+'" rows="2" placeholder="Tujuan project..." style="width:100%;padding:7px 10px;border:1px solid var(--brd);border-radius:8px;background:var(--bg2);color:var(--tx);font-size:13px;box-sizing:border-box;resize:vertical;margin-top:4px;">'+okrEsc(row.tujuan||'')+'</textarea></div>';
+        h+='<div style="margin-bottom:10px;"><label style="font-size:11px;color:var(--tx2);font-weight:600;">Bukti</label>';
+        h+='<div style="display:flex;align-items:center;gap:8px;margin-top:4px;">';
+        if(row.evidence){h+='<span style="font-size:11px;color:var(--acc);">📎 '+okrEsc(row.evidenceName||'File')+'</span>';}
+        h+='<label style="cursor:pointer;padding:5px 12px;background:var(--bg2);border:1px solid var(--brd);border-radius:6px;font-size:11px;">📁 Upload Bukti<input type="file" accept="image/*,.pdf" style="display:none;" onchange="iaProjUpload(event,'+i+')"></label>';
+        h+='</div></div>';
+        h+='<div style="display:flex;gap:8px;">';
+        h+='<button onclick="iaProjSaveRow('+i+')" style="background:var(--acc);border:none;color:#fff;padding:6px 16px;border-radius:8px;cursor:pointer;font-size:13px;font-weight:600;">Simpan</button>';
+        h+='<button onclick="iaProjCancelRow('+i+')" style="background:var(--bg2);border:1px solid var(--brd);color:var(--tx);padding:6px 14px;border-radius:8px;cursor:pointer;font-size:13px;">Batal</button>';
+        h+='</div>';
+      }
+      h+='</div>';
+    });
+  }
+  h+='</div>';
+  document.getElementById('ia-content').innerHTML=h;
+}
+function iaProjAddRow(){
+  var data=iaProjLoad(_iaCurYear,_iaCurMonth);
+  data.rows.push({namaProject:'',tujuan:'',evidence:'',evidenceName:'',locked:false});
+  okrData[iaProjKey(_iaCurYear,_iaCurMonth)]=data; okrSaveLS(); iaProjRender();
+}
+function iaProjUpload(event,i){
+  var file=event.target.files[0]; if(!file) return;
+  var reader=new FileReader();
+  reader.onload=function(e){
+    var data=iaProjLoad(_iaCurYear,_iaCurMonth);
+    data.rows[i].evidence=e.target.result; data.rows[i].evidenceName=file.name;
+    okrData[iaProjKey(_iaCurYear,_iaCurMonth)]=data; okrSaveLS(); iaProjRender();
+  }; reader.readAsDataURL(file);
+}
+function iaProjSaveRow(i){
+  var namaEl=document.getElementById('ia-proj-nama-'+i);
+  var tujuanEl=document.getElementById('ia-proj-tujuan-'+i);
+  var namaVal=namaEl?namaEl.value.trim():'';
+  var tujuanVal=tujuanEl?tujuanEl.value.trim():'';
+  if(!namaVal){alert('Nama project wajib diisi.');return;}
+  if(!tujuanVal){alert('Tujuan project wajib diisi.');return;}
+  var data=iaProjLoad(_iaCurYear,_iaCurMonth);
+  if(!data.rows[i].evidence){alert('Upload bukti terlebih dahulu.');return;}
+  data.rows[i].namaProject=namaVal; data.rows[i].tujuan=tujuanVal;
+  data.rows[i].locked=true; data.rows[i].savedAt=new Date().toISOString();
+  iaProjSave(_iaCurYear,_iaCurMonth,data); iaProjRender();
+}
+function iaProjCancelRow(i){
+  var data=iaProjLoad(_iaCurYear,_iaCurMonth);
+  if(!data.rows[i].namaProject){data.rows.splice(i,1);}
+  else{data.rows[i].locked=true;}
+  okrData[iaProjKey(_iaCurYear,_iaCurMonth)]=data; okrSaveLS(); iaProjRender();
+}
+function iaProjEdit(i){
+  var data=iaProjLoad(_iaCurYear,_iaCurMonth);
+  data.rows[i].locked=false; okrData[iaProjKey(_iaCurYear,_iaCurMonth)]=data; okrSaveLS(); iaProjRender();
+}
+function iaProjDelete(i){
+  if(!confirm('Hapus project ini?')) return;
+  var data=iaProjLoad(_iaCurYear,_iaCurMonth);
+  data.rows.splice(i,1); iaProjSave(_iaCurYear,_iaCurMonth,data); iaProjRender();
+}
+function iaProjViewEvidence(i){
+  var data=iaProjLoad(_iaCurYear,_iaCurMonth); var ev=data.rows[i].evidence; if(!ev) return;
+  var img=document.getElementById('sem-img');
+  if(ev.startsWith('data:image')){img.src=ev;img.style.display='block';}else{img.style.display='none';}
+  document.getElementById('store-ev-modal').style.display='flex';
+}
+
