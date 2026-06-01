@@ -465,10 +465,10 @@ tbody tr:hover td{background:var(--bg);}
         </div>
         <div style="display:flex;gap:6px;flex-wrap:wrap;justify-content:flex-end;align-items:center;">
           <button class="btn" id="okr-dup-btn" style="background:rgba(255,255,255,.15);border:1.5px solid rgba(255,255,255,.3);color:#fff;padding:5px 10px;font-size:12px;" onclick="okrDuplicate()">&#x1F4CB; Duplikat</button>
-          <button class="btn" style="background:rgba(255,255,255,.15);border:1.5px solid rgba(255,255,255,.3);color:#fff;padding:5px 10px;font-size:12px;" onclick="okrDownloadTemplate()">&#x2B07; Template</button>
-          <button class="btn" style="background:rgba(255,255,255,.15);border:1.5px solid rgba(255,255,255,.3);color:#fff;padding:5px 10px;font-size:12px;" onclick="okrImportClick()">&#x1F4C2; Import Excel</button>
+          <button class="btn" style="background:rgba(255,255,255,.15);border:1.5px solid rgba(255,255,255,.3);color:#fff;padding:5px 10px;font-size:12px;" onclick="okrDownloadTemplate()" id="okr-tmpl-btn">&#x2B07; Template</button>
+          <button class="btn" style="background:rgba(255,255,255,.15);border:1.5px solid rgba(255,255,255,.3);color:#fff;padding:5px 10px;font-size:12px;" onclick="okrImportClick()" id="okr-import-btn">&#x1F4C2; Import Excel</button>
           <input type="file" id="okr-file-input" accept=".xlsx,.xls" style="display:none;" onchange="okrProcessFile(event)">
-          <button class="btn btn-primary" style="padding:5px 10px;font-size:12px;width:auto;background:#fff;color:var(--primary);border-color:#fff;" onclick="okrOpenNew()">+ New OKR</button>
+          <button class="btn btn-primary" style="padding:5px 10px;font-size:12px;width:auto;background:#fff;color:var(--primary);border-color:#fff;" onclick="okrOpenNew()" id="okr-new-btn">+ New OKR</button>
         </div>
       </div>
       <!-- Judul OKR -->
@@ -1158,6 +1158,8 @@ function authCanSeeAllOKR(){
   if(!APP_CUR_USER) return false;
   return !!authGetAccess(APP_CUR_USER).okrAll;
 }
+function isOwnerOrAdmin(){return APP_CUR_USER==='Owner'||APP_CUR_USER==='Admin';}
+function isAdminUser(){return APP_CUR_USER==='Admin';}
 function authGetVisibleOKRDivs(){
   if(!APP_CUR_USER) return [];
   if(authCanSeeAllOKR()) return null; // null = all
@@ -1175,6 +1177,11 @@ function authApplyAccess(){
     var el=document.getElementById(m.navId);
     if(!el) return;
     el.style.display=authCanAccess(m.key)?'':'none';
+  });
+  // OKR write buttons (Owner+Admin only)
+  ['okr-dup-btn','okr-tmpl-btn','okr-import-btn','okr-new-btn'].forEach(function(id){
+    var el=document.getElementById(id);
+    if(el) el.style.display=isOwnerOrAdmin()?'':'none';
   });
 }
 
@@ -4247,8 +4254,7 @@ function okrImportRows(rows){
     ? OKR_DIVISI
     : ['Store','Distribution Sales','Warehouse','Inventory','Purchasing',
        'Finance & Accounting','General Affair','HRD','Internal Audit'];
-  var _visDivs=authGetVisibleOKRDivs();
-  if(_visDivs!==null) _RD=_RD.filter(function(d){return _visDivs.indexOf(d)!==-1;});
+  var _visDivs=authGetVisibleOKRDivs();  // _RD kept full for global score; per-div visibility checked inside loop
 
   var COL_ALIASES={
     divisi:['divisi','division','div'],
