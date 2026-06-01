@@ -453,6 +453,7 @@ tbody tr:hover td{background:var(--bg);}
 
     <!-- ═══════════════ PANEL DASHBOARD OKR ═══════════════ -->
     <div id="panel-dashboard" class="panel active">
+      <div style="position:sticky;top:53px;z-index:40;background:var(--bg);padding-bottom:4px;">
       <div style="background:var(--primary);border-radius:var(--radius);padding:10px 16px;display:flex;align-items:center;justify-content:space-between;margin-bottom:20px;flex-wrap:wrap;gap:12px;">
         <div style="display:flex;align-items:center;gap:8px;">
           <button class="okr-month-btn" onclick="okrPrevMonth()">&#8249;</button>
@@ -474,7 +475,8 @@ tbody tr:hover td{background:var(--bg);}
       </div>
       <!-- Score Global OKR -->
       <div id="okr-global-wrap" style="margin-bottom:16px;"></div>
-      <div id="okr-tables-wrap"></div>
+      </div>
+      <div id="okr-tables-wrap" style="padding-top:16px;"></div>
     </div>
 
     <!-- PANEL TAL -->
