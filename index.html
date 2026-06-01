@@ -5326,8 +5326,9 @@ function iaInit(){
     for(var y=ty-1;y<=ty+1;y++){var o=document.createElement('option');o.value=y;o.textContent=y;ysel.appendChild(o);}
   }
   ysel.value=_iaCurYear;
-  var firstTab=document.querySelector('#panel-ia .store-tab');
-  iaShowSub(_iaCurSub, firstTab);
+  var activeTab=null;
+  document.querySelectorAll('#panel-ia .store-tab').forEach(function(t){if((t.getAttribute('onclick')||'').indexOf("'"+_iaCurSub+"'")!==-1)activeTab=t;});
+  iaShowSub(_iaCurSub, activeTab||document.querySelector('#panel-ia .store-tab'));
 }
 
 function iaMonthChange(v){_iaCurMonth=parseInt(v);iaRefresh();}
