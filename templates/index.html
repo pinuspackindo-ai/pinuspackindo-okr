@@ -933,19 +933,19 @@ function authUpdateBadge(){
   if(avEl) avEl.textContent=u?u.charAt(0).toUpperCase():'?';
 }
 function authInit(){
-  // populate login dropdown
   var sel=document.getElementById('login-user-sel');
   if(sel){
     sel.innerHTML='<option value="">&#x2015; Pilih Username &#x2015;</option>';
-    APP_USERS.forEach(function(u){
+    var allUsers=APP_USERS.concat(okrData._customUsers||[]);
+    allUsers.forEach(function(u){
       var o=document.createElement('option');
       o.value=u;o.textContent=u;
       sel.appendChild(o);
     });
   }
-  // restore session
   var u=sessionStorage.getItem('okrLoginUser');
-  if(u&&APP_USERS.indexOf(u)>=0){
+  var validUsers=APP_USERS.concat(okrData._customUsers||[]);
+  if(u&&validUsers.indexOf(u)>=0){
     APP_CUR_USER=u;
     var ov=document.getElementById('login-overlay');
     if(ov) ov.style.display='none';
@@ -1174,6 +1174,7 @@ function authApplyAccess(){
 // ── Pengaturan sub-tab ──
 var _settCurSub='pwd';
 function settShowSub(sub,btn){
+  if(sub==='access'&&!isAdminUser()){notify('Hanya Admin yang dapat mengakses User Access.','error');return;}
   _settCurSub=sub;
   document.querySelectorAll('#panel-pengaturan .sett-tab').forEach(function(b){b.classList.remove('active');});
   if(btn) btn.classList.add('active');
@@ -1182,9 +1183,10 @@ function settShowSub(sub,btn){
 }
 function pengaturanInit(){
   _settCurSub='pwd';
-  // reset tab active state
   var tabs=document.querySelectorAll('#panel-pengaturan .sett-tab');
   tabs.forEach(function(b,i){b.classList.toggle('active',i===0);});
+  var accessTab=document.querySelector('#panel-pengaturan .sett-tab[onclick*="access"]');
+  if(accessTab) accessTab.style.display=isAdminUser()?'':'none';
   pengaturanRender();
 }
 
