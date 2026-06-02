@@ -1194,51 +1194,67 @@ function pengaturanInit(){
 function accessRender(){
   var wrap=document.getElementById('pengaturan-content');
   if(!wrap) return;
-  var isAdmin=(APP_CUR_USER==='Admin');
+  if(!isAdminUser()){
+    wrap.innerHTML='<div style="padding:20px;font-size:13px;color:var(--text-m);">&#x1F512; Hanya Admin yang dapat mengakses User Access.</div>';
+    return;
+  }
+  var customUsers=okrData._customUsers||[];
+  var allUsers=APP_USERS.concat(customUsers);
   var h='<div style="overflow:auto;border:1px solid var(--border);border-radius:var(--radius);">';
   h+='<table style="border-collapse:collapse;font-size:11px;white-space:nowrap;min-width:100%;">';
-  // Sticky header
   h+='<thead><tr>';
-  h+='<th style="position:sticky;left:0;top:0;z-index:20;background:var(--bg2);padding:9px 14px;text-align:left;border-bottom:2px solid var(--border);border-right:2px solid var(--border);font-size:12px;min-width:150px;">Username</th>';
+  h+='<th style="position:sticky;left:0;top:0;z-index:20;background:var(--bg2);padding:9px 14px;text-align:left;border-bottom:2px solid var(--border);border-right:2px solid var(--border);font-size:12px;min-width:160px;">Username</th>';
   ACCESS_MODULES.forEach(function(m){
     h+='<th style="position:sticky;top:0;z-index:10;background:var(--bg2);padding:7px 8px;text-align:center;border-bottom:2px solid var(--border);border-right:1px solid var(--border);min-width:72px;font-size:10px;">'+okrEsc(m.label)+'</th>';
   });
-  h+='<th style="position:sticky;top:0;z-index:10;background:var(--bg2);padding:7px 8px;text-align:center;border-bottom:2px solid var(--border);min-width:90px;font-size:10px;">Lihat Semua<br>OKR/TAL</th>';
+  h+='<th style="position:sticky;top:0;z-index:10;background:var(--bg2);padding:7px 8px;text-align:center;border-bottom:2px solid var(--border);border-right:1px solid var(--border);min-width:90px;font-size:10px;">Lihat Semua<br>OKR/TAL</th>';
+  h+='<th style="position:sticky;top:0;z-index:10;background:var(--bg2);padding:7px 8px;text-align:center;border-bottom:2px solid var(--border);min-width:56px;font-size:10px;">Hapus</th>';
   h+='</tr></thead><tbody>';
-  APP_USERS.forEach(function(user,ri){
+  allUsers.forEach(function(user,ri){
     var acc=authGetAccess(user);
+    var isCustom=customUsers.indexOf(user)!==-1;
     var bg=ri%2===0?'':'background:var(--bg);';
     h+='<tr>';
-    h+='<td style="position:sticky;left:0;z-index:5;'+bg+'background:var(--bg2);padding:7px 14px;font-weight:600;border-right:2px solid var(--border);border-bottom:1px solid var(--border);">'+okrEsc(user)+'</td>';
+    h+='<td style="position:sticky;left:0;z-index:5;background:var(--bg2);'+bg+'padding:7px 14px;font-weight:600;border-right:2px solid var(--border);border-bottom:1px solid var(--border);">';
+    h+=okrEsc(user);
+    if(isCustom) h+='<span style="font-size:9px;color:var(--primary);margin-left:6px;border:1px solid var(--primary);border-radius:3px;padding:1px 4px;font-weight:400;">custom</span>';
+    h+='</td>';
     ACCESS_MODULES.forEach(function(m){
       var checked=acc.modules.indexOf(m.key)!==-1;
       var uid='acc-'+user.replace(/[^a-zA-Z0-9]/g,'_')+'-'+m.key;
       h+='<td style="padding:6px 8px;text-align:center;border-right:1px solid var(--border);border-bottom:1px solid var(--border);'+bg+'">';
-      if(isAdmin){
-        h+='<input type="checkbox" id="'+uid+'" '+(checked?'checked':'')+' style="width:15px;height:15px;cursor:pointer;accent-color:var(--primary);" onchange="accessUpdateCheck(\''+okrEsc(user)+'\',\''+m.key+'\',this.checked)">';
-      }else{
-        h+='<span style="font-size:14px;">'+(checked?'✅':'⬜')+'</span>';
-      }
+      h+='<input type="checkbox" id="'+uid+'" '+(checked?'checked':'')+' style="width:15px;height:15px;cursor:pointer;accent-color:var(--primary);" onchange="accessUpdateCheck(\''+user.replace(/\\/g,'\\\\').replace(/'/g,'\\\'')+ '\',\''+m.key+'\',this.checked)">';
       h+='</td>';
     });
     var auid='acc-'+user.replace(/[^a-zA-Z0-9]/g,'_')+'-okrAll';
+    h+='<td style="padding:6px 8px;text-align:center;border-right:1px solid var(--border);border-bottom:1px solid var(--border);'+bg+'">';
+    h+='<input type="checkbox" id="'+auid+'" '+(acc.okrAll?'checked':'')+' style="width:15px;height:15px;cursor:pointer;accent-color:var(--primary);" onchange="accessUpdateOkrAll(\''+user.replace(/\\/g,'\\\\').replace(/'/g,'\\\'')+ '\',this.checked)">';
+    h+='</td>';
     h+='<td style="padding:6px 8px;text-align:center;border-bottom:1px solid var(--border);'+bg+'">';
-    if(isAdmin){
-      h+='<input type="checkbox" id="'+auid+'" '+(acc.okrAll?'checked':'')+' style="width:15px;height:15px;cursor:pointer;accent-color:var(--primary);" onchange="accessUpdateOkrAll(\''+okrEsc(user)+'\',this.checked)">';
+    if(isCustom){
+      h+='<button onclick="accessDeleteCustomUser(\''+user.replace(/\\/g,'\\\\').replace(/'/g,'\\\'')+'\')" style="background:none;border:1.5px solid #fca5a5;color:#dc2626;border-radius:var(--radius-sm);padding:3px 7px;cursor:pointer;font-size:12px;font-family:var(--font);">&#x1F5D1;</button>';
     }else{
-      h+='<span style="font-size:14px;">'+(acc.okrAll?'✅':'⬜')+'</span>';
+      h+='<span style="color:var(--text-l);">—</span>';
     }
-    h+='</td></tr>';
+    h+='</td>';
+    h+='</tr>';
   });
   h+='</tbody></table></div>';
-  if(isAdmin){
-    h+='<div style="margin-top:14px;display:flex;align-items:center;gap:12px;">';
-    h+='<button onclick="accessResetAll()" style="background:none;border:1.5px solid var(--border);color:var(--text-m);border-radius:var(--radius-sm);padding:6px 14px;cursor:pointer;font-size:12px;font-family:var(--font);">&#x21BA; Reset ke Default</button>';
-    h+='<span style="font-size:11px;color:var(--text-l);">Perubahan tersimpan otomatis.</span>';
-    h+='</div>';
-  }else{
-    h+='<div style="margin-top:12px;font-size:11px;color:var(--text-l);">&#x1F512; Hanya Admin yang dapat mengubah akses.</div>';
-  }
+  h+='<div style="margin-top:16px;padding:16px;background:var(--bg2);border:1.5px solid var(--border);border-radius:var(--radius);">';
+  h+='<div style="font-size:13px;font-weight:700;color:var(--text);margin-bottom:14px;">&#x2795; Tambah User Baru</div>';
+  h+='<div style="display:flex;gap:10px;flex-wrap:wrap;align-items:flex-end;">';
+  h+='<div><div style="font-size:11px;color:var(--text-m);margin-bottom:4px;">Username</div>';
+  h+='<input id="acc-new-name" type="text" placeholder="Nama user baru..." style="padding:7px 10px;border:1.5px solid var(--border);border-radius:var(--radius-sm);font-family:var(--font);font-size:13px;min-width:180px;"></div>';
+  h+='<div><div style="font-size:11px;color:var(--text-m);margin-bottom:4px;">Password Awal</div>';
+  h+='<input id="acc-new-pwd" type="text" placeholder="Password..." style="padding:7px 10px;border:1.5px solid var(--border);border-radius:var(--radius-sm);font-family:var(--font);font-size:13px;min-width:140px;"></div>';
+  h+='<button onclick="accessSaveNewUser()" style="background:var(--primary);border:none;color:#fff;border-radius:var(--radius-sm);padding:8px 20px;cursor:pointer;font-family:var(--font);font-size:13px;font-weight:700;flex-shrink:0;">&#x1F4BE; Simpan</button>';
+  h+='</div>';
+  h+='<div style="margin-top:8px;font-size:11px;color:var(--text-l);">Akses default: Dashboard saja. Centang modul di tabel setelah user ditambahkan.</div>';
+  h+='</div>';
+  h+='<div style="margin-top:14px;display:flex;align-items:center;gap:12px;">';
+  h+='<button onclick="accessResetAll()" style="background:none;border:1.5px solid var(--border);color:var(--text-m);border-radius:var(--radius-sm);padding:6px 14px;cursor:pointer;font-size:12px;font-family:var(--font);">&#x21BA; Reset ke Default</button>';
+  h+='<span style="font-size:11px;color:var(--text-l);">Perubahan centang tersimpan otomatis.</span>';
+  h+='</div>';
   wrap.innerHTML=h;
 }
 function accessUpdateCheck(user,moduleKey,checked){
@@ -1265,11 +1281,43 @@ function accessUpdateOkrAll(user,checked){
   notify(user+': '+(checked?'Lihat Semua OKR/TAL diaktifkan':'dibatasi ke divisi sendiri'));
 }
 function accessResetAll(){
-  if(!confirm('Reset semua akses ke default?')) return;
+  if(!confirm('Reset semua akses ke default? Custom user tidak akan dihapus.')) return;
   delete okrData._userAccess;
   okrSaveLS();
   accessRender();
   notify('Akses direset ke default ✓');
+}
+function accessSaveNewUser(){
+  var nameEl=document.getElementById('acc-new-name');
+  var pwdEl=document.getElementById('acc-new-pwd');
+  if(!nameEl) return;
+  var name=(nameEl.value||'').trim();
+  var pwd=(pwdEl?pwdEl.value||'':'').trim();
+  if(!name){notify('Username tidak boleh kosong.','error');return;}
+  if(!pwd){notify('Password tidak boleh kosong.','error');return;}
+  var customList=okrData._customUsers||[];
+  if(APP_USERS.concat(customList).indexOf(name)!==-1){notify('Username "'+name+'" sudah ada.','error');return;}
+  if(!okrData._customUsers) okrData._customUsers=[];
+  okrData._customUsers.push(name);
+  if(!okrData._userPwd) okrData._userPwd={};
+  okrData._userPwd[name]=pwd;
+  if(!okrData._userAccess) okrData._userAccess={};
+  okrData._userAccess[name]={modules:['dashboard'],okrAll:false};
+  okrSaveLS();
+  accessRender();
+  notify('User "'+name+'" berhasil ditambahkan ✓');
+}
+function accessDeleteCustomUser(name){
+  if(!confirm('Hapus user "'+name+'"? Tindakan ini tidak dapat dibatalkan.')) return;
+  if(okrData._customUsers){
+    var idx=okrData._customUsers.indexOf(name);
+    if(idx!==-1) okrData._customUsers.splice(idx,1);
+  }
+  if(okrData._userAccess) delete okrData._userAccess[name];
+  if(okrData._userPwd) delete okrData._userPwd[name];
+  okrSaveLS();
+  accessRender();
+  notify('User "'+name+'" dihapus ✓');
 }
 
 // ─────────────────────────────────────────────────────────────
