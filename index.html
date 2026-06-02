@@ -5187,6 +5187,8 @@ function hrdSyncOKR(subId,year,month,value){
 
 function hrdInit(){
   if(!hrdYear)hrdYear=new Date().getFullYear();
+  var curM=new Date().getMonth()+1;
+  hrdKdkMonth=curM;hrdKinMonth=curM;hrdRecruitMonth=curM;
   var sel=document.getElementById('hrd-year-sel');
   if(sel){sel.innerHTML='';var y=new Date().getFullYear();for(var i=y-1;i<=y+1;i++){var o=document.createElement('option');o.value=i;o.textContent=i;if(i===hrdYear)o.selected=true;sel.appendChild(o);}}
   document.querySelectorAll('#panel-hrd .store-tab').forEach(function(t){t.classList.remove('active');});
