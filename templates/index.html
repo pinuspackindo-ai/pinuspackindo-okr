@@ -1315,6 +1315,60 @@ function _processImgFiles(files,cb){
   next();
 }
 window._evStore={};
+function _viewEvs(evs){
+  if(!evs||evs.length===0){notify('Tidak ada bukti.','error');return;}
+  if(evs.length===1){
+    var e0=evs[0];
+    if(e0.data&&e0.data.startsWith('data:image/')){
+      document.getElementById('sem-name').textContent=e0.name||'Bukti';
+      var _img=document.getElementById('sem-img');
+      _img.src=e0.data;_img.style.display='block';
+      document.getElementById('store-ev-modal').style.display='flex';
+    }else{
+      var _a=document.createElement('a');_a.href=e0.data;_a.download=e0.name||'bukti';
+      document.body.appendChild(_a);_a.click();document.body.removeChild(_a);
+    }
+    return;
+  }
+  var _old=document.getElementById('_evov');if(_old)_old.remove();
+  var _ov=document.createElement('div');_ov.id='_evov';
+  _ov.style.cssText='position:fixed;top:0;left:0;width:100%;height:100%;background:rgba(0,0,0,.75);display:flex;align-items:center;justify-content:center;z-index:9999;';
+  _ov.onclick=function(ev){if(ev.target===_ov)_ov.remove();};
+  var _box=document.createElement('div');
+  _box.style.cssText='background:var(--bg);border-radius:var(--radius);padding:20px;min-width:260px;max-width:360px;box-shadow:0 8px 32px rgba(0,0,0,.4);';
+  var _ttl=document.createElement('div');
+  _ttl.style.cssText='font-size:13px;font-weight:700;color:var(--text);margin-bottom:14px;';
+  _ttl.textContent='Bukti Upload ('+evs.length+' file)';
+  _box.appendChild(_ttl);
+  evs.forEach(function(ef,ei){
+    var _btn=document.createElement('button');
+    _btn.style.cssText='display:block;width:100%;text-align:left;padding:8px 12px;border:1.5px solid var(--primary);background:none;color:var(--primary);border-radius:var(--radius-sm);cursor:pointer;font-size:12px;font-family:var(--font);margin-bottom:8px;overflow:hidden;text-overflow:ellipsis;white-space:nowrap;';
+    var _isImg=ef.data&&ef.data.startsWith('data:image/');
+    _btn.textContent=(_isImg?'👁 ':'📥 ')+(ef.name||('File '+(ei+1)));
+    (function(ef){
+      _btn.onclick=function(){
+        if(ef.data&&ef.data.startsWith('data:image/')){
+          document.getElementById('sem-name').textContent=ef.name||'Bukti';
+          var _img=document.getElementById('sem-img');
+          _img.src=ef.data;_img.style.display='block';
+          _ov.remove();
+          document.getElementById('store-ev-modal').style.display='flex';
+        }else{
+          var _a=document.createElement('a');_a.href=ef.data;_a.download=ef.name||'bukti';
+          document.body.appendChild(_a);_a.click();document.body.removeChild(_a);
+        }
+      };
+    })(ef);
+    _box.appendChild(_btn);
+  });
+  var _cl=document.createElement('button');
+  _cl.style.cssText='padding:6px 16px;border:1.5px solid var(--border);background:none;color:var(--text-m);border-radius:var(--radius-sm);cursor:pointer;font-size:12px;font-family:var(--font);margin-top:4px;';
+  _cl.textContent='Tutup';
+  _cl.onclick=function(){_ov.remove();};
+  _box.appendChild(_cl);
+  _ov.appendChild(_box);
+  document.body.appendChild(_ov);
+}
 function _evBtns(key,obj){
   var evs=(obj&&obj.evidences&&obj.evidences.length>0)?obj.evidences
     :((obj&&obj.evidence)?[{name:obj.evidenceName||'File',data:obj.evidence}]:[]);
@@ -1580,11 +1634,8 @@ function storeDelete(month){
 function storeViewEv(month){
   var d=_sg(storeCurSub,storeYear,month);
   if(!d.evidence){notify('Tidak ada bukti tersimpan.','error');return;}
-  document.getElementById('sem-name').textContent=d.evidenceName||'Bukti';
-  var img=document.getElementById('sem-img');
-  if(d.evidence.startsWith('data:image')){img.src=d.evidence;img.style.display='block';}
-  else{img.style.display='none';}
-  document.getElementById('store-ev-modal').style.display='flex';
+  var _evs=d.evidences&&d.evidences.length>0?d.evidences:(d.evidence?[{name:d.evidenceName||'File',data:d.evidence}]:[]);
+  _viewEvs(_evs);
 }
 function storeCloseEv(){document.getElementById('store-ev-modal').style.display='none';}
 
@@ -1849,11 +1900,8 @@ function distribDelete(month){
 function distribViewEv(month){
   var d=_dg(distribCurSub,distribYear,month);
   if(!d.evidence){notify('Tidak ada bukti tersimpan.','error');return;}
-  document.getElementById('sem-name').textContent=d.evidenceName||'Bukti';
-  var img=document.getElementById('sem-img');
-  if(d.evidence.startsWith('data:image')){img.src=d.evidence;img.style.display='block';}
-  else{img.style.display='none';}
-  document.getElementById('store-ev-modal').style.display='flex';
+  var _evs=d.evidences&&d.evidences.length>0?d.evidences:(d.evidence?[{name:d.evidenceName||'File',data:d.evidence}]:[]);
+  _viewEvs(_evs);
 }
 
 function distribSyncOKR(subId,year,month,value){
@@ -2095,11 +2143,8 @@ function warehouseDelete(month){
 function warehouseViewEv(month){
   var d=_wg(warehouseCurSub,warehouseYear,month);
   if(!d.evidence){notify('Tidak ada bukti tersimpan.','error');return;}
-  document.getElementById('sem-name').textContent=d.evidenceName||'Bukti';
-  var img=document.getElementById('sem-img');
-  if(d.evidence.startsWith('data:image')){img.src=d.evidence;img.style.display='block';}
-  else{img.style.display='none';}
-  document.getElementById('store-ev-modal').style.display='flex';
+  var _evs=d.evidences&&d.evidences.length>0?d.evidences:(d.evidence?[{name:d.evidenceName||'File',data:d.evidence}]:[]);
+  _viewEvs(_evs);
 }
 
 function warehouseSyncOKR(subId,year,month,value){
@@ -2643,13 +2688,16 @@ function invRotDelete(){
 }
 function invRotViewEv(poinIdx,isOntime){
   var rot=_irotg(inventoryYear,invRotMonth);
-  var ev=isOntime?rot.ontimeEv:(poinIdx===-1?rot.akurasiEv:(rot.poinEv&&rot.poinEv[poinIdx]?rot.poinEv[poinIdx]:null));
-  var evName=isOntime?rot.ontimeEvName:(poinIdx===-1?(rot.akurasiEvName||'Bukti Temuan'):(rot.poinEvName&&rot.poinEvName[poinIdx]?rot.poinEvName[poinIdx]:'Bukti'));
-  if(!ev){notify('Tidak ada bukti.','error');return;}
-  document.getElementById('sem-name').textContent=evName||'Bukti';
-  var img=document.getElementById('sem-img');
-  if(ev.startsWith('data:image')){img.src=ev;img.style.display='block';}else{img.style.display='none';}
-  document.getElementById('store-ev-modal').style.display='flex';
+  var evs;
+  if(isOntime){
+    evs=rot.ontimeEvs&&rot.ontimeEvs.length>0?rot.ontimeEvs:(rot.ontimeEv?[{name:rot.ontimeEvName||'Bukti Ontime',data:rot.ontimeEv}]:[]);
+  }else if(poinIdx===-1){
+    evs=rot.akurasiEvs&&rot.akurasiEvs.length>0?rot.akurasiEvs:(rot.akurasiEv?[{name:rot.akurasiEvName||'Bukti Temuan',data:rot.akurasiEv}]:[]);
+  }else{
+    var _e=rot.poinEv&&rot.poinEv[poinIdx]?rot.poinEv[poinIdx]:null;
+    evs=_e?[{name:rot.poinEvName&&rot.poinEvName[poinIdx]?rot.poinEvName[poinIdx]:'Bukti',data:_e}]:[];
+  }
+  _viewEvs(evs);
 }
 
 // ── OKR SYNC ────────────────────────────────────────────────────
@@ -3717,13 +3765,13 @@ function finaccRotDelete(){
 }
 function finaccRotViewEv(type){
   var rot=_farotg(finaccYear,finaccReportMonth);
-  var ev=type==='ontime'?rot.ontimeEv:rot.akurasiEv;
-  var evName=type==='ontime'?(rot.ontimeEvName||'Bukti Ontime'):(rot.akurasiEvName||'Bukti Akurasi');
-  if(!ev){notify('Tidak ada bukti.','error');return;}
-  document.getElementById('sem-name').textContent=evName;
-  var img=document.getElementById('sem-img');
-  if(ev.startsWith('data:image')){img.src=ev;img.style.display='block';}else{img.style.display='none';}
-  document.getElementById('store-ev-modal').style.display='flex';
+  var evs;
+  if(type==='ontime'){
+    evs=rot.ontimeEvs&&rot.ontimeEvs.length>0?rot.ontimeEvs:(rot.ontimeEv?[{name:rot.ontimeEvName||'Bukti Ontime',data:rot.ontimeEv}]:[]);
+  }else{
+    evs=rot.akurasiEvs&&rot.akurasiEvs.length>0?rot.akurasiEvs:(rot.akurasiEv?[{name:rot.akurasiEvName||'Bukti Akurasi',data:rot.akurasiEv}]:[]);
+  }
+  _viewEvs(evs);
 }
 
 // ── IMPLEMENTASI REKOMENDASI RENDER ──
@@ -5080,13 +5128,13 @@ function gaRotDelete(){
 }
 function gaRotViewEv(isOntime){
   var rot=_garotg(gaYear,gaRotMonth);
-  var ev=isOntime?rot.ontimeEv:rot.akurasiEv;
-  var evName=isOntime?(rot.ontimeEvName||'Bukti Ontime'):(rot.akurasiEvName||'Bukti Temuan');
-  if(!ev){notify('Tidak ada bukti.','error');return;}
-  document.getElementById('sem-name').textContent=evName;
-  var img=document.getElementById('sem-img');
-  if(ev.startsWith('data:image')){img.src=ev;img.style.display='block';}else{img.style.display='none';}
-  document.getElementById('store-ev-modal').style.display='flex';
+  var evs;
+  if(isOntime){
+    evs=rot.ontimeEvs&&rot.ontimeEvs.length>0?rot.ontimeEvs:(rot.ontimeEv?[{name:rot.ontimeEvName||'Bukti Ontime',data:rot.ontimeEv}]:[]);
+  }else{
+    evs=rot.akurasiEvs&&rot.akurasiEvs.length>0?rot.akurasiEvs:(rot.akurasiEv?[{name:rot.akurasiEvName||'Bukti Temuan',data:rot.akurasiEv}]:[]);
+  }
+  _viewEvs(evs);
 }
 
 // ─── HRD MODULE ───
@@ -5290,10 +5338,7 @@ function hrdKdkViewEv(mi,section){
   var ev=section==='abs'?d.abs.ev:section==='kep'?d.kep.ev:d.snk.ev;
   var evName=section==='abs'?d.abs.evName:section==='kep'?d.kep.evName:d.snk.evName;
   if(!ev){notify('Tidak ada bukti.','error');return;}
-  document.getElementById('sem-name').textContent=evName||'Bukti';
-  var img=document.getElementById('sem-img');
-  if(ev.startsWith('data:image')){img.src=ev;img.style.display='block';}else{img.style.display='none';}
-  document.getElementById('store-ev-modal').style.display='flex';
+  _viewEvs(ev?[{name:evName||'Bukti',data:ev}]:[]);
 }
 
 // ── SUBs 2,3,4: Monthly % table ──────────────────────────────
@@ -5345,7 +5390,7 @@ function hrdSimSave(subId,mi){
 }
 function hrdSimEdit(subId,mi){if(!confirm('Buka kunci data '+BULS[mi-1]+' '+hrdYear+' untuk diedit?'))return;var d=_hrdSimG(subId,hrdYear,mi);d.locked=false;_hrdSimS(subId,hrdYear,mi,d);okrSaveLS();hrdRenderSim(subId);}
 function hrdSimDelete(subId,mi){if(!confirm('Hapus data '+BULS[mi-1]+' '+hrdYear+'?'))return;var key=_hrdSimKey(subId,hrdYear,mi);if(okrData[key])delete okrData[key];hrdSyncOKR(subId,hrdYear,mi,null);okrSaveLS();hrdRenderSim(subId);notify('Data dihapus.');}
-function hrdSimViewEv(subId,mi){var d=_hrdSimG(subId,hrdYear,mi);if(!d.evidence){notify('Tidak ada bukti.','error');return;}document.getElementById('sem-name').textContent=d.evidenceName||'Bukti';var img=document.getElementById('sem-img');if(d.evidence.startsWith('data:image')){img.src=d.evidence;img.style.display='block';}else{img.style.display='none';}document.getElementById('store-ev-modal').style.display='flex';}
+function hrdSimViewEv(subId,mi){var d=_hrdSimG(subId,hrdYear,mi);if(!d.evidence){notify('Tidak ada bukti.','error');return;}var _evs=d.evidences&&d.evidences.length>0?d.evidences:(d.evidence?[{name:d.evidenceName||'File',data:d.evidence}]:[]);_viewEvs(_evs);}
 
 // ── SUB5: Recruitment Time ────────────────────────────────────
 function _hrdRecRowScore(row){
@@ -5431,7 +5476,7 @@ function hrdRecUploadRow(idx,inp){
   function _sv(b64,_evs){var data=_hrdRecG(hrdYear,hrdRecruitMonth);var row=data.rows[idx];if(!row)return;var rqEl=document.getElementById('hrd-rec-rq-'+idx);var dlEl=document.getElementById('hrd-rec-dl-'+idx);var rlEl=document.getElementById('hrd-rec-rl-'+idx);if(rqEl)row.request=(rqEl.value||'').trim();if(dlEl)row.deadline=dlEl.value;if(rlEl)row.realisasi=rlEl.value;row.evidences=_evs||[];row.evidence=b64;row.evidenceName=file.name;_hrdRecS(hrdYear,hrdRecruitMonth,data);hrdRenderRecruitment();notify('Bukti diupload ✓');}
   _processImgFiles(_fs,function(results){_sv(results[0]?results[0].data:'',results);});
 }
-function hrdRecViewEv(idx){var data=_hrdRecG(hrdYear,hrdRecruitMonth);var row=data.rows[idx];if(!row||!row.evidence){notify('Tidak ada bukti.','error');return;}document.getElementById('sem-name').textContent=row.evidenceName||'Bukti';var img=document.getElementById('sem-img');if(row.evidence.startsWith('data:image')){img.src=row.evidence;img.style.display='block';}else{img.style.display='none';}document.getElementById('store-ev-modal').style.display='flex';}
+function hrdRecViewEv(idx){var data=_hrdRecG(hrdYear,hrdRecruitMonth);var row=data.rows[idx];if(!row||!row.evidence){notify('Tidak ada bukti.','error');return;}var _evs=row.evidences&&row.evidences.length>0?row.evidences:(row.evidence?[{name:row.evidenceName||'File',data:row.evidence}]:[]);_viewEvs(_evs);}
 
 // ── SUB6: Kinerja Karyawan ────────────────────────────────────
 function _hrdKinMonthAvg(y,m){
@@ -5521,7 +5566,7 @@ function hrdKinUploadRow(mi,idx,inp){
   function _sv(b64,_evs){var data=_hrdKinG(hrdYear,mi);var row=data.rows[idx];if(!row)return;var nmEl=document.getElementById('hrd-kin-nm-'+mi+'-'+idx);var tgEl=document.getElementById('hrd-kin-tg-'+mi+'-'+idx);var scEl=document.getElementById('hrd-kin-sc-'+mi+'-'+idx);if(nmEl)row.nama=(nmEl.value||'').trim();if(tgEl)row.tanggalMasuk=tgEl.value;if(scEl&&scEl.value.trim()!==''){var s=parseFloat(scEl.value);if(!isNaN(s))row.score=Math.min(100,Math.max(0,s));}row.evidences=_evs||[];row.evidence=b64;row.evidenceName=file.name;_hrdKinS(hrdYear,mi,data);hrdRenderKinerja();notify('Bukti diupload ✓');}
   _processImgFiles(_fs,function(results){_sv(results[0]?results[0].data:'',results);});
 }
-function hrdKinViewEv(mi,idx){var data=_hrdKinG(hrdYear,mi);var row=data.rows[idx];if(!row||!row.evidence){notify('Tidak ada bukti.','error');return;}document.getElementById('sem-name').textContent=row.evidenceName||'Bukti';var img=document.getElementById('sem-img');if(row.evidence.startsWith('data:image')){img.src=row.evidence;img.style.display='block';}else{img.style.display='none';}document.getElementById('store-ev-modal').style.display='flex';}
+function hrdKinViewEv(mi,idx){var data=_hrdKinG(hrdYear,mi);var row=data.rows[idx];if(!row||!row.evidence){notify('Tidak ada bukti.','error');return;}var _evs=row.evidences&&row.evidences.length>0?row.evidences:(row.evidence?[{name:row.evidenceName||'File',data:row.evidence}]:[]);_viewEvs(_evs);}
 
 // ─── INTERNAL AUDIT MODULE ───
 var IA_REKO_NAMES = ['Keuangan','Stock Opname Store','Stock Opname Warehouse',
@@ -5677,9 +5722,9 @@ function iaRekoSaveRow(i){
 }
 function iaRekoViewEvidence(i){
   var data=iaRekoLoad(_iaCurYear,_iaCurMonth); var ev=data.rows[i].evidence; if(!ev) return;
-  var img=document.getElementById('sem-img');
-  if(ev.startsWith('data:image')){img.src=ev;img.style.display='block';}else{img.style.display='none';}
-  document.getElementById('store-ev-modal').style.display='flex';
+  var _evs=data.rows[i].evidences&&data.rows[i].evidences.length>0
+    ?data.rows[i].evidences:(ev?[{name:data.rows[i].evidenceName||'Bukti',data:ev}]:[]);
+  _viewEvs(_evs);
 }
 
 // ════ REPORT AKURAT & ONTIME ════
@@ -5832,9 +5877,9 @@ function iaRotSaveRow(typeKey,i){
 }
 function iaRotViewEvidence(typeKey,i){
   var data=iaRotLoad(typeKey,_iaCurYear,_iaCurMonth); var ev=data.rows[i].evidence; if(!ev) return;
-  var img=document.getElementById('sem-img');
-  if(ev.startsWith('data:image')){img.src=ev;img.style.display='block';}else{img.style.display='none';}
-  document.getElementById('store-ev-modal').style.display='flex';
+  var _evs=data.rows[i].evidences&&data.rows[i].evidences.length>0
+    ?data.rows[i].evidences:(ev?[{name:data.rows[i].evidenceName||'Bukti',data:ev}]:[]);
+  _viewEvs(_evs);
 }
 
 // ════ PROJECT BARU ════
@@ -5943,9 +5988,9 @@ function iaProjDelete(i){
 }
 function iaProjViewEvidence(i){
   var data=iaProjLoad(_iaCurYear,_iaCurMonth); var ev=data.rows[i].evidence; if(!ev) return;
-  var img=document.getElementById('sem-img');
-  if(ev.startsWith('data:image')){img.src=ev;img.style.display='block';}else{img.style.display='none';}
-  document.getElementById('store-ev-modal').style.display='flex';
+  var _evs=data.rows[i].evidences&&data.rows[i].evidences.length>0
+    ?data.rows[i].evidences:(ev?[{name:data.rows[i].evidenceName||'Bukti',data:ev}]:[]);
+  _viewEvs(_evs);
 }
 
 

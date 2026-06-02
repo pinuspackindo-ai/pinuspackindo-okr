@@ -36,7 +36,7 @@ VIEW_EVS = (
     "    var _btn=document.createElement('button');\n"
     "    _btn.style.cssText='display:block;width:100%;text-align:left;padding:8px 12px;border:1.5px solid var(--primary);background:none;color:var(--primary);border-radius:var(--radius-sm);cursor:pointer;font-size:12px;font-family:var(--font);margin-bottom:8px;overflow:hidden;text-overflow:ellipsis;white-space:nowrap;';\n"
     "    var _isImg=ef.data&&ef.data.startsWith('data:image/');\n"
-    "    _btn.textContent=(_isImg?'\u{1F441} ':'\u{1F4E5} ')+(ef.name||('File '+(ei+1)));\n"
+    "    _btn.textContent=(_isImg?'\U0001F441 ':'\U0001F4E5 ')+(ef.name||('File '+(ei+1)));\n"
     "    (function(ef){\n"
     "      _btn.onclick=function(){\n"
     "        if(ef.data&&ef.data.startsWith('data:image/')){\n"
