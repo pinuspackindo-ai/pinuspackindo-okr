@@ -6133,10 +6133,16 @@ function talBuildDivCard(d,y,m){
       if(hasPrg&&row.bobot){h+='<span class="score-num '+scoreClass(parseFloat(row.progress))+'" style="font-size:1rem;font-weight:700;">'+sc.toFixed(2)+'</span>';}
       else{h+='<span style="color:var(--text-l);">?</span>';}
       h+='</td>';
-      h+='<td style="padding:6px 8px;"><div style="display:flex;gap:4px;align-items:center;">';
-      h+='<input id="tal-rli-'+d+'-'+idx+'" type="text" value="'+okrEsc(row.review||'')+'" placeholder="Review atasan..." style="flex:1;min-width:80px;padding:4px 8px;border:1.5px solid var(--border);border-radius:var(--radius-sm);font-family:var(--font);font-size:11px;">';
-      h+='<button onclick="talSaveReview('+d+','+idx+')" style="background:none;border:1.5px solid var(--primary);color:var(--primary);border-radius:50%;width:22px;height:22px;cursor:pointer;font-size:12px;display:flex;align-items:center;justify-content:center;flex-shrink:0;">&#x2713;</button>';
-      h+='</div></td>';
+      h+='<td style="padding:6px 8px;">';
+      if(isOwnerOrAdmin()){
+        h+='<div style="display:flex;gap:4px;align-items:center;">';
+        h+='<input id="tal-rli-'+d+'-'+idx+'" type="text" value="'+okrEsc(row.review||'')+'" placeholder="Review atasan..." style="flex:1;min-width:80px;padding:4px 8px;border:1.5px solid var(--border);border-radius:var(--radius-sm);font-family:var(--font);font-size:11px;">';
+        h+='<button onclick="talSaveReview('+d+','+idx+')" style="background:none;border:1.5px solid var(--primary);color:var(--primary);border-radius:50%;width:22px;height:22px;cursor:pointer;font-size:12px;display:flex;align-items:center;justify-content:center;flex-shrink:0;">&#x2713;</button>';
+        h+='</div>';
+      }else{
+        h+='<span style="font-size:11px;color:var(--text-m);">'+okrEsc(row.review||'—')+'</span>';
+      }
+      h+='</td>';
       if(anyEditing) h+='<td></td>';
       h+='</tr>';
     }
