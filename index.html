@@ -933,19 +933,19 @@ function authUpdateBadge(){
   if(avEl) avEl.textContent=u?u.charAt(0).toUpperCase():'?';
 }
 function authInit(){
-  // populate login dropdown
   var sel=document.getElementById('login-user-sel');
   if(sel){
     sel.innerHTML='<option value="">&#x2015; Pilih Username &#x2015;</option>';
-    APP_USERS.forEach(function(u){
+    var allUsers=APP_USERS.concat(okrData._customUsers||[]);
+    allUsers.forEach(function(u){
       var o=document.createElement('option');
       o.value=u;o.textContent=u;
       sel.appendChild(o);
     });
   }
-  // restore session
   var u=sessionStorage.getItem('okrLoginUser');
-  if(u&&APP_USERS.indexOf(u)>=0){
+  var validUsers=APP_USERS.concat(okrData._customUsers||[]);
+  if(u&&validUsers.indexOf(u)>=0){
     APP_CUR_USER=u;
     var ov=document.getElementById('login-overlay');
     if(ov) ov.style.display='none';
