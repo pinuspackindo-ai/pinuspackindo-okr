@@ -1174,6 +1174,7 @@ function authApplyAccess(){
 // ── Pengaturan sub-tab ──
 var _settCurSub='pwd';
 function settShowSub(sub,btn){
+  if(sub==='access'&&!isAdminUser()){notify('Hanya Admin yang dapat mengakses User Access.','error');return;}
   _settCurSub=sub;
   document.querySelectorAll('#panel-pengaturan .sett-tab').forEach(function(b){b.classList.remove('active');});
   if(btn) btn.classList.add('active');
@@ -1182,9 +1183,11 @@ function settShowSub(sub,btn){
 }
 function pengaturanInit(){
   _settCurSub='pwd';
-  // reset tab active state
   var tabs=document.querySelectorAll('#panel-pengaturan .sett-tab');
   tabs.forEach(function(b,i){b.classList.toggle('active',i===0);});
+  // Sembunyikan tab User Access untuk non-Admin
+  var accessTab=document.querySelector('#panel-pengaturan .sett-tab[onclick*="access"]');
+  if(accessTab) accessTab.style.display=isAdminUser()?'':'none';
   pengaturanRender();
 }
 
