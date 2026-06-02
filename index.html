@@ -1149,6 +1149,26 @@ function authApplyAccess(){
     var el=document.getElementById(id);
     if(el) el.style.display=isOwnerOrAdmin()?'':'none';
   });
+  // MutationObserver: auto re-apply role restrictions when panel content re-renders
+  if(window._roleObserver){window._roleObserver.disconnect();window._roleObserver=null;}
+  if(!isOwnerOrAdmin()){
+    window._roleObserver=new MutationObserver(function(muts){
+      var panelIds={};
+      muts.forEach(function(m){
+        if(m.type!=='childList') return;
+        var el=m.target;
+        for(var i=0;i<10&&el&&el!==document.body;i++,el=el.parentElement){
+          if(el.id&&el.id.startsWith('panel-')&&el.id!=='panel-pengaturan'){
+            panelIds[el.id]=true;break;
+          }
+        }
+      });
+      Object.keys(panelIds).forEach(function(id){
+        applyPanelRoleUI(id.replace('panel-',''));
+      });
+    });
+    window._roleObserver.observe(document.body,{childList:true,subtree:true});
+  }
 }
 
 // ── Pengaturan sub-tab ──
@@ -4182,6 +4202,7 @@ function okrRender(){
     var rows=okrGetRows(divData);
     var ap=okrGetAP(divData);
     if(!rows||rows.length===0) return;
+    if(_visDivs!==null&&_visDivs.indexOf(div)===-1) return; // filter by module access
 
     // Ambil objective dari baris pertama (sama untuk semua KR dalam 1 divisi)
     var divObjective = rows[0] ? (rows[0].objective||'') : '';
