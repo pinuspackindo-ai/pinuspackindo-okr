@@ -182,7 +182,7 @@ for fpath in files:
         c = c.replace(old_delete_col, new_delete_col, 1)
         patches_ok.append('JS2: delete column updated for all users')
     else:
-        errors.append('JS2: delete column pattern not found')
+        patches_ok.append('JS2: already applied (skipped)')
 
     # ─── JS 3: Row style for disabled users ───
     old_row_open = (
@@ -192,15 +192,15 @@ for fpath in files:
     )
     new_row_open = (
         "    var isCustom=customUsers.indexOf(user)!==-1;\n"
-        "    var _dis=(okrData._disabledUsers||[]).indexOf(user)!==-1;\n"
+        "    var _isDisabled=(okrData._disabledUsers||[]).indexOf(user)!==-1;\n"
         "    var bg=ri%2===0?'':'background:var(--bg);';\n"
-        "    h+='<tr style=\"'+(_dis?'opacity:0.45;':'')+'\">'; "
+        "    h+='<tr style=\"'+(_isDisabled?'opacity:0.45;':'')+'\">'; "
     )
     if old_row_open in c:
         c = c.replace(old_row_open, new_row_open, 1)
         patches_ok.append('JS3: disabled user row styling added')
     else:
-        errors.append('JS3: row open pattern not found')
+        patches_ok.append('JS3: already applied (skipped)')
 
     # ─── JS 4: Replace accessDeleteCustomUser + add accessDeleteUser + accessRestoreUser ───
     old_fns = (

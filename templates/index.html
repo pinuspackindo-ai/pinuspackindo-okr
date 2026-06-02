@@ -74,7 +74,7 @@ body{font-family:var(--font);background:var(--bg);color:var(--text);
 .sett-input{width:100%;padding:10px 14px;background:var(--bg);border:1.5px solid var(--border);border-radius:var(--radius-sm);font-size:15px;font-family:var(--font);outline:none;letter-spacing:4px;text-align:center;transition:border-color .15s;}
 .sett-input:focus{border-color:var(--primary);}
 .sidebar{width:240px;background:var(--sb-bg);display:flex;flex-direction:column;
-  position:fixed;top:0;left:0;bottom:0;z-index:100;}
+  position:fixed;top:0;left:0;bottom:0;z-index:100;transition:width .2s ease;}
 .sidebar-logo{padding:24px 20px;border-bottom:1px solid var(--sb-border);}
 .logo-title{font-size:1rem;font-weight:700;color:#fff;letter-spacing:-.01em;line-height:1.3;}
 .logo-sub{font-size:11px;color:var(--sb-text);margin-top:4px;}
@@ -94,7 +94,19 @@ body{font-family:var(--font);background:var(--bg);color:var(--text);
   background:transparent;color:rgba(255,255,255,.70);font-family:var(--font);
   font-size:12px;font-weight:500;cursor:pointer;transition:all .15s;}
 .btn-logout:hover{background:rgba(255,255,255,.10);color:#fff;}
-.main{margin-left:240px;flex:1;display:flex;flex-direction:column;min-height:100vh;}
+.sb-toggle{background:none;border:none;color:rgba(255,255,255,.6);font-size:17px;cursor:pointer;padding:4px 7px;border-radius:4px;line-height:1;flex-shrink:0;margin-left:auto;}
+.sb-toggle:hover{color:#fff;background:rgba(255,255,255,.12);}
+.sidebar.collapsed{width:60px;overflow:hidden;}
+.sidebar.collapsed .sb-logo-content,.sidebar.collapsed .nav-label,.sidebar.collapsed .nav-text,.sidebar.collapsed .footer-text{display:none;}
+.sidebar.collapsed .sidebar-logo{padding:14px 0;justify-content:center;}
+.sidebar.collapsed .sidebar-nav{padding:8px 6px;}
+.sidebar.collapsed .nav-item{padding:10px;justify-content:center;gap:0;}
+.sidebar.collapsed .sidebar-footer{padding:10px 6px;text-align:center;}
+.sidebar.collapsed .btn-logout{font-size:0;padding:8px;width:auto;}
+.sidebar.collapsed .btn-logout .nav-icon{font-size:16px;}
+.sidebar.collapsed+.main{margin-left:60px;}
+
+.main{margin-left:240px;flex:1;display:flex;flex-direction:column;min-height:100vh;transition:margin-left .2s ease;}
 .topbar{background:var(--bg2);border-bottom:1px solid var(--border);
   padding:14px 28px;display:flex;align-items:center;justify-content:space-between;
   position:sticky;top:0;z-index:50;box-shadow:var(--shadow-sm);}
@@ -339,39 +351,40 @@ tbody tr:hover td{background:var(--bg);}
 </div>
 
 <aside class="sidebar" id="sidebar">
-  <div class="sidebar-logo">
-    <div class="logo-title">Pinus Packindo</div>
-    <div class="logo-sub">Tools OKR Pinus</div>
-    <div class="sb-user-badge" id="sb-user-badge" style="display:none;">
-      <div class="sb-user-avatar" id="sb-user-avatar">?</div>
-      <div style="min-width:0;">
-        <div class="sb-user-name" id="sb-user-name">—</div>
-        <div class="sb-user-role">User Aktif</div>
+  <div class="sidebar-logo" style="display:flex;align-items:flex-start;gap:6px;">
+    <div class="sb-logo-content" style="flex:1;min-width:0;">
+      <div class="logo-title">Pinus Packindo</div>
+      <div class="logo-sub">Tools OKR Pinus</div>
+      <div class="sb-user-badge" id="sb-user-badge" style="display:none;">
+        <div class="sb-user-avatar" id="sb-user-avatar">?</div>
+        <div style="min-width:0;">
+          <div class="sb-user-name" id="sb-user-name">—</div>
+          <div class="sb-user-role">User Aktif</div>
+        </div>
       </div>
     </div>
+    <button class="sb-toggle" id="sb-toggle" onclick="sidebarToggle()" title="Minimize menu">&#x2630;</button>
   </div>
   <nav class="sidebar-nav">
     <div class="nav-label">Utama</div>
-    <button class="nav-item active" id="nav-dashboard" onclick="showPanel('dashboard',this)">&#x1F4CA; Dashboard OKR</button>
-    <button class="nav-item" id="nav-tal" onclick="showPanel('tal',this)">&#x1F4CB; TAL</button>
+    <button class="nav-item active" id="nav-dashboard" onclick="showPanel('dashboard',this)"><span class="nav-icon">&#x1F4CA;</span><span class="nav-text"> Dashboard OKR</span></button>
+    <button class="nav-item" id="nav-tal" onclick="showPanel('tal',this)"><span class="nav-icon">&#x1F4CB;</span><span class="nav-text"> TAL</span></button>
     <div class="nav-label" style="margin-top:10px;">Modul Data</div>
-    <button class="nav-item" id="nav-store" onclick="showPanel('store',this)">&#x1F4E6; Store</button>
-    <button class="nav-item" id="nav-distrib" onclick="showPanel('distrib',this)">&#x1F69A; Distribution Sales</button>
-    <button class="nav-item" id="nav-warehouse" onclick="showPanel('warehouse',this)">&#x1F3ED; Warehouse</button>
-    <button class="nav-item" id="nav-inventory" onclick="showPanel('inventory',this)">&#x1F4E6; Inventory</button>
-    <button class="nav-item" id="nav-purchasing" onclick="showPanel('purchasing',this)">&#x1F6D2; Purchasing</button>
-    <button class="nav-item" id="nav-financeacc" onclick="showPanel('financeacc',this)">&#x1F4B0; Finance &amp; Accounting</button>
-    <button class="nav-item" id="nav-generalaffair" onclick="showPanel('generalaffair',this)">&#x1F3E2; General Affair</button>
-    <button class="nav-item" id="nav-hrd" onclick="showPanel('hrd',this)">&#x1F465; HRD</button>
-    <button class="nav-item" id="nav-ia" onclick="showPanel('ia',this)">&#x1F50D; Internal Audit</button>
+    <button class="nav-item" id="nav-store" onclick="showPanel('store',this)"><span class="nav-icon">&#x1F4E6;</span><span class="nav-text"> Store</span></button>
+    <button class="nav-item" id="nav-distrib" onclick="showPanel('distrib',this)"><span class="nav-icon">&#x1F69A;</span><span class="nav-text"> Distribution Sales</span></button>
+    <button class="nav-item" id="nav-warehouse" onclick="showPanel('warehouse',this)"><span class="nav-icon">&#x1F3ED;</span><span class="nav-text"> Warehouse</span></button>
+    <button class="nav-item" id="nav-inventory" onclick="showPanel('inventory',this)"><span class="nav-icon">&#x1F4E6;</span><span class="nav-text"> Inventory</span></button>
+    <button class="nav-item" id="nav-purchasing" onclick="showPanel('purchasing',this)"><span class="nav-icon">&#x1F6D2;</span><span class="nav-text"> Purchasing</span></button>
+    <button class="nav-item" id="nav-financeacc" onclick="showPanel('financeacc',this)"><span class="nav-icon">&#x1F4B0;</span><span class="nav-text"> Finance &amp; Accounting</span></button>
+    <button class="nav-item" id="nav-generalaffair" onclick="showPanel('generalaffair',this)"><span class="nav-icon">&#x1F3E2;</span><span class="nav-text"> General Affair</span></button>
+    <button class="nav-item" id="nav-hrd" onclick="showPanel('hrd',this)"><span class="nav-icon">&#x1F465;</span><span class="nav-text"> HRD</span></button>
+    <button class="nav-item" id="nav-ia" onclick="showPanel('ia',this)"><span class="nav-icon">&#x1F50D;</span><span class="nav-text"> Internal Audit</span></button>
     <div class="nav-label" style="margin-top:10px;">Akun</div>
-    <button class="nav-item" id="nav-pengaturan" onclick="showPanel('pengaturan',this)">&#x2699;&#xFE0F; Pengaturan</button>
+    <button class="nav-item" id="nav-pengaturan" onclick="showPanel('pengaturan',this)"><span class="nav-icon">&#x2699;&#xFE0F;</span><span class="nav-text"> Pengaturan</span></button>
   </nav>
   <div class="sidebar-footer">
-    <button class="btn-logout" onclick="doLogout()">&#x1F6AA; Logout</button>
-    Upload: .xlsx / .xls / .csv<br>
-    Data diproses di browser<br>
-    Tidak dikirim ke server
+    <button class="btn-logout" onclick="doLogout()"><span class="nav-icon">&#x1F6AA;</span><span class="nav-text"> Logout</span></button>
+    <div class="footer-text" style="margin-top:4px;">Upload: .xlsx / .xls / .csv<br>Data diproses di browser<br>Tidak dikirim ke server</div>
   </div>
 </aside>
 
@@ -936,7 +949,8 @@ function authInit(){
   var sel=document.getElementById('login-user-sel');
   if(sel){
     sel.innerHTML='<option value="">&#x2015; Pilih Username &#x2015;</option>';
-    var allUsers=APP_USERS.concat(okrData._customUsers||[]);
+    var _dis2=okrData._disabledUsers||[];
+    var allUsers=APP_USERS.filter(function(u){return _dis2.indexOf(u)===-1;}).concat(okrData._customUsers||[]);
     allUsers.forEach(function(u){
       var o=document.createElement('option');
       o.value=u;o.textContent=u;
@@ -944,7 +958,8 @@ function authInit(){
     });
   }
   var u=sessionStorage.getItem('okrLoginUser');
-  var validUsers=APP_USERS.concat(okrData._customUsers||[]);
+  var _disV=okrData._disabledUsers||[];
+  var validUsers=APP_USERS.filter(function(u){return _disV.indexOf(u)===-1;}).concat(okrData._customUsers||[]);
   if(u&&validUsers.indexOf(u)>=0){
     APP_CUR_USER=u;
     var ov=document.getElementById('login-overlay');
@@ -1213,8 +1228,9 @@ function accessRender(){
   allUsers.forEach(function(user,ri){
     var acc=authGetAccess(user);
     var isCustom=customUsers.indexOf(user)!==-1;
+    var _isDisabled=(okrData._disabledUsers||[]).indexOf(user)!==-1;
     var bg=ri%2===0?'':'background:var(--bg);';
-    h+='<tr>';
+    h+='<tr style="'+(_isDisabled?'opacity:0.45;':'')+'">'; 
     h+='<td style="position:sticky;left:0;z-index:5;background:var(--bg2);'+bg+'padding:7px 14px;font-weight:600;border-right:2px solid var(--border);border-bottom:1px solid var(--border);">';
     h+=okrEsc(user);
     if(isCustom) h+='<span style="font-size:9px;color:var(--primary);margin-left:6px;border:1px solid var(--primary);border-radius:3px;padding:1px 4px;font-weight:400;">custom</span>';
@@ -1281,8 +1297,9 @@ function accessUpdateOkrAll(user,checked){
   notify(user+': '+(checked?'Lihat Semua OKR/TAL diaktifkan':'dibatasi ke divisi sendiri'));
 }
 function accessResetAll(){
-  if(!confirm('Reset semua akses ke default? Custom user tidak akan dihapus.')) return;
+  if(!confirm('Reset semua akses ke default? Custom user tidak akan dihapus, disabled user akan diaktifkan kembali.')) return;
   delete okrData._userAccess;
+  delete okrData._disabledUsers;
   okrSaveLS();
   accessRender();
   notify('Akses direset ke default ✓');
@@ -1307,18 +1324,28 @@ function accessSaveNewUser(){
   accessRender();
   notify('User "'+name+'" berhasil ditambahkan ✓');
 }
-function accessDeleteCustomUser(name){
-  if(!confirm('Hapus user "'+name+'"? Tindakan ini tidak dapat dibatalkan.')) return;
+function accessDeleteUser(name){
+  if(!confirm('Hapus user "'+name+'"? User tidak dapat login. Admin dapat aktifkan kembali.')) return;
   if(okrData._customUsers){
-    var idx=okrData._customUsers.indexOf(name);
-    if(idx!==-1) okrData._customUsers.splice(idx,1);
+    var ci=okrData._customUsers.indexOf(name);
+    if(ci!==-1) okrData._customUsers.splice(ci,1);
   }
-  if(okrData._userAccess) delete okrData._userAccess[name];
+  if(APP_USERS.indexOf(name)!==-1){
+    if(!okrData._disabledUsers) okrData._disabledUsers=[];
+    if(okrData._disabledUsers.indexOf(name)===-1) okrData._disabledUsers.push(name);
+  }
   if(okrData._userPwd) delete okrData._userPwd[name];
-  okrSaveLS();
-  accessRender();
+  okrSaveLS();accessRender();
   notify('User "'+name+'" dihapus ✓');
 }
+function accessRestoreUser(name){
+  if(!okrData._disabledUsers) return;
+  var ri=okrData._disabledUsers.indexOf(name);
+  if(ri!==-1) okrData._disabledUsers.splice(ri,1);
+  okrSaveLS();accessRender();
+  notify('User "'+name+'" diaktifkan kembali ✓');
+}
+function accessDeleteCustomUser(name){accessDeleteUser(name);}
 
 // ─────────────────────────────────────────────────────────────
 
@@ -1440,6 +1467,11 @@ function _evView(btn){
     var a=document.createElement('a');a.href=ev.data;a.download=ev.name||'bukti';
     document.body.appendChild(a);a.click();document.body.removeChild(a);
   }
+}
+
+function sidebarToggle(){
+  var sb=document.getElementById('sidebar');
+  sb.classList.toggle('collapsed');
 }
 
 okrInit();
