@@ -1247,10 +1247,12 @@ function accessRender(){
     h+='<input type="checkbox" id="'+auid+'" '+(acc.okrAll?'checked':'')+' style="width:15px;height:15px;cursor:pointer;accent-color:var(--primary);" onchange="accessUpdateOkrAll(\''+user.replace(/\\/g,'\\\\').replace(/'/g,'\\\'')+ '\',this.checked)">';
     h+='</td>';
     h+='<td style="padding:6px 8px;text-align:center;border-bottom:1px solid var(--border);'+bg+'">';
-    if(isCustom){
-      h+='<button onclick="accessDeleteCustomUser(\''+user.replace(/\\/g,'\\\\').replace(/'/g,'\\\'')+'\')" style="background:none;border:1.5px solid #fca5a5;color:#dc2626;border-radius:var(--radius-sm);padding:3px 7px;cursor:pointer;font-size:12px;font-family:var(--font);">&#x1F5D1;</button>';
-    }else{
+    if(user==='Admin'){
       h+='<span style="color:var(--text-l);">—</span>';
+    }else if(_isDisabled){
+      h+='<button onclick="accessRestoreUser(\''+user.replace(/\\/g,'\\\\').replace(/'/g,'\\\'')+'\')" style="background:none;border:1.5px solid var(--success);color:var(--success);border-radius:var(--radius-sm);padding:3px 7px;cursor:pointer;font-size:11px;font-family:var(--font);">Aktifkan</button>';
+    }else{
+      h+='<button onclick="accessDeleteUser(\''+user.replace(/\\/g,'\\\\').replace(/'/g,'\\\'')+'\')" style="background:none;border:1.5px solid #fca5a5;color:#dc2626;border-radius:var(--radius-sm);padding:3px 7px;cursor:pointer;font-size:12px;font-family:var(--font);">&#x1F5D1;</button>';
     }
     h+='</td>';
     h+='</tr>';
