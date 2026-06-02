@@ -296,11 +296,11 @@ for fpath in files:
     name = fpath.split('\\')[-1]
     print(f'\n=== {name} ===')
     for p in patches_ok:
-        print(f'  ✓ {p}')
+        print(f'  OK: {p}')
     if errors:
         print('  ERRORS:')
         for e in errors:
-            print(f'  ✗ {e}')
+            print(f'  !! {e}')
 
     if not errors:
         with open(fpath, 'w', encoding='utf-8') as f:
