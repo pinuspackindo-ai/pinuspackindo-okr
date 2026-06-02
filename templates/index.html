@@ -1085,6 +1085,18 @@ var USER_TAL_DIVS={
   'Inventory':[],'Finance & Accounting':[2],
   'Store':[0],'Warehouse':[7],'Sales':[1],'Admin':null
 };
+// Module key -> OKR division name
+var MODULE_OKR_DIV={
+  'store':'Store','distrib':'Distribution Sales','warehouse':'Warehouse',
+  'inventory':'Inventory','purchasing':'Purchasing',
+  'financeacc':'Finance & Accounting','generalaffair':'General Affair',
+  'hrd':'HRD','ia':'Internal Audit'
+};
+// Module key -> TAL division index
+var MODULE_TAL_DIV={
+  'store':0,'distrib':1,'financeacc':2,'hrd':3,
+  'generalaffair':4,'purchasing':5,'warehouse':7
+};
 
 function authGetAccess(user){
   if(!user) return {modules:['dashboard'],okrAll:false};
@@ -1104,15 +1116,27 @@ function isOwnerOrAdmin(){return APP_CUR_USER==='Owner'||APP_CUR_USER==='Admin';
 function isAdminUser(){return APP_CUR_USER==='Admin';}
 function authGetVisibleOKRDivs(){
   if(!APP_CUR_USER) return [];
-  if(authCanSeeAllOKR()) return null; // null = all
-  var own=USER_OKR_DIVISION[APP_CUR_USER];
-  return own?[own]:[];
+  var acc=authGetAccess(APP_CUR_USER);
+  if(acc.okrAll) return null; // see all divisions
+  var mods=acc.modules||[];
+  var divs=[];
+  mods.forEach(function(m){
+    if(MODULE_OKR_DIV[m]&&divs.indexOf(MODULE_OKR_DIV[m])===-1)
+      divs.push(MODULE_OKR_DIV[m]);
+  });
+  return divs;
 }
 function authGetVisibleTALDivs(){
   if(!APP_CUR_USER) return null;
-  if(authCanSeeAllOKR()) return null; // null = all
-  var divs=USER_TAL_DIVS[APP_CUR_USER];
-  return (divs===null||divs===undefined)?null:divs;
+  var acc=authGetAccess(APP_CUR_USER);
+  if(acc.okrAll) return null; // see all TAL divisions
+  var mods=acc.modules||[];
+  var divs=[];
+  mods.forEach(function(m){
+    if(MODULE_TAL_DIV[m]!==undefined&&divs.indexOf(MODULE_TAL_DIV[m])===-1)
+      divs.push(MODULE_TAL_DIV[m]);
+  });
+  return divs;
 }
 function authApplyAccess(){
   ACCESS_MODULES.forEach(function(m){
@@ -1229,8 +1253,8 @@ function accessResetAll(){
 // ─────────────────────────────────────────────────────────────
 
 function applyPanelRoleUI(name){
-  if(name==='dashboard'||name==='tal'||name==='pengaturan') return;
-  if(isAdminUser()) return;
+  if(name==='pengaturan') return;
+  if(isOwnerOrAdmin()) return;
   var panel=document.getElementById('panel-'+name);
   if(!panel) return;
   panel.querySelectorAll('button').forEach(function(b){
