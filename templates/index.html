@@ -4825,26 +4825,26 @@ function gaRender(){
 // ── SUB1: Akurasi Stock Opname (monthly %) ────────────────────
 function gaRenderStockOpname(){
   var wrap=document.getElementById('generalaffair-content');if(!wrap)return;
-  var html='<div style="margin-bottom:4px;font-size:13px;color:var(--text-m);">Masukkan % akurasi stock opname per bulan. Upload bukti wajib sebelum simpan.</div>';
-  html+='<div style="display:grid;grid-template-columns:repeat(auto-fill,minmax(200px,1fr));gap:12px;margin-top:16px;">';
+  var html='<div style="margin-bottom:12px;font-size:13px;color:var(--text-m);">Masukkan % akurasi stock opname per bulan. Upload bukti wajib sebelum simpan.</div>';
+  html+='<div style="display:flex;flex-direction:column;gap:8px;">';
   for(var mi=1;mi<=12;mi++){
     var d=_gasog(gaYear,mi);var locked=!!d.locked;var hasVal=d.value!==null&&d.value!==undefined;
-    html+='<div style="background:var(--bg2);border:1.5px solid '+(locked?'var(--success)':'var(--border)')+';border-radius:var(--radius);padding:14px 12px;">';
-    html+='<div style="font-size:11px;font-weight:700;color:var(--text-m);margin-bottom:8px;">'+BULS[mi-1]+' '+gaYear+'</div>';
+    html+='<div style="display:flex;align-items:center;gap:12px;background:var(--bg2);border:1.5px solid '+(locked?'var(--success)':'var(--border)')+';border-radius:var(--radius);padding:10px 14px;">';
+    html+='<div style="font-size:13px;font-weight:700;color:var(--text);min-width:120px;">'+BULS[mi-1]+' '+gaYear+'</div>';
     if(locked){
-      html+='<div class="score-num '+(hasVal?scoreClass(d.value):'')+'" style="font-size:1.5rem;margin-bottom:6px;">'+(hasVal?d.value.toFixed(1)+'%':'—')+'</div>';
-      html+='<div style="font-size:11px;color:var(--text-l);margin-bottom:8px;">'+(d.savedAt?new Date(d.savedAt).toLocaleDateString('id-ID'):'')+'</div>';
-      html+='<div style="display:flex;gap:6px;">';
-      if(d.evidence)html+='<button onclick="gaViewEv(\'stock_opname\','+mi+')" style="flex:1;background:none;border:1.5px solid var(--primary);color:var(--primary);border-radius:var(--radius-sm);padding:4px 6px;cursor:pointer;font-size:11px;font-family:var(--font);">&#x1F441; Bukti</button>';
+      html+='<div class="score-num '+(hasVal?scoreClass(d.value):'')+'" style="font-size:1.2rem;min-width:70px;">'+(hasVal?d.value.toFixed(1)+'%':'—')+'</div>';
+      html+='<div style="font-size:11px;color:var(--text-l);flex:1;">'+(d.savedAt?new Date(d.savedAt).toLocaleDateString('id-ID'):'')+'</div>';
+      html+='<div style="display:flex;gap:6px;flex-shrink:0;">';
+      if(d.evidence)html+='<button onclick="gaViewEv(\'stock_opname\','+mi+')" style="background:none;border:1.5px solid var(--primary);color:var(--primary);border-radius:var(--radius-sm);padding:4px 10px;cursor:pointer;font-size:11px;font-family:var(--font);">&#x1F441; Bukti</button>';
       html+='<button onclick="gaUnlockMonthly(\'stock_opname\','+mi+')" style="background:none;border:1.5px solid var(--border);color:var(--text-m);border-radius:var(--radius-sm);padding:4px 8px;cursor:pointer;font-size:11px;font-family:var(--font);">&#x270F;&#xFE0F;</button>';
       html+='<button onclick="gaDeleteMonthly(\'stock_opname\','+mi+')" style="background:none;border:1.5px solid #fca5a5;color:#dc2626;border-radius:var(--radius-sm);padding:4px 8px;cursor:pointer;font-size:11px;font-family:var(--font);">&#x1F5D1;</button>';
       html+='</div>';
     }else{
-      html+='<input type="number" id="ga-so-val-'+mi+'" min="0" max="100" step="0.01" placeholder="%" value="'+(hasVal?d.value:'')+'" style="width:100%;padding:7px 10px;border:1.5px solid var(--border);border-radius:var(--radius-sm);font-family:var(--font);font-size:14px;margin-bottom:8px;box-sizing:border-box;">';
-      html+='<label for="ga-so-ev-'+mi+'" style="display:block;cursor:pointer;padding:5px 10px;border:1.5px '+(d.evidence?'solid var(--success)':'dashed var(--border)')+';border-radius:var(--radius-sm);font-size:12px;color:'+(d.evidence?'var(--success)':'var(--text-m)')+';margin-bottom:8px;text-align:center;overflow:hidden;text-overflow:ellipsis;white-space:nowrap;">';
+      html+='<input type="number" id="ga-so-val-'+mi+'" min="0" max="100" step="0.01" placeholder="%" value="'+(hasVal?d.value:'')+'" style="width:90px;padding:6px 10px;border:1.5px solid var(--border);border-radius:var(--radius-sm);font-family:var(--font);font-size:14px;box-sizing:border-box;">';
+      html+='<label for="ga-so-ev-'+mi+'" style="flex:1;cursor:pointer;padding:6px 10px;border:1.5px '+(d.evidence?'solid var(--success)':'dashed var(--border)')+';border-radius:var(--radius-sm);font-size:12px;color:'+(d.evidence?'var(--success)':'var(--text-m)')+';text-align:center;overflow:hidden;text-overflow:ellipsis;white-space:nowrap;">';
       html+=d.evidence?'&#x2705; '+okrEsc(d.evidenceName||'OK'):'&#x1F4CE; Upload Bukti';
       html+='</label><input type="file" multiple id="ga-so-ev-'+mi+'" accept="image/*" style="display:none;" onchange="gaUploadMonthly(\'stock_opname\','+mi+',this)">';
-      html+='<button onclick="gaConfirmMonthly(\'stock_opname\','+mi+')" style="width:100%;background:var(--primary);border:none;color:#fff;border-radius:var(--radius-sm);padding:7px 0;cursor:pointer;font-family:var(--font);font-size:13px;font-weight:700;">&#x1F4BE; Simpan</button>';
+      html+='<button onclick="gaConfirmMonthly(\'stock_opname\','+mi+')" style="background:var(--primary);border:none;color:#fff;border-radius:var(--radius-sm);padding:6px 16px;cursor:pointer;font-family:var(--font);font-size:13px;font-weight:700;flex-shrink:0;">&#x1F4BE; Simpan</button>';
     }
     html+='</div>';
   }
