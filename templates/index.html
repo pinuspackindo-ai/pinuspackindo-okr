@@ -6201,6 +6201,7 @@ function talBuildDivCard(d,y,m){
     h+='<span class="'+scoreClass(total)+'" style="font-size:15px;font-weight:800;background:rgba(255,255,255,.18);padding:3px 12px;border-radius:20px;">'+total.toFixed(2)+'</span>';
   }
   if(isOwnerOrAdmin()){
+    h+='<button onclick="talFormForDiv('+d+')" style="background:rgba(255,255,255,.20);border:1.5px solid rgba(255,255,255,.5);color:#fff;border-radius:var(--radius-sm);padding:4px 12px;cursor:pointer;font-size:12px;font-family:var(--font);font-weight:700;">&#x2795;</button>';
     if(!anyEditing){
       h+='<button onclick="talEditAllRows('+d+')" style="background:rgba(255,255,255,.15);border:1.5px solid rgba(255,255,255,.4);color:#fff;border-radius:var(--radius-sm);padding:4px 12px;cursor:pointer;font-size:12px;font-family:var(--font);font-weight:600;">&#x270F;&#xFE0F; Edit TAL</button>';
     }else{
@@ -6354,11 +6355,14 @@ function talDupFromTop(){
   if(s) s.style.display='none';
 }
 function talFormForDiv(d){
+  window._talFiCount=0;
   var form=document.getElementById('tal-add-form');
   if(form){
     form.style.display='block';
     var sel=document.getElementById('tal-form-div');
     if(sel) sel.value=String(d);
+    var items=document.getElementById('tal-form-items');
+    if(items) items.innerHTML=talFormItemHTML(0);
     form.scrollIntoView({behavior:'smooth',block:'start'});
   }
 }
