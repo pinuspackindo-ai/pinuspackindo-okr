@@ -6129,6 +6129,25 @@ function talInit(){
   var msel=document.getElementById('tal-month-sel');
   if(msel){msel.innerHTML='';for(var mi=1;mi<=12;mi++){var o2=document.createElement('option');o2.value=mi;o2.textContent=BULS[mi-1];if(mi===talMonth)o2.selected=true;msel.appendChild(o2);}}
   talRender();
+  // Fresh-fetch TAL + access dari cloud setiap TAL dibuka
+  fetch('/api/okr?_='+Date.now())
+    .then(function(r){return r.ok?r.json():null;})
+    .then(function(cloud){
+      if(!cloud||typeof cloud!=='object') return;
+      var _adminKeys=['_userAccess','_customUsers','_disabledUsers','_userPwd'];
+      var changed=false;
+      Object.keys(cloud).forEach(function(k){
+        if(k==='_ts') return;
+        var sync=_adminKeys.indexOf(k)!==-1||k.startsWith('_tal_');
+        if(sync){
+          if(JSON.stringify(cloud[k])!==JSON.stringify(okrData[k])){okrData[k]=cloud[k];changed=true;}
+        }
+      });
+      if(changed){
+        localStorage.setItem(OKR_STORE_KEY,JSON.stringify(okrData));
+        authApplyAccess();talRender();
+      }
+    }).catch(function(){});
 }
 function talYearChange(v){talYear=parseInt(v)||new Date().getFullYear();talRender();}
 function talMonthChange(v){talMonth=parseInt(v)||new Date().getMonth()+1;talRender();}
