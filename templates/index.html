@@ -4165,13 +4165,13 @@ function okrInit(){
             // Raw lebih baru — tapi pertahankan data sub-modul lokal yg tidak ada di raw (cegah wipe)
             var _lSub={};localDataKeys.forEach(function(k){if(k.startsWith('_'))_lSub[k]=okrData[k];});
             okrData=raw;Object.keys(_lSub).forEach(function(k){if(!(k in raw))okrData[k]=_lSub[k];});
-            localStorage.setItem(OKR_STORE_KEY,JSON.stringify(okrData));okrRender();
+            localStorage.setItem(OKR_STORE_KEY,JSON.stringify(okrData));okrRender();talRender();authApplyAccess();
           } else if(localOkrKeys.length===0){
             // Local punya data sub-modul tapi TIDAK punya struktur OKR → merge dari raw
             var rawOkrKeys=rawKeys.filter(function(k){return !k.startsWith('_');});
             rawOkrKeys.forEach(function(k){okrData[k]=raw[k];});
             okrData._ts=Date.now();
-            localStorage.setItem(OKR_STORE_KEY,JSON.stringify(okrData));okrRender();
+            localStorage.setItem(OKR_STORE_KEY,JSON.stringify(okrData));okrRender();talRender();authApplyAccess();
           }
         }).catch(function(){_okrSyncBlocked=false;});
         return;
