@@ -6144,16 +6144,12 @@ function talRender(){
   // Hidden add form (top)
   html+='<div id="tal-add-form" style="display:none;background:var(--bg2);border:1.5px solid var(--primary);border-radius:var(--radius);padding:20px;margin-bottom:20px;">';
   html+='<div style="font-size:14px;font-weight:700;color:var(--text);margin-bottom:14px;">&#x1F4CB; Tambah TAL Baru</div>';
-  html+='<div style="display:grid;grid-template-columns:repeat(auto-fit,minmax(180px,1fr));gap:12px;margin-bottom:12px;">';
-  html+='<div><label style="font-size:11px;color:var(--text-m);font-weight:600;">Nama Divisi</label><select id="tal-form-div" style="width:100%;padding:7px 10px;border:1.5px solid var(--border);border-radius:var(--radius-sm);font-family:var(--font);font-size:12px;margin-top:4px;box-sizing:border-box;">'+divOpts+'</select></div>';
-  html+='<div style="grid-column:span 2;"><label style="font-size:11px;color:var(--text-m);font-weight:600;">Deskripsi TAL</label><input type="text" id="tal-form-tal" placeholder="Deskripsi TAL..." style="width:100%;padding:7px 10px;border:1.5px solid var(--border);border-radius:var(--radius-sm);font-family:var(--font);font-size:12px;margin-top:4px;box-sizing:border-box;"></div>';
-  html+='<div><label style="font-size:11px;color:var(--text-m);font-weight:600;">Deadline</label><input type="date" id="tal-form-dl" style="width:100%;padding:7px 10px;border:1.5px solid var(--border);border-radius:var(--radius-sm);font-family:var(--font);font-size:12px;margin-top:4px;box-sizing:border-box;"></div>';
-  html+='<div><label style="font-size:11px;color:var(--text-m);font-weight:600;">Target</label><input type="text" id="tal-form-tgt" placeholder="Target..." style="width:100%;padding:7px 10px;border:1.5px solid var(--border);border-radius:var(--radius-sm);font-family:var(--font);font-size:12px;margin-top:4px;box-sizing:border-box;"></div>';
-  html+='<div><label style="font-size:11px;color:var(--text-m);font-weight:600;">Bobot (%)</label><input type="number" id="tal-form-bbt" min="0.01" max="100" step="0.01" placeholder="%" style="width:100%;padding:7px 10px;border:1.5px solid var(--border);border-radius:var(--radius-sm);font-family:var(--font);font-size:12px;margin-top:4px;box-sizing:border-box;"></div>';
-  html+='<div><label style="font-size:11px;color:var(--text-m);font-weight:600;">Progress (%)</label><input type="number" id="tal-form-prg" min="0" max="100" step="0.01" placeholder="%" style="width:100%;padding:7px 10px;border:1.5px solid var(--border);border-radius:var(--radius-sm);font-family:var(--font);font-size:12px;margin-top:4px;box-sizing:border-box;"></div>';
-  html+='</div>';
-  html+='<div style="margin-bottom:12px;"><label style="font-size:11px;color:var(--text-m);font-weight:600;">Review Atasan</label><input type="text" id="tal-form-rvw" placeholder="Review atasan..." style="width:100%;padding:7px 10px;border:1.5px solid var(--border);border-radius:var(--radius-sm);font-family:var(--font);font-size:12px;margin-top:4px;box-sizing:border-box;"></div>';
-  html+='<div style="display:flex;gap:8px;">';
+  html+='<div style="margin-bottom:14px;"><label style="font-size:11px;color:var(--text-m);font-weight:600;display:block;margin-bottom:4px;">Nama Divisi</label>';
+  html+='<select id="tal-form-div" style="padding:7px 10px;border:1.5px solid var(--border);border-radius:var(--radius-sm);font-family:var(--font);font-size:12px;min-width:200px;">'+divOpts+'</select></div>';
+  html+='<div style="font-size:11px;font-weight:600;color:var(--text-m);margin-bottom:8px;border-top:1px solid var(--border);padding-top:12px;">Daftar TAL</div>';
+  html+='<div id="tal-form-items">'+talFormItemHTML(0)+'</div>';
+  html+='<button onclick="talFormAddItem()" style="background:none;border:1.5px dashed var(--primary);color:var(--primary);border-radius:var(--radius-sm);padding:6px 16px;cursor:pointer;font-size:12px;font-family:var(--font);margin-top:4px;">&#x2795; Tambah Baris TAL</button>';
+  html+='<div style="display:flex;gap:8px;margin-top:14px;border-top:1px solid var(--border);padding-top:12px;">';
   html+='<button onclick="talFormSave()" style="background:var(--primary);border:none;color:#fff;border-radius:var(--radius-sm);padding:7px 20px;cursor:pointer;font-size:13px;font-family:var(--font);font-weight:600;">&#x2713; Simpan</button>';
   html+='<button onclick="talFormCancel()" style="background:none;border:1.5px solid var(--border);color:var(--text-m);border-radius:var(--radius-sm);padding:7px 14px;cursor:pointer;font-size:13px;font-family:var(--font);">&#x2715; Batal</button>';
   html+='</div></div>';
@@ -6231,7 +6227,7 @@ function talBuildDivCard(d,y,m){
   h+='<div style="overflow-x:auto;">';
   h+='<table style="width:100%;border-collapse:collapse;font-size:12px;min-width:700px;">';
   h+='<thead><tr style="border-bottom:2px solid var(--border);background:var(--bg);">';
-  var hdrs=['No','TAL','Deadline','Target','Progress (%)','Bobot (%)','Score','Review Atasan'];
+  var hdrs=['No','TAL','Deadline','Progress (%)','Bobot (%)','Score','Review Atasan'];
   if(anyEditing) hdrs.push('Aksi');
   hdrs.forEach(function(hd,i){
     h+='<th style="position:sticky;top:0;text-align:'+(i===0||i>=4?'center':'left')+';padding:9px 10px;color:var(--text-m);font-weight:600;white-space:nowrap;background:var(--bg);border-bottom:2px solid var(--border);">'+hd+'</th>';
@@ -6244,7 +6240,7 @@ function talBuildDivCard(d,y,m){
       h+='<td style="padding:7px 8px;text-align:center;color:var(--text-l);">'+(idx+1)+'</td>';
       h+='<td style="padding:5px 6px;min-width:160px;"><input id="tal-tal-'+d+'-'+idx+'" type="text" value="'+okrEsc(row.tal||'')+'" placeholder="Deskripsi TAL..." style="width:100%;padding:5px 8px;border:1.5px solid var(--border);border-radius:var(--radius-sm);font-family:var(--font);font-size:12px;box-sizing:border-box;"></td>';
       h+='<td style="padding:5px 6px;"><input id="tal-dl-'+d+'-'+idx+'" type="date" value="'+okrEsc(row.deadline||'')+'" style="padding:5px 6px;border:1.5px solid var(--border);border-radius:var(--radius-sm);font-family:var(--font);font-size:12px;"></td>';
-      h+='<td style="padding:5px 6px;min-width:110px;"><input id="tal-tgt-'+d+'-'+idx+'" type="text" value="'+okrEsc(row.target||'')+'" placeholder="Target..." style="width:100%;padding:5px 8px;border:1.5px solid var(--border);border-radius:var(--radius-sm);font-family:var(--font);font-size:12px;box-sizing:border-box;"></td>';
+
       h+='<td style="padding:5px 6px;text-align:center;"><input id="tal-prg-'+d+'-'+idx+'" type="number" min="0" max="100" step="0.01" value="'+(row.progress!==null&&row.progress!==undefined?row.progress:'')+'" placeholder="%" style="width:65px;padding:5px 6px;border:1.5px solid var(--border);border-radius:var(--radius-sm);font-family:var(--font);font-size:12px;text-align:center;"></td>';
       h+='<td style="padding:5px 6px;text-align:center;"><input id="tal-bbt-'+d+'-'+idx+'" type="number" min="0.01" max="100" step="0.01" value="'+(row.bobot!==null&&row.bobot!==undefined?row.bobot:'')+'" placeholder="%" style="width:58px;padding:5px 6px;border:1.5px solid var(--border);border-radius:var(--radius-sm);font-family:var(--font);font-size:12px;text-align:center;"></td>';
       h+='<td style="padding:5px 6px;text-align:center;color:var(--text-l);">?</td>';
@@ -6260,7 +6256,7 @@ function talBuildDivCard(d,y,m){
       h+='<td style="padding:8px 10px;text-align:center;color:var(--text-l);">'+(idx+1)+'</td>';
       h+='<td style="padding:8px 10px;font-weight:600;color:var(--text);">'+okrEsc(row.tal||'?')+'</td>';
       h+='<td style="padding:8px 10px;white-space:nowrap;font-size:11px;color:var(--text-m);">'+okrEsc(row.deadline||'?')+'</td>';
-      h+='<td style="padding:8px 10px;color:var(--text-m);">'+okrEsc(row.target||'?')+'</td>';
+
       h+='<td style="padding:6px 8px;text-align:center;"><div style="display:inline-flex;align-items:center;gap:4px;">';
       h+='<input id="tal-pli-'+d+'-'+idx+'" type="number" min="0" max="100" step="0.01" value="'+(hasPrg?row.progress:'')+'" placeholder="%" style="width:62px;padding:4px 6px;border:1.5px solid '+(hasPrg?'var(--primary)':'var(--border)')+';border-radius:var(--radius-sm);font-family:var(--font);font-size:12px;text-align:center;">';
       h+='<button onclick="talSaveProgress('+d+','+idx+')" style="background:var(--primary);border:none;color:#fff;border-radius:50%;width:22px;height:22px;cursor:pointer;font-size:12px;line-height:1;display:flex;align-items:center;justify-content:center;flex-shrink:0;">&#x2713;</button>';
@@ -6286,7 +6282,7 @@ function talBuildDivCard(d,y,m){
   });
 
   h+='<tr style="border-top:2px solid var(--border);background:var(--bg2);">';
-  h+='<td colspan="6" style="padding:11px 14px;font-weight:700;font-size:13px;color:var(--text);text-align:right;">&#x1F3AF; Score Akhir &nbsp;=&nbsp; &#x2211; (Progress &times; Bobot / 100)</td>';
+  h+='<td colspan="5" style="padding:11px 14px;font-weight:700;font-size:13px;color:var(--text);text-align:right;">&#x1F3AF; Score Akhir &nbsp;=&nbsp; &#x2211; (Progress &times; Bobot / 100)</td>';
   h+='<td style="padding:11px 14px;text-align:center;">';
   if(saved.length>0){h+='<span class="score-num '+scoreClass(total)+'" style="font-size:1.5rem;font-weight:800;">'+total.toFixed(2)+'</span>';}
   else{h+='<span style="color:var(--text-l);">?</span>';}
@@ -6347,6 +6343,7 @@ function talDupModuleAll(){
 }
 
 function talOpenAddForm(){
+  window._talFiCount=0;
   var form=document.getElementById('tal-add-form');
   if(form){form.style.display=form.style.display==='none'?'block':'none';if(form.style.display==='block')form.scrollIntoView({behavior:'smooth',block:'start'});}
 }
@@ -6372,38 +6369,60 @@ function talFormCancel(){
   var form=document.getElementById('tal-add-form');
   if(form) form.style.display='none';
 }
+function talFormItemHTML(i){
+  var INP='padding:6px 8px;border:1.5px solid var(--border);border-radius:var(--radius-sm);font-family:var(--font);font-size:12px;box-sizing:border-box;width:100%;';
+  var h='<div id="tal-fi-wrap-'+i+'" style="display:grid;grid-template-columns:2fr 140px 90px 32px;gap:8px;align-items:flex-end;margin-bottom:10px;padding-bottom:10px;border-bottom:1px solid var(--border);">';
+  h+='<div><label style="font-size:10px;color:var(--text-m);font-weight:600;display:block;margin-bottom:3px;">Deskripsi TAL</label><input type="text" id="tal-fi-tal-'+i+'" placeholder="Deskripsi TAL..." style="'+INP+'"></div>';
+  h+='<div><label style="font-size:10px;color:var(--text-m);font-weight:600;display:block;margin-bottom:3px;">Deadline</label><input type="date" id="tal-fi-dl-'+i+'" style="'+INP+'"></div>';
+  h+='<div><label style="font-size:10px;color:var(--text-m);font-weight:600;display:block;margin-bottom:3px;">Bobot (%)</label><input type="number" id="tal-fi-bbt-'+i+'" min="0.01" max="100" step="0.01" placeholder="%" style="'+INP+'"></div>';
+  h+=(i>0?'<button onclick="talFormRemoveItem('+i+')" style="background:none;border:1.5px solid #fca5a5;color:#dc2626;border-radius:var(--radius-sm);padding:5px 7px;cursor:pointer;font-size:13px;line-height:1;">&#x1F5D1;</button>':'<div></div>');
+  h+='</div>';
+  return h;
+}
+function talFormAddItem(){
+  if(!window._talFiCount) window._talFiCount=0;
+  window._talFiCount++;
+  var i=window._talFiCount;
+  var container=document.getElementById('tal-form-items');
+  if(!container) return;
+  var tmp=document.createElement('div');
+  tmp.innerHTML=talFormItemHTML(i);
+  container.appendChild(tmp.firstChild);
+}
+function talFormRemoveItem(i){
+  var wrap=document.getElementById('tal-fi-wrap-'+i);
+  if(wrap) wrap.remove();
+}
 function talFormSave(){
   var divEl=document.getElementById('tal-form-div');
-  var talEl=document.getElementById('tal-form-tal');
-  var dlEl=document.getElementById('tal-form-dl');
-  var tgtEl=document.getElementById('tal-form-tgt');
-  var bbtEl=document.getElementById('tal-form-bbt');
-  var prgEl=document.getElementById('tal-form-prg');
-  var rvwEl=document.getElementById('tal-form-rvw');
-  if(!divEl||!talEl) return;
+  if(!divEl) return;
   var d=parseInt(divEl.value);
-  var talVal=(talEl.value||'').trim();
-  if(!talVal){notify('Deskripsi TAL wajib diisi.','error');return;}
-  var bobot=bbtEl&&bbtEl.value.trim()!==''?parseFloat(bbtEl.value):0;
-  if(!bobot||bobot<=0){notify('Bobot (%) wajib diisi dan > 0.','error');return;}
-  var data=_talG(d,talYear,talMonth);
-  data.rows.push({
-    tal:talVal,deadline:dlEl?dlEl.value:'',target:(tgtEl?tgtEl.value:'').trim(),
-    bobot:Math.min(100,Math.max(0.01,bobot)),
-    progress:prgEl&&prgEl.value.trim()!==''?Math.min(100,Math.max(0,parseFloat(prgEl.value)||0)):null,
-    review:(rvwEl?rvwEl.value:'').trim(),editing:false,savedAt:new Date().toISOString()
+  var container=document.getElementById('tal-form-items');
+  if(!container) return;
+  var items=[];
+  var talEls=container.querySelectorAll('[id^="tal-fi-tal-"]');
+  talEls.forEach(function(talEl){
+    var idx=talEl.id.replace('tal-fi-tal-','');
+    var talVal=(talEl.value||'').trim();
+    if(!talVal) return;
+    var dlEl=document.getElementById('tal-fi-dl-'+idx);
+    var bbtEl=document.getElementById('tal-fi-bbt-'+idx);
+    var bobot=bbtEl&&bbtEl.value.trim()!==''?parseFloat(bbtEl.value):0;
+    items.push({tal:talVal,deadline:dlEl?dlEl.value:'',bobot:Math.min(100,Math.max(0.01,bobot||0)),progress:null,review:'',editing:false,savedAt:new Date().toISOString()});
   });
+  if(items.length===0){notify('Minimal 1 TAL harus diisi.','error');return;}
+  var invalid=items.find(function(it){return !it.bobot||it.bobot<=0;});
+  if(invalid){notify('Bobot (%) wajib diisi dan > 0 untuk setiap TAL.','error');return;}
+  var data=_talG(d,talYear,talMonth);
+  items.forEach(function(it){data.rows.push(it);});
   _talS(d,talYear,talMonth,data);okrSaveLS();
-  // clear form
-  talEl.value='';if(dlEl)dlEl.value='';if(tgtEl)tgtEl.value='';if(bbtEl)bbtEl.value='';if(prgEl)prgEl.value='';if(rvwEl)rvwEl.value='';
-  talRender();notify('TAL berhasil ditambahkan ✓');
+  talRender();notify(items.length+' TAL berhasil ditambahkan ✓');
 }
 
 function talSaveRow(d,idx){
   var data=_talG(d,talYear,talMonth);var row=data.rows[idx];if(!row)return;
   var tEl=document.getElementById('tal-tal-'+d+'-'+idx);
   var dlEl=document.getElementById('tal-dl-'+d+'-'+idx);
-  var tgEl=document.getElementById('tal-tgt-'+d+'-'+idx);
   var pEl=document.getElementById('tal-prg-'+d+'-'+idx);
   var bEl=document.getElementById('tal-bbt-'+d+'-'+idx);
   var rEl=document.getElementById('tal-rvw-'+d+'-'+idx);
@@ -6411,7 +6430,7 @@ function talSaveRow(d,idx){
   var tal=(tEl.value||'').trim();if(!tal){notify('Deskripsi TAL wajib diisi.','error');return;}
   var bobot=bEl&&bEl.value.trim()!==''?parseFloat(bEl.value):0;
   if(!bobot||bobot<=0){notify('Bobot (%) wajib diisi dan > 0.','error');return;}
-  row.tal=tal;row.deadline=dlEl?dlEl.value:'';row.target=(tgEl?tgEl.value:'').trim();
+  row.tal=tal;row.deadline=dlEl?dlEl.value:'';
   row.bobot=Math.min(100,Math.max(0.01,bobot));
   row.progress=pEl&&pEl.value.trim()!==''?Math.min(100,Math.max(0,parseFloat(pEl.value)||0)):null;
   if(rEl)row.review=(rEl.value||'').trim();

@@ -167,34 +167,28 @@ for fpath in files:
     errors = []
     patches_ok = []
 
-    def apply(old, new, label):
-        nonlocal c
-        if old == "":
-            # This is a removal-only patch; handled separately
-            return
+    def patch(old, new, label):
         if old in c:
-            c = c.replace(old, new, 1)
-            patches_ok.append(label)
-        else:
-            errors.append(label + ' NOT FOUND')
+            return c.replace(old, new, 1), label + ' OK'
+        return c, '!! ' + label + ' NOT FOUND'
 
-    def remove(old, label):
-        nonlocal c
-        if old in c:
-            c = c.replace(old, '', 1)
-            patches_ok.append(label)
+    def do(old, new, label):
+        result, msg = patch(old, new, label)
+        if msg.startswith('!!'):
+            errors.append(msg)
         else:
-            errors.append(label + ' NOT FOUND')
+            patches_ok.append(msg)
+        return result
 
-    apply(OLD_FORM,        NEW_FORM,        'P1: form -> multi-item')
-    apply(OLD_HDR,         NEW_HDR,         'P2: table header remove Target')
-    remove(OLD_EDIT_TGT,                    'P3: edit row remove target input')
-    remove(OLD_RO_TGT,                      'P4: read-only row remove target td')
-    apply(OLD_FOOTER_CS,   NEW_FOOTER_CS,   'P5: footer colspan 6->5')
-    apply(OLD_OPEN,        NEW_OPEN,        'P6: talOpenAddForm reset counter')
-    apply(OLD_FORM_SAVE,   NEW_FORM_SAVE,   'P7: talFormSave multi-item')
-    apply(OLD_SAVE_ROW_TGT,NEW_SAVE_ROW_TGT,'P8a: talSaveRow remove tgEl')
-    apply(OLD_SAVE_ROW_APPLY,NEW_SAVE_ROW_APPLY,'P8b: talSaveRow remove target apply')
+    c = do(OLD_FORM,          NEW_FORM,          'P1: form -> multi-item')
+    c = do(OLD_HDR,           NEW_HDR,           'P2: table header remove Target')
+    c = do(OLD_EDIT_TGT,      '',                'P3: edit row remove target input')
+    c = do(OLD_RO_TGT,        '',                'P4: read-only row remove target td')
+    c = do(OLD_FOOTER_CS,     NEW_FOOTER_CS,     'P5: footer colspan 6->5')
+    c = do(OLD_OPEN,          NEW_OPEN,          'P6: talOpenAddForm reset counter')
+    c = do(OLD_FORM_SAVE,     NEW_FORM_SAVE,     'P7: talFormSave multi-item')
+    c = do(OLD_SAVE_ROW_TGT,  NEW_SAVE_ROW_TGT,  'P8a: talSaveRow remove tgEl')
+    c = do(OLD_SAVE_ROW_APPLY,NEW_SAVE_ROW_APPLY,'P8b: talSaveRow remove target apply')
 
     name = fpath.split('\\')[-1] + ' (' + ('index' if 'templates' not in fpath else 'templates') + ')'
     print(f'\n=== {name} ===')
