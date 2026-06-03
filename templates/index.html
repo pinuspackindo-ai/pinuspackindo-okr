@@ -4203,6 +4203,16 @@ function okrInit(){
         okrRender();talRender();authApplyAccess();
         notify('Struktur OKR dipulihkan dari cloud ✓');
       }
+      // SELALU merge sub-modul data dari cloud yg belum ada di local
+      // (misal TAL dibuat Admin untuk divisi user lain — tidak ikut timestamp check)
+      var _missingSubKeys=Object.keys(cloud).filter(function(k){
+        return k.startsWith('_')&&k!=='_ts'&&!(k in okrData);
+      });
+      if(_missingSubKeys.length>0){
+        _missingSubKeys.forEach(function(k){okrData[k]=cloud[k];});
+        localStorage.setItem(OKR_STORE_KEY,JSON.stringify(okrData));
+        talRender();
+      }
     })
     .catch(function(){ _okrSyncBlocked=false; }); // unblock juga jika error
 }
