@@ -1108,10 +1108,17 @@ var MODULE_OKR_DIV={
   'financeacc':'Finance & Accounting','generalaffair':'General Affair',
   'hrd':'HRD','ia':'Internal Audit'
 };
-// Module key -> TAL division index
+// Module key -> TAL division index (each ops user maps to their own dedicated TAL division)
 var MODULE_TAL_DIV={
-  'store':0,'distrib':1,'financeacc':2,'hrd':3,
-  'generalaffair':4,'purchasing':5,'warehouse':7
+  'store':0,           // STORE
+  'distrib':9,         // DISTRIBUTION SALES
+  'financeacc':2,      // FINANCE & ACCOUNTING
+  'hrd':3,             // HRD
+  'generalaffair':4,   // GENERAL AFFAIR
+  'purchasing':5,      // PURCHASING
+  'warehouse':10,      // WAREHOUSE
+  'inventory':11,      // INVENTORY
+  'ia':12              // INTERNAL AUDIT
 };
 
 function authGetAccess(user){
@@ -1143,9 +1150,11 @@ function authGetVisibleOKRDivs(){
   return divs;
 }
 function authGetVisibleTALDivs(){
-  if(!APP_CUR_USER) return null;
+  if(!APP_CUR_USER) return [];
+  // Tanpa akses modul TAL -> tidak lihat TAL apapun
+  if(!isOwnerOrAdmin()&&!authCanAccess('tal')) return [];
   var acc=authGetAccess(APP_CUR_USER);
-  if(acc.okrAll) return null; // see all TAL divisions
+  if(acc.okrAll) return null; // see all TAL divisions (Owner/Admin/Internal Audit)
   var mods=acc.modules||[];
   var divs=[];
   mods.forEach(function(m){
@@ -6223,7 +6232,7 @@ function talRender(){
       html+='<div style="font-size:13px;">Klik <strong>&#x2795; Tambah TAL</strong> untuk menambahkan TAL baru';
       html+=' atau <strong>&#x1F4CB; Duplikat Bulan Lalu</strong> jika sudah ada data bulan lalu.</div>';
     }else{
-      var _myDivs=(USER_TAL_DIVS[APP_CUR_USER]||[]).map(function(i){return TAL_DIV_NAMES[i]||('Divisi '+i);}).join(', ');
+      var _vd=authGetVisibleTALDivs();var _myDivs=(_vd===null?[]:_vd).map(function(i){return TAL_DIV_NAMES[i]||('Divisi '+i);}).join(', ');
       html+='<div style="font-size:13px;color:var(--text-m);">Belum ada TAL untuk divisi <strong>'+(_myDivs||'Anda')+'</strong> bulan ini.<br>Hubungi Owner/Admin untuk menambahkan TAL.</div>';
     }
     html+='</div>';
@@ -6235,17 +6244,13 @@ function talRender(){
 function authCanFillTALProgress(d){
   if(!APP_CUR_USER) return false;
   if(isOwnerOrAdmin()) return true;
-  // Users with explicit array in USER_TAL_DIVS -> fill progress for those divisions
-  var divs=USER_TAL_DIVS[APP_CUR_USER];
-  if(divs===null){
-    // null means 'see all' but fill only own division
-    var _own={'Internal Audit':[12]};
-    var own=_own[APP_CUR_USER];
-    if(own===undefined) return true; // truly unrestricted (e.g. future role)
-    return own.indexOf(d)!==-1;
+  if(!authCanAccess('tal')) return false;
+  // Ops user hanya bisa isi progress divisi TAL miliknya sendiri (module mapping)
+  var mods=(authGetAccess(APP_CUR_USER).modules||[]);
+  for(var i=0;i<mods.length;i++){
+    if(MODULE_TAL_DIV[mods[i]]===d) return true;
   }
-  if(!divs||divs.length===0) return false;
-  return divs.indexOf(d)!==-1;
+  return false;
 }
 
 function talBuildDivCard(d,y,m){
