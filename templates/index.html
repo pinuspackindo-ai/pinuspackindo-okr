@@ -6176,9 +6176,14 @@ function talRender(){
     html+='<div style="text-align:center;padding:60px 24px;color:var(--text-l);">';
     html+='<div style="font-size:48px;margin-bottom:16px;">&#x1F4CB;</div>';
     html+='<div style="font-size:18px;font-weight:700;color:var(--text);margin-bottom:8px;">Belum ada TAL</div>';
-    html+='<div style="font-size:13px;">Klik <strong>&#x2795; Tambah TAL</strong> untuk menambahkan TAL baru';
-    if(isOwnerOrAdmin()) html+=' atau <strong>&#x1F4CB; Duplikat Bulan Lalu</strong> jika sudah ada data bulan lalu.';
-    html+='</div></div>';
+    if(isOwnerOrAdmin()){
+      html+='<div style="font-size:13px;">Klik <strong>&#x2795; Tambah TAL</strong> untuk menambahkan TAL baru';
+      html+=' atau <strong>&#x1F4CB; Duplikat Bulan Lalu</strong> jika sudah ada data bulan lalu.</div>';
+    }else{
+      var _myDivs=(USER_TAL_DIVS[APP_CUR_USER]||[]).map(function(i){return TAL_DIV_NAMES[i]||('Divisi '+i);}).join(', ');
+      html+='<div style="font-size:13px;color:var(--text-m);">Belum ada TAL untuk divisi <strong>'+(_myDivs||'Anda')+'</strong> bulan ini.<br>Hubungi Owner/Admin untuk menambahkan TAL.</div>';
+    }
+    html+='</div>';
   }
 
   wrap.innerHTML=html;
