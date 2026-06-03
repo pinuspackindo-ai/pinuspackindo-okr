@@ -6201,7 +6201,6 @@ function talBuildDivCard(d,y,m){
     h+='<span class="'+scoreClass(total)+'" style="font-size:15px;font-weight:800;background:rgba(255,255,255,.18);padding:3px 12px;border-radius:20px;">'+total.toFixed(2)+'</span>';
   }
   if(isOwnerOrAdmin()){
-    h+='<button onclick="talFormForDiv('+d+')" style="background:rgba(255,255,255,.20);border:1.5px solid rgba(255,255,255,.5);color:#fff;border-radius:var(--radius-sm);padding:4px 12px;cursor:pointer;font-size:12px;font-family:var(--font);font-weight:700;">&#x2795;</button>';
     if(!anyEditing){
       h+='<button onclick="talEditAllRows('+d+')" style="background:rgba(255,255,255,.15);border:1.5px solid rgba(255,255,255,.4);color:#fff;border-radius:var(--radius-sm);padding:4px 12px;cursor:pointer;font-size:12px;font-family:var(--font);font-weight:600;">&#x270F;&#xFE0F; Edit TAL</button>';
     }else{
@@ -6289,10 +6288,22 @@ function talBuildDivCard(d,y,m){
   h+='<td colspan="'+extraCols+'" style="padding:11px 14px;"></td></tr>';
   h+='</tbody></table></div>';
 
+  if(anyEditing&&isOwnerOrAdmin()){
+    h+='<div style="margin-top:10px;">';
+    h+='<button onclick="talAddRow('+d+')" style="background:none;border:1.5px dashed var(--primary);color:var(--primary);border-radius:var(--radius-sm);padding:6px 18px;cursor:pointer;font-size:12px;font-family:var(--font);font-weight:600;">&#x2795; Tambah Baris TAL</button>';
+    h+='</div>';
+  }
+
   h+='</div></div>';
   return h;
 }
 
+function talAddRow(d){
+  var data=_talG(d,talYear,talMonth);
+  data.rows.push({tal:'',deadline:'',bobot:0,progress:null,review:'',editing:true,savedAt:null});
+  _talS(d,talYear,talMonth,data);
+  talRender();
+}
 function talEditAllRows(d){
   var data=_talG(d,talYear,talMonth);
   var rows=data.rows||[];
