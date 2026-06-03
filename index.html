@@ -6187,12 +6187,28 @@ function talRender(){
   wrap.innerHTML=html;
 }
 
+function authCanFillTALProgress(d){
+  if(!APP_CUR_USER) return false;
+  if(isOwnerOrAdmin()) return true;
+  // Users with explicit array in USER_TAL_DIVS -> fill progress for those divisions
+  var divs=USER_TAL_DIVS[APP_CUR_USER];
+  if(divs===null){
+    // null means 'see all' but fill only own division
+    var _own={'Internal Audit':[12]};
+    var own=_own[APP_CUR_USER];
+    if(own===undefined) return true; // truly unrestricted (e.g. future role)
+    return own.indexOf(d)!==-1;
+  }
+  if(!divs||divs.length===0) return false;
+  return divs.indexOf(d)!==-1;
+}
+
 function talBuildDivCard(d,y,m){
   var data=_talG(d,y,m);var rows=data.rows||[];
   var saved=rows.filter(function(r){return !r.editing&&r.tal;});
   var total=talTotalScore(d,y,m);
   var totalBobot=saved.reduce(function(acc,r){return acc+(r.bobot||0);},0);
-  var anyEditing=rows.some(function(r){return r.editing;});
+  var anyEditing=isOwnerOrAdmin()&&rows.some(function(r){return r.editing;});
 
   var h='<div class="card" style="margin-bottom:16px;padding:0;overflow:hidden;">';
 
@@ -6235,7 +6251,7 @@ function talBuildDivCard(d,y,m){
   h+='</tr></thead><tbody>';
 
   rows.forEach(function(row,idx){
-    if(row.editing){
+    if(row.editing&&isOwnerOrAdmin()){
       h+='<tr style="background:var(--bg);border-bottom:1px solid var(--border);">';
       h+='<td style="padding:7px 8px;text-align:center;color:var(--text-l);">'+(idx+1)+'</td>';
       h+='<td style="padding:5px 6px;min-width:160px;"><input id="tal-tal-'+d+'-'+idx+'" type="text" value="'+okrEsc(row.tal||'')+'" placeholder="Deskripsi TAL..." style="width:100%;padding:5px 8px;border:1.5px solid var(--border);border-radius:var(--radius-sm);font-family:var(--font);font-size:12px;box-sizing:border-box;"></td>';
@@ -6257,10 +6273,16 @@ function talBuildDivCard(d,y,m){
       h+='<td style="padding:8px 10px;font-weight:600;color:var(--text);">'+okrEsc(row.tal||'?')+'</td>';
       h+='<td style="padding:8px 10px;white-space:nowrap;font-size:11px;color:var(--text-m);">'+okrEsc(row.deadline||'?')+'</td>';
 
-      h+='<td style="padding:6px 8px;text-align:center;"><div style="display:inline-flex;align-items:center;gap:4px;">';
-      h+='<input id="tal-pli-'+d+'-'+idx+'" type="number" min="0" max="100" step="0.01" value="'+(hasPrg?row.progress:'')+'" placeholder="%" style="width:62px;padding:4px 6px;border:1.5px solid '+(hasPrg?'var(--primary)':'var(--border)')+';border-radius:var(--radius-sm);font-family:var(--font);font-size:12px;text-align:center;">';
-      h+='<button onclick="talSaveProgress('+d+','+idx+')" style="background:var(--primary);border:none;color:#fff;border-radius:50%;width:22px;height:22px;cursor:pointer;font-size:12px;line-height:1;display:flex;align-items:center;justify-content:center;flex-shrink:0;">&#x2713;</button>';
-      h+='</div></td>';
+      h+='<td style="padding:6px 8px;text-align:center;">';
+      if(authCanFillTALProgress(d)){
+        h+='<div style="display:inline-flex;align-items:center;gap:4px;">';
+        h+='<input id="tal-pli-'+d+'-'+idx+'" type="number" min="0" max="100" step="0.01" value="'+(hasPrg?row.progress:'')+'" placeholder="%" style="width:62px;padding:4px 6px;border:1.5px solid '+(hasPrg?'var(--primary)':'var(--border)')+';border-radius:var(--radius-sm);font-family:var(--font);font-size:12px;text-align:center;">';
+        h+='<button onclick="talSaveProgress('+d+','+idx+')" style="background:var(--primary);border:none;color:#fff;border-radius:50%;width:22px;height:22px;cursor:pointer;font-size:12px;line-height:1;display:flex;align-items:center;justify-content:center;flex-shrink:0;">&#x2713;</button>';
+        h+='</div>';
+      }else{
+        h+='<span style="color:var(--text-m);font-size:12px;">'+(hasPrg?row.progress+'%':'—')+'</span>';
+      }
+      h+='</td>';
       h+='<td style="padding:8px 10px;text-align:center;color:var(--text-m);">'+(row.bobot||0)+'%</td>';
       h+='<td style="padding:8px 10px;text-align:center;">';
       if(hasPrg&&row.bobot){h+='<span class="score-num '+scoreClass(parseFloat(row.progress))+'" style="font-size:1rem;font-weight:700;">'+sc.toFixed(2)+'</span>';}
