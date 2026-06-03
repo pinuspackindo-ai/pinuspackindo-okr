@@ -4203,19 +4203,20 @@ function okrInit(){
         okrRender();talRender();authApplyAccess();
         notify('Struktur OKR dipulihkan dari cloud ✓');
       }
-      // SELALU sync data yang dikelola Admin dari cloud (access, users)
-      // dan sub-modul data yang belum ada di local (misal TAL baru dari Admin)
+      // SELALU sync data yang dikelola Admin + TAL dari cloud
       var _adminKeys=['_userAccess','_customUsers','_disabledUsers','_userPwd'];
       var _changed=false;
-      // 1. Admin-managed keys: selalu ambil dari cloud
-      _adminKeys.forEach(function(k){
-        if(k in cloud&&JSON.stringify(cloud[k])!==JSON.stringify(okrData[k])){
-          okrData[k]=cloud[k];_changed=true;
-        }
-      });
-      // 2. Sub-modul data (_tal_, _inv_, dll): tambahkan yang belum ada di local
       Object.keys(cloud).forEach(function(k){
-        if(k.startsWith('_')&&k!=='_ts'&&_adminKeys.indexOf(k)===-1&&!(k in okrData)){
+        if(k==='_ts') return;
+        var isAdmin=_adminKeys.indexOf(k)!==-1;
+        var isTAL=k.startsWith('_tal_');
+        if(isAdmin||isTAL){
+          // Admin keys + TAL: selalu ambil dari cloud (source of truth)
+          if(JSON.stringify(cloud[k])!==JSON.stringify(okrData[k])){
+            okrData[k]=cloud[k];_changed=true;
+          }
+        } else if(k.startsWith('_')&&!(k in okrData)){
+          // Sub-modul lain: tambahkan jika belum ada di local
           okrData[k]=cloud[k];_changed=true;
         }
       });
