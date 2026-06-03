@@ -1076,15 +1076,15 @@ var ACCESS_MODULES=[
 ];
 var ACCESS_DEFAULT={
   'Owner':               {modules:['dashboard','tal','store','distrib','warehouse','inventory','purchasing','financeacc','generalaffair','hrd','ia'],okrAll:true},
-  'HRD':                 {modules:['dashboard','hrd'],okrAll:false},
+  'HRD':                 {modules:['dashboard','tal','hrd'],okrAll:false},
   'Internal Audit':      {modules:['dashboard','tal','ia'],okrAll:true},
-  'General Affair':      {modules:['dashboard','generalaffair'],okrAll:false},
-  'Purchasing':          {modules:['dashboard','purchasing'],okrAll:false},
-  'Inventory':           {modules:['dashboard','inventory'],okrAll:false},
-  'Finance & Accounting':{modules:['dashboard','financeacc'],okrAll:false},
-  'Store':               {modules:['dashboard','store'],okrAll:false},
-  'Warehouse':           {modules:['dashboard','warehouse'],okrAll:false},
-  'Sales':               {modules:['dashboard','distrib'],okrAll:false},
+  'General Affair':      {modules:['dashboard','tal','generalaffair'],okrAll:false},
+  'Purchasing':          {modules:['dashboard','tal','purchasing'],okrAll:false},
+  'Inventory':           {modules:['dashboard','tal','inventory'],okrAll:false},
+  'Finance & Accounting':{modules:['dashboard','tal','financeacc'],okrAll:false},
+  'Store':               {modules:['dashboard','tal','store'],okrAll:false},
+  'Warehouse':           {modules:['dashboard','tal','warehouse'],okrAll:false},
+  'Sales':               {modules:['dashboard','tal','distrib'],okrAll:false},
   'Admin':               {modules:['dashboard','tal','store','distrib','warehouse','inventory','purchasing','financeacc','generalaffair','hrd','ia'],okrAll:true}
 };
 // OKR division each user "owns" (when okrAll=false, only see this division)
