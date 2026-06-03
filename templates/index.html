@@ -4192,7 +4192,7 @@ function okrInit(){
         okrData=cloud;
         Object.keys(_localSub).forEach(function(k){if(!(k in cloud))okrData[k]=_localSub[k];});
         localStorage.setItem(OKR_STORE_KEY,JSON.stringify(okrData));
-        okrRender();
+        okrRender();talRender();authApplyAccess();
         if(localTs>0&&!localEmpty) notify('Data diperbarui dari cloud ✓');
       } else if(localOkrKeys.length===0&&cloudOkrKeys.length>0){
         // Local hanya punya data sub-modul (in-stock dll) tapi TIDAK ada struktur OKR
@@ -4200,7 +4200,7 @@ function okrInit(){
         cloudOkrKeys.forEach(function(k){okrData[k]=cloud[k];});
         okrData._ts=Date.now();
         localStorage.setItem(OKR_STORE_KEY,JSON.stringify(okrData));
-        okrRender();
+        okrRender();talRender();authApplyAccess();
         notify('Struktur OKR dipulihkan dari cloud ✓');
       }
     })
