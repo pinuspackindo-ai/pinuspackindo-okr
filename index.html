@@ -952,6 +952,11 @@ function authUpdateBadge(){
   if(avEl) avEl.textContent=u?u.charAt(0).toUpperCase():'?';
 }
 function authInit(){
+  // Bersihkan state korup: jika _disabledUsers menyembunyikan SEMUA user, hapus
+  if(okrData._disabledUsers&&okrData._disabledUsers.length>=APP_USERS.length){
+    delete okrData._disabledUsers;
+    try{localStorage.setItem(OKR_STORE_KEY,JSON.stringify(okrData));}catch(e){}
+  }
   var sel=document.getElementById('login-user-sel');
   if(sel){
     sel.innerHTML='<option value="">&#x2015; Pilih Username &#x2015;</option>';
