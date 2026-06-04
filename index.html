@@ -4150,8 +4150,9 @@ function okrSaveLS(){
   var dataKeys=Object.keys(okrData).filter(function(k){return k!=='_ts'&&k!=='_slim';});
   if(!dataKeys.length) return;
   // POST PENUH (dengan file base64) ke cloud/GitHub — ini gudang data sebenarnya
-  var _full=JSON.parse(JSON.stringify(okrData));delete _full._slim;
-  fetch('/api/okr',{method:'POST',headers:{'Content-Type':'application/json'},body:JSON.stringify(_full)}).catch(function(){});
+  var _hadSlim=okrData._slim;if(_hadSlim)delete okrData._slim;
+  fetch('/api/okr',{method:'POST',headers:{'Content-Type':'application/json'},body:JSON.stringify(okrData)}).catch(function(){});
+  if(_hadSlim)okrData._slim=_hadSlim;
 }
 function okrKey(){ return okrCurYear+'-'+String(okrCurMonth).padStart(2,'0'); }
 function okrKeyOf(y,m){ return y+'-'+String(m).padStart(2,'0'); }
