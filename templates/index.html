@@ -957,6 +957,7 @@ function authInit(){
     sel.innerHTML='<option value="">&#x2015; Pilih Username &#x2015;</option>';
     var _dis2=okrData._disabledUsers||[];
     var allUsers=APP_USERS.filter(function(u){return _dis2.indexOf(u)===-1;}).concat(okrData._customUsers||[]);
+    if(allUsers.length===0)allUsers=APP_USERS.slice();
     allUsers.forEach(function(u){
       var o=document.createElement('option');
       o.value=u;o.textContent=u;
@@ -966,6 +967,7 @@ function authInit(){
   var u=sessionStorage.getItem('okrLoginUser');
   var _disV=okrData._disabledUsers||[];
   var validUsers=APP_USERS.filter(function(u){return _disV.indexOf(u)===-1;}).concat(okrData._customUsers||[]);
+  if(validUsers.length===0)validUsers=APP_USERS.slice();
   if(u&&validUsers.indexOf(u)>=0){
     APP_CUR_USER=u;
     var ov=document.getElementById('login-overlay');
