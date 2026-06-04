@@ -53,7 +53,16 @@ while ($true) {
                 Write-Host "[$(Get-Date -Format 'HH:mm:ss')] Mengirim ke GitHub..." -ForegroundColor Cyan
                 git add .
                 $timestamp = Get-Date -Format "yyyy-MM-dd HH:mm"
-                git commit -m "Auto sync $timestamp" | Out-Null
+                # Jika HANYA okr_data.json yang berubah -> tambahkan [vercel skip]
+                # supaya update data TIDAK memicu build Vercel (cegah limit deploy habis).
+                # Jika ada file kode (index.html, dll) -> commit normal supaya Vercel deploy.
+                $staged = git diff --cached --name-only
+                $codeChanged = $staged | Where-Object { $_ -and $_ -ne 'okr_data.json' }
+                if ($codeChanged) {
+                    git commit -m "Auto sync $timestamp" | Out-Null
+                } else {
+                    git commit -m "chore: update OKR data $timestamp [vercel skip]" | Out-Null
+                }
                 git push origin main
                 Write-Host "[$(Get-Date -Format 'HH:mm:ss')] Selesai - GitHub & server online diupdate otomatis" -ForegroundColor Green
                 Write-Host ""
