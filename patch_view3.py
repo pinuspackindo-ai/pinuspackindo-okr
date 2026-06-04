@@ -95,7 +95,7 @@ REPL.append((
     'P2b implReko view button'))
 
 # ---- build stamp ----
-REPL.append(('Build: 2026-06-05-v7','Build: 2026-06-05-v8',False if False else True))
+REPL.append(('Build: 2026-06-05-v7','Build: 2026-06-05-v8','build stamp v8'))
 
 for fpath in files:
     with open(fpath,'r',encoding='utf-8') as f: c=f.read()
