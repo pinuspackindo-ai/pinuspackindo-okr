@@ -4129,7 +4129,10 @@ function okrSaveLS(){
   // localStorage bisa penuh (QuotaExceededError) karena bukti base64.
   // JANGAN sampai error ini mematahkan init/aplikasi. Data tetap aman ke cloud (POST di bawah).
   try{
-    localStorage.setItem(OKR_STORE_KEY,JSON.stringify(okrData));
+    // Guard: OKR_STORE_KEY bisa undefined saat okrInit dipanggil sebelum var-nya di-assign.
+    var _k=(typeof OKR_STORE_KEY!=='undefined'&&OKR_STORE_KEY)?OKR_STORE_KEY:'pinus_okr_v1';
+    localStorage.removeItem('undefined');
+    localStorage.setItem(_k,JSON.stringify(okrData));
   }catch(e){
     if(!window._lsQuotaWarned){
       window._lsQuotaWarned=true;
