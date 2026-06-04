@@ -390,7 +390,7 @@ tbody tr:hover td{background:var(--bg);}
   </nav>
   <div class="sidebar-footer">
     <button class="btn-logout" onclick="doLogout()"><span class="nav-icon">&#x1F6AA;</span><span class="nav-text"> Logout</span></button>
-    <div class="footer-text" style="margin-top:4px;">Upload: .xlsx / .xls / .csv<br>Data diproses di browser<br>Tidak dikirim ke server<br><span style="color:var(--success);font-weight:700;">Build: 2026-06-05-v7</span></div>
+    <div class="footer-text" style="margin-top:4px;">Upload: .xlsx / .xls / .csv<br>Data diproses di browser<br>Tidak dikirim ke server<br><span style="color:var(--success);font-weight:700;">Build: 2026-06-05-v8</span></div>
   </div>
 </aside>
 
@@ -2966,13 +2966,7 @@ function purchDownloadFile(prefix,fileKey,ref){
   else if(prefix==='pkpen'){var dd=_pgKpen(y,ref);b64=dd.file;fname=dd.fileName||'penerimaan.xlsx';}
   else if(prefix==='psv'){var m=purchSavingMonth;var dd=_pgSv(y,m,ref);b64=dd.evidence;fname=dd.evidenceName||'bukti.jpg';}
   else if(prefix==='pir'){var dd=_pgIr(y,ref);b64=dd.evidence;fname=dd.evidenceName||'bukti.xlsx';}
-  if(!b64){notify('File tidak tersedia','error');return;}
-  var data=b64.indexOf(',')!==-1?b64.split(',')[1]:b64;
-  var binary=atob(data);var ab=new ArrayBuffer(binary.length);var view=new Uint8Array(ab);
-  for(var i=0;i<binary.length;i++)view[i]=binary.charCodeAt(i);
-  var blob=new Blob([ab]);var url=URL.createObjectURL(blob);
-  var a=document.createElement('a');a.href=url;a.download=fname;a.click();
-  setTimeout(function(){URL.revokeObjectURL(url);},1000);
+  _viewFileOnline(b64,fname);
 }
 
 // ═══════════════════════════════════════════════════════
@@ -3479,7 +3473,7 @@ function purchImplRender(){
       var v=d.value;var cls=v!==null?scoreClass(v):'';
       html+='<td style="text-align:center;"><span class="metric-value '+cls+'" style="font-size:1rem;">'+(v!==null?v.toFixed(1)+'%':'&#x2014;')+'</span></td>';
       html+='<td><div style="display:flex;align-items:center;gap:6px;flex-wrap:wrap;">';
-      if(d.evidence){html+='<span style="font-size:11px;color:var(--success);">&#x2713; '+esc(d.evidenceName||'Bukti')+'</span><button onclick="purchDownloadFile(\'pir\',\'ev\','+m+')" style="font-size:10px;background:var(--primary-l);border:1px solid var(--primary);color:var(--primary);border-radius:4px;padding:2px 6px;cursor:pointer;">View</button>';}
+      if(d.evidence){html+='<span style="font-size:11px;color:var(--success);">&#x2713; '+esc(d.evidenceName||'Bukti')+'</span><button onclick="purchImplViewEv('+m+')" style="font-size:10px;background:var(--primary-l);border:1px solid var(--primary);color:var(--primary);border-radius:4px;padding:2px 6px;cursor:pointer;">View</button>';}
       else html+='<span style="color:var(--text-l);font-size:11px;">&#x2014;</span>';
       html+='</div></td>';
       html+='<td style="text-align:center;">'+(linked?(v!==null?'<span style="color:var(--success);font-weight:600;">'+v.toFixed(1)+'%</span>':'<span style="color:var(--text-l);">&#x2014;</span>'):'<span style="font-size:10px;color:var(--text-l);">Tidak tersambung</span>')+'</td>';
@@ -3499,20 +3493,22 @@ function purchImplRender(){
   wrap.innerHTML=html;
 }
 function purchImplEvidenceChange(month,inp){
-  var file=inp.files[0];if(!file)return;
+  var _fs=Array.from(inp.files||[]);if(_fs.length===0)return;
+  if(_fs.length>3){notify('Maksimal 3 file per upload.','error');inp.value='';return;}
+  if(_fs.some(function(f){return f.size>500*1024;})){notify('Ukuran file maksimal 500 KB per file.','error');inp.value='';return;}
   var y=purchasingYear;
-  var reader=new FileReader();
-  reader.onload=function(e){
+  _processImgFiles(_fs,function(results){
     var valEl=document.getElementById('pir-val-'+month);
     var curVal=valEl&&valEl.value!==''?parseFloat(valEl.value):null;
     var d=_pgIr(y,month);
     if(curVal!==null&&!isNaN(curVal))d.value=curVal;
-    d.evidence=e.target.result;d.evidenceName=file.name;
+    d.evidences=_apEv(d.evidences,results);
+    d.evidence=d.evidences[0]?d.evidences[0].data:'';d.evidenceName=d.evidences[0]?d.evidences[0].name:'';
     _psIr(y,month,d);okrSaveLS();purchImplRender();
-    notify('"'+file.name+'" diupload ✓');
-  };
-  reader.readAsDataURL(file);
+    notify(results.length+' bukti diupload ✓');
+  });
 }
+function purchImplViewEv(m){var d=_pgIr(purchasingYear,m);var evs=(d.evidences&&d.evidences.length>0)?d.evidences:(d.evidence?[{name:d.evidenceName||'Bukti',data:d.evidence}]:[]);_viewEvs(evs);}
 function purchImplConfirmSave(month){
   var y=purchasingYear;
   var valEl=document.getElementById('pir-val-'+month);
@@ -3984,7 +3980,7 @@ function showPanel(name,btn){
   document.getElementById('panel-'+name).classList.add('active');
   btn.classList.add('active');
   document.getElementById('topbar-title').textContent=panelTitles[name]||name;
-  if(name==='dashboard'){okrLoad();okrRender();}
+  if(name==='dashboard'){okrCurYear=new Date().getFullYear();okrCurMonth=new Date().getMonth()+1;var _ty=document.getElementById('okr-f-tahun');if(_ty)_ty.value=okrCurYear;var _tb=document.getElementById('okr-f-bulan');if(_tb)_tb.value=okrCurMonth;okrLoad();okrRender();}
   if(name==='store'){storeInit();}
   if(name==='distrib'){distribInit();}
   if(name==='warehouse'){warehouseInit();}
@@ -5466,9 +5462,9 @@ function hrdKdkUpload(mi,section,inp){
     if(aaEl)d.abs.aktif=parseFloat(aaEl.value)||null;if(atEl)d.abs.temuan=parseFloat(atEl.value)||0;
     if(kaEl)d.kep.aktif=parseFloat(kaEl.value)||null;if(ktEl)d.kep.temuan=parseFloat(ktEl.value)||0;
     if(snEl)d.snk.jumlah=parseFloat(snEl.value)||0;
-    if(section==='abs'){d.abs.ev=b64;d.abs.evName=file.name;}
-    else if(section==='kep'){d.kep.ev=b64;d.kep.evName=file.name;}
-    else{d.snk.ev=b64;d.snk.evName=file.name;}
+    if(section==='abs'){d.abs.ev=b64;d.abs.evName=file.name;d.abs.evs=_apEv(d.abs.evs,_evs);}
+    else if(section==='kep'){d.kep.ev=b64;d.kep.evName=file.name;d.kep.evs=_apEv(d.kep.evs,_evs);}
+    else{d.snk.ev=b64;d.snk.evName=file.name;d.snk.evs=_apEv(d.snk.evs,_evs);}
     _hrdKdkS(hrdYear,mi,d);hrdRenderKdk();notify('Bukti diupload ✓');
   }
   _processImgFiles(_fs,function(results){_sv(results[0]?results[0].data:'',results);});
@@ -5506,10 +5502,10 @@ function hrdKdkDelete(mi){
 }
 function hrdKdkViewEv(mi,section){
   var d=_hrdKdkG(hrdYear,mi);
-  var ev=section==='abs'?d.abs.ev:section==='kep'?d.kep.ev:d.snk.ev;
-  var evName=section==='abs'?d.abs.evName:section==='kep'?d.kep.evName:d.snk.evName;
-  if(!ev){notify('Tidak ada bukti.','error');return;}
-  _viewEvs(ev?[{name:evName||'Bukti',data:ev}]:[]);
+  var sec=section==='abs'?d.abs:section==='kep'?d.kep:d.snk;
+  var evs=(sec.evs&&sec.evs.length>0)?sec.evs:(sec.ev?[{name:sec.evName||'Bukti',data:sec.ev}]:[]);
+  if(evs.length===0){notify('Tidak ada bukti.','error');return;}
+  _viewEvs(evs);
 }
 
 // ── SUBs 2,3,4: Monthly % table ──────────────────────────────
