@@ -1664,7 +1664,7 @@ function storeRender(){
 function storeUpload(month,inp){
   var _fs=Array.from(inp.files||[]);if(_fs.length===0)return;
   if(_fs.length>3){notify('Maksimal 3 file per upload.','error');inp.value='';return;}
-  if(_fs.some(function(f){return f.size>1024*1024;})){notify('Ukuran file maksimal 1 MB per file.','error');inp.value='';return;}
+  if(_fs.some(function(f){return f.size>500*1024;})){notify('Ukuran file maksimal 500 KB per file.','error');inp.value='';return;}
   var file=_fs[0];
   // Simpan nilai input saat ini agar tidak hilang setelah re-render
   var curInpEl=document.getElementById('store-inp-'+month);
@@ -1933,7 +1933,7 @@ function distribRender(){
 function distribUpload(month,inp){
   var _fs=Array.from(inp.files||[]);if(_fs.length===0)return;
   if(_fs.length>3){notify('Maksimal 3 file per upload.','error');inp.value='';return;}
-  if(_fs.some(function(f){return f.size>1024*1024;})){notify('Ukuran file maksimal 1 MB per file.','error');inp.value='';return;}
+  if(_fs.some(function(f){return f.size>500*1024;})){notify('Ukuran file maksimal 500 KB per file.','error');inp.value='';return;}
   var file=_fs[0];
   var curInpEl=document.getElementById('distrib-inp-'+month);
   var curVal=curInpEl&&curInpEl.value.trim()!==''?parseFloat(curInpEl.value):undefined;
@@ -2176,7 +2176,7 @@ function warehouseRender(){
 function warehouseUpload(month,inp){
   var _fs=Array.from(inp.files||[]);if(_fs.length===0)return;
   if(_fs.length>3){notify('Maksimal 3 file per upload.','error');inp.value='';return;}
-  if(_fs.some(function(f){return f.size>1024*1024;})){notify('Ukuran file maksimal 1 MB per file.','error');inp.value='';return;}
+  if(_fs.some(function(f){return f.size>500*1024;})){notify('Ukuran file maksimal 500 KB per file.','error');inp.value='';return;}
   var file=_fs[0];
   var curInpEl=document.getElementById('warehouse-inp-'+month);
   var curVal=curInpEl&&curInpEl.value.trim()!==''?parseFloat(curInpEl.value):undefined;
@@ -2594,7 +2594,7 @@ function invRenderReportOt(){
 function invUploadMonthly(subId,month,inp){
   var _fs=Array.from(inp.files||[]);if(_fs.length===0)return;
   if(_fs.length>3){notify('Maksimal 3 file per upload.','error');inp.value='';return;}
-  if(_fs.some(function(f){return f.size>1024*1024;})){notify('Ukuran file maksimal 1 MB per file.','error');inp.value='';return;}
+  if(_fs.some(function(f){return f.size>500*1024;})){notify('Ukuran file maksimal 500 KB per file.','error');inp.value='';return;}
   var file=_fs[0];
   var curEl=document.getElementById('inv-mi-'+month);
   var curVal=curEl&&curEl.value.trim()!==''?parseFloat(curEl.value):undefined;
@@ -2666,7 +2666,7 @@ function invRnDoMonthChange(m){invRnDoMonth=parseInt(m)||new Date().getMonth()+1
 function invRnDoUpload(day,inp){
   var _fs=Array.from(inp.files||[]);if(_fs.length===0)return;
   if(_fs.length>3){notify('Maksimal 3 file per upload.','error');inp.value='';return;}
-  if(_fs.some(function(f){return f.size>1024*1024;})){notify('Ukuran file maksimal 1 MB per file.','error');inp.value='';return;}
+  if(_fs.some(function(f){return f.size>500*1024;})){notify('Ukuran file maksimal 500 KB per file.','error');inp.value='';return;}
   var file=_fs[0];
   var curEl=document.getElementById('inv-rndo-inp-'+day);
   var curVal=curEl&&curEl.value.trim()!==''?parseFloat(curEl.value):undefined;
@@ -2727,7 +2727,7 @@ function invRotMonthChange(m){invRotMonth=parseInt(m)||new Date().getMonth()+1;i
 function invRotAkurasiUpload(inp){
   var _fs=Array.from(inp.files||[]);if(_fs.length===0)return;
   if(_fs.length>3){notify('Maksimal 3 file per upload.','error');inp.value='';return;}
-  if(_fs.some(function(f){return f.size>1024*1024;})){notify('Ukuran file maksimal 1 MB per file.','error');inp.value='';return;}
+  if(_fs.some(function(f){return f.size>500*1024;})){notify('Ukuran file maksimal 500 KB per file.','error');inp.value='';return;}
   var file=_fs[0];
   function _save(b64,_evs){
     var _cp=[];for(var _j=0;_j<5;_j++){var _pe=document.getElementById('inv-rot-p-'+_j);_cp.push(_pe?Math.max(0,parseInt(_pe.value)||0):0);}
@@ -2739,7 +2739,7 @@ function invRotAkurasiUpload(inp){
 function invRotOntimeUpload(inp){
   var _fs=Array.from(inp.files||[]);if(_fs.length===0)return;
   if(_fs.length>3){notify('Maksimal 3 file per upload.','error');inp.value='';return;}
-  if(_fs.some(function(f){return f.size>1024*1024;})){notify('Ukuran file maksimal 1 MB per file.','error');inp.value='';return;}
+  if(_fs.some(function(f){return f.size>500*1024;})){notify('Ukuran file maksimal 500 KB per file.','error');inp.value='';return;}
   var file=_fs[0];
   function _save(b64,_evs){
     var _cp=[];for(var _j=0;_j<5;_j++){var _pe=document.getElementById('inv-rot-p-'+_j);_cp.push(_pe?Math.max(0,parseInt(_pe.value)||0):0);}
@@ -3662,7 +3662,7 @@ function finaccRenderMonthly(subId){
 function finaccUploadMonthly(subId,month,inp){
   var _fs=Array.from(inp.files||[]);if(_fs.length===0)return;
   if(_fs.length>3){notify('Maksimal 3 file per upload.','error');inp.value='';return;}
-  if(_fs.some(function(f){return f.size>1024*1024;})){notify('Ukuran file maksimal 1 MB per file.','error');inp.value='';return;}
+  if(_fs.some(function(f){return f.size>500*1024;})){notify('Ukuran file maksimal 500 KB per file.','error');inp.value='';return;}
   var file=_fs[0];
   var curEl=document.getElementById('fa-mi-'+month);
   var curVal=curEl&&curEl.value.trim()!==''?parseFloat(curEl.value):undefined;
@@ -3806,7 +3806,7 @@ function finaccRenderReportOt(){
 function finaccRotAkurasiUpload(inp){
   var _fs=Array.from(inp.files||[]);if(_fs.length===0)return;
   if(_fs.length>3){notify('Maksimal 3 file per upload.','error');inp.value='';return;}
-  if(_fs.some(function(f){return f.size>1024*1024;})){notify('Ukuran file maksimal 1 MB per file.','error');return;}
+  if(_fs.some(function(f){return f.size>500*1024;})){notify('Ukuran file maksimal 500 KB per file.','error');return;}
   var file=_fs[0];
   function _save(b64,_evs){
     var _cp=[];for(var j=0;j<_FA_ROT_COUNT;j++){var pe=document.getElementById('fa-rot-p-'+j);_cp.push(pe?Math.max(0,Math.min(_FA_ROT_POIN_MAX,parseInt(pe.value)||0)):0);}
@@ -3817,7 +3817,7 @@ function finaccRotAkurasiUpload(inp){
 function finaccRotOntimeUpload(inp){
   var _fs=Array.from(inp.files||[]);if(_fs.length===0)return;
   if(_fs.length>3){notify('Maksimal 3 file per upload.','error');inp.value='';return;}
-  if(_fs.some(function(f){return f.size>1024*1024;})){notify('Ukuran file maksimal 1 MB per file.','error');return;}
+  if(_fs.some(function(f){return f.size>500*1024;})){notify('Ukuran file maksimal 500 KB per file.','error');return;}
   var file=_fs[0];
   function _save(b64,_evs){
     var _cp=[];for(var j=0;j<_FA_ROT_COUNT;j++){var pe=document.getElementById('fa-rot-p-'+j);_cp.push(pe?Math.max(0,Math.min(_FA_ROT_POIN_MAX,parseInt(pe.value)||0)):0);}
@@ -3914,7 +3914,7 @@ function finaccRenderImpl(){
 function finaccImplUpload(month,inp){
   var _fs=Array.from(inp.files||[]);if(_fs.length===0)return;
   if(_fs.length>3){notify('Maksimal 3 file per upload.','error');inp.value='';return;}
-  if(_fs.some(function(f){return f.size>1024*1024;})){notify('Ukuran file maksimal 1 MB per file.','error');inp.value='';return;}
+  if(_fs.some(function(f){return f.size>500*1024;})){notify('Ukuran file maksimal 500 KB per file.','error');inp.value='';return;}
   var y=finaccYear;
   _processImgFiles(_fs,function(results){
     var valEl=document.getElementById('fa-impl-val-'+month);
@@ -4318,6 +4318,11 @@ function okrRender(){
       if(_hrd5r.length>0){var _hrd5a=_hrd5r.map(function(r){return _hrdRecRowScore(r)||0;}).reduce(function(a,b){return a+b;},0)/_hrd5r.length;hrdSyncOKR('recruitment',okrCurYear,_hrm,Math.round(_hrd5a*100)/100);}
     }
     for(var _hkm=1;_hkm<=12;_hkm++){var _hkavg=_hrdKinMonthAvg(okrCurYear,_hkm);if(_hkavg!==null)hrdSyncOKR('kinerja',okrCurYear,_hkm,Math.round(_hkavg*100)/100);}
+  }
+  // Sync Internal Audit Project -> OKR "inisiatif proaktif" (nilai = jumlah project locked)
+  if(typeof iaProjLoad==='function'&&typeof iaSyncOKR==='function'){
+    var _iapRows=(iaProjLoad(okrCurYear,okrCurMonth).rows)||[];
+    iaSyncOKR(/inisiatif.*proaktif|proaktif/i,okrCurYear,okrCurMonth,_iapRows.filter(function(r){return r.locked;}).length);
   }
   var _RD = (typeof OKR_DIVISI!=='undefined'&&Array.isArray(OKR_DIVISI))
     ? OKR_DIVISI
@@ -4989,7 +4994,7 @@ function gaRenderStockOpname(){
 function gaUploadMonthly(subId,month,inp){
   var _fs=Array.from(inp.files||[]);if(_fs.length===0)return;
   if(_fs.length>3){notify('Maksimal 3 file per upload.','error');inp.value='';return;}
-  if(_fs.some(function(f){return f.size>1024*1024;})){notify('Ukuran file maksimal 1 MB per file.','error');inp.value='';return;}
+  if(_fs.some(function(f){return f.size>500*1024;})){notify('Ukuran file maksimal 500 KB per file.','error');inp.value='';return;}
   var file=_fs[0];
   function _sv(b64,_evs){var d=_gasog(gaYear,month);var ve=document.getElementById('ga-so-val-'+month);if(ve&&ve.value.trim()!==''){var v=parseFloat(ve.value);if(!isNaN(v))d.value=Math.min(100,Math.max(0,v));}d.evidences=_evs||[];d.evidence=b64;d.evidenceName=file.name;_gasos(gaYear,month,d);gaRenderStockOpname();notify('Bukti diupload ✓');}
   _processImgFiles(_fs,function(results){_sv(results[0]?results[0].data:'',results);});
@@ -5136,7 +5141,7 @@ function gaWpDeleteRow(idx){
 function gaWpUploadRow(idx,inp){
   var _fs=Array.from(inp.files||[]);if(_fs.length===0)return;
   if(_fs.length>3){notify('Maksimal 3 file per upload.','error');inp.value='';return;}
-  if(_fs.some(function(f){return f.size>1024*1024;})){notify('Ukuran file maksimal 1 MB per file.','error');inp.value='';return;}
+  if(_fs.some(function(f){return f.size>500*1024;})){notify('Ukuran file maksimal 500 KB per file.','error');inp.value='';return;}
   var file=_fs[0];
   function _sv(b64,_evs){
     var data=_gawpg(gaYear,gaWpMonth);var row=data.rows[idx];if(!row)return;
@@ -5223,7 +5228,7 @@ function gaRenderReportOt(){
 function gaRotAkurasiUpload(inp){
   var _fs=Array.from(inp.files||[]);if(_fs.length===0)return;
   if(_fs.length>3){notify('Maksimal 3 file per upload.','error');inp.value='';return;}
-  if(_fs.some(function(f){return f.size>1024*1024;})){notify('Ukuran file maksimal 1 MB per file.','error');inp.value='';return;}
+  if(_fs.some(function(f){return f.size>500*1024;})){notify('Ukuran file maksimal 500 KB per file.','error');inp.value='';return;}
   var file=_fs[0];
   function _sv(b64,_evs){var _cp=[];for(var _j=0;_j<3;_j++){var _pe=document.getElementById('ga-rot-p-'+_j);_cp.push(_pe?Math.max(0,parseInt(_pe.value)||0):0);}var rot=_garotg(gaYear,gaRotMonth);rot.poin=_cp;rot.akurasiEvs=_evs||[];rot.akurasiEv=b64;rot.akurasiEvName=file.name;_garots(gaYear,gaRotMonth,rot);gaRenderReportOt();notify('Bukti temuan diupload ✓');}
   _processImgFiles(_fs,function(results){_sv(results[0]?results[0].data:'',results);});
@@ -5231,7 +5236,7 @@ function gaRotAkurasiUpload(inp){
 function gaRotOntimeUpload(inp){
   var _fs=Array.from(inp.files||[]);if(_fs.length===0)return;
   if(_fs.length>3){notify('Maksimal 3 file per upload.','error');inp.value='';return;}
-  if(_fs.some(function(f){return f.size>1024*1024;})){notify('Ukuran file maksimal 1 MB per file.','error');inp.value='';return;}
+  if(_fs.some(function(f){return f.size>500*1024;})){notify('Ukuran file maksimal 500 KB per file.','error');inp.value='';return;}
   var file=_fs[0];
   function _sv(b64,_evs){var _cp=[];for(var _j=0;_j<3;_j++){var _pe=document.getElementById('ga-rot-p-'+_j);_cp.push(_pe?Math.max(0,parseInt(_pe.value)||0):0);}var _de=document.getElementById('ga-rot-date');var _cd=_de?_de.value:'';var rot=_garotg(gaYear,gaRotMonth);rot.poin=_cp;if(_cd)rot.ontimeDate=_cd;rot.ontimeEvs=_evs||[];rot.ontimeEv=b64;rot.ontimeEvName=file.name;_garots(gaYear,gaRotMonth,rot);gaRenderReportOt();notify('Bukti ontime diupload ✓');}
   _processImgFiles(_fs,function(results){_sv(results[0]?results[0].data:'',results);});
@@ -5424,7 +5429,7 @@ function hrdKdkCalc(mi){
 function hrdKdkUpload(mi,section,inp){
   var _fs=Array.from(inp.files||[]);if(_fs.length===0)return;
   if(_fs.length>3){notify('Maksimal 3 file per upload.','error');inp.value='';return;}
-  if(_fs.some(function(f){return f.size>1024*1024;})){notify('Ukuran file maksimal 1 MB per file.','error');inp.value='';return;}
+  if(_fs.some(function(f){return f.size>500*1024;})){notify('Ukuran file maksimal 500 KB per file.','error');inp.value='';return;}
   var file=_fs[0];
   function _sv(b64,_evs){
     var d=_hrdKdkG(hrdYear,mi);
@@ -5514,7 +5519,7 @@ function hrdRenderSim(subId){
 function hrdSimUpload(subId,mi,inp){
   var _fs=Array.from(inp.files||[]);if(_fs.length===0)return;
   if(_fs.length>3){notify('Maksimal 3 file per upload.','error');inp.value='';return;}
-  if(_fs.some(function(f){return f.size>1024*1024;})){notify('Ukuran file maksimal 1 MB per file.','error');inp.value='';return;}
+  if(_fs.some(function(f){return f.size>500*1024;})){notify('Ukuran file maksimal 500 KB per file.','error');inp.value='';return;}
   var file=_fs[0];
   function _sv(b64,_evs){var d=_hrdSimG(subId,hrdYear,mi);var ve=document.getElementById('hrd-sim-val-'+subId+'-'+mi);if(ve&&ve.value.trim()!==''){var v=parseFloat(ve.value);if(!isNaN(v))d.value=Math.min(100,Math.max(0,v));}d.evidences=_evs||[];d.evidence=b64;d.evidenceName=file.name;_hrdSimS(subId,hrdYear,mi,d);hrdRenderSim(subId);notify('Bukti diupload ✓');}
   _processImgFiles(_fs,function(results){_sv(results[0]?results[0].data:'',results);});
@@ -5610,7 +5615,7 @@ function hrdRecDeleteRow(idx){if(!confirm('Hapus data ini?'))return;var data=_hr
 function hrdRecUploadRow(idx,inp){
   var _fs=Array.from(inp.files||[]);if(_fs.length===0)return;
   if(_fs.length>3){notify('Maksimal 3 file per upload.','error');inp.value='';return;}
-  if(_fs.some(function(f){return f.size>1024*1024;})){notify('Ukuran file maksimal 1 MB per file.','error');inp.value='';return;}
+  if(_fs.some(function(f){return f.size>500*1024;})){notify('Ukuran file maksimal 500 KB per file.','error');inp.value='';return;}
   var file=_fs[0];
   function _sv(b64,_evs){var data=_hrdRecG(hrdYear,hrdRecruitMonth);var row=data.rows[idx];if(!row)return;var rqEl=document.getElementById('hrd-rec-rq-'+idx);var dlEl=document.getElementById('hrd-rec-dl-'+idx);var rlEl=document.getElementById('hrd-rec-rl-'+idx);if(rqEl)row.request=(rqEl.value||'').trim();if(dlEl)row.deadline=dlEl.value;if(rlEl)row.realisasi=rlEl.value;row.evidences=_evs||[];row.evidence=b64;row.evidenceName=file.name;_hrdRecS(hrdYear,hrdRecruitMonth,data);hrdRenderRecruitment();notify('Bukti diupload ✓');}
   _processImgFiles(_fs,function(results){_sv(results[0]?results[0].data:'',results);});
@@ -5700,7 +5705,7 @@ function hrdKinDeleteRow(mi,idx){
 function hrdKinUploadRow(mi,idx,inp){
   var _fs=Array.from(inp.files||[]);if(_fs.length===0)return;
   if(_fs.length>3){notify('Maksimal 3 file per upload.','error');inp.value='';return;}
-  if(_fs.some(function(f){return f.size>1024*1024;})){notify('Ukuran file maksimal 1 MB per file.','error');inp.value='';return;}
+  if(_fs.some(function(f){return f.size>500*1024;})){notify('Ukuran file maksimal 500 KB per file.','error');inp.value='';return;}
   var file=_fs[0];
   function _sv(b64,_evs){var data=_hrdKinG(hrdYear,mi);var row=data.rows[idx];if(!row)return;var nmEl=document.getElementById('hrd-kin-nm-'+mi+'-'+idx);var tgEl=document.getElementById('hrd-kin-tg-'+mi+'-'+idx);var scEl=document.getElementById('hrd-kin-sc-'+mi+'-'+idx);if(nmEl)row.nama=(nmEl.value||'').trim();if(tgEl)row.tanggalMasuk=tgEl.value;if(scEl&&scEl.value.trim()!==''){var s=parseFloat(scEl.value);if(!isNaN(s))row.score=Math.min(100,Math.max(0,s));}row.evidences=_evs||[];row.evidence=b64;row.evidenceName=file.name;_hrdKinS(hrdYear,mi,data);hrdRenderKinerja();notify('Bukti diupload ✓');}
   _processImgFiles(_fs,function(results){_sv(results[0]?results[0].data:'',results);});
@@ -5724,6 +5729,8 @@ var _iaCurMonth= new Date().getMonth() + 1;
 var _iaRotCurType = 'keuangan';
 
 function iaInit(){
+  _iaCurMonth=new Date().getMonth()+1;
+  _iaCurYear=new Date().getFullYear();
   var msel=document.getElementById('ia-month-sel');
   var ysel=document.getElementById('ia-year-sel');
   if(!msel) return;
@@ -5750,6 +5757,10 @@ function iaRefresh(){
 }
 function iaShowSub(sub,btn){
   _iaCurSub=sub;
+  _iaCurMonth=new Date().getMonth()+1;
+  _iaCurYear=new Date().getFullYear();
+  var _ms=document.getElementById('ia-month-sel');if(_ms)_ms.value=_iaCurMonth;
+  var _ys=document.getElementById('ia-year-sel');if(_ys)_ys.value=_iaCurYear;
   document.querySelectorAll('#panel-ia .store-tab').forEach(function(b){b.classList.remove('active');});
   if(btn) btn.classList.add('active');
   iaRefresh();
@@ -5824,10 +5835,11 @@ function iaRekoRender(){
       h+='<label style="cursor:pointer;padding:4px 10px;background:var(--bg2);border:1px solid var(--brd);border-radius:6px;font-size:11px;">📁 Upload<input type="file" multiple accept="image/*,.pdf" style="display:none;" onchange="iaRekoUpload(event,'+i+')"></label>';
       h+='</div>';
     }
-    h+='</td><td style="padding:8px 10px;text-align:center;">';
+    h+='</td><td style="padding:8px 10px;text-align:center;"><div style="display:flex;gap:6px;justify-content:center;align-items:center;">';
     if(locked){h+='<button onclick="iaRekoEdit('+i+')" style="background:none;border:1.5px solid var(--border);color:var(--text-m);border-radius:var(--radius-sm);padding:4px 10px;cursor:pointer;font-size:12px;font-family:var(--font);" title="Edit">&#x270F;&#xFE0F; Edit</button>';}
     else{h+='<button onclick="iaRekoSaveRow('+i+')" style="background:var(--primary);border:none;color:#fff;padding:5px 14px;border-radius:var(--radius-sm);cursor:pointer;font-size:12px;font-family:var(--font);font-weight:600;">&#x2713; Simpan</button>';}
-    h+='</td></tr>';
+    h+='<button onclick="iaRekoDelete('+i+')" style="background:none;border:1.5px solid #fca5a5;color:#dc2626;border-radius:var(--radius-sm);padding:4px 9px;cursor:pointer;font-size:13px;font-family:var(--font);" title="Hapus data">&#x1F5D1;</button>';
+    h+='</div></td></tr>';
   });
   h+='</tbody></table></div>';
   document.getElementById('ia-content').innerHTML=h;
@@ -5835,7 +5847,7 @@ function iaRekoRender(){
 function iaRekoUpload(event,i){
   var _fs=Array.from(event.target.files||[]);if(_fs.length===0)return;
   if(_fs.length>3){notify('Maksimal 3 file per upload.','error');event.target.value='';return;}
-  if(_fs.some(function(f){return f.size>1024*1024;})){notify('Ukuran file maksimal 1 MB per file.','error');event.target.value='';return;}
+  if(_fs.some(function(f){return f.size>500*1024;})){notify('Ukuran file maksimal 500 KB per file.','error');event.target.value='';return;}
   _processImgFiles(_fs,function(results){
     var data=iaRekoLoad(_iaCurYear,_iaCurMonth);
     var _scEl=document.getElementById('ia-reko-score-'+i);if(_scEl)data.rows[i].score=_scEl.value.trim();
@@ -5859,6 +5871,12 @@ function iaRekoSaveRow(i){
   }else{data.rows[i].score='';}
   data.rows[i].locked=true; data.rows[i].savedAt=new Date().toISOString();
   iaRekoSave(_iaCurYear,_iaCurMonth,data); iaRekoRender();
+}
+function iaRekoDelete(i){
+  if(!confirm('Hapus data baris ini?'))return;
+  var data=iaRekoLoad(_iaCurYear,_iaCurMonth);
+  data.rows[i].score='';data.rows[i].evidence='';data.rows[i].evidenceName='';data.rows[i].evidences=[];data.rows[i].locked=false;
+  iaRekoSave(_iaCurYear,_iaCurMonth,data); iaRekoRender(); notify('Data dihapus.');
 }
 function iaRekoViewEvidence(i){
   var data=iaRekoLoad(_iaCurYear,_iaCurMonth); var ev=data.rows[i].evidence; if(!ev) return;
@@ -5981,10 +5999,11 @@ function iaRotRender(){
       h+='<label style="cursor:pointer;padding:3px 8px;background:var(--bg2);border:1px solid var(--brd);border-radius:5px;font-size:10px;">📁 Upload<input type="file" multiple accept="image/*,.pdf" style="display:none;" onchange="iaRotUpload(event,\''+_iaRotCurType+'\','+i+')"></label>';
       h+='</div>';
     }
-    h+='</td><td style="padding:7px 8px;text-align:center;">';
+    h+='</td><td style="padding:7px 8px;text-align:center;"><div style="display:flex;gap:6px;justify-content:center;align-items:center;">';
     if(locked){h+='<button onclick="iaRotEdit(\''+_iaRotCurType+'\','+i+')" style="background:none;border:1.5px solid var(--border);color:var(--text-m);border-radius:var(--radius-sm);padding:4px 10px;cursor:pointer;font-size:11px;font-family:var(--font);" title="Edit">&#x270F;&#xFE0F; Edit</button>';}
     else{h+='<button onclick="iaRotSaveRow(\''+_iaRotCurType+'\','+i+')" style="background:var(--primary);border:none;color:#fff;padding:5px 12px;border-radius:var(--radius-sm);cursor:pointer;font-size:11px;font-family:var(--font);font-weight:600;">&#x2713; Simpan</button>';}
-    h+='</td></tr>';
+    h+='<button onclick="iaRotDelete(\''+_iaRotCurType+'\','+i+')" style="background:none;border:1.5px solid #fca5a5;color:#dc2626;border-radius:var(--radius-sm);padding:4px 9px;cursor:pointer;font-size:12px;font-family:var(--font);" title="Hapus data">&#x1F5D1;</button>';
+    h+='</div></td></tr>';
   });
   h+='</tbody></table></div></div>';
   document.getElementById('ia-content').innerHTML=h;
@@ -5993,7 +6012,7 @@ function iaRotSetType(typeKey){_iaRotCurType=typeKey;iaRotRender();}
 function iaRotUpload(event,typeKey,i){
   var _fs=Array.from(event.target.files||[]);if(_fs.length===0)return;
   if(_fs.length>3){notify('Maksimal 3 file per upload.','error');event.target.value='';return;}
-  if(_fs.some(function(f){return f.size>1024*1024;})){notify('Ukuran file maksimal 1 MB per file.','error');event.target.value='';return;}
+  if(_fs.some(function(f){return f.size>500*1024;})){notify('Ukuran file maksimal 500 KB per file.','error');event.target.value='';return;}
   _processImgFiles(_fs,function(results){
     var data=iaRotLoad(typeKey,_iaCurYear,_iaCurMonth);
     var _dtEl=document.getElementById('ia-rot-date-'+i);if(_dtEl)data.rows[i].submittedDate=_dtEl.value.trim();
@@ -6016,6 +6035,12 @@ function iaRotSaveRow(typeKey,i){
   data.rows[i].submittedDate=dateVal; data.rows[i].temuan=temuanVal;
   data.rows[i].locked=true; data.rows[i].savedAt=new Date().toISOString();
   iaRotSave(typeKey,_iaCurYear,_iaCurMonth,data); iaRotRender();
+}
+function iaRotDelete(typeKey,i){
+  if(!confirm('Hapus data baris ini?'))return;
+  var data=iaRotLoad(typeKey,_iaCurYear,_iaCurMonth);
+  data.rows[i].submittedDate='';data.rows[i].temuan='';data.rows[i].evidence='';data.rows[i].evidenceName='';data.rows[i].evidences=[];data.rows[i].locked=false;
+  iaRotSave(typeKey,_iaCurYear,_iaCurMonth,data); iaRotRender(); notify('Data dihapus.');
 }
 function iaRotViewEvidence(typeKey,i){
   var data=iaRotLoad(typeKey,_iaCurYear,_iaCurMonth); var ev=data.rows[i].evidence; if(!ev) return;
@@ -6093,7 +6118,7 @@ function iaProjAddRow(){
 function iaProjUpload(event,i){
   var _fs=Array.from(event.target.files||[]);if(_fs.length===0)return;
   if(_fs.length>3){notify('Maksimal 3 file per upload.','error');event.target.value='';return;}
-  if(_fs.some(function(f){return f.size>1024*1024;})){notify('Ukuran file maksimal 1 MB per file.','error');event.target.value='';return;}
+  if(_fs.some(function(f){return f.size>500*1024;})){notify('Ukuran file maksimal 500 KB per file.','error');event.target.value='';return;}
   _processImgFiles(_fs,function(results){
     var data=iaProjLoad(_iaCurYear,_iaCurMonth);
     var _nmEl=document.getElementById('ia-proj-nama-'+i);if(_nmEl)data.rows[i].namaProject=_nmEl.value;
