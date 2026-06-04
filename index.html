@@ -969,6 +969,8 @@ function authInit(){
     if(ov) ov.style.display='none';
     authUpdateBadge();
     authApplyAccess();
+    // Re-render dashboard/TAL dengan user aktif (okrInit dipanggil sebelum user di-set)
+    okrLoad();if(typeof okrRender==='function')okrRender();if(typeof talRender==='function')talRender();
   }
 }
 function doLogin(){
@@ -986,6 +988,8 @@ function doLogin(){
     if(ov) ov.style.display='none';
     authUpdateBadge();
     authApplyAccess();
+    // Re-render data dengan user yang baru login
+    okrLoad();if(typeof okrRender==='function')okrRender();if(typeof talRender==='function')talRender();
     document.getElementById('login-pwd-input').value='';
     document.getElementById('login-user-sel').value='';
   }else{
