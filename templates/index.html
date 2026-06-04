@@ -390,7 +390,7 @@ tbody tr:hover td{background:var(--bg);}
   </nav>
   <div class="sidebar-footer">
     <button class="btn-logout" onclick="doLogout()"><span class="nav-icon">&#x1F6AA;</span><span class="nav-text"> Logout</span></button>
-    <div class="footer-text" style="margin-top:4px;">Upload: .xlsx / .xls / .csv<br>Data diproses di browser<br>Tidak dikirim ke server<br><span style="color:var(--success);font-weight:700;">Build: 2026-06-04-v6</span></div>
+    <div class="footer-text" style="margin-top:4px;">Upload: .xlsx / .xls / .csv<br>Data diproses di browser<br>Tidak dikirim ke server<br><span style="color:var(--success);font-weight:700;">Build: 2026-06-05-v7</span></div>
   </div>
 </aside>
 
@@ -2663,10 +2663,8 @@ function invDeleteMonthly(subId,month){
 }
 function invViewEvMonthly(subId,month){
   var d=_ig(subId,inventoryYear,month);if(!d.evidence){notify('Tidak ada bukti.','error');return;}
-  document.getElementById('sem-name').textContent=d.evidenceName||'Bukti';
-  var img=document.getElementById('sem-img');
-  if(d.evidence.startsWith('data:image')){img.src=d.evidence;img.style.display='block';}else{img.style.display='none';}
-  document.getElementById('store-ev-modal').style.display='flex';
+  var _evs=d.evidences&&d.evidences.length>0?d.evidences:(d.evidence?[{name:d.evidenceName||'File',data:d.evidence}]:[]);
+  _viewEvs(_evs);
 }
 
 // ── RN & DO ACTIONS ─────────────────────────────────────────────
@@ -2699,10 +2697,8 @@ function invRnDoConfirmSave(day){
 }
 function invRnDoViewEv(day){
   var d=_irkg(inventoryYear,invRnDoMonth,day);if(!d.evidence){notify('Tidak ada bukti.','error');return;}
-  document.getElementById('sem-name').textContent=d.evidenceName||'Bukti';
-  var img=document.getElementById('sem-img');
-  if(d.evidence.startsWith('data:image')){img.src=d.evidence;img.style.display='block';}else{img.style.display='none';}
-  document.getElementById('store-ev-modal').style.display='flex';
+  var _evs=d.evidences&&d.evidences.length>0?d.evidences:(d.evidence?[{name:d.evidenceName||'File',data:d.evidence}]:[]);
+  _viewEvs(_evs);
 }
 function invRnDoUnlock(day){
   if(!confirm('Buka kunci data '+String(day).padStart(2,'0')+'/'+String(invRnDoMonth).padStart(2,'0')+' untuk diedit?'))return;
@@ -3722,10 +3718,8 @@ function finaccDeleteMonthly(subId,month){
 }
 function finaccViewEv(subId,month){
   var d=_fag(subId,finaccYear,month);if(!d.evidence){notify('Tidak ada bukti.','error');return;}
-  document.getElementById('sem-name').textContent=d.evidenceName||'Bukti';
-  var img=document.getElementById('sem-img');
-  if(d.evidence.startsWith('data:image')){img.src=d.evidence;img.style.display='block';}else{img.style.display='none';}
-  document.getElementById('store-ev-modal').style.display='flex';
+  var _evs=d.evidences&&d.evidences.length>0?d.evidences:(d.evidence?[{name:d.evidenceName||'File',data:d.evidence}]:[]);
+  _viewEvs(_evs);
 }
 
 // ── REPORT AKURAT & ONTIME RENDER ──
@@ -5061,10 +5055,8 @@ function gaDeleteMonthly(subId,month){
 }
 function gaViewEv(subId,month){
   var d=_gasog(gaYear,month);if(!d.evidence){notify('Tidak ada bukti.','error');return;}
-  document.getElementById('sem-name').textContent=d.evidenceName||'Bukti';
-  var img=document.getElementById('sem-img');
-  if(d.evidence.startsWith('data:image')){img.src=d.evidence;img.style.display='block';}else{img.style.display='none';}
-  document.getElementById('store-ev-modal').style.display='flex';
+  var _evs=d.evidences&&d.evidences.length>0?d.evidences:(d.evidence?[{name:d.evidenceName||'File',data:d.evidence}]:[]);
+  _viewEvs(_evs);
 }
 
 // ── SUB2: Akurasi Waktu Pengadaan/Maintenance (table) ─────────
@@ -5183,10 +5175,8 @@ function gaWpUploadRow(idx,inp){
 function gaWpViewEv(idx){
   var data=_gawpg(gaYear,gaWpMonth);var row=data.rows[idx];
   if(!row||!row.evidence){notify('Tidak ada bukti.','error');return;}
-  document.getElementById('sem-name').textContent=row.evidenceName||'Bukti';
-  var img=document.getElementById('sem-img');
-  if(row.evidence.startsWith('data:image')){img.src=row.evidence;img.style.display='block';}else{img.style.display='none';}
-  document.getElementById('store-ev-modal').style.display='flex';
+  var _evs=row.evidences&&row.evidences.length>0?row.evidences:(row.evidence?[{name:row.evidenceName||'File',data:row.evidence}]:[]);
+  _viewEvs(_evs);
 }
 
 // ── SUB3: Report Akurat & Ontime ──────────────────────────────
