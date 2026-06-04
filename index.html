@@ -4128,23 +4128,30 @@ function okrSaveLS(){
   okrData._ts=Date.now();
   // localStorage bisa penuh (QuotaExceededError) karena bukti base64.
   // JANGAN sampai error ini mematahkan init/aplikasi. Data tetap aman ke cloud (POST di bawah).
+  // localStorage RINGAN: isi file/bukti (base64) TIDAK disimpan di browser, hanya di cloud/GitHub.
+  // Ini cegah localStorage penuh (mis. file Excel In Stock). Konten asli tetap aman di cloud.
   try{
-    // Guard: OKR_STORE_KEY bisa undefined saat okrInit dipanggil sebelum var-nya di-assign.
     var _k=(typeof OKR_STORE_KEY!=='undefined'&&OKR_STORE_KEY)?OKR_STORE_KEY:'pinus_okr_v1';
     localStorage.removeItem('undefined');
-    localStorage.setItem(_k,JSON.stringify(okrData));
+    var _slimObj=JSON.parse(JSON.stringify(okrData,function(k,v){
+      return (typeof v==='string'&&v.length>500&&v.indexOf('data:')===0)?'__CLOUD__':v;
+    }));
+    _slimObj._slim=1; // penanda: konten file diambil dari cloud saat load
+    localStorage.setItem(_k,JSON.stringify(_slimObj));
   }catch(e){
     if(!window._lsQuotaWarned){
       window._lsQuotaWarned=true;
-      try{notify('Penyimpanan browser penuh — data tetap tersimpan ke cloud. Hapus bukti lama untuk melegakan.','error');}catch(_e){}
+      try{notify('Penyimpanan browser penuh — data tetap tersimpan ke cloud.','error');}catch(_e){}
     }
   }
   // Jangan POST ke cloud selama initial cloud-load (cegah wipe data)
   if(_okrSyncBlocked) return;
   // Jangan POST jika data kosong (hanya _ts) — cegah overwrite cloud dengan data kosong
-  var dataKeys=Object.keys(okrData).filter(function(k){return k!=='_ts';});
+  var dataKeys=Object.keys(okrData).filter(function(k){return k!=='_ts'&&k!=='_slim';});
   if(!dataKeys.length) return;
-  fetch('/api/okr',{method:'POST',headers:{'Content-Type':'application/json'},body:JSON.stringify(okrData)}).catch(function(){});
+  // POST PENUH (dengan file base64) ke cloud/GitHub — ini gudang data sebenarnya
+  var _full=JSON.parse(JSON.stringify(okrData));delete _full._slim;
+  fetch('/api/okr',{method:'POST',headers:{'Content-Type':'application/json'},body:JSON.stringify(_full)}).catch(function(){});
 }
 function okrKey(){ return okrCurYear+'-'+String(okrCurMonth).padStart(2,'0'); }
 function okrKeyOf(y,m){ return y+'-'+String(m).padStart(2,'0'); }
