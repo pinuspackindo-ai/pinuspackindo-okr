@@ -358,7 +358,7 @@
       "actionPlan": "Drafting SOP ketidakhadiran"
     }
   },
-  "_ts": 1780592445342,
+  "_ts": 1780592453380,
   "_p_ir_2026_06": {
     "value": null,
     "evidence": "__CLOUD__",
@@ -1491,8 +1491,8 @@
     "value": 100,
     "evidence": "__CLOUD__",
     "evidenceName": "D01.jpg",
-    "savedAt": "2026-06-04T04:05:21.870Z",
-    "locked": false,
+    "savedAt": "2026-06-04T17:00:53.379Z",
+    "locked": true,
     "evidences": [
       {
         "name": "D01.jpg",
