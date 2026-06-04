@@ -358,7 +358,7 @@
       "actionPlan": "Drafting SOP ketidakhadiran"
     }
   },
-  "_ts": 1780595485379,
+  "_ts": 1780595486999,
   "_p_sv_rn_2026_05": 1434,
   "_userPwd": {},
   "_userAccess": {
@@ -1704,5 +1704,16 @@
   },
   "_hrd_rec_2026_06": {
     "rows": []
+  },
+  "_ia_proj_2026_06": {
+    "rows": [
+      {
+        "namaProject": "",
+        "tujuan": "",
+        "evidence": "",
+        "evidenceName": "",
+        "locked": false
+      }
+    ]
   }
 }
