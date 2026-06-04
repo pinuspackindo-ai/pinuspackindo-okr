@@ -1421,21 +1421,39 @@ function _processImgFiles(files,cb){
 }
 function _apEv(ex,inc){var b=(ex&&ex.length)?ex.slice():[];var o=b.concat(inc||[]);return o.length>3?o.slice(0,3):o;}
 window._evStore={};
-function _viewEvs(evs){
-  if(!evs||evs.length===0){notify('Tidak ada bukti.','error');return;}
-  if(evs.length===1){
-    var e0=evs[0];
-    if(e0.data&&e0.data.startsWith('data:image/')){
-      document.getElementById('sem-name').textContent=e0.name||'Bukti';
-      var _img=document.getElementById('sem-img');
-      _img.src=e0.data;_img.style.display='block';
-      document.getElementById('store-ev-modal').style.display='flex';
-    }else{
-      var _a=document.createElement('a');_a.href=e0.data;_a.download=e0.name||'bukti';
-      document.body.appendChild(_a);_a.click();document.body.removeChild(_a);
-    }
-    return;
+// Buka file SECARA DARING (tidak download): gambar->modal, Excel->tabel HTML, PDF/lainnya->tab baru
+function _viewFileOnline(b64,name){
+  if(!b64||b64==='__CLOUD__'){notify('File belum termuat dari cloud. Tunggu sebentar lalu coba lagi.','error');return;}
+  name=(name||'file')+'';
+  var lower=name.toLowerCase();
+  if(b64.indexOf('data:image/')===0){
+    document.getElementById('sem-name').textContent=name;
+    var img=document.getElementById('sem-img');img.src=b64;img.style.display='block';
+    document.getElementById('store-ev-modal').style.display='flex';return;
   }
+  var isXls=/\.(xlsx|xls|csv)$/.test(lower)||b64.indexOf('spreadsheet')!==-1||b64.indexOf('ms-excel')!==-1||b64.indexOf('text/csv')!==-1;
+  if(isXls){
+    okrEnsureXLSX(function(){
+      try{
+        var data=b64.indexOf(',')!==-1?b64.split(',')[1]:b64;
+        var wb=XLSX.read(data,{type:'base64'});
+        var w=window.open('','_blank');
+        if(!w){notify('Popup diblokir. Izinkan popup untuk melihat file.','error');return;}
+        var body='';wb.SheetNames.forEach(function(sn){body+='<h3>'+sn+'</h3>'+XLSX.utils.sheet_to_html(wb.Sheets[sn]);});
+        w.document.write('<!doctype html><html><head><meta charset="utf-8"><title>'+name+'</title><style>body{font-family:Inter,Arial,sans-serif;padding:18px;background:#f8fafc;}h2{color:#1e293b;}h3{color:#2563eb;margin-top:20px;}table{border-collapse:collapse;background:#fff;margin-bottom:16px;}td,th{border:1px solid #cbd5e1;padding:5px 9px;font-size:13px;}</style></head><body><h2>'+name+'</h2>'+body+'</body></html>');
+        w.document.close();
+      }catch(e){notify('Gagal membuka file: '+e.message,'error');}
+    });return;
+  }
+  var w2=window.open('','_blank');
+  if(!w2){notify('Popup diblokir. Izinkan popup untuk melihat file.','error');return;}
+  w2.document.write('<!doctype html><html><head><meta charset="utf-8"><title>'+name+'</title></head><body style="margin:0;"><iframe src="'+b64+'" style="border:0;width:100vw;height:100vh;"></iframe></body></html>');
+  w2.document.close();
+}
+function _viewEvs(evs){
+  evs=(evs||[]).filter(function(e){return e&&e.data;});
+  if(evs.length===0){notify('Tidak ada bukti.','error');return;}
+  if(evs.length===1){ _viewFileOnline(evs[0].data, evs[0].name); return; }
   var _old=document.getElementById('_evov');if(_old)_old.remove();
   var _ov=document.createElement('div');_ov.id='_evov';
   _ov.style.cssText='position:fixed;top:0;left:0;width:100%;height:100%;background:rgba(0,0,0,.75);display:flex;align-items:center;justify-content:center;z-index:9999;';
@@ -1449,22 +1467,8 @@ function _viewEvs(evs){
   evs.forEach(function(ef,ei){
     var _btn=document.createElement('button');
     _btn.style.cssText='display:block;width:100%;text-align:left;padding:8px 12px;border:1.5px solid var(--primary);background:none;color:var(--primary);border-radius:var(--radius-sm);cursor:pointer;font-size:12px;font-family:var(--font);margin-bottom:8px;overflow:hidden;text-overflow:ellipsis;white-space:nowrap;';
-    var _isImg=ef.data&&ef.data.startsWith('data:image/');
-    _btn.textContent=(_isImg?'👁 ':'📥 ')+(ef.name||('File '+(ei+1)));
-    (function(ef){
-      _btn.onclick=function(){
-        if(ef.data&&ef.data.startsWith('data:image/')){
-          document.getElementById('sem-name').textContent=ef.name||'Bukti';
-          var _img=document.getElementById('sem-img');
-          _img.src=ef.data;_img.style.display='block';
-          _ov.remove();
-          document.getElementById('store-ev-modal').style.display='flex';
-        }else{
-          var _a=document.createElement('a');_a.href=ef.data;_a.download=ef.name||'bukti';
-          document.body.appendChild(_a);_a.click();document.body.removeChild(_a);
-        }
-      };
-    })(ef);
+    _btn.textContent='👁 '+(ef.name||('File '+(ei+1)));
+    (function(ef){_btn.onclick=function(){_ov.remove();_viewFileOnline(ef.data,ef.name);};})(ef);
     _box.appendChild(_btn);
   });
   var _cl=document.createElement('button');
