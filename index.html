@@ -4126,7 +4126,16 @@ function okrLoad(){
 }
 function okrSaveLS(){
   okrData._ts=Date.now();
-  localStorage.setItem(OKR_STORE_KEY,JSON.stringify(okrData));
+  // localStorage bisa penuh (QuotaExceededError) karena bukti base64.
+  // JANGAN sampai error ini mematahkan init/aplikasi. Data tetap aman ke cloud (POST di bawah).
+  try{
+    localStorage.setItem(OKR_STORE_KEY,JSON.stringify(okrData));
+  }catch(e){
+    if(!window._lsQuotaWarned){
+      window._lsQuotaWarned=true;
+      try{notify('Penyimpanan browser penuh — data tetap tersimpan ke cloud. Hapus bukti lama untuk melegakan.','error');}catch(_e){}
+    }
+  }
   // Jangan POST ke cloud selama initial cloud-load (cegah wipe data)
   if(_okrSyncBlocked) return;
   // Jangan POST jika data kosong (hanya _ts) — cegah overwrite cloud dengan data kosong
