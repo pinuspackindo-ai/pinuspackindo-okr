@@ -3024,7 +3024,7 @@ function purchInstockRender(){
   var BULS=['Jan','Feb','Mar','Apr','Mei','Jun','Jul','Agu','Sep','Okt','Nov','Des'];
   var DAYS=['Min','Sen','Sel','Rab','Kam','Jum','Sab'];
   var daysInM=new Date(y,m,0).getDate(),totalWD=0,savedD=0,scoreSum=0,scoreDays=0;
-  for(var dd=1;dd<=daysInM;dd++){var dt=new Date(y,m-1,dd);if(dt.getDay()===0)continue;totalWD++;var dd_=_pgIns(y,m,dd);if(dd_.locked&&dd_.file1&&dd_.file2){savedD++;if(dd_.score!==null&&dd_.score!==undefined){scoreSum+=dd_.score;scoreDays++;}}}
+  for(var dd=1;dd<=daysInM;dd++){var dt=new Date(y,m-1,dd);if(dt.getDay()===0)continue;totalWD++;var dd_=_pgIns(y,m,dd);if(dd_.locked&&dd_.score!==null&&dd_.score!==undefined){savedD++;scoreSum+=dd_.score;scoreDays++;}}
   var score=scoreDays>0?Math.round(scoreSum/scoreDays*100)/100:0;
   var linked=purchasingIsLinked(y,m);var cls=scoreClass(score);
   var html='';
@@ -3065,7 +3065,7 @@ function purchInstockRender(){
       html+='<input type="number" min="0" max="100" step="0.01" id="pins-sc-'+dd+'" value="'+(d.score!==null&&d.score!==undefined?d.score:'')+'" placeholder="0-100" style="width:72px;padding:4px 6px;border:1.5px solid '+(hasAutoScore?'var(--success)':'var(--border)')+';border-radius:4px;font-size:12px;text-align:center;font-family:var(--font);" />';
       if(hasAutoScore)html+='<div style="font-size:9px;color:var(--success);margin-top:2px;">&#x26A1; Auto</div>';
       html+='</td>';
-      var canSave=!!(d.file1&&d.file2);
+      var canSave=true;
       html+='<td style="text-align:center;"><button onclick="purchInstockConfirmSave('+dd+')" '+(canSave?'':'disabled ')+' style="font-size:11px;background:'+(canSave?'var(--primary)':'var(--border)')+';border:none;color:'+(canSave?'#fff':'var(--text-l)')+';border-radius:4px;padding:4px 12px;cursor:'+(canSave?'pointer':'not-allowed')+';">&#x1F4BE; Simpan</button></td>';
     }
     html+='</tr>';
@@ -3098,14 +3098,14 @@ function purchInstockFileChange(day,fileNum,inp){
 function purchInstockConfirmSave(day){
   var y=purchasingYear,m=purchInstockMonth;
   var d=_pgIns(y,m,day);
-  if(!d.file1||!d.file2){notify('Upload kedua file terlebih dahulu','error');return;}
   var scEl=document.getElementById('pins-sc-'+day);
   var sc=scEl&&scEl.value!==''?parseFloat(scEl.value):null;
+  if(sc===null&&(!d.file1||!d.file2)){notify('Isi Score atau upload kedua file terlebih dahulu','error');return;}
   if(sc!==null&&(isNaN(sc)||sc<0||sc>100)){notify('Score harus antara 0 dan 100','error');return;}
   _purchPending={type:'instock',year:y,month:m,day:day,file1:d.file1,file1Name:d.file1Name,file2:d.file2,file2Name:d.file2Name,score:sc};
   document.getElementById('pc-sub').textContent='In Stock';
   document.getElementById('pc-bulan').textContent=day+' '+STORE_BULAN[m-1]+' '+y;
-  document.getElementById('pc-val').textContent='File 1 + File 2 siap disimpan';
+  document.getElementById('pc-val').textContent=(sc!==null?'Score: '+sc+'%':'Data')+' siap disimpan';
   document.getElementById('pc-ev').textContent=(d.file1Name||'File 1')+' + '+(d.file2Name||'File 2');
   document.getElementById('purch-confirm-modal').style.display='flex';
 }
@@ -3122,7 +3122,7 @@ function purchInstockDelete(day){
 }
 function purchInstockSyncOKR(year,month){
   var daysInM=new Date(year,month,0).getDate(),scoreSum=0,scoreDays=0;
-  for(var dd=1;dd<=daysInM;dd++){var dt=new Date(year,month-1,dd);if(dt.getDay()===0)continue;var d=_pgIns(year,month,dd);if(d.locked&&d.file1&&d.file2&&d.score!==null&&d.score!==undefined){scoreSum+=d.score;scoreDays++;}}
+  for(var dd=1;dd<=daysInM;dd++){var dt=new Date(year,month-1,dd);if(dt.getDay()===0)continue;var d=_pgIns(year,month,dd);if(d.locked&&d.score!==null&&d.score!==undefined){scoreSum+=d.score;scoreDays++;}}
   var score=scoreDays>0?Math.round(scoreSum/scoreDays*100)/100:0;
   purchasingSyncOKR('instock_p',year,month,score);
 }
@@ -3188,6 +3188,7 @@ function purchApoFileChange(month,fileNum,inp){
   };
   reader.readAsDataURL(file);
 }
+var ACC_KW=['HPP','SUPPLIER','HARGA','KUANTITI','QTY','SALAH','DISKON','LEBIH','KURANG','TEMPO','TERMIN','NAMA'];
 function purchApoSave(month){
   var y=purchasingYear;var d=_pgApo(y,month);
   if(!d.file1||!d.file2){notify('Upload kedua file terlebih dahulu','error');return;}
