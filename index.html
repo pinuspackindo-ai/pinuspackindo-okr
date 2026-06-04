@@ -4342,6 +4342,19 @@ function okrRender(){
   }
 
   var html=''; var _divScores=[]; var _divCount=0;
+  // Score Global = akumulasi rata-rata Score Akhir SEMUA divisi OKR
+  // (sama untuk semua user, termasuk user divisi — bukan hanya divisinya sendiri)
+  _RD.forEach(function(div){
+    var _gr=okrGetRows(monthData[div]);
+    if(!_gr||_gr.length===0) return;
+    var _gs=0;
+    _gr.forEach(function(row){
+      if(row.actual!==null&&row.actual!==undefined&&row.actual!==''&&row.target>0){
+        _gs+=(parseFloat(row.actual)/parseFloat(row.target))*(parseFloat(row.bobot)||0);
+      }
+    });
+    _divCount++; _divScores.push(_gs);
+  });
   _RD.forEach(function(div){
     var divData=monthData[div];
     var rows=okrGetRows(divData);
@@ -4401,8 +4414,6 @@ function okrRender(){
     // Score Akhir = penjumlahan score tiap baris (tampil meski sebagian belum ada actual)
     var saStr=hasAnyScore?scoreAkhir.toFixed(1):'—';
     var saCls=hasAnyScore?(scoreAkhir>=80?'color:var(--success)':scoreAkhir>=50?'color:var(--warning)':'color:var(--danger)'):'';
-    _divCount++;
-    _divScores.push(scoreAkhir); // selalu ikut average, termasuk yang masih 0
     html+='<tr class="okr-score-akhir">';
     html+='<td colspan="5" style="text-align:right;font-size:12px;letter-spacing:.5px;padding-right:16px;">SCORE AKHIR</td>';
     html+='<td style="text-align:center;font-size:1.05rem;'+saCls+'">'+saStr+'</td>';
