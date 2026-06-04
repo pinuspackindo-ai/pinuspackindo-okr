@@ -4209,7 +4209,7 @@ function okrInit(){
           var localTs=okrData._ts||0; var rawTs=raw._ts||0;
           var localDataKeys=Object.keys(okrData).filter(function(k){return k!=='_ts';});
           var localOkrKeys=localDataKeys.filter(function(k){return !k.startsWith('_');});
-          if(rawTs>localTs||localDataKeys.length===0){
+          if(rawTs>localTs||localDataKeys.length===0||okrData._slim){
             // Raw lebih baru — tapi pertahankan data sub-modul lokal yg tidak ada di raw (cegah wipe)
             var _lSub={};localDataKeys.forEach(function(k){if(k.startsWith('_'))_lSub[k]=okrData[k];});
             okrData=raw;Object.keys(_lSub).forEach(function(k){if(!(k in raw))okrData[k]=_lSub[k];});
@@ -4233,7 +4233,7 @@ function okrInit(){
       // OKR keys = bulan seperti '2026-05' (tidak diawali '_')
       var localOkrKeys=localDataKeys.filter(function(k){return !k.startsWith('_');});
       var cloudOkrKeys=Object.keys(cloud).filter(function(k){return k!=='_ts'&&!k.startsWith('_');});
-      if(cloudTs>localTs||localEmpty){
+      if(cloudTs>localTs||localEmpty||okrData._slim){
         // Cloud lebih baru — tapi pertahankan data sub-modul lokal yg tidak ada di cloud (cegah wipe)
         var _localSub={};
         if(!localEmpty){localDataKeys.forEach(function(k){if(k.startsWith('_'))_localSub[k]=okrData[k];});}
