@@ -3024,7 +3024,7 @@ function purchInstockRender(){
   var BULS=['Jan','Feb','Mar','Apr','Mei','Jun','Jul','Agu','Sep','Okt','Nov','Des'];
   var DAYS=['Min','Sen','Sel','Rab','Kam','Jum','Sab'];
   var daysInM=new Date(y,m,0).getDate(),totalWD=0,savedD=0,scoreSum=0,scoreDays=0;
-  for(var dd=1;dd<=daysInM;dd++){var dt=new Date(y,m-1,dd);if(dt.getDay()===0)continue;totalWD++;var dd_=_pgIns(y,m,dd);if(dd_.locked&&dd_.score!==null&&dd_.score!==undefined){savedD++;scoreSum+=dd_.score;scoreDays++;}}
+  for(var dd=1;dd<=daysInM;dd++){var dt=new Date(y,m-1,dd);if(dt.getDay()===0)continue;totalWD++;var dd_=_pgIns(y,m,dd);if(dd_.score!==null&&dd_.score!==undefined&&dd_.score!==''){savedD++;scoreSum+=parseFloat(dd_.score)||0;scoreDays++;}}
   var score=scoreDays>0?Math.round(scoreSum/scoreDays*100)/100:0;
   var linked=purchasingIsLinked(y,m);var cls=scoreClass(score);
   var html='';
@@ -3122,7 +3122,7 @@ function purchInstockDelete(day){
 }
 function purchInstockSyncOKR(year,month){
   var daysInM=new Date(year,month,0).getDate(),scoreSum=0,scoreDays=0;
-  for(var dd=1;dd<=daysInM;dd++){var dt=new Date(year,month-1,dd);if(dt.getDay()===0)continue;var d=_pgIns(year,month,dd);if(d.locked&&d.score!==null&&d.score!==undefined){scoreSum+=d.score;scoreDays++;}}
+  for(var dd=1;dd<=daysInM;dd++){var dt=new Date(year,month-1,dd);if(dt.getDay()===0)continue;var d=_pgIns(year,month,dd);if(d.score!==null&&d.score!==undefined&&d.score!==''){scoreSum+=parseFloat(d.score)||0;scoreDays++;}}
   var score=scoreDays>0?Math.round(scoreSum/scoreDays*100)/100:0;
   purchasingSyncOKR('instock_p',year,month,score);
 }
