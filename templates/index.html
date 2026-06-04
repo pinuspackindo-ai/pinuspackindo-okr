@@ -5822,8 +5822,8 @@ function iaRekoRender(){
       h+='</div>';
     }
     h+='</td><td style="padding:8px 10px;text-align:center;">';
-    if(locked){h+='<button onclick="iaRekoEdit('+i+')" style="background:none;border:none;color:var(--acc);cursor:pointer;font-size:20px;" title="Edit">✏️</button>';}
-    else{h+='<button onclick="iaRekoSaveRow('+i+')" style="background:var(--acc);border:none;color:#fff;padding:4px 12px;border-radius:6px;cursor:pointer;font-size:12px;">Simpan</button>';}
+    if(locked){h+='<button onclick="iaRekoEdit('+i+')" style="background:none;border:1.5px solid var(--border);color:var(--text-m);border-radius:var(--radius-sm);padding:4px 10px;cursor:pointer;font-size:12px;font-family:var(--font);" title="Edit">&#x270F;&#xFE0F; Edit</button>';}
+    else{h+='<button onclick="iaRekoSaveRow('+i+')" style="background:var(--primary);border:none;color:#fff;padding:5px 14px;border-radius:var(--radius-sm);cursor:pointer;font-size:12px;font-family:var(--font);font-weight:600;">&#x2713; Simpan</button>';}
     h+='</td></tr>';
   });
   h+='</tbody></table></div>';
@@ -5835,6 +5835,7 @@ function iaRekoUpload(event,i){
   if(_fs.some(function(f){return f.size>1024*1024;})){notify('Ukuran file maksimal 1 MB per file.','error');event.target.value='';return;}
   _processImgFiles(_fs,function(results){
     var data=iaRekoLoad(_iaCurYear,_iaCurMonth);
+    var _scEl=document.getElementById('ia-reko-score-'+i);if(_scEl)data.rows[i].score=_scEl.value.trim();
     data.rows[i].evidences=results;data.rows[i].evidence=results[0]?results[0].data:'';data.rows[i].evidenceName=results[0]?results[0].name:'';
     iaRekoSave(_iaCurYear,_iaCurMonth,data); iaRekoRender();
   });
@@ -5978,8 +5979,8 @@ function iaRotRender(){
       h+='</div>';
     }
     h+='</td><td style="padding:7px 8px;text-align:center;">';
-    if(locked){h+='<button onclick="iaRotEdit(\''+_iaRotCurType+'\','+i+')" style="background:none;border:none;color:var(--acc);cursor:pointer;font-size:20px;" title="Edit">✏️</button>';}
-    else{h+='<button onclick="iaRotSaveRow(\''+_iaRotCurType+'\','+i+')" style="background:var(--acc);border:none;color:#fff;padding:3px 10px;border-radius:6px;cursor:pointer;font-size:11px;">Simpan</button>';}
+    if(locked){h+='<button onclick="iaRotEdit(\''+_iaRotCurType+'\','+i+')" style="background:none;border:1.5px solid var(--border);color:var(--text-m);border-radius:var(--radius-sm);padding:4px 10px;cursor:pointer;font-size:11px;font-family:var(--font);" title="Edit">&#x270F;&#xFE0F; Edit</button>';}
+    else{h+='<button onclick="iaRotSaveRow(\''+_iaRotCurType+'\','+i+')" style="background:var(--primary);border:none;color:#fff;padding:5px 12px;border-radius:var(--radius-sm);cursor:pointer;font-size:11px;font-family:var(--font);font-weight:600;">&#x2713; Simpan</button>';}
     h+='</td></tr>';
   });
   h+='</tbody></table></div></div>';
@@ -5992,6 +5993,8 @@ function iaRotUpload(event,typeKey,i){
   if(_fs.some(function(f){return f.size>1024*1024;})){notify('Ukuran file maksimal 1 MB per file.','error');event.target.value='';return;}
   _processImgFiles(_fs,function(results){
     var data=iaRotLoad(typeKey,_iaCurYear,_iaCurMonth);
+    var _dtEl=document.getElementById('ia-rot-date-'+i);if(_dtEl)data.rows[i].submittedDate=_dtEl.value.trim();
+    var _tmEl=document.getElementById('ia-rot-temuan-'+i);if(_tmEl)data.rows[i].temuan=_tmEl.value.trim();
     data.rows[i].evidences=results;data.rows[i].evidence=results[0]?results[0].data:'';data.rows[i].evidenceName=results[0]?results[0].name:'';
     iaRotSave(typeKey,_iaCurYear,_iaCurMonth,data); iaRotRender();
   });
@@ -6026,22 +6029,22 @@ function iaProjLoad(y,m){
 function iaProjSave(y,m,data){
   okrData[iaProjKey(y,m)]=data;
   var count=data.rows.filter(function(r){return r.locked;}).length;
-  iaSyncOKR(/inisiatif.*proaktif|proaktif/i,y,m,count*50);
+  iaSyncOKR(/inisiatif.*proaktif|proaktif/i,y,m,count);
   okrSaveLS();
 }
 function iaProjRender(){
   var data=iaProjLoad(_iaCurYear,_iaCurMonth);
   var rows=data.rows;
   var lockedCount=rows.filter(function(r){return r.locked;}).length;
-  var projScore=lockedCount*50;
+  var projScore=lockedCount;
 
   var h='<div class="card">';
   h+='<div style="font-size:16px;font-weight:700;color:var(--acc);margin-bottom:16px;">🚀 Project Baru &nbsp;<span style="font-size:13px;font-weight:400;color:var(--tx2);">'+(BULS[_iaCurMonth-1]||'')+' '+_iaCurYear+'</span></div>';
   h+='<div style="margin-bottom:16px;padding:12px 16px;background:var(--bg);border-radius:10px;display:flex;align-items:center;gap:16px;">';
   h+='<span style="font-size:13px;color:var(--tx2);">Jumlah Project: <strong>'+lockedCount+'</strong></span>';
-  h+='<span style="font-size:13px;color:var(--tx2);">Score OKR: <span class="'+scoreClass(Math.min(100,projScore))+'" style="font-weight:800;font-size:18px;">'+projScore+'%</span></span>';
+  h+='<span style="font-size:13px;color:var(--tx2);">Score OKR: <strong style="font-weight:800;font-size:18px;color:var(--acc);">'+projScore+'</strong></span>';
   h+='</div>';
-  h+='<div style="margin-bottom:16px;"><button onclick="iaProjAddRow()" style="background:var(--acc);border:none;color:#fff;padding:8px 18px;border-radius:8px;cursor:pointer;font-size:13px;font-weight:600;">➕ Tambah Project</button></div>';
+  h+='<div style="margin-bottom:16px;"><button onclick="iaProjAddRow()" style="background:var(--primary);border:none;color:#fff;padding:8px 18px;border-radius:var(--radius-sm);cursor:pointer;font-size:13px;font-family:var(--font);font-weight:600;">&#x2795; Tambah Project</button></div>';
 
   if(rows.length===0){
     h+='<div style="text-align:center;padding:40px;color:var(--tx3);">Belum ada project. Klik Tambah Project untuk menambahkan.</div>';
@@ -6055,8 +6058,8 @@ function iaProjRender(){
         h+='<div style="font-size:12px;color:var(--tx2);margin-bottom:8px;">'+okrEsc(row.tujuan)+'</div>';
         if(row.evidence){h+='<button onclick="iaProjViewEvidence('+i+')" style="background:none;border:none;color:var(--acc);cursor:pointer;font-size:12px;">📎 '+okrEsc(row.evidenceName||'Lihat Bukti')+'</button>';}
         h+='</div><div style="display:flex;gap:6px;">';
-        h+='<button onclick="iaProjEdit('+i+')" style="background:none;border:none;color:var(--acc);cursor:pointer;font-size:20px;" title="Edit">✏️</button>';
-        h+='<button onclick="iaProjDelete('+i+')" style="background:none;border:none;color:#ef4444;cursor:pointer;font-size:20px;" title="Hapus">🗑️</button>';
+        h+='<button onclick="iaProjEdit('+i+')" style="background:none;border:1.5px solid var(--border);color:var(--text-m);border-radius:var(--radius-sm);padding:4px 10px;cursor:pointer;font-size:12px;font-family:var(--font);" title="Edit">&#x270F;&#xFE0F; Edit</button>';
+        h+='<button onclick="iaProjDelete('+i+')" style="background:none;border:1.5px solid #fca5a5;color:#dc2626;border-radius:var(--radius-sm);padding:4px 9px;cursor:pointer;font-size:13px;font-family:var(--font);" title="Hapus">&#x1F5D1;</button>';
         h+='</div></div>';
       }else{
         h+='<div style="margin-bottom:10px;"><label style="font-size:11px;color:var(--tx2);font-weight:600;">Nama Project</label>';
@@ -6069,8 +6072,8 @@ function iaProjRender(){
         h+='<label style="cursor:pointer;padding:5px 12px;background:var(--bg2);border:1px solid var(--brd);border-radius:6px;font-size:11px;">📁 Upload Bukti<input type="file" multiple accept="image/*,.pdf" style="display:none;" onchange="iaProjUpload(event,'+i+')"></label>';
         h+='</div></div>';
         h+='<div style="display:flex;gap:8px;">';
-        h+='<button onclick="iaProjSaveRow('+i+')" style="background:var(--acc);border:none;color:#fff;padding:6px 16px;border-radius:8px;cursor:pointer;font-size:13px;font-weight:600;">Simpan</button>';
-        h+='<button onclick="iaProjCancelRow('+i+')" style="background:var(--bg2);border:1px solid var(--brd);color:var(--tx);padding:6px 14px;border-radius:8px;cursor:pointer;font-size:13px;">Batal</button>';
+        h+='<button onclick="iaProjSaveRow('+i+')" style="background:var(--primary);border:none;color:#fff;padding:6px 16px;border-radius:var(--radius-sm);cursor:pointer;font-size:13px;font-family:var(--font);font-weight:600;">&#x2713; Simpan</button>';
+        h+='<button onclick="iaProjCancelRow('+i+')" style="background:none;border:1.5px solid var(--border);color:var(--text-m);padding:6px 14px;border-radius:var(--radius-sm);cursor:pointer;font-size:13px;font-family:var(--font);">&#x2715; Batal</button>';
         h+='</div>';
       }
       h+='</div>';
@@ -6090,6 +6093,8 @@ function iaProjUpload(event,i){
   if(_fs.some(function(f){return f.size>1024*1024;})){notify('Ukuran file maksimal 1 MB per file.','error');event.target.value='';return;}
   _processImgFiles(_fs,function(results){
     var data=iaProjLoad(_iaCurYear,_iaCurMonth);
+    var _nmEl=document.getElementById('ia-proj-nama-'+i);if(_nmEl)data.rows[i].namaProject=_nmEl.value;
+    var _tjEl=document.getElementById('ia-proj-tujuan-'+i);if(_tjEl)data.rows[i].tujuan=_tjEl.value;
     data.rows[i].evidences=results;data.rows[i].evidence=results[0]?results[0].data:'';data.rows[i].evidenceName=results[0]?results[0].name:'';
     okrData[iaProjKey(_iaCurYear,_iaCurMonth)]=data; okrSaveLS(); iaProjRender();
   });
