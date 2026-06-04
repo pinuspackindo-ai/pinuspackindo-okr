@@ -26,6 +26,8 @@
   --g:var(--success);--gdim:var(--text-m);--gdk:var(--text-l);
   --gglo:transparent;--amb:var(--warning);--red:var(--danger);
   --brd:var(--border);--mono:var(--font);--vt:var(--font);
+  --acc:var(--primary);--acc-d:var(--primary-d);
+  --tx:var(--text);--tx2:var(--text-m);--tx3:var(--text-l);
 }
 *,*::before,*::after{box-sizing:border-box;margin:0;padding:0;}
 body{font-family:var(--font);background:var(--bg);color:var(--text);
@@ -1756,8 +1758,8 @@ var DISTRIB_SUBS=[
    desc:'Perolehan Omzet',             source:'Hashmicro → Sales Order Line',
    okrDiv:['Distribution Sales'],
    okrMatch:function(kr){return /omzet|omset/i.test(kr);}},
-  {id:'retention', label:'Customer Retention', icon:'🤝', unit:'orang',
-   desc:'Jumlah Pelanggan Retensi',    source:'Hashmicro → Sales Order Line',
+  {id:'retention', label:'Customer Retention', icon:'🤝', unit:'%',
+   desc:'Persentase Pelanggan Retensi', source:'Hashmicro → Sales Order Line',
    okrDiv:['Distribution Sales'],
    okrMatch:function(kr){return /retensi.*pelanggan|pelanggan.*retensi/i.test(kr);}},
   {id:'new_cust',  label:'New Customer',       icon:'👥', unit:'orang',
