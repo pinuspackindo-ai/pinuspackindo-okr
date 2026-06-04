@@ -358,7 +358,7 @@
       "actionPlan": "Drafting SOP ketidakhadiran"
     }
   },
-  "_ts": 1780595827123,
+  "_ts": 1780595840263,
   "_p_sv_rn_2026_05": 1434,
   "_userPwd": {},
   "_userAccess": {
@@ -1745,6 +1745,6 @@
     "snkScore": 100,
     "totalScore": 100,
     "savedAt": "2026-06-04T17:57:07.123Z",
-    "locked": true
+    "locked": false
   }
 }
