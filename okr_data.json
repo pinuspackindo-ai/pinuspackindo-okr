@@ -358,9 +358,11 @@
       "actionPlan": "Drafting SOP ketidakhadiran"
     }
   },
-  "_ts": 1780630076824,
+  "_ts": 1780630085285,
   "_p_sv_rn_2026_05": 1434,
-  "_userPwd": {},
+  "_userPwd": {
+    "Store": "1011"
+  },
   "_userAccess": {
     "HRD": {
       "modules": [
