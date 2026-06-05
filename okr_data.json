@@ -97,7 +97,7 @@
           "objective": "Data dan fisik uang akurat, transaksi tepat dan on time.",
           "keyResult": "Laporan keuangan akurat dan on time",
           "target": 98,
-          "actual": null,
+          "actual": 100,
           "bobot": 15
         },
         {
@@ -105,7 +105,7 @@
           "objective": "Data dan fisik uang akurat, transaksi tepat dan on time.",
           "keyResult": "Tingkat implementasi rekomendasi audit",
           "target": 100,
-          "actual": 100,
+          "actual": null,
           "bobot": 10
         }
       ],
@@ -358,7 +358,7 @@
       "actionPlan": "Drafting SOP ketidakhadiran"
     }
   },
-  "_ts": 1780629725689,
+  "_ts": 1780629756204,
   "_p_sv_rn_2026_05": 1434,
   "_userPwd": {},
   "_userAccess": {
@@ -605,7 +605,7 @@
           "objective": "Data dan fisik uang akurat, transaksi tepat dan on time.",
           "keyResult": "Tingkat implementasi rekomendasi audit",
           "target": 100,
-          "actual": null,
+          "actual": 90,
           "bobot": 10
         }
       ],
@@ -929,6 +929,19 @@
             "data": "__CLOUD__"
           }
         ]
+      }
+    ]
+  },
+  "_fa_piutang_jt_2026_05": {
+    "value": 100,
+    "evidence": "__CLOUD__",
+    "evidenceName": "Pinus.jpg",
+    "savedAt": "2026-06-03T08:06:38.709Z",
+    "locked": true,
+    "evidences": [
+      {
+        "name": "Pinus.jpg",
+        "data": "__CLOUD__"
       }
     ]
   },
@@ -1655,6 +1668,23 @@
     "savedAt": "2026-06-04T15:51:48.385Z",
     "locked": true
   },
+  "_fa_impl_reko_fa_2026_06": {
+    "value": 90,
+    "evidence": "__CLOUD__",
+    "evidenceName": "Pinus (1).jpg",
+    "savedAt": "2026-06-04T17:45:38.021Z",
+    "locked": true,
+    "evidences": [
+      {
+        "name": "Pinus (1).jpg",
+        "data": "__CLOUD__"
+      },
+      {
+        "name": "Cuplikan layar 2026-04-06 190121.png",
+        "data": "__CLOUD__"
+      }
+    ]
+  },
   "_ga_wp_2026_06": {
     "rows": [],
     "locked": false
@@ -1665,28 +1695,43 @@
   "_ia_proj_2026_06": {
     "rows": []
   },
-  "_fa_piutang_jt_2026_05": {
-    "value": 100,
-    "evidence": "__CLOUD__",
-    "evidenceName": "Pinus.jpg",
-    "savedAt": "2026-06-05T03:19:05.121Z",
+  "_fa_rot_2026_05": {
+    "poin": [
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0
+    ],
+    "akurasiEv": "__CLOUD__",
+    "akurasiEvName": "WhatsApp Image 2026-06-05 at 08.42.25.jpeg",
+    "ontimeDate": "2026-06-03",
+    "ontimeEv": "__CLOUD__",
+    "ontimeEvName": "WhatsApp Image 2026-06-05 at 08.49.07.jpeg",
+    "akurasiScore": 100,
+    "ontimeScore": 100,
+    "totalScore": 100,
+    "savedAt": "2026-06-05T01:50:51.068Z",
     "locked": true,
-    "evidences": [
+    "akurasiEvs": [
       {
-        "name": "Pinus.jpg",
+        "name": "WhatsApp Image 2026-06-05 at 08.42.25.jpeg",
         "data": "__CLOUD__"
       }
-    ]
-  },
-  "_fa_impl_reko_fa_2026_05": {
-    "value": 100,
-    "evidence": "__CLOUD__",
-    "evidenceName": "Pinus.jpg",
-    "savedAt": "2026-06-05T03:20:08.729Z",
-    "locked": true,
-    "evidences": [
+    ],
+    "ontimeEvs": [
       {
-        "name": "Pinus.jpg",
+        "name": "WhatsApp Image 2026-06-05 at 08.49.07.jpeg",
         "data": "__CLOUD__"
       }
     ]
