@@ -1425,33 +1425,42 @@ function _processImgFiles(files,cb){
 function _apEv(ex,inc){var b=(ex&&ex.length)?ex.slice():[];var o=b.concat(inc||[]);return o.length>3?o.slice(0,3):o;}
 window._evStore={};
 // Buka file SECARA DARING (tidak download): gambar->modal, Excel->tabel HTML, PDF/lainnya->tab baru
-function _viewFileOnline(b64,name){
-  if(!b64||b64==='__CLOUD__'){notify('File belum termuat dari cloud. Tunggu sebentar lalu coba lagi.','error');return;}
-  name=(name||'file')+'';
+function _viewFileOnline(src,name){
+  if(!src||src==='__CLOUD__'){notify('File belum termuat dari cloud. Tunggu sebentar lalu coba lagi.','error');return;}
+  src=''+src;name=(name||'file')+'';
   var lower=name.toLowerCase();
-  if(b64.indexOf('data:image/')===0){
+  var isUrl=/^https?:/.test(src);
+  var path=isUrl?src.split('?')[0].toLowerCase():'';
+  var isImg=src.indexOf('data:image/')===0||(isUrl&&/\.(png|jpe?g|gif|webp|bmp)$/.test(path));
+  if(isImg){
     document.getElementById('sem-name').textContent=name;
-    var img=document.getElementById('sem-img');img.src=b64;img.style.display='block';
+    var img=document.getElementById('sem-img');img.src=src;img.style.display='block';
     document.getElementById('store-ev-modal').style.display='flex';return;
   }
-  var isXls=/\.(xlsx|xls|csv)$/.test(lower)||b64.indexOf('spreadsheet')!==-1||b64.indexOf('ms-excel')!==-1||b64.indexOf('text/csv')!==-1;
+  var isXls=/\.(xlsx|xls|csv)$/.test(lower)||/\.(xlsx|xls|csv)$/.test(path)||src.indexOf('spreadsheet')!==-1||src.indexOf('ms-excel')!==-1||src.indexOf('text/csv')!==-1;
   if(isXls){
     okrEnsureXLSX(function(){
-      try{
-        var data=b64.indexOf(',')!==-1?b64.split(',')[1]:b64;
-        var wb=XLSX.read(data,{type:'base64'});
+      function _render(wb){
         var w=window.open('','_blank');
         if(!w){notify('Popup diblokir. Izinkan popup untuk melihat file.','error');return;}
         var body='';wb.SheetNames.forEach(function(sn){body+='<h3>'+sn+'</h3>'+XLSX.utils.sheet_to_html(wb.Sheets[sn]);});
         w.document.write('<!doctype html><html><head><meta charset="utf-8"><title>'+name+'</title><style>body{font-family:Inter,Arial,sans-serif;padding:18px;background:#f8fafc;}h2{color:#1e293b;}h3{color:#2563eb;margin-top:20px;}table{border-collapse:collapse;background:#fff;margin-bottom:16px;}td,th{border:1px solid #cbd5e1;padding:5px 9px;font-size:13px;}</style></head><body><h2>'+name+'</h2>'+body+'</body></html>');
         w.document.close();
+      }
+      try{
+        if(isUrl){
+          fetch(src).then(function(r){return r.arrayBuffer();}).then(function(ab){_render(XLSX.read(ab,{type:'array'}));}).catch(function(e){notify('Gagal memuat file: '+e,'error');});
+        }else{
+          _render(XLSX.read(src.split(',')[1],{type:'base64'}));
+        }
       }catch(e){notify('Gagal membuka file: '+e.message,'error');}
     });return;
   }
-  // PDF & lainnya -> tab baru (browser render)
+  // PDF & lainnya
+  if(isUrl){ window.open(src,'_blank'); return; }
   var w2=window.open('','_blank');
   if(!w2){notify('Popup diblokir. Izinkan popup untuk melihat file.','error');return;}
-  w2.document.write('<!doctype html><html><head><meta charset="utf-8"><title>'+name+'</title></head><body style="margin:0;"><iframe src="'+b64+'" style="border:0;width:100vw;height:100vh;"></iframe></body></html>');
+  w2.document.write('<!doctype html><html><head><meta charset="utf-8"><title>'+name+'</title></head><body style="margin:0;"><iframe src="'+src+'" style="border:0;width:100vw;height:100vh;"></iframe></body></html>');
   w2.document.close();
 }
 function _viewEvs(evs){
@@ -4198,14 +4207,18 @@ function okrSaveLS(){
   // Jangan POST jika data kosong (hanya _ts) — cegah overwrite cloud dengan data kosong
   var dataKeys=Object.keys(okrData).filter(function(k){return k!=='_ts'&&k!=='_slim';});
   if(!dataKeys.length) return;
-  // POST PENUH (dengan file base64) ke cloud/GitHub — ini gudang data sebenarnya
-  var _hadSlim=okrData._slim;if(_hadSlim)delete okrData._slim;
-  var _body=JSON.stringify(okrData);
-  if(_hadSlim)okrData._slim=_hadSlim;
-  // KRITIS: JANGAN POST jika masih ada placeholder '__CLOUD__' (data belum dipulihkan dari cloud)
-  // -> mencegah menimpa file asli di GitHub dengan placeholder.
-  if(_body.indexOf('"__CLOUD__"')!==-1) return;
-  fetch('/api/okr',{method:'POST',headers:{'Content-Type':'application/json'},body:_body}).catch(function(){});
+  // Upload semua file base64 ke GitHub (file terpisah per divisi) -> diganti URL,
+  // baru POST okr_data.json yang sudah ringkas (JSON kecil = sync cepat antar user).
+  _okrFlushUploads(function(){
+    var _hadSlim=okrData._slim;if(_hadSlim)delete okrData._slim;
+    var _body=JSON.stringify(okrData);
+    if(_hadSlim)okrData._slim=_hadSlim;
+    // KRITIS: JANGAN POST jika masih ada placeholder '__CLOUD__' (data belum dipulihkan dari cloud)
+    if(_body.indexOf('"__CLOUD__"')!==-1) return;
+    // perbarui localStorage (file kini URL -> ringan)
+    try{var _k2=(typeof OKR_STORE_KEY!=='undefined'&&OKR_STORE_KEY)?OKR_STORE_KEY:'pinus_okr_v1';var _so=JSON.parse(JSON.stringify(okrData,function(k,v){return (typeof v==='string'&&v.length>500&&v.indexOf('data:')===0)?'__CLOUD__':v;}));_so._slim=1;localStorage.setItem(_k2,JSON.stringify(_so));}catch(e){}
+    fetch('/api/okr',{method:'POST',headers:{'Content-Type':'application/json'},body:_body}).catch(function(){});
+  });
 }
 function okrKey(){ return okrCurYear+'-'+String(okrCurMonth).padStart(2,'0'); }
 function okrKeyOf(y,m){ return y+'-'+String(m).padStart(2,'0'); }
