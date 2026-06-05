@@ -358,7 +358,7 @@
       "actionPlan": "Drafting SOP ketidakhadiran"
     }
   },
-  "_ts": 1780621031868,
+  "_ts": 1780621037935,
   "_p_sv_rn_2026_05": 1434,
   "_userPwd": {},
   "_userAccess": {
@@ -679,7 +679,7 @@
           "objective": "Pengadaan stok tepat waktu dan berkwalitas, administrasi akurat..",
           "keyResult": "Tingkat implementasi rekomendasi audit",
           "target": 100,
-          "actual": 90,
+          "actual": null,
           "bobot": 5
         }
       ],
@@ -1707,12 +1707,5 @@
   },
   "_ia_proj_2026_06": {
     "rows": []
-  },
-  "_p_ir_2026_06": {
-    "value": 90,
-    "evidence": "__CLOUD__",
-    "evidenceName": "Pinus (1) (1).jpg",
-    "savedAt": "2026-06-04T17:54:41.305Z",
-    "locked": true
   }
 }
