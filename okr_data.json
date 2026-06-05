@@ -358,11 +358,9 @@
       "actionPlan": "Drafting SOP ketidakhadiran"
     }
   },
-  "_ts": 1780630085285,
+  "_ts": 1780630102319,
   "_p_sv_rn_2026_05": 1434,
-  "_userPwd": {
-    "Store": "1011"
-  },
+  "_userPwd": {},
   "_userAccess": {
     "HRD": {
       "modules": [
@@ -607,7 +605,7 @@
           "objective": "Data dan fisik uang akurat, transaksi tepat dan on time.",
           "keyResult": "Tingkat implementasi rekomendasi audit",
           "target": 100,
-          "actual": 90,
+          "actual": null,
           "bobot": 10
         }
       ],
@@ -1669,23 +1667,6 @@
     "score": 82.23,
     "savedAt": "2026-06-04T15:51:48.385Z",
     "locked": true
-  },
-  "_fa_impl_reko_fa_2026_06": {
-    "value": 90,
-    "evidence": "__CLOUD__",
-    "evidenceName": "Pinus (1).jpg",
-    "savedAt": "2026-06-04T17:45:38.021Z",
-    "locked": true,
-    "evidences": [
-      {
-        "name": "Pinus (1).jpg",
-        "data": "__CLOUD__"
-      },
-      {
-        "name": "Cuplikan layar 2026-04-06 190121.png",
-        "data": "__CLOUD__"
-      }
-    ]
   },
   "_ga_wp_2026_06": {
     "rows": [],
