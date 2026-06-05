@@ -105,7 +105,7 @@
           "objective": "Data dan fisik uang akurat, transaksi tepat dan on time.",
           "keyResult": "Tingkat implementasi rekomendasi audit",
           "target": 100,
-          "actual": 100,
+          "actual": null,
           "bobot": 10
         }
       ],
@@ -358,7 +358,7 @@
       "actionPlan": "Drafting SOP ketidakhadiran"
     }
   },
-  "_ts": 1780621183609,
+  "_ts": 1780621244119,
   "_p_sv_rn_2026_05": 1434,
   "_userPwd": {},
   "_userAccess": {
@@ -963,19 +963,6 @@
     "evidence": "__CLOUD__",
     "evidenceName": "Pinus.jpg",
     "savedAt": "2026-06-03T08:07:35.009Z",
-    "locked": true,
-    "evidences": [
-      {
-        "name": "Pinus.jpg",
-        "data": "__CLOUD__"
-      }
-    ]
-  },
-  "_fa_impl_reko_fa_2026_05": {
-    "value": 100,
-    "evidence": "__CLOUD__",
-    "evidenceName": "Pinus.jpg",
-    "savedAt": "2026-06-03T08:13:52.533Z",
     "locked": true,
     "evidences": [
       {
