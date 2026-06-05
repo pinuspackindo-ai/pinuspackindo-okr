@@ -4116,6 +4116,58 @@ function okrLoad(){
   var _k=typeof OKR_STORE_KEY!=='undefined'&&OKR_STORE_KEY?OKR_STORE_KEY:'pinus_okr_v1';
   try{ okrData=JSON.parse(localStorage.getItem(_k)||'{}'); }catch(e){ okrData={}; }
 }
+// ── UPLOAD FILE BUKTI KE GITHUB (file terpisah per divisi) ──
+function _divisiFromKey(k){
+  if(/^_s_/.test(k))return'store';
+  if(/^_d_/.test(k))return'distribution_sales';
+  if(/^_w_/.test(k))return'warehouse';
+  if(/^_inv_/.test(k))return'inventory';
+  if(/^_p_/.test(k))return'purchasing';
+  if(/^_fa_/.test(k))return'finance_accounting';
+  if(/^_ga_/.test(k))return'general_affair';
+  if(/^_hrd_/.test(k))return'hrd';
+  if(/^_ia_/.test(k))return'internal_audit';
+  if(/^_tal_/.test(k))return'tal';
+  return'umum';
+}
+function okrUploadFile(divisi,name,dataUrl,cb){
+  try{
+    fetch('/api/upload',{method:'POST',headers:{'Content-Type':'application/json'},body:JSON.stringify({divisi:divisi,name:name,dataUrl:dataUrl})})
+      .then(function(r){return r.ok?r.json():null;})
+      .then(function(j){cb(j&&j.ok?j.url:null);})
+      .catch(function(){cb(null);});
+  }catch(e){cb(null);}
+}
+function _okrFlushUploads(done){
+  var jobs=[];
+  try{
+    Object.keys(okrData).forEach(function(key){
+      if(key==='_ts'||key==='_slim')return;
+      var divisi=_divisiFromKey(key);
+      (function walk(o){
+        if(!o||typeof o!=='object')return;
+        if(Array.isArray(o)){o.forEach(function(it){walk(it);});return;}
+        Object.keys(o).forEach(function(k){
+          var v=o[k];
+          if(typeof v==='string'){
+            if(v.indexOf('data:')===0&&v.length>200){
+              var nm=o[k+'Name']||o.name||(''+k);
+              jobs.push({obj:o,field:k,name:nm,divisi:divisi});
+            }
+          }else if(v&&typeof v==='object'){walk(v);}
+        });
+      })(okrData[key]);
+    });
+  }catch(e){done();return;}
+  if(jobs.length===0){done();return;}
+  var fin=0;
+  jobs.forEach(function(j){
+    okrUploadFile(j.divisi,j.name,j.obj[j.field],function(url){
+      if(url){j.obj[j.field]=url;}
+      fin++;if(fin===jobs.length)done();
+    });
+  });
+}
 function okrSaveLS(){
   okrData._ts=Date.now();
   // localStorage RINGAN: isi file/bukti (base64) TIDAK disimpan di browser, hanya di cloud/GitHub.
