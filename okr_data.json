@@ -358,7 +358,7 @@
       "actionPlan": "Drafting SOP ketidakhadiran"
     }
   },
-  "_ts": 1780620998664,
+  "_ts": 1780621010561,
   "_p_sv_rn_2026_05": 1434,
   "_userPwd": {},
   "_userAccess": {
@@ -1707,13 +1707,6 @@
   },
   "_ia_proj_2026_06": {
     "rows": []
-  },
-  "_p_sv_2026_06_01": {
-    "text": "ABC;BCA",
-    "evidence": "__CLOUD__",
-    "evidenceName": "Pinus (1).jpg",
-    "savedAt": "2026-06-04T17:54:24.650Z",
-    "locked": true
   },
   "_p_ir_2026_06": {
     "value": 90,
