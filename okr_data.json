@@ -73,7 +73,7 @@
           "objective": "Data dan fisik uang akurat, transaksi tepat dan on time.",
           "keyResult": "Tingkat keberhasilan penagihan piutang",
           "target": 95,
-          "actual": 100,
+          "actual": null,
           "bobot": 30
         },
         {
@@ -358,7 +358,7 @@
       "actionPlan": "Drafting SOP ketidakhadiran"
     }
   },
-  "_ts": 1780629513290,
+  "_ts": 1780629528168,
   "_p_sv_rn_2026_05": 1434,
   "_userPwd": {},
   "_userAccess": {
@@ -929,19 +929,6 @@
             "data": "__CLOUD__"
           }
         ]
-      }
-    ]
-  },
-  "_fa_piutang_jt_2026_05": {
-    "value": 100,
-    "evidence": "__CLOUD__",
-    "evidenceName": "Pinus.jpg",
-    "savedAt": "2026-06-03T08:06:38.709Z",
-    "locked": true,
-    "evidences": [
-      {
-        "name": "Pinus.jpg",
-        "data": "__CLOUD__"
       }
     ]
   },
