@@ -56,7 +56,14 @@ module.exports = async function handler(req, res) {
       return res.status(400).json({ ok: false, msg: 'Data tidak valid' });
     }
 
-    const content = Buffer.from(JSON.stringify(data, null, 2), 'utf8').toString('base64');
+    const _json = JSON.stringify(data, null, 2);
+    // GUARD ANTI-CORRUPTION: tolak data yang mengandung placeholder '__CLOUD__'.
+    // Placeholder = isi file belum dipulihkan dari cloud; menyimpannya akan menimpa file asli.
+    if (_json.indexOf('"__CLOUD__"') !== -1) {
+      return res.status(200).json({ ok: false, skipped: true, msg: 'Ditolak: data mengandung placeholder __CLOUD__ (file belum termuat).' });
+    }
+
+    const content = Buffer.from(_json, 'utf8').toString('base64');
 
     // Ambil SHA file saat ini (wajib untuk update)
     let sha = '';
