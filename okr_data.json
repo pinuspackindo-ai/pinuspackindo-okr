@@ -97,7 +97,7 @@
           "objective": "Data dan fisik uang akurat, transaksi tepat dan on time.",
           "keyResult": "Laporan keuangan akurat dan on time",
           "target": 98,
-          "actual": 100,
+          "actual": null,
           "bobot": 15
         },
         {
@@ -358,7 +358,7 @@
       "actionPlan": "Drafting SOP ketidakhadiran"
     }
   },
-  "_ts": 1780629196522,
+  "_ts": 1780629510081,
   "_p_sv_rn_2026_05": 1434,
   "_userPwd": {},
   "_userAccess": {
@@ -1694,46 +1694,5 @@
   },
   "_ia_proj_2026_06": {
     "rows": []
-  },
-  "_fa_rot_2026_05": {
-    "poin": [
-      0,
-      0,
-      0,
-      0,
-      0,
-      0,
-      0,
-      0,
-      0,
-      0,
-      0,
-      0,
-      0,
-      0,
-      0
-    ],
-    "akurasiEv": "__CLOUD__",
-    "akurasiEvName": "WhatsApp Image 2026-06-05 at 08.42.25.jpeg",
-    "ontimeDate": "2026-06-03",
-    "ontimeEv": "__CLOUD__",
-    "ontimeEvName": "WhatsApp Image 2026-06-05 at 08.49.07.jpeg",
-    "akurasiScore": 100,
-    "ontimeScore": 100,
-    "totalScore": 100,
-    "savedAt": "2026-06-05T01:50:51.068Z",
-    "locked": true,
-    "akurasiEvs": [
-      {
-        "name": "WhatsApp Image 2026-06-05 at 08.42.25.jpeg",
-        "data": "__CLOUD__"
-      }
-    ],
-    "ontimeEvs": [
-      {
-        "name": "WhatsApp Image 2026-06-05 at 08.49.07.jpeg",
-        "data": "__CLOUD__"
-      }
-    ]
   }
 }
