@@ -4141,8 +4141,12 @@ function okrSaveLS(){
   if(!dataKeys.length) return;
   // POST PENUH (dengan file base64) ke cloud/GitHub — ini gudang data sebenarnya
   var _hadSlim=okrData._slim;if(_hadSlim)delete okrData._slim;
-  fetch('/api/okr',{method:'POST',headers:{'Content-Type':'application/json'},body:JSON.stringify(okrData)}).catch(function(){});
+  var _body=JSON.stringify(okrData);
   if(_hadSlim)okrData._slim=_hadSlim;
+  // KRITIS: JANGAN POST jika masih ada placeholder '__CLOUD__' (data belum dipulihkan dari cloud)
+  // -> mencegah menimpa file asli di GitHub dengan placeholder.
+  if(_body.indexOf('"__CLOUD__"')!==-1) return;
+  fetch('/api/okr',{method:'POST',headers:{'Content-Type':'application/json'},body:_body}).catch(function(){});
 }
 function okrKey(){ return okrCurYear+'-'+String(okrCurMonth).padStart(2,'0'); }
 function okrKeyOf(y,m){ return y+'-'+String(m).padStart(2,'0'); }
