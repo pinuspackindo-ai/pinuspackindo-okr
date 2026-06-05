@@ -47,24 +47,19 @@ while ($true) {
             $global:lastChange = [datetime]::MinValue
 
             Set-Location $projectPath
-            $status = git status --porcelain
-            if ($status) {
+            # PENTING: JANGAN ikut commit okr_data.json — file data itu dikelola
+            # langsung oleh browser via /api/okr. Kalau auto_sync ikut push okr_data.json
+            # versi lokal yang stale, data hasil edit/delete user di cloud akan tertimpa balik.
+            # Hanya commit perubahan KODE (index.html, dll).
+            git add -- . ':(exclude)okr_data.json'
+            $staged = git diff --cached --name-only
+            if ($staged) {
                 Write-Host ""
-                Write-Host "[$(Get-Date -Format 'HH:mm:ss')] Mengirim ke GitHub..." -ForegroundColor Cyan
-                git add .
+                Write-Host "[$(Get-Date -Format 'HH:mm:ss')] Mengirim perubahan kode ke GitHub..." -ForegroundColor Cyan
                 $timestamp = Get-Date -Format "yyyy-MM-dd HH:mm"
-                # Jika HANYA okr_data.json yang berubah -> tambahkan [vercel skip]
-                # supaya update data TIDAK memicu build Vercel (cegah limit deploy habis).
-                # Jika ada file kode (index.html, dll) -> commit normal supaya Vercel deploy.
-                $staged = git diff --cached --name-only
-                $codeChanged = $staged | Where-Object { $_ -and $_ -ne 'okr_data.json' }
-                if ($codeChanged) {
-                    git commit -m "Auto sync $timestamp" | Out-Null
-                } else {
-                    git commit -m "chore: update OKR data $timestamp [vercel skip]" | Out-Null
-                }
+                git commit -m "Auto sync $timestamp" | Out-Null
                 git push origin main
-                Write-Host "[$(Get-Date -Format 'HH:mm:ss')] Selesai - GitHub & server online diupdate otomatis" -ForegroundColor Green
+                Write-Host "[$(Get-Date -Format 'HH:mm:ss')] Selesai - kode diupdate" -ForegroundColor Green
                 Write-Host ""
             }
         }
