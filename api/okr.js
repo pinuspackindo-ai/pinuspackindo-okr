@@ -23,28 +23,35 @@ module.exports = async function handler(req, res) {
 
   // ── GET: baca data dari GitHub ──────────────────────────────
   if (req.method === 'GET') {
-    // Ambil konten LANGSUNG via Contents API + Accept raw (andal utk file besar >1MB,
-    // tanpa limit base64 1MB, tanpa bergantung CDN raw yg bisa lag utk branch baru).
+    const dbg = { branch: BRANCH, token: !!TOKEN };
+    // Ambil konten LANGSUNG via Contents API + Accept raw (andal utk file besar >1MB)
     if (TOKEN) {
       try {
         const r = await fetch(`${API}?ref=${BRANCH}`, {
           headers: { 'Authorization': `token ${TOKEN}`, 'Accept': 'application/vnd.github.raw', 'User-Agent': 'PINUS-OKR-Vercel' }
         });
+        dbg.contents_status = r.status;
         if (r.ok) {
           const text = await r.text();
-          return res.status(200).json(JSON.parse(text));
+          dbg.contents_len = text.length;
+          try { return res.status(200).json(JSON.parse(text)); }
+          catch (pe) { dbg.parse_err = String(pe).slice(0, 120); }
         }
-      } catch (e) {}
+      } catch (e) { dbg.contents_err = String(e).slice(0, 120); }
     }
-    // Fallback: baca dari raw URL (repo publik — tidak butuh token)
+    // Fallback: raw URL
     try {
       const rawUrl = `https://raw.githubusercontent.com/${REPO}/${BRANCH}/${FILE}?_=${Date.now()}`;
       const r = await fetch(rawUrl);
+      dbg.raw_status = r.status;
       if (r.ok) {
         const text = await r.text();
-        return res.status(200).json(JSON.parse(text));
+        dbg.raw_len = text.length;
+        try { return res.status(200).json(JSON.parse(text)); }
+        catch (pe2) { dbg.raw_parse_err = String(pe2).slice(0, 120); }
       }
-    } catch (e) {}
+    } catch (e) { dbg.raw_err = String(e).slice(0, 120); }
+    if (req.query && req.query.dbg) return res.status(200).json({ _debug: dbg });
     return res.status(200).json({});
   }
 
