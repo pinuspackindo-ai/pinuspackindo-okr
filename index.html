@@ -4211,6 +4211,7 @@ function _okrFlushUploads(done){
       })(okrData[key]);
     });
   }catch(e){done();return;}
+  if(jobs.length>6)jobs=jobs.slice(0,6); // batasi 6 file/simpan: migrasi bertahap, tidak blokir simpan
   if(jobs.length===0){done();return;}
   var fin=0;
   jobs.forEach(function(j){
