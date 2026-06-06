@@ -23,14 +23,16 @@ module.exports = async function handler(req, res) {
 
   // ── GET: baca data dari GitHub ──────────────────────────────
   if (req.method === 'GET') {
-    // Coba via Contents API (butuh token) → fallback ke raw URL (publik, tanpa token)
+    // Ambil konten LANGSUNG via Contents API + Accept raw (andal utk file besar >1MB,
+    // tanpa limit base64 1MB, tanpa bergantung CDN raw yg bisa lag utk branch baru).
     if (TOKEN) {
       try {
-        const r = await fetch(`${API}?ref=${BRANCH}`, { headers: ghHeaders(TOKEN) });
+        const r = await fetch(`${API}?ref=${BRANCH}`, {
+          headers: { 'Authorization': `token ${TOKEN}`, 'Accept': 'application/vnd.github.raw', 'User-Agent': 'PINUS-OKR-Vercel' }
+        });
         if (r.ok) {
-          const info = await r.json();
-          const raw  = Buffer.from(info.content.replace(/\n/g, ''), 'base64').toString('utf8');
-          return res.status(200).json(JSON.parse(raw));
+          const text = await r.text();
+          return res.status(200).json(JSON.parse(text));
         }
       } catch (e) {}
     }
