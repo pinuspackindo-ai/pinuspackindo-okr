@@ -3984,6 +3984,7 @@ const panelTitles={
   pengaturan:'Pengaturan Akun'
 };
 function showPanel(name,btn){
+  window._curPanel=name;
   document.querySelectorAll('.panel').forEach(function(p){p.classList.remove('active');});
   document.querySelectorAll('.nav-item').forEach(function(b){b.classList.remove('active');});
   document.getElementById('panel-'+name).classList.add('active');
