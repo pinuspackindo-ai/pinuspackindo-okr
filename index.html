@@ -4246,18 +4246,21 @@ function okrSaveLS(){
   // Jangan POST jika data kosong (hanya _ts) — cegah overwrite cloud dengan data kosong
   var dataKeys=Object.keys(okrData).filter(function(k){return k!=='_ts'&&k!=='_slim';});
   if(!dataKeys.length) return;
-  // Upload semua file base64 ke GitHub (file terpisah per divisi) -> diganti URL,
-  // baru POST okr_data.json yang sudah ringkas (JSON kecil = sync cepat antar user).
-  _okrFlushUploads(function(){
-    var _hadSlim=okrData._slim;if(_hadSlim)delete okrData._slim;
-    var _body=JSON.stringify(okrData);
-    if(_hadSlim)okrData._slim=_hadSlim;
-    // KRITIS: JANGAN POST jika masih ada placeholder '__CLOUD__' (data belum dipulihkan dari cloud)
-    if(_body.indexOf('"__CLOUD__"')!==-1) return;
-    // perbarui localStorage (file kini URL -> ringan)
-    try{var _k2=(typeof OKR_STORE_KEY!=='undefined'&&OKR_STORE_KEY)?OKR_STORE_KEY:'pinus_okr_v1';var _so=JSON.parse(JSON.stringify(okrData,function(k,v){return (typeof v==='string'&&v.length>500&&v.indexOf('data:')===0)?'__CLOUD__':v;}));_so._slim=1;localStorage.setItem(_k2,JSON.stringify(_so));}catch(e){}
-    fetch('/api/okr',{method:'POST',headers:{'Content-Type':'application/json'},body:_body}).catch(function(){});
-  });
+  // 1) POST LANGSUNG ke cloud — edit PASTI tersimpan (tidak menunggu upload file).
+  _okrPostCloud();
+  // 2) Migrasi base64 -> file GitHub di background (max 6/simpan), lalu re-POST versi ringan.
+  _okrFlushUploads(function(){ _okrPostCloud(); });
+}
+function _okrPostCloud(){
+  if(_okrSyncBlocked) return;
+  var dk=Object.keys(okrData).filter(function(k){return k!=='_ts'&&k!=='_slim';});
+  if(!dk.length) return;
+  var _hadSlim=okrData._slim;if(_hadSlim)delete okrData._slim;
+  var _body=JSON.stringify(okrData);
+  if(_hadSlim)okrData._slim=_hadSlim;
+  if(_body.indexOf('"__CLOUD__"')!==-1) return; // jangan timpa file asli dgn placeholder
+  try{var _k2=(typeof OKR_STORE_KEY!=='undefined'&&OKR_STORE_KEY)?OKR_STORE_KEY:'pinus_okr_v1';var _so=JSON.parse(JSON.stringify(okrData,function(k,v){return (typeof v==='string'&&v.length>500&&v.indexOf('data:')===0)?'__CLOUD__':v;}));_so._slim=1;localStorage.setItem(_k2,JSON.stringify(_so));}catch(e){}
+  fetch('/api/okr',{method:'POST',headers:{'Content-Type':'application/json'},body:_body}).catch(function(){});
 }
 function okrKey(){ return okrCurYear+'-'+String(okrCurMonth).padStart(2,'0'); }
 function okrKeyOf(y,m){ return y+'-'+String(m).padStart(2,'0'); }
