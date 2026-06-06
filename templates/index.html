@@ -1518,6 +1518,7 @@ function sidebarToggle(){
 
 okrInit();
 authInit();
+if(typeof okrStartAutoSync==='function')okrStartAutoSync();
 
 // ══════════════════════════════════════════════════════════════
 // STORE MODULE — Data Operasional Bulanan
@@ -3979,7 +3980,43 @@ const panelTitles={
   tal:'TAL — Task Achievement List',
   pengaturan:'Pengaturan Akun'
 };
+// ── AUTO-SINKRON REAL-TIME ANTAR USER/DEVICE ──
+function _okrRerenderCurrent(){
+  var ae=document.activeElement;
+  if(ae&&/^(INPUT|TEXTAREA|SELECT)$/.test(ae.tagName))return;
+  var map={dashboard:'okrRender',tal:'talRender',store:'storeRender',distrib:'distribRender',warehouse:'warehouseRender',inventory:'inventoryRender',purchasing:'purchasingRender',financeacc:'finaccRender',generalaffair:'gaRender',hrd:'hrdRender',ia:'iaRefresh'};
+  var fn=map[window._curPanel||'dashboard'];
+  try{ if(fn&&typeof window[fn]==='function')window[fn](); }catch(e){}
+}
+function okrAutoSync(){
+  if(_okrSyncBlocked)return;
+  fetch('/api/okr?_='+Date.now())
+    .then(function(r){return r.ok?r.json():null;})
+    .then(function(cloud){
+      if(!cloud||typeof cloud!=='object')return;
+      var cloudKeys=Object.keys(cloud).filter(function(k){return k!=='_ts';});
+      if(!cloudKeys.length)return;
+      var cloudTs=cloud._ts||0, localTs=okrData._ts||0;
+      if(cloudTs>localTs){
+        okrData=cloud;
+        try{
+          var _k=(typeof OKR_STORE_KEY!=='undefined'&&OKR_STORE_KEY)?OKR_STORE_KEY:'pinus_okr_v1';
+          var _so=JSON.parse(JSON.stringify(okrData,function(k,v){return (typeof v==='string'&&v.length>500&&v.indexOf('data:')===0)?'__CLOUD__':v;}));
+          _so._slim=1;localStorage.setItem(_k,JSON.stringify(_so));
+        }catch(e){}
+        _okrRerenderCurrent();
+        if(typeof authApplyAccess==='function')authApplyAccess();
+      }
+    }).catch(function(){});
+}
+window._okrAutoSyncStarted=window._okrAutoSyncStarted||false;
+function okrStartAutoSync(){
+  if(window._okrAutoSyncStarted)return;
+  window._okrAutoSyncStarted=true;
+  setInterval(okrAutoSync,15000);
+}
 function showPanel(name,btn){
+  window._curPanel=name;
   document.querySelectorAll('.panel').forEach(function(p){p.classList.remove('active');});
   document.querySelectorAll('.nav-item').forEach(function(b){b.classList.remove('active');});
   document.getElementById('panel-'+name).classList.add('active');
