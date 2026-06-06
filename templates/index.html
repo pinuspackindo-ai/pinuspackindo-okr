@@ -4295,7 +4295,7 @@ function okrInit(){
       var cloudKeys=Object.keys(cloud).filter(function(k){return k!=='_ts';});
       if(!cloudKeys.length){
         // API return kosong (token belum di-set) → fallback ke raw GitHub URL
-        var _RAW='https://raw.githubusercontent.com/pinuspackindo-ai/pinuspackindo-okr/main/okr_data.json?_='+Date.now();
+        var _RAW='https://raw.githubusercontent.com/pinuspackindo-ai/pinuspackindo-okr/data/okr_data.json?_='+Date.now();
         fetch(_RAW).then(function(r){return r.ok?r.json():null;}).then(function(raw){
           _okrSyncBlocked=false;
           if(!raw||typeof raw!=='object') return;

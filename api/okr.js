@@ -3,7 +3,7 @@
 // POST → simpan okr_data.json ke GitHub (tanpa redeploy Vercel)
 
 const REPO   = 'pinuspackindo-ai/pinuspackindo-okr';
-const BRANCH = 'main';
+const BRANCH = 'data';
 const FILE   = 'okr_data.json';
 const API    = `https://api.github.com/repos/${REPO}/contents/${FILE}`;
 
