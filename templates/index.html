@@ -4633,8 +4633,7 @@ function okrRender(){
   }
   // Sync HRD sub-modules → OKR
   if(typeof HRD_OKR_SUBS!=='undefined'&&Array.isArray(HRD_OKR_SUBS)){
-    var _hkdk=_hrdKdkG(okrCurYear,okrCurMonth);
-    if(_hkdk.locked&&_hkdk.totalScore!==null)hrdSyncStore(okrCurYear,okrCurMonth,Math.round(_hkdk.totalScore*100)/100);
+    for(var _hkdkm=1;_hkdkm<=12;_hkdkm++){var _hkdk=_hrdKdkG(okrCurYear,_hkdkm);if(_hkdk.locked&&_hkdk.totalScore!==null)hrdSyncStore(okrCurYear,_hkdkm,Math.round(_hkdk.totalScore*100)/100);}
     ['kedisiplinan','kpi','akurasi_adm'].forEach(function(sid){
       var _hsd=_hrdSimG(sid,okrCurYear,okrCurMonth);
       if(_hsd.locked&&_hsd.value!==null&&_hsd.value!==undefined)hrdSyncOKR(sid,okrCurYear,okrCurMonth,Math.round(_hsd.value*100)/100);
