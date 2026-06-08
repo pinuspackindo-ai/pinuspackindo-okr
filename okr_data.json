@@ -1500,7 +1500,7 @@
   "_tal_d3_2026_06": {
     "rows": []
   },
-  "_ts": 1780895663894,
+  "_ts": 1780895667900,
   "_userAccess": {
     "Finance & Accounting": {
       "modules": [
@@ -1650,8 +1650,8 @@
     "value": 100,
     "evidence": "https://raw.githubusercontent.com/pinuspackindo-ai/pinuspackindo-okr/data/uploads/finance_accounting/1780895664944_1adsy9_Pinus.jpg",
     "evidenceName": "Pinus.jpg",
-    "savedAt": "2026-06-08T01:25:42.697Z",
-    "locked": false,
+    "savedAt": "2026-06-08T05:14:27.900Z",
+    "locked": true,
     "evidences": [
       {
         "name": "Pinus.jpg",
