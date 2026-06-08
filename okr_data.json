@@ -432,7 +432,7 @@
           "target": 98
         },
         {
-          "actual": 90,
+          "actual": null,
           "bobot": 10,
           "id": "r17804720965137oje",
           "keyResult": "Tingkat implementasi rekomendasi audit",
@@ -794,14 +794,6 @@
     "locked": true,
     "savedAt": "2026-06-03T08:07:35.009Z",
     "value": 100
-  },
-  "_fa_impl_reko_fa_2026_06": {
-    "evidence": "",
-    "evidenceName": "Pinus (1).jpg",
-    "evidences": [],
-    "locked": true,
-    "savedAt": "2026-06-04T17:45:38.021Z",
-    "value": 90
   },
   "_fa_piutang_jt_2026_05": {
     "evidence": "https://raw.githubusercontent.com/pinuspackindo-ai/pinuspackindo-okr/data/uploads/finance_accounting/1780879167373_uc7fsl_Pinus.jpg",
@@ -1574,7 +1566,7 @@
   "_tal_d3_2026_06": {
     "rows": []
   },
-  "_ts": 1780880244235,
+  "_ts": 1780881927491,
   "_userAccess": {
     "Finance & Accounting": {
       "modules": [
