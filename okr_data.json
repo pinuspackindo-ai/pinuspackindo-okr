@@ -1500,7 +1500,7 @@
   "_tal_d3_2026_06": {
     "rows": []
   },
-  "_ts": 1780894974202,
+  "_ts": 1780894980838,
   "_userAccess": {
     "Finance & Accounting": {
       "modules": [
@@ -1595,16 +1595,20 @@
     "Admin": "909"
   },
   "_w_akurasi_w_2026_05": {
-    "evidence": null,
+    "evidence": "https://raw.githubusercontent.com/pinuspackindo-ai/pinuspackindo-okr/data/uploads/warehouse/1780894981307_trnci6_Pinus.jpg",
     "evidenceName": "Pinus.jpg",
     "evidences": [
       {
         "data": "https://raw.githubusercontent.com/pinuspackindo-ai/pinuspackindo-okr/data/uploads/warehouse/1780714748138_be8h80_Pinus.jpg",
         "name": "Pinus.jpg"
+      },
+      {
+        "name": "Pinus.jpg",
+        "data": "https://raw.githubusercontent.com/pinuspackindo-ai/pinuspackindo-okr/data/uploads/warehouse/1780894982037_5vwb3p_Pinus.jpg"
       }
     ],
-    "locked": false,
-    "savedAt": "2026-06-04T06:10:14.023Z",
+    "locked": true,
+    "savedAt": "2026-06-08T05:03:00.838Z",
     "value": 96.5
   },
   "_w_cartrack_2026_05": {
