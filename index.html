@@ -3545,7 +3545,7 @@ function purchImplRender(){
       var v=d.value;var cls=v!==null?scoreClass(v):'';
       html+='<td style="text-align:center;"><span class="metric-value '+cls+'" style="font-size:1rem;">'+(v!==null?v.toFixed(1)+'%':'&#x2014;')+'</span></td>';
       html+='<td><div style="display:flex;align-items:center;gap:6px;flex-wrap:wrap;">';
-      if(d.evidence){html+='<span style="font-size:11px;color:var(--success);">&#x2713; '+esc(d.evidenceName||'Bukti')+'</span><button onclick="purchImplViewEv('+m+')" style="font-size:10px;background:var(--primary-l);border:1px solid var(--primary);color:var(--primary);border-radius:4px;padding:2px 6px;cursor:pointer;">View</button>';}
+      if(d.evidence){html+='<span style="font-size:11px;color:var(--success);">&#x2713; '+esc(d.evidenceName||'Bukti')+'</span>'+_ghBadge(d.evidence)+'<button onclick="purchImplViewEv('+m+')" style="font-size:10px;background:var(--primary-l);border:1px solid var(--primary);color:var(--primary);border-radius:4px;padding:2px 6px;cursor:pointer;">&#x1F441; View</button>';}
       else html+='<span style="color:var(--text-l);font-size:11px;">&#x2014;</span>';
       html+='</div></td>';
       html+='<td style="text-align:center;">'+(linked?(v!==null?'<span style="color:var(--success);font-weight:600;">'+v.toFixed(1)+'%</span>':'<span style="color:var(--text-l);">&#x2014;</span>'):'<span style="font-size:10px;color:var(--text-l);">Tidak tersambung</span>')+'</td>';
@@ -5366,7 +5366,7 @@ function gaRenderWP(){
       html+='<td style="padding:8px 10px;color:var(--text);white-space:nowrap;">'+okrEsc(row.deadline||'—')+'</td>';
       html+='<td style="padding:8px 10px;color:var(--text);white-space:nowrap;">'+okrEsc(row.realisasi||'—')+'</td>';
       html+='<td style="padding:8px 10px;color:var(--text);">'+okrEsc(row.pelaksana||'—')+'</td>';
-      html+='<td style="padding:8px 10px;text-align:center;">'+(row.evidence?'<button onclick="gaWpViewEv('+idx+')" style="background:none;border:1.5px solid var(--primary);color:var(--primary);border-radius:var(--radius-sm);padding:3px 8px;cursor:pointer;font-size:11px;font-family:var(--font);">&#x1F441;</button>':'<span style="color:var(--text-l);">—</span>')+'</td>';
+      html+='<td style="padding:8px 10px;text-align:center;">'+(row.evidence?_ghBadge(row.evidence)+'<button onclick="gaWpViewEv('+idx+')" style="background:none;border:1.5px solid var(--primary);color:var(--primary);border-radius:var(--radius-sm);padding:3px 8px;cursor:pointer;font-size:11px;font-family:var(--font);">&#x1F441;</button>':'<span style="color:var(--text-l);">—</span>')+'</td>';
       html+='<td style="padding:8px 10px;text-align:center;">'+(complete?'<span class="score-num '+scoreClass(sc)+'" style="font-size:1rem;">'+sc.toFixed(1)+'%</span>':'<span style="color:var(--text-l);">—</span>')+'</td>';
       html+='<td style="padding:8px 10px;text-align:center;white-space:nowrap;"><button onclick="gaWpEditRow('+idx+')" style="background:none;border:1.5px solid var(--border);color:var(--text-m);border-radius:var(--radius-sm);padding:4px 8px;cursor:pointer;font-size:11px;font-family:var(--font);">&#x270F;&#xFE0F;</button> <button onclick="gaWpDeleteRow('+idx+')" style="background:none;border:1.5px solid #fca5a5;color:#dc2626;border-radius:var(--radius-sm);padding:4px 8px;cursor:pointer;font-size:11px;font-family:var(--font);">&#x1F5D1;</button></td>';
       html+='</tr>';
@@ -6032,7 +6032,7 @@ function hrdRenderKinerja(){
         html+='<td style="padding:7px 10px;font-weight:600;color:var(--text);">'+okrEsc(row.nama||'—')+'</td>';
         html+='<td style="padding:7px 10px;white-space:nowrap;">'+okrEsc(row.tanggalMasuk||'—')+'</td>';
         html+='<td style="padding:7px 10px;text-align:center;">'+(row.score!==null&&row.score!==undefined?'<span class="score-num '+scoreClass(row.score)+'" style="font-size:1rem;">'+row.score.toFixed(1)+'%</span>':'—')+'</td>';
-        html+='<td style="padding:7px 10px;text-align:center;">'+(row.evidence?'<button onclick="hrdKinViewEv('+mi+','+idx+')" style="background:none;border:1.5px solid var(--primary);color:var(--primary);border-radius:var(--radius-sm);padding:3px 8px;cursor:pointer;font-size:11px;font-family:var(--font);">&#x1F441;</button>':'<span style="color:var(--text-l);">—</span>')+'</td>';
+        html+='<td style="padding:7px 10px;text-align:center;">'+(row.evidence?_ghBadge(row.evidence)+'<button onclick="hrdKinViewEv('+mi+','+idx+')" style="background:none;border:1.5px solid var(--primary);color:var(--primary);border-radius:var(--radius-sm);padding:3px 8px;cursor:pointer;font-size:11px;font-family:var(--font);">&#x1F441;</button>':'<span style="color:var(--text-l);">—</span>')+'</td>';
         html+='<td style="padding:7px 10px;text-align:center;white-space:nowrap;"><button onclick="hrdKinEditRow('+mi+','+idx+')" style="background:none;border:1.5px solid var(--border);color:var(--text-m);border-radius:var(--radius-sm);padding:4px 8px;cursor:pointer;font-size:11px;font-family:var(--font);">&#x270F;&#xFE0F;</button> <button onclick="hrdKinDeleteRow('+mi+','+idx+')" style="background:none;border:1.5px solid #fca5a5;color:#dc2626;border-radius:var(--radius-sm);padding:4px 8px;cursor:pointer;font-size:11px;font-family:var(--font);">&#x1F5D1;</button></td>';
         html+='</tr>';
       }
@@ -6188,7 +6188,7 @@ function iaRekoRender(){
     else{h+='<input type="number" min="0" max="100" style="width:80px;padding:4px 8px;border:1px solid var(--brd);border-radius:6px;background:var(--bg);color:var(--tx);text-align:center;" value="'+okrEsc(row.score)+'" id="ia-reko-score-'+i+'">';}
     h+='</td><td style="padding:8px 10px;text-align:center;">';
     if(locked){
-      if(row.evidence){h+='<button onclick="iaRekoViewEvidence('+i+')" style="background:none;border:none;color:var(--acc);cursor:pointer;font-size:13px;">📎 '+okrEsc(row.evidenceName||'Lihat')+'</button>';}
+      if(row.evidence){h+=_ghBadge(row.evidence)+'<button onclick="iaRekoViewEvidence('+i+')" style="background:none;border:none;color:var(--acc);cursor:pointer;font-size:13px;">📎 '+okrEsc(row.evidenceName||'Lihat')+'</button>';}
       else{h+='<span style="color:var(--tx3);font-size:12px;">—</span>';}
     }else{
       h+='<div style="display:flex;flex-direction:column;align-items:center;gap:4px;">';
@@ -6352,7 +6352,7 @@ function iaRotRender(){
     else{h+='<span style="color:var(--tx3);">—</span>';}
     h+='</td><td style="padding:7px 8px;text-align:center;">';
     if(locked){
-      if(row.evidence){h+='<button onclick="iaRotViewEvidence(\''+_iaRotCurType+'\','+i+')" style="background:none;border:none;color:var(--acc);cursor:pointer;font-size:11px;">📎 '+okrEsc(row.evidenceName||'Lihat')+'</button>';}
+      if(row.evidence){h+=_ghBadge(row.evidence)+'<button onclick="iaRotViewEvidence(\''+_iaRotCurType+'\','+i+')" style="background:none;border:none;color:var(--acc);cursor:pointer;font-size:11px;">📎 '+okrEsc(row.evidenceName||'Lihat')+'</button>';}
       else{h+='<span style="color:var(--tx3);font-size:11px;">—</span>';}
     }else{
       h+='<div style="display:flex;flex-direction:column;align-items:center;gap:3px;">';
@@ -6445,7 +6445,7 @@ function iaProjRender(){
         h+='<div style="display:flex;justify-content:space-between;align-items:flex-start;">';
         h+='<div style="flex:1;"><div style="font-size:14px;font-weight:700;color:var(--tx);margin-bottom:4px;">'+okrEsc(row.namaProject)+'</div>';
         h+='<div style="font-size:12px;color:var(--tx2);margin-bottom:8px;">'+okrEsc(row.tujuan)+'</div>';
-        if(row.evidence){h+='<button onclick="iaProjViewEvidence('+i+')" style="background:none;border:none;color:var(--acc);cursor:pointer;font-size:12px;">📎 '+okrEsc(row.evidenceName||'Lihat Bukti')+'</button>';}
+        if(row.evidence){h+=_ghBadge(row.evidence)+'<button onclick="iaProjViewEvidence('+i+')" style="background:none;border:none;color:var(--acc);cursor:pointer;font-size:12px;">📎 '+okrEsc(row.evidenceName||'Lihat Bukti')+'</button>';}
         h+='</div><div style="display:flex;gap:6px;">';
         h+='<button onclick="iaProjEdit('+i+')" style="background:none;border:1.5px solid var(--border);color:var(--text-m);border-radius:var(--radius-sm);padding:4px 10px;cursor:pointer;font-size:12px;font-family:var(--font);" title="Edit">&#x270F;&#xFE0F; Edit</button>';
         h+='<button onclick="iaProjDelete('+i+')" style="background:none;border:1.5px solid #fca5a5;color:#dc2626;border-radius:var(--radius-sm);padding:4px 9px;cursor:pointer;font-size:13px;font-family:var(--font);" title="Hapus">&#x1F5D1;</button>';
