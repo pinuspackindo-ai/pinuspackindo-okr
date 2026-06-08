@@ -601,7 +601,7 @@
           "target": 95
         },
         {
-          "actual": 90.77,
+          "actual": null,
           "bobot": 20,
           "id": "r1780472096513g85b",
           "keyResult": "Tingkat kwalitas pengadaan",
@@ -1514,7 +1514,7 @@
   "_tal_d3_2026_06": {
     "rows": []
   },
-  "_ts": 1780895504340,
+  "_ts": 1780895516347,
   "_userAccess": {
     "Finance & Accounting": {
       "modules": [
@@ -1837,14 +1837,5 @@
         "data": "https://raw.githubusercontent.com/pinuspackindo-ai/pinuspackindo-okr/data/uploads/finance_accounting/1780884857542_mqodxj_WhatsApp_Image_2026-06-05_at_08.49.07.jpeg"
       }
     ]
-  },
-  "_p_kpen_2026_06": {
-    "file": "https://raw.githubusercontent.com/pinuspackindo-ai/pinuspackindo-okr/data/uploads/purchasing/1780895505495_7byuu4_purchase.order.line_3.xlsx",
-    "fileName": "purchase.order.line (3).xlsx",
-    "totalRows": 1560,
-    "accRows": 1416,
-    "score": 90.76923076923077,
-    "savedAt": "2026-06-08T05:11:44.340Z",
-    "locked": true
   }
 }
