@@ -1514,7 +1514,7 @@
   "_tal_d3_2026_06": {
     "rows": []
   },
-  "_ts": 1780883658373,
+  "_ts": 1780883662123,
   "_userAccess": {
     "Finance & Accounting": {
       "modules": [
@@ -1787,8 +1787,8 @@
   "_p_ins_2026_06_06": {
     "file1": "https://raw.githubusercontent.com/pinuspackindo-ai/pinuspackindo-okr/data/uploads/purchasing/1780883659054_mjstz6_product.product.xlsx",
     "file1Name": "product.product.xlsx",
-    "file2": null,
-    "file2Name": null,
+    "file2": "https://raw.githubusercontent.com/pinuspackindo-ai/pinuspackindo-okr/data/uploads/purchasing/1780883662811_wc1pm9_product.product_1.xlsx",
+    "file2Name": "product.product (1).xlsx",
     "score": null,
     "savedAt": null,
     "locked": false
