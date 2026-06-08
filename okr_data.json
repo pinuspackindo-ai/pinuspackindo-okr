@@ -1514,7 +1514,7 @@
   "_tal_d3_2026_06": {
     "rows": []
   },
-  "_ts": 1780883662123,
+  "_ts": 1780883665675,
   "_userAccess": {
     "Finance & Accounting": {
       "modules": [
@@ -1790,7 +1790,7 @@
     "file2": "https://raw.githubusercontent.com/pinuspackindo-ai/pinuspackindo-okr/data/uploads/purchasing/1780883662811_wc1pm9_product.product_1.xlsx",
     "file2Name": "product.product (1).xlsx",
     "score": null,
-    "savedAt": null,
-    "locked": false
+    "savedAt": "2026-06-08T01:54:25.675Z",
+    "locked": true
   }
 }
