@@ -1449,7 +1449,9 @@ function _viewFileOnline(src,name){
       }
       try{
         if(isUrl){
-          fetch(src).then(function(r){return r.arrayBuffer();}).then(function(ab){_render(XLSX.read(ab,{type:'array'}));}).catch(function(e){notify('Gagal memuat file: '+e,'error');});
+          // GitHub raw URL tidak support CORS fetch — buka di tab baru (download langsung)
+          window.open(src,'_blank');
+          return;
         }else{
           _render(XLSX.read(src.split(',')[1],{type:'base64'}));
         }
@@ -4316,7 +4318,9 @@ function _okrPostCloud(){
         });
       })(_m,okrData);
       _body=JSON.stringify(_m);
-      if(_body.indexOf('"__CLOUD__"')!==-1) return; // masih ada — aneh, skip
+      // Jika masih ada __CLOUD__ (entry baru yg belum di-cloud), strip jadi null
+      // JANGAN return — OKR score harus tetap tersimpan ke cloud
+      if(_body.indexOf('"__CLOUD__"')!==-1) _body=_body.replace(/"__CLOUD__"/g,'null');
     } else {
       // Cloud belum termuat sama sekali — strip __CLOUD__ jadi null daripada tidak POST
       _body=_body.replace(/"__CLOUD__"/g,'null');
