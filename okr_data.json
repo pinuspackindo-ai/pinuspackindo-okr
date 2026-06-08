@@ -1500,7 +1500,7 @@
   "_tal_d3_2026_06": {
     "rows": []
   },
-  "_ts": 1780894937977,
+  "_ts": 1780894974202,
   "_userAccess": {
     "Finance & Accounting": {
       "modules": [
@@ -1603,7 +1603,7 @@
         "name": "Pinus.jpg"
       }
     ],
-    "locked": true,
+    "locked": false,
     "savedAt": "2026-06-04T06:10:14.023Z",
     "value": 96.5
   },
