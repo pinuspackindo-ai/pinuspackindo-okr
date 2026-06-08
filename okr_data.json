@@ -630,7 +630,7 @@
       "actionPlan": "Planning acara chef Avian",
       "rows": [
         {
-          "actual": 3000000000,
+          "actual": null,
           "bobot": 30,
           "id": "r1780472096513hnb9",
           "keyResult": "Jumlah omset",
@@ -1525,14 +1525,6 @@
   },
   "_p_sv_rn_2026_05": 1434,
   "_p_sv_rn_lk_2026_05": true,
-  "_s_omzet_2026_06": {
-    "evidence": "",
-    "evidenceName": "Pinus.jpg",
-    "evidences": [],
-    "locked": true,
-    "savedAt": "2026-06-05T03:23:42.602Z",
-    "value": 3000000000
-  },
   "_tal_d0_2026_06": {
     "rows": []
   },
@@ -1582,7 +1574,7 @@
   "_tal_d3_2026_06": {
     "rows": []
   },
-  "_ts": 1780880186015,
+  "_ts": 1780880191464,
   "_userAccess": {
     "Finance & Accounting": {
       "modules": [
