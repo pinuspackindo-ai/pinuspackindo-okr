@@ -5748,9 +5748,9 @@ function hrdSimViewEv(subId,mi){var d=_hrdSimG(subId,hrdYear,mi);if(!d.evidence)
 // ── SUB5: Recruitment Time ────────────────────────────────────
 // Jabatan options dan SLA (hari)
 var _HRD_REC_JAB=[
-  {label:'Staff',days:30},
-  {label:'SPV/Manager',days:45},
-  {label:'Eksekutif/Spesialis',days:90}
+  {label:'STAFF',days:30},
+  {label:'SPV/MANAGER',days:45},
+  {label:'EKSEKUTIF/SPESIALIS',days:90}
 ];
 // Hitung deadline otomatis dari tglRequest + SLA jabatan
 function _hrdRecCalcDeadline(tglRequest,jabatan){
@@ -5860,7 +5860,7 @@ function hrdRenderRecruitment(){
       var lateLabel=daysLate!==null?('<br><span style="font-size:10px;color:'+(daysLate===0?'var(--success)':'#dc2626')+';">'+(daysLate===0?'✓ Ontime':'Telat '+daysLate+' hr')+'</span>'):'';
       html+='<tr style="border-bottom:1px solid var(--border);">';
       html+='<td style="padding:8px 10px;text-align:center;color:var(--text-l);">'+(idx+1)+'</td>';
-      html+='<td style="padding:8px 10px;"><span style="display:inline-block;padding:2px 8px;border-radius:20px;font-size:11px;font-weight:600;background:'+(dispJab==='Staff'?'#dbeafe':dispJab==='SPV/Manager'?'#d1fae5':'#ede9fe')+';color:'+(dispJab==='Staff'?'#1d4ed8':dispJab==='SPV/Manager'?'#065f46':'#5b21b6')+';">'+okrEsc(dispJab)+'</span></td>';
+      html+='<td style="padding:8px 10px;"><span style="display:inline-block;padding:2px 8px;border-radius:20px;font-size:11px;font-weight:600;background:'+(dispJab==='STAFF'?'#dbeafe':dispJab==='SPV/MANAGER'?'#d1fae5':'#ede9fe')+';color:'+(dispJab==='STAFF'?'#1d4ed8':dispJab==='SPV/MANAGER'?'#065f46':'#5b21b6')+';">'+okrEsc(dispJab)+'</span></td>';
       html+='<td style="padding:8px 10px;font-weight:600;color:var(--text);">'+okrEsc(dispNama)+'</td>';
       html+='<td style="padding:8px 10px;white-space:nowrap;color:var(--text-m);">'+dispTgl+'</td>';
       html+='<td style="padding:8px 10px;white-space:nowrap;font-weight:600;color:var(--primary);">'+dispDl+'</td>';
@@ -5876,7 +5876,7 @@ function hrdRenderRecruitment(){
 }
 function hrdRecAddRow(){
   var data=_hrdRecG(hrdYear,hrdRecruitMonth);
-  data.rows.push({jabatan:'Staff',namaRequest:'',tglRequest:'',deadline:'',realisasi:'',evidence:null,evidenceName:null,editing:true});
+  data.rows.push({jabatan:'STAFF',namaRequest:'',tglRequest:'',deadline:'',realisasi:'',evidence:null,evidenceName:null,editing:true});
   _hrdRecS(hrdYear,hrdRecruitMonth,data);hrdRenderRecruitment();
 }
 function hrdRecSaveRow(idx){
