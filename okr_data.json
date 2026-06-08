@@ -1514,7 +1514,7 @@
   "_tal_d3_2026_06": {
     "rows": []
   },
-  "_ts": 1780882838858,
+  "_ts": 1780882842693,
   "_userAccess": {
     "Finance & Accounting": {
       "modules": [
@@ -1723,5 +1723,6 @@
         "data": "https://raw.githubusercontent.com/pinuspackindo-ai/pinuspackindo-okr/data/uploads/store/1780882839303_ywmobh_Pinus.jpg"
       }
     ]
-  }
+  },
+  "_slim": 1
 }
