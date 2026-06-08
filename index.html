@@ -2974,6 +2974,11 @@ function purchDoSave(){
     purchInstockSyncOKR(p.year,p.month);okrSaveLS();purchInstockRender();
   } else if(p.type==='akurasi_po'){
     var d=_pgApo(p.year,p.month);
+    // Guard: jangan overwrite locked non-zero score dengan 0 (cegah data hilang)
+    if(d.locked&&(d.finalScore||0)>0&&(p.finalScore||0)===0){
+      notify('⚠ Score 0 tidak bisa menimpa data terkunci ('+d.finalScore.toFixed(1)+'%). Re-upload kedua file untuk recalculate ulang.','error');
+      purchCloseConfirm();return;
+    }
     d.file1=p.file1;d.file1Name=p.file1Name;d.file2=p.file2;d.file2Name=p.file2Name;
     d.lateScore=p.lateScore;d.accScore=p.accScore;d.finalScore=p.finalScore;
     d.savedAt=new Date().toISOString();d.locked=true;
@@ -4529,7 +4534,16 @@ function okrInit(){
         var _localSub={};
         if(!localEmpty){localDataKeys.forEach(function(k){if(k.startsWith('_'))_localSub[k]=okrData[k];});}
         okrData=cloud;
-        Object.keys(_localSub).forEach(function(k){if(!(k in cloud))okrData[k]=_localSub[k];});
+        Object.keys(_localSub).forEach(function(k){
+          if(!(k in cloud)){okrData[k]=_localSub[k];return;}
+          // Protect locked non-zero sub-module data: jangan biarkan cloud-zero menimpa local non-zero
+          var lv=_localSub[k],cv=cloud[k];
+          if(lv&&lv.locked&&cv&&cv.locked){
+            var lvScore=(lv.finalScore!==undefined?lv.finalScore:lv.score)||0;
+            var cvScore=(cv.finalScore!==undefined?cv.finalScore:cv.score)||0;
+            if(lvScore>0&&cvScore===0) okrData[k]=lv;
+          }
+        });
         localStorage.setItem(OKR_STORE_KEY,JSON.stringify(okrData));
         okrRender();talRender();authApplyAccess();
         if(localTs>0&&!localEmpty) notify('Data diperbarui dari cloud ✓');

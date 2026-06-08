@@ -2971,6 +2971,11 @@ function purchDoSave(){
     purchInstockSyncOKR(p.year,p.month);okrSaveLS();purchInstockRender();
   } else if(p.type==='akurasi_po'){
     var d=_pgApo(p.year,p.month);
+    // Guard: jangan overwrite locked non-zero score dengan 0 (cegah data hilang)
+    if(d.locked&&(d.finalScore||0)>0&&(p.finalScore||0)===0){
+      notify('⚠ Score 0 tidak bisa menimpa data terkunci ('+d.finalScore.toFixed(1)+'%). Re-upload kedua file untuk recalculate ulang.','error');
+      purchCloseConfirm();return;
+    }
     d.file1=p.file1;d.file1Name=p.file1Name;d.file2=p.file2;d.file2Name=p.file2Name;
     d.lateScore=p.lateScore;d.accScore=p.accScore;d.finalScore=p.finalScore;
     d.savedAt=new Date().toISOString();d.locked=true;
