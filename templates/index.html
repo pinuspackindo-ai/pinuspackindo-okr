@@ -4342,6 +4342,8 @@ function okrInit(){
           if(!raw||typeof raw!=='object') return;
           var rawKeys=Object.keys(raw).filter(function(k){return k!=='_ts';});
           if(!rawKeys.length) return;
+          _lastCloudData=raw;
+          if(_pendingCloudPost){_pendingCloudPost=false;setTimeout(_okrPostCloud,100);}
           var localTs=okrData._ts||0; var rawTs=raw._ts||0;
           var localDataKeys=Object.keys(okrData).filter(function(k){return k!=='_ts';});
           var localOkrKeys=localDataKeys.filter(function(k){return !k.startsWith('_');});
@@ -4364,6 +4366,8 @@ function okrInit(){
         return;
       }
       _okrSyncBlocked=false; // unblock setelah cloud load selesai
+      _lastCloudData=cloud;
+      if(_pendingCloudPost){_pendingCloudPost=false;setTimeout(_okrPostCloud,100);}
       var localTs=okrData._ts||0;
       var cloudTs=cloud._ts||0;
       // Juga load jika local tidak punya data (hanya _ts) — cegah stuck dengan localStorage kosong
