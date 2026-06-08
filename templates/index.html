@@ -4508,7 +4508,16 @@ function okrInit(){
         var _localSub={};
         if(!localEmpty){localDataKeys.forEach(function(k){if(k.startsWith('_'))_localSub[k]=okrData[k];});}
         okrData=cloud;
-        Object.keys(_localSub).forEach(function(k){if(!(k in cloud))okrData[k]=_localSub[k];});
+        Object.keys(_localSub).forEach(function(k){
+          if(!(k in cloud)){okrData[k]=_localSub[k];return;}
+          // Protect locked non-zero sub-module data: jangan biarkan cloud-zero menimpa local non-zero
+          var lv=_localSub[k],cv=cloud[k];
+          if(lv&&lv.locked&&cv&&cv.locked){
+            var lvScore=(lv.finalScore!==undefined?lv.finalScore:lv.score)||0;
+            var cvScore=(cv.finalScore!==undefined?cv.finalScore:cv.score)||0;
+            if(lvScore>0&&cvScore===0) okrData[k]=lv;
+          }
+        });
         localStorage.setItem(OKR_STORE_KEY,JSON.stringify(okrData));
         okrRender();talRender();authApplyAccess();
         if(localTs>0&&!localEmpty) notify('Data diperbarui dari cloud ✓');
