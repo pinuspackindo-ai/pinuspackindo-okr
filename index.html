@@ -3271,13 +3271,14 @@ var ACC_KW=['HPP','SUPPLIER','HARGA','KUANTITI','QTY','SALAH','DISKON','LEBIH','
 function purchApoSave(month){
   var y=purchasingYear;var d=_pgApo(y,month);
   if(!d.file1||!d.file2){notify('Upload kedua file terlebih dahulu','error');return;}
-  // Jika file sudah di GitHub (URL), tidak bisa di-parse ulang — gunakan score existing
-  if(/^https?:/.test(d.file1)||/^https?:/.test(d.file2)){
-    var sc=d.score!==null&&d.score!==undefined?d.score:0;
-    _purchPending={type:'akurasi_po',year:y,month:month,file1:d.file1,file1Name:d.file1Name,file2:d.file2,file2Name:d.file2Name,lateScore:sc,accScore:sc,finalScore:sc};
+  var f1isUrl=/^https?:/.test(d.file1), f2isUrl=/^https?:/.test(d.file2);
+  // Jika KEDUA file adalah GitHub URL → gunakan score tersimpan
+  if(f1isUrl&&f2isUrl){
+    var ls=d.lateScore||0,as=d.accScore||0,sc=d.finalScore||d.score||0;
+    _purchPending={type:'akurasi_po',year:y,month:month,file1:d.file1,file1Name:d.file1Name,file2:d.file2,file2Name:d.file2Name,lateScore:ls,accScore:as,finalScore:sc};
     document.getElementById('pc-sub').textContent='Akurasi PO';
     document.getElementById('pc-bulan').textContent=STORE_BULAN[month-1]+' '+y;
-    document.getElementById('pc-val').textContent='Score: '+sc.toFixed(1)+'% (dari data tersimpan — file di GitHub tidak dapat diproses ulang)';
+    document.getElementById('pc-val').textContent='Score: '+sc.toFixed(1)+'% (dari data tersimpan — kedua file di GitHub)';
     document.getElementById('pc-ev').textContent=(d.file1Name||'Keterlambatan')+' + '+(d.file2Name||'Akurasi');
     document.getElementById('purch-confirm-modal').style.display='flex';
     return;
@@ -3285,36 +3286,43 @@ function purchApoSave(month){
   okrEnsureXLSX(function(){
   try{
     function _b64toArr(b64){var bin=atob(b64),bytes=new Uint8Array(bin.length);for(var i=0;i<bin.length;i++)bytes[i]=bin.charCodeAt(i);return bytes;}
-    var f1b64=d.file1.indexOf(',')!==-1?d.file1.split(',')[1]:d.file1;
-    var f2b64=d.file2.indexOf(',')!==-1?d.file2.split(',')[1]:d.file2;
-    var wb1=XLSX.read(_b64toArr(f1b64),{type:'array',cellDates:true});
-    var wb2=XLSX.read(_b64toArr(f2b64),{type:'array',cellDates:true});
-    // Keterlambatan
-    var rows1=XLSX.utils.sheet_to_json(wb1.Sheets[wb1.SheetNames[0]],{defval:''});
-    var h1=Object.keys(rows1[0]||{});
-    var refK=findCol(h1,['orderreference','reference','ordref','po','ponumber','order']);
-    var ordK=findCol(h1,['orderdate','orddate','tanggalorder','tglorder','purchasedate']);
-    var recK=findCol(h1,['receiveddate','receivedate','recdate','tanggalterima','tglterima','received','arrival']);
-    if(!refK||!ordK||!recK){notify('File Keterlambatan: kolom tidak ditemukan. Pastikan ada Order Reference, Order Date, Received Date','error');return;}
-    var allRows1=rows1.map(function(row){var ref=String(row[refK]||'').trim();var od=parseDate(row[ordK]);var rd=parseDate(row[recK]);var late=od&&rd&&sameDay(od,rd);return{ref:ref,status:late?'Terlambat':'Ontime'};});
-    var refMap={};allRows1.forEach(function(r){if(!r.ref)return;if(!refMap[r.ref])refMap[r.ref]={ref:r.ref,status:r.status};else if(r.status==='Terlambat')refMap[r.ref].status='Terlambat';});
-    var uniq=Object.values(refMap);
-    var tlbt=uniq.filter(function(r){return r.status==='Terlambat';}).length;
-    var total1=uniq.length;
-    var lateScore=total1?(total1-tlbt)/total1*100:0;
-    // Akurasi
-    var rows2=XLSX.utils.sheet_to_json(wb2.Sheets[wb2.SheetNames[0]],{defval:''});
-    var h2=Object.keys(rows2[0]||{});
-    var originK=findCol(h2,['sourceorigin','source origin','origin']);
-    if(!originK){notify('File Akurasi: kolom Source Origin tidak ditemukan','error');return;}
-    var inacc=rows2.filter(function(row){var origin=String(row[originK]||'').trim();return ACC_KW.some(function(kw){return origin.toUpperCase().indexOf(kw)!==-1;});});
-    var totalRef=total1||rows2.length;
-    var accScore=totalRef?Math.max(0,totalRef-inacc.length)/totalRef*100:0;
+    var lateScore=d.lateScore||0, accScore=d.accScore||0;
+    var total1=0;
+    // ── Hitung lateScore dari file1 (jika base64) ──
+    if(!f1isUrl){
+      var f1b64=d.file1.indexOf(',')!==-1?d.file1.split(',')[1]:d.file1;
+      var wb1=XLSX.read(_b64toArr(f1b64),{type:'array',cellDates:true});
+      var rows1=XLSX.utils.sheet_to_json(wb1.Sheets[wb1.SheetNames[0]],{defval:''});
+      var h1=Object.keys(rows1[0]||{});
+      var refK=findCol(h1,['orderreference','reference','ordref','po','ponumber','order']);
+      var ordK=findCol(h1,['orderdate','orddate','tanggalorder','tglorder','purchasedate']);
+      var recK=findCol(h1,['receiveddate','receivedate','recdate','tanggalterima','tglterima','received','arrival']);
+      if(!refK||!ordK||!recK){notify('File Keterlambatan: kolom tidak ditemukan. Pastikan ada Order Reference, Order Date, Received Date','error');return;}
+      var allRows1=rows1.map(function(row){var ref=String(row[refK]||'').trim();var od=parseDate(row[ordK]);var rd=parseDate(row[recK]);var late=od&&rd&&sameDay(od,rd);return{ref:ref,status:late?'Terlambat':'Ontime'};});
+      var refMap={};allRows1.forEach(function(r){if(!r.ref)return;if(!refMap[r.ref])refMap[r.ref]={ref:r.ref,status:r.status};else if(r.status==='Terlambat')refMap[r.ref].status='Terlambat';});
+      var uniq=Object.values(refMap);
+      var tlbt=uniq.filter(function(r){return r.status==='Terlambat';}).length;
+      total1=uniq.length;
+      lateScore=total1?(total1-tlbt)/total1*100:0;
+    }
+    // ── Hitung accScore dari file2 (jika base64) ──
+    if(!f2isUrl){
+      var f2b64=d.file2.indexOf(',')!==-1?d.file2.split(',')[1]:d.file2;
+      var wb2=XLSX.read(_b64toArr(f2b64),{type:'array',cellDates:true});
+      var rows2=XLSX.utils.sheet_to_json(wb2.Sheets[wb2.SheetNames[0]],{defval:''});
+      var h2=Object.keys(rows2[0]||{});
+      var originK=findCol(h2,['sourceorigin','source origin','origin']);
+      if(!originK){notify('File Akurasi: kolom Source Origin tidak ditemukan','error');return;}
+      var inacc=rows2.filter(function(row){var origin=String(row[originK]||'').trim();return ACC_KW.some(function(kw){return origin.toUpperCase().indexOf(kw)!==-1;});});
+      var totalRef=total1||rows2.length;
+      accScore=totalRef?Math.max(0,totalRef-inacc.length)/totalRef*100:0;
+    }
     var finalScore=lateScore*0.7+accScore*0.3;
     _purchPending={type:'akurasi_po',year:y,month:month,file1:d.file1,file1Name:d.file1Name,file2:d.file2,file2Name:d.file2Name,lateScore:lateScore,accScore:accScore,finalScore:finalScore};
     document.getElementById('pc-sub').textContent='Akurasi PO';
     document.getElementById('pc-bulan').textContent=STORE_BULAN[month-1]+' '+y;
-    document.getElementById('pc-val').textContent='Score: '+finalScore.toFixed(1)+'%  (Ket: '+lateScore.toFixed(1)+'%\xd770%  +  Aku: '+accScore.toFixed(1)+'%\xd730%)';
+    var noteUrl=(f1isUrl?' [Ket: data sebelumnya]':f2isUrl?' [Aku: data sebelumnya]':'');
+    document.getElementById('pc-val').textContent='Score: '+finalScore.toFixed(1)+'%  (Ket: '+lateScore.toFixed(1)+'%\xd770%  +  Aku: '+accScore.toFixed(1)+'%\xd730%)'+noteUrl;
     document.getElementById('pc-ev').textContent=(d.file1Name||'Keterlambatan')+' + '+(d.file2Name||'Akurasi');
     document.getElementById('purch-confirm-modal').style.display='flex';
   } catch(e){notify('Error memproses file: '+e.message,'error');}
