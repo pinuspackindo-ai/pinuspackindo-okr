@@ -1442,13 +1442,6 @@
     "savedAt": "2026-06-04T13:47:05.658Z",
     "text": "A;B;C;D;E;F;G;H;I;J;K"
   },
-  "_p_sv_2026_06_02": {
-    "evidence": null,
-    "evidenceName": "02.PNG",
-    "locked": true,
-    "savedAt": "2026-06-04T08:25:53.422Z",
-    "text": "(S) PENGHANCUR KENTANG 24 CM, 8,296, 8,107; (S) PITA TARIK 12 MM X10, 1,574, 1,400; (S) PLASTIK SELAMAT MENIKMATI 18X18 X50, 2,745, 2,407; (S) CETAKAN PUDING MATAHARI, 9,980, 9,468; (S) SENDOK ES KRIM KAYU 75 MM X200, 4,512, 4,172"
-  },
   "_p_sv_2026_06_04": {
     "evidence": null,
     "evidenceName": "04.PNG",
@@ -1461,7 +1454,7 @@
     "evidenceName": "Pinus.jpg",
     "locked": false,
     "savedAt": null,
-    "text": "ABC"
+    "text": ""
   },
   "_p_sv_rn_2026_05": 1434,
   "_p_sv_rn_lk_2026_05": true,
@@ -1514,7 +1507,7 @@
   "_tal_d3_2026_06": {
     "rows": []
   },
-  "_ts": 1780893412644,
+  "_ts": 1780893489402,
   "_userAccess": {
     "Finance & Accounting": {
       "modules": [
