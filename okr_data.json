@@ -556,7 +556,7 @@
           "target": 75
         },
         {
-          "actual": 100,
+          "actual": null,
           "bobot": 10,
           "id": "r17804720965137ahi",
           "keyResult": "Akurasi DO & RN",
@@ -1514,7 +1514,7 @@
   "_tal_d3_2026_06": {
     "rows": []
   },
-  "_ts": 1780882297841,
+  "_ts": 1780882314022,
   "_userAccess": {
     "Finance & Accounting": {
       "modules": [
@@ -1669,27 +1669,6 @@
       {
         "name": "Pinus.jpg",
         "data": "https://raw.githubusercontent.com/pinuspackindo-ai/pinuspackindo-okr/data/uploads/finance_accounting/1780881943129_88l3a7_Pinus.jpg"
-      }
-    ]
-  },
-  "_inv_rn_do_2026_06_04": {
-    "value": 100,
-    "evidence": "https://raw.githubusercontent.com/pinuspackindo-ai/pinuspackindo-okr/data/uploads/inventory/1780882278098_86luv6_rn03.png",
-    "evidenceName": "rn03.png",
-    "savedAt": "2026-06-08T01:31:03.101Z",
-    "locked": true,
-    "evidences": [
-      {
-        "name": "rn03.png",
-        "data": null
-      },
-      {
-        "name": "rn02.png",
-        "data": "https://raw.githubusercontent.com/pinuspackindo-ai/pinuspackindo-okr/data/uploads/inventory/1780882264934_rtk2e2_rn02.png"
-      },
-      {
-        "name": "rn01.png",
-        "data": null
       }
     ]
   }
