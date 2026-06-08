@@ -4304,11 +4304,28 @@ function _okrPostCloud(){
         });
       })(_m,okrData);
       _body=JSON.stringify(_m);
-      // Jika masih ada __CLOUD__ (entry baru yg belum di-cloud), strip jadi null
-      // JANGAN return — OKR score harus tetap tersimpan ke cloud
-      if(_body.indexOf('"__CLOUD__"')!==-1) _body=_body.replace(/"__CLOUD__"/g,'null');
+      // Jika masih ada __CLOUD__ setelah merge (entry baru yg belum di-cloud):
+      // JANGAN null-kan — bisa menghapus evidence di cloud.
+      // Hanya POST key-key yang bersih (tidak mengandung __CLOUD__).
+      if(_body.indexOf('"__CLOUD__"')!==-1){
+        var _safeM={_ts:_m._ts};
+        Object.keys(_m).forEach(function(k){
+          if(k==='_ts'||k==='_slim') return;
+          var _sv2=JSON.stringify(_m[k]);
+          if(_sv2&&_sv2.indexOf('"__CLOUD__"')===-1) _safeM[k]=_m[k];
+        });
+        _body=JSON.stringify(_safeM);
+      }
     } else {
-      _body=_body.replace(/"__CLOUD__"/g,'null');
+      // Cloud belum termuat — JANGAN null-kan evidence (__CLOUD__).
+      // Hanya POST key-key yang bersih supaya OKR score tetap tersimpan.
+      var _safeBody={_ts:okrData._ts};
+      Object.keys(okrData).forEach(function(k){
+        if(k==='_ts'||k==='_slim') return;
+        var _sv3=JSON.stringify(okrData[k]);
+        if(_sv3&&_sv3.indexOf('"__CLOUD__"')===-1) _safeBody[k]=okrData[k];
+      });
+      _body=JSON.stringify(_safeBody);
     }
   }
   _pendingCloudPost=false;
