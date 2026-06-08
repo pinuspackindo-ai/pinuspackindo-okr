@@ -1536,10 +1536,10 @@
       {
         "bobot": 40,
         "deadline": "2026-06-07",
-        "editing": true,
-        "progress": null,
+        "editing": false,
+        "progress": 50,
         "review": "",
-        "savedAt": "2026-06-03T02:51:09.006Z",
+        "savedAt": "2026-06-08T00:57:01.854Z",
         "tal": "Revisi DD, Bizflow, SOP Warehouse"
       },
       {
@@ -1574,7 +1574,7 @@
   "_tal_d3_2026_06": {
     "rows": []
   },
-  "_ts": 1780880200370,
+  "_ts": 1780880221854,
   "_userAccess": {
     "Finance & Accounting": {
       "modules": [
