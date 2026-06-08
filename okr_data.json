@@ -139,7 +139,7 @@
           "target": 95
         },
         {
-          "actual": null,
+          "actual": 92.86,
           "bobot": 15,
           "id": "r1779890290785jvoc",
           "keyResult": "Ketepatan waktu rekrutment",
@@ -1514,7 +1514,7 @@
   "_tal_d3_2026_06": {
     "rows": []
   },
-  "_ts": 1780887048701,
+  "_ts": 1780887095478,
   "_userAccess": {
     "Finance & Accounting": {
       "modules": [
@@ -1967,6 +1967,23 @@
     ]
   },
   "_hrd_rec_2026_05": {
-    "rows": []
+    "rows": [
+      {
+        "jabatan": "Staff",
+        "namaRequest": "HR Staff",
+        "tglRequest": "2026-06-08",
+        "deadline": "2026-07-07",
+        "realisasi": "2026-07-08",
+        "evidence": "https://raw.githubusercontent.com/pinuspackindo-ai/pinuspackindo-okr/data/uploads/hrd/1780887096652_94fjxc_Pinus.jpg",
+        "evidenceName": "Pinus.jpg",
+        "editing": false,
+        "evidences": [
+          {
+            "name": "Pinus.jpg",
+            "data": "https://raw.githubusercontent.com/pinuspackindo-ai/pinuspackindo-okr/data/uploads/hrd/1780887095957_1lee2t_Pinus.jpg"
+          }
+        ]
+      }
+    ]
   }
 }
