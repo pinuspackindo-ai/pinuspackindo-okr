@@ -5746,77 +5746,160 @@ function hrdSimDelete(subId,mi){if(!confirm('Hapus data '+BULS[mi-1]+' '+hrdYear
 function hrdSimViewEv(subId,mi){var d=_hrdSimG(subId,hrdYear,mi);if(!d.evidence){notify('Tidak ada bukti.','error');return;}var _evs=d.evidences&&d.evidences.length>0?d.evidences:(d.evidence?[{name:d.evidenceName||'File',data:d.evidence}]:[]);_viewEvs(_evs);}
 
 // ── SUB5: Recruitment Time ────────────────────────────────────
+// Jabatan options dan SLA (hari)
+var _HRD_REC_JAB=[
+  {label:'Staff',days:30},
+  {label:'SPV/Manager',days:45},
+  {label:'Eksekutif/Spesialis',days:90}
+];
+// Hitung deadline otomatis dari tglRequest + SLA jabatan
+function _hrdRecCalcDeadline(tglRequest,jabatan){
+  if(!tglRequest||!jabatan)return '';
+  var sla=_HRD_REC_JAB.find(function(j){return j.label===jabatan;});
+  if(!sla)return '';
+  var d=new Date(tglRequest+'T00:00:00');
+  d.setDate(d.getDate()+sla.days);
+  return d.toISOString().slice(0,10);
+}
+// Score per baris:
+// Ontime (realisasi ≤ deadline) → 100
+// Terlambat 1–13 hari → (14 - daysLate) / 14 * 100  (linear turun)
+// Terlambat ≥ 14 hari → 0
 function _hrdRecRowScore(row){
   if(!row.deadline||!row.realisasi)return null;
-  var dl=new Date(row.deadline+'T00:00:00');var rl=new Date(row.realisasi+'T00:00:00');
-  return rl<=dl?100:0; // Ontime=100%, Terlambat=0%
+  var dl=new Date(row.deadline+'T00:00:00');
+  var rl=new Date(row.realisasi+'T00:00:00');
+  var daysLate=Math.max(0,Math.ceil((rl-dl)/86400000));
+  if(daysLate===0)return 100;
+  if(daysLate>=14)return 0;
+  return Math.round((14-daysLate)/14*10000)/100;
 }
 function hrdRecMonthChange(m){hrdRecruitMonth=parseInt(m)||new Date().getMonth()+1;hrdRenderRecruitment();}
 function _hrdRecSyncAndSave(y,m){
-  var data=_hrdRecG(y,m);var dr=(data.rows||[]).filter(function(r){return !r.editing&&r.request&&r.deadline&&r.realisasi;});
+  var data=_hrdRecG(y,m);
+  var dr=(data.rows||[]).filter(function(r){return !r.editing&&(r.jabatan||r.request)&&r.deadline&&r.realisasi;});
   if(dr.length>0){var avg=dr.map(function(r){return _hrdRecRowScore(r)||0;}).reduce(function(a,b){return a+b;},0)/dr.length;hrdSyncOKR('recruitment',y,m,Math.round(avg*100)/100);}
-  else hrdSyncOKR('recruitment',y,m,null);okrSaveLS();
+  else hrdSyncOKR('recruitment',y,m,null);
+  okrSaveLS();
+}
+// Trigger auto-update deadline saat jabatan atau tglRequest berubah (dipanggil dari onchange inline)
+function hrdRecUpdateDeadline(idx){
+  var jabEl=document.getElementById('hrd-rec-jab-'+idx);
+  var tglEl=document.getElementById('hrd-rec-tgl-'+idx);
+  var dlDisp=document.getElementById('hrd-rec-dl-disp-'+idx);
+  if(!jabEl||!tglEl||!dlDisp)return;
+  var dl=_hrdRecCalcDeadline(tglEl.value,jabEl.value);
+  dlDisp.textContent=dl?_fmtDateID(dl):'—';
+  dlDisp.dataset.val=dl;
+}
+function _fmtDateID(ymd){
+  if(!ymd)return '—';
+  var p=ymd.split('-');if(p.length<3)return ymd;
+  var BL=['Jan','Feb','Mar','Apr','Mei','Jun','Jul','Agu','Sep','Okt','Nov','Des'];
+  return p[2]+' '+BL[parseInt(p[1])-1]+' '+p[0];
 }
 function hrdRenderRecruitment(){
   var wrap=document.getElementById('hrd-content');if(!wrap)return;
   var y=hrdYear,m=hrdRecruitMonth;var data=_hrdRecG(y,m);var rows=data.rows||[];
-  var dr=rows.filter(function(r){return !r.editing&&r.request&&r.deadline&&r.realisasi;});
+  var dr=rows.filter(function(r){return !r.editing&&(r.jabatan||r.request)&&r.deadline&&r.realisasi;});
   var totalScore=dr.length>0?dr.map(function(r){return _hrdRecRowScore(r)||0;}).reduce(function(a,b){return a+b;},0)/dr.length:null;
   var html='<div style="display:flex;align-items:center;gap:12px;margin-bottom:16px;flex-wrap:wrap;">';
   html+='<span style="font-size:13px;font-weight:600;color:var(--text);">Pilih Bulan:</span>';
   html+='<select id="hrd-rec-msel" onchange="hrdRecMonthChange(this.value)" class="store-year-sel">';
   for(var mi=0;mi<12;mi++){html+='<option value="'+(mi+1)+'"'+(mi+1===m?' selected':'')+'>'+BULS[mi]+' '+y+'</option>';}
   html+='</select></div>';
+  // Score global card
   if(totalScore!==null){
     html+='<div style="display:flex;align-items:center;gap:16px;padding:14px 18px;background:var(--bg2);border:2px solid var(--primary);border-radius:var(--radius);margin-bottom:16px;flex-wrap:wrap;">';
     html+='<div><div style="font-size:11px;font-weight:600;color:var(--text-m);">SCORE RATA-RATA</div><div class="final-big '+scoreClass(totalScore)+'" style="font-size:2rem;">'+totalScore.toFixed(1)+'%</div></div>';
-    html+='<div style="font-size:12px;color:var(--text-m);">dari '+dr.length+' posisi tersimpan</div></div>';
+    html+='<div style="font-size:12px;color:var(--text-m);">dari '+dr.length+' posisi tersimpan</div>';
+    html+='<div style="font-size:11px;color:var(--text-l);margin-top:4px;">Ontime=100% · Telat ≤14 hari=linear turun · Telat &gt;14 hari=0%</div>';
+    html+='</div>';
   }
   html+='<div class="card"><div style="font-size:14px;font-weight:700;color:var(--text);margin-bottom:4px;">Recruitment Time</div>';
-  html+='<div style="font-size:12px;color:var(--text-m);margin-bottom:14px;">Ontime = 100%. Keterlambatan hingga 30 hari turun linear ke 0%. Score = rata-rata semua posisi bulan ini.</div>';
-  html+='<div style="overflow-x:auto;"><table style="width:100%;border-collapse:collapse;min-width:600px;font-size:12px;">';
+  html+='<div style="font-size:12px;color:var(--text-m);margin-bottom:14px;">Staff: H+30 · SPV/Manager: H+45 · Eksekutif/Spesialis: H+90. Maks keterlambatan 14 hari (linear). Score global = rata-rata semua baris.</div>';
+  html+='<div style="overflow-x:auto;"><table style="width:100%;border-collapse:collapse;min-width:720px;font-size:12px;">';
   html+='<thead><tr style="border-bottom:2px solid var(--border);background:var(--bg);">';
-  ['No','Posisi / Request','Deadline','Realisasi (Offering)','Bukti','Score','Aksi'].forEach(function(h,i){html+='<th style="text-align:'+(i===0||i>=4?'center':'left')+';padding:8px 10px;color:var(--text-m);font-weight:600;white-space:nowrap;">'+h+'</th>';});
+  ['No','Jabatan','Nama Posisi','Tgl Request','Deadline (Auto)','Realisasi','Bukti','Score','Aksi'].forEach(function(h,i){
+    html+='<th style="text-align:'+(i===0||i>=6?'center':'left')+';padding:8px 10px;color:var(--text-m);font-weight:600;white-space:nowrap;">'+h+'</th>';
+  });
   html+='</tr></thead><tbody>';
   rows.forEach(function(row,idx){
-    var sc=_hrdRecRowScore(row);var complete=!row.editing&&row.request&&row.deadline&&row.realisasi;
-    var late=complete?Math.max(0,Math.ceil((new Date(row.realisasi+'T00:00:00')-new Date(row.deadline+'T00:00:00'))/86400000)):null;
+    var sc=_hrdRecRowScore(row);
+    var hasNew=!!(row.jabatan);  // baris baru pakai jabatan, lama pakai request
+    var complete=!row.editing&&(row.jabatan||row.request)&&row.deadline&&row.realisasi;
+    var daysLate=complete?Math.max(0,Math.ceil((new Date(row.realisasi+'T00:00:00')-new Date(row.deadline+'T00:00:00'))/86400000)):null;
     if(row.editing){
+      var curDl=_hrdRecCalcDeadline(row.tglRequest||'',row.jabatan||'Staff');
       html+='<tr style="background:var(--bg);border-bottom:1px solid var(--border);">';
       html+='<td style="padding:8px 10px;text-align:center;color:var(--text-l);">'+(idx+1)+'</td>';
-      html+='<td style="padding:6px 8px;"><input id="hrd-rec-rq-'+idx+'" type="text" value="'+okrEsc(row.request||'')+'" placeholder="Nama posisi..." style="width:100%;padding:5px 8px;border:1.5px solid var(--border);border-radius:var(--radius-sm);font-family:var(--font);font-size:12px;box-sizing:border-box;"></td>';
-      html+='<td style="padding:6px 8px;"><input id="hrd-rec-dl-'+idx+'" type="date" value="'+okrEsc(row.deadline||'')+'" style="padding:5px 8px;border:1.5px solid var(--border);border-radius:var(--radius-sm);font-family:var(--font);font-size:12px;"></td>';
+      // Jabatan dropdown
+      html+='<td style="padding:6px 8px;min-width:130px;"><select id="hrd-rec-jab-'+idx+'" onchange="hrdRecUpdateDeadline('+idx+')" style="width:100%;padding:5px 6px;border:1.5px solid var(--border);border-radius:var(--radius-sm);font-family:var(--font);font-size:12px;">';
+      _HRD_REC_JAB.forEach(function(j){html+='<option value="'+j.label+'"'+(row.jabatan===j.label?' selected':'')+'>'+j.label+'</option>';});
+      html+='</select></td>';
+      // Nama posisi
+      html+='<td style="padding:6px 8px;"><input id="hrd-rec-rq-'+idx+'" type="text" value="'+okrEsc(row.namaRequest||row.request||'')+'" placeholder="Nama posisi..." style="width:100%;padding:5px 8px;border:1.5px solid var(--border);border-radius:var(--radius-sm);font-family:var(--font);font-size:12px;box-sizing:border-box;"></td>';
+      // Tgl Request
+      html+='<td style="padding:6px 8px;"><input id="hrd-rec-tgl-'+idx+'" type="date" value="'+okrEsc(row.tglRequest||'')+'" onchange="hrdRecUpdateDeadline('+idx+')" style="padding:5px 8px;border:1.5px solid var(--border);border-radius:var(--radius-sm);font-family:var(--font);font-size:12px;"></td>';
+      // Deadline (auto, read-only tampilan)
+      html+='<td style="padding:6px 10px;white-space:nowrap;"><span id="hrd-rec-dl-disp-'+idx+'" data-val="'+okrEsc(curDl)+'" style="font-size:12px;color:var(--primary);font-weight:600;">'+(curDl?_fmtDateID(curDl):'— (pilih jabatan & tgl request)')+'</span></td>';
+      // Realisasi
       html+='<td style="padding:6px 8px;"><input id="hrd-rec-rl-'+idx+'" type="date" value="'+okrEsc(row.realisasi||'')+'" style="padding:5px 8px;border:1.5px solid var(--border);border-radius:var(--radius-sm);font-family:var(--font);font-size:12px;"></td>';
+      // Bukti
       html+='<td style="padding:6px 8px;text-align:center;"><label for="hrd-rec-ev-'+idx+'" style="cursor:pointer;display:inline-flex;align-items:center;gap:3px;padding:4px 10px;border:1.5px '+(row.evidence?'solid var(--success)':'dashed var(--border)')+';border-radius:var(--radius-sm);font-size:11px;color:'+(row.evidence?'var(--success)':'var(--text-m)')+';">'+(row.evidence?'&#x2705;':'&#x1F4CE; Bukti')+'</label><input type="file" multiple id="hrd-rec-ev-'+idx+'" accept="image/*" style="display:none;" onchange="hrdRecUploadRow('+idx+',this)"></td>';
       html+='<td style="text-align:center;color:var(--text-l);">—</td>';
       html+='<td style="padding:6px 8px;text-align:center;"><button onclick="hrdRecSaveRow('+idx+')" style="background:var(--primary);border:none;color:#fff;border-radius:var(--radius-sm);padding:5px 12px;cursor:pointer;font-size:11px;font-family:var(--font);">&#x2713; Simpan</button></td>';
       html+='</tr>';
     }else{
+      // Tampilan row tersimpan (support data lama yg pakai field request/deadline manual)
+      var dispJab=row.jabatan||'—';
+      var dispNama=row.namaRequest||row.request||'—';
+      var dispTgl=row.tglRequest?_fmtDateID(row.tglRequest):'—';
+      var dispDl=row.deadline?_fmtDateID(row.deadline):'—';
+      var dispRl=row.realisasi?_fmtDateID(row.realisasi):'—';
+      var lateLabel=daysLate!==null?('<br><span style="font-size:10px;color:'+(daysLate===0?'var(--success)':'#dc2626')+';">'+(daysLate===0?'✓ Ontime':'Telat '+daysLate+' hr')+'</span>'):'';
       html+='<tr style="border-bottom:1px solid var(--border);">';
       html+='<td style="padding:8px 10px;text-align:center;color:var(--text-l);">'+(idx+1)+'</td>';
-      html+='<td style="padding:8px 10px;font-weight:600;color:var(--text);">'+okrEsc(row.request||'—')+'</td>';
-      html+='<td style="padding:8px 10px;white-space:nowrap;">'+okrEsc(row.deadline||'—')+'</td>';
-      html+='<td style="padding:8px 10px;white-space:nowrap;">'+okrEsc(row.realisasi||'—')+(late!==null?'<br><span style="font-size:10px;color:'+(late===0?'var(--success)':'var(--danger)')+';">'+(late===0?'✓ Ontime':'Telat '+late+' hari')+'</span>':'')+'</td>';
+      html+='<td style="padding:8px 10px;"><span style="display:inline-block;padding:2px 8px;border-radius:20px;font-size:11px;font-weight:600;background:'+(dispJab==='Staff'?'#dbeafe':dispJab==='SPV/Manager'?'#d1fae5':'#ede9fe')+';color:'+(dispJab==='Staff'?'#1d4ed8':dispJab==='SPV/Manager'?'#065f46':'#5b21b6')+';">'+okrEsc(dispJab)+'</span></td>';
+      html+='<td style="padding:8px 10px;font-weight:600;color:var(--text);">'+okrEsc(dispNama)+'</td>';
+      html+='<td style="padding:8px 10px;white-space:nowrap;color:var(--text-m);">'+dispTgl+'</td>';
+      html+='<td style="padding:8px 10px;white-space:nowrap;font-weight:600;color:var(--primary);">'+dispDl+'</td>';
+      html+='<td style="padding:8px 10px;white-space:nowrap;">'+dispRl+lateLabel+'</td>';
       html+='<td style="padding:8px 10px;text-align:center;">'+(row.evidence?'<button onclick="hrdRecViewEv('+idx+')" style="background:none;border:1.5px solid var(--primary);color:var(--primary);border-radius:var(--radius-sm);padding:3px 8px;cursor:pointer;font-size:11px;font-family:var(--font);">&#x1F441;</button>':'<span style="color:var(--text-l);">—</span>')+'</td>';
       html+='<td style="padding:8px 10px;text-align:center;">'+(complete&&sc!==null?'<span class="score-num '+scoreClass(sc)+'" style="font-size:1rem;">'+sc.toFixed(1)+'%</span>':'<span style="color:var(--text-l);">—</span>')+'</td>';
       html+='<td style="padding:8px 10px;text-align:center;white-space:nowrap;"><button onclick="hrdRecEditRow('+idx+')" style="background:none;border:1.5px solid var(--border);color:var(--text-m);border-radius:var(--radius-sm);padding:4px 8px;cursor:pointer;font-size:11px;font-family:var(--font);">&#x270F;&#xFE0F;</button> <button onclick="hrdRecDeleteRow('+idx+')" style="background:none;border:1.5px solid #fca5a5;color:#dc2626;border-radius:var(--radius-sm);padding:4px 8px;cursor:pointer;font-size:11px;font-family:var(--font);">&#x1F5D1;</button></td>';
       html+='</tr>';
     }
   });
-  html+='<tr><td colspan="7" style="padding:10px;"><button onclick="hrdRecAddRow()" style="background:none;border:1.5px dashed var(--primary);color:var(--primary);border-radius:var(--radius-sm);padding:7px 20px;cursor:pointer;font-family:var(--font);font-size:13px;width:100%;">&#x2795; Tambah Posisi</button></td></tr>';
+  html+='<tr><td colspan="9" style="padding:10px;"><button onclick="hrdRecAddRow()" style="background:none;border:1.5px dashed var(--primary);color:var(--primary);border-radius:var(--radius-sm);padding:7px 20px;cursor:pointer;font-family:var(--font);font-size:13px;width:100%;">&#x2795; Tambah Posisi</button></td></tr>';
   html+='</tbody></table></div></div>';wrap.innerHTML=html;
 }
-function hrdRecAddRow(){var data=_hrdRecG(hrdYear,hrdRecruitMonth);data.rows.push({request:'',deadline:'',realisasi:'',evidence:null,evidenceName:null,editing:true});_hrdRecS(hrdYear,hrdRecruitMonth,data);hrdRenderRecruitment();}
+function hrdRecAddRow(){
+  var data=_hrdRecG(hrdYear,hrdRecruitMonth);
+  data.rows.push({jabatan:'Staff',namaRequest:'',tglRequest:'',deadline:'',realisasi:'',evidence:null,evidenceName:null,editing:true});
+  _hrdRecS(hrdYear,hrdRecruitMonth,data);hrdRenderRecruitment();
+}
 function hrdRecSaveRow(idx){
   var data=_hrdRecG(hrdYear,hrdRecruitMonth);var row=data.rows[idx];if(!row)return;
-  var rqEl=document.getElementById('hrd-rec-rq-'+idx);var dlEl=document.getElementById('hrd-rec-dl-'+idx);var rlEl=document.getElementById('hrd-rec-rl-'+idx);
-  if(!rqEl||!dlEl||!rlEl)return;
-  var request=(rqEl.value||'').trim();var deadline=dlEl.value;var realisasi=rlEl.value;
-  if(!request){notify('Nama posisi wajib diisi.','error');return;}
-  if(!deadline){notify('Deadline wajib diisi.','error');return;}
-  if(!realisasi){notify('Tanggal realisasi wajib diisi.','error');return;}
+  var jabEl=document.getElementById('hrd-rec-jab-'+idx);
+  var rqEl=document.getElementById('hrd-rec-rq-'+idx);
+  var tglEl=document.getElementById('hrd-rec-tgl-'+idx);
+  var dlDisp=document.getElementById('hrd-rec-dl-disp-'+idx);
+  var rlEl=document.getElementById('hrd-rec-rl-'+idx);
+  if(!jabEl||!rqEl||!tglEl||!rlEl)return;
+  var jabatan=jabEl.value;
+  var namaRequest=(rqEl.value||'').trim();
+  var tglRequest=tglEl.value;
+  var deadline=dlDisp?dlDisp.dataset.val:_hrdRecCalcDeadline(tglRequest,jabatan);
+  var realisasi=rlEl.value;
+  if(!jabatan){notify('Jabatan wajib dipilih.','error');return;}
+  if(!namaRequest){notify('Nama posisi wajib diisi.','error');return;}
+  if(!tglRequest){notify('Tanggal Request wajib diisi.','error');return;}
+  if(!deadline){notify('Deadline tidak bisa dihitung. Pastikan jabatan & tgl request terisi.','error');return;}
+  if(!realisasi){notify('Tanggal Realisasi wajib diisi.','error');return;}
   if(!row.evidence){notify('Bukti wajib diupload.','error');return;}
-  row.request=request;row.deadline=deadline;row.realisasi=realisasi;row.editing=false;
+  row.jabatan=jabatan;row.namaRequest=namaRequest;row.tglRequest=tglRequest;
+  row.deadline=deadline;row.realisasi=realisasi;row.editing=false;
   _hrdRecS(hrdYear,hrdRecruitMonth,data);_hrdRecSyncAndSave(hrdYear,hrdRecruitMonth);hrdRenderRecruitment();notify('Data disimpan ✓');
 }
 function hrdRecEditRow(idx){var data=_hrdRecG(hrdYear,hrdRecruitMonth);if(data.rows[idx])data.rows[idx].editing=true;_hrdRecS(hrdYear,hrdRecruitMonth,data);hrdRenderRecruitment();}
@@ -5826,7 +5909,21 @@ function hrdRecUploadRow(idx,inp){
   if(_fs.length>3){notify('Maksimal 3 file per upload.','error');inp.value='';return;}
   if(_fs.some(function(f){return f.size>500*1024;})){notify('Ukuran file maksimal 500 KB per file.','error');inp.value='';return;}
   var file=_fs[0];
-  function _sv(b64,_evs){var data=_hrdRecG(hrdYear,hrdRecruitMonth);var row=data.rows[idx];if(!row)return;var rqEl=document.getElementById('hrd-rec-rq-'+idx);var dlEl=document.getElementById('hrd-rec-dl-'+idx);var rlEl=document.getElementById('hrd-rec-rl-'+idx);if(rqEl)row.request=(rqEl.value||'').trim();if(dlEl)row.deadline=dlEl.value;if(rlEl)row.realisasi=rlEl.value;row.evidences=_apEv(row.evidences,_evs);row.evidence=b64;row.evidenceName=file.name;_hrdRecS(hrdYear,hrdRecruitMonth,data);hrdRenderRecruitment();notify('Bukti diupload ✓');}
+  function _sv(b64,_evs){
+    var data=_hrdRecG(hrdYear,hrdRecruitMonth);var row=data.rows[idx];if(!row)return;
+    var jabEl=document.getElementById('hrd-rec-jab-'+idx);
+    var rqEl=document.getElementById('hrd-rec-rq-'+idx);
+    var tglEl=document.getElementById('hrd-rec-tgl-'+idx);
+    var dlDisp=document.getElementById('hrd-rec-dl-disp-'+idx);
+    var rlEl=document.getElementById('hrd-rec-rl-'+idx);
+    if(jabEl)row.jabatan=jabEl.value;
+    if(rqEl)row.namaRequest=(rqEl.value||'').trim();
+    if(tglEl)row.tglRequest=tglEl.value;
+    if(dlDisp)row.deadline=dlDisp.dataset.val||_hrdRecCalcDeadline(row.tglRequest,row.jabatan);
+    if(rlEl)row.realisasi=rlEl.value;
+    row.evidences=_apEv(row.evidences,_evs);row.evidence=b64;row.evidenceName=file.name;
+    _hrdRecS(hrdYear,hrdRecruitMonth,data);hrdRenderRecruitment();notify('Bukti diupload ✓');
+  }
   _processImgFiles(_fs,function(results){_sv(results[0]?results[0].data:'',results);});
 }
 function hrdRecViewEv(idx){var data=_hrdRecG(hrdYear,hrdRecruitMonth);var row=data.rows[idx];if(!row||!row.evidence){notify('Tidak ada bukti.','error');return;}var _evs=row.evidences&&row.evidences.length>0?row.evidences:(row.evidence?[{name:row.evidenceName||'File',data:row.evidence}]:[]);_viewEvs(_evs);}
