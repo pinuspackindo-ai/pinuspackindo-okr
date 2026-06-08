@@ -4386,25 +4386,27 @@ function _okrPostCloud(){
       })(_m,okrData);
       _body=JSON.stringify(_m);
       // Jika masih ada __CLOUD__ setelah merge (entry baru yg belum di-cloud):
-      // JANGAN null-kan — bisa menghapus evidence di cloud.
-      // Hanya POST key-key yang bersih (tidak mengandung __CLOUD__).
+      // Sertakan key tsb tapi ganti __CLOUD__ dengan null (jaga nama/score, biarkan evidence null).
       if(_body.indexOf('"__CLOUD__"')!==-1){
+        var _scStrip=function(v){if(v==='__CLOUD__')return null;if(Array.isArray(v))return v.map(_scStrip);if(v&&typeof v==='object'){var r={};Object.keys(v).forEach(function(kk){r[kk]=_scStrip(v[kk]);});return r;}return v;};
         var _safeM={_ts:_m._ts};
         Object.keys(_m).forEach(function(k){
           if(k==='_ts'||k==='_slim') return;
           var _sv2=JSON.stringify(_m[k]);
-          if(_sv2&&_sv2.indexOf('"__CLOUD__"')===-1) _safeM[k]=_m[k];
+          if(!_sv2) return;
+          _safeM[k]=(_sv2.indexOf('"__CLOUD__"')===-1)?_m[k]:_scStrip(_m[k]);
         });
         _body=JSON.stringify(_safeM);
       }
     } else {
-      // Cloud belum termuat — JANGAN null-kan evidence (__CLOUD__).
-      // Hanya POST key-key yang bersih supaya OKR score tetap tersimpan.
+      // Cloud belum termuat — ganti __CLOUD__ dengan null supaya struktur data tetap tersimpan.
+      var _scStrip2=function(v){if(v==='__CLOUD__')return null;if(Array.isArray(v))return v.map(_scStrip2);if(v&&typeof v==='object'){var r={};Object.keys(v).forEach(function(kk){r[kk]=_scStrip2(v[kk]);});return r;}return v;};
       var _safeBody={_ts:okrData._ts};
       Object.keys(okrData).forEach(function(k){
         if(k==='_ts'||k==='_slim') return;
         var _sv3=JSON.stringify(okrData[k]);
-        if(_sv3&&_sv3.indexOf('"__CLOUD__"')===-1) _safeBody[k]=okrData[k];
+        if(!_sv3) return;
+        _safeBody[k]=(_sv3.indexOf('"__CLOUD__"')===-1)?okrData[k]:_scStrip2(okrData[k]);
       });
       _body=JSON.stringify(_safeBody);
     }
