@@ -4258,14 +4258,34 @@ function okrSaveLS(){
   // 2) Migrasi base64 -> file GitHub di background (max 6/simpan), lalu re-POST versi ringan.
   _okrFlushUploads(function(){ _okrPostCloud(); });
 }
+var _lastCloudData=null;
+var _pendingCloudPost=false;
 function _okrPostCloud(){
-  if(_okrSyncBlocked) return;
+  if(_okrSyncBlocked){_pendingCloudPost=true;return;}
   var dk=Object.keys(okrData).filter(function(k){return k!=='_ts'&&k!=='_slim';});
   if(!dk.length) return;
   var _hadSlim=okrData._slim;if(_hadSlim)delete okrData._slim;
   var _body=JSON.stringify(okrData);
   if(_hadSlim)okrData._slim=_hadSlim;
-  if(_body.indexOf('"__CLOUD__"')!==-1) return;
+  if(_body.indexOf('"__CLOUD__"')!==-1){
+    if(_lastCloudData){
+      var _m=JSON.parse(JSON.stringify(_lastCloudData));
+      _m._ts=okrData._ts;
+      (function _ov(base,local){
+        if(!local||typeof local!=='object') return;
+        Object.keys(local).forEach(function(k){
+          if(local[k]==='__CLOUD__') return;
+          if(local[k]&&typeof local[k]==='object'&&base[k]&&typeof base[k]==='object'){_ov(base[k],local[k]);}
+          else{base[k]=local[k];}
+        });
+      })(_m,okrData);
+      _body=JSON.stringify(_m);
+      if(_body.indexOf('"__CLOUD__"')!==-1) return;
+    } else {
+      _body=_body.replace(/"__CLOUD__"/g,'null');
+    }
+  }
+  _pendingCloudPost=false;
   try{var _k2=(typeof OKR_STORE_KEY!=='undefined'&&OKR_STORE_KEY)?OKR_STORE_KEY:'pinus_okr_v1';var _so=JSON.parse(JSON.stringify(okrData,function(k,v){return (typeof v==='string'&&v.length>500&&v.indexOf('data:')===0)?'__CLOUD__':v;}));_so._slim=1;localStorage.setItem(_k2,JSON.stringify(_so));}catch(e){}
   fetch('/api/okr',{method:'POST',headers:{'Content-Type':'application/json'},body:_body}).catch(function(){});
 }
