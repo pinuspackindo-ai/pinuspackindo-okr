@@ -5838,7 +5838,7 @@ function hrdRenderRecruitment(){
       _HRD_REC_JAB.forEach(function(j){html+='<option value="'+j.label+'"'+(row.jabatan===j.label?' selected':'')+'>'+j.label+'</option>';});
       html+='</select></td>';
       // Nama posisi
-      html+='<td style="padding:6px 8px;"><input id="hrd-rec-rq-'+idx+'" type="text" value="'+okrEsc(row.namaRequest||row.request||'')+'" placeholder="Nama posisi..." style="width:100%;padding:5px 8px;border:1.5px solid var(--border);border-radius:var(--radius-sm);font-family:var(--font);font-size:12px;box-sizing:border-box;"></td>';
+      html+='<td style="padding:6px 8px;"><input id="hrd-rec-rq-'+idx+'" type="text" value="'+okrEsc((row.namaRequest||row.request||'').toUpperCase())+'" placeholder="NAMA POSISI..." style="width:100%;padding:5px 8px;border:1.5px solid var(--border);border-radius:var(--radius-sm);font-family:var(--font);font-size:12px;box-sizing:border-box;text-transform:uppercase;"></td>';
       // Tgl Request
       html+='<td style="padding:6px 8px;"><input id="hrd-rec-tgl-'+idx+'" type="date" value="'+okrEsc(row.tglRequest||'')+'" onchange="hrdRecUpdateDeadline('+idx+')" style="padding:5px 8px;border:1.5px solid var(--border);border-radius:var(--radius-sm);font-family:var(--font);font-size:12px;"></td>';
       // Deadline (auto, read-only tampilan)
@@ -5853,7 +5853,7 @@ function hrdRenderRecruitment(){
     }else{
       // Tampilan row tersimpan (support data lama yg pakai field request/deadline manual)
       var dispJab=row.jabatan||'—';
-      var dispNama=row.namaRequest||row.request||'—';
+      var dispNama=(row.namaRequest||row.request||'—').toUpperCase();
       var dispTgl=row.tglRequest?_fmtDateID(row.tglRequest):'—';
       var dispDl=row.deadline?_fmtDateID(row.deadline):'—';
       var dispRl=row.realisasi?_fmtDateID(row.realisasi):'—';
@@ -5888,7 +5888,7 @@ function hrdRecSaveRow(idx){
   var rlEl=document.getElementById('hrd-rec-rl-'+idx);
   if(!jabEl||!rqEl||!tglEl||!rlEl)return;
   var jabatan=jabEl.value;
-  var namaRequest=(rqEl.value||'').trim();
+  var namaRequest=(rqEl.value||'').trim().toUpperCase();
   var tglRequest=tglEl.value;
   var deadline=dlDisp?dlDisp.dataset.val:_hrdRecCalcDeadline(tglRequest,jabatan);
   var realisasi=rlEl.value;
@@ -5917,7 +5917,7 @@ function hrdRecUploadRow(idx,inp){
     var dlDisp=document.getElementById('hrd-rec-dl-disp-'+idx);
     var rlEl=document.getElementById('hrd-rec-rl-'+idx);
     if(jabEl)row.jabatan=jabEl.value;
-    if(rqEl)row.namaRequest=(rqEl.value||'').trim();
+    if(rqEl)row.namaRequest=(rqEl.value||'').trim().toUpperCase();
     if(tglEl)row.tglRequest=tglEl.value;
     if(dlDisp)row.deadline=dlDisp.dataset.val||_hrdRecCalcDeadline(row.tglRequest,row.jabatan);
     if(rlEl)row.realisasi=rlEl.value;
