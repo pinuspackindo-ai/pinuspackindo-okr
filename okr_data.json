@@ -1381,7 +1381,7 @@
     "file2Name": "account.move (5).xlsx",
     "finalScore": 83.28918322295806,
     "lateScore": 79.24944812362031,
-    "locked": true,
+    "locked": false,
     "savedAt": "2026-06-04T13:48:27.524Z"
   },
   "_p_ins_2026_05_27": {
@@ -1508,7 +1508,7 @@
   "_tal_d3_2026_06": {
     "rows": []
   },
-  "_ts": 1780895114597,
+  "_ts": 1780895162365,
   "_userAccess": {
     "Finance & Accounting": {
       "modules": [
