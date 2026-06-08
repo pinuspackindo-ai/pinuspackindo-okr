@@ -1,5 +1,5 @@
 {
-  "_ts": 1780906685158,
+  "_ts": 1780906688326,
   "2026-05": {
     "Distribution Sales": {
       "actionPlan": "Training new telesales",
@@ -1764,7 +1764,7 @@
     "lateScore": 0,
     "accScore": 0,
     "finalScore": 0,
-    "savedAt": "2026-06-08T08:12:21.823Z",
-    "locked": false
+    "savedAt": "2026-06-08T08:18:08.325Z",
+    "locked": true
   }
 }
