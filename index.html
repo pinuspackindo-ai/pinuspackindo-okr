@@ -4221,6 +4221,21 @@ function _okrFlushUploads(done){
     });
   });
 }
+function _okrRestoreSlim(src){
+  // Ganti __CLOUD__ placeholder di okrData dengan nilai asli dari src (cloud/raw).
+  // Dipanggil saat local lebih baru tapi _slim=1 — hanya restore file/bukti, tidak timpa data.
+  if(!src||typeof src!=='object') return;
+  function _deepRestore(local,remote){
+    if(!local||typeof local!=='object'||!remote||typeof remote!=='object') return;
+    Object.keys(local).forEach(function(k){
+      if(local[k]==='__CLOUD__'&&k in remote) local[k]=remote[k];
+      else if(local[k]&&typeof local[k]==='object') _deepRestore(local[k],remote[k]);
+    });
+  }
+  _deepRestore(okrData,src);
+  delete okrData._slim;
+  try{var _k=(typeof OKR_STORE_KEY!=='undefined'&&OKR_STORE_KEY)?OKR_STORE_KEY:'pinus_okr_v1';localStorage.setItem(_k,JSON.stringify(okrData));}catch(e){}
+}
 function okrSaveLS(){
   okrData._ts=Date.now();
   // localStorage bisa penuh (QuotaExceededError) karena bukti base64.
@@ -4318,11 +4333,14 @@ function okrInit(){
           var localTs=okrData._ts||0; var rawTs=raw._ts||0;
           var localDataKeys=Object.keys(okrData).filter(function(k){return k!=='_ts';});
           var localOkrKeys=localDataKeys.filter(function(k){return !k.startsWith('_');});
-          if(rawTs>localTs||localDataKeys.length===0||okrData._slim){
+          if(rawTs>localTs||localDataKeys.length===0){
             // Raw lebih baru — tapi pertahankan data sub-modul lokal yg tidak ada di raw (cegah wipe)
             var _lSub={};localDataKeys.forEach(function(k){if(k.startsWith('_'))_lSub[k]=okrData[k];});
             okrData=raw;Object.keys(_lSub).forEach(function(k){if(!(k in raw))okrData[k]=_lSub[k];});
             localStorage.setItem(OKR_STORE_KEY,JSON.stringify(okrData));okrRender();talRender();authApplyAccess();
+          } else if(okrData._slim){
+            // Local lebih baru tapi slim — restore __CLOUD__ dari raw tanpa timpa data lokal
+            _okrRestoreSlim(raw);
           } else if(localOkrKeys.length===0){
             // Local punya data sub-modul tapi TIDAK punya struktur OKR → merge dari raw
             var rawOkrKeys=rawKeys.filter(function(k){return !k.startsWith('_');});
@@ -4342,7 +4360,7 @@ function okrInit(){
       // OKR keys = bulan seperti '2026-05' (tidak diawali '_')
       var localOkrKeys=localDataKeys.filter(function(k){return !k.startsWith('_');});
       var cloudOkrKeys=Object.keys(cloud).filter(function(k){return k!=='_ts'&&!k.startsWith('_');});
-      if(cloudTs>localTs||localEmpty||okrData._slim){
+      if(cloudTs>localTs||localEmpty){
         // Cloud lebih baru — tapi pertahankan data sub-modul lokal yg tidak ada di cloud (cegah wipe)
         var _localSub={};
         if(!localEmpty){localDataKeys.forEach(function(k){if(k.startsWith('_'))_localSub[k]=okrData[k];});}
@@ -4351,6 +4369,9 @@ function okrInit(){
         localStorage.setItem(OKR_STORE_KEY,JSON.stringify(okrData));
         okrRender();talRender();authApplyAccess();
         if(localTs>0&&!localEmpty) notify('Data diperbarui dari cloud ✓');
+      } else if(okrData._slim){
+        // Local lebih baru tapi slim — restore __CLOUD__ dari cloud tanpa timpa data lokal
+        _okrRestoreSlim(cloud);
       } else if(localOkrKeys.length===0&&cloudOkrKeys.length>0){
         // Local hanya punya data sub-modul (in-stock dll) tapi TIDAK ada struktur OKR
         // → merge OKR dari cloud ke local supaya data OKR tidak hilang
