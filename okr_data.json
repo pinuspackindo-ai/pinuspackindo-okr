@@ -1,5 +1,5 @@
 {
-  "_ts": 1780896351902,
+  "_ts": 1780896357642,
   "2026-05": {
     "Distribution Sales": {
       "actionPlan": "Training new telesales",
@@ -1333,7 +1333,7 @@
     "file2Name": "account.move.xlsx",
     "finalScore": 0,
     "lateScore": 0,
-    "locked": true,
+    "locked": false,
     "savedAt": "2026-06-08T05:19:51.483Z"
   },
   "_p_ins_2026_05_27": {
