@@ -4515,6 +4515,7 @@ function okrInit(){
       // OKR keys = bulan seperti '2026-05' (tidak diawali '_')
       var localOkrKeys=localDataKeys.filter(function(k){return !k.startsWith('_');});
       var cloudOkrKeys=Object.keys(cloud).filter(function(k){return k!=='_ts'&&!k.startsWith('_');});
+      var _needRerender=false;
       if(cloudTs>localTs||localEmpty){
         // Cloud lebih baru — tapi pertahankan data sub-modul lokal yg tidak ada di cloud (cegah wipe)
         var _localSub={};
@@ -4524,19 +4525,31 @@ function okrInit(){
         localStorage.setItem(OKR_STORE_KEY,JSON.stringify(okrData));
         okrRender();talRender();authApplyAccess();
         if(localTs>0&&!localEmpty) notify('Data diperbarui dari cloud ✓');
-      } else if(okrData._slim){
-        // Local lebih baru tapi slim — restore __CLOUD__ + smart-merge 0/null dari cloud
-        _okrRestoreSlim(cloud);
-        _okrSmartMerge(okrData,cloud); // fill-in 0/null values from cloud (e.g. score that was 0 locally)
-        okrRender();talRender();
-      } else if(localOkrKeys.length===0&&cloudOkrKeys.length>0){
-        // Local hanya punya data sub-modul (in-stock dll) tapi TIDAK ada struktur OKR
-        // → merge OKR dari cloud ke local supaya data OKR tidak hilang
-        cloudOkrKeys.forEach(function(k){okrData[k]=cloud[k];});
-        okrData._ts=Date.now();
-        localStorage.setItem(OKR_STORE_KEY,JSON.stringify(okrData));
-        okrRender();talRender();authApplyAccess();
-        notify('Struktur OKR dipulihkan dari cloud ✓');
+      } else {
+        // Local sama/lebih baru — tetap jalankan smart-merge agar nilai 0/null di local
+        // diisi dari cloud (handles case: score 0 lokal tapi cloud sudah dikoreksi)
+        if(okrData._slim) _okrRestoreSlim(cloud);
+        var _mergeChanged=false;
+        (function _smCount(local,cld){
+          if(!cld||typeof cld!=='object') return;
+          Object.keys(cld).forEach(function(k){
+            if(k==='_ts'||k==='_slim') return;
+            var cv=cld[k], lv=local[k];
+            if(lv==='__CLOUD__'){local[k]=cv;_mergeChanged=true;return;}
+            if(lv===undefined||lv===null){local[k]=cv;_mergeChanged=true;return;}
+            if(typeof cv==='object'&&cv!==null&&typeof lv==='object'&&lv!==null){_smCount(lv,cv);return;}
+            if((lv===0||lv===false||lv==='')&&cv!==0&&cv!==false&&cv!==''&&cv!==null&&cv!==undefined){local[k]=cv;_mergeChanged=true;}
+          });
+        })(okrData,cloud);
+        if(localOkrKeys.length===0&&cloudOkrKeys.length>0){
+          // Local hanya punya data sub-modul tapi tidak ada struktur OKR → merge OKR dari cloud
+          cloudOkrKeys.forEach(function(k){okrData[k]=cloud[k];});_mergeChanged=true;
+          notify('Struktur OKR dipulihkan dari cloud ✓');
+        }
+        if(_mergeChanged){
+          try{localStorage.setItem(OKR_STORE_KEY,JSON.stringify(okrData));}catch(e){}
+          okrRender();talRender();
+        }
       }
       // SELALU sync data yang dikelola Admin + TAL dari cloud
       var _adminKeys=['_userAccess','_customUsers','_disabledUsers','_userPwd'];
