@@ -1423,7 +1423,7 @@
   "_p_ir_2026_05": {
     "evidence": null,
     "evidenceName": "Pinus.jpg",
-    "locked": true,
+    "locked": false,
     "savedAt": "2026-06-04T13:47:54.762Z",
     "value": 100
   },
@@ -1508,7 +1508,7 @@
   "_tal_d3_2026_06": {
     "rows": []
   },
-  "_ts": 1780895162365,
+  "_ts": 1780895189829,
   "_userAccess": {
     "Finance & Accounting": {
       "modules": [
