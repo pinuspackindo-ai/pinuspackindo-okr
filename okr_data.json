@@ -1377,7 +1377,7 @@
     "accScore": 92.71523178807946,
     "file1": "https://raw.githubusercontent.com/pinuspackindo-ai/pinuspackindo-okr/data/uploads/purchasing/1780895465338_4weo59_purchase.order.line_3.xlsx",
     "file1Name": "purchase.order.line (3).xlsx",
-    "file2": "https://raw.githubusercontent.com/pinuspackindo-ai/pinuspackindo-okr/data/uploads/purchasing/1780895452430_1999hr_account.move.xlsx",
+    "file2": "https://raw.githubusercontent.com/pinuspackindo-ai/pinuspackindo-okr/data/uploads/purchasing/1780895467755_dtdup4_account.move.xlsx",
     "file2Name": "account.move.xlsx",
     "finalScore": 83.28918322295806,
     "lateScore": 79.24944812362031,
@@ -1514,7 +1514,7 @@
   "_tal_d3_2026_06": {
     "rows": []
   },
-  "_ts": 1780895464200,
+  "_ts": 1780895467350,
   "_userAccess": {
     "Finance & Accounting": {
       "modules": [
