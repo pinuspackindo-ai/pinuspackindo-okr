@@ -1514,7 +1514,7 @@
   "_tal_d3_2026_06": {
     "rows": []
   },
-  "_ts": 1780892005627,
+  "_ts": 1780892142310,
   "_userAccess": {
     "Finance & Accounting": {
       "modules": [
@@ -1837,7 +1837,7 @@
   },
   "_inv_rn_do_2026_06_05": {
     "value": 100,
-    "evidence": null,
+    "evidence": "https://raw.githubusercontent.com/pinuspackindo-ai/pinuspackindo-okr/data/uploads/inventory/1780892142747_iusbew_Pinus.jpg",
     "evidenceName": "Pinus.jpg",
     "savedAt": "2026-06-08T04:09:43.494Z",
     "locked": true,
