@@ -1514,7 +1514,7 @@
   "_tal_d3_2026_06": {
     "rows": []
   },
-  "_ts": 1780883465053,
+  "_ts": 1780883465723,
   "_userAccess": {
     "Finance & Accounting": {
       "modules": [
@@ -1763,7 +1763,7 @@
     "evidences": [
       {
         "name": "Pinus.jpg",
-        "data": null
+        "data": "https://raw.githubusercontent.com/pinuspackindo-ai/pinuspackindo-okr/data/uploads/store/1780883466166_fsww5x_Pinus.jpg"
       }
     ]
   }
