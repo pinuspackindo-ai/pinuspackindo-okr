@@ -1,5 +1,5 @@
 {
-  "_ts": 1780907688787,
+  "_ts": 1780907693206,
   "2026-05": {
     "Distribution Sales": {
       "actionPlan": "Training new telesales",
@@ -1793,8 +1793,8 @@
   "_p_apo_2026_05": {
     "file1": "https://raw.githubusercontent.com/pinuspackindo-ai/pinuspackindo-okr/data/uploads/purchasing/1780907689723_8il6wb_purchase.order.line.xlsx",
     "file1Name": "purchase.order.line.xlsx",
-    "file2": null,
-    "file2Name": null,
+    "file2": "https://raw.githubusercontent.com/pinuspackindo-ai/pinuspackindo-okr/data/uploads/purchasing/1780907693363_bqckbd_account.move.xlsx",
+    "file2Name": "account.move.xlsx",
     "lateScore": null,
     "accScore": null,
     "finalScore": null,
