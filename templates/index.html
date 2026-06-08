@@ -3085,6 +3085,23 @@ function purchInstockRender(){
   html+='</tbody></table></div></div>';
   wrap.innerHTML=html;
 }
+var _instockSaveTimer=null;
+function _instockDebounceSave(){
+  okrData._ts=Date.now();
+  try{
+    var _k=(typeof OKR_STORE_KEY!=='undefined'&&OKR_STORE_KEY)?OKR_STORE_KEY:'pinus_okr_v1';
+    var _so=JSON.parse(JSON.stringify(okrData,function(k,v){
+      return (typeof v==='string'&&v.length>500&&v.indexOf('data:')===0)?'__CLOUD__':v;
+    }));
+    _so._slim=1;localStorage.setItem(_k,JSON.stringify(_so));
+  }catch(e){}
+  if(_instockSaveTimer) clearTimeout(_instockSaveTimer);
+  _instockSaveTimer=setTimeout(function(){
+    _instockSaveTimer=null;
+    _okrPostCloud();
+    _okrFlushUploads(function(){_okrPostCloud();});
+  },5000);
+}
 function purchInstockFileChange(day,fileNum,inp){
   var file=inp.files[0];if(!file)return;
   var y=purchasingYear,m=purchInstockMonth;
@@ -3098,11 +3115,14 @@ function purchInstockFileChange(day,fileNum,inp){
       var sc=purchInstockCalcScore(d.file1,d.file2);
       d.score=sc; // null jika format kolom tidak dikenali → user isi manual
     }
-    _psIns(y,m,day,d);okrSaveLS();purchInstockRender();
+    _psIns(y,m,day,d);
+    purchInstockSyncOKR(y,m); // FIX: sync score ke OKR langsung setelah upload
+    _instockDebounceSave();   // simpan localStorage sekarang, cloud POST 5 detik kemudian
+    purchInstockRender();
     if(d.file1&&d.file2&&d.score!==null){
       notify('File '+fileNum+' diupload ✓  Score: '+d.score.toFixed(1)+'%');
     } else {
-      notify('File '+fileNum+' "'+file.name+'" diupload ✓');
+      notify('File '+fileNum+' "'+file.name+'" diupload ✓  (isi Score lalu klik Simpan)');
     }
   };
   reader.readAsDataURL(file);
@@ -3130,7 +3150,9 @@ function purchInstockDelete(day){
   if(!confirm('Hapus data In Stock tanggal '+day+'?'))return;
   var y=purchasingYear,m=purchInstockMonth;
   delete okrData[_pkIns(y,m,day)];
-  purchInstockSyncOKR(y,m);okrSaveLS();purchInstockRender();notify('Data dihapus');
+  purchInstockSyncOKR(y,m);
+  _instockDebounceSave();
+  purchInstockRender();notify('Data dihapus');
 }
 function purchInstockSyncOKR(year,month){
   var daysInM=new Date(year,month,0).getDate(),scoreSum=0,scoreDays=0;
