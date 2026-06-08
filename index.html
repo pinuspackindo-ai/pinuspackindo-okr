@@ -4490,8 +4490,10 @@ function okrInit(){
             okrData=raw;Object.keys(_lSub).forEach(function(k){if(!(k in raw))okrData[k]=_lSub[k];});
             localStorage.setItem(OKR_STORE_KEY,JSON.stringify(okrData));okrRender();talRender();authApplyAccess();
           } else if(okrData._slim){
-            // Local lebih baru tapi slim — restore __CLOUD__ dari raw tanpa timpa data lokal
+            // Local lebih baru tapi slim — restore __CLOUD__ + smart-merge 0/null dari raw
             _okrRestoreSlim(raw);
+            _okrSmartMerge(okrData,raw);
+            okrRender();talRender();
           } else if(localOkrKeys.length===0){
             // Local punya data sub-modul tapi TIDAK punya struktur OKR → merge dari raw
             var rawOkrKeys=rawKeys.filter(function(k){return !k.startsWith('_');});
@@ -4523,8 +4525,10 @@ function okrInit(){
         okrRender();talRender();authApplyAccess();
         if(localTs>0&&!localEmpty) notify('Data diperbarui dari cloud ✓');
       } else if(okrData._slim){
-        // Local lebih baru tapi slim — restore __CLOUD__ dari cloud tanpa timpa data lokal
+        // Local lebih baru tapi slim — restore __CLOUD__ + smart-merge 0/null dari cloud
         _okrRestoreSlim(cloud);
+        _okrSmartMerge(okrData,cloud); // fill-in 0/null values from cloud (e.g. score that was 0 locally)
+        okrRender();talRender();
       } else if(localOkrKeys.length===0&&cloudOkrKeys.length>0){
         // Local hanya punya data sub-modul (in-stock dll) tapi TIDAK ada struktur OKR
         // → merge OKR dari cloud ke local supaya data OKR tidak hilang
