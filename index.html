@@ -1431,39 +1431,67 @@ function _viewFileOnline(src,name){
   var lower=name.toLowerCase();
   var isUrl=/^https?:/.test(src);
   var path=isUrl?src.split('?')[0].toLowerCase():'';
-  var isImg=src.indexOf('data:image/')===0||(isUrl&&/\.(png|jpe?g|gif|webp|bmp)$/.test(path));
-  if(isImg){
+
+  // ── URL dari GitHub (sudah diupload) ──────────────────────────
+  if(isUrl){
+    var isImgUrl=/\.(png|jpe?g|gif|webp|bmp)$/i.test(path);
+    var isXlsUrl=/\.(xlsx|xls|csv)$/i.test(path);
+    var isPdfUrl=/\.pdf$/i.test(path);
+
+    if(isImgUrl){
+      // Gambar: tampil langsung di modal (tidak perlu CORS)
+      document.getElementById('sem-name').textContent=name;
+      var imgEl=document.getElementById('sem-img');imgEl.src=src;imgEl.style.display='block';
+      document.getElementById('store-ev-modal').style.display='flex';return;
+    }
+    if(isXlsUrl){
+      // Excel: pakai Microsoft Office Online Viewer (tampil inline, tanpa download)
+      var viewerUrl='https://view.officeapps.live.com/op/view.aspx?src='+encodeURIComponent(src);
+      var w=window.open('','_blank');
+      if(!w){notify('Popup diblokir. Izinkan popup untuk melihat file.','error');return;}
+      w.document.write('<!doctype html><html><head><meta charset="utf-8"><title>'+name+'</title></head><body style="margin:0;"><iframe src="'+viewerUrl+'" style="border:0;width:100vw;height:100vh;" allowfullscreen></iframe></body></html>');
+      w.document.close();return;
+    }
+    if(isPdfUrl){
+      // PDF: tampil via Google Docs Viewer inline
+      var pdfViewer='https://docs.google.com/viewer?embedded=true&url='+encodeURIComponent(src);
+      var w2=window.open('','_blank');
+      if(!w2){notify('Popup diblokir. Izinkan popup untuk melihat file.','error');return;}
+      w2.document.write('<!doctype html><html><head><meta charset="utf-8"><title>'+name+'</title></head><body style="margin:0;"><iframe src="'+pdfViewer+'" style="border:0;width:100vw;height:100vh;"></iframe></body></html>');
+      w2.document.close();return;
+    }
+    // Tipe lain: coba tampil sebagai gambar di modal, fallback tab baru
     document.getElementById('sem-name').textContent=name;
-    var img=document.getElementById('sem-img');img.src=src;img.style.display='block';
+    var imgFb=document.getElementById('sem-img');imgFb.src=src;imgFb.style.display='block';
     document.getElementById('store-ev-modal').style.display='flex';return;
   }
-  var isXls=/\.(xlsx|xls|csv)$/.test(lower)||/\.(xlsx|xls|csv)$/.test(path)||src.indexOf('spreadsheet')!==-1||src.indexOf('ms-excel')!==-1||src.indexOf('text/csv')!==-1;
+
+  // ── Data base64 (baru diupload, belum flush ke GitHub) ────────
+  var isImg=src.indexOf('data:image/')===0;
+  if(isImg){
+    document.getElementById('sem-name').textContent=name;
+    var imgB=document.getElementById('sem-img');imgB.src=src;imgB.style.display='block';
+    document.getElementById('store-ev-modal').style.display='flex';return;
+  }
+  var isXls=/\.(xlsx|xls|csv)$/.test(lower)||src.indexOf('spreadsheet')!==-1||src.indexOf('ms-excel')!==-1||src.indexOf('text/csv')!==-1;
   if(isXls){
     okrEnsureXLSX(function(){
       function _render(wb){
-        var w=window.open('','_blank');
-        if(!w){notify('Popup diblokir. Izinkan popup untuk melihat file.','error');return;}
+        var w3=window.open('','_blank');
+        if(!w3){notify('Popup diblokir. Izinkan popup untuk melihat file.','error');return;}
         var body='';wb.SheetNames.forEach(function(sn){body+='<h3>'+sn+'</h3>'+XLSX.utils.sheet_to_html(wb.Sheets[sn]);});
-        w.document.write('<!doctype html><html><head><meta charset="utf-8"><title>'+name+'</title><style>body{font-family:Inter,Arial,sans-serif;padding:18px;background:#f8fafc;}h2{color:#1e293b;}h3{color:#2563eb;margin-top:20px;}table{border-collapse:collapse;background:#fff;margin-bottom:16px;}td,th{border:1px solid #cbd5e1;padding:5px 9px;font-size:13px;}</style></head><body><h2>'+name+'</h2>'+body+'</body></html>');
-        w.document.close();
+        w3.document.write('<!doctype html><html><head><meta charset="utf-8"><title>'+name+'</title><style>body{font-family:Inter,Arial,sans-serif;padding:18px;background:#f8fafc;}h2{color:#1e293b;}h3{color:#2563eb;margin-top:20px;}table{border-collapse:collapse;background:#fff;margin-bottom:16px;}td,th{border:1px solid #cbd5e1;padding:5px 9px;font-size:13px;}</style></head><body><h2>'+name+'</h2>'+body+'</body></html>');
+        w3.document.close();
       }
-      try{
-        if(isUrl){
-          // GitHub raw URL tidak support CORS fetch — buka di tab baru (download langsung)
-          window.open(src,'_blank');
-          return;
-        }else{
-          _render(XLSX.read(src.split(',')[1],{type:'base64'}));
-        }
-      }catch(e){notify('Gagal membuka file: '+e.message,'error');}
+      try{_render(XLSX.read(src.split(',')[1],{type:'base64'}));}
+      catch(e){notify('Gagal membuka file: '+e.message,'error');}
     });return;
   }
-  // PDF & lainnya
-  if(isUrl){ window.open(src,'_blank'); return; }
-  var w2=window.open('','_blank');
-  if(!w2){notify('Popup diblokir. Izinkan popup untuk melihat file.','error');return;}
-  w2.document.write('<!doctype html><html><head><meta charset="utf-8"><title>'+name+'</title></head><body style="margin:0;"><iframe src="'+src+'" style="border:0;width:100vw;height:100vh;"></iframe></body></html>');
-  w2.document.close();
+  // PDF & lainnya (base64)
+  var w4=window.open('','_blank');
+  if(!w4){notify('Popup diblokir. Izinkan popup untuk melihat file.','error');return;}
+  w4.document.write('<!doctype html><html><head><meta charset="utf-8"><title>'+name+'</title></head><body style="margin:0;"><iframe src="'+src+'" style="border:0;width:100vw;height:100vh;"></iframe></body></html>');
+  w4.document.close();
 }
 function _viewEvs(evs){
   evs=(evs||[]).filter(function(e){return e&&e.data;});
