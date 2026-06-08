@@ -1514,7 +1514,7 @@
   "_tal_d3_2026_06": {
     "rows": []
   },
-  "_ts": 1780883381873,
+  "_ts": 1780883395036,
   "_userAccess": {
     "Finance & Accounting": {
       "modules": [
@@ -1708,19 +1708,6 @@
       {
         "name": "Pinus.jpg",
         "data": "https://raw.githubusercontent.com/pinuspackindo-ai/pinuspackindo-okr/data/uploads/store/1780882811421_90qbvi_Pinus.jpg"
-      }
-    ]
-  },
-  "_s_impl_audit_2026_05": {
-    "value": 98.25,
-    "evidence": "https://raw.githubusercontent.com/pinuspackindo-ai/pinuspackindo-okr/data/uploads/store/1780882829780_h4l4fm_Pinus.jpg",
-    "evidenceName": "Pinus.jpg",
-    "savedAt": "2026-06-08T01:40:29.091Z",
-    "locked": true,
-    "evidences": [
-      {
-        "name": "Pinus.jpg",
-        "data": "https://raw.githubusercontent.com/pinuspackindo-ai/pinuspackindo-okr/data/uploads/store/1780882839303_ywmobh_Pinus.jpg"
       }
     ]
   },
