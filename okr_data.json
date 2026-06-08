@@ -1514,7 +1514,7 @@
   "_tal_d3_2026_06": {
     "rows": []
   },
-  "_ts": 1780883241256,
+  "_ts": 1780883244341,
   "_userAccess": {
     "Finance & Accounting": {
       "modules": [
@@ -1809,5 +1809,6 @@
     "totalScore": 98,
     "savedAt": "2026-06-08T01:46:49.018Z",
     "locked": true
-  }
+  },
+  "_slim": 1
 }
