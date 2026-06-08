@@ -65,7 +65,7 @@
           "target": 98
         },
         {
-          "actual": 100,
+          "actual": null,
           "bobot": 15,
           "id": "r1779890290785kd0n",
           "keyResult": "Laporan keuangan akurat dan on time",
@@ -808,37 +808,6 @@
     "savedAt": "2026-06-03T08:06:38.709Z",
     "value": 100
   },
-  "_fa_rot_2026_05": {
-    "akurasiEv": "",
-    "akurasiEvName": "WhatsApp Image 2026-06-05 at 08.42.25.jpeg",
-    "akurasiEvs": [],
-    "akurasiScore": 100,
-    "locked": true,
-    "ontimeDate": "2026-06-03",
-    "ontimeEv": "",
-    "ontimeEvName": "WhatsApp Image 2026-06-05 at 08.49.07.jpeg",
-    "ontimeEvs": [],
-    "ontimeScore": 100,
-    "poin": [
-      0,
-      0,
-      0,
-      0,
-      0,
-      0,
-      0,
-      0,
-      0,
-      0,
-      0,
-      0,
-      0,
-      0,
-      0
-    ],
-    "savedAt": "2026-06-05T01:50:51.068Z",
-    "totalScore": 100
-  },
   "_ga_wp_2026_06": {
     "locked": false,
     "rows": []
@@ -1545,7 +1514,7 @@
   "_tal_d3_2026_06": {
     "rows": []
   },
-  "_ts": 1780882263146,
+  "_ts": 1780882277340,
   "_userAccess": {
     "Finance & Accounting": {
       "modules": [
