@@ -3099,8 +3099,8 @@ function purchInstockRender(){
     html+='<tr>';
     html+='<td style="white-space:nowrap;"><strong>'+dd+'</strong> <span style="font-size:11px;color:var(--text-m);">'+BULS[m-1]+'</span> <span style="font-size:10px;color:var(--text-l);">('+dayName+')</span></td>';
     if(d.locked){
-      html+='<td>';if(d.file1){html+='<div style="display:flex;align-items:center;gap:6px;flex-wrap:wrap;"><span style="font-size:11px;color:var(--success);">&#x2713; '+esc(d.file1Name||'File 1')+'</span><button onclick="purchDownloadFile(\'pins\',\'file1\','+dd+')" style="font-size:10px;background:var(--primary-l);border:1px solid var(--primary);color:var(--primary);border-radius:4px;padding:2px 8px;cursor:pointer;white-space:nowrap;">&#x2B07; View</button></div>';}else html+='<span style="color:var(--text-l);font-size:11px;">&#x2014;</span>';html+='</td>';
-      html+='<td>';if(d.file2){html+='<div style="display:flex;align-items:center;gap:6px;flex-wrap:wrap;"><span style="font-size:11px;color:var(--success);">&#x2713; '+esc(d.file2Name||'File 2')+'</span><button onclick="purchDownloadFile(\'pins\',\'file2\','+dd+')" style="font-size:10px;background:var(--primary-l);border:1px solid var(--primary);color:var(--primary);border-radius:4px;padding:2px 8px;cursor:pointer;white-space:nowrap;">&#x2B07; View</button></div>';}else html+='<span style="color:var(--text-l);font-size:11px;">&#x2014;</span>';html+='</td>';
+      html+='<td>';if(d.file1){html+='<div style="display:flex;align-items:center;gap:6px;flex-wrap:wrap;"><span style="font-size:11px;color:var(--success);">&#x2713; '+esc(d.file1Name||'File 1')+'</span>'+_ghBadge(d.file1)+'<button onclick="purchDownloadFile(\'pins\',\'file1\','+dd+')" style="font-size:10px;background:var(--primary-l);border:1px solid var(--primary);color:var(--primary);border-radius:4px;padding:2px 8px;cursor:pointer;white-space:nowrap;">&#x1F441; View</button></div>';}else html+='<span style="color:var(--text-l);font-size:11px;">&#x2014;</span>';html+='</td>';
+      html+='<td>';if(d.file2){html+='<div style="display:flex;align-items:center;gap:6px;flex-wrap:wrap;"><span style="font-size:11px;color:var(--success);">&#x2713; '+esc(d.file2Name||'File 2')+'</span>'+_ghBadge(d.file2)+'<button onclick="purchDownloadFile(\'pins\',\'file2\','+dd+')" style="font-size:10px;background:var(--primary-l);border:1px solid var(--primary);color:var(--primary);border-radius:4px;padding:2px 8px;cursor:pointer;white-space:nowrap;">&#x1F441; View</button></div>';}else html+='<span style="color:var(--text-l);font-size:11px;">&#x2014;</span>';html+='</td>';
       var sc=d.score;var scCls=sc!==null&&sc!==undefined?scoreClass(sc):'';
       html+='<td style="text-align:center;">'+(sc!==null&&sc!==undefined?'<span class="metric-value '+scCls+'" style="font-size:.9rem;">'+parseFloat(sc).toFixed(1)+'%</span>':'<span style="color:var(--text-l);font-size:11px;">&#x2014;</span>')+'</td>';
       html+='<td style="text-align:center;white-space:nowrap;"><div style="display:flex;gap:4px;justify-content:center;align-items:center;"><button onclick="purchInstockEdit('+dd+')" style="background:none;border:1px solid var(--border);color:var(--text-m);border-radius:var(--radius-sm);padding:4px 10px;cursor:pointer;font-size:11px;font-family:var(--font);">&#x270F;&#xFE0F; Edit</button><button onclick="purchInstockDelete('+dd+')" style="background:none;border:1.5px solid #fca5a5;color:#dc2626;border-radius:var(--radius-sm);padding:4px 8px;cursor:pointer;font-size:12px;font-family:var(--font);">&#x1F5D1;</button></div></td>';
@@ -3221,11 +3221,11 @@ function purchApoRender(){
     html+='<tr><td style="font-weight:500;">'+BUL[m-1]+'</td>';
     if(d.locked){
       html+='<td><div style="display:flex;align-items:center;gap:6px;flex-wrap:wrap;">';
-      if(d.file1){html+='<span style="font-size:11px;color:var(--success);">&#x2713; '+esc(d.file1Name||'Keterlambatan')+'</span><button onclick="purchDownloadFile(\'papo\',\'file1\','+m+')" style="font-size:10px;background:var(--primary-l);border:1px solid var(--primary);color:var(--primary);border-radius:4px;padding:2px 6px;cursor:pointer;">View</button>';}
+      if(d.file1){html+='<span style="font-size:11px;color:var(--success);">&#x2713; '+esc(d.file1Name||'Keterlambatan')+'</span>'+_ghBadge(d.file1)+'<button onclick="purchDownloadFile(\'papo\',\'file1\','+m+')" style="font-size:10px;background:var(--primary-l);border:1px solid var(--primary);color:var(--primary);border-radius:4px;padding:2px 6px;cursor:pointer;">&#x1F441; View</button>';}
       else html+='<span style="color:var(--text-l);font-size:11px;">&#x2014;</span>';
       html+='</div></td>';
       html+='<td><div style="display:flex;align-items:center;gap:6px;flex-wrap:wrap;">';
-      if(d.file2){html+='<span style="font-size:11px;color:var(--success);">&#x2713; '+esc(d.file2Name||'Akurasi')+'</span><button onclick="purchDownloadFile(\'papo\',\'file2\','+m+')" style="font-size:10px;background:var(--primary-l);border:1px solid var(--primary);color:var(--primary);border-radius:4px;padding:2px 6px;cursor:pointer;">View</button>';}
+      if(d.file2){html+='<span style="font-size:11px;color:var(--success);">&#x2713; '+esc(d.file2Name||'Akurasi')+'</span>'+_ghBadge(d.file2)+'<button onclick="purchDownloadFile(\'papo\',\'file2\','+m+')" style="font-size:10px;background:var(--primary-l);border:1px solid var(--primary);color:var(--primary);border-radius:4px;padding:2px 6px;cursor:pointer;">&#x1F441; View</button>';}
       else html+='<span style="color:var(--text-l);font-size:11px;">&#x2014;</span>';
       html+='</div></td>';
       var fs=d.finalScore;var cls=fs!==null?scoreClass(fs):'';
@@ -3330,7 +3330,7 @@ function purchKpenRender(){
     html+='<tr><td style="font-weight:500;">'+BUL[m-1]+'</td>';
     if(d.locked){
       html+='<td><div style="display:flex;align-items:center;gap:6px;flex-wrap:wrap;">';
-      if(d.file){html+='<span style="font-size:11px;color:var(--success);">&#x2713; '+esc(d.fileName||'Penerimaan')+'</span><button onclick="purchDownloadFile(\'pkpen\',\'file\','+m+')" style="font-size:10px;background:var(--primary-l);border:1px solid var(--primary);color:var(--primary);border-radius:4px;padding:2px 6px;cursor:pointer;">View</button>';}
+      if(d.file){html+='<span style="font-size:11px;color:var(--success);">&#x2713; '+esc(d.fileName||'Penerimaan')+'</span>'+_ghBadge(d.file)+'<button onclick="purchDownloadFile(\'pkpen\',\'file\','+m+')" style="font-size:10px;background:var(--primary-l);border:1px solid var(--primary);color:var(--primary);border-radius:4px;padding:2px 6px;cursor:pointer;">&#x1F441; View</button>';}
       else html+='<span style="color:var(--text-l);font-size:11px;">&#x2014;</span>';
       html+='</div></td>';
       var sc=d.score;var cls=sc!==null?scoreClass(sc):'';
@@ -3454,7 +3454,7 @@ function purchSavingRender(){
       if(d.text){var cnt=d.text.split(';').filter(function(s){return s.trim()!=='';}).length;html+=' <span style="font-size:10px;color:var(--primary);font-weight:600;">('+cnt+' item)</span>';}
       html+='</td>';
       html+='<td>';
-      if(d.evidence){html+='<div style="display:flex;align-items:center;gap:6px;flex-wrap:wrap;"><span style="font-size:11px;color:var(--success);">&#x2713; '+esc(d.evidenceName||'Bukti')+'</span><button onclick="purchDownloadFile(\'psv\',\'ev\','+dd+')" style="font-size:10px;background:var(--primary-l);border:1px solid var(--primary);color:var(--primary);border-radius:4px;padding:2px 6px;cursor:pointer;">View</button></div>';}
+      if(d.evidence){html+='<div style="display:flex;align-items:center;gap:6px;flex-wrap:wrap;"><span style="font-size:11px;color:var(--success);">&#x2713; '+esc(d.evidenceName||'Bukti')+'</span>'+_ghBadge(d.evidence)+'<button onclick="purchDownloadFile(\'psv\',\'ev\','+dd+')" style="font-size:10px;background:var(--primary-l);border:1px solid var(--primary);color:var(--primary);border-radius:4px;padding:2px 6px;cursor:pointer;">&#x1F441; View</button></div>';}
       else html+='<span style="color:var(--text-l);font-size:11px;">&#x2014;</span>';
       html+='</td>';
       html+='<td style="text-align:center;white-space:nowrap;"><div style="display:flex;gap:4px;justify-content:center;align-items:center;"><button onclick="purchSavingEdit('+dd+')" style="background:none;border:1px solid var(--border);color:var(--text-m);border-radius:var(--radius-sm);padding:4px 10px;cursor:pointer;font-size:11px;font-family:var(--font);">&#x270F;&#xFE0F; Edit</button><button onclick="purchSavingDelete('+dd+')" style="background:none;border:1.5px solid #fca5a5;color:#dc2626;border-radius:var(--radius-sm);padding:4px 8px;cursor:pointer;font-size:12px;font-family:var(--font);">&#x1F5D1;</button></div></td>';
@@ -3712,7 +3712,7 @@ function finaccRenderMonthly(subId){
     else{html+='<td><input type="number" id="fa-mi-'+m+'" min="0" max="100" step="0.01" placeholder="0"'+(hasVal?' value="'+d.value+'"':'')+' style="width:100%;padding:5px 8px;border:1.5px solid var(--border);border-radius:var(--radius-sm);font-family:var(--font);font-size:13px;background:var(--bg2);color:var(--text);"></td>';}
     html+='<td style="text-align:center;font-size:12px;font-weight:600;color:'+okrActualColor+';">'+okrActualStr+'</td>';
     html+='<td style="text-align:center;">';
-    if(locked&&hasEv){html+='<button onclick="finaccViewEv(\''+subId+'\','+m+')" style="background:none;border:1.5px solid var(--primary);color:var(--primary);border-radius:var(--radius-sm);padding:4px 10px;cursor:pointer;font-size:12px;font-family:var(--font);">&#x1F441; Lihat</button>';}
+    if(locked&&hasEv){html+=_ghBadge(d.evidence)+'<button onclick="finaccViewEv(\''+subId+'\','+m+')" style="background:none;border:1.5px solid var(--primary);color:var(--primary);border-radius:var(--radius-sm);padding:4px 10px;cursor:pointer;font-size:12px;font-family:var(--font);">&#x1F441; Lihat</button>';}
     else if(!locked){
       html+='<label for="fa-ev-mi-'+m+'" style="cursor:pointer;display:inline-flex;align-items:center;gap:4px;padding:4px 10px;border:1.5px '+(hasEv?'solid var(--success)':'dashed var(--border)')+';border-radius:var(--radius-sm);font-size:12px;color:'+(hasEv?'var(--success)':'var(--text-m)')+';max-width:110px;">';
       if(hasEv){html+='&#x2705; <span style="overflow:hidden;text-overflow:ellipsis;white-space:nowrap;max-width:70px;">'+esc(d.evidenceName||'OK')+'</span>';}
@@ -3843,7 +3843,7 @@ function finaccRenderReportOt(){
   }
   html+='<div style="margin-top:12px;display:flex;align-items:center;gap:10px;flex-wrap:wrap;">';
   html+='<span style="font-size:12px;color:var(--text-m);font-weight:600;">Bukti Akurasi (wajib):</span>';
-  if(locked&&rot.akurasiEv){html+='<button onclick="finaccRotViewEv(\'akurasi\')" style="background:none;border:1.5px solid var(--primary);color:var(--primary);border-radius:var(--radius-sm);padding:3px 8px;cursor:pointer;font-size:11px;font-family:var(--font);">&#x1F441; Lihat Bukti</button>';}
+  if(locked&&rot.akurasiEv){html+=_ghBadge(rot.akurasiEv)+'<button onclick="finaccRotViewEv(\'akurasi\')" style="background:none;border:1.5px solid var(--primary);color:var(--primary);border-radius:var(--radius-sm);padding:3px 8px;cursor:pointer;font-size:11px;font-family:var(--font);">&#x1F441; Lihat Bukti</button>';}
   else if(!locked){
     html+='<label style="cursor:pointer;display:inline-flex;align-items:center;gap:4px;padding:4px 10px;border:1.5px '+(rot.akurasiEv?'solid var(--success)':'dashed var(--border)')+';border-radius:var(--radius-sm);font-size:12px;color:'+(rot.akurasiEv?'var(--success)':'var(--text-m)')+';"><input type="file" multiple id="fa-rot-aev" accept="image/*" style="display:none;" onchange="finaccRotAkurasiUpload(this)">';
     if(rot.akurasiEv){html+='&#x2705; <span style="max-width:100px;overflow:hidden;text-overflow:ellipsis;white-space:nowrap;">'+esc(rot.akurasiEvName||'OK')+'</span>';}
@@ -3972,7 +3972,7 @@ function finaccRenderImpl(){
       var v=d.value;var cls=v!==null?scoreClass(v):'';
       html+='<td style="text-align:center;"><span class="metric-value '+cls+'" style="font-size:1rem;">'+(v!==null?v.toFixed(1)+'%':'&#x2014;')+'</span></td>';
       html+='<td><div style="display:flex;align-items:center;gap:6px;flex-wrap:wrap;">';
-      if(d.evidence){html+='<span style="font-size:11px;color:var(--success);">&#x2713; '+esc(d.evidenceName||'Bukti')+'</span><button onclick="finaccViewEv(\'impl_reko_fa\','+m+')" style="font-size:10px;background:var(--primary-l);border:1px solid var(--primary);color:var(--primary);border-radius:4px;padding:2px 6px;cursor:pointer;">View</button>';}
+      if(d.evidence){html+='<span style="font-size:11px;color:var(--success);">&#x2713; '+esc(d.evidenceName||'Bukti')+'</span>'+_ghBadge(d.evidence)+'<button onclick="finaccViewEv(\'impl_reko_fa\','+m+')" style="font-size:10px;background:var(--primary-l);border:1px solid var(--primary);color:var(--primary);border-radius:4px;padding:2px 6px;cursor:pointer;">&#x1F441; View</button>';}
       else{html+='<span style="color:var(--text-l);font-size:11px;">&#x2014;</span>';}
       html+='</div></td>';
       html+='<td style="text-align:center;">'+(linked?(v!==null?'<span style="color:var(--success);font-weight:600;">'+v.toFixed(1)+'%</span>':'<span style="color:var(--text-l);">&#x2014;</span>'):'<span style="font-size:10px;color:var(--text-l);">Tidak tersambung</span>')+'</td>';
@@ -5243,7 +5243,7 @@ function gaRenderStockOpname(){
       html+='<div class="score-num '+(hasVal?scoreClass(d.value):'')+'" style="font-size:1.2rem;min-width:70px;">'+(hasVal?d.value.toFixed(1)+'%':'—')+'</div>';
       html+='<div style="font-size:11px;color:var(--text-l);flex:1;">'+(d.savedAt?new Date(d.savedAt).toLocaleDateString('id-ID'):'')+'</div>';
       html+='<div style="display:flex;gap:6px;flex-shrink:0;">';
-      if(d.evidence)html+='<button onclick="gaViewEv(\'stock_opname\','+mi+')" style="background:none;border:1.5px solid var(--primary);color:var(--primary);border-radius:var(--radius-sm);padding:4px 10px;cursor:pointer;font-size:11px;font-family:var(--font);">&#x1F441; Bukti</button>';
+      if(d.evidence)html+=_ghBadge(d.evidence)+'<button onclick="gaViewEv(\'stock_opname\','+mi+')" style="background:none;border:1.5px solid var(--primary);color:var(--primary);border-radius:var(--radius-sm);padding:4px 10px;cursor:pointer;font-size:11px;font-family:var(--font);">&#x1F441; Bukti</button>';
       html+='<button onclick="gaUnlockMonthly(\'stock_opname\','+mi+')" style="background:none;border:1.5px solid var(--border);color:var(--text-m);border-radius:var(--radius-sm);padding:4px 8px;cursor:pointer;font-size:11px;font-family:var(--font);">&#x270F;&#xFE0F;</button>';
       html+='<button onclick="gaDeleteMonthly(\'stock_opname\','+mi+')" style="background:none;border:1.5px solid #fca5a5;color:#dc2626;border-radius:var(--radius-sm);padding:4px 8px;cursor:pointer;font-size:11px;font-family:var(--font);">&#x1F5D1;</button>';
       html+='</div>';
@@ -5462,7 +5462,7 @@ function gaRenderReportOt(){
   var _akEv=rot.akurasiEv||null;var _akEvName=rot.akurasiEvName||null;
   html+='<div style="margin-top:12px;padding:10px 12px;background:var(--bg);border-radius:var(--radius-sm);display:flex;align-items:center;gap:10px;flex-wrap:wrap;">';
   html+='<span style="font-size:12px;font-weight:600;color:var(--text);">Bukti Temuan:</span>';
-  if(locked){html+=_akEv?'<button onclick="gaRotViewEv(false)" style="background:none;border:1.5px solid var(--primary);color:var(--primary);border-radius:var(--radius-sm);padding:3px 10px;cursor:pointer;font-size:11px;font-family:var(--font);">&#x1F441; Lihat Bukti</button>':'<span style="color:var(--text-l);font-size:12px;">—</span>';}
+  if(locked){html+=_akEv?_ghBadge(_akEv)+'<button onclick="gaRotViewEv(false)" style="background:none;border:1.5px solid var(--primary);color:var(--primary);border-radius:var(--radius-sm);padding:3px 10px;cursor:pointer;font-size:11px;font-family:var(--font);">&#x1F441; Lihat Bukti</button>':'<span style="color:var(--text-l);font-size:12px;">—</span>';}
   else{html+='<label for="ga-rot-akev" style="cursor:pointer;display:inline-flex;align-items:center;gap:5px;padding:5px 14px;border:1.5px '+(_akEv?'solid var(--success)':'dashed var(--border)')+';border-radius:var(--radius-sm);font-size:12px;color:'+(_akEv?'var(--success)':'var(--text-m)')+'">'+(  _akEv?'&#x2705; <span style="max-width:130px;overflow:hidden;text-overflow:ellipsis;white-space:nowrap;">'+okrEsc(_akEvName||'OK')+'</span>':'&#x1F4CE; Upload Bukti')+'</label><input type="file" multiple id="ga-rot-akev" accept="image/*" style="display:none;" onchange="gaRotAkurasiUpload(this)">';}
   html+='</div>';
   if(!locked){var estAku=(rot.poin.reduce(function(acc,t,i){var p=_GA_ROT_POIN[i];return acc+Math.max(0,p.max-Math.min(p.max,t*p.bobot));},0)/_GA_ROT_TOTAL*100).toFixed(1);html+='<div style="margin-top:10px;padding:10px 14px;background:var(--bg);border-radius:var(--radius-sm);font-size:13px;"><span style="font-weight:600;">Estimasi Score Akurasi:</span> <span style="color:var(--primary);font-weight:700;">'+estAku+'%</span></div>';}
@@ -5475,7 +5475,7 @@ function gaRenderReportOt(){
     html+='<div style="display:flex;align-items:center;gap:14px;flex-wrap:wrap;padding:10px 0;">';
     html+='<span style="font-size:13px;font-weight:600;color:var(--text);">Tanggal Submit: '+okrEsc(rot.ontimeDate||'—')+'</span>';
     html+='<span class="score-num '+scoreClass(rot.ontimeScore||0)+'" style="font-size:1.3rem;">'+(rot.ontimeScore!==null?rot.ontimeScore.toFixed(1)+'%':'—')+'</span>';
-    if(rot.ontimeEv)html+='<button onclick="gaRotViewEv(true)" style="background:none;border:1.5px solid var(--primary);color:var(--primary);border-radius:var(--radius-sm);padding:3px 8px;cursor:pointer;font-size:11px;font-family:var(--font);">&#x1F441; Bukti</button>';
+    if(rot.ontimeEv)html+=_ghBadge(rot.ontimeEv)+'<button onclick="gaRotViewEv(true)" style="background:none;border:1.5px solid var(--primary);color:var(--primary);border-radius:var(--radius-sm);padding:3px 8px;cursor:pointer;font-size:11px;font-family:var(--font);">&#x1F441; Bukti</button>';
     html+='</div>';
   }else{
     html+='<div style="display:flex;align-items:center;gap:10px;flex-wrap:wrap;">';
