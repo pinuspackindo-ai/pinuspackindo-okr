@@ -654,7 +654,7 @@
           "target": 90
         },
         {
-          "actual": 98,
+          "actual": null,
           "bobot": 15,
           "id": "r1780472096513u9a5",
           "keyResult": "Tingkat kepatuhan & kedisiplinan",
@@ -1514,7 +1514,7 @@
   "_tal_d3_2026_06": {
     "rows": []
   },
-  "_ts": 1780883395036,
+  "_ts": 1780883405836,
   "_userAccess": {
     "Finance & Accounting": {
       "modules": [
@@ -1710,49 +1710,6 @@
         "data": "https://raw.githubusercontent.com/pinuspackindo-ai/pinuspackindo-okr/data/uploads/store/1780882811421_90qbvi_Pinus.jpg"
       }
     ]
-  },
-  "_hrd_kdk_2026_06": {
-    "abs": {
-      "aktif": 20,
-      "temuan": 1,
-      "ev": "https://raw.githubusercontent.com/pinuspackindo-ai/pinuspackindo-okr/data/uploads/hrd/1780883159907_g4slxc_Pinus.jpg",
-      "evName": "Pinus.jpg",
-      "evs": [
-        {
-          "name": "Pinus.jpg",
-          "data": null
-        }
-      ]
-    },
-    "kep": {
-      "aktif": 20,
-      "temuan": 0,
-      "ev": "https://raw.githubusercontent.com/pinuspackindo-ai/pinuspackindo-okr/data/uploads/hrd/1780883159427_4ajcsk_Pinus.jpg",
-      "evName": "Pinus.jpg",
-      "evs": [
-        {
-          "name": "Pinus.jpg",
-          "data": "https://raw.githubusercontent.com/pinuspackindo-ai/pinuspackindo-okr/data/uploads/hrd/1780883176285_8nwoox_Pinus.jpg"
-        }
-      ]
-    },
-    "snk": {
-      "jumlah": 0,
-      "ev": "https://raw.githubusercontent.com/pinuspackindo-ai/pinuspackindo-okr/data/uploads/hrd/1780883209808_ffxdbq_Pinus.jpg",
-      "evName": "Pinus.jpg",
-      "evs": [
-        {
-          "name": "Pinus.jpg",
-          "data": "https://raw.githubusercontent.com/pinuspackindo-ai/pinuspackindo-okr/data/uploads/hrd/1780883209258_mg6tuz_Pinus.jpg"
-        }
-      ]
-    },
-    "absScore": 95,
-    "kepScore": 100,
-    "snkScore": 100,
-    "totalScore": 98,
-    "savedAt": "2026-06-08T01:45:59.194Z",
-    "locked": true
   },
   "_hrd_kdk_2026_05": {
     "abs": {
