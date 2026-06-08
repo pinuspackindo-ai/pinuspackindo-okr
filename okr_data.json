@@ -1514,7 +1514,7 @@
   "_tal_d3_2026_06": {
     "rows": []
   },
-  "_ts": 1780884359637,
+  "_ts": 1780884360059,
   "_userAccess": {
     "Finance & Accounting": {
       "modules": [
@@ -1783,5 +1783,14 @@
         "data": "https://raw.githubusercontent.com/pinuspackindo-ai/pinuspackindo-okr/data/uploads/inventory/1780883512979_hq2ql6_Cuplikan_layar_2026-04-06_190121.png"
       }
     ]
+  },
+  "_p_ins_2026_06_06": {
+    "file1": "https://raw.githubusercontent.com/pinuspackindo-ai/pinuspackindo-okr/data/uploads/purchasing/1780883659054_mjstz6_product.product.xlsx",
+    "file1Name": "product.product.xlsx",
+    "file2": "https://raw.githubusercontent.com/pinuspackindo-ai/pinuspackindo-okr/data/uploads/purchasing/1780883662811_wc1pm9_product.product_1.xlsx",
+    "file2Name": "product.product (1).xlsx",
+    "score": null,
+    "savedAt": "2026-06-08T01:54:25.675Z",
+    "locked": true
   }
 }
