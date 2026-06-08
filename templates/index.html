@@ -3020,6 +3020,7 @@ function purchDownloadFile(prefix,fileKey,ref){
 // Logika sama persis dgn runInstock(): score = (total - below_zero) / total * 100
 function _dataUrlToRows(dataUrl) {
   // Konversi DataURL → Uint8Array → XLSX rows (sama seperti readExcel() yg pakai ArrayBuffer)
+  if(/^https?:/.test(dataUrl)) return []; // GitHub URL — tidak bisa diparse
   var b64 = dataUrl.indexOf(',') >= 0 ? dataUrl.split(',')[1] : dataUrl;
   var bin = atob(b64), bytes = new Uint8Array(bin.length);
   for (var i=0;i<bin.length;i++) bytes[i]=bin.charCodeAt(i);

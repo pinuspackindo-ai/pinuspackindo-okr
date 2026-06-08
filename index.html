@@ -3023,6 +3023,7 @@ function purchDownloadFile(prefix,fileKey,ref){
 // Logika sama persis dgn runInstock(): score = (total - below_zero) / total * 100
 function _dataUrlToRows(dataUrl) {
   // Konversi DataURL → Uint8Array → XLSX rows (sama seperti readExcel() yg pakai ArrayBuffer)
+  if(/^https?:/.test(dataUrl)) return []; // GitHub URL — tidak bisa diparse
   var b64 = dataUrl.indexOf(',') >= 0 ? dataUrl.split(',')[1] : dataUrl;
   var bin = atob(b64), bytes = new Uint8Array(bin.length);
   for (var i=0;i<bin.length;i++) bytes[i]=bin.charCodeAt(i);
@@ -3379,6 +3380,17 @@ function purchKpenFileChange(month,inp){
 function purchKpenSave(month){
   var y=purchasingYear;var d=_pgKpen(y,month);
   if(!d.file){notify('Upload file terlebih dahulu','error');return;}
+  // Jika file sudah di GitHub (URL), gunakan score existing
+  if(/^https?:/.test(d.file)){
+    var sc=d.score!==null&&d.score!==undefined?d.score:0;
+    _purchPending={type:'kualitas_pen',year:y,month:month,file:d.file,fileName:d.fileName,totalRows:d.totalRows||0,accRows:d.accRows||0,score:sc};
+    document.getElementById('pc-sub').textContent='Kualitas Penerimaan';
+    document.getElementById('pc-bulan').textContent=STORE_BULAN[month-1]+' '+y;
+    document.getElementById('pc-val').textContent='Score: '+sc.toFixed(1)+'% (dari data tersimpan — file di GitHub tidak dapat diproses ulang)';
+    document.getElementById('pc-ev').textContent=d.fileName||'File Penerimaan';
+    document.getElementById('purch-confirm-modal').style.display='flex';
+    return;
+  }
   okrEnsureXLSX(function(){
   try{
     function _b64toArr(b64){var bin=atob(b64),bytes=new Uint8Array(bin.length);for(var i=0;i<bin.length;i++)bytes[i]=bin.charCodeAt(i);return bytes;}
