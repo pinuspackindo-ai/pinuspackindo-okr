@@ -1,5 +1,5 @@
 {
-  "_ts": 1780907518293,
+  "_ts": 1780907668443,
   "2026-05": {
     "Distribution Sales": {
       "actionPlan": "Training new telesales",
@@ -1376,8 +1376,8 @@
   "_p_ir_2026_05": {
     "evidence": "https://raw.githubusercontent.com/pinuspackindo-ai/pinuspackindo-okr/data/uploads/purchasing/1780907518525_fl3igz_Pinus.jpg",
     "evidenceName": "Pinus.jpg",
-    "locked": false,
-    "savedAt": "2026-06-04T13:47:54.762Z",
+    "locked": true,
+    "savedAt": "2026-06-08T08:34:28.443Z",
     "value": 100,
     "evidences": [
       {
