@@ -654,7 +654,7 @@
           "target": 90
         },
         {
-          "actual": 98,
+          "actual": null,
           "bobot": 15,
           "id": "r1780472096513u9a5",
           "keyResult": "Tingkat kepatuhan & kedisiplinan",
@@ -1514,7 +1514,7 @@
   "_tal_d3_2026_06": {
     "rows": []
   },
-  "_ts": 1780883266716,
+  "_ts": 1780883276801,
   "_userAccess": {
     "Finance & Accounting": {
       "modules": [
