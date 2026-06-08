@@ -303,7 +303,7 @@
           "target": 95
         },
         {
-          "actual": 98.25,
+          "actual": null,
           "bobot": 10,
           "id": "r17798902907859402",
           "keyResult": "Tingkat implementasi rekomendasi audit",
@@ -1514,7 +1514,7 @@
   "_tal_d3_2026_06": {
     "rows": []
   },
-  "_ts": 1780883259176,
+  "_ts": 1780883266716,
   "_userAccess": {
     "Finance & Accounting": {
       "modules": [
