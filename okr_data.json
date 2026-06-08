@@ -1,5 +1,5 @@
 {
-  "_ts": 1780907492787,
+  "_ts": 1780907512051,
   "2026-05": {
     "Distribution Sales": {
       "actionPlan": "Training new telesales",
@@ -1376,7 +1376,7 @@
   "_p_ir_2026_05": {
     "evidence": null,
     "evidenceName": "Pinus.jpg",
-    "locked": true,
+    "locked": false,
     "savedAt": "2026-06-04T13:47:54.762Z",
     "value": 100
   },
