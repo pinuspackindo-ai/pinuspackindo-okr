@@ -3270,6 +3270,17 @@ var ACC_KW=['HPP','SUPPLIER','HARGA','KUANTITI','QTY','SALAH','DISKON','LEBIH','
 function purchApoSave(month){
   var y=purchasingYear;var d=_pgApo(y,month);
   if(!d.file1||!d.file2){notify('Upload kedua file terlebih dahulu','error');return;}
+  // Jika file sudah di GitHub (URL), tidak bisa di-parse ulang — gunakan score existing
+  if(/^https?:/.test(d.file1)||/^https?:/.test(d.file2)){
+    var sc=d.score!==null&&d.score!==undefined?d.score:0;
+    _purchPending={type:'akurasi_po',year:y,month:month,file1:d.file1,file1Name:d.file1Name,file2:d.file2,file2Name:d.file2Name,lateScore:sc,accScore:sc,finalScore:sc};
+    document.getElementById('pc-sub').textContent='Akurasi PO';
+    document.getElementById('pc-bulan').textContent=STORE_BULAN[month-1]+' '+y;
+    document.getElementById('pc-val').textContent='Score: '+sc.toFixed(1)+'% (dari data tersimpan — file di GitHub tidak dapat diproses ulang)';
+    document.getElementById('pc-ev').textContent=(d.file1Name||'Keterlambatan')+' + '+(d.file2Name||'Akurasi');
+    document.getElementById('purch-confirm-modal').style.display='flex';
+    return;
+  }
   okrEnsureXLSX(function(){
   try{
     function _b64toArr(b64){var bin=atob(b64),bytes=new Uint8Array(bin.length);for(var i=0;i<bin.length;i++)bytes[i]=bin.charCodeAt(i);return bytes;}
