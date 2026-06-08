@@ -1,5 +1,5 @@
 {
-  "_ts": 1780906957700,
+  "_ts": 1780910813613,
   "2026-05": {
     "Distribution Sales": {
       "actionPlan": "Training new telesales",
@@ -235,7 +235,7 @@
           "target": 90
         },
         {
-          "actual": 0,
+          "actual": 83.3,
           "bobot": 30,
           "id": "r1779890290785eikx",
           "keyResult": "Tingkat akurasi PO",
@@ -1761,10 +1761,11 @@
     "file1Name": "purchase.order.line.xlsx",
     "file2": "https://raw.githubusercontent.com/pinuspackindo-ai/pinuspackindo-okr/data/uploads/purchasing/1780906952770_yynbrn_account.move.xlsx",
     "file2Name": "account.move.xlsx",
-    "lateScore": 0,
-    "accScore": 0,
-    "finalScore": 0,
+    "lateScore": 83.3,
+    "accScore": 83.3,
+    "finalScore": 83.3,
     "savedAt": "2026-06-08T08:22:37.700Z",
-    "locked": true
+    "locked": true,
+    "score": 83.3
   }
 }
