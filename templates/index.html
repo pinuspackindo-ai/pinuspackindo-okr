@@ -1497,9 +1497,25 @@ function _viewFileOnline(src,name){
   w4.document.write('<!doctype html><html><head><meta charset="utf-8"><title>'+name+'</title></head><body style="margin:0;"><iframe src="'+src+'" style="border:0;width:100vw;height:100vh;"></iframe></body></html>');
   w4.document.close();
 }
-function _viewEvs(evs){
-  evs=(evs||[]).filter(function(e){return e&&e.data;});
-  if(evs.length===0){notify('Tidak ada bukti.','error');return;}
+function _evBuild(evs,ev,name){
+  var arr=(evs||[]).map(function(e){
+    if(!e) return null;
+    var d=(e.data==='__CLOUD__'||!e.data)?(ev||null):e.data;
+    return d?{name:e.name||name||'Bukti',data:d}:null;
+  }).filter(Boolean);
+  if(!arr.length&&ev) arr=[{name:name||'Bukti',data:ev}];
+  return arr;
+}
+function _viewEvs(evs,fallbackEv,fallbackName){
+  evs=(evs||[]).map(function(e){
+    if(!e) return null;
+    if(e.data==='__CLOUD__'||!e.data){
+      var d=fallbackEv||null;
+      return d?{name:e.name||fallbackName||'Bukti',data:d}:null;
+    }
+    return e;
+  }).filter(function(e){return e&&e.data&&e.data!=='__CLOUD__';});
+  if(evs.length===0){notify('File sedang dimuat dari cloud — tunggu sebentar lalu coba lagi.','error');return;}
   if(evs.length===1){ _viewFileOnline(evs[0].data, evs[0].name); return; }
   var _old=document.getElementById('_evov');if(_old)_old.remove();
   var _ov=document.createElement('div');_ov.id='_evov';
@@ -1797,7 +1813,7 @@ function storeDelete(month){
 function storeViewEv(month){
   var d=_sg(storeCurSub,storeYear,month);
   if(!d.evidence){notify('Tidak ada bukti tersimpan.','error');return;}
-  var _evs=d.evidences&&d.evidences.length>0?d.evidences:(d.evidence?[{name:d.evidenceName||'File',data:d.evidence}]:[]);
+  var _evs=_evBuild(d.evidences,d.evidence,d.evidenceName||'File');
   _viewEvs(_evs);
 }
 function storeCloseEv(){document.getElementById('store-ev-modal').style.display='none';}
@@ -2063,7 +2079,7 @@ function distribDelete(month){
 function distribViewEv(month){
   var d=_dg(distribCurSub,distribYear,month);
   if(!d.evidence){notify('Tidak ada bukti tersimpan.','error');return;}
-  var _evs=d.evidences&&d.evidences.length>0?d.evidences:(d.evidence?[{name:d.evidenceName||'File',data:d.evidence}]:[]);
+  var _evs=_evBuild(d.evidences,d.evidence,d.evidenceName||'File');
   _viewEvs(_evs);
 }
 
@@ -2306,7 +2322,7 @@ function warehouseDelete(month){
 function warehouseViewEv(month){
   var d=_wg(warehouseCurSub,warehouseYear,month);
   if(!d.evidence){notify('Tidak ada bukti tersimpan.','error');return;}
-  var _evs=d.evidences&&d.evidences.length>0?d.evidences:(d.evidence?[{name:d.evidenceName||'File',data:d.evidence}]:[]);
+  var _evs=_evBuild(d.evidences,d.evidence,d.evidenceName||'File');
   _viewEvs(_evs);
 }
 
@@ -2715,7 +2731,7 @@ function invDeleteMonthly(subId,month){
 }
 function invViewEvMonthly(subId,month){
   var d=_ig(subId,inventoryYear,month);if(!d.evidence){notify('Tidak ada bukti.','error');return;}
-  var _evs=d.evidences&&d.evidences.length>0?d.evidences:(d.evidence?[{name:d.evidenceName||'File',data:d.evidence}]:[]);
+  var _evs=_evBuild(d.evidences,d.evidence,d.evidenceName||'File');
   _viewEvs(_evs);
 }
 
@@ -2749,7 +2765,7 @@ function invRnDoConfirmSave(day){
 }
 function invRnDoViewEv(day){
   var d=_irkg(inventoryYear,invRnDoMonth,day);if(!d.evidence){notify('Tidak ada bukti.','error');return;}
-  var _evs=d.evidences&&d.evidences.length>0?d.evidences:(d.evidence?[{name:d.evidenceName||'File',data:d.evidence}]:[]);
+  var _evs=_evBuild(d.evidences,d.evidence,d.evidenceName||'File');
   _viewEvs(_evs);
 }
 function invRnDoUnlock(day){
@@ -2849,7 +2865,7 @@ function invRotViewEv(poinIdx,isOntime){
   var rot=_irotg(inventoryYear,invRotMonth);
   var evs;
   if(isOntime){
-    evs=rot.ontimeEvs&&rot.ontimeEvs.length>0?rot.ontimeEvs:(rot.ontimeEv?[{name:rot.ontimeEvName||'Bukti Ontime',data:rot.ontimeEv}]:[]);
+    evs=_evBuild(rot.ontimeEvs,rot.ontimeEv,rot.ontimeEvName||'Bukti Ontime');
   }else if(poinIdx===-1){
     evs=rot.akurasiEvs&&rot.akurasiEvs.length>0?rot.akurasiEvs:(rot.akurasiEv?[{name:rot.akurasiEvName||'Bukti Temuan',data:rot.akurasiEv}]:[]);
   }else{
@@ -3606,7 +3622,7 @@ function purchImplEvidenceChange(month,inp){
     notify(results.length+' bukti diupload ✓');
   });
 }
-function purchImplViewEv(m){var d=_pgIr(purchasingYear,m);var evs=(d.evidences&&d.evidences.length>0)?d.evidences:(d.evidence?[{name:d.evidenceName||'Bukti',data:d.evidence}]:[]);_viewEvs(evs);}
+function purchImplViewEv(m){var d=_pgIr(purchasingYear,m);var evs=_evBuild(d.evidences,d.evidence,d.evidenceName||'Bukti');_viewEvs(evs);}
 function purchImplConfirmSave(month){
   var y=purchasingYear;
   var valEl=document.getElementById('pir-val-'+month);
@@ -3820,7 +3836,7 @@ function finaccDeleteMonthly(subId,month){
 }
 function finaccViewEv(subId,month){
   var d=_fag(subId,finaccYear,month);if(!d.evidence){notify('Tidak ada bukti.','error');return;}
-  var _evs=d.evidences&&d.evidences.length>0?d.evidences:(d.evidence?[{name:d.evidenceName||'File',data:d.evidence}]:[]);
+  var _evs=_evBuild(d.evidences,d.evidence,d.evidenceName||'File');
   _viewEvs(_evs);
 }
 
@@ -3975,7 +3991,7 @@ function finaccRotViewEv(type){
   var rot=_farotg(finaccYear,finaccReportMonth);
   var evs;
   if(type==='ontime'){
-    evs=rot.ontimeEvs&&rot.ontimeEvs.length>0?rot.ontimeEvs:(rot.ontimeEv?[{name:rot.ontimeEvName||'Bukti Ontime',data:rot.ontimeEv}]:[]);
+    evs=_evBuild(rot.ontimeEvs,rot.ontimeEv,rot.ontimeEvName||'Bukti Ontime');
   }else{
     evs=rot.akurasiEvs&&rot.akurasiEvs.length>0?rot.akurasiEvs:(rot.akurasiEv?[{name:rot.akurasiEvName||'Bukti Akurasi',data:rot.akurasiEv}]:[]);
   }
@@ -5360,7 +5376,7 @@ function gaDeleteMonthly(subId,month){
 }
 function gaViewEv(subId,month){
   var d=_gasog(gaYear,month);if(!d.evidence){notify('Tidak ada bukti.','error');return;}
-  var _evs=d.evidences&&d.evidences.length>0?d.evidences:(d.evidence?[{name:d.evidenceName||'File',data:d.evidence}]:[]);
+  var _evs=_evBuild(d.evidences,d.evidence,d.evidenceName||'File');
   _viewEvs(_evs);
 }
 
@@ -5480,7 +5496,7 @@ function gaWpUploadRow(idx,inp){
 function gaWpViewEv(idx){
   var data=_gawpg(gaYear,gaWpMonth);var row=data.rows[idx];
   if(!row||!row.evidence){notify('Tidak ada bukti.','error');return;}
-  var _evs=row.evidences&&row.evidences.length>0?row.evidences:(row.evidence?[{name:row.evidenceName||'File',data:row.evidence}]:[]);
+  var _evs=_evBuild(row.evidences,row.evidence,row.evidenceName||'File');
   _viewEvs(_evs);
 }
 
@@ -5594,7 +5610,7 @@ function gaRotViewEv(isOntime){
   var rot=_garotg(gaYear,gaRotMonth);
   var evs;
   if(isOntime){
-    evs=rot.ontimeEvs&&rot.ontimeEvs.length>0?rot.ontimeEvs:(rot.ontimeEv?[{name:rot.ontimeEvName||'Bukti Ontime',data:rot.ontimeEv}]:[]);
+    evs=_evBuild(rot.ontimeEvs,rot.ontimeEv,rot.ontimeEvName||'Bukti Ontime');
   }else{
     evs=rot.akurasiEvs&&rot.akurasiEvs.length>0?rot.akurasiEvs:(rot.akurasiEv?[{name:rot.akurasiEvName||'Bukti Temuan',data:rot.akurasiEv}]:[]);
   }
@@ -5802,7 +5818,7 @@ function hrdKdkDelete(mi){
 function hrdKdkViewEv(mi,section){
   var d=_hrdKdkG(hrdYear,mi);
   var sec=section==='abs'?d.abs:section==='kep'?d.kep:d.snk;
-  var evs=(sec.evs&&sec.evs.length>0)?sec.evs:(sec.ev?[{name:sec.evName||'Bukti',data:sec.ev}]:[]);
+  var evs=_evBuild(sec.evs,sec.ev,sec.evName||'Bukti');
   if(evs.length===0){notify('Tidak ada bukti.','error');return;}
   _viewEvs(evs);
 }
@@ -5856,7 +5872,7 @@ function hrdSimSave(subId,mi){
 }
 function hrdSimEdit(subId,mi){if(!confirm('Buka kunci data '+BULS[mi-1]+' '+hrdYear+' untuk diedit?'))return;var d=_hrdSimG(subId,hrdYear,mi);d.locked=false;_hrdSimS(subId,hrdYear,mi,d);okrSaveLS();hrdRenderSim(subId);}
 function hrdSimDelete(subId,mi){if(!confirm('Hapus data '+BULS[mi-1]+' '+hrdYear+'?'))return;var key=_hrdSimKey(subId,hrdYear,mi);if(okrData[key])delete okrData[key];hrdSyncOKR(subId,hrdYear,mi,null);okrSaveLS();hrdRenderSim(subId);notify('Data dihapus.');}
-function hrdSimViewEv(subId,mi){var d=_hrdSimG(subId,hrdYear,mi);if(!d.evidence){notify('Tidak ada bukti.','error');return;}var _evs=d.evidences&&d.evidences.length>0?d.evidences:(d.evidence?[{name:d.evidenceName||'File',data:d.evidence}]:[]);_viewEvs(_evs);}
+function hrdSimViewEv(subId,mi){var d=_hrdSimG(subId,hrdYear,mi);if(!d.evidence){notify('Tidak ada bukti.','error');return;}var _evs=_evBuild(d.evidences,d.evidence,d.evidenceName||'File');_viewEvs(_evs);}
 
 // ── SUB5: Recruitment Time ────────────────────────────────────
 var _HRD_REC_JAB=[
@@ -6023,7 +6039,7 @@ function hrdRecUploadRow(idx,inp){
   }
   _processImgFiles(_fs,function(results){_sv(results[0]?results[0].data:'',results);});
 }
-function hrdRecViewEv(idx){var data=_hrdRecG(hrdYear,hrdRecruitMonth);var row=data.rows[idx];if(!row||!row.evidence){notify('Tidak ada bukti.','error');return;}var _evs=row.evidences&&row.evidences.length>0?row.evidences:(row.evidence?[{name:row.evidenceName||'File',data:row.evidence}]:[]);_viewEvs(_evs);}
+function hrdRecViewEv(idx){var data=_hrdRecG(hrdYear,hrdRecruitMonth);var row=data.rows[idx];if(!row||!row.evidence){notify('Tidak ada bukti.','error');return;}var _evs=_evBuild(row.evidences,row.evidence,row.evidenceName||'File');_viewEvs(_evs);}
 
 // ── SUB6: Kinerja Karyawan ────────────────────────────────────
 function _hrdKinMonthAvg(y,m){
@@ -6113,7 +6129,7 @@ function hrdKinUploadRow(mi,idx,inp){
   function _sv(b64,_evs){var data=_hrdKinG(hrdYear,mi);var row=data.rows[idx];if(!row)return;var nmEl=document.getElementById('hrd-kin-nm-'+mi+'-'+idx);var tgEl=document.getElementById('hrd-kin-tg-'+mi+'-'+idx);var scEl=document.getElementById('hrd-kin-sc-'+mi+'-'+idx);if(nmEl)row.nama=(nmEl.value||'').trim();if(tgEl)row.tanggalMasuk=tgEl.value;if(scEl&&scEl.value.trim()!==''){var s=parseFloat(scEl.value);if(!isNaN(s))row.score=Math.min(100,Math.max(0,s));}row.evidences=_apEv(row.evidences,_evs);row.evidence=b64;row.evidenceName=file.name;_hrdKinS(hrdYear,mi,data);hrdRenderKinerja();notify('Bukti diupload ✓');}
   _processImgFiles(_fs,function(results){_sv(results[0]?results[0].data:'',results);});
 }
-function hrdKinViewEv(mi,idx){var data=_hrdKinG(hrdYear,mi);var row=data.rows[idx];if(!row||!row.evidence){notify('Tidak ada bukti.','error');return;}var _evs=row.evidences&&row.evidences.length>0?row.evidences:(row.evidence?[{name:row.evidenceName||'File',data:row.evidence}]:[]);_viewEvs(_evs);}
+function hrdKinViewEv(mi,idx){var data=_hrdKinG(hrdYear,mi);var row=data.rows[idx];if(!row||!row.evidence){notify('Tidak ada bukti.','error');return;}var _evs=_evBuild(row.evidences,row.evidence,row.evidenceName||'File');_viewEvs(_evs);}
 
 // ─── INTERNAL AUDIT MODULE ───
 var IA_REKO_NAMES = ['Keuangan','Stock Opname Store','Stock Opname Warehouse',
