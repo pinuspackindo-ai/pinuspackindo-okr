@@ -1500,9 +1500,17 @@ function _viewFileOnline(src,name){
   w4.document.write('<!doctype html><html><head><meta charset="utf-8"><title>'+name+'</title></head><body style="margin:0;"><iframe src="'+src+'" style="border:0;width:100vw;height:100vh;"></iframe></body></html>');
   w4.document.close();
 }
-function _viewEvs(evs){
-  evs=(evs||[]).filter(function(e){return e&&e.data;});
-  if(evs.length===0){notify('Tidak ada bukti.','error');return;}
+function _viewEvs(evs,fallbackEv,fallbackName){
+  evs=(evs||[]).map(function(e){
+    if(!e) return null;
+    // Jika data adalah __CLOUD__ placeholder, coba gunakan GitHub URL (fallback)
+    if(e.data==='__CLOUD__'||!e.data){
+      var d=fallbackEv||null;
+      return d?{name:e.name||fallbackName||'Bukti',data:d}:null;
+    }
+    return e;
+  }).filter(function(e){return e&&e.data&&e.data!=='__CLOUD__';});
+  if(evs.length===0){notify('File sedang dimuat dari cloud — tunggu sebentar lalu coba lagi.','error');return;}
   if(evs.length===1){ _viewFileOnline(evs[0].data, evs[0].name); return; }
   var _old=document.getElementById('_evov');if(_old)_old.remove();
   var _ov=document.createElement('div');_ov.id='_evov';
