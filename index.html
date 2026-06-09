@@ -4111,22 +4111,27 @@ function _okrRerenderCurrent(){
 }
 // Smart merge: cloud values fill-in local 0/null/missing, local non-zero values are preserved.
 // Prevents auto-sync from wiping freshly-uploaded evidence or locally-entered scores.
-function _okrSmartMerge(local,cloud){
+// _inSub=true → kita sedang di dalam sub-module key (_*): boleh fill 0/false/''
+// _inSub=false (default, root level) → hanya fill undefined/null; TIDAK recurse ke month-keys (2026-XX)
+//   karena month-keys = OKR row data yg diedit langsung user; jangan overwrite dgn cloud lama.
+function _okrSmartMerge(local,cloud,_inSub){
   if(!cloud||typeof cloud!=='object') return;
   Object.keys(cloud).forEach(function(k){
     if(k==='_ts'||k==='_slim') return;
     var cv=cloud[k], lv=local[k];
-    if(lv==='__CLOUD__'){local[k]=cv;return;}            // restore placeholder
-    if(lv===undefined||lv===null){local[k]=cv;return;}   // missing locally → take cloud
+    if(lv==='__CLOUD__'){local[k]=cv;return;}            // restore placeholder (always)
+    if(lv===undefined||lv===null){local[k]=cv;return;}   // missing locally → take cloud (always)
     if(typeof cv==='object'&&cv!==null&&typeof lv==='object'&&lv!==null){
-      _okrSmartMerge(lv,cv); return;                      // recurse into objects
+      // Recurse HANYA ke dalam sub-module keys (_*) atau kalau sudah di dalam sub-module
+      if(_inSub||k.charAt(0)==='_') _okrSmartMerge(lv,cv,true);
+      // Month-keys (2026-XX) di root: TIDAK di-recurse — jaga editan user di OKR rows
+      return;
     }
-    // Scalar: if local is 0/false/'' and cloud is a meaningful value → take cloud
-    // (handles case where local has stale 0 and cloud has correct score)
-    if((lv===0||lv===false||lv==='')&&cv!==0&&cv!==false&&cv!==''&&cv!==null&&cv!==undefined){
+    // Scalar 0/false/'' → isi dari cloud HANYA jika sedang di dalam sub-module key
+    if(_inSub&&(lv===0||lv===false||lv==='')&&cv!==0&&cv!==false&&cv!==''&&cv!==null&&cv!==undefined){
       local[k]=cv; return;
     }
-    // Otherwise: local wins (preserve user's own data / fresh uploads)
+    // Otherwise: local wins
   });
 }
 function okrAutoSync(){
@@ -4525,7 +4530,7 @@ function okrInit(){
           } else if(okrData._slim){
             // Local lebih baru tapi slim — restore __CLOUD__ + smart-merge 0/null dari raw
             _okrRestoreSlim(raw);
-            _okrSmartMerge(okrData,raw);
+            _okrSmartMerge(okrData,raw,false);
             okrRender();talRender();
           } else if(localOkrKeys.length===0){
             // Local punya data sub-modul tapi TIDAK punya struktur OKR → merge dari raw
@@ -4572,17 +4577,21 @@ function okrInit(){
         // diisi dari cloud (handles case: score 0 lokal tapi cloud sudah dikoreksi)
         if(okrData._slim) _okrRestoreSlim(cloud);
         var _mergeChanged=false;
-        (function _smCount(local,cld){
+        (function _smCount(local,cld,_inSub){
           if(!cld||typeof cld!=='object') return;
           Object.keys(cld).forEach(function(k){
             if(k==='_ts'||k==='_slim') return;
             var cv=cld[k], lv=local[k];
             if(lv==='__CLOUD__'){local[k]=cv;_mergeChanged=true;return;}
             if(lv===undefined||lv===null){local[k]=cv;_mergeChanged=true;return;}
-            if(typeof cv==='object'&&cv!==null&&typeof lv==='object'&&lv!==null){_smCount(lv,cv);return;}
-            if((lv===0||lv===false||lv==='')&&cv!==0&&cv!==false&&cv!==''&&cv!==null&&cv!==undefined){local[k]=cv;_mergeChanged=true;}
+            if(typeof cv==='object'&&cv!==null&&typeof lv==='object'&&lv!==null){
+              // Hanya recurse ke _* keys atau jika sudah di dalam sub-module
+              if(_inSub||k.charAt(0)==='_') _smCount(lv,cv,true);
+              return;
+            }
+            if(_inSub&&(lv===0||lv===false||lv==='')&&cv!==0&&cv!==false&&cv!==''&&cv!==null&&cv!==undefined){local[k]=cv;_mergeChanged=true;}
           });
-        })(okrData,cloud);
+        })(okrData,cloud,false);
         if(localOkrKeys.length===0&&cloudOkrKeys.length>0){
           // Local hanya punya data sub-modul tapi tidak ada struktur OKR → merge OKR dari cloud
           cloudOkrKeys.forEach(function(k){okrData[k]=cloud[k];});_mergeChanged=true;
