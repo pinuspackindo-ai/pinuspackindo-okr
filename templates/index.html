@@ -4547,17 +4547,20 @@ function okrInit(){
         // diisi dari cloud (handles case: score 0 lokal tapi cloud sudah dikoreksi)
         if(okrData._slim) _okrRestoreSlim(cloud);
         var _mergeChanged=false;
-        (function _smCount(local,cld){
+        (function _smCount(local,cld,_inSub){
           if(!cld||typeof cld!=='object') return;
           Object.keys(cld).forEach(function(k){
             if(k==='_ts'||k==='_slim') return;
             var cv=cld[k], lv=local[k];
             if(lv==='__CLOUD__'){local[k]=cv;_mergeChanged=true;return;}
             if(lv===undefined||lv===null){local[k]=cv;_mergeChanged=true;return;}
-            if(typeof cv==='object'&&cv!==null&&typeof lv==='object'&&lv!==null){_smCount(lv,cv);return;}
-            if((lv===0||lv===false||lv==='')&&cv!==0&&cv!==false&&cv!==''&&cv!==null&&cv!==undefined){local[k]=cv;_mergeChanged=true;}
+            if(typeof cv==='object'&&cv!==null&&typeof lv==='object'&&lv!==null){
+              if(_inSub||k.charAt(0)==='_') _smCount(lv,cv,true);
+              return;
+            }
+            if(_inSub&&(lv===0||lv===false||lv==='')&&cv!==0&&cv!==false&&cv!==''&&cv!==null&&cv!==undefined){local[k]=cv;_mergeChanged=true;}
           });
-        })(okrData,cloud);
+        })(okrData,cloud,false);
         if(localOkrKeys.length===0&&cloudOkrKeys.length>0){
           cloudOkrKeys.forEach(function(k){okrData[k]=cloud[k];});_mergeChanged=true;
           notify('Struktur OKR dipulihkan dari cloud ✓');
