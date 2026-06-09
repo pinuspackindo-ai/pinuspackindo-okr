@@ -1500,6 +1500,16 @@ function _viewFileOnline(src,name){
   w4.document.write('<!doctype html><html><head><meta charset="utf-8"><title>'+name+'</title></head><body style="margin:0;"><iframe src="'+src+'" style="border:0;width:100vw;height:100vh;"></iframe></body></html>');
   w4.document.close();
 }
+// Helper: bangun array evs yang bersih — handle __CLOUD__ placeholder dengan fallback GitHub URL
+function _evBuild(evs,ev,name){
+  var arr=(evs||[]).map(function(e){
+    if(!e) return null;
+    var d=(e.data==='__CLOUD__'||!e.data)?(ev||null):e.data;
+    return d?{name:e.name||name||'Bukti',data:d}:null;
+  }).filter(Boolean);
+  if(!arr.length&&ev) arr=[{name:name||'Bukti',data:ev}];
+  return arr;
+}
 function _viewEvs(evs,fallbackEv,fallbackName){
   evs=(evs||[]).map(function(e){
     if(!e) return null;
