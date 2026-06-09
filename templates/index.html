@@ -2867,7 +2867,7 @@ function invRotViewEv(poinIdx,isOntime){
   if(isOntime){
     evs=_evBuild(rot.ontimeEvs,rot.ontimeEv,rot.ontimeEvName||'Bukti Ontime');
   }else if(poinIdx===-1){
-    evs=rot.akurasiEvs&&rot.akurasiEvs.length>0?rot.akurasiEvs:(rot.akurasiEv?[{name:rot.akurasiEvName||'Bukti Temuan',data:rot.akurasiEv}]:[]);
+    evs=_evBuild(rot.akurasiEvs,rot.akurasiEv,rot.akurasiEvName||'Bukti Temuan');
   }else{
     var _e=rot.poinEv&&rot.poinEv[poinIdx]?rot.poinEv[poinIdx]:null;
     evs=_e?[{name:rot.poinEvName&&rot.poinEvName[poinIdx]?rot.poinEvName[poinIdx]:'Bukti',data:_e}]:[];
@@ -5612,7 +5612,7 @@ function gaRotViewEv(isOntime){
   if(isOntime){
     evs=_evBuild(rot.ontimeEvs,rot.ontimeEv,rot.ontimeEvName||'Bukti Ontime');
   }else{
-    evs=rot.akurasiEvs&&rot.akurasiEvs.length>0?rot.akurasiEvs:(rot.akurasiEv?[{name:rot.akurasiEvName||'Bukti Temuan',data:rot.akurasiEv}]:[]);
+    evs=_evBuild(rot.akurasiEvs,rot.akurasiEv,rot.akurasiEvName||'Bukti Temuan');
   }
   _viewEvs(evs);
 }
