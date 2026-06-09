@@ -4097,15 +4097,18 @@ function _okrRerenderCurrent(){
   try{ if(fn&&typeof window[fn]==='function')window[fn](); }catch(e){}
 }
 // Smart merge: cloud values fill-in local 0/null/missing, local non-zero values are preserved.
-function _okrSmartMerge(local,cloud){
+function _okrSmartMerge(local,cloud,_inSub){
   if(!cloud||typeof cloud!=='object') return;
   Object.keys(cloud).forEach(function(k){
     if(k==='_ts'||k==='_slim') return;
     var cv=cloud[k], lv=local[k];
     if(lv==='__CLOUD__'){local[k]=cv;return;}
     if(lv===undefined||lv===null){local[k]=cv;return;}
-    if(typeof cv==='object'&&cv!==null&&typeof lv==='object'&&lv!==null){_okrSmartMerge(lv,cv);return;}
-    if((lv===0||lv===false||lv==='')&&cv!==0&&cv!==false&&cv!==''&&cv!==null&&cv!==undefined){local[k]=cv;return;}
+    if(typeof cv==='object'&&cv!==null&&typeof lv==='object'&&lv!==null){
+      if(_inSub||k.charAt(0)==='_') _okrSmartMerge(lv,cv,true);
+      return;
+    }
+    if(_inSub&&(lv===0||lv===false||lv==='')&&cv!==0&&cv!==false&&cv!==''&&cv!==null&&cv!==undefined){local[k]=cv;return;}
   });
 }
 function okrAutoSync(){
