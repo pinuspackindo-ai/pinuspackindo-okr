@@ -3993,7 +3993,7 @@ function finaccRotViewEv(type){
   if(type==='ontime'){
     evs=_evBuild(rot.ontimeEvs,rot.ontimeEv,rot.ontimeEvName||'Bukti Ontime');
   }else{
-    evs=rot.akurasiEvs&&rot.akurasiEvs.length>0?rot.akurasiEvs:(rot.akurasiEv?[{name:rot.akurasiEvName||'Bukti Akurasi',data:rot.akurasiEv}]:[]);
+    evs=_evBuild(rot.akurasiEvs,rot.akurasiEv,rot.akurasiEvName||'Bukti Akurasi');
   }
   _viewEvs(evs);
 }
