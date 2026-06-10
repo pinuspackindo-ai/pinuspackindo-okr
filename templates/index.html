@@ -4096,6 +4096,31 @@ function _okrRerenderCurrent(){
   var fn=map[window._curPanel||'dashboard'];
   try{ if(fn&&typeof window[fn]==='function')window[fn](); }catch(e){}
 }
+// _syncMerge: merge cloud into local using per-key savedAt timestamps
+// Cloud wins only if its savedAt is strictly newer than local's savedAt
+// For keys without savedAt: cloud wins if it has data and local doesn't
+function _syncMerge(local, cloud) {
+  if (!cloud || typeof cloud !== 'object') return false;
+  var changed = false;
+  Object.keys(cloud).forEach(function(k) {
+    if (k === '_ts' || k === '_slim') return;
+    var cv = cloud[k], lv = local[k];
+    // Always restore __CLOUD__ placeholders
+    if (lv === '__CLOUD__') { local[k] = cv; changed = true; return; }
+    // Missing locally → take cloud
+    if (lv === undefined || lv === null) { local[k] = cv; changed = true; return; }
+    // Both are objects: compare savedAt
+    if (typeof cv === 'object' && cv !== null && typeof lv === 'object' && lv !== null) {
+      var lSaved = lv.savedAt ? new Date(lv.savedAt).getTime() : 0;
+      var cSaved = cv.savedAt ? new Date(cv.savedAt).getTime() : 0;
+      if (cSaved > lSaved) { local[k] = cv; changed = true; } // cloud newer → take it
+      // local newer or equal → keep local (no change)
+      return;
+    }
+    // Scalar at root level: local wins (no change)
+  });
+  return changed;
+}
 // Smart merge: cloud values fill-in local 0/null/missing, local non-zero values are preserved.
 function _okrSmartMerge(local,cloud,_inSub){
   if(!cloud||typeof cloud!=='object') return;
@@ -4121,9 +4146,17 @@ function okrAutoSync(){
       var cloudKeys=Object.keys(cloud).filter(function(k){return k!=='_ts';});
       if(!cloudKeys.length)return;
       var cloudTs=cloud._ts||0, localTs=okrData._ts||0;
-      if(cloudTs>localTs){
-        _okrSmartMerge(okrData,cloud);
-        okrData._ts=cloudTs;
+      // Always try merge regardless of global ts — per-key savedAt decides winner
+      var _adminKs=['_userAccess','_customUsers','_disabledUsers','_userPwd'];
+      _adminKs.forEach(function(k){
+        if(k in cloud&&JSON.stringify(cloud[k])!==JSON.stringify(okrData[k])){
+          okrData[k]=cloud[k];
+        }
+      });
+      if(okrData._slim) _okrRestoreSlim(cloud);
+      var _aChanged=_syncMerge(okrData,cloud);
+      if(_aChanged){
+        okrData._ts=Math.max(cloudTs,okrData._ts||0);
         try{
           var _k=(typeof OKR_STORE_KEY!=='undefined'&&OKR_STORE_KEY)?OKR_STORE_KEY:'pinus_okr_v1';
           var _so=JSON.parse(JSON.stringify(okrData,function(k,v){return (typeof v==='string'&&v.length>500&&v.indexOf('data:')===0)?'__CLOUD__':v;}));
@@ -4138,7 +4171,7 @@ window._okrAutoSyncStarted=window._okrAutoSyncStarted||false;
 function okrStartAutoSync(){
   if(window._okrAutoSyncStarted)return;
   window._okrAutoSyncStarted=true;
-  setInterval(okrAutoSync,15000);
+  setInterval(okrAutoSync,5000); // cek cloud tiap 5 detik
 }
 function showPanel(name,btn){
   window._curPanel=name;
