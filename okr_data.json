@@ -1,5 +1,5 @@
 {
-  "_ts": 1781073186296,
+  "_ts": 1781073197556,
   "2026-05": {
     "Distribution Sales": {
       "actionPlan": "Training new telesales",
@@ -2091,22 +2091,6 @@
             "data": null
           }
         ]
-      },
-      {
-        "jabatan": "STAFF",
-        "namaRequest": "STAFF LEGAL N PAYROLL",
-        "tglRequest": "2026-04-10",
-        "deadline": "2026-05-09",
-        "realisasi": "2026-05-10",
-        "evidence": "https://raw.githubusercontent.com/pinuspackindo-ai/pinuspackindo-okr/data/uploads/hrd/1780974009060_xahfgt_laporan_rekrutmen.png",
-        "evidenceName": "laporan rekrutmen .png",
-        "editing": false,
-        "evidences": [
-          {
-            "name": "laporan rekrutmen .png",
-            "data": null
-          }
-        ]
       }
     ]
   },
@@ -2209,13 +2193,13 @@
         "savedAt": "2026-06-10T00:26:12.329Z"
       },
       {
-        "tal": "Meneruskan SO harian % ED",
+        "tal": "Drafting jadwal SO & ED internal, implementasi",
         "deadline": "2026-06-30",
         "bobot": 25,
         "progress": null,
         "review": "",
         "editing": false,
-        "savedAt": "2026-06-10T00:26:12.329Z"
+        "savedAt": "2026-06-10T06:32:27.325Z"
       }
     ]
   },
