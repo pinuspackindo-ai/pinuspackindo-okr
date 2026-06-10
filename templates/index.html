@@ -6602,7 +6602,7 @@ function talRowScore(row){
   return Math.round(parseFloat(row.progress)*(row.bobot||0)/100*100)/100;
 }
 function talTotalScore(d,y,m){
-  return Math.round((_talG(d,y,m).rows||[]).filter(function(r){return !r.editing&&r.tal;}).reduce(function(acc,r){return acc+talRowScore(r);},0)*100)/100;
+  return Math.round((_talG(d,y,m).rows||[]).filter(function(r){return r.tal&&r.bobot;}).reduce(function(acc,r){return acc+talRowScore(r);},0)*100)/100;
 }
 
 function talInit(){
@@ -6727,7 +6727,7 @@ function authCanFillTALProgress(d){
 
 function talBuildDivCard(d,y,m){
   var data=_talG(d,y,m);var rows=data.rows||[];
-  var saved=rows.filter(function(r){return !r.editing&&r.tal;});
+  var saved=rows.filter(function(r){return r.tal&&r.bobot;});
   var total=talTotalScore(d,y,m);
   var totalBobot=saved.reduce(function(acc,r){return acc+(r.bobot||0);},0);
   var anyEditing=isOwnerOrAdmin()&&rows.some(function(r){return r.editing;});
