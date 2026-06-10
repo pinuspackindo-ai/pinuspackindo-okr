@@ -4122,6 +4122,8 @@ function _okrSmartMerge(local,cloud,_inSub){
     if(lv==='__CLOUD__'){local[k]=cv;return;}            // restore placeholder (always)
     if(lv===undefined||lv===null){local[k]=cv;return;}   // missing locally → take cloud (always)
     if(typeof cv==='object'&&cv!==null&&typeof lv==='object'&&lv!==null){
+      // Array: JANGAN merge element-per-element — local wins (hapus rows tetap kosong)
+      if(Array.isArray(lv)||Array.isArray(cv)) return;
       // Recurse HANYA ke dalam sub-module keys (_*) atau kalau sudah di dalam sub-module
       if(_inSub||k.charAt(0)==='_') _okrSmartMerge(lv,cv,true);
       // Month-keys (2026-XX) di root: TIDAK di-recurse — jaga editan user di OKR rows
