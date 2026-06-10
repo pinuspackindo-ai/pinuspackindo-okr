@@ -1,5 +1,5 @@
 {
-  "_ts": 1781073126271,
+  "_ts": 1781073143566,
   "2026-05": {
     "Distribution Sales": {
       "actionPlan": "Training new telesales",
@@ -1489,7 +1489,7 @@
         "bobot": 60,
         "progress": null,
         "review": "",
-        "editing": false,
+        "editing": true,
         "savedAt": "2026-06-10T00:24:21.186Z"
       },
       {
@@ -1498,7 +1498,7 @@
         "bobot": 40,
         "progress": null,
         "review": "",
-        "editing": false,
+        "editing": true,
         "savedAt": "2026-06-10T00:24:21.186Z"
       }
     ]
@@ -2196,7 +2196,7 @@
         "bobot": 40,
         "progress": null,
         "review": "",
-        "editing": false,
+        "editing": true,
         "savedAt": "2026-06-10T00:26:12.329Z"
       },
       {
@@ -2205,17 +2205,17 @@
         "bobot": 35,
         "progress": null,
         "review": "",
-        "editing": false,
+        "editing": true,
         "savedAt": "2026-06-10T00:26:12.329Z"
       },
       {
-        "tal": "Meneruskan SO harian % ED",
+        "tal": "Drafting jadwal SO & ED internal, implementasi",
         "deadline": "2026-06-30",
         "bobot": 25,
         "progress": null,
         "review": "",
         "editing": false,
-        "savedAt": "2026-06-10T00:26:12.329Z"
+        "savedAt": "2026-06-10T06:32:23.566Z"
       }
     ]
   },
