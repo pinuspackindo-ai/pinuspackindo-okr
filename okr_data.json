@@ -1,5 +1,5 @@
 {
-  "_ts": 1781073426311,
+  "_ts": 1781073435701,
   "2026-05": {
     "Distribution Sales": {
       "actionPlan": "Training new telesales",
@@ -499,7 +499,7 @@
           "target": 95
         },
         {
-          "actual": null,
+          "actual": 0,
           "bobot": 15,
           "id": "r17804720965139eyq",
           "keyResult": "Ketepatan waktu rekrutment",
@@ -852,22 +852,6 @@
   },
   "_hrd_rec_2026_06": {
     "rows": [
-      {
-        "jabatan": "STAFF",
-        "namaRequest": "STAFF LEGAL N PAYROLL",
-        "tglRequest": "2026-04-10",
-        "deadline": "2026-05-09",
-        "realisasi": "2026-05-13",
-        "evidence": null,
-        "evidenceName": "laporan rekrutmen .png",
-        "editing": false,
-        "evidences": [
-          {
-            "name": "laporan rekrutmen .png",
-            "data": "https://raw.githubusercontent.com/pinuspackindo-ai/pinuspackindo-okr/data/uploads/hrd/1780993815882_josrii_laporan_rekrutmen.png"
-          }
-        ]
-      },
       {
         "jabatan": "STAFF",
         "namaRequest": "KASIR",
