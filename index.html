@@ -4170,10 +4170,17 @@ function okrAutoSync(){
       var cloudKeys=Object.keys(cloud).filter(function(k){return k!=='_ts';});
       if(!cloudKeys.length)return;
       var cloudTs=cloud._ts||0, localTs=okrData._ts||0;
-      if(cloudTs>localTs){
-        // Smart merge: cloud wins for 0/null/missing, local wins for real values
-        _okrSmartMerge(okrData,cloud);
-        okrData._ts=cloudTs;
+      // Always try merge regardless of global ts — per-key savedAt decides winner
+      var _adminKs=['_userAccess','_customUsers','_disabledUsers','_userPwd'];
+      _adminKs.forEach(function(k){
+        if(k in cloud&&JSON.stringify(cloud[k])!==JSON.stringify(okrData[k])){
+          okrData[k]=cloud[k];
+        }
+      });
+      if(okrData._slim) _okrRestoreSlim(cloud);
+      var _aChanged=_syncMerge(okrData,cloud);
+      if(_aChanged){
+        okrData._ts=Math.max(cloudTs,okrData._ts||0);
         try{
           var _k=(typeof OKR_STORE_KEY!=='undefined'&&OKR_STORE_KEY)?OKR_STORE_KEY:'pinus_okr_v1';
           var _so=JSON.parse(JSON.stringify(okrData,function(k,v){return (typeof v==='string'&&v.length>500&&v.indexOf('data:')===0)?'__CLOUD__':v;}));
@@ -4188,7 +4195,7 @@ window._okrAutoSyncStarted=window._okrAutoSyncStarted||false;
 function okrStartAutoSync(){
   if(window._okrAutoSyncStarted)return;
   window._okrAutoSyncStarted=true;
-  setInterval(okrAutoSync,15000); // cek cloud tiap 15 detik
+  setInterval(okrAutoSync,5000); // cek cloud tiap 5 detik
 }
 function showPanel(name,btn){
   window._curPanel=name;
@@ -4581,76 +4588,26 @@ function okrInit(){
       var localOkrKeys=localDataKeys.filter(function(k){return !k.startsWith('_');});
       var cloudOkrKeys=Object.keys(cloud).filter(function(k){return k!=='_ts'&&!k.startsWith('_');});
       var _needRerender=false;
-      if(cloudTs>localTs||localEmpty){
-        // Cloud lebih baru — tapi pertahankan data sub-modul lokal yg tidak ada di cloud (cegah wipe)
-        var _localSub={};
-        if(!localEmpty){localDataKeys.forEach(function(k){if(k.startsWith('_'))_localSub[k]=okrData[k];});}
-        okrData=cloud;
-        Object.keys(_localSub).forEach(function(k){
-          if(!(k in cloud)){okrData[k]=_localSub[k];return;}
-          // Protect locked non-zero sub-module data: jangan biarkan cloud-zero menimpa local non-zero
-          var lv=_localSub[k],cv=cloud[k];
-          if(lv&&lv.locked&&cv&&cv.locked){
-            var lvScore=(lv.finalScore!==undefined?lv.finalScore:lv.score)||0;
-            var cvScore=(cv.finalScore!==undefined?cv.finalScore:cv.score)||0;
-            if(lvScore>0&&cvScore===0) okrData[k]=lv;
-          }
-        });
-        localStorage.setItem(OKR_STORE_KEY,JSON.stringify(okrData));
-        okrRender();talRender();authApplyAccess();
-        if(localTs>0&&!localEmpty) notify('Data diperbarui dari cloud ✓');
-      } else {
-        // Local sama/lebih baru — tetap jalankan smart-merge agar nilai 0/null di local
-        // diisi dari cloud (handles case: score 0 lokal tapi cloud sudah dikoreksi)
-        if(okrData._slim) _okrRestoreSlim(cloud);
-        var _mergeChanged=false;
-        (function _smCount(local,cld,_inSub){
-          if(!cld||typeof cld!=='object') return;
-          Object.keys(cld).forEach(function(k){
-            if(k==='_ts'||k==='_slim') return;
-            var cv=cld[k], lv=local[k];
-            if(lv==='__CLOUD__'){local[k]=cv;_mergeChanged=true;return;}
-            if(lv===undefined||lv===null){local[k]=cv;_mergeChanged=true;return;}
-            if(typeof cv==='object'&&cv!==null&&typeof lv==='object'&&lv!==null){
-              // Array: local wins — jangan merge element-per-element (hapus rows tetap kosong)
-              if(Array.isArray(lv)||Array.isArray(cv)) return;
-              // Hanya recurse ke _* keys atau jika sudah di dalam sub-module
-              if(_inSub||k.charAt(0)==='_') _smCount(lv,cv,true);
-              return;
-            }
-            if(_inSub&&(lv===0||lv===false||lv==='')&&cv!==0&&cv!==false&&cv!==''&&cv!==null&&cv!==undefined){local[k]=cv;_mergeChanged=true;}
-          });
-        })(okrData,cloud,false);
-        if(localOkrKeys.length===0&&cloudOkrKeys.length>0){
-          // Local hanya punya data sub-modul tapi tidak ada struktur OKR → merge OKR dari cloud
-          cloudOkrKeys.forEach(function(k){okrData[k]=cloud[k];});_mergeChanged=true;
-          notify('Struktur OKR dipulihkan dari cloud ✓');
-        }
-        if(_mergeChanged){
-          try{localStorage.setItem(OKR_STORE_KEY,JSON.stringify(okrData));}catch(e){}
-          okrRender();talRender();
-        }
-      }
-      // SELALU sync data yang dikelola Admin + TAL dari cloud
+      // Unified merge: per-key savedAt wins, admin keys always from cloud
+      if(okrData._slim) _okrRestoreSlim(cloud);
       var _adminKeys=['_userAccess','_customUsers','_disabledUsers','_userPwd'];
-      var _changed=false;
-      Object.keys(cloud).forEach(function(k){
-        if(k==='_ts') return;
-        var isAdmin=_adminKeys.indexOf(k)!==-1;
-        var isTAL=k.startsWith('_tal_');
-        if(isAdmin||isTAL){
-          // Admin keys + TAL: selalu ambil dari cloud (source of truth)
-          if(JSON.stringify(cloud[k])!==JSON.stringify(okrData[k])){
-            okrData[k]=cloud[k];_changed=true;
-          }
-        } else if(k.startsWith('_')&&!(k in okrData)){
-          // Sub-modul lain: tambahkan jika belum ada di local
-          okrData[k]=cloud[k];_changed=true;
+      // Admin keys: always take cloud (source of truth for access control)
+      _adminKeys.forEach(function(k){
+        if(k in cloud&&JSON.stringify(cloud[k])!==JSON.stringify(okrData[k])){
+          okrData[k]=cloud[k];
         }
       });
-      if(_changed){
+      // All other keys: savedAt-based merge
+      var _mergeChanged=_syncMerge(okrData,cloud);
+      // If local has no OKR month structure at all → take from cloud
+      if(localOkrKeys.length===0&&cloudOkrKeys.length>0){
+        cloudOkrKeys.forEach(function(k){okrData[k]=cloud[k];});_mergeChanged=true;
+        notify('Struktur OKR dipulihkan dari cloud ✓');
+      }
+      if(_mergeChanged||localEmpty){
+        okrData._ts=Math.max(cloudTs,localTs);
         localStorage.setItem(OKR_STORE_KEY,JSON.stringify(okrData));
-        authApplyAccess();talRender();
+        okrRender();talRender();authApplyAccess();
       }
     })
     .catch(function(){ _okrSyncBlocked=false; }); // unblock juga jika error
