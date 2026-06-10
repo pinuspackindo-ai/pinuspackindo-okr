@@ -1,5 +1,98 @@
 {
-  "_ts": 1781075509529,
+  "_userAccess": {
+    "Finance & Accounting": {
+      "modules": [
+        "dashboard",
+        "financeacc",
+        "tal"
+      ],
+      "okrAll": false
+    },
+    "General Affair": {
+      "modules": [
+        "dashboard",
+        "generalaffair",
+        "tal"
+      ],
+      "okrAll": false
+    },
+    "HRD": {
+      "modules": [
+        "dashboard",
+        "hrd",
+        "tal"
+      ],
+      "okrAll": false
+    },
+    "Internal Audit": {
+      "modules": [
+        "dashboard",
+        "tal",
+        "ia"
+      ],
+      "okrAll": true
+    },
+    "Inventory": {
+      "modules": [
+        "dashboard",
+        "inventory",
+        "tal"
+      ],
+      "okrAll": false
+    },
+    "Owner": {
+      "modules": [
+        "dashboard",
+        "tal",
+        "store",
+        "distrib",
+        "inventory",
+        "purchasing",
+        "financeacc",
+        "generalaffair",
+        "hrd",
+        "ia"
+      ],
+      "okrAll": true
+    },
+    "Purchasing": {
+      "modules": [
+        "dashboard",
+        "purchasing",
+        "tal"
+      ],
+      "okrAll": false
+    },
+    "Sales": {
+      "modules": [
+        "dashboard",
+        "distrib",
+        "tal"
+      ],
+      "okrAll": false
+    },
+    "Store": {
+      "modules": [
+        "dashboard",
+        "store",
+        "tal"
+      ],
+      "okrAll": false
+    },
+    "Warehouse": {
+      "modules": [
+        "dashboard",
+        "warehouse",
+        "tal"
+      ],
+      "okrAll": false
+    }
+  },
+  "_userPwd": {
+    "Store": "1011",
+    "Admin": "909",
+    "Purchasing": "05"
+  },
   "2026-05": {
     "Distribution Sales": {
       "actionPlan": "Training new telesales",
@@ -851,40 +944,7 @@
     "value": 96
   },
   "_hrd_rec_2026_06": {
-    "rows": [
-      {
-        "jabatan": "STAFF",
-        "namaRequest": "STAFF LEGAL N PAYROLL",
-        "tglRequest": "2026-04-10",
-        "deadline": "2026-05-09",
-        "realisasi": "2026-05-13",
-        "evidence": null,
-        "evidenceName": "laporan rekrutmen .png",
-        "editing": false,
-        "evidences": [
-          {
-            "name": "laporan rekrutmen .png",
-            "data": "https://raw.githubusercontent.com/pinuspackindo-ai/pinuspackindo-okr/data/uploads/hrd/1780993815882_josrii_laporan_rekrutmen.png"
-          }
-        ]
-      },
-      {
-        "jabatan": "STAFF",
-        "namaRequest": "KASIR",
-        "tglRequest": "2026-04-07",
-        "deadline": "2026-05-06",
-        "realisasi": "2026-06-04",
-        "evidence": "https://raw.githubusercontent.com/pinuspackindo-ai/pinuspackindo-okr/data/uploads/hrd/1780993820826_70zna5_laporan_rekrutmen.png",
-        "evidenceName": "laporan rekrutmen .png",
-        "editing": false,
-        "evidences": [
-          {
-            "name": "laporan rekrutmen .png",
-            "data": null
-          }
-        ]
-      }
-    ]
+    "rows": []
   },
   "_ia_proj_2026_05": {
     "rows": [
@@ -1583,100 +1643,6 @@
       }
     ]
   },
-  "_userAccess": {
-    "Finance & Accounting": {
-      "modules": [
-        "dashboard",
-        "financeacc",
-        "tal"
-      ],
-      "okrAll": false
-    },
-    "General Affair": {
-      "modules": [
-        "dashboard",
-        "generalaffair",
-        "tal"
-      ],
-      "okrAll": false
-    },
-    "HRD": {
-      "modules": [
-        "dashboard",
-        "hrd",
-        "tal"
-      ],
-      "okrAll": false
-    },
-    "Internal Audit": {
-      "modules": [
-        "dashboard",
-        "tal",
-        "ia"
-      ],
-      "okrAll": true
-    },
-    "Inventory": {
-      "modules": [
-        "dashboard",
-        "inventory",
-        "tal"
-      ],
-      "okrAll": false
-    },
-    "Owner": {
-      "modules": [
-        "dashboard",
-        "tal",
-        "store",
-        "distrib",
-        "inventory",
-        "purchasing",
-        "financeacc",
-        "generalaffair",
-        "hrd",
-        "ia"
-      ],
-      "okrAll": true
-    },
-    "Purchasing": {
-      "modules": [
-        "dashboard",
-        "purchasing",
-        "tal"
-      ],
-      "okrAll": false
-    },
-    "Sales": {
-      "modules": [
-        "dashboard",
-        "distrib",
-        "tal"
-      ],
-      "okrAll": false
-    },
-    "Store": {
-      "modules": [
-        "dashboard",
-        "store",
-        "tal"
-      ],
-      "okrAll": false
-    },
-    "Warehouse": {
-      "modules": [
-        "dashboard",
-        "warehouse",
-        "tal"
-      ],
-      "okrAll": false
-    }
-  },
-  "_userPwd": {
-    "Store": "1011",
-    "Admin": "909",
-    "Purchasing": "05"
-  },
   "_w_akurasi_w_2026_05": {
     "evidence": "https://raw.githubusercontent.com/pinuspackindo-ai/pinuspackindo-okr/data/uploads/warehouse/1780907282426_b1hne4_Pinus.jpg",
     "evidenceName": "Pinus.jpg",
@@ -2091,22 +2057,6 @@
             "data": null
           }
         ]
-      },
-      {
-        "jabatan": "STAFF",
-        "namaRequest": "STAFF LEGAL N PAYROLL",
-        "tglRequest": "2026-04-10",
-        "deadline": "2026-05-09",
-        "realisasi": "2026-05-10",
-        "evidence": "https://raw.githubusercontent.com/pinuspackindo-ai/pinuspackindo-okr/data/uploads/hrd/1780974009060_xahfgt_laporan_rekrutmen.png",
-        "evidenceName": "laporan rekrutmen .png",
-        "editing": false,
-        "evidences": [
-          {
-            "name": "laporan rekrutmen .png",
-            "data": null
-          }
-        ]
       }
     ]
   },
@@ -2285,5 +2235,6 @@
     "locked": true,
     "savedAt": "2026-06-04T13:46:33.392Z",
     "text": "A;B;C;D;E;F;G;H;I;J;K;L;M;N;O;P;Q;R;S;T;U"
-  }
+  },
+  "_ts": 1781075516944
 }
