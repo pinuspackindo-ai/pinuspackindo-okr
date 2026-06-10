@@ -5045,7 +5045,7 @@ function okrSave(){
   var apVal=document.getElementById('okr-f-ap').value.trim();
   var key=okrKeyOf(tahun,bulan);
   if(!okrData[key]) okrData[key]={};
-  okrData[key][divisi]={rows:rows,actionPlan:apVal};
+  okrData[key][divisi]={rows:rows,actionPlan:apVal,savedAt:new Date().toISOString()};
   okrSaveLS();
 
   // Update tampilan ke bulan yang disimpan
@@ -5675,16 +5675,16 @@ var hrdRecruitMonth=new Date().getMonth()+1;
 
 function _hrdKdkKey(y,m){return '_hrd_kdk_'+y+'_'+String(m).padStart(2,'0');}
 function _hrdKdkG(y,m){var d=okrData[_hrdKdkKey(y,m)];if(d)return d;return{abs:{aktif:null,temuan:0,ev:null,evName:null},kep:{aktif:null,temuan:0,ev:null,evName:null},snk:{jumlah:0,ev:null,evName:null},absScore:null,kepScore:null,snkScore:100,totalScore:null,savedAt:null,locked:false};}
-function _hrdKdkS(y,m,o){okrData[_hrdKdkKey(y,m)]=o;}
+function _hrdKdkS(y,m,o){o.savedAt=o.savedAt||new Date().toISOString();okrData[_hrdKdkKey(y,m)]=o;}
 function _hrdSimKey(s,y,m){return '_hrd_'+s+'_'+y+'_'+String(m).padStart(2,'0');}
 function _hrdSimG(s,y,m){return okrData[_hrdSimKey(s,y,m)]||{value:null,evidence:null,evidenceName:null,savedAt:null,locked:false};}
-function _hrdSimS(s,y,m,o){okrData[_hrdSimKey(s,y,m)]=o;}
+function _hrdSimS(s,y,m,o){o.savedAt=o.savedAt||new Date().toISOString();okrData[_hrdSimKey(s,y,m)]=o;}
 function _hrdRecKey(y,m){return '_hrd_rec_'+y+'_'+String(m).padStart(2,'0');}
 function _hrdRecG(y,m){return okrData[_hrdRecKey(y,m)]||{rows:[]};}
-function _hrdRecS(y,m,o){okrData[_hrdRecKey(y,m)]=o;}
+function _hrdRecS(y,m,o){o.savedAt=o.savedAt||new Date().toISOString();okrData[_hrdRecKey(y,m)]=o;}
 function _hrdKinKey(y,m){return '_hrd_kin_'+y+'_'+String(m).padStart(2,'0');}
 function _hrdKinG(y,m){return okrData[_hrdKinKey(y,m)]||{rows:[]};}
-function _hrdKinS(y,m,o){okrData[_hrdKinKey(y,m)]=o;}
+function _hrdKinS(y,m,o){o.savedAt=o.savedAt||new Date().toISOString();okrData[_hrdKinKey(y,m)]=o;}
 
 function hrdIsLinked(year,month){return year>2026||(year===2026&&month>=5);}
 function hrdSyncStore(year,month,value){
@@ -6647,7 +6647,7 @@ var talMonth=new Date().getMonth()+1;
 
 function _talKey(d,y,m){return '_tal_d'+d+'_'+y+'_'+String(m).padStart(2,'0');}
 function _talG(d,y,m){return okrData[_talKey(d,y,m)]||{rows:[]};}
-function _talS(d,y,m,o){okrData[_talKey(d,y,m)]=o;}
+function _talS(d,y,m,o){o.savedAt=new Date().toISOString();okrData[_talKey(d,y,m)]=o;}
 
 function talRowScore(row){
   if(row.progress===null||row.progress===undefined||row.progress==='')return 0;
