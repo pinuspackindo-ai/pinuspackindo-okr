@@ -1,5 +1,5 @@
 {
-  "_ts": 1781073173414,
+  "_ts": 1781073186296,
   "2026-05": {
     "Distribution Sales": {
       "actionPlan": "Training new telesales",
@@ -2209,13 +2209,13 @@
         "savedAt": "2026-06-10T00:26:12.329Z"
       },
       {
-        "tal": "Drafting jadwal SO & ED internal, implementasi",
+        "tal": "Meneruskan SO harian % ED",
         "deadline": "2026-06-30",
         "bobot": 25,
         "progress": null,
         "review": "",
         "editing": false,
-        "savedAt": "2026-06-10T06:32:27.325Z"
+        "savedAt": "2026-06-10T00:26:12.329Z"
       }
     ]
   },
