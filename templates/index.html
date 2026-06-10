@@ -4105,6 +4105,7 @@ function _okrSmartMerge(local,cloud,_inSub){
     if(lv==='__CLOUD__'){local[k]=cv;return;}
     if(lv===undefined||lv===null){local[k]=cv;return;}
     if(typeof cv==='object'&&cv!==null&&typeof lv==='object'&&lv!==null){
+      if(Array.isArray(lv)||Array.isArray(cv)) return;
       if(_inSub||k.charAt(0)==='_') _okrSmartMerge(lv,cv,true);
       return;
     }
@@ -4555,6 +4556,7 @@ function okrInit(){
             if(lv==='__CLOUD__'){local[k]=cv;_mergeChanged=true;return;}
             if(lv===undefined||lv===null){local[k]=cv;_mergeChanged=true;return;}
             if(typeof cv==='object'&&cv!==null&&typeof lv==='object'&&lv!==null){
+              if(Array.isArray(lv)||Array.isArray(cv)) return;
               if(_inSub||k.charAt(0)==='_') _smCount(lv,cv,true);
               return;
             }
