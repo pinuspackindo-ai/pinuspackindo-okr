@@ -1,5 +1,5 @@
 {
-  "_ts": 1781072946329,
+  "_ts": 1781072948472,
   "2026-05": {
     "Distribution Sales": {
       "actionPlan": "Training new telesales",
@@ -140,7 +140,7 @@
           "target": 95
         },
         {
-          "actual": 98.57,
+          "actual": 71.43,
           "bobot": 15,
           "id": "r1779890290785jvoc",
           "keyResult": "Ketepatan waktu rekrutment",
@@ -251,7 +251,7 @@
           "target": 95
         },
         {
-          "actual": 0.03,
+          "actual": 2.23,
           "bobot": 10,
           "id": "r1779890290785bpf0",
           "keyResult": "Tingkat penghematan budget",
@@ -499,7 +499,7 @@
           "target": 95
         },
         {
-          "actual": null,
+          "actual": 71.43,
           "bobot": 15,
           "id": "r17804720965139eyq",
           "keyResult": "Ketepatan waktu rekrutment",
@@ -557,7 +557,7 @@
           "target": 75
         },
         {
-          "actual": 99,
+          "actual": 98,
           "bobot": 10,
           "id": "r17804720965137ahi",
           "keyResult": "Akurasi DO & RN",
@@ -1432,6 +1432,20 @@
     "score": 97.14086471408648,
     "totalRows": 1434
   },
+  "_p_sv_2026_05_26": {
+    "evidence": null,
+    "evidenceName": "Pinus.jpg",
+    "locked": true,
+    "savedAt": "2026-06-04T13:46:33.392Z",
+    "text": "A;B;C;D;E;F;G;H;I;J;K;L;M;N;O;P;Q;R;S;T;U"
+  },
+  "_p_sv_2026_05_30": {
+    "evidence": "https://raw.githubusercontent.com/pinuspackindo-ai/pinuspackindo-okr/data/uploads/purchasing/1781056934452_9nekzt_Pinus.jpg",
+    "evidenceName": "Pinus.jpg",
+    "locked": true,
+    "savedAt": "2026-06-04T13:47:05.658Z",
+    "text": "A;B;C;D;E;F;G;H;I;J;K"
+  },
   "_p_sv_2026_06_30": {
     "evidence": null,
     "evidenceName": "Pinus.jpg",
@@ -1439,7 +1453,7 @@
     "savedAt": null,
     "text": ""
   },
-  "_p_sv_rn_2026_05": 3000,
+  "_p_sv_rn_2026_05": 1434,
   "_p_sv_rn_lk_2026_05": true,
   "_tal_d0_2026_06": {
     "rows": [
@@ -1511,7 +1525,7 @@
         "editing": false,
         "progress": 50,
         "review": "",
-        "savedAt": "2026-06-10T01:37:30.981Z",
+        "savedAt": "2026-06-08T00:57:01.854Z",
         "tal": "Revisi DD, Bizflow, SOP Warehouse"
       },
       {
@@ -1520,7 +1534,7 @@
         "editing": true,
         "progress": 100,
         "review": "",
-        "savedAt": "2026-06-10T01:37:35.103Z",
+        "savedAt": "2026-06-03T02:51:09.006Z",
         "tal": "Pengesahan DD Telesales"
       },
       {
@@ -1529,7 +1543,7 @@
         "editing": true,
         "progress": null,
         "review": "",
-        "savedAt": "2026-06-10T01:56:22.917Z",
+        "savedAt": "2026-06-03T02:51:09.006Z",
         "tal": "Visualisasi Bizflow di Warehouse"
       },
       {
@@ -1978,8 +1992,8 @@
   "_inv_rn_do_2026_06_08": {
     "value": 98,
     "evidence": "https://raw.githubusercontent.com/pinuspackindo-ai/pinuspackindo-okr/data/uploads/inventory/1780997000233_1b8r6d_b1fa6733-4c79-4047-afc3-9a1ac4bb6cdd.jpg",
-    "evidenceName": "b1fa6733-4c79-4047-afc3-9a1ac4bb6cdd.jpg",
-    "savedAt": "2026-06-09T09:23:19.779Z",
+    "evidenceName": "WhatsApp Image 2026-06-08 at 16.56.05.jpeg",
+    "savedAt": "2026-06-08T09:57:01.919Z",
     "locked": true,
     "evidences": [
       {
@@ -2014,11 +2028,27 @@
     "rows": [
       {
         "jabatan": "STAFF",
+        "namaRequest": "STAFF LEGAL N PAYROLL",
+        "tglRequest": "2026-04-10",
+        "deadline": "2026-05-09",
+        "realisasi": "2026-05-13",
+        "evidence": "https://raw.githubusercontent.com/pinuspackindo-ai/pinuspackindo-okr/data/uploads/hrd/1780973717956_wtfu92_laporan_rekrutmen.png",
+        "evidenceName": "laporan rekrutmen .png",
+        "editing": false,
+        "evidences": [
+          {
+            "name": "laporan rekrutmen .png",
+            "data": "https://raw.githubusercontent.com/pinuspackindo-ai/pinuspackindo-okr/data/uploads/hrd/1780972736468_mv9tjc_laporan_rekrutmen.png"
+          }
+        ]
+      },
+      {
+        "jabatan": "STAFF",
         "namaRequest": "KASIR",
         "tglRequest": "2026-04-07",
         "deadline": "2026-05-06",
         "realisasi": "2026-05-04",
-        "evidence": "https://raw.githubusercontent.com/pinuspackindo-ai/pinuspackindo-okr/data/uploads/hrd/1780973717956_wtfu92_laporan_rekrutmen.png",
+        "evidence": "https://raw.githubusercontent.com/pinuspackindo-ai/pinuspackindo-okr/data/uploads/hrd/1780994721001_jrnrjj_laporan_rekrutmen.png",
         "evidenceName": "laporan rekrutmen .png",
         "editing": false,
         "evidences": [
@@ -2034,7 +2064,7 @@
         "tglRequest": "2026-04-07",
         "deadline": "2026-05-06",
         "realisasi": "2026-04-24",
-        "evidence": "https://raw.githubusercontent.com/pinuspackindo-ai/pinuspackindo-okr/data/uploads/hrd/1780994721001_jrnrjj_laporan_rekrutmen.png",
+        "evidence": "https://raw.githubusercontent.com/pinuspackindo-ai/pinuspackindo-okr/data/uploads/hrd/1780994709886_p02nqq_laporan_rekrutmen.png",
         "evidenceName": "laporan rekrutmen .png",
         "editing": false,
         "evidences": [
@@ -2050,7 +2080,7 @@
         "tglRequest": "2026-04-18",
         "deadline": "2026-06-01",
         "realisasi": "2026-05-18",
-        "evidence": "https://raw.githubusercontent.com/pinuspackindo-ai/pinuspackindo-okr/data/uploads/hrd/1780994709886_p02nqq_laporan_rekrutmen.png",
+        "evidence": "https://raw.githubusercontent.com/pinuspackindo-ai/pinuspackindo-okr/data/uploads/hrd/1780974009060_xahfgt_laporan_rekrutmen.png",
         "evidenceName": "laporan rekrutmen .png",
         "editing": false,
         "evidences": [
@@ -2066,22 +2096,6 @@
         "tglRequest": "2026-05-18",
         "deadline": "2026-08-15",
         "realisasi": "2026-05-26",
-        "evidence": "https://raw.githubusercontent.com/pinuspackindo-ai/pinuspackindo-okr/data/uploads/hrd/1780974009060_xahfgt_laporan_rekrutmen.png",
-        "evidenceName": "laporan rekrutmen .png",
-        "editing": false,
-        "evidences": [
-          {
-            "name": "laporan rekrutmen .png",
-            "data": "https://raw.githubusercontent.com/pinuspackindo-ai/pinuspackindo-okr/data/uploads/hrd/1780996982735_b6o4dc_laporan_rekrutmen.png"
-          }
-        ]
-      },
-      {
-        "jabatan": "STAFF",
-        "namaRequest": "STAFF LEGAL N PAYROLL",
-        "tglRequest": "2026-04-10",
-        "deadline": "2026-05-09",
-        "realisasi": "2026-05-10",
         "evidence": "https://raw.githubusercontent.com/pinuspackindo-ai/pinuspackindo-okr/data/uploads/hrd/1780974009060_xahfgt_laporan_rekrutmen.png",
         "evidenceName": "laporan rekrutmen .png",
         "editing": false,
@@ -2271,19 +2285,5 @@
         "savedAt": "2026-06-10T00:29:07.095Z"
       }
     ]
-  },
-  "_p_sv_2026_05_30": {
-    "text": "A",
-    "evidence": "https://raw.githubusercontent.com/pinuspackindo-ai/pinuspackindo-okr/data/uploads/purchasing/1781056934452_9nekzt_Pinus.jpg",
-    "evidenceName": "Pinus.jpg",
-    "savedAt": "2026-06-10T02:02:12.380Z",
-    "locked": true
-  },
-  "_p_sv_2026_05_26": {
-    "evidence": null,
-    "evidenceName": "Pinus.jpg",
-    "locked": true,
-    "savedAt": "2026-06-04T13:46:33.392Z",
-    "text": "A;B;C;D;E;F;G;H;I;J;K;L;M;N;O;P;Q;R;S;T;U"
   }
 }
