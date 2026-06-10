@@ -4109,6 +4109,31 @@ function _okrRerenderCurrent(){
   var fn=map[window._curPanel||'dashboard'];
   try{ if(fn&&typeof window[fn]==='function')window[fn](); }catch(e){}
 }
+// _syncMerge: merge cloud into local using per-key savedAt timestamps
+// Cloud wins only if its savedAt is strictly newer than local's savedAt
+// For keys without savedAt: cloud wins if it has data and local doesn't
+function _syncMerge(local, cloud) {
+  if (!cloud || typeof cloud !== 'object') return false;
+  var changed = false;
+  Object.keys(cloud).forEach(function(k) {
+    if (k === '_ts' || k === '_slim') return;
+    var cv = cloud[k], lv = local[k];
+    // Always restore __CLOUD__ placeholders
+    if (lv === '__CLOUD__') { local[k] = cv; changed = true; return; }
+    // Missing locally → take cloud
+    if (lv === undefined || lv === null) { local[k] = cv; changed = true; return; }
+    // Both are objects: compare savedAt
+    if (typeof cv === 'object' && cv !== null && typeof lv === 'object' && lv !== null) {
+      var lSaved = lv.savedAt ? new Date(lv.savedAt).getTime() : 0;
+      var cSaved = cv.savedAt ? new Date(cv.savedAt).getTime() : 0;
+      if (cSaved > lSaved) { local[k] = cv; changed = true; } // cloud newer → take it
+      // local newer or equal → keep local (no change)
+      return;
+    }
+    // Scalar at root level: local wins (no change)
+  });
+  return changed;
+}
 // Smart merge: cloud values fill-in local 0/null/missing, local non-zero values are preserved.
 // Prevents auto-sync from wiping freshly-uploaded evidence or locally-entered scores.
 // _inSub=true → kita sedang di dalam sub-module key (_*): boleh fill 0/false/''
