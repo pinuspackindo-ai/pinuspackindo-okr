@@ -4556,21 +4556,20 @@ function okrInit(){
           var localTs=okrData._ts||0; var rawTs=raw._ts||0;
           var localDataKeys=Object.keys(okrData).filter(function(k){return k!=='_ts';});
           var localOkrKeys=localDataKeys.filter(function(k){return !k.startsWith('_');});
-          if(rawTs>localTs||localDataKeys.length===0){
-            // Raw lebih baru — tapi pertahankan data sub-modul lokal yg tidak ada di raw (cegah wipe)
-            var _lSub={};localDataKeys.forEach(function(k){if(k.startsWith('_'))_lSub[k]=okrData[k];});
-            okrData=raw;Object.keys(_lSub).forEach(function(k){if(!(k in raw))okrData[k]=_lSub[k];});
-            localStorage.setItem(OKR_STORE_KEY,JSON.stringify(okrData));okrRender();talRender();authApplyAccess();
-          } else if(okrData._slim){
-            // Local lebih baru tapi slim — restore __CLOUD__ + smart-merge 0/null dari raw
-            _okrRestoreSlim(raw);
-            _okrSmartMerge(okrData,raw,false);
-            okrRender();talRender();
-          } else if(localOkrKeys.length===0){
-            // Local punya data sub-modul tapi TIDAK punya struktur OKR → merge dari raw
-            var rawOkrKeys=rawKeys.filter(function(k){return !k.startsWith('_');});
-            rawOkrKeys.forEach(function(k){okrData[k]=raw[k];});
-            okrData._ts=Date.now();
+          var rawOkrKeys=rawKeys.filter(function(k){return !k.startsWith('_');});
+          // Unified merge: per-key savedAt wins, admin keys always from cloud
+          if(okrData._slim) _okrRestoreSlim(raw);
+          var _rawAdminKs=['_userAccess','_customUsers','_disabledUsers','_userPwd'];
+          _rawAdminKs.forEach(function(k){
+            if(k in raw&&JSON.stringify(raw[k])!==JSON.stringify(okrData[k])){okrData[k]=raw[k];}
+          });
+          var _rawChanged=_syncMerge(okrData,raw);
+          if(localOkrKeys.length===0&&rawOkrKeys.length>0){
+            rawOkrKeys.forEach(function(k){okrData[k]=raw[k];});_rawChanged=true;
+            notify('Struktur OKR dipulihkan dari cloud ✓');
+          }
+          if(_rawChanged||localDataKeys.length===0){
+            okrData._ts=Math.max(rawTs,localTs);
             localStorage.setItem(OKR_STORE_KEY,JSON.stringify(okrData));okrRender();talRender();authApplyAccess();
           }
         }).catch(function(){_okrSyncBlocked=false;});
