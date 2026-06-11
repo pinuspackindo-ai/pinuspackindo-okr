@@ -677,7 +677,7 @@
       "actionPlan": "Membuat 4 konten sosmed",
       "rows": [
         {
-          "actual": 90.83,
+          "actual": 90.88,
           "bobot": 35,
           "id": "r1780472096513ueyz",
           "keyResult": "Tingkat in stock",
@@ -2329,5 +2329,14 @@
       }
     ]
   },
-  "_ts": 1781173020325
+  "_ts": 1781173044024,
+  "_p_ins_2026_06_11": {
+    "file1": "https://raw.githubusercontent.com/pinuspackindo-ai/pinuspackindo-okr/data/uploads/purchasing/1781173045157_qnopxz_product.product_2.xlsx",
+    "file1Name": "product.product (2).xlsx",
+    "file2": "https://raw.githubusercontent.com/pinuspackindo-ai/pinuspackindo-okr/data/uploads/purchasing/1781173045708_g3d1zt_product.product_3.xlsx",
+    "file2Name": "product.product (3).xlsx",
+    "score": 91.28,
+    "savedAt": "2026-06-11T10:17:24.021Z",
+    "locked": true
+  }
 }
