@@ -1,10 +1,9 @@
 {
-  "_ts": 1781173015684,
   "_userAccess": {
-    "Finance & Accounting": {
+    "HRD": {
       "modules": [
         "dashboard",
-        "financeacc",
+        "hrd",
         "tal"
       ],
       "okrAll": false
@@ -17,21 +16,13 @@
       ],
       "okrAll": false
     },
-    "HRD": {
+    "Purchasing": {
       "modules": [
         "dashboard",
-        "hrd",
+        "purchasing",
         "tal"
       ],
       "okrAll": false
-    },
-    "Internal Audit": {
-      "modules": [
-        "dashboard",
-        "tal",
-        "ia"
-      ],
-      "okrAll": true
     },
     "Inventory": {
       "modules": [
@@ -41,33 +32,10 @@
       ],
       "okrAll": false
     },
-    "Owner": {
+    "Finance & Accounting": {
       "modules": [
         "dashboard",
-        "tal",
-        "store",
-        "distrib",
-        "inventory",
-        "purchasing",
         "financeacc",
-        "generalaffair",
-        "hrd",
-        "ia"
-      ],
-      "okrAll": true
-    },
-    "Purchasing": {
-      "modules": [
-        "dashboard",
-        "purchasing",
-        "tal"
-      ],
-      "okrAll": false
-    },
-    "Sales": {
-      "modules": [
-        "dashboard",
-        "distrib",
         "tal"
       ],
       "okrAll": false
@@ -87,12 +55,41 @@
         "tal"
       ],
       "okrAll": false
+    },
+    "Sales": {
+      "modules": [
+        "dashboard",
+        "distrib",
+        "tal"
+      ],
+      "okrAll": false
+    },
+    "Internal Audit": {
+      "modules": [
+        "dashboard",
+        "tal",
+        "ia"
+      ],
+      "okrAll": true
+    },
+    "Owner": {
+      "modules": [
+        "dashboard",
+        "tal",
+        "store",
+        "distrib",
+        "inventory",
+        "purchasing",
+        "financeacc",
+        "generalaffair",
+        "hrd",
+        "ia"
+      ],
+      "okrAll": true
     }
   },
   "_userPwd": {
-    "Store": "1011",
-    "Admin": "909",
-    "Purchasing": "05"
+    "Store": "1011"
   },
   "2026-05": {
     "Distribution Sales": {
@@ -527,7 +524,7 @@
           "target": 98
         },
         {
-          "actual": null,
+          "actual": 90,
           "bobot": 10,
           "id": "r17804720965137oje",
           "keyResult": "Tingkat implementasi rekomendasi audit",
@@ -651,7 +648,7 @@
           "target": 75
         },
         {
-          "actual": 98.33,
+          "actual": 99,
           "bobot": 10,
           "id": "r17804720965137ahi",
           "keyResult": "Akurasi DO & RN",
@@ -2268,10 +2265,69 @@
   "_p_ins_2026_06_10": {
     "file1": "https://raw.githubusercontent.com/pinuspackindo-ai/pinuspackindo-okr/data/uploads/purchasing/1781083877997_lkt0zo_product.product.xlsx",
     "file1Name": "product.product.xlsx",
-    "file2": null,
+    "file2": "https://raw.githubusercontent.com/pinuspackindo-ai/pinuspackindo-okr/data/uploads/purchasing/1781095257651_vs9fh5_product.product_1.xlsx",
     "file2Name": "product.product (1).xlsx",
     "score": 91.51,
     "savedAt": "2026-06-10T09:31:15.907Z",
     "locked": true
-  }
+  },
+  "_inv_rn_do_2026_06_03": {
+    "value": 100,
+    "evidence": "https://raw.githubusercontent.com/pinuspackindo-ai/pinuspackindo-okr/main/uploads/inventory/1780659242605_i38177_D01.jpg",
+    "evidenceName": "D01.jpg",
+    "savedAt": "2026-06-04T17:00:53.379Z",
+    "locked": true,
+    "evidences": [
+      {
+        "name": "D01.jpg",
+        "data": null
+      },
+      {
+        "name": "RN03.jpg",
+        "data": null
+      },
+      {
+        "name": "RN02.jpg",
+        "data": null
+      }
+    ]
+  },
+  "_fa_impl_reko_fa_2026_06": {
+    "value": 90,
+    "evidence": "",
+    "evidenceName": "Pinus (1).jpg",
+    "savedAt": "2026-06-04T17:45:38.021Z",
+    "locked": true,
+    "evidences": []
+  },
+  "_s_omzet_2026_06": {
+    "value": 3000000000,
+    "evidence": "",
+    "evidenceName": "Pinus.jpg",
+    "savedAt": "2026-06-05T03:23:42.602Z",
+    "locked": true,
+    "evidences": []
+  },
+  "_inv_rn_do_2026_06_11": {
+    "value": 100,
+    "evidence": "https://raw.githubusercontent.com/pinuspackindo-ai/pinuspackindo-okr/data/uploads/inventory/1781170404324_rqzi4k_WhatsApp_Image_2026-06-11_at_16.16.19.jpeg",
+    "evidenceName": "WhatsApp Image 2026-06-11 at 16.16.19.jpeg",
+    "savedAt": "2026-06-11T09:33:22.374Z",
+    "locked": true,
+    "evidences": [
+      {
+        "name": "WhatsApp Image 2026-06-11 at 16.16.19.jpeg",
+        "data": "https://raw.githubusercontent.com/pinuspackindo-ai/pinuspackindo-okr/data/uploads/inventory/1781170463026_kymudl_WhatsApp_Image_2026-06-11_at_16.16.19.jpeg"
+      },
+      {
+        "name": "WhatsApp Image 2026-06-11 at 16.31.43.jpeg",
+        "data": "https://raw.githubusercontent.com/pinuspackindo-ai/pinuspackindo-okr/data/uploads/inventory/1781170404951_hjgdvq_WhatsApp_Image_2026-06-11_at_16.31.43.jpeg"
+      },
+      {
+        "name": "WhatsApp Image 2026-06-11 at 16.31.13.jpeg",
+        "data": "https://raw.githubusercontent.com/pinuspackindo-ai/pinuspackindo-okr/data/uploads/inventory/1781173017162_vugbrp_WhatsApp_Image_2026-06-11_at_16.31.13.jpeg"
+      }
+    ]
+  },
+  "_ts": 1781173016582
 }
