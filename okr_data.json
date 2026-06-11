@@ -1,98 +1,5 @@
 {
-  "_userAccess": {
-    "Finance & Accounting": {
-      "modules": [
-        "dashboard",
-        "financeacc",
-        "tal"
-      ],
-      "okrAll": false
-    },
-    "General Affair": {
-      "modules": [
-        "dashboard",
-        "generalaffair",
-        "tal"
-      ],
-      "okrAll": false
-    },
-    "HRD": {
-      "modules": [
-        "dashboard",
-        "hrd",
-        "tal"
-      ],
-      "okrAll": false
-    },
-    "Internal Audit": {
-      "modules": [
-        "dashboard",
-        "tal",
-        "ia"
-      ],
-      "okrAll": true
-    },
-    "Inventory": {
-      "modules": [
-        "dashboard",
-        "inventory",
-        "tal"
-      ],
-      "okrAll": false
-    },
-    "Owner": {
-      "modules": [
-        "dashboard",
-        "tal",
-        "store",
-        "distrib",
-        "inventory",
-        "purchasing",
-        "financeacc",
-        "generalaffair",
-        "hrd",
-        "ia"
-      ],
-      "okrAll": true
-    },
-    "Purchasing": {
-      "modules": [
-        "dashboard",
-        "purchasing",
-        "tal"
-      ],
-      "okrAll": false
-    },
-    "Sales": {
-      "modules": [
-        "dashboard",
-        "distrib",
-        "tal"
-      ],
-      "okrAll": false
-    },
-    "Store": {
-      "modules": [
-        "dashboard",
-        "store",
-        "tal"
-      ],
-      "okrAll": false
-    },
-    "Warehouse": {
-      "modules": [
-        "dashboard",
-        "warehouse",
-        "tal"
-      ],
-      "okrAll": false
-    }
-  },
-  "_userPwd": {
-    "Store": "1011",
-    "Admin": "909",
-    "Purchasing": "05"
-  },
+  "_ts": 1781141596027,
   "2026-05": {
     "Distribution Sales": {
       "actionPlan": "Training new telesales",
@@ -344,7 +251,7 @@
           "target": 95
         },
         {
-          "actual": 0.03,
+          "actual": 2.23,
           "bobot": 10,
           "id": "r1779890290785bpf0",
           "keyResult": "Tingkat penghematan budget",
@@ -650,7 +557,7 @@
           "target": 75
         },
         {
-          "actual": 98.33,
+          "actual": 99,
           "bobot": 10,
           "id": "r17804720965137ahi",
           "keyResult": "Akurasi DO & RN",
@@ -679,7 +586,7 @@
       "actionPlan": "Membuat 4 konten sosmed",
       "rows": [
         {
-          "actual": 90.83,
+          "actual": 90.74,
           "bobot": 35,
           "id": "r1780472096513ueyz",
           "keyResult": "Tingkat in stock",
@@ -944,7 +851,40 @@
     "value": 96
   },
   "_hrd_rec_2026_06": {
-    "rows": []
+    "rows": [
+      {
+        "jabatan": "STAFF",
+        "namaRequest": "STAFF LEGAL N PAYROLL",
+        "tglRequest": "2026-04-10",
+        "deadline": "2026-05-09",
+        "realisasi": "2026-05-13",
+        "evidence": "https://raw.githubusercontent.com/pinuspackindo-ai/pinuspackindo-okr/data/uploads/hrd/1780994642276_zhv52u_laporan_rekrutmen.png",
+        "evidenceName": "laporan rekrutmen .png",
+        "editing": false,
+        "evidences": [
+          {
+            "name": "laporan rekrutmen .png",
+            "data": "https://raw.githubusercontent.com/pinuspackindo-ai/pinuspackindo-okr/data/uploads/hrd/1780993815882_josrii_laporan_rekrutmen.png"
+          }
+        ]
+      },
+      {
+        "jabatan": "STAFF",
+        "namaRequest": "KASIR",
+        "tglRequest": "2026-04-07",
+        "deadline": "2026-05-06",
+        "realisasi": "2026-06-04",
+        "evidence": "https://raw.githubusercontent.com/pinuspackindo-ai/pinuspackindo-okr/data/uploads/hrd/1780993820826_70zna5_laporan_rekrutmen.png",
+        "evidenceName": "laporan rekrutmen .png",
+        "editing": false,
+        "evidences": [
+          {
+            "name": "laporan rekrutmen .png",
+            "data": "https://raw.githubusercontent.com/pinuspackindo-ai/pinuspackindo-okr/data/uploads/hrd/1780994105735_xbpjsw_laporan_rekrutmen.png"
+          }
+        ]
+      }
+    ]
   },
   "_ia_proj_2026_05": {
     "rows": [
@@ -1492,6 +1432,20 @@
     "score": 97.14086471408648,
     "totalRows": 1434
   },
+  "_p_sv_2026_05_26": {
+    "evidence": null,
+    "evidenceName": "Pinus.jpg",
+    "locked": true,
+    "savedAt": "2026-06-04T13:46:33.392Z",
+    "text": "A;B;C;D;E;F;G;H;I;J;K;L;M;N;O;P;Q;R;S;T;U"
+  },
+  "_p_sv_2026_05_30": {
+    "evidence": null,
+    "evidenceName": "Pinus.jpg",
+    "locked": true,
+    "savedAt": "2026-06-04T13:47:05.658Z",
+    "text": "A;B;C;D;E;F;G;H;I;J;K"
+  },
   "_p_sv_2026_06_30": {
     "evidence": null,
     "evidenceName": "Pinus.jpg",
@@ -1499,7 +1453,7 @@
     "savedAt": null,
     "text": ""
   },
-  "_p_sv_rn_2026_05": 3000,
+  "_p_sv_rn_2026_05": 1434,
   "_p_sv_rn_lk_2026_05": true,
   "_tal_d0_2026_06": {
     "rows": [
@@ -1549,7 +1503,7 @@
         "bobot": 60,
         "progress": null,
         "review": "",
-        "editing": true,
+        "editing": false,
         "savedAt": "2026-06-10T00:24:21.186Z"
       },
       {
@@ -1558,7 +1512,7 @@
         "bobot": 40,
         "progress": null,
         "review": "",
-        "editing": true,
+        "editing": false,
         "savedAt": "2026-06-10T00:24:21.186Z"
       }
     ]
@@ -1571,7 +1525,7 @@
         "editing": false,
         "progress": 50,
         "review": "",
-        "savedAt": "2026-06-10T01:37:30.981Z",
+        "savedAt": "2026-06-10T00:22:50.179Z",
         "tal": "Revisi DD, Bizflow, SOP Warehouse"
       },
       {
@@ -1580,16 +1534,16 @@
         "editing": true,
         "progress": 100,
         "review": "",
-        "savedAt": "2026-06-10T01:37:35.103Z",
+        "savedAt": "2026-06-03T02:51:09.006Z",
         "tal": "Pengesahan DD Telesales"
       },
       {
         "bobot": 20,
         "deadline": "2026-06-30",
         "editing": true,
-        "progress": null,
+        "progress": 50,
         "review": "",
-        "savedAt": "2026-06-10T01:56:22.917Z",
+        "savedAt": "2026-06-03T02:51:09.006Z",
         "tal": "Visualisasi Bizflow di Warehouse"
       },
       {
@@ -1642,6 +1596,100 @@
         "savedAt": "2026-06-10T01:11:47.320Z"
       }
     ]
+  },
+  "_userAccess": {
+    "Finance & Accounting": {
+      "modules": [
+        "dashboard",
+        "financeacc",
+        "tal"
+      ],
+      "okrAll": false
+    },
+    "General Affair": {
+      "modules": [
+        "dashboard",
+        "generalaffair",
+        "tal"
+      ],
+      "okrAll": false
+    },
+    "HRD": {
+      "modules": [
+        "dashboard",
+        "hrd",
+        "tal"
+      ],
+      "okrAll": false
+    },
+    "Internal Audit": {
+      "modules": [
+        "dashboard",
+        "tal",
+        "ia"
+      ],
+      "okrAll": true
+    },
+    "Inventory": {
+      "modules": [
+        "dashboard",
+        "inventory",
+        "tal"
+      ],
+      "okrAll": false
+    },
+    "Owner": {
+      "modules": [
+        "dashboard",
+        "tal",
+        "store",
+        "distrib",
+        "inventory",
+        "purchasing",
+        "financeacc",
+        "generalaffair",
+        "hrd",
+        "ia"
+      ],
+      "okrAll": true
+    },
+    "Purchasing": {
+      "modules": [
+        "dashboard",
+        "purchasing",
+        "tal"
+      ],
+      "okrAll": false
+    },
+    "Sales": {
+      "modules": [
+        "dashboard",
+        "distrib",
+        "tal"
+      ],
+      "okrAll": false
+    },
+    "Store": {
+      "modules": [
+        "dashboard",
+        "store",
+        "tal"
+      ],
+      "okrAll": false
+    },
+    "Warehouse": {
+      "modules": [
+        "dashboard",
+        "warehouse",
+        "tal"
+      ],
+      "okrAll": false
+    }
+  },
+  "_userPwd": {
+    "Store": "1011",
+    "Admin": "909",
+    "Purchasing": "05"
   },
   "_w_akurasi_w_2026_05": {
     "evidence": "https://raw.githubusercontent.com/pinuspackindo-ai/pinuspackindo-okr/data/uploads/warehouse/1780907282426_b1hne4_Pinus.jpg",
@@ -2057,6 +2105,22 @@
             "data": null
           }
         ]
+      },
+      {
+        "jabatan": "STAFF",
+        "namaRequest": "STAFF LEGAL N PAYROLL",
+        "tglRequest": "2026-04-10",
+        "deadline": "2026-05-09",
+        "realisasi": "2026-05-10",
+        "evidence": "https://raw.githubusercontent.com/pinuspackindo-ai/pinuspackindo-okr/data/uploads/hrd/1780974009060_xahfgt_laporan_rekrutmen.png",
+        "evidenceName": "laporan rekrutmen .png",
+        "editing": false,
+        "evidences": [
+          {
+            "name": "laporan rekrutmen .png",
+            "data": null
+          }
+        ]
       }
     ]
   },
@@ -2066,7 +2130,7 @@
     "file2": "https://raw.githubusercontent.com/pinuspackindo-ai/pinuspackindo-okr/data/uploads/purchasing/1780992894574_ye29ct_product.product_1.xlsx",
     "file2Name": "product.product (1).xlsx",
     "score": 91.03,
-    "savedAt": "2026-06-09T08:24:23.300Z",
+    "savedAt": "2026-06-09T08:14:53.173Z",
     "locked": true
   },
   "_p_ins_2026_06_02": {
@@ -2108,10 +2172,10 @@
   "_p_ins_2026_06_08": {
     "file1": "https://raw.githubusercontent.com/pinuspackindo-ai/pinuspackindo-okr/data/uploads/purchasing/1780993022900_aomue7_product.product.xlsx",
     "file1Name": "product.product.xlsx",
-    "file2": "https://raw.githubusercontent.com/pinuspackindo-ai/pinuspackindo-okr/data/uploads/purchasing/1780993454886_qruj1j_product.product_1.xlsx",
+    "file2": "https://raw.githubusercontent.com/pinuspackindo-ai/pinuspackindo-okr/data/uploads/purchasing/1780994735842_afwa2t_product.product_1.xlsx",
     "file2Name": "product.product (1).xlsx",
     "score": 90.43,
-    "savedAt": "2026-06-09T08:22:44.797Z",
+    "savedAt": "2026-06-09T08:16:59.149Z",
     "locked": true
   },
   "_p_sv_2026_06_09": {
@@ -2146,7 +2210,7 @@
         "bobot": 40,
         "progress": null,
         "review": "",
-        "editing": true,
+        "editing": false,
         "savedAt": "2026-06-10T00:26:12.329Z"
       },
       {
@@ -2155,7 +2219,7 @@
         "bobot": 35,
         "progress": null,
         "review": "",
-        "editing": true,
+        "editing": false,
         "savedAt": "2026-06-10T00:26:12.329Z"
       },
       {
@@ -2221,57 +2285,5 @@
         "savedAt": "2026-06-10T00:29:07.095Z"
       }
     ]
-  },
-  "_p_sv_2026_05_30": {
-    "text": "A",
-    "evidence": "https://raw.githubusercontent.com/pinuspackindo-ai/pinuspackindo-okr/data/uploads/purchasing/1781056934452_9nekzt_Pinus.jpg",
-    "evidenceName": "Pinus.jpg",
-    "savedAt": "2026-06-10T02:02:12.380Z",
-    "locked": true
-  },
-  "_p_sv_2026_05_26": {
-    "evidence": null,
-    "evidenceName": "Pinus.jpg",
-    "locked": true,
-    "savedAt": "2026-06-04T13:46:33.392Z",
-    "text": "A;B;C;D;E;F;G;H;I;J;K;L;M;N;O;P;Q;R;S;T;U"
-  },
-  "_p_sv_2026_06_10": {
-    "text": "MEJA PUTAR KUE, 35,499, 33,800",
-    "evidence": "https://raw.githubusercontent.com/pinuspackindo-ai/pinuspackindo-okr/data/uploads/purchasing/1781082531715_u17i4z_10.png",
-    "evidenceName": "10.PNG",
-    "savedAt": "2026-06-10T09:08:52.070Z",
-    "locked": true
-  },
-  "_inv_rn_do_2026_06_10": {
-    "value": 97,
-    "evidence": "https://raw.githubusercontent.com/pinuspackindo-ai/pinuspackindo-okr/data/uploads/inventory/1781082965273_r9avzw_WhatsApp_Image_2026-06-10_at_15.58.24.jpeg",
-    "evidenceName": "WhatsApp Image 2026-06-10 at 15.58.24.jpeg",
-    "savedAt": "2026-06-10T09:16:04.029Z",
-    "locked": true,
-    "evidences": [
-      {
-        "name": "WhatsApp Image 2026-06-10 at 15.58.24.jpeg",
-        "data": null
-      },
-      {
-        "name": "WhatsApp Image 2026-06-10 at 15.57.27.jpeg",
-        "data": null
-      },
-      {
-        "name": "WhatsApp Image 2026-06-10 at 15.31.41.jpeg",
-        "data": null
-      }
-    ]
-  },
-  "_p_ins_2026_06_10": {
-    "file1": "https://raw.githubusercontent.com/pinuspackindo-ai/pinuspackindo-okr/data/uploads/purchasing/1781083877997_lkt0zo_product.product.xlsx",
-    "file1Name": "product.product.xlsx",
-    "file2": "https://raw.githubusercontent.com/pinuspackindo-ai/pinuspackindo-okr/data/uploads/purchasing/1781095257651_vs9fh5_product.product_1.xlsx",
-    "file2Name": "product.product (1).xlsx",
-    "score": 91.51,
-    "savedAt": "2026-06-10T09:31:15.907Z",
-    "locked": true
-  },
-  "_ts": 1781140750653
+  }
 }
