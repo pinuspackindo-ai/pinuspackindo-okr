@@ -1,4 +1,5 @@
 {
+  "_ts": 1781140737777,
   "_userAccess": {
     "Finance & Accounting": {
       "modules": [
@@ -650,7 +651,7 @@
           "target": 75
         },
         {
-          "actual": 98.33,
+          "actual": 99,
           "bobot": 10,
           "id": "r17804720965137ahi",
           "keyResult": "Akurasi DO & RN",
@@ -679,7 +680,7 @@
       "actionPlan": "Membuat 4 konten sosmed",
       "rows": [
         {
-          "actual": 90.83,
+          "actual": 90.74,
           "bobot": 35,
           "id": "r1780472096513ueyz",
           "keyResult": "Tingkat in stock",
@@ -2066,7 +2067,7 @@
     "file2": "https://raw.githubusercontent.com/pinuspackindo-ai/pinuspackindo-okr/data/uploads/purchasing/1780992894574_ye29ct_product.product_1.xlsx",
     "file2Name": "product.product (1).xlsx",
     "score": 91.03,
-    "savedAt": "2026-06-09T08:24:23.300Z",
+    "savedAt": "2026-06-09T08:14:53.173Z",
     "locked": true
   },
   "_p_ins_2026_06_02": {
@@ -2108,10 +2109,10 @@
   "_p_ins_2026_06_08": {
     "file1": "https://raw.githubusercontent.com/pinuspackindo-ai/pinuspackindo-okr/data/uploads/purchasing/1780993022900_aomue7_product.product.xlsx",
     "file1Name": "product.product.xlsx",
-    "file2": "https://raw.githubusercontent.com/pinuspackindo-ai/pinuspackindo-okr/data/uploads/purchasing/1780993454886_qruj1j_product.product_1.xlsx",
+    "file2": "https://raw.githubusercontent.com/pinuspackindo-ai/pinuspackindo-okr/data/uploads/purchasing/1780994735842_afwa2t_product.product_1.xlsx",
     "file2Name": "product.product (1).xlsx",
     "score": 90.43,
-    "savedAt": "2026-06-09T08:22:44.797Z",
+    "savedAt": "2026-06-09T08:16:59.149Z",
     "locked": true
   },
   "_p_sv_2026_06_09": {
@@ -2263,15 +2264,5 @@
         "data": null
       }
     ]
-  },
-  "_p_ins_2026_06_10": {
-    "file1": "https://raw.githubusercontent.com/pinuspackindo-ai/pinuspackindo-okr/data/uploads/purchasing/1781083877997_lkt0zo_product.product.xlsx",
-    "file1Name": "product.product.xlsx",
-    "file2": "https://raw.githubusercontent.com/pinuspackindo-ai/pinuspackindo-okr/data/uploads/purchasing/1781095257651_vs9fh5_product.product_1.xlsx",
-    "file2Name": "product.product (1).xlsx",
-    "score": 91.51,
-    "savedAt": "2026-06-10T09:31:15.907Z",
-    "locked": true
-  },
-  "_ts": 1781095255803
+  }
 }
