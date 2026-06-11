@@ -1,368 +1,4 @@
 {
-  "_ts": 1781169723844,
-  "2026-05": {
-    "Distribution Sales": {
-      "rows": [
-        {
-          "id": "r17805435648835cuh",
-          "objective": "Mencapai target penjualan, pelanggan puas.",
-          "keyResult": "Jumlah omset global",
-          "target": 3400000000,
-          "actual": 2148420390,
-          "bobot": 35
-        },
-        {
-          "id": "r1780543564883mynr",
-          "objective": "Mencapai target penjualan, pelanggan puas.",
-          "keyResult": "Retensi pelanggan",
-          "target": 100,
-          "actual": 53,
-          "bobot": 30
-        },
-        {
-          "id": "r178054356488340jv",
-          "objective": "Mencapai target penjualan, pelanggan puas.",
-          "keyResult": "Customers baru",
-          "target": 10,
-          "actual": 8,
-          "bobot": 25
-        },
-        {
-          "id": "r17805435648843bf1",
-          "objective": "Mencapai target penjualan, pelanggan puas.",
-          "keyResult": "Kepuasan pelanggan",
-          "target": 90,
-          "actual": 80,
-          "bobot": 10
-        }
-      ],
-      "actionPlan": "Training new telesales"
-    },
-    "General Affair": {
-      "rows": [
-        {
-          "id": "r177989029078478jg",
-          "objective": "Inventaris utuh terawat, pengadaan tepat waktu, operasional aman lancar, user puas.",
-          "keyResult": "Tingkat akurasi stok inventaris data vs fisik",
-          "target": 98,
-          "actual": null,
-          "bobot": 40
-        },
-        {
-          "id": "r1779890290784j6r4",
-          "objective": "Inventaris utuh terawat, pengadaan tepat waktu, operasional aman lancar, user puas.",
-          "keyResult": "Tingkat akurasi lead time pengadaan / maintenance",
-          "target": 95,
-          "actual": null,
-          "bobot": 35
-        },
-        {
-          "id": "r1779890290784n89y",
-          "objective": "Inventaris utuh terawat, pengadaan tepat waktu, operasional aman lancar, user puas.",
-          "keyResult": "Laporan inventaris akurat dan on time",
-          "target": 100,
-          "actual": null,
-          "bobot": 25
-        }
-      ],
-      "actionPlan": "Kaji ulang cctv warehouse"
-    },
-    "Finance & Accounting": {
-      "rows": [
-        {
-          "id": "r1779890290785m3kc",
-          "objective": "Data dan fisik uang akurat, transaksi tepat dan on time.",
-          "keyResult": "Tingkat keberhasilan penagihan piutang",
-          "target": 95,
-          "actual": 100,
-          "bobot": 30
-        },
-        {
-          "id": "r1779890290785uaje",
-          "objective": "Data dan fisik uang akurat, transaksi tepat dan on time.",
-          "keyResult": "Payment akurat dan on time",
-          "target": 98,
-          "actual": 100,
-          "bobot": 25
-        },
-        {
-          "id": "r1779890290785ys47",
-          "objective": "Data dan fisik uang akurat, transaksi tepat dan on time.",
-          "keyResult": "Tingkat akurasi uang fisik dan data",
-          "target": 98,
-          "actual": 100,
-          "bobot": 20
-        },
-        {
-          "id": "r1779890290785kd0n",
-          "objective": "Data dan fisik uang akurat, transaksi tepat dan on time.",
-          "keyResult": "Laporan keuangan akurat dan on time",
-          "target": 98,
-          "actual": 100,
-          "bobot": 15
-        },
-        {
-          "id": "r1779890290785dyuw",
-          "objective": "Data dan fisik uang akurat, transaksi tepat dan on time.",
-          "keyResult": "Tingkat implementasi rekomendasi audit",
-          "target": 100,
-          "actual": null,
-          "bobot": 10
-        }
-      ],
-      "actionPlan": "Planning investasi"
-    },
-    "Internal Audit": {
-      "rows": [
-        {
-          "id": "r1780558991338if00",
-          "objective": "Melindungi dan mengawasi sistem internal berbasis dari resiko yg timbul.",
-          "keyResult": "Tingkat implementasi rekomendasi audit",
-          "target": 100,
-          "actual": 100,
-          "bobot": 45
-        },
-        {
-          "id": "r1780558991338u3z9",
-          "objective": "Melindungi dan mengawasi sistem internal berbasis dari resiko yg timbul.",
-          "keyResult": "Laporan audit akurat dan on time",
-          "target": 100,
-          "actual": 100,
-          "bobot": 35
-        },
-        {
-          "id": "r1780558991338hdvk",
-          "objective": "Melindungi dan mengawasi sistem internal berbasis dari resiko yg timbul.",
-          "keyResult": "Jumlah inisiatif proaktif",
-          "target": 2,
-          "actual": 3,
-          "bobot": 20
-        }
-      ],
-      "actionPlan": "Finalisasi DD, bizflow, SOP warehouse"
-    },
-    "Purchasing": {
-      "rows": [
-        {
-          "id": "r1779890290785uqg7",
-          "objective": "Pengadaan stok tepat waktu dan berkwalitas, administrasi akurat..",
-          "keyResult": "Tingkat in stock",
-          "target": 90,
-          "actual": 89.31,
-          "bobot": 35
-        },
-        {
-          "id": "r1779890290785eikx",
-          "objective": "Pengadaan stok tepat waktu dan berkwalitas, administrasi akurat..",
-          "keyResult": "Tingkat akurasi PO",
-          "target": 95,
-          "actual": 83.29,
-          "bobot": 30
-        },
-        {
-          "id": "r1779890290785kbsg",
-          "objective": "Pengadaan stok tepat waktu dan berkwalitas, administrasi akurat..",
-          "keyResult": "Tingkat kwalitas pengadaan",
-          "target": 95,
-          "actual": 97.14,
-          "bobot": 20
-        },
-        {
-          "id": "r1779890290785bpf0",
-          "objective": "Pengadaan stok tepat waktu dan berkwalitas, administrasi akurat..",
-          "keyResult": "Tingkat penghematan budget",
-          "target": 3,
-          "actual": 2.23,
-          "bobot": 10
-        },
-        {
-          "id": "r1779890290785cn9v",
-          "objective": "Pengadaan stok tepat waktu dan berkwalitas, administrasi akurat..",
-          "keyResult": "Tingkat implementasi rekomendasi audit",
-          "target": 100,
-          "actual": 100,
-          "bobot": 5
-        }
-      ],
-      "actionPlan": "Membuat 4 konten sosmed"
-    },
-    "Store": {
-      "rows": [
-        {
-          "id": "r17798902907857waa",
-          "objective": "Mencapai target penjualan, \r\nstok akurat, pelanggan puas, operasional sesuai SOP.",
-          "keyResult": "Jumlah omset",
-          "target": 3040000000,
-          "actual": null,
-          "bobot": 30
-        },
-        {
-          "id": "r1779890290785qy3v",
-          "objective": "Mencapai target penjualan, \r\nstok akurat, pelanggan puas, operasional sesuai SOP.",
-          "keyResult": "Tingkat akurasi stok fisik vs data",
-          "target": 80,
-          "actual": null,
-          "bobot": 25
-        },
-        {
-          "id": "r1779890290785cith",
-          "objective": "Mencapai target penjualan, \r\nstok akurat, pelanggan puas, operasional sesuai SOP.",
-          "keyResult": "Score kepuasan pelanggan",
-          "target": 90,
-          "actual": null,
-          "bobot": 20
-        },
-        {
-          "id": "r177989029078573wm",
-          "objective": "Mencapai target penjualan, \r\nstok akurat, pelanggan puas, operasional sesuai SOP.",
-          "keyResult": "Tingkat kepatuhan & kedisiplinan",
-          "target": 95,
-          "actual": null,
-          "bobot": 15
-        },
-        {
-          "id": "r17798902907859402",
-          "objective": "Mencapai target penjualan, \r\nstok akurat, pelanggan puas, operasional sesuai SOP.",
-          "keyResult": "Tingkat implementasi rekomendasi audit",
-          "target": 100,
-          "actual": null,
-          "bobot": 10
-        }
-      ],
-      "actionPlan": "Planning acara chef Avian"
-    },
-    "Inventory": {
-      "rows": [
-        {
-          "id": "r1779890290785pyy3",
-          "objective": "Stok akurat, persediaan optimal, biaya & waste minimal.",
-          "keyResult": "Tingkat akurasi stok fisik vs data",
-          "target": 75,
-          "actual": 81.3,
-          "bobot": 20
-        },
-        {
-          "id": "r1779890290785iinz",
-          "objective": "Stok akurat, persediaan optimal, biaya & waste minimal.",
-          "keyResult": "Akurasi DO & RN",
-          "target": 100,
-          "actual": 99,
-          "bobot": 10
-        },
-        {
-          "id": "r1779890290785euwy",
-          "objective": "Stok akurat, persediaan optimal, biaya & waste minimal.",
-          "keyResult": "Tingkat akurasi administrasi",
-          "target": 98,
-          "actual": 100,
-          "bobot": 40
-        },
-        {
-          "id": "r1779890290785wywr",
-          "objective": "Stok akurat, persediaan optimal, biaya & waste minimal.",
-          "keyResult": "Laporan inventory akurat dan on time",
-          "target": 100,
-          "actual": null,
-          "bobot": 30
-        }
-      ],
-      "actionPlan": "Planning acara chef Alfian"
-    },
-    "Warehouse": {
-      "rows": [
-        {
-          "id": "r1779890290785erpl",
-          "objective": "Stok akurat, operasional berjalan sesuai SOP.",
-          "keyResult": "Tingkat akurasi stok fisik vs data",
-          "target": 98,
-          "actual": 96.5,
-          "bobot": 30
-        },
-        {
-          "id": "r17798902907851hdp",
-          "objective": "Stok akurat, operasional berjalan sesuai SOP.",
-          "keyResult": "Tingkat akurasi default diary",
-          "target": 95,
-          "actual": 90.04,
-          "bobot": 25
-        },
-        {
-          "id": "r1779890290785r8zb",
-          "objective": "Stok akurat, operasional berjalan sesuai SOP.",
-          "keyResult": "Score avg cartrack",
-          "target": 90,
-          "actual": 89.5,
-          "bobot": 20
-        },
-        {
-          "id": "r17798902907859gqg",
-          "objective": "Stok akurat, operasional berjalan sesuai SOP.",
-          "keyResult": "Score kepuasan pelanggan distribusi",
-          "target": 90,
-          "actual": 80,
-          "bobot": 15
-        },
-        {
-          "id": "r1779890290785xbtj",
-          "objective": "Stok akurat, operasional berjalan sesuai SOP.",
-          "keyResult": "Tingkat implementasi rekomendasi audit",
-          "target": 100,
-          "actual": 98.225,
-          "bobot": 10
-        }
-      ],
-      "actionPlan": ""
-    },
-    "HRD": {
-      "rows": [
-        {
-          "id": "r1779890290785vo1w",
-          "objective": "Membangun dan menjaga SDM yg kompeten, disiplin, produktif, inisiatif, guna mendukung perusahaan berkembang.",
-          "keyResult": "Tingkat kedisiplinan karyawan",
-          "target": 90,
-          "actual": 98.49,
-          "bobot": 30
-        },
-        {
-          "id": "r177989029078566in",
-          "objective": "Membangun dan menjaga SDM yg kompeten, disiplin, produktif, inisiatif, guna mendukung perusahaan berkembang.",
-          "keyResult": "Skor pencapaian KPI seluruh team",
-          "target": 85,
-          "actual": 96,
-          "bobot": 25
-        },
-        {
-          "id": "r1779890290785e09c",
-          "objective": "Membangun dan menjaga SDM yg kompeten, disiplin, produktif, inisiatif, guna mendukung perusahaan berkembang.",
-          "keyResult": "Akurasi & ketepatan waktu administrasi HR",
-          "target": 95,
-          "actual": 99,
-          "bobot": 20
-        },
-        {
-          "id": "r1779890290785jvoc",
-          "objective": "Membangun dan menjaga SDM yg kompeten, disiplin, produktif, inisiatif, guna mendukung perusahaan berkembang.",
-          "keyResult": "Ketepatan waktu rekrutment",
-          "target": 85,
-          "actual": null,
-          "bobot": 15
-        },
-        {
-          "id": "r1779890290785iokz",
-          "objective": "Membangun dan menjaga SDM yg kompeten, disiplin, produktif, inisiatif, guna mendukung perusahaan berkembang.",
-          "keyResult": "Skor kinerja karyawan baru",
-          "target": 85,
-          "actual": 81,
-          "bobot": 10
-        }
-      ],
-      "actionPlan": "Drafting SOP ketidakhadiran"
-    }
-  },
-  "_p_sv_rn_2026_05": 1434,
-  "_userPwd": {
-    "Store": "1011"
-  },
   "_userAccess": {
     "HRD": {
       "modules": [
@@ -452,805 +88,1077 @@
       "okrAll": true
     }
   },
-  "_tal_d0_2026_06": {
-    "rows": []
+  "_userPwd": {
+    "Store": "1011"
   },
-  "_tal_d12_2026_06": {
-    "rows": [
-      {
-        "tal": "Revisi DD, Bizflow, SOP Warehouse",
-        "deadline": "2026-06-07",
-        "bobot": 40,
-        "progress": null,
-        "review": "",
-        "editing": true,
-        "savedAt": "2026-06-03T02:51:09.006Z"
-      },
-      {
-        "tal": "Pengesahan DD Telesales",
-        "deadline": "2026-06-13",
-        "bobot": 30,
-        "progress": null,
-        "review": "",
-        "editing": true,
-        "savedAt": "2026-06-03T02:51:09.006Z"
-      },
-      {
-        "tal": "Visualisasi Bizflow di Warehouse",
-        "deadline": "2026-06-30",
-        "bobot": 20,
-        "progress": null,
-        "review": "",
-        "editing": true,
-        "savedAt": "2026-06-03T02:51:09.006Z"
-      },
-      {
-        "tal": "Develop Website",
-        "deadline": "2026-06-30",
-        "bobot": 10,
-        "progress": null,
-        "review": "",
-        "editing": true,
-        "savedAt": "2026-06-03T02:51:09.006Z"
-      }
-    ]
-  },
-  "_tal_d3_2026_06": {
-    "rows": []
-  },
-  "_tal_d11_2026_06": {
-    "rows": []
+  "2026-05": {
+    "Distribution Sales": {
+      "actionPlan": "Training new telesales",
+      "rows": [
+        {
+          "actual": 2148420390,
+          "bobot": 35,
+          "id": "r17805435648835cuh",
+          "keyResult": "Jumlah omset global",
+          "objective": "Mencapai target penjualan, pelanggan puas.",
+          "target": 3400000000
+        },
+        {
+          "actual": 53,
+          "bobot": 30,
+          "id": "r1780543564883mynr",
+          "keyResult": "Retensi pelanggan",
+          "objective": "Mencapai target penjualan, pelanggan puas.",
+          "target": 100
+        },
+        {
+          "actual": 8,
+          "bobot": 25,
+          "id": "r178054356488340jv",
+          "keyResult": "Customers baru",
+          "objective": "Mencapai target penjualan, pelanggan puas.",
+          "target": 10
+        },
+        {
+          "actual": 80,
+          "bobot": 10,
+          "id": "r17805435648843bf1",
+          "keyResult": "Kepuasan pelanggan",
+          "objective": "Mencapai target penjualan, pelanggan puas.",
+          "target": 90
+        }
+      ]
+    },
+    "Finance & Accounting": {
+      "actionPlan": "Planning investasi",
+      "rows": [
+        {
+          "actual": 100,
+          "bobot": 30,
+          "id": "r1779890290785m3kc",
+          "keyResult": "Tingkat keberhasilan penagihan piutang",
+          "objective": "Data dan fisik uang akurat, transaksi tepat dan on time.",
+          "target": 95
+        },
+        {
+          "actual": 100,
+          "bobot": 25,
+          "id": "r1779890290785uaje",
+          "keyResult": "Payment akurat dan on time",
+          "objective": "Data dan fisik uang akurat, transaksi tepat dan on time.",
+          "target": 98
+        },
+        {
+          "actual": 100,
+          "bobot": 20,
+          "id": "r1779890290785ys47",
+          "keyResult": "Tingkat akurasi uang fisik dan data",
+          "objective": "Data dan fisik uang akurat, transaksi tepat dan on time.",
+          "target": 98
+        },
+        {
+          "actual": 100,
+          "bobot": 15,
+          "id": "r1779890290785kd0n",
+          "keyResult": "Laporan keuangan akurat dan on time",
+          "objective": "Data dan fisik uang akurat, transaksi tepat dan on time.",
+          "target": 98
+        },
+        {
+          "actual": 100,
+          "bobot": 10,
+          "id": "r1779890290785dyuw",
+          "keyResult": "Tingkat implementasi rekomendasi audit",
+          "objective": "Data dan fisik uang akurat, transaksi tepat dan on time.",
+          "target": 100
+        }
+      ]
+    },
+    "General Affair": {
+      "actionPlan": "Kaji ulang cctv warehouse",
+      "rows": [
+        {
+          "actual": null,
+          "bobot": 40,
+          "id": "r177989029078478jg",
+          "keyResult": "Tingkat akurasi stok inventaris data vs fisik",
+          "objective": "Inventaris utuh terawat, pengadaan tepat waktu, operasional aman lancar, user puas.",
+          "target": 98
+        },
+        {
+          "actual": null,
+          "bobot": 35,
+          "id": "r1779890290784j6r4",
+          "keyResult": "Tingkat akurasi lead time pengadaan / maintenance",
+          "objective": "Inventaris utuh terawat, pengadaan tepat waktu, operasional aman lancar, user puas.",
+          "target": 95
+        },
+        {
+          "actual": null,
+          "bobot": 25,
+          "id": "r1779890290784n89y",
+          "keyResult": "Laporan inventaris akurat dan on time",
+          "objective": "Inventaris utuh terawat, pengadaan tepat waktu, operasional aman lancar, user puas.",
+          "target": 100
+        }
+      ]
+    },
+    "HRD": {
+      "actionPlan": "Drafting SOP ketidakhadiran",
+      "rows": [
+        {
+          "actual": 98.49,
+          "bobot": 30,
+          "id": "r1779890290785vo1w",
+          "keyResult": "Tingkat kedisiplinan karyawan",
+          "objective": "Membangun dan menjaga SDM yg kompeten, disiplin, produktif, inisiatif, guna mendukung perusahaan berkembang.",
+          "target": 90
+        },
+        {
+          "actual": 96,
+          "bobot": 25,
+          "id": "r177989029078566in",
+          "keyResult": "Skor pencapaian KPI seluruh team",
+          "objective": "Membangun dan menjaga SDM yg kompeten, disiplin, produktif, inisiatif, guna mendukung perusahaan berkembang.",
+          "target": 85
+        },
+        {
+          "actual": 99,
+          "bobot": 20,
+          "id": "r1779890290785e09c",
+          "keyResult": "Akurasi & ketepatan waktu administrasi HR",
+          "objective": "Membangun dan menjaga SDM yg kompeten, disiplin, produktif, inisiatif, guna mendukung perusahaan berkembang.",
+          "target": 95
+        },
+        {
+          "actual": 98.57,
+          "bobot": 15,
+          "id": "r1779890290785jvoc",
+          "keyResult": "Ketepatan waktu rekrutment",
+          "objective": "Membangun dan menjaga SDM yg kompeten, disiplin, produktif, inisiatif, guna mendukung perusahaan berkembang.",
+          "target": 85
+        },
+        {
+          "actual": 81,
+          "bobot": 10,
+          "id": "r1779890290785iokz",
+          "keyResult": "Skor kinerja karyawan baru",
+          "objective": "Membangun dan menjaga SDM yg kompeten, disiplin, produktif, inisiatif, guna mendukung perusahaan berkembang.",
+          "target": 85
+        }
+      ]
+    },
+    "Internal Audit": {
+      "actionPlan": "Finalisasi DD, bizflow, SOP warehouse",
+      "rows": [
+        {
+          "actual": 100,
+          "bobot": 45,
+          "id": "r1780558991338if00",
+          "keyResult": "Tingkat implementasi rekomendasi audit",
+          "objective": "Melindungi dan mengawasi sistem internal berbasis dari resiko yg timbul.",
+          "target": 100
+        },
+        {
+          "actual": 100,
+          "bobot": 35,
+          "id": "r1780558991338u3z9",
+          "keyResult": "Laporan audit akurat dan on time",
+          "objective": "Melindungi dan mengawasi sistem internal berbasis dari resiko yg timbul.",
+          "target": 100
+        },
+        {
+          "actual": 3,
+          "bobot": 20,
+          "id": "r1780558991338hdvk",
+          "keyResult": "Jumlah inisiatif proaktif",
+          "objective": "Melindungi dan mengawasi sistem internal berbasis dari resiko yg timbul.",
+          "target": 2
+        }
+      ]
+    },
+    "Inventory": {
+      "actionPlan": "Planning acara chef Alfian",
+      "rows": [
+        {
+          "actual": 81.3,
+          "bobot": 20,
+          "id": "r1779890290785pyy3",
+          "keyResult": "Tingkat akurasi stok fisik vs data",
+          "objective": "Stok akurat, persediaan optimal, biaya & waste minimal.",
+          "target": 75
+        },
+        {
+          "actual": 99,
+          "bobot": 10,
+          "id": "r1779890290785iinz",
+          "keyResult": "Akurasi DO & RN",
+          "objective": "Stok akurat, persediaan optimal, biaya & waste minimal.",
+          "target": 100
+        },
+        {
+          "actual": 100,
+          "bobot": 40,
+          "id": "r1779890290785euwy",
+          "keyResult": "Tingkat akurasi administrasi",
+          "objective": "Stok akurat, persediaan optimal, biaya & waste minimal.",
+          "target": 98
+        },
+        {
+          "actual": null,
+          "bobot": 30,
+          "id": "r1779890290785wywr",
+          "keyResult": "Laporan inventory akurat dan on time",
+          "objective": "Stok akurat, persediaan optimal, biaya & waste minimal.",
+          "target": 100
+        }
+      ]
+    },
+    "Purchasing": {
+      "actionPlan": "Membuat 4 konten sosmed",
+      "rows": [
+        {
+          "actual": 89.31,
+          "bobot": 35,
+          "id": "r1779890290785uqg7",
+          "keyResult": "Tingkat in stock",
+          "objective": "Pengadaan stok tepat waktu dan berkwalitas, administrasi akurat..",
+          "target": 90
+        },
+        {
+          "actual": 83.3,
+          "bobot": 30,
+          "id": "r1779890290785eikx",
+          "keyResult": "Tingkat akurasi PO",
+          "objective": "Pengadaan stok tepat waktu dan berkwalitas, administrasi akurat..",
+          "target": 95
+        },
+        {
+          "actual": 97.14,
+          "bobot": 20,
+          "id": "r1779890290785kbsg",
+          "keyResult": "Tingkat kwalitas pengadaan",
+          "objective": "Pengadaan stok tepat waktu dan berkwalitas, administrasi akurat..",
+          "target": 95
+        },
+        {
+          "actual": 0.03,
+          "bobot": 10,
+          "id": "r1779890290785bpf0",
+          "keyResult": "Tingkat penghematan budget",
+          "objective": "Pengadaan stok tepat waktu dan berkwalitas, administrasi akurat..",
+          "target": 3
+        },
+        {
+          "actual": 100,
+          "bobot": 5,
+          "id": "r1779890290785cn9v",
+          "keyResult": "Tingkat implementasi rekomendasi audit",
+          "objective": "Pengadaan stok tepat waktu dan berkwalitas, administrasi akurat..",
+          "target": 100
+        }
+      ]
+    },
+    "Store": {
+      "actionPlan": "Planning acara chef Avian",
+      "rows": [
+        {
+          "actual": 3059039000,
+          "bobot": 30,
+          "id": "r17798902907857waa",
+          "keyResult": "Jumlah omset",
+          "objective": "Mencapai target penjualan, \r\nstok akurat, pelanggan puas, operasional sesuai SOP.",
+          "target": 3040000000
+        },
+        {
+          "actual": 66.45,
+          "bobot": 25,
+          "id": "r1779890290785qy3v",
+          "keyResult": "Tingkat akurasi stok fisik vs data",
+          "objective": "Mencapai target penjualan, \r\nstok akurat, pelanggan puas, operasional sesuai SOP.",
+          "target": 80
+        },
+        {
+          "actual": 92,
+          "bobot": 20,
+          "id": "r1779890290785cith",
+          "keyResult": "Score kepuasan pelanggan",
+          "objective": "Mencapai target penjualan, \r\nstok akurat, pelanggan puas, operasional sesuai SOP.",
+          "target": 90
+        },
+        {
+          "actual": 98,
+          "bobot": 15,
+          "id": "r177989029078573wm",
+          "keyResult": "Tingkat kepatuhan & kedisiplinan",
+          "objective": "Mencapai target penjualan, \r\nstok akurat, pelanggan puas, operasional sesuai SOP.",
+          "target": 95
+        },
+        {
+          "actual": 93,
+          "bobot": 10,
+          "id": "r17798902907859402",
+          "keyResult": "Tingkat implementasi rekomendasi audit",
+          "objective": "Mencapai target penjualan, \r\nstok akurat, pelanggan puas, operasional sesuai SOP.",
+          "target": 100
+        }
+      ]
+    },
+    "Warehouse": {
+      "actionPlan": "",
+      "rows": [
+        {
+          "actual": 96.5,
+          "bobot": 30,
+          "id": "r1779890290785erpl",
+          "keyResult": "Tingkat akurasi stok fisik vs data",
+          "objective": "Stok akurat, operasional berjalan sesuai SOP.",
+          "target": 98
+        },
+        {
+          "actual": 90.04,
+          "bobot": 25,
+          "id": "r17798902907851hdp",
+          "keyResult": "Tingkat akurasi default diary",
+          "objective": "Stok akurat, operasional berjalan sesuai SOP.",
+          "target": 95
+        },
+        {
+          "actual": 89.5,
+          "bobot": 20,
+          "id": "r1779890290785r8zb",
+          "keyResult": "Score avg cartrack",
+          "objective": "Stok akurat, operasional berjalan sesuai SOP.",
+          "target": 90
+        },
+        {
+          "actual": 80,
+          "bobot": 15,
+          "id": "r17798902907859gqg",
+          "keyResult": "Score kepuasan pelanggan distribusi",
+          "objective": "Stok akurat, operasional berjalan sesuai SOP.",
+          "target": 90
+        },
+        {
+          "actual": 98.225,
+          "bobot": 10,
+          "id": "r1779890290785xbtj",
+          "keyResult": "Tingkat implementasi rekomendasi audit",
+          "objective": "Stok akurat, operasional berjalan sesuai SOP.",
+          "target": 100
+        }
+      ]
+    }
   },
   "2026-06": {
     "Distribution Sales": {
+      "actionPlan": "Training new telesales",
       "rows": [
         {
+          "actual": null,
+          "bobot": 35,
           "id": "r1780472096513a40z",
-          "objective": "Mencapai target penjualan, pelanggan puas.",
           "keyResult": "Jumlah omset global",
-          "target": 3400000000,
-          "actual": null,
-          "bobot": 35
+          "objective": "Mencapai target penjualan, pelanggan puas.",
+          "target": 3400000000
         },
         {
+          "actual": null,
+          "bobot": 30,
           "id": "r1780472096513vq8w",
-          "objective": "Mencapai target penjualan, pelanggan puas.",
           "keyResult": "Retensi pelanggan",
-          "target": 2,
-          "actual": null,
-          "bobot": 30
+          "objective": "Mencapai target penjualan, pelanggan puas.",
+          "target": 2
         },
         {
+          "actual": null,
+          "bobot": 25,
           "id": "r1780472096513hja2",
-          "objective": "Mencapai target penjualan, pelanggan puas.",
           "keyResult": "Customers baru",
-          "target": 10,
-          "actual": null,
-          "bobot": 25
-        },
-        {
-          "id": "r1780472096513nzle",
           "objective": "Mencapai target penjualan, pelanggan puas.",
+          "target": 10
+        },
+        {
+          "actual": null,
+          "bobot": 10,
+          "id": "r1780472096513nzle",
           "keyResult": "Kepuasan pelanggan",
-          "target": 90,
-          "actual": null,
-          "bobot": 10
+          "objective": "Mencapai target penjualan, pelanggan puas.",
+          "target": 90
         }
-      ],
-      "actionPlan": "Training new telesales"
-    },
-    "General Affair": {
-      "rows": [
-        {
-          "id": "r1780472096513kowy",
-          "objective": "Inventaris utuh terawat, pengadaan tepat waktu, operasional aman lancar, user puas.",
-          "keyResult": "Tingkat akurasi stok inventaris data vs fisik",
-          "target": 98,
-          "actual": null,
-          "bobot": 40
-        },
-        {
-          "id": "r178047209651331vz",
-          "objective": "Inventaris utuh terawat, pengadaan tepat waktu, operasional aman lancar, user puas.",
-          "keyResult": "Tingkat akurasi lead time pengadaan / maintenance",
-          "target": 95,
-          "actual": null,
-          "bobot": 35
-        },
-        {
-          "id": "r1780472096513nvke",
-          "objective": "Inventaris utuh terawat, pengadaan tepat waktu, operasional aman lancar, user puas.",
-          "keyResult": "Laporan inventaris akurat dan on time",
-          "target": 100,
-          "actual": null,
-          "bobot": 25
-        }
-      ],
-      "actionPlan": "Kaji ulang cctv warehouse"
+      ]
     },
     "Finance & Accounting": {
+      "actionPlan": "Planning investasi",
       "rows": [
         {
+          "actual": null,
+          "bobot": 30,
           "id": "r1780472096513lz7h",
-          "objective": "Data dan fisik uang akurat, transaksi tepat dan on time.",
           "keyResult": "Tingkat keberhasilan penagihan piutang",
-          "target": 95,
-          "actual": null,
-          "bobot": 30
+          "objective": "Data dan fisik uang akurat, transaksi tepat dan on time.",
+          "target": 95
         },
         {
+          "actual": null,
+          "bobot": 25,
           "id": "r17804720965139cwc",
-          "objective": "Data dan fisik uang akurat, transaksi tepat dan on time.",
           "keyResult": "Payment akurat dan on time",
-          "target": 98,
-          "actual": null,
-          "bobot": 25
+          "objective": "Data dan fisik uang akurat, transaksi tepat dan on time.",
+          "target": 98
         },
         {
+          "actual": null,
+          "bobot": 20,
           "id": "r1780472096513gbd2",
-          "objective": "Data dan fisik uang akurat, transaksi tepat dan on time.",
           "keyResult": "Tingkat akurasi uang fisik dan data",
-          "target": 98,
-          "actual": null,
-          "bobot": 20
+          "objective": "Data dan fisik uang akurat, transaksi tepat dan on time.",
+          "target": 98
         },
         {
+          "actual": null,
+          "bobot": 15,
           "id": "r1780472096513e6q5",
-          "objective": "Data dan fisik uang akurat, transaksi tepat dan on time.",
           "keyResult": "Laporan keuangan akurat dan on time",
-          "target": 98,
-          "actual": null,
-          "bobot": 15
-        },
-        {
-          "id": "r17804720965137oje",
           "objective": "Data dan fisik uang akurat, transaksi tepat dan on time.",
-          "keyResult": "Tingkat implementasi rekomendasi audit",
-          "target": 100,
+          "target": 98
+        },
+        {
           "actual": 90,
-          "bobot": 10
-        }
-      ],
-      "actionPlan": "Planning investasi"
-    },
-    "Internal Audit": {
-      "rows": [
-        {
-          "id": "r1780472096513p4fv",
-          "objective": "Melindungi dan mengawasi sistem internal berbasis dari resiko yg timbul.",
+          "bobot": 10,
+          "id": "r17804720965137oje",
           "keyResult": "Tingkat implementasi rekomendasi audit",
-          "target": 100,
-          "actual": 0,
-          "bobot": 45
-        },
-        {
-          "id": "r1780472096513rv9r",
-          "objective": "Melindungi dan mengawasi sistem internal berbasis dari resiko yg timbul.",
-          "keyResult": "Laporan audit akurat dan on time",
-          "target": 100,
-          "actual": 0,
-          "bobot": 35
-        },
-        {
-          "id": "r1780472096513vb39",
-          "objective": "Melindungi dan mengawasi sistem internal berbasis dari resiko yg timbul.",
-          "keyResult": "Jumlah inisiatif proaktif",
-          "target": 2,
-          "actual": 0,
-          "bobot": 20
+          "objective": "Data dan fisik uang akurat, transaksi tepat dan on time.",
+          "target": 100
         }
-      ],
-      "actionPlan": "Finalisasi DD, bizflow, SOP warehouse"
+      ]
     },
-    "Purchasing": {
+    "General Affair": {
+      "actionPlan": "Kaji ulang cctv warehouse",
       "rows": [
         {
-          "id": "r1780472096513ueyz",
-          "objective": "Pengadaan stok tepat waktu dan berkwalitas, administrasi akurat..",
-          "keyResult": "Tingkat in stock",
-          "target": 90,
-          "actual": 0,
-          "bobot": 35
-        },
-        {
-          "id": "r1780472096513jno3",
-          "objective": "Pengadaan stok tepat waktu dan berkwalitas, administrasi akurat..",
-          "keyResult": "Tingkat akurasi PO",
-          "target": 95,
           "actual": null,
-          "bobot": 30
+          "bobot": 40,
+          "id": "r1780472096513kowy",
+          "keyResult": "Tingkat akurasi stok inventaris data vs fisik",
+          "objective": "Inventaris utuh terawat, pengadaan tepat waktu, operasional aman lancar, user puas.",
+          "target": 98
         },
         {
-          "id": "r1780472096513g85b",
-          "objective": "Pengadaan stok tepat waktu dan berkwalitas, administrasi akurat..",
-          "keyResult": "Tingkat kwalitas pengadaan",
-          "target": 95,
           "actual": null,
-          "bobot": 20
+          "bobot": 35,
+          "id": "r178047209651331vz",
+          "keyResult": "Tingkat akurasi lead time pengadaan / maintenance",
+          "objective": "Inventaris utuh terawat, pengadaan tepat waktu, operasional aman lancar, user puas.",
+          "target": 95
         },
         {
-          "id": "r17804720965136s2r",
-          "objective": "Pengadaan stok tepat waktu dan berkwalitas, administrasi akurat..",
-          "keyResult": "Tingkat penghematan budget",
-          "target": 3,
-          "actual": 0,
-          "bobot": 10
-        },
-        {
-          "id": "r17804720965136tdk",
-          "objective": "Pengadaan stok tepat waktu dan berkwalitas, administrasi akurat..",
-          "keyResult": "Tingkat implementasi rekomendasi audit",
-          "target": 100,
           "actual": null,
-          "bobot": 5
+          "bobot": 25,
+          "id": "r1780472096513nvke",
+          "keyResult": "Laporan inventaris akurat dan on time",
+          "objective": "Inventaris utuh terawat, pengadaan tepat waktu, operasional aman lancar, user puas.",
+          "target": 100
         }
-      ],
-      "actionPlan": "Membuat 4 konten sosmed"
-    },
-    "Store": {
-      "rows": [
-        {
-          "id": "r1780472096513hnb9",
-          "objective": "Mencapai target penjualan, \r\nstok akurat, pelanggan puas, operasional sesuai SOP.",
-          "keyResult": "Jumlah omset",
-          "target": 3040000000,
-          "actual": 3000000000,
-          "bobot": 30
-        },
-        {
-          "id": "r1780472096513tjlr",
-          "objective": "Mencapai target penjualan, \r\nstok akurat, pelanggan puas, operasional sesuai SOP.",
-          "keyResult": "Tingkat akurasi stok fisik vs data",
-          "target": 80,
-          "actual": null,
-          "bobot": 25
-        },
-        {
-          "id": "r17804720965132wml",
-          "objective": "Mencapai target penjualan, \r\nstok akurat, pelanggan puas, operasional sesuai SOP.",
-          "keyResult": "Score kepuasan pelanggan",
-          "target": 90,
-          "actual": null,
-          "bobot": 20
-        },
-        {
-          "id": "r1780472096513u9a5",
-          "objective": "Mencapai target penjualan, \r\nstok akurat, pelanggan puas, operasional sesuai SOP.",
-          "keyResult": "Tingkat kepatuhan & kedisiplinan",
-          "target": 95,
-          "actual": null,
-          "bobot": 15
-        },
-        {
-          "id": "r1780472096513qiyu",
-          "objective": "Mencapai target penjualan, \r\nstok akurat, pelanggan puas, operasional sesuai SOP.",
-          "keyResult": "Tingkat implementasi rekomendasi audit",
-          "target": 100,
-          "actual": null,
-          "bobot": 10
-        }
-      ],
-      "actionPlan": "Planning acara chef Avian"
-    },
-    "Inventory": {
-      "rows": [
-        {
-          "id": "r1780472096513ds7d",
-          "objective": "Stok akurat, persediaan optimal, biaya & waste minimal.",
-          "keyResult": "Tingkat akurasi stok fisik vs data",
-          "target": 75,
-          "actual": null,
-          "bobot": 20
-        },
-        {
-          "id": "r17804720965137ahi",
-          "objective": "Stok akurat, persediaan optimal, biaya & waste minimal.",
-          "keyResult": "Akurasi DO & RN",
-          "target": 100,
-          "actual": 100,
-          "bobot": 10
-        },
-        {
-          "id": "r1780472096513aiaa",
-          "objective": "Stok akurat, persediaan optimal, biaya & waste minimal.",
-          "keyResult": "Tingkat akurasi administrasi",
-          "target": 98,
-          "actual": null,
-          "bobot": 40
-        },
-        {
-          "id": "r17804720965135hni",
-          "objective": "Stok akurat, persediaan optimal, biaya & waste minimal.",
-          "keyResult": "Laporan inventory akurat dan on time",
-          "target": 100,
-          "actual": null,
-          "bobot": 30
-        }
-      ],
-      "actionPlan": "Planning acara chef Alfian"
-    },
-    "Warehouse": {
-      "rows": [
-        {
-          "id": "r1780472096513er4q",
-          "objective": "Stok akurat, operasional berjalan sesuai SOP.",
-          "keyResult": "Tingkat akurasi stok fisik vs data",
-          "target": 98,
-          "actual": null,
-          "bobot": 30
-        },
-        {
-          "id": "r1780472096513fsmw",
-          "objective": "Stok akurat, operasional berjalan sesuai SOP.",
-          "keyResult": "Tingkat akurasi default diary",
-          "target": 95,
-          "actual": null,
-          "bobot": 25
-        },
-        {
-          "id": "r1780472096513fj95",
-          "objective": "Stok akurat, operasional berjalan sesuai SOP.",
-          "keyResult": "Score avg cartrack",
-          "target": 90,
-          "actual": null,
-          "bobot": 20
-        },
-        {
-          "id": "r17804720965137zb0",
-          "objective": "Stok akurat, operasional berjalan sesuai SOP.",
-          "keyResult": "Score kepuasan pelanggan distribusi",
-          "target": 90,
-          "actual": null,
-          "bobot": 15
-        },
-        {
-          "id": "r17804720965135ql3",
-          "objective": "Stok akurat, operasional berjalan sesuai SOP.",
-          "keyResult": "Tingkat implementasi rekomendasi audit",
-          "target": 100,
-          "actual": null,
-          "bobot": 10
-        }
-      ],
-      "actionPlan": ""
+      ]
     },
     "HRD": {
+      "actionPlan": "Drafting SOP ketidakhadiran",
       "rows": [
         {
+          "actual": null,
+          "bobot": 30,
           "id": "r17804720965133xfl",
-          "objective": "Membangun dan menjaga SDM yg kompeten, disiplin, produktif, inisiatif, guna mendukung perusahaan berkembang.",
           "keyResult": "Tingkat kedisiplinan karyawan",
-          "target": 90,
-          "actual": null,
-          "bobot": 30
+          "objective": "Membangun dan menjaga SDM yg kompeten, disiplin, produktif, inisiatif, guna mendukung perusahaan berkembang.",
+          "target": 90
         },
         {
+          "actual": null,
+          "bobot": 25,
           "id": "r1780472096513q6h5",
-          "objective": "Membangun dan menjaga SDM yg kompeten, disiplin, produktif, inisiatif, guna mendukung perusahaan berkembang.",
           "keyResult": "Skor pencapaian KPI seluruh team",
-          "target": 85,
-          "actual": null,
-          "bobot": 25
+          "objective": "Membangun dan menjaga SDM yg kompeten, disiplin, produktif, inisiatif, guna mendukung perusahaan berkembang.",
+          "target": 85
         },
         {
+          "actual": null,
+          "bobot": 20,
           "id": "r1780472096513h23f",
-          "objective": "Membangun dan menjaga SDM yg kompeten, disiplin, produktif, inisiatif, guna mendukung perusahaan berkembang.",
           "keyResult": "Akurasi & ketepatan waktu administrasi HR",
-          "target": 95,
-          "actual": null,
-          "bobot": 20
+          "objective": "Membangun dan menjaga SDM yg kompeten, disiplin, produktif, inisiatif, guna mendukung perusahaan berkembang.",
+          "target": 95
         },
         {
+          "actual": null,
+          "bobot": 15,
           "id": "r17804720965139eyq",
-          "objective": "Membangun dan menjaga SDM yg kompeten, disiplin, produktif, inisiatif, guna mendukung perusahaan berkembang.",
           "keyResult": "Ketepatan waktu rekrutment",
-          "target": 85,
-          "actual": null,
-          "bobot": 15
+          "objective": "Membangun dan menjaga SDM yg kompeten, disiplin, produktif, inisiatif, guna mendukung perusahaan berkembang.",
+          "target": 85
         },
         {
-          "id": "r17804720965138k8x",
-          "objective": "Membangun dan menjaga SDM yg kompeten, disiplin, produktif, inisiatif, guna mendukung perusahaan berkembang.",
-          "keyResult": "Skor kinerja karyawan baru",
-          "target": 85,
           "actual": null,
-          "bobot": 10
+          "bobot": 10,
+          "id": "r17804720965138k8x",
+          "keyResult": "Skor kinerja karyawan baru",
+          "objective": "Membangun dan menjaga SDM yg kompeten, disiplin, produktif, inisiatif, guna mendukung perusahaan berkembang.",
+          "target": 85
         }
-      ],
-      "actionPlan": "Drafting SOP ketidakhadiran"
+      ]
+    },
+    "Internal Audit": {
+      "actionPlan": "Finalisasi DD, bizflow, SOP warehouse",
+      "rows": [
+        {
+          "actual": 0,
+          "bobot": 45,
+          "id": "r1780472096513p4fv",
+          "keyResult": "Tingkat implementasi rekomendasi audit",
+          "objective": "Melindungi dan mengawasi sistem internal berbasis dari resiko yg timbul.",
+          "target": 100
+        },
+        {
+          "actual": 0,
+          "bobot": 35,
+          "id": "r1780472096513rv9r",
+          "keyResult": "Laporan audit akurat dan on time",
+          "objective": "Melindungi dan mengawasi sistem internal berbasis dari resiko yg timbul.",
+          "target": 100
+        },
+        {
+          "actual": 0,
+          "bobot": 20,
+          "id": "r1780472096513vb39",
+          "keyResult": "Jumlah inisiatif proaktif",
+          "objective": "Melindungi dan mengawasi sistem internal berbasis dari resiko yg timbul.",
+          "target": 2
+        }
+      ]
+    },
+    "Inventory": {
+      "actionPlan": "Planning acara chef Alfian",
+      "rows": [
+        {
+          "actual": null,
+          "bobot": 20,
+          "id": "r1780472096513ds7d",
+          "keyResult": "Tingkat akurasi stok fisik vs data",
+          "objective": "Stok akurat, persediaan optimal, biaya & waste minimal.",
+          "target": 75
+        },
+        {
+          "actual": 98.33,
+          "bobot": 10,
+          "id": "r17804720965137ahi",
+          "keyResult": "Akurasi DO & RN",
+          "objective": "Stok akurat, persediaan optimal, biaya & waste minimal.",
+          "target": 100
+        },
+        {
+          "actual": null,
+          "bobot": 40,
+          "id": "r1780472096513aiaa",
+          "keyResult": "Tingkat akurasi administrasi",
+          "objective": "Stok akurat, persediaan optimal, biaya & waste minimal.",
+          "target": 98
+        },
+        {
+          "actual": null,
+          "bobot": 30,
+          "id": "r17804720965135hni",
+          "keyResult": "Laporan inventory akurat dan on time",
+          "objective": "Stok akurat, persediaan optimal, biaya & waste minimal.",
+          "target": 100
+        }
+      ]
+    },
+    "Purchasing": {
+      "actionPlan": "Membuat 4 konten sosmed",
+      "rows": [
+        {
+          "actual": 90.83,
+          "bobot": 35,
+          "id": "r1780472096513ueyz",
+          "keyResult": "Tingkat in stock",
+          "objective": "Pengadaan stok tepat waktu dan berkwalitas, administrasi akurat..",
+          "target": 90
+        },
+        {
+          "actual": null,
+          "bobot": 30,
+          "id": "r1780472096513jno3",
+          "keyResult": "Tingkat akurasi PO",
+          "objective": "Pengadaan stok tepat waktu dan berkwalitas, administrasi akurat..",
+          "target": 95
+        },
+        {
+          "actual": null,
+          "bobot": 20,
+          "id": "r1780472096513g85b",
+          "keyResult": "Tingkat kwalitas pengadaan",
+          "objective": "Pengadaan stok tepat waktu dan berkwalitas, administrasi akurat..",
+          "target": 95
+        },
+        {
+          "actual": 0,
+          "bobot": 10,
+          "id": "r17804720965136s2r",
+          "keyResult": "Tingkat penghematan budget",
+          "objective": "Pengadaan stok tepat waktu dan berkwalitas, administrasi akurat..",
+          "target": 3
+        },
+        {
+          "actual": null,
+          "bobot": 5,
+          "id": "r17804720965136tdk",
+          "keyResult": "Tingkat implementasi rekomendasi audit",
+          "objective": "Pengadaan stok tepat waktu dan berkwalitas, administrasi akurat..",
+          "target": 100
+        }
+      ]
+    },
+    "Store": {
+      "actionPlan": "Planning acara chef Avian",
+      "rows": [
+        {
+          "actual": null,
+          "bobot": 30,
+          "id": "r1780472096513hnb9",
+          "keyResult": "Jumlah omset",
+          "objective": "Mencapai target penjualan, \r\nstok akurat, pelanggan puas, operasional sesuai SOP.",
+          "target": 3040000000
+        },
+        {
+          "actual": null,
+          "bobot": 25,
+          "id": "r1780472096513tjlr",
+          "keyResult": "Tingkat akurasi stok fisik vs data",
+          "objective": "Mencapai target penjualan, \r\nstok akurat, pelanggan puas, operasional sesuai SOP.",
+          "target": 80
+        },
+        {
+          "actual": null,
+          "bobot": 20,
+          "id": "r17804720965132wml",
+          "keyResult": "Score kepuasan pelanggan",
+          "objective": "Mencapai target penjualan, \r\nstok akurat, pelanggan puas, operasional sesuai SOP.",
+          "target": 90
+        },
+        {
+          "actual": null,
+          "bobot": 15,
+          "id": "r1780472096513u9a5",
+          "keyResult": "Tingkat kepatuhan & kedisiplinan",
+          "objective": "Mencapai target penjualan, \r\nstok akurat, pelanggan puas, operasional sesuai SOP.",
+          "target": 95
+        },
+        {
+          "actual": null,
+          "bobot": 10,
+          "id": "r1780472096513qiyu",
+          "keyResult": "Tingkat implementasi rekomendasi audit",
+          "objective": "Mencapai target penjualan, \r\nstok akurat, pelanggan puas, operasional sesuai SOP.",
+          "target": 100
+        }
+      ]
+    },
+    "Warehouse": {
+      "actionPlan": "",
+      "rows": [
+        {
+          "actual": null,
+          "bobot": 30,
+          "id": "r1780472096513er4q",
+          "keyResult": "Tingkat akurasi stok fisik vs data",
+          "objective": "Stok akurat, operasional berjalan sesuai SOP.",
+          "target": 98
+        },
+        {
+          "actual": null,
+          "bobot": 25,
+          "id": "r1780472096513fsmw",
+          "keyResult": "Tingkat akurasi default diary",
+          "objective": "Stok akurat, operasional berjalan sesuai SOP.",
+          "target": 95
+        },
+        {
+          "actual": null,
+          "bobot": 20,
+          "id": "r1780472096513fj95",
+          "keyResult": "Score avg cartrack",
+          "objective": "Stok akurat, operasional berjalan sesuai SOP.",
+          "target": 90
+        },
+        {
+          "actual": null,
+          "bobot": 15,
+          "id": "r17804720965137zb0",
+          "keyResult": "Score kepuasan pelanggan distribusi",
+          "objective": "Stok akurat, operasional berjalan sesuai SOP.",
+          "target": 90
+        },
+        {
+          "actual": null,
+          "bobot": 10,
+          "id": "r17804720965135ql3",
+          "keyResult": "Tingkat implementasi rekomendasi audit",
+          "objective": "Stok akurat, operasional berjalan sesuai SOP.",
+          "target": 100
+        }
+      ]
     }
   },
+  "_d_csat_d_2026_05": {
+    "evidence": "https://raw.githubusercontent.com/pinuspackindo-ai/pinuspackindo-okr/data/uploads/distribution_sales/1780716377091_nclaso_Pinus.jpg",
+    "evidenceName": "Pinus.jpg",
+    "evidences": [
+      {
+        "data": "https://raw.githubusercontent.com/pinuspackindo-ai/pinuspackindo-okr/main/uploads/distribution_sales/1780707584706_59edau_Pinus.jpg",
+        "name": "Pinus.jpg"
+      }
+    ],
+    "locked": true,
+    "savedAt": "2026-06-04T03:25:46.102Z",
+    "value": 80
+  },
+  "_d_new_cust_2026_05": {
+    "evidence": "https://raw.githubusercontent.com/pinuspackindo-ai/pinuspackindo-okr/data/uploads/distribution_sales/1780716762840_ftid6a_Pinus.jpg",
+    "evidenceName": "Pinus.jpg",
+    "evidences": [
+      {
+        "data": "https://raw.githubusercontent.com/pinuspackindo-ai/pinuspackindo-okr/data/uploads/distribution_sales/1780716281441_iyock6_Pinus.jpg",
+        "name": "Pinus.jpg"
+      }
+    ],
+    "locked": true,
+    "savedAt": "2026-06-04T03:25:37.782Z",
+    "value": 8
+  },
+  "_d_omzet_d_2026_05": {
+    "evidence": "https://raw.githubusercontent.com/pinuspackindo-ai/pinuspackindo-okr/data/uploads/distribution_sales/1780799907646_dhpwho_Pinus.jpg",
+    "evidenceName": "Pinus.jpg",
+    "evidences": [
+      {
+        "data": "https://raw.githubusercontent.com/pinuspackindo-ai/pinuspackindo-okr/data/uploads/distribution_sales/1780725569291_14qo2e_Pinus.jpg",
+        "name": "Pinus.jpg"
+      }
+    ],
+    "locked": true,
+    "savedAt": "2026-06-04T03:24:07.055Z",
+    "value": 2148420390
+  },
+  "_d_retention_2026_05": {
+    "evidence": "https://raw.githubusercontent.com/pinuspackindo-ai/pinuspackindo-okr/data/uploads/distribution_sales/1780728462229_rlyo9r_Pinus.jpg",
+    "evidenceName": "Pinus.jpg",
+    "evidences": [
+      {
+        "data": "https://raw.githubusercontent.com/pinuspackindo-ai/pinuspackindo-okr/data/uploads/distribution_sales/1780879287412_rxkewe_Pinus.jpg",
+        "name": "Pinus.jpg"
+      }
+    ],
+    "locked": true,
+    "savedAt": "2026-06-04T03:24:34.694Z",
+    "value": 53
+  },
+  "_fa_akurasi_input_fa_2026_05": {
+    "evidence": "https://raw.githubusercontent.com/pinuspackindo-ai/pinuspackindo-okr/data/uploads/finance_accounting/1780716377548_j0osgj_Pinus.jpg",
+    "evidenceName": "Pinus.jpg",
+    "evidences": [
+      {
+        "data": null,
+        "name": "Pinus.jpg"
+      }
+    ],
+    "locked": true,
+    "savedAt": "2026-06-03T08:07:17.481Z",
+    "value": 100
+  },
+  "_fa_akurasi_saldo_fa_2026_05": {
+    "evidence": "https://raw.githubusercontent.com/pinuspackindo-ai/pinuspackindo-okr/data/uploads/finance_accounting/1780878664790_z66hui_Pinus.jpg",
+    "evidenceName": "Pinus.jpg",
+    "evidences": [
+      {
+        "data": "https://raw.githubusercontent.com/pinuspackindo-ai/pinuspackindo-okr/data/uploads/finance_accounting/1780879219837_6qp93d_Pinus.jpg",
+        "name": "Pinus.jpg"
+      }
+    ],
+    "locked": true,
+    "savedAt": "2026-06-03T08:07:35.009Z",
+    "value": 100
+  },
+  "_fa_piutang_jt_2026_05": {
+    "evidence": "https://raw.githubusercontent.com/pinuspackindo-ai/pinuspackindo-okr/data/uploads/finance_accounting/1780879167373_uc7fsl_Pinus.jpg",
+    "evidenceName": "Pinus.jpg",
+    "evidences": [
+      {
+        "data": null,
+        "name": "Pinus.jpg"
+      }
+    ],
+    "locked": true,
+    "savedAt": "2026-06-03T08:06:38.709Z",
+    "value": 100
+  },
+  "_ga_wp_2026_06": {
+    "locked": false,
+    "rows": []
+  },
   "_hrd_kedisiplinan_2026_05": {
-    "value": 98.49,
-    "evidence": "https://raw.githubusercontent.com/pinuspackindo-ai/pinuspackindo-okr/main/uploads/hrd/1780643775028_cdrhzb_Pinus.jpg",
+    "evidence": "https://raw.githubusercontent.com/pinuspackindo-ai/pinuspackindo-okr/data/uploads/hrd/1780908622452_89n8fi_Pinus.jpg",
     "evidenceName": "Pinus.jpg",
-    "savedAt": "2026-06-03T07:41:07.622Z",
-    "locked": true,
     "evidences": [
       {
-        "name": "Pinus.jpg",
-        "data": "https://raw.githubusercontent.com/pinuspackindo-ai/pinuspackindo-okr/main/uploads/hrd/1780646372231_g3gmlj_Pinus.jpg"
-      }
-    ]
-  },
-  "_hrd_kpi_2026_05": {
-    "value": 96,
-    "evidence": null,
-    "evidenceName": "Pinus.jpg",
-    "savedAt": "2026-06-04T06:16:32.455Z",
-    "locked": true,
-    "evidences": [
+        "data": null,
+        "name": "Pinus.jpg"
+      },
       {
         "name": "Pinus.jpg",
-        "data": null
+        "data": "https://raw.githubusercontent.com/pinuspackindo-ai/pinuspackindo-okr/data/uploads/hrd/1780908623050_bck5n0_Pinus.jpg"
       }
-    ]
-  },
-  "_hrd_akurasi_adm_2026_05": {
-    "value": 99,
-    "evidence": null,
-    "evidenceName": "Pinus.jpg",
-    "savedAt": "2026-06-03T07:43:45.908Z",
+    ],
     "locked": true,
-    "evidences": [
-      {
-        "name": "Pinus.jpg",
-        "data": null
-      }
-    ]
+    "savedAt": "2026-06-08T08:50:22.016Z",
+    "value": 98.49
   },
   "_hrd_kin_2026_06": {
     "rows": []
   },
-  "_hrd_kin_2026_05": {
-    "rows": [
+  "_hrd_kpi_2026_05": {
+    "evidence": "https://raw.githubusercontent.com/pinuspackindo-ai/pinuspackindo-okr/data/uploads/hrd/1780895741833_v772tv_Pinus.jpg",
+    "evidenceName": "Pinus.jpg",
+    "evidences": [
       {
-        "nama": "Bagus Wawan",
-        "tanggalMasuk": "2026-05-02",
-        "score": 77,
-        "evidence": null,
-        "evidenceName": "Pinus.jpg",
-        "editing": false,
-        "evidences": [
-          {
-            "name": "Pinus.jpg",
-            "data": null
-          }
-        ]
+        "data": null,
+        "name": "Pinus.jpg"
       },
       {
-        "nama": "Riska Sukaesih",
-        "tanggalMasuk": "2026-05-31",
-        "score": 85,
+        "name": "Pinus.jpg",
+        "data": "https://raw.githubusercontent.com/pinuspackindo-ai/pinuspackindo-okr/data/uploads/hrd/1780895745066_721y70_Pinus.jpg"
+      }
+    ],
+    "locked": true,
+    "savedAt": "2026-06-08T05:15:32.059Z",
+    "value": 96
+  },
+  "_hrd_rec_2026_06": {
+    "rows": []
+  },
+  "_ia_proj_2026_05": {
+    "rows": [
+      {
         "evidence": null,
         "evidenceName": "Pinus.jpg",
-        "editing": false,
         "evidences": [
           {
-            "name": "Pinus.jpg",
-            "data": null
+            "data": null,
+            "name": "Pinus.jpg"
           }
-        ]
+        ],
+        "locked": true,
+        "namaProject": "Tools Analisa Penjualan Store",
+        "savedAt": "2026-06-04T03:35:47.862Z",
+        "tujuan": "Tools ini digunakan untuk malakukan analisa data penjualan yang mencakup omzet, kinerja karyawan,  product top, product low, dll yang bekaitan dengan penjulan di store."
+      },
+      {
+        "evidence": null,
+        "evidenceName": "Pinus.jpg",
+        "evidences": [
+          {
+            "data": null,
+            "name": "Pinus.jpg"
+          }
+        ],
+        "locked": true,
+        "namaProject": "Tools Analisa HPP dan Margin",
+        "savedAt": "2026-06-04T03:36:15.252Z",
+        "tujuan": "Tools ini digunakan oleh Accounting Staff dalam membantu proses analisa kesehatan margin perusahaan. (margin yang sehat adalah >7%)"
+      },
+      {
+        "evidence": null,
+        "evidenceName": "Pinus.jpg",
+        "evidences": [
+          {
+            "data": null,
+            "name": "Pinus.jpg"
+          }
+        ],
+        "locked": true,
+        "namaProject": "Tools Perpustakaan Pinus",
+        "savedAt": "2026-06-04T03:36:34.956Z",
+        "tujuan": "Tools ini digunakan untuk mengarsip secara soft file dokumen penting perusahaan."
       }
     ]
   },
-  "_fa_piutang_jt_2026_05": {
-    "value": 100,
-    "evidence": null,
-    "evidenceName": "Pinus.jpg",
-    "savedAt": "2026-06-03T08:06:38.709Z",
-    "locked": true,
-    "evidences": [
-      {
-        "name": "Pinus.jpg",
-        "data": null
-      }
-    ]
+  "_ia_proj_2026_06": {
+    "rows": []
   },
-  "_fa_akurasi_input_fa_2026_05": {
-    "value": 100,
-    "evidence": null,
-    "evidenceName": "Pinus.jpg",
-    "savedAt": "2026-06-03T08:07:17.481Z",
-    "locked": true,
-    "evidences": [
+  "_ia_reko_2026_05": {
+    "rows": [
       {
-        "name": "Pinus.jpg",
-        "data": null
-      }
-    ]
-  },
-  "_fa_akurasi_saldo_fa_2026_05": {
-    "value": 100,
-    "evidence": "https://raw.githubusercontent.com/pinuspackindo-ai/pinuspackindo-okr/main/uploads/finance_accounting/1780660979206_at9chx_Pinus.jpg",
-    "evidenceName": "Pinus.jpg",
-    "savedAt": "2026-06-03T08:07:35.009Z",
-    "locked": true,
-    "evidences": [
+        "evidence": null,
+        "evidenceName": "Pinus.jpg",
+        "evidences": [
+          {
+            "data": null,
+            "name": "Pinus.jpg"
+          }
+        ],
+        "locked": true,
+        "namaAudit": "Keuangan",
+        "savedAt": "2026-06-04T03:37:11.013Z",
+        "score": "100"
+      },
       {
-        "name": "Pinus.jpg",
-        "data": null
-      }
-    ]
-  },
-  "_d_omzet_d_2026_05": {
-    "value": 2148420390,
-    "evidence": null,
-    "evidenceName": "Pinus.jpg",
-    "savedAt": "2026-06-04T03:24:07.055Z",
-    "locked": true,
-    "evidences": [
+        "evidence": "https://raw.githubusercontent.com/pinuspackindo-ai/pinuspackindo-okr/data/uploads/internal_audit/1780725554407_6z8bo5_Pinus.jpg",
+        "evidenceName": "Pinus.jpg",
+        "evidences": [
+          {
+            "data": null,
+            "name": "Pinus.jpg"
+          }
+        ],
+        "locked": true,
+        "namaAudit": "Stock Opname Store",
+        "savedAt": "2026-06-04T03:37:16.572Z",
+        "score": "100"
+      },
       {
-        "name": "Pinus.jpg",
-        "data": null
-      }
-    ]
-  },
-  "_d_retention_2026_05": {
-    "value": 53,
-    "evidence": null,
-    "evidenceName": "Pinus.jpg",
-    "savedAt": "2026-06-04T03:24:34.694Z",
-    "locked": true,
-    "evidences": [
+        "evidence": null,
+        "evidenceName": "Pinus.jpg",
+        "evidences": [
+          {
+            "data": null,
+            "name": "Pinus.jpg"
+          }
+        ],
+        "locked": true,
+        "namaAudit": "Stock Opname Warehouse",
+        "savedAt": "2026-06-04T03:37:21.556Z",
+        "score": "100"
+      },
       {
-        "name": "Pinus.jpg",
-        "data": null
-      }
-    ]
-  },
-  "_d_new_cust_2026_05": {
-    "value": 8,
-    "evidence": null,
-    "evidenceName": "Pinus.jpg",
-    "savedAt": "2026-06-04T03:25:37.782Z",
-    "locked": true,
-    "evidences": [
+        "evidence": null,
+        "evidenceName": "Pinus.jpg",
+        "evidences": [
+          {
+            "data": null,
+            "name": "Pinus.jpg"
+          }
+        ],
+        "locked": true,
+        "namaAudit": "Purchasing",
+        "savedAt": "2026-06-04T03:37:26.531Z",
+        "score": "100"
+      },
       {
-        "name": "Pinus.jpg",
-        "data": null
-      }
-    ]
-  },
-  "_d_csat_d_2026_05": {
-    "value": 80,
-    "evidence": null,
-    "evidenceName": "Pinus.jpg",
-    "savedAt": "2026-06-04T03:25:46.102Z",
-    "locked": true,
-    "evidences": [
+        "evidence": null,
+        "evidenceName": "Pinus.jpg",
+        "evidences": [
+          {
+            "data": null,
+            "name": "Pinus.jpg"
+          }
+        ],
+        "locked": true,
+        "namaAudit": "Inventory",
+        "savedAt": "2026-06-04T03:37:32.572Z",
+        "score": "100"
+      },
       {
-        "name": "Pinus.jpg",
-        "data": null
+        "evidence": "https://raw.githubusercontent.com/pinuspackindo-ai/pinuspackindo-okr/data/uploads/internal_audit/1780716281890_6owz12_Pinus.jpg",
+        "evidenceName": "Pinus.jpg",
+        "evidences": [
+          {
+            "data": null,
+            "name": "Pinus.jpg"
+          }
+        ],
+        "locked": true,
+        "namaAudit": "Default Diary",
+        "savedAt": "2026-06-04T03:37:40.188Z",
+        "score": "100"
+      },
+      {
+        "evidence": null,
+        "evidenceName": "Pinus.jpg",
+        "evidences": [
+          {
+            "data": null,
+            "name": "Pinus.jpg"
+          }
+        ],
+        "locked": true,
+        "namaAudit": "Cartrack",
+        "savedAt": "2026-06-04T03:37:45.435Z",
+        "score": "100"
       }
     ]
   },
   "_ia_reko_2026_06": {
     "rows": [
       {
+        "evidence": "",
+        "evidenceName": "",
+        "evidences": [],
+        "locked": false,
         "namaAudit": "Keuangan",
-        "score": "",
-        "evidence": "",
-        "evidenceName": "",
-        "locked": false,
-        "evidences": [],
-        "savedAt": "2026-06-04T17:50:58.801Z"
+        "savedAt": "2026-06-04T17:50:58.801Z",
+        "score": ""
       },
       {
+        "evidence": "",
+        "evidenceName": "",
+        "evidences": [],
+        "locked": false,
         "namaAudit": "Stock Opname Store",
-        "score": "",
-        "evidence": "",
-        "evidenceName": "",
-        "locked": false,
-        "evidences": [],
-        "savedAt": "2026-06-04T03:29:14.774Z"
+        "savedAt": "2026-06-04T03:29:14.774Z",
+        "score": ""
       },
       {
+        "evidence": "",
+        "evidenceName": "",
+        "evidences": [],
+        "locked": false,
         "namaAudit": "Stock Opname Warehouse",
-        "score": "",
-        "evidence": "",
-        "evidenceName": "",
-        "locked": false,
-        "evidences": [],
-        "savedAt": "2026-06-04T03:29:16.973Z"
+        "savedAt": "2026-06-04T03:29:16.973Z",
+        "score": ""
       },
       {
+        "evidence": "",
+        "evidenceName": "",
+        "evidences": [],
+        "locked": false,
         "namaAudit": "Purchasing",
-        "score": "",
-        "evidence": "",
-        "evidenceName": "",
-        "locked": false,
-        "evidences": [],
-        "savedAt": "2026-06-04T03:29:19.317Z"
+        "savedAt": "2026-06-04T03:29:19.317Z",
+        "score": ""
       },
       {
+        "evidence": "",
+        "evidenceName": "",
+        "evidences": [],
+        "locked": false,
         "namaAudit": "Inventory",
-        "score": "",
-        "evidence": "",
-        "evidenceName": "",
-        "locked": false,
-        "evidences": [],
-        "savedAt": "2026-06-04T03:29:21.470Z"
+        "savedAt": "2026-06-04T03:29:21.470Z",
+        "score": ""
       },
       {
+        "evidence": "",
+        "evidenceName": "",
+        "evidences": [],
+        "locked": false,
         "namaAudit": "Default Diary",
-        "score": "",
-        "evidence": "",
-        "evidenceName": "",
-        "locked": false,
-        "evidences": [],
-        "savedAt": "2026-06-04T03:29:24.774Z"
+        "savedAt": "2026-06-04T03:29:24.774Z",
+        "score": ""
       },
       {
+        "evidence": "",
+        "evidenceName": "",
+        "evidences": [],
+        "locked": false,
         "namaAudit": "Cartrack",
-        "score": "",
-        "evidence": "",
-        "evidenceName": "",
-        "locked": false,
-        "evidences": [],
-        "savedAt": "2026-06-04T03:29:27.822Z"
-      }
-    ]
-  },
-  "_ia_rot_keuangan_2026_05": {
-    "rows": [
-      {
-        "deadline": "2026-05-02",
-        "submittedDate": "2026-05-02",
-        "temuan": "0",
-        "evidence": null,
-        "evidenceName": "Pinus.jpg",
-        "locked": true,
-        "evidences": [
-          {
-            "name": "Pinus.jpg",
-            "data": null
-          }
-        ],
-        "savedAt": "2026-06-04T05:58:45.738Z"
-      },
-      {
-        "deadline": "2026-05-09",
-        "submittedDate": "2026-05-09",
-        "temuan": "0",
-        "evidence": null,
-        "evidenceName": "Pinus.jpg",
-        "locked": true,
-        "evidences": [
-          {
-            "name": "Pinus.jpg",
-            "data": null
-          }
-        ],
-        "savedAt": "2026-06-04T03:31:56.597Z"
-      },
-      {
-        "deadline": "2026-05-16",
-        "submittedDate": "2026-05-16",
-        "temuan": "0",
-        "evidence": null,
-        "evidenceName": "Pinus.jpg",
-        "locked": true,
-        "evidences": [
-          {
-            "name": "Pinus.jpg",
-            "data": null
-          }
-        ],
-        "savedAt": "2026-06-04T03:32:11.349Z"
-      },
-      {
-        "deadline": "2026-05-23",
-        "submittedDate": "2026-05-23",
-        "temuan": "0",
-        "evidence": null,
-        "evidenceName": "Pinus.jpg",
-        "locked": true,
-        "evidences": [
-          {
-            "name": "Pinus.jpg",
-            "data": null
-          }
-        ],
-        "savedAt": "2026-06-04T03:32:20.085Z"
-      },
-      {
-        "deadline": "2026-05-30",
-        "submittedDate": "2026-05-30",
-        "temuan": "0",
-        "evidence": null,
-        "evidenceName": "Pinus.jpg",
-        "locked": true,
-        "evidences": [
-          {
-            "name": "Pinus.jpg",
-            "data": null
-          }
-        ],
-        "savedAt": "2026-06-04T03:32:25.261Z"
-      }
-    ]
-  },
-  "_ia_rot_stokopname_2026_05": {
-    "rows": [
-      {
-        "deadline": "2026-05-04",
-        "submittedDate": "2026-05-04",
-        "temuan": "0",
-        "evidence": null,
-        "evidenceName": "Pinus.jpg",
-        "locked": true,
-        "evidences": [
-          {
-            "name": "Pinus.jpg",
-            "data": "https://raw.githubusercontent.com/pinuspackindo-ai/pinuspackindo-okr/main/uploads/internal_audit/1780643775580_qo18bx_Pinus.jpg"
-          }
-        ],
-        "savedAt": "2026-06-04T03:32:49.780Z"
-      },
-      {
-        "deadline": "2026-05-11",
-        "submittedDate": "2026-05-11",
-        "temuan": "0",
-        "evidence": null,
-        "evidenceName": "Pinus.jpg",
-        "locked": true,
-        "evidences": [
-          {
-            "name": "Pinus.jpg",
-            "data": null
-          }
-        ],
-        "savedAt": "2026-06-04T03:32:59.796Z"
-      },
-      {
-        "deadline": "2026-05-18",
-        "submittedDate": "2026-05-18",
-        "temuan": "0",
-        "evidence": null,
-        "evidenceName": "Pinus.jpg",
-        "locked": true,
-        "evidences": [
-          {
-            "name": "Pinus.jpg",
-            "data": null
-          }
-        ],
-        "savedAt": "2026-06-04T03:33:14.061Z"
-      },
-      {
-        "deadline": "2026-05-25",
-        "submittedDate": "2026-05-25",
-        "temuan": "0",
-        "evidence": null,
-        "evidenceName": "Pinus.jpg",
-        "locked": true,
-        "evidences": [
-          {
-            "name": "Pinus.jpg",
-            "data": null
-          }
-        ],
-        "savedAt": "2026-06-04T03:33:19.517Z"
-      }
-    ]
-  },
-  "_ia_rot_defaultdiary_2026_05": {
-    "rows": [
-      {
-        "deadline": "2026-05-19",
-        "submittedDate": "2026-05-15",
-        "temuan": "0",
-        "evidence": null,
-        "evidenceName": "Pinus.jpg",
-        "locked": true,
-        "evidences": [
-          {
-            "name": "Pinus.jpg",
-            "data": null
-          }
-        ],
-        "savedAt": "2026-06-04T03:33:45.356Z"
+        "savedAt": "2026-06-04T03:29:27.822Z",
+        "score": ""
       }
     ]
   },
@@ -1258,208 +1166,1112 @@
     "rows": [
       {
         "deadline": "2026-05-30",
+        "evidence": null,
+        "evidenceName": "Pinus.jpg",
+        "evidences": [
+          {
+            "data": null,
+            "name": "Pinus.jpg"
+          }
+        ],
+        "locked": true,
+        "savedAt": "2026-06-04T03:34:00.493Z",
         "submittedDate": "2026-05-26",
-        "temuan": "0",
-        "evidence": null,
-        "evidenceName": "Pinus.jpg",
-        "locked": true,
-        "evidences": [
-          {
-            "name": "Pinus.jpg",
-            "data": null
-          }
-        ],
-        "savedAt": "2026-06-04T03:34:00.493Z"
+        "temuan": "0"
       }
     ]
   },
-  "_ia_proj_2026_05": {
+  "_ia_rot_defaultdiary_2026_05": {
     "rows": [
       {
-        "namaProject": "Tools Analisa Penjualan Store",
-        "tujuan": "Tools ini digunakan untuk malakukan analisa data penjualan yang mencakup omzet, kinerja karyawan,  product top, product low, dll yang bekaitan dengan penjulan di store.",
+        "deadline": "2026-05-19",
         "evidence": null,
         "evidenceName": "Pinus.jpg",
-        "locked": true,
         "evidences": [
           {
-            "name": "Pinus.jpg",
-            "data": null
+            "data": null,
+            "name": "Pinus.jpg"
           }
         ],
-        "savedAt": "2026-06-04T03:35:47.862Z"
-      },
-      {
-        "namaProject": "Tools Analisa HPP dan Margin",
-        "tujuan": "Tools ini digunakan oleh Accounting Staff dalam membantu proses analisa kesehatan margin perusahaan. (margin yang sehat adalah >7%)",
-        "evidence": null,
-        "evidenceName": "Pinus.jpg",
         "locked": true,
-        "evidences": [
-          {
-            "name": "Pinus.jpg",
-            "data": null
-          }
-        ],
-        "savedAt": "2026-06-04T03:36:15.252Z"
-      },
-      {
-        "namaProject": "Tools Perpustakaan Pinus",
-        "tujuan": "Tools ini digunakan untuk mengarsip secara soft file dokumen penting perusahaan.",
-        "evidence": null,
-        "evidenceName": "Pinus.jpg",
-        "locked": true,
-        "evidences": [
-          {
-            "name": "Pinus.jpg",
-            "data": null
-          }
-        ],
-        "savedAt": "2026-06-04T03:36:34.956Z"
+        "savedAt": "2026-06-04T03:33:45.356Z",
+        "submittedDate": "2026-05-15",
+        "temuan": "0"
       }
     ]
   },
-  "_ia_reko_2026_05": {
+  "_ia_rot_keuangan_2026_05": {
     "rows": [
       {
-        "namaAudit": "Keuangan",
-        "score": "100",
+        "deadline": "2026-05-02",
         "evidence": null,
         "evidenceName": "Pinus.jpg",
-        "locked": true,
         "evidences": [
           {
-            "name": "Pinus.jpg",
-            "data": null
+            "data": null,
+            "name": "Pinus.jpg"
           }
         ],
-        "savedAt": "2026-06-04T03:37:11.013Z"
+        "locked": true,
+        "savedAt": "2026-06-04T05:58:45.738Z",
+        "submittedDate": "2026-05-02",
+        "temuan": "0"
       },
       {
-        "namaAudit": "Stock Opname Store",
-        "score": "100",
+        "deadline": "2026-05-09",
         "evidence": null,
         "evidenceName": "Pinus.jpg",
-        "locked": true,
         "evidences": [
           {
-            "name": "Pinus.jpg",
-            "data": null
+            "data": null,
+            "name": "Pinus.jpg"
           }
         ],
-        "savedAt": "2026-06-04T03:37:16.572Z"
+        "locked": true,
+        "savedAt": "2026-06-04T03:31:56.597Z",
+        "submittedDate": "2026-05-09",
+        "temuan": "0"
       },
       {
-        "namaAudit": "Stock Opname Warehouse",
-        "score": "100",
+        "deadline": "2026-05-16",
         "evidence": null,
         "evidenceName": "Pinus.jpg",
-        "locked": true,
         "evidences": [
           {
-            "name": "Pinus.jpg",
-            "data": null
+            "data": null,
+            "name": "Pinus.jpg"
           }
         ],
-        "savedAt": "2026-06-04T03:37:21.556Z"
+        "locked": true,
+        "savedAt": "2026-06-04T03:32:11.349Z",
+        "submittedDate": "2026-05-16",
+        "temuan": "0"
       },
       {
-        "namaAudit": "Purchasing",
-        "score": "100",
+        "deadline": "2026-05-23",
         "evidence": null,
         "evidenceName": "Pinus.jpg",
-        "locked": true,
         "evidences": [
           {
-            "name": "Pinus.jpg",
-            "data": null
+            "data": null,
+            "name": "Pinus.jpg"
           }
         ],
-        "savedAt": "2026-06-04T03:37:26.531Z"
+        "locked": true,
+        "savedAt": "2026-06-04T03:32:20.085Z",
+        "submittedDate": "2026-05-23",
+        "temuan": "0"
       },
       {
-        "namaAudit": "Inventory",
-        "score": "100",
+        "deadline": "2026-05-30",
         "evidence": null,
         "evidenceName": "Pinus.jpg",
-        "locked": true,
         "evidences": [
           {
-            "name": "Pinus.jpg",
-            "data": null
+            "data": null,
+            "name": "Pinus.jpg"
           }
         ],
-        "savedAt": "2026-06-04T03:37:32.572Z"
-      },
-      {
-        "namaAudit": "Default Diary",
-        "score": "100",
-        "evidence": "https://raw.githubusercontent.com/pinuspackindo-ai/pinuspackindo-okr/main/uploads/internal_audit/1780659242048_epjlgx_Pinus.jpg",
-        "evidenceName": "Pinus.jpg",
         "locked": true,
-        "evidences": [
-          {
-            "name": "Pinus.jpg",
-            "data": null
-          }
-        ],
-        "savedAt": "2026-06-04T03:37:40.188Z"
+        "savedAt": "2026-06-04T03:32:25.261Z",
+        "submittedDate": "2026-05-30",
+        "temuan": "0"
+      }
+    ]
+  },
+  "_ia_rot_keuangan_2026_06": {
+    "rows": [
+      {
+        "deadline": "2026-06-06",
+        "evidence": "",
+        "evidenceName": "",
+        "evidences": [],
+        "locked": false,
+        "savedAt": "2026-06-04T17:51:20.940Z",
+        "submittedDate": "",
+        "temuan": ""
       },
       {
-        "namaAudit": "Cartrack",
-        "score": "100",
+        "deadline": "2026-06-13",
+        "evidence": "",
+        "evidenceName": "",
+        "locked": false,
+        "submittedDate": "",
+        "temuan": ""
+      },
+      {
+        "deadline": "2026-06-20",
+        "evidence": "",
+        "evidenceName": "",
+        "locked": false,
+        "submittedDate": "",
+        "temuan": ""
+      },
+      {
+        "deadline": "2026-06-27",
+        "evidence": "",
+        "evidenceName": "",
+        "locked": false,
+        "submittedDate": "",
+        "temuan": ""
+      }
+    ]
+  },
+  "_ia_rot_stokopname_2026_05": {
+    "rows": [
+      {
+        "deadline": "2026-05-04",
         "evidence": null,
         "evidenceName": "Pinus.jpg",
-        "locked": true,
         "evidences": [
           {
-            "name": "Pinus.jpg",
-            "data": null
+            "data": "https://raw.githubusercontent.com/pinuspackindo-ai/pinuspackindo-okr/main/uploads/internal_audit/1780643775580_qo18bx_Pinus.jpg",
+            "name": "Pinus.jpg"
           }
         ],
-        "savedAt": "2026-06-04T03:37:45.435Z"
+        "locked": true,
+        "savedAt": "2026-06-04T03:32:49.780Z",
+        "submittedDate": "2026-05-04",
+        "temuan": "0"
+      },
+      {
+        "deadline": "2026-05-11",
+        "evidence": "https://raw.githubusercontent.com/pinuspackindo-ai/pinuspackindo-okr/main/uploads/internal_audit/1780707585105_mg5w3d_Pinus.jpg",
+        "evidenceName": "Pinus.jpg",
+        "evidences": [
+          {
+            "data": null,
+            "name": "Pinus.jpg"
+          }
+        ],
+        "locked": true,
+        "savedAt": "2026-06-04T03:32:59.796Z",
+        "submittedDate": "2026-05-11",
+        "temuan": "0"
+      },
+      {
+        "deadline": "2026-05-18",
+        "evidence": null,
+        "evidenceName": "Pinus.jpg",
+        "evidences": [
+          {
+            "data": null,
+            "name": "Pinus.jpg"
+          }
+        ],
+        "locked": true,
+        "savedAt": "2026-06-04T03:33:14.061Z",
+        "submittedDate": "2026-05-18",
+        "temuan": "0"
+      },
+      {
+        "deadline": "2026-05-25",
+        "evidence": null,
+        "evidenceName": "Pinus.jpg",
+        "evidences": [
+          {
+            "data": null,
+            "name": "Pinus.jpg"
+          }
+        ],
+        "locked": true,
+        "savedAt": "2026-06-04T03:33:19.517Z",
+        "submittedDate": "2026-05-25",
+        "temuan": "0"
       }
     ]
   },
   "_inv_akurasi_i_2026_05": {
-    "value": 81.3,
-    "evidence": "https://raw.githubusercontent.com/pinuspackindo-ai/pinuspackindo-okr/main/uploads/inventory/1780658514068_bql129_Pinus.jpg",
+    "evidence": "https://raw.githubusercontent.com/pinuspackindo-ai/pinuspackindo-okr/data/uploads/inventory/1780907382371_yhqyb6_Pinus.jpg",
     "evidenceName": "Pinus.jpg",
-    "savedAt": "2026-06-04T03:42:35.107Z",
-    "locked": true,
     "evidences": [
       {
-        "name": "Pinus.jpg",
-        "data": null
-      }
-    ]
-  },
-  "_inv_rn_do_2026_05_30": {
-    "value": 99,
-    "evidence": null,
-    "evidenceName": "Pinus.jpg",
-    "savedAt": "2026-06-04T03:43:08.842Z",
-    "locked": true,
-    "evidences": [
+        "data": null,
+        "name": "Pinus.jpg"
+      },
       {
         "name": "Pinus.jpg",
-        "data": null
+        "data": "https://raw.githubusercontent.com/pinuspackindo-ai/pinuspackindo-okr/data/uploads/inventory/1780907398146_pp0mx2_Pinus.jpg"
       }
-    ]
+    ],
+    "locked": true,
+    "savedAt": "2026-06-08T08:29:42.108Z",
+    "value": 81.3
   },
   "_inv_inputan_i_2026_05": {
+    "evidence": "https://raw.githubusercontent.com/pinuspackindo-ai/pinuspackindo-okr/data/uploads/inventory/1780907492954_9ilrux_Pinus.jpg",
+    "evidenceName": "Pinus.jpg",
+    "evidences": [
+      {
+        "data": null,
+        "name": "Pinus.jpg"
+      },
+      {
+        "name": "Pinus.jpg",
+        "data": "https://raw.githubusercontent.com/pinuspackindo-ai/pinuspackindo-okr/data/uploads/inventory/1780907434119_8rcvel_Pinus.jpg"
+      }
+    ],
+    "locked": true,
+    "savedAt": "2026-06-08T08:30:33.731Z",
+    "value": 100
+  },
+  "_inv_rn_do_2026_05_30": {
+    "evidence": "https://raw.githubusercontent.com/pinuspackindo-ai/pinuspackindo-okr/data/uploads/inventory/1780907406249_f1kdnb_Pinus.jpg",
+    "evidenceName": "Pinus.jpg",
+    "evidences": [
+      {
+        "data": null,
+        "name": "Pinus.jpg"
+      },
+      {
+        "name": "Pinus.jpg",
+        "data": "https://raw.githubusercontent.com/pinuspackindo-ai/pinuspackindo-okr/data/uploads/inventory/1780907428054_nhfra3_Pinus.jpg"
+      }
+    ],
+    "locked": true,
+    "savedAt": "2026-06-08T08:30:05.651Z",
+    "value": 99
+  },
+  "_p_ins_2026_05_27": {
+    "file1": null,
+    "file1Name": "product.product (1) (1).xlsx",
+    "file2": null,
+    "file2Name": "product.product.xlsx",
+    "locked": true,
+    "savedAt": "2026-06-04T15:51:48.385Z",
+    "score": 82.23
+  },
+  "_p_ins_2026_05_28": {
+    "file1": null,
+    "file1Name": "product.product.xlsx",
+    "file2": "https://raw.githubusercontent.com/pinuspackindo-ai/pinuspackindo-okr/main/uploads/purchasing/1780643777139_nihdo4_product.product_1.xlsx",
+    "file2Name": "product.product (1).xlsx",
+    "locked": true,
+    "savedAt": "2026-06-04T14:09:54.002Z",
+    "score": 91.2
+  },
+  "_p_ins_2026_05_29": {
+    "file1": null,
+    "file1Name": "product.product.xlsx",
+    "file2": "https://raw.githubusercontent.com/pinuspackindo-ai/pinuspackindo-okr/data/uploads/purchasing/1780714749082_q2plug_product.product_1.xlsx",
+    "file2Name": "product.product (1).xlsx",
+    "locked": true,
+    "savedAt": "2026-06-04T14:10:23.319Z",
+    "score": 91.91
+  },
+  "_p_ins_2026_05_30": {
+    "file1": "https://raw.githubusercontent.com/pinuspackindo-ai/pinuspackindo-okr/data/uploads/purchasing/1780716379366_eah8to_product.product.xlsx",
+    "file1Name": "product.product.xlsx",
+    "file2": null,
+    "file2Name": "product.product (1) (1).xlsx",
+    "locked": true,
+    "savedAt": "2026-06-04T14:10:00.197Z",
+    "score": 91.91
+  },
+  "_p_ir_2026_05": {
+    "evidence": "https://raw.githubusercontent.com/pinuspackindo-ai/pinuspackindo-okr/data/uploads/purchasing/1780907518525_fl3igz_Pinus.jpg",
+    "evidenceName": "Pinus.jpg",
+    "locked": true,
+    "savedAt": "2026-06-08T08:34:28.443Z",
     "value": 100,
+    "evidences": [
+      {
+        "name": "Pinus.jpg",
+        "data": "https://raw.githubusercontent.com/pinuspackindo-ai/pinuspackindo-okr/data/uploads/purchasing/1780907689174_nmr9ot_Pinus.jpg"
+      }
+    ]
+  },
+  "_p_kpen_2026_05": {
+    "accRows": 1393,
+    "file": "https://raw.githubusercontent.com/pinuspackindo-ai/pinuspackindo-okr/data/uploads/purchasing/1780716284366_gj3t6g_purchase.order.line.xlsx",
+    "fileName": "purchase.order.line.xlsx",
+    "locked": true,
+    "savedAt": "2026-06-04T08:03:37.389Z",
+    "score": 97.14086471408648,
+    "totalRows": 1434
+  },
+  "_p_sv_2026_06_30": {
     "evidence": null,
     "evidenceName": "Pinus.jpg",
-    "savedAt": "2026-06-04T03:43:21.067Z",
+    "locked": false,
+    "savedAt": null,
+    "text": ""
+  },
+  "_p_sv_rn_2026_05": 3000,
+  "_p_sv_rn_lk_2026_05": true,
+  "_tal_d0_2026_06": {
+    "rows": [
+      {
+        "tal": "Efisiensi tahap 1",
+        "deadline": "2026-06-07",
+        "bobot": 40,
+        "progress": null,
+        "review": "",
+        "editing": false,
+        "savedAt": "2026-06-10T01:10:15.338Z"
+      },
+      {
+        "tal": "Efisiensi tahap 2",
+        "deadline": "2026-06-20",
+        "bobot": 30,
+        "progress": null,
+        "review": "",
+        "editing": false,
+        "savedAt": "2026-06-10T01:10:15.338Z"
+      },
+      {
+        "tal": "Running KPI individu store",
+        "deadline": "2026-06-30",
+        "bobot": 20,
+        "progress": null,
+        "review": "",
+        "editing": false,
+        "savedAt": "2026-06-10T01:10:15.338Z"
+      },
+      {
+        "tal": "Drafting & implementasi new rooster",
+        "deadline": "2026-06-30",
+        "bobot": 10,
+        "progress": null,
+        "review": "",
+        "editing": false,
+        "savedAt": "2026-06-10T01:10:15.338Z"
+      }
+    ]
+  },
+  "_tal_d11_2026_06": {
+    "rows": [
+      {
+        "tal": "Merapikan SKU Inventory",
+        "deadline": "2026-06-30",
+        "bobot": 60,
+        "progress": null,
+        "review": "",
+        "editing": true,
+        "savedAt": "2026-06-10T00:24:21.186Z"
+      },
+      {
+        "tal": "Pengadaan Kitcheware",
+        "deadline": "2026-06-30",
+        "bobot": 40,
+        "progress": null,
+        "review": "",
+        "editing": true,
+        "savedAt": "2026-06-10T00:24:21.186Z"
+      }
+    ]
+  },
+  "_tal_d12_2026_06": {
+    "rows": [
+      {
+        "bobot": 40,
+        "deadline": "2026-06-07",
+        "editing": false,
+        "progress": 50,
+        "review": "",
+        "savedAt": "2026-06-10T01:37:30.981Z",
+        "tal": "Revisi DD, Bizflow, SOP Warehouse"
+      },
+      {
+        "bobot": 30,
+        "deadline": "2026-06-13",
+        "editing": true,
+        "progress": 100,
+        "review": "",
+        "savedAt": "2026-06-10T01:37:35.103Z",
+        "tal": "Pengesahan DD Telesales"
+      },
+      {
+        "bobot": 20,
+        "deadline": "2026-06-30",
+        "editing": true,
+        "progress": null,
+        "review": "",
+        "savedAt": "2026-06-10T01:56:22.917Z",
+        "tal": "Visualisasi Bizflow di Warehouse"
+      },
+      {
+        "bobot": 10,
+        "deadline": "2026-06-30",
+        "editing": true,
+        "progress": null,
+        "review": "",
+        "savedAt": "2026-06-03T02:51:09.006Z",
+        "tal": "Develop Website"
+      }
+    ]
+  },
+  "_tal_d3_2026_06": {
+    "rows": [
+      {
+        "tal": "Efisiensi store/warehouse tahap 1",
+        "deadline": "2026-06-07",
+        "bobot": 40,
+        "progress": null,
+        "review": "",
+        "editing": false,
+        "savedAt": "2026-06-10T01:11:47.320Z"
+      },
+      {
+        "tal": "Migrasi payroll ke Danamon",
+        "deadline": "2026-06-20",
+        "bobot": 30,
+        "progress": null,
+        "review": "",
+        "editing": false,
+        "savedAt": "2026-06-10T01:11:47.320Z"
+      },
+      {
+        "tal": "Drafting SOP dresscode/grooming",
+        "deadline": "2026-06-30",
+        "bobot": 20,
+        "progress": null,
+        "review": "",
+        "editing": false,
+        "savedAt": "2026-06-10T01:11:47.320Z"
+      },
+      {
+        "tal": "Perumusan KPI Operasional",
+        "deadline": "2026-06-30",
+        "bobot": 10,
+        "progress": null,
+        "review": "",
+        "editing": false,
+        "savedAt": "2026-06-10T01:11:47.320Z"
+      }
+    ]
+  },
+  "_w_akurasi_w_2026_05": {
+    "evidence": "https://raw.githubusercontent.com/pinuspackindo-ai/pinuspackindo-okr/data/uploads/warehouse/1780907282426_b1hne4_Pinus.jpg",
+    "evidenceName": "Pinus.jpg",
+    "evidences": [
+      {
+        "data": "https://raw.githubusercontent.com/pinuspackindo-ai/pinuspackindo-okr/data/uploads/warehouse/1780714748138_be8h80_Pinus.jpg",
+        "name": "Pinus.jpg"
+      },
+      {
+        "name": "Pinus.jpg",
+        "data": "https://raw.githubusercontent.com/pinuspackindo-ai/pinuspackindo-okr/data/uploads/warehouse/1780907283171_mwfkq2_Pinus.jpg"
+      }
+    ],
+    "locked": true,
+    "savedAt": "2026-06-08T08:28:02.284Z",
+    "value": 96.5
+  },
+  "_w_cartrack_2026_05": {
+    "evidence": "https://raw.githubusercontent.com/pinuspackindo-ai/pinuspackindo-okr/data/uploads/warehouse/1780907317374_hrecek_Pinus.jpg",
+    "evidenceName": "Pinus.jpg",
+    "evidences": [
+      {
+        "data": null,
+        "name": "Pinus.jpg"
+      },
+      {
+        "name": "Pinus.jpg",
+        "data": "https://raw.githubusercontent.com/pinuspackindo-ai/pinuspackindo-okr/data/uploads/warehouse/1780907311453_qui0zm_Pinus.jpg"
+      }
+    ],
+    "locked": true,
+    "savedAt": "2026-06-08T08:28:31.291Z",
+    "value": 89.5
+  },
+  "_w_default_diary_2026_05": {
+    "evidence": "https://raw.githubusercontent.com/pinuspackindo-ai/pinuspackindo-okr/data/uploads/warehouse/1780907296165_i7bkim_Pinus.jpg",
+    "evidenceName": "Pinus.jpg",
+    "evidences": [
+      {
+        "data": null,
+        "name": "Pinus.jpg"
+      },
+      {
+        "name": "Pinus.jpg",
+        "data": "https://raw.githubusercontent.com/pinuspackindo-ai/pinuspackindo-okr/data/uploads/warehouse/1780907303978_vwcycu_Pinus.jpg"
+      }
+    ],
+    "locked": true,
+    "savedAt": "2026-06-08T08:28:15.987Z",
+    "value": 90.04
+  },
+  "_w_impl_audit_w_2026_05": {
+    "evidence": "https://raw.githubusercontent.com/pinuspackindo-ai/pinuspackindo-okr/data/uploads/warehouse/1780907373599_9gd1mu_Pinus.jpg",
+    "evidenceName": "Pinus.jpg",
+    "evidences": [
+      {
+        "data": null,
+        "name": "Pinus.jpg"
+      },
+      {
+        "name": "Pinus.jpg",
+        "data": "https://raw.githubusercontent.com/pinuspackindo-ai/pinuspackindo-okr/data/uploads/warehouse/1780907324272_pio7dg_Pinus.jpg"
+      }
+    ],
+    "locked": true,
+    "savedAt": "2026-06-08T08:28:43.564Z",
+    "value": 98.225
+  },
+  "_fa_impl_reko_fa_2026_05": {
+    "value": 100,
+    "evidence": "https://raw.githubusercontent.com/pinuspackindo-ai/pinuspackindo-okr/data/uploads/finance_accounting/1780895664944_1adsy9_Pinus.jpg",
+    "evidenceName": "Pinus.jpg",
+    "savedAt": "2026-06-08T05:14:27.900Z",
     "locked": true,
     "evidences": [
       {
         "name": "Pinus.jpg",
+        "data": "https://raw.githubusercontent.com/pinuspackindo-ai/pinuspackindo-okr/data/uploads/finance_accounting/1780881943129_88l3a7_Pinus.jpg"
+      },
+      {
+        "name": "Pinus.jpg",
+        "data": "https://raw.githubusercontent.com/pinuspackindo-ai/pinuspackindo-okr/data/uploads/finance_accounting/1780895664392_n1v9kl_Pinus.jpg"
+      }
+    ]
+  },
+  "_s_omzet_2026_05": {
+    "value": 3059039000,
+    "evidence": "https://raw.githubusercontent.com/pinuspackindo-ai/pinuspackindo-okr/data/uploads/store/1780882751983_9iwx89_Pinus.jpg",
+    "evidenceName": "Pinus.jpg",
+    "savedAt": "2026-06-08T01:39:11.744Z",
+    "locked": true,
+    "evidences": [
+      {
+        "name": "Pinus.jpg",
+        "data": "https://raw.githubusercontent.com/pinuspackindo-ai/pinuspackindo-okr/data/uploads/store/1780882829345_15frbw_Pinus.jpg"
+      }
+    ]
+  },
+  "_s_akurasi_2026_05": {
+    "value": 66.45,
+    "evidence": "https://raw.githubusercontent.com/pinuspackindo-ai/pinuspackindo-okr/data/uploads/store/1780882800832_rf1hwd_Pinus.jpg",
+    "evidenceName": "Pinus.jpg",
+    "savedAt": "2026-06-08T01:40:00.616Z",
+    "locked": true,
+    "evidences": [
+      {
+        "name": "Pinus.jpg",
+        "data": "https://raw.githubusercontent.com/pinuspackindo-ai/pinuspackindo-okr/data/uploads/store/1780882852948_4shvww_Pinus.jpg"
+      }
+    ]
+  },
+  "_s_csat_2026_05": {
+    "value": 92,
+    "evidence": "https://raw.githubusercontent.com/pinuspackindo-ai/pinuspackindo-okr/data/uploads/store/1780882811077_kjk8au_Pinus.jpg",
+    "evidenceName": "Pinus.jpg",
+    "savedAt": "2026-06-08T01:40:10.617Z",
+    "locked": true,
+    "evidences": [
+      {
+        "name": "Pinus.jpg",
+        "data": "https://raw.githubusercontent.com/pinuspackindo-ai/pinuspackindo-okr/data/uploads/store/1780882811421_90qbvi_Pinus.jpg"
+      }
+    ]
+  },
+  "_s_impl_audit_2026_05": {
+    "value": 93,
+    "evidence": "https://raw.githubusercontent.com/pinuspackindo-ai/pinuspackindo-okr/data/uploads/store/1780883447826_tgbv8c_Pinus.jpg",
+    "evidenceName": "Pinus.jpg",
+    "savedAt": "2026-06-08T01:50:47.616Z",
+    "locked": true,
+    "evidences": [
+      {
+        "name": "Pinus.jpg",
+        "data": "https://raw.githubusercontent.com/pinuspackindo-ai/pinuspackindo-okr/data/uploads/store/1780883466166_fsww5x_Pinus.jpg"
+      }
+    ]
+  },
+  "_p_ins_2026_06_06": {
+    "file1": "https://raw.githubusercontent.com/pinuspackindo-ai/pinuspackindo-okr/data/uploads/purchasing/1780884460454_8l0omq_product.product.xlsx",
+    "file1Name": "product.product.xlsx",
+    "file2": "https://raw.githubusercontent.com/pinuspackindo-ai/pinuspackindo-okr/data/uploads/purchasing/1780884461602_9wu9ff_product.product_1.xlsx",
+    "file2Name": "product.product (1).xlsx",
+    "score": 90.54,
+    "savedAt": "2026-06-08T02:07:38.801Z",
+    "locked": true
+  },
+  "_fa_rot_2026_05": {
+    "poin": [
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0
+    ],
+    "akurasiEv": null,
+    "akurasiEvName": "WhatsApp Image 2026-06-05 at 08.42.25.jpeg",
+    "ontimeDate": "2026-06-03",
+    "ontimeEv": "https://raw.githubusercontent.com/pinuspackindo-ai/pinuspackindo-okr/data/uploads/finance_accounting/1780884842656_yoyy4a_WhatsApp_Image_2026-06-05_at_08.49.07.jpeg",
+    "ontimeEvName": "WhatsApp Image 2026-06-05 at 08.49.07.jpeg",
+    "akurasiScore": 100,
+    "ontimeScore": 100,
+    "totalScore": 100,
+    "savedAt": "2026-06-08T02:14:04.102Z",
+    "locked": true,
+    "akurasiEvs": [
+      {
+        "name": "WhatsApp Image 2026-06-05 at 08.42.25.jpeg",
+        "data": "https://raw.githubusercontent.com/pinuspackindo-ai/pinuspackindo-okr/data/uploads/finance_accounting/1780884842101_kncr8x_WhatsApp_Image_2026-06-05_at_08.42.25.jpeg"
+      }
+    ],
+    "ontimeEvs": [
+      {
+        "name": "WhatsApp Image 2026-06-05 at 08.49.07.jpeg",
+        "data": "https://raw.githubusercontent.com/pinuspackindo-ai/pinuspackindo-okr/data/uploads/finance_accounting/1780884857542_mqodxj_WhatsApp_Image_2026-06-05_at_08.49.07.jpeg"
+      }
+    ]
+  },
+  "_p_apo_2026_05": {
+    "file1": "https://raw.githubusercontent.com/pinuspackindo-ai/pinuspackindo-okr/data/uploads/purchasing/1780907689723_8il6wb_purchase.order.line.xlsx",
+    "file1Name": "purchase.order.line.xlsx",
+    "file2": "https://raw.githubusercontent.com/pinuspackindo-ai/pinuspackindo-okr/data/uploads/purchasing/1780907693363_bqckbd_account.move.xlsx",
+    "file2Name": "account.move.xlsx",
+    "lateScore": 83.3,
+    "accScore": 83.3,
+    "finalScore": 83.3,
+    "savedAt": "2026-06-08T08:34:57.242Z",
+    "locked": true,
+    "score": 83.3
+  },
+  "_hrd_akurasi_adm_2026_05": {
+    "value": 99,
+    "evidence": "https://raw.githubusercontent.com/pinuspackindo-ai/pinuspackindo-okr/data/uploads/hrd/1780909162458_ob5yt1_Pinus.jpg",
+    "evidenceName": "Pinus.jpg",
+    "savedAt": "2026-06-08T08:56:29.104Z",
+    "locked": true,
+    "evidences": [
+      {
+        "name": "Pinus.jpg",
+        "data": "https://raw.githubusercontent.com/pinuspackindo-ai/pinuspackindo-okr/data/uploads/hrd/1780908990481_dcihri_Pinus.jpg"
+      }
+    ]
+  },
+  "_hrd_kdk_2026_05": {
+    "abs": {
+      "aktif": 20,
+      "temuan": 1,
+      "ev": "https://raw.githubusercontent.com/pinuspackindo-ai/pinuspackindo-okr/data/uploads/hrd/1780912300158_tsw1f3_Pinus.jpg",
+      "evName": "Pinus.jpg",
+      "evs": [
+        {
+          "name": "Pinus.jpg",
+          "data": "https://raw.githubusercontent.com/pinuspackindo-ai/pinuspackindo-okr/data/uploads/hrd/1780883236227_a6ssjb_Pinus.jpg"
+        }
+      ]
+    },
+    "kep": {
+      "aktif": 20,
+      "temuan": 0,
+      "ev": "https://raw.githubusercontent.com/pinuspackindo-ai/pinuspackindo-okr/data/uploads/hrd/1780912314058_9aa5z7_Pinus.jpg",
+      "evName": "Pinus.jpg",
+      "evs": [
+        {
+          "name": "Pinus.jpg",
+          "data": "https://raw.githubusercontent.com/pinuspackindo-ai/pinuspackindo-okr/data/uploads/hrd/1780912623627_2d5k8p_Pinus.jpg"
+        }
+      ]
+    },
+    "snk": {
+      "jumlah": 0,
+      "ev": "https://raw.githubusercontent.com/pinuspackindo-ai/pinuspackindo-okr/data/uploads/hrd/1780912862689_jr8bbw_Pinus.jpg",
+      "evName": "Pinus.jpg",
+      "evs": [
+        {
+          "name": "Pinus.jpg",
+          "data": "https://raw.githubusercontent.com/pinuspackindo-ai/pinuspackindo-okr/data/uploads/hrd/1780912660631_i9f5we_Pinus.jpg"
+        }
+      ]
+    },
+    "absScore": 95,
+    "kepScore": 100,
+    "snkScore": 100,
+    "totalScore": 98,
+    "savedAt": "2026-06-08T09:51:05.623Z",
+    "locked": true
+  },
+  "_hrd_kin_2026_05": {
+    "rows": [
+      {
+        "nama": "Bagus Setiawan",
+        "tanggalMasuk": "2026-05-01",
+        "score": 77,
+        "evidence": "https://raw.githubusercontent.com/pinuspackindo-ai/pinuspackindo-okr/data/uploads/hrd/1780912623133_q9lb2w_Pinus.jpg",
+        "evidenceName": "Pinus.jpg",
+        "editing": false,
+        "evidences": [
+          {
+            "name": "Pinus.jpg",
+            "data": "https://raw.githubusercontent.com/pinuspackindo-ai/pinuspackindo-okr/data/uploads/hrd/1780912846209_b0fjy8_Pinus.jpg"
+          }
+        ]
+      },
+      {
+        "nama": "Riska Sukaesih",
+        "tanggalMasuk": "2026-05-31",
+        "score": 85,
+        "evidence": "https://raw.githubusercontent.com/pinuspackindo-ai/pinuspackindo-okr/data/uploads/hrd/1780972360489_eqzix5_Pinus.jpg",
+        "evidenceName": "Pinus.jpg",
+        "editing": false,
+        "evidences": [
+          {
+            "name": "Pinus.jpg",
+            "data": "https://raw.githubusercontent.com/pinuspackindo-ai/pinuspackindo-okr/data/uploads/hrd/1780912845607_blklvr_Pinus.jpg"
+          },
+          {
+            "name": "Pinus.jpg",
+            "data": "https://raw.githubusercontent.com/pinuspackindo-ai/pinuspackindo-okr/data/uploads/hrd/1780972347337_j319ws_Pinus.jpg"
+          }
+        ]
+      }
+    ]
+  },
+  "_p_sv_2026_06_02": {
+    "text": "(S) PENGHANCUR KENTANG 24 CM, 8,296, 8,107; (S) PITA TARIK 12 MM X10, 1,574, 1,400; (S) PLASTIK SELAMAT MENIKMATI 18X18 X50, 2,745, 2,407; (S) CETAKAN PUDING MATAHARI, 9,980, 9,468; (S) SENDOK ES KRIM KAYU 75 MM X200, 4,512, 4,172",
+    "evidence": "https://raw.githubusercontent.com/pinuspackindo-ai/pinuspackindo-okr/data/uploads/purchasing/1780972376755_2986xr_02.png",
+    "evidenceName": "02.PNG",
+    "savedAt": "2026-06-09T02:32:42.352Z",
+    "locked": true
+  },
+  "_inv_rn_do_2026_06_08": {
+    "value": 98,
+    "evidence": "https://raw.githubusercontent.com/pinuspackindo-ai/pinuspackindo-okr/data/uploads/inventory/1780997000233_1b8r6d_b1fa6733-4c79-4047-afc3-9a1ac4bb6cdd.jpg",
+    "evidenceName": "b1fa6733-4c79-4047-afc3-9a1ac4bb6cdd.jpg",
+    "savedAt": "2026-06-09T09:23:19.779Z",
+    "locked": true,
+    "evidences": [
+      {
+        "name": "WhatsApp Image 2026-06-08 at 16.56.05.jpeg",
+        "data": "https://raw.githubusercontent.com/pinuspackindo-ai/pinuspackindo-okr/data/uploads/inventory/1780912863160_9xo8bi_WhatsApp_Image_2026-06-08_at_16.56.05.jpeg"
+      },
+      {
+        "name": "WhatsApp Image 2026-06-08 at 16.54.37.jpeg",
+        "data": null
+      },
+      {
+        "name": "WhatsApp Image 2026-06-08 at 16.50.37 (1).jpeg",
         "data": null
       }
     ]
   },
+  "_p_sv_2026_06_04": {
+    "text": "PAPERCUP ES KRIM MOTIF 2 OZ 50X60, 385,000, 375,000",
+    "evidence": "https://raw.githubusercontent.com/pinuspackindo-ai/pinuspackindo-okr/data/uploads/purchasing/1780972380199_9j19k7_04.png",
+    "evidenceName": "04.PNG",
+    "savedAt": "2026-06-09T02:33:02.088Z",
+    "locked": true
+  },
+  "_p_sv_2026_06_06": {
+    "text": "ONGKIR SURYANDARU, 15,000, 7,000",
+    "evidence": "https://raw.githubusercontent.com/pinuspackindo-ai/pinuspackindo-okr/data/uploads/purchasing/1780972392674_9nh3um_06.png",
+    "evidenceName": "06.PNG",
+    "savedAt": "2026-06-09T02:33:20.600Z",
+    "locked": true
+  },
+  "_hrd_rec_2026_05": {
+    "rows": [
+      {
+        "jabatan": "STAFF",
+        "namaRequest": "KASIR",
+        "tglRequest": "2026-04-07",
+        "deadline": "2026-05-06",
+        "realisasi": "2026-05-04",
+        "evidence": "https://raw.githubusercontent.com/pinuspackindo-ai/pinuspackindo-okr/data/uploads/hrd/1780973717956_wtfu92_laporan_rekrutmen.png",
+        "evidenceName": "laporan rekrutmen .png",
+        "editing": false,
+        "evidences": [
+          {
+            "name": "laporan rekrutmen .png",
+            "data": "https://raw.githubusercontent.com/pinuspackindo-ai/pinuspackindo-okr/data/uploads/hrd/1780973619738_v7qu12_laporan_rekrutmen.png"
+          }
+        ]
+      },
+      {
+        "jabatan": "STAFF",
+        "namaRequest": "HELPER",
+        "tglRequest": "2026-04-07",
+        "deadline": "2026-05-06",
+        "realisasi": "2026-04-24",
+        "evidence": "https://raw.githubusercontent.com/pinuspackindo-ai/pinuspackindo-okr/data/uploads/hrd/1780994721001_jrnrjj_laporan_rekrutmen.png",
+        "evidenceName": "laporan rekrutmen .png",
+        "editing": false,
+        "evidences": [
+          {
+            "name": "laporan rekrutmen .png",
+            "data": "https://raw.githubusercontent.com/pinuspackindo-ai/pinuspackindo-okr/data/uploads/hrd/1780973681552_e0x20f_laporan_rekrutmen.png"
+          }
+        ]
+      },
+      {
+        "jabatan": "SPV/MANAGER",
+        "namaRequest": "SPV STORE",
+        "tglRequest": "2026-04-18",
+        "deadline": "2026-06-01",
+        "realisasi": "2026-05-18",
+        "evidence": "https://raw.githubusercontent.com/pinuspackindo-ai/pinuspackindo-okr/data/uploads/hrd/1780994709886_p02nqq_laporan_rekrutmen.png",
+        "evidenceName": "laporan rekrutmen .png",
+        "editing": false,
+        "evidences": [
+          {
+            "name": "laporan rekrutmen .png",
+            "data": "https://raw.githubusercontent.com/pinuspackindo-ai/pinuspackindo-okr/data/uploads/hrd/1780973813193_18hm4j_laporan_rekrutmen.png"
+          }
+        ]
+      },
+      {
+        "jabatan": "EKSEKUTIF/SPESIALIS",
+        "namaRequest": "STAFF PURSHASING",
+        "tglRequest": "2026-05-18",
+        "deadline": "2026-08-15",
+        "realisasi": "2026-05-26",
+        "evidence": "https://raw.githubusercontent.com/pinuspackindo-ai/pinuspackindo-okr/data/uploads/hrd/1780974009060_xahfgt_laporan_rekrutmen.png",
+        "evidenceName": "laporan rekrutmen .png",
+        "editing": false,
+        "evidences": [
+          {
+            "name": "laporan rekrutmen .png",
+            "data": "https://raw.githubusercontent.com/pinuspackindo-ai/pinuspackindo-okr/data/uploads/hrd/1780996982735_b6o4dc_laporan_rekrutmen.png"
+          }
+        ]
+      },
+      {
+        "jabatan": "STAFF",
+        "namaRequest": "STAFF LEGAL N PAYROLL",
+        "tglRequest": "2026-04-10",
+        "deadline": "2026-05-09",
+        "realisasi": "2026-05-10",
+        "evidence": "https://raw.githubusercontent.com/pinuspackindo-ai/pinuspackindo-okr/data/uploads/hrd/1780974009060_xahfgt_laporan_rekrutmen.png",
+        "evidenceName": "laporan rekrutmen .png",
+        "editing": false,
+        "evidences": [
+          {
+            "name": "laporan rekrutmen .png",
+            "data": null
+          }
+        ]
+      }
+    ]
+  },
+  "_p_ins_2026_06_09": {
+    "file1": "https://raw.githubusercontent.com/pinuspackindo-ai/pinuspackindo-okr/data/uploads/purchasing/1780993464659_7xue8h_product.product.xlsx",
+    "file1Name": "product.product.xlsx",
+    "file2": "https://raw.githubusercontent.com/pinuspackindo-ai/pinuspackindo-okr/data/uploads/purchasing/1780992894574_ye29ct_product.product_1.xlsx",
+    "file2Name": "product.product (1).xlsx",
+    "score": 91.03,
+    "savedAt": "2026-06-09T08:24:23.300Z",
+    "locked": true
+  },
+  "_p_ins_2026_06_02": {
+    "file1": "https://raw.githubusercontent.com/pinuspackindo-ai/pinuspackindo-okr/data/uploads/purchasing/1780992959297_bexgph_product.product.xlsx",
+    "file1Name": "product.product.xlsx",
+    "file2": "https://raw.githubusercontent.com/pinuspackindo-ai/pinuspackindo-okr/data/uploads/purchasing/1780992959920_lct14c_product.product_1.xlsx",
+    "file2Name": "product.product (1).xlsx",
+    "score": 90.73,
+    "savedAt": "2026-06-09T08:15:58.341Z",
+    "locked": true
+  },
+  "_p_ins_2026_06_03": {
+    "file1": "https://raw.githubusercontent.com/pinuspackindo-ai/pinuspackindo-okr/data/uploads/purchasing/1780992978313_0zq8sy_product.product.xlsx",
+    "file1Name": "product.product.xlsx",
+    "file2": "https://raw.githubusercontent.com/pinuspackindo-ai/pinuspackindo-okr/data/uploads/purchasing/1780992975524_jrnp01_product.product_1.xlsx",
+    "file2Name": "product.product (1).xlsx",
+    "score": 91.08,
+    "savedAt": "2026-06-09T08:16:14.349Z",
+    "locked": true
+  },
+  "_p_ins_2026_06_04": {
+    "file1": "https://raw.githubusercontent.com/pinuspackindo-ai/pinuspackindo-okr/data/uploads/purchasing/1780992993555_3rggov_product.product.xlsx",
+    "file1Name": "product.product.xlsx",
+    "file2": "https://raw.githubusercontent.com/pinuspackindo-ai/pinuspackindo-okr/data/uploads/purchasing/1780993002892_q4k9q5_product.product_1.xlsx",
+    "file2Name": "product.product (1).xlsx",
+    "score": 91.08,
+    "savedAt": "2026-06-09T08:16:41.693Z",
+    "locked": true
+  },
+  "_p_ins_2026_06_05": {
+    "file1": "https://raw.githubusercontent.com/pinuspackindo-ai/pinuspackindo-okr/data/uploads/purchasing/1780993005734_wwph7l_product.product.xlsx",
+    "file1Name": "product.product.xlsx",
+    "file2": "https://raw.githubusercontent.com/pinuspackindo-ai/pinuspackindo-okr/data/uploads/purchasing/1780993020279_r80aq0_product.product_1.xlsx",
+    "file2Name": "product.product (1).xlsx",
+    "score": 90.27,
+    "savedAt": "2026-06-09T08:16:43.685Z",
+    "locked": true
+  },
+  "_p_ins_2026_06_08": {
+    "file1": "https://raw.githubusercontent.com/pinuspackindo-ai/pinuspackindo-okr/data/uploads/purchasing/1780993022900_aomue7_product.product.xlsx",
+    "file1Name": "product.product.xlsx",
+    "file2": "https://raw.githubusercontent.com/pinuspackindo-ai/pinuspackindo-okr/data/uploads/purchasing/1780993454886_qruj1j_product.product_1.xlsx",
+    "file2Name": "product.product (1).xlsx",
+    "score": 90.43,
+    "savedAt": "2026-06-09T08:22:44.797Z",
+    "locked": true
+  },
+  "_p_sv_2026_06_09": {
+    "text": "MSB BUBBLE BENING 50 CM, 714,000, 672,000; MSB BUBBLE HITAM 50 CM, 714,000, 672,000; MSB BUBBLE HITAM 25 CM, 714,000, 672,000",
+    "evidence": "https://raw.githubusercontent.com/pinuspackindo-ai/pinuspackindo-okr/data/uploads/purchasing/1780994709256_n11jmt_09.png",
+    "evidenceName": "09.PNG",
+    "savedAt": "2026-06-09T08:30:22.830Z",
+    "locked": true
+  },
+  "_inv_rn_do_2026_06_09": {
+    "value": 100,
+    "evidence": "https://raw.githubusercontent.com/pinuspackindo-ai/pinuspackindo-okr/data/uploads/inventory/1780994618876_khp44y_rn11112.png",
+    "evidenceName": "rn11112.png",
+    "savedAt": "2026-06-09T08:43:38.070Z",
+    "locked": true,
+    "evidences": [
+      {
+        "name": "rn11112.png",
+        "data": "https://raw.githubusercontent.com/pinuspackindo-ai/pinuspackindo-okr/data/uploads/inventory/1781011306581_5kzcec_rn11112.png"
+      },
+      {
+        "name": "rn11111.png",
+        "data": "https://raw.githubusercontent.com/pinuspackindo-ai/pinuspackindo-okr/data/uploads/inventory/1780994619525_jn2l7l_rn11111.png"
+      }
+    ]
+  },
+  "_tal_d10_2026_06": {
+    "rows": [
+      {
+        "tal": "Penguasaan DD, Bizflow, SOP Warehouse",
+        "deadline": "2026-06-30",
+        "bobot": 40,
+        "progress": null,
+        "review": "",
+        "editing": true,
+        "savedAt": "2026-06-10T00:26:12.329Z"
+      },
+      {
+        "tal": "Drafting formasi harian & Lembur senin pagi",
+        "deadline": "2026-06-30",
+        "bobot": 35,
+        "progress": null,
+        "review": "",
+        "editing": true,
+        "savedAt": "2026-06-10T00:26:12.329Z"
+      },
+      {
+        "tal": "Meneruskan SO harian % ED",
+        "deadline": "2026-06-30",
+        "bobot": 25,
+        "progress": null,
+        "review": "",
+        "editing": false,
+        "savedAt": "2026-06-10T00:26:12.329Z"
+      }
+    ]
+  },
+  "_tal_d2_2026_06": {
+    "rows": [
+      {
+        "tal": "Drafting Default Diary Departemen",
+        "deadline": "2026-06-30",
+        "bobot": 60,
+        "progress": null,
+        "review": "",
+        "editing": false,
+        "savedAt": "2026-06-10T00:27:23.594Z"
+      },
+      {
+        "tal": "Drafting Business Flow Departemen",
+        "deadline": "2026-06-30",
+        "bobot": 40,
+        "progress": null,
+        "review": "",
+        "editing": false,
+        "savedAt": "2026-06-10T00:27:23.594Z"
+      }
+    ]
+  },
+  "_tal_d9_2026_06": {
+    "rows": [
+      {
+        "tal": "Klasifikasi Customer Med Pareto & Labeling",
+        "deadline": "2026-06-07",
+        "bobot": 40,
+        "progress": null,
+        "review": "",
+        "editing": false,
+        "savedAt": "2026-06-10T00:29:07.095Z"
+      },
+      {
+        "tal": "Buang Dead Stock di Shopee",
+        "deadline": "2026-06-30",
+        "bobot": 35,
+        "progress": null,
+        "review": "",
+        "editing": false,
+        "savedAt": "2026-06-10T00:29:07.095Z"
+      },
+      {
+        "tal": "Finalisasi pengumpulan titik kirim customer",
+        "deadline": "2026-06-30",
+        "bobot": 25,
+        "progress": null,
+        "review": "",
+        "editing": false,
+        "savedAt": "2026-06-10T00:29:07.095Z"
+      }
+    ]
+  },
+  "_p_sv_2026_05_30": {
+    "text": "A",
+    "evidence": "https://raw.githubusercontent.com/pinuspackindo-ai/pinuspackindo-okr/data/uploads/purchasing/1781056934452_9nekzt_Pinus.jpg",
+    "evidenceName": "Pinus.jpg",
+    "savedAt": "2026-06-10T02:02:12.380Z",
+    "locked": true
+  },
+  "_p_sv_2026_05_26": {
+    "evidence": null,
+    "evidenceName": "Pinus.jpg",
+    "locked": true,
+    "savedAt": "2026-06-04T13:46:33.392Z",
+    "text": "A;B;C;D;E;F;G;H;I;J;K;L;M;N;O;P;Q;R;S;T;U"
+  },
+  "_p_sv_2026_06_10": {
+    "text": "MEJA PUTAR KUE, 35,499, 33,800",
+    "evidence": "https://raw.githubusercontent.com/pinuspackindo-ai/pinuspackindo-okr/data/uploads/purchasing/1781082531715_u17i4z_10.png",
+    "evidenceName": "10.PNG",
+    "savedAt": "2026-06-10T09:08:52.070Z",
+    "locked": true
+  },
+  "_inv_rn_do_2026_06_10": {
+    "value": 97,
+    "evidence": "https://raw.githubusercontent.com/pinuspackindo-ai/pinuspackindo-okr/data/uploads/inventory/1781082965273_r9avzw_WhatsApp_Image_2026-06-10_at_15.58.24.jpeg",
+    "evidenceName": "WhatsApp Image 2026-06-10 at 15.58.24.jpeg",
+    "savedAt": "2026-06-10T09:16:04.029Z",
+    "locked": true,
+    "evidences": [
+      {
+        "name": "WhatsApp Image 2026-06-10 at 15.58.24.jpeg",
+        "data": null
+      },
+      {
+        "name": "WhatsApp Image 2026-06-10 at 15.57.27.jpeg",
+        "data": null
+      },
+      {
+        "name": "WhatsApp Image 2026-06-10 at 15.31.41.jpeg",
+        "data": null
+      }
+    ]
+  },
+  "_p_ins_2026_06_10": {
+    "file1": "https://raw.githubusercontent.com/pinuspackindo-ai/pinuspackindo-okr/data/uploads/purchasing/1781083877997_lkt0zo_product.product.xlsx",
+    "file1Name": "product.product.xlsx",
+    "file2": "https://raw.githubusercontent.com/pinuspackindo-ai/pinuspackindo-okr/data/uploads/purchasing/1781095257651_vs9fh5_product.product_1.xlsx",
+    "file2Name": "product.product (1).xlsx",
+    "score": 91.51,
+    "savedAt": "2026-06-10T09:31:15.907Z",
+    "locked": true
+  },
+  "_ts": 1781169731234,
   "_inv_rn_do_2026_06_03": {
     "value": 100,
     "evidence": "https://raw.githubusercontent.com/pinuspackindo-ai/pinuspackindo-okr/main/uploads/inventory/1780659242605_i38177_D01.jpg",
@@ -1481,195 +2293,6 @@
       }
     ]
   },
-  "_ia_rot_keuangan_2026_06": {
-    "rows": [
-      {
-        "deadline": "2026-06-06",
-        "submittedDate": "",
-        "temuan": "",
-        "evidence": "",
-        "evidenceName": "",
-        "locked": false,
-        "evidences": [],
-        "savedAt": "2026-06-04T17:51:20.940Z"
-      },
-      {
-        "deadline": "2026-06-13",
-        "submittedDate": "",
-        "temuan": "",
-        "evidence": "",
-        "evidenceName": "",
-        "locked": false
-      },
-      {
-        "deadline": "2026-06-20",
-        "submittedDate": "",
-        "temuan": "",
-        "evidence": "",
-        "evidenceName": "",
-        "locked": false
-      },
-      {
-        "deadline": "2026-06-27",
-        "submittedDate": "",
-        "temuan": "",
-        "evidence": "",
-        "evidenceName": "",
-        "locked": false
-      }
-    ]
-  },
-  "_w_akurasi_w_2026_05": {
-    "value": 96.5,
-    "evidence": null,
-    "evidenceName": "Pinus.jpg",
-    "savedAt": "2026-06-04T06:10:14.023Z",
-    "locked": true,
-    "evidences": [
-      {
-        "name": "Pinus.jpg",
-        "data": null
-      }
-    ]
-  },
-  "_w_default_diary_2026_05": {
-    "value": 90.04,
-    "evidence": null,
-    "evidenceName": "Pinus.jpg",
-    "savedAt": "2026-06-04T06:11:11.569Z",
-    "locked": true,
-    "evidences": [
-      {
-        "name": "Pinus.jpg",
-        "data": null
-      }
-    ]
-  },
-  "_w_cartrack_2026_05": {
-    "value": 89.5,
-    "evidence": null,
-    "evidenceName": "Pinus.jpg",
-    "savedAt": "2026-06-04T06:12:11.207Z",
-    "locked": true,
-    "evidences": [
-      {
-        "name": "Pinus.jpg",
-        "data": null
-      }
-    ]
-  },
-  "_w_impl_audit_w_2026_05": {
-    "value": 98.225,
-    "evidence": null,
-    "evidenceName": "Pinus.jpg",
-    "savedAt": "2026-06-04T06:12:46.015Z",
-    "locked": true,
-    "evidences": [
-      {
-        "name": "Pinus.jpg",
-        "data": "https://raw.githubusercontent.com/pinuspackindo-ai/pinuspackindo-okr/main/uploads/warehouse/1780646372851_r3zulo_Pinus.jpg"
-      }
-    ]
-  },
-  "_p_ins_2026_05_29": {
-    "file1": null,
-    "file1Name": "product.product.xlsx",
-    "file2": null,
-    "file2Name": "product.product (1).xlsx",
-    "score": 91.91,
-    "savedAt": "2026-06-04T14:10:23.319Z",
-    "locked": true
-  },
-  "_p_ins_2026_05_28": {
-    "file1": "https://raw.githubusercontent.com/pinuspackindo-ai/pinuspackindo-okr/main/uploads/purchasing/1780660979763_5lbzdy_product.product.xlsx",
-    "file1Name": "product.product.xlsx",
-    "file2": "https://raw.githubusercontent.com/pinuspackindo-ai/pinuspackindo-okr/main/uploads/purchasing/1780643777139_nihdo4_product.product_1.xlsx",
-    "file2Name": "product.product (1).xlsx",
-    "score": 91.2,
-    "savedAt": "2026-06-04T14:09:54.002Z",
-    "locked": true
-  },
-  "_p_ins_2026_05_30": {
-    "file1": "https://raw.githubusercontent.com/pinuspackindo-ai/pinuspackindo-okr/main/uploads/purchasing/1780662969690_iik23h_product.product.xlsx",
-    "file1Name": "product.product.xlsx",
-    "file2": null,
-    "file2Name": "product.product (1) (1).xlsx",
-    "score": 91.91,
-    "savedAt": "2026-06-04T14:10:00.197Z",
-    "locked": true
-  },
-  "_p_apo_2026_05": {
-    "file1": null,
-    "file1Name": "purchase.order.line.xlsx",
-    "file2": "https://raw.githubusercontent.com/pinuspackindo-ai/pinuspackindo-okr/main/uploads/purchasing/1780658514505_rapmi7_account.move_5.xlsx",
-    "file2Name": "account.move (5).xlsx",
-    "lateScore": 79.24944812362031,
-    "accScore": 92.71523178807946,
-    "finalScore": 83.28918322295806,
-    "savedAt": "2026-06-04T13:48:27.524Z",
-    "locked": true
-  },
-  "_p_kpen_2026_05": {
-    "file": null,
-    "fileName": "purchase.order.line.xlsx",
-    "totalRows": 1434,
-    "accRows": 1393,
-    "score": 97.14086471408648,
-    "savedAt": "2026-06-04T08:03:37.389Z",
-    "locked": true
-  },
-  "_p_sv_2026_06_30": {
-    "text": "ABC",
-    "evidence": null,
-    "evidenceName": "Pinus.jpg",
-    "savedAt": null,
-    "locked": false
-  },
-  "_p_sv_2026_06_02": {
-    "text": "(S) PENGHANCUR KENTANG 24 CM, 8,296, 8,107; (S) PITA TARIK 12 MM X10, 1,574, 1,400; (S) PLASTIK SELAMAT MENIKMATI 18X18 X50, 2,745, 2,407; (S) CETAKAN PUDING MATAHARI, 9,980, 9,468; (S) SENDOK ES KRIM KAYU 75 MM X200, 4,512, 4,172",
-    "evidence": null,
-    "evidenceName": "02.PNG",
-    "savedAt": "2026-06-04T08:25:53.422Z",
-    "locked": true
-  },
-  "_p_sv_2026_06_04": {
-    "text": "PAPERCUP ES KRIM MOTIF 2 OZ 50X60, 385,000, 375,000",
-    "evidence": null,
-    "evidenceName": "04.PNG",
-    "savedAt": "2026-06-04T09:25:08.574Z",
-    "locked": true
-  },
-  "_p_sv_rn_lk_2026_05": true,
-  "_p_sv_2026_05_26": {
-    "text": "A;B;C;D;E;F;G;H;I;J;K;L;M;N;O;P;Q;R;S;T;U",
-    "evidence": null,
-    "evidenceName": "Pinus.jpg",
-    "savedAt": "2026-06-04T13:46:33.392Z",
-    "locked": true
-  },
-  "_p_sv_2026_05_30": {
-    "text": "A;B;C;D;E;F;G;H;I;J;K",
-    "evidence": null,
-    "evidenceName": "Pinus.jpg",
-    "savedAt": "2026-06-04T13:47:05.658Z",
-    "locked": true
-  },
-  "_p_ir_2026_05": {
-    "value": 100,
-    "evidence": null,
-    "evidenceName": "Pinus.jpg",
-    "savedAt": "2026-06-04T13:47:54.762Z",
-    "locked": true
-  },
-  "_p_ins_2026_05_27": {
-    "file1": null,
-    "file1Name": "product.product (1) (1).xlsx",
-    "file2": null,
-    "file2Name": "product.product.xlsx",
-    "score": 82.23,
-    "savedAt": "2026-06-04T15:51:48.385Z",
-    "locked": true
-  },
   "_fa_impl_reko_fa_2026_06": {
     "value": 90,
     "evidence": "",
@@ -1677,47 +2300,6 @@
     "savedAt": "2026-06-04T17:45:38.021Z",
     "locked": true,
     "evidences": []
-  },
-  "_ga_wp_2026_06": {
-    "rows": [],
-    "locked": false
-  },
-  "_hrd_rec_2026_06": {
-    "rows": []
-  },
-  "_ia_proj_2026_06": {
-    "rows": []
-  },
-  "_fa_rot_2026_05": {
-    "poin": [
-      0,
-      0,
-      0,
-      0,
-      0,
-      0,
-      0,
-      0,
-      0,
-      0,
-      0,
-      0,
-      0,
-      0,
-      0
-    ],
-    "akurasiEv": "",
-    "akurasiEvName": "WhatsApp Image 2026-06-05 at 08.42.25.jpeg",
-    "ontimeDate": "2026-06-03",
-    "ontimeEv": "",
-    "ontimeEvName": "WhatsApp Image 2026-06-05 at 08.49.07.jpeg",
-    "akurasiScore": 100,
-    "ontimeScore": 100,
-    "totalScore": 100,
-    "savedAt": "2026-06-05T01:50:51.068Z",
-    "locked": true,
-    "akurasiEvs": [],
-    "ontimeEvs": []
   },
   "_s_omzet_2026_06": {
     "value": 3000000000,
