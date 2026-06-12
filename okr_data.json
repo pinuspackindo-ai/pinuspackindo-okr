@@ -2339,7 +2339,6 @@
     "savedAt": "2026-06-11T10:17:24.021Z",
     "locked": true
   },
-  "_ts": 1781254189806,
   "_inv_rn_do_2026_06_12": {
     "value": 100,
     "evidence": "https://raw.githubusercontent.com/pinuspackindo-ai/pinuspackindo-okr/data/uploads/inventory/1781253688384_prx6ha_WhatsApp_Image_2026-06-12_at_15.40.01.jpeg",
@@ -2360,5 +2359,6 @@
         "data": "https://raw.githubusercontent.com/pinuspackindo-ai/pinuspackindo-okr/data/uploads/inventory/1781253687863_ce63kq_WhatsApp_Image_2026-06-12_at_15.38.13.jpeg"
       }
     ]
-  }
+  },
+  "_ts": 1781254198921
 }
