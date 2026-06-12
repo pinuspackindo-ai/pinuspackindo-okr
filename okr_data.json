@@ -648,7 +648,7 @@
           "target": 75
         },
         {
-          "actual": 98.33,
+          "actual": 99,
           "bobot": 10,
           "id": "r17804720965137ahi",
           "keyResult": "Akurasi DO & RN",
@@ -2317,7 +2317,7 @@
     "evidences": [
       {
         "name": "WhatsApp Image 2026-06-11 at 16.16.19.jpeg",
-        "data": null
+        "data": "https://raw.githubusercontent.com/pinuspackindo-ai/pinuspackindo-okr/data/uploads/inventory/1781170463026_kymudl_WhatsApp_Image_2026-06-11_at_16.16.19.jpeg"
       },
       {
         "name": "WhatsApp Image 2026-06-11 at 16.31.43.jpeg",
@@ -2325,7 +2325,7 @@
       },
       {
         "name": "WhatsApp Image 2026-06-11 at 16.31.13.jpeg",
-        "data": null
+        "data": "https://raw.githubusercontent.com/pinuspackindo-ai/pinuspackindo-okr/data/uploads/inventory/1781173017162_vugbrp_WhatsApp_Image_2026-06-11_at_16.31.13.jpeg"
       }
     ]
   },
@@ -2338,5 +2338,5 @@
     "savedAt": "2026-06-11T10:17:24.021Z",
     "locked": true
   },
-  "_ts": 1781226299662
+  "_ts": 1781226305080
 }
