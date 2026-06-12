@@ -524,7 +524,7 @@
           "target": 98
         },
         {
-          "actual": null,
+          "actual": 90,
           "bobot": 10,
           "id": "r17804720965137oje",
           "keyResult": "Tingkat implementasi rekomendasi audit",
@@ -677,7 +677,7 @@
       "actionPlan": "Membuat 4 konten sosmed",
       "rows": [
         {
-          "actual": 90.83,
+          "actual": 90.88,
           "bobot": 35,
           "id": "r1780472096513ueyz",
           "keyResult": "Tingkat in stock",
@@ -2271,7 +2271,6 @@
     "savedAt": "2026-06-10T09:31:15.907Z",
     "locked": true
   },
-  "_ts": 1781226298662,
   "_inv_rn_do_2026_06_03": {
     "value": 100,
     "evidence": "https://raw.githubusercontent.com/pinuspackindo-ai/pinuspackindo-okr/main/uploads/inventory/1780659242605_i38177_D01.jpg",
@@ -2308,5 +2307,36 @@
     "savedAt": "2026-06-05T03:23:42.602Z",
     "locked": true,
     "evidences": []
-  }
+  },
+  "_inv_rn_do_2026_06_11": {
+    "value": 100,
+    "evidence": "https://raw.githubusercontent.com/pinuspackindo-ai/pinuspackindo-okr/data/uploads/inventory/1781170404324_rqzi4k_WhatsApp_Image_2026-06-11_at_16.16.19.jpeg",
+    "evidenceName": "WhatsApp Image 2026-06-11 at 16.16.19.jpeg",
+    "savedAt": "2026-06-11T09:33:22.374Z",
+    "locked": true,
+    "evidences": [
+      {
+        "name": "WhatsApp Image 2026-06-11 at 16.16.19.jpeg",
+        "data": null
+      },
+      {
+        "name": "WhatsApp Image 2026-06-11 at 16.31.43.jpeg",
+        "data": "https://raw.githubusercontent.com/pinuspackindo-ai/pinuspackindo-okr/data/uploads/inventory/1781170404951_hjgdvq_WhatsApp_Image_2026-06-11_at_16.31.43.jpeg"
+      },
+      {
+        "name": "WhatsApp Image 2026-06-11 at 16.31.13.jpeg",
+        "data": null
+      }
+    ]
+  },
+  "_p_ins_2026_06_11": {
+    "file1": "https://raw.githubusercontent.com/pinuspackindo-ai/pinuspackindo-okr/data/uploads/purchasing/1781173045157_qnopxz_product.product_2.xlsx",
+    "file1Name": "product.product (2).xlsx",
+    "file2": "https://raw.githubusercontent.com/pinuspackindo-ai/pinuspackindo-okr/data/uploads/purchasing/1781173045708_g3d1zt_product.product_3.xlsx",
+    "file2Name": "product.product (3).xlsx",
+    "score": 91.28,
+    "savedAt": "2026-06-11T10:17:24.021Z",
+    "locked": true
+  },
+  "_ts": 1781226299662
 }
