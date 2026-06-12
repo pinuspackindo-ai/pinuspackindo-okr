@@ -2142,10 +2142,10 @@
         "tal": "Penguasaan DD, Bizflow, SOP Warehouse",
         "deadline": "2026-06-30",
         "bobot": 40,
-        "progress": null,
+        "progress": 50,
         "review": "",
         "editing": true,
-        "savedAt": "2026-06-10T00:26:12.329Z"
+        "savedAt": "2026-06-12T01:58:00.669Z"
       },
       {
         "tal": "Drafting formasi harian & Lembur senin pagi",
@@ -2165,7 +2165,8 @@
         "editing": false,
         "savedAt": "2026-06-10T00:26:12.329Z"
       }
-    ]
+    ],
+    "savedAt": "2026-06-12T01:58:00.670Z"
   },
   "_tal_d2_2026_06": {
     "rows": [
@@ -2338,5 +2339,5 @@
     "savedAt": "2026-06-11T10:17:24.021Z",
     "locked": true
   },
-  "_ts": 1781229172145
+  "_ts": 1781229480670
 }
