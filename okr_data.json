@@ -2348,7 +2348,7 @@
     "evidences": [
       {
         "name": "WhatsApp Image 2026-06-12 at 15.40.01.jpeg",
-        "data": null
+        "data": "https://raw.githubusercontent.com/pinuspackindo-ai/pinuspackindo-okr/data/uploads/inventory/1781253715946_3cbru3_WhatsApp_Image_2026-06-12_at_15.40.01.jpeg"
       },
       {
         "name": "WhatsApp Image 2026-06-12 at 15.39.46.jpeg",
@@ -2360,12 +2360,12 @@
       }
     ]
   },
+  "_ts": 1781313928371,
   "_p_sv_2026_06_12": {
     "text": "LUNCH BOX PUTIH L, 3,514,000, 3,512,211; GELAS UKUR 20 CC, 6,810, 4,187; GELAS UKUR 250 ML, 6,670, 6,530; HERCULES, 15,042, 14,610; ROSEBRAND TEPUNG TAPIOKA, 140,500, 118,000; SEKOP PLASTIK TANGGUNG, 18,440, 18,100",
     "evidence": "https://raw.githubusercontent.com/pinuspackindo-ai/pinuspackindo-okr/data/uploads/purchasing/1781254234888_fuwu39_12.png",
     "evidenceName": "12.PNG",
     "savedAt": null,
     "locked": false
-  },
-  "_ts": 1781312479869
+  }
 }
