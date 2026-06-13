@@ -2178,7 +2178,7 @@
         "progress": null,
         "review": "",
         "editing": false,
-        "savedAt": "2026-06-10T00:27:23.594Z"
+        "savedAt": "2026-06-13T01:54:04.915Z"
       },
       {
         "tal": "Drafting Business Flow Departemen",
@@ -2189,7 +2189,8 @@
         "editing": false,
         "savedAt": "2026-06-10T00:27:23.594Z"
       }
-    ]
+    ],
+    "savedAt": "2026-06-13T01:54:04.915Z"
   },
   "_tal_d9_2026_06": {
     "rows": [
@@ -2360,7 +2361,7 @@
     "savedAt": null,
     "locked": false
   },
-  "_ts": 1781315605906,
+  "_ts": 1781315644915,
   "_inv_rn_do_2026_06_04": {
     "value": 100,
     "evidence": null,
