@@ -1,9 +1,9 @@
 {
   "_userAccess": {
-    "HRD": {
+    "Finance & Accounting": {
       "modules": [
         "dashboard",
-        "hrd",
+        "financeacc",
         "tal"
       ],
       "okrAll": false
@@ -16,13 +16,21 @@
       ],
       "okrAll": false
     },
-    "Purchasing": {
+    "HRD": {
       "modules": [
         "dashboard",
-        "purchasing",
+        "hrd",
         "tal"
       ],
       "okrAll": false
+    },
+    "Internal Audit": {
+      "modules": [
+        "dashboard",
+        "tal",
+        "ia"
+      ],
+      "okrAll": true
     },
     "Inventory": {
       "modules": [
@@ -32,10 +40,33 @@
       ],
       "okrAll": false
     },
-    "Finance & Accounting": {
+    "Owner": {
       "modules": [
         "dashboard",
+        "tal",
+        "store",
+        "distrib",
+        "inventory",
+        "purchasing",
         "financeacc",
+        "generalaffair",
+        "hrd",
+        "ia"
+      ],
+      "okrAll": true
+    },
+    "Purchasing": {
+      "modules": [
+        "dashboard",
+        "purchasing",
+        "tal"
+      ],
+      "okrAll": false
+    },
+    "Sales": {
+      "modules": [
+        "dashboard",
+        "distrib",
         "tal"
       ],
       "okrAll": false
@@ -55,41 +86,11 @@
         "tal"
       ],
       "okrAll": false
-    },
-    "Sales": {
-      "modules": [
-        "dashboard",
-        "distrib",
-        "tal"
-      ],
-      "okrAll": false
-    },
-    "Internal Audit": {
-      "modules": [
-        "dashboard",
-        "tal",
-        "ia"
-      ],
-      "okrAll": true
-    },
-    "Owner": {
-      "modules": [
-        "dashboard",
-        "tal",
-        "store",
-        "distrib",
-        "inventory",
-        "purchasing",
-        "financeacc",
-        "generalaffair",
-        "hrd",
-        "ia"
-      ],
-      "okrAll": true
     }
   },
   "_userPwd": {
-    "Store": "1011"
+    "Store": "1011",
+    "Admin": "909"
   },
   "2026-05": {
     "Distribution Sales": {
@@ -2174,10 +2175,10 @@
         "tal": "Drafting Default Diary Departemen",
         "deadline": "2026-06-30",
         "bobot": 60,
-        "progress": null,
+        "progress": 100,
         "review": "",
         "editing": false,
-        "savedAt": "2026-06-10T00:27:23.594Z"
+        "savedAt": "2026-06-13T01:54:15.012Z"
       },
       {
         "tal": "Drafting Business Flow Departemen",
@@ -2188,7 +2189,8 @@
         "editing": false,
         "savedAt": "2026-06-10T00:27:23.594Z"
       }
-    ]
+    ],
+    "savedAt": "2026-06-13T01:54:15.012Z"
   },
   "_tal_d9_2026_06": {
     "rows": [
@@ -2274,22 +2276,14 @@
   },
   "_inv_rn_do_2026_06_03": {
     "value": 100,
-    "evidence": "https://raw.githubusercontent.com/pinuspackindo-ai/pinuspackindo-okr/main/uploads/inventory/1780659242605_i38177_D01.jpg",
-    "evidenceName": "D01.jpg",
-    "savedAt": "2026-06-04T17:00:53.379Z",
+    "evidence": "https://raw.githubusercontent.com/pinuspackindo-ai/pinuspackindo-okr/data/uploads/inventory/1780886116439_5jfkgt_WhatsApp_Image_2026-06-04_at_17.02.52.jpeg",
+    "evidenceName": "WhatsApp Image 2026-06-04 at 17.02.52.jpeg",
+    "savedAt": "2026-06-08T02:35:08.938Z",
     "locked": true,
     "evidences": [
       {
-        "name": "D01.jpg",
-        "data": null
-      },
-      {
-        "name": "RN03.jpg",
-        "data": null
-      },
-      {
-        "name": "RN02.jpg",
-        "data": null
+        "name": "WhatsApp Image 2026-06-04 at 17.02.52.jpeg",
+        "data": "https://raw.githubusercontent.com/pinuspackindo-ai/pinuspackindo-okr/data/uploads/inventory/1780886110700_z10ubz_WhatsApp_Image_2026-06-04_at_17.02.52.jpeg"
       }
     ]
   },
@@ -2339,7 +2333,7 @@
     "savedAt": "2026-06-11T10:17:24.021Z",
     "locked": true
   },
-  "_ts": 1781340046058,
+  "_ts": 1781340047350,
   "_inv_rn_do_2026_06_12": {
     "value": 100,
     "evidence": "https://raw.githubusercontent.com/pinuspackindo-ai/pinuspackindo-okr/data/uploads/inventory/1781253688384_prx6ha_WhatsApp_Image_2026-06-12_at_15.40.01.jpeg",
@@ -2365,7 +2359,113 @@
     "text": "LUNCH BOX PUTIH L, 3,514,000, 3,512,211; GELAS UKUR 20 CC, 6,810, 4,187; GELAS UKUR 250 ML, 6,670, 6,530; HERCULES, 15,042, 14,610; ROSEBRAND TEPUNG TAPIOKA, 140,500, 118,000; SEKOP PLASTIK TANGGUNG, 18,440, 18,100",
     "evidence": "https://raw.githubusercontent.com/pinuspackindo-ai/pinuspackindo-okr/data/uploads/purchasing/1781254234888_fuwu39_12.png",
     "evidenceName": "12.PNG",
-    "savedAt": null,
-    "locked": false
+    "savedAt": "2026-06-13T06:00:07.418Z",
+    "locked": true
+  },
+  "_inv_rn_do_2026_06_04": {
+    "value": 100,
+    "evidence": null,
+    "evidenceName": "Pinus.jpg",
+    "savedAt": "2026-06-08T01:51:52.721Z",
+    "locked": true,
+    "evidences": [
+      {
+        "name": "Pinus.jpg",
+        "data": null
+      },
+      {
+        "name": "Cuplikan layar 2026-04-06 190121.png",
+        "data": "https://raw.githubusercontent.com/pinuspackindo-ai/pinuspackindo-okr/data/uploads/inventory/1780883512979_hq2ql6_Cuplikan_layar_2026-04-06_190121.png"
+      }
+    ]
+  },
+  "_inv_rot_2026_05": {
+    "poin": [
+      0,
+      0,
+      0,
+      0,
+      0
+    ],
+    "akurasiEv": "https://raw.githubusercontent.com/pinuspackindo-ai/pinuspackindo-okr/data/uploads/inventory/1780885446565_o4724k_akurat.png",
+    "akurasiEvName": "akurat .png",
+    "ontimeDate": "2026-06-03",
+    "ontimeEv": "https://raw.githubusercontent.com/pinuspackindo-ai/pinuspackindo-okr/data/uploads/inventory/1780886020504_lhhv3h_on_time.png",
+    "ontimeEvName": "on time.png",
+    "akurasiScore": 100,
+    "ontimeScore": 100,
+    "totalScore": 100,
+    "savedAt": "2026-06-08T02:24:05.101Z",
+    "locked": true,
+    "ontimeEvs": [
+      {
+        "name": "on time.png",
+        "data": "https://raw.githubusercontent.com/pinuspackindo-ai/pinuspackindo-okr/data/uploads/inventory/1780886020016_pcxg64_on_time.png"
+      }
+    ],
+    "akurasiEvs": [
+      {
+        "name": "akurat .png",
+        "data": "https://raw.githubusercontent.com/pinuspackindo-ai/pinuspackindo-okr/data/uploads/inventory/1780885456659_mg63zf_akurat.png"
+      }
+    ]
+  },
+  "_inv_rn_do_2026_06_05": {
+    "value": 100,
+    "evidence": "https://raw.githubusercontent.com/pinuspackindo-ai/pinuspackindo-okr/data/uploads/inventory/1780886223895_s0i00w_6d928cf3-2d2c-4103-a7aa-6fcf01601ea8.jpg",
+    "evidenceName": "6d928cf3-2d2c-4103-a7aa-6fcf01601ea8.jpg",
+    "savedAt": "2026-06-08T02:36:16.572Z",
+    "locked": true,
+    "evidences": [
+      {
+        "name": "6d928cf3-2d2c-4103-a7aa-6fcf01601ea8.jpg",
+        "data": "https://raw.githubusercontent.com/pinuspackindo-ai/pinuspackindo-okr/data/uploads/inventory/1780886230208_n3yc1i_6d928cf3-2d2c-4103-a7aa-6fcf01601ea8.jpg"
+      },
+      {
+        "name": "WhatsApp Image 2026-06-05 at 17.16.35.jpeg",
+        "data": "https://raw.githubusercontent.com/pinuspackindo-ai/pinuspackindo-okr/data/uploads/inventory/1780886178150_h8o39z_WhatsApp_Image_2026-06-05_at_17.16.35.jpeg"
+      }
+    ]
+  },
+  "_inv_rn_do_2026_06_06": {
+    "value": 100,
+    "evidence": "https://raw.githubusercontent.com/pinuspackindo-ai/pinuspackindo-okr/data/uploads/inventory/1780886245152_zskn33_acdbba08-7165-4ce2-a64a-9023e0b7686f.jpg",
+    "evidenceName": "acdbba08-7165-4ce2-a64a-9023e0b7686f.jpg",
+    "savedAt": "2026-06-08T02:37:02.150Z",
+    "locked": true,
+    "evidences": [
+      {
+        "name": "acdbba08-7165-4ce2-a64a-9023e0b7686f.jpg",
+        "data": "https://raw.githubusercontent.com/pinuspackindo-ai/pinuspackindo-okr/data/uploads/inventory/1780886224457_v9sf4g_acdbba08-7165-4ce2-a64a-9023e0b7686f.jpg"
+      },
+      {
+        "name": "WhatsApp Image 2026-06-06 at 16.39.47.jpeg",
+        "data": "https://raw.githubusercontent.com/pinuspackindo-ai/pinuspackindo-okr/data/uploads/inventory/1780886236470_gkabz9_WhatsApp_Image_2026-06-06_at_16.39.47.jpeg"
+      }
+    ]
+  },
+  "_inv_rn_do_2026_06_02": {
+    "value": 96.5,
+    "evidence": "https://raw.githubusercontent.com/pinuspackindo-ai/pinuspackindo-okr/data/uploads/inventory/1780886320014_9cdnky_0ef40acb-2404-4b16-a326-8ca022710781.jpg",
+    "evidenceName": "0ef40acb-2404-4b16-a326-8ca022710781.jpg",
+    "savedAt": "2026-06-08T02:38:27.324Z",
+    "locked": true,
+    "evidences": [
+      {
+        "name": "0ef40acb-2404-4b16-a326-8ca022710781.jpg",
+        "data": "https://raw.githubusercontent.com/pinuspackindo-ai/pinuspackindo-okr/data/uploads/inventory/1780886347952_o09jmj_0ef40acb-2404-4b16-a326-8ca022710781.jpg"
+      },
+      {
+        "name": "WhatsApp Image 2026-06-02 at 18.30.43.jpeg",
+        "data": "https://raw.githubusercontent.com/pinuspackindo-ai/pinuspackindo-okr/data/uploads/inventory/1780886309118_3dsbzi_WhatsApp_Image_2026-06-02_at_18.30.43.jpeg"
+      }
+    ]
+  },
+  "_p_sv_2026_06_13": {
+    "text": "SENDOK UKUR KECIL, 3,250, 3,043; AYOBU, 35,000, 31,000",
+    "evidence": "https://raw.githubusercontent.com/pinuspackindo-ai/pinuspackindo-okr/data/uploads/purchasing/1781330484479_bn57ok_13.png",
+    "evidenceName": "13.PNG",
+    "savedAt": "2026-06-13T06:01:24.450Z",
+    "locked": true
   }
 }
