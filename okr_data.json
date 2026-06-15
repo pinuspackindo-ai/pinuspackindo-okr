@@ -306,7 +306,7 @@
           "target": 98
         },
         {
-          "actual": null,
+          "actual": 100,
           "bobot": 30,
           "id": "r1779890290785wywr",
           "keyResult": "Laporan inventory akurat dan on time",
@@ -2333,7 +2333,6 @@
     "savedAt": "2026-06-11T10:17:24.021Z",
     "locked": true
   },
-  "_ts": 1781340047350,
   "_inv_rn_do_2026_06_12": {
     "value": 100,
     "evidence": "https://raw.githubusercontent.com/pinuspackindo-ai/pinuspackindo-okr/data/uploads/inventory/1781253688384_prx6ha_WhatsApp_Image_2026-06-12_at_15.40.01.jpeg",
@@ -2362,6 +2361,7 @@
     "savedAt": "2026-06-13T06:00:07.418Z",
     "locked": true
   },
+  "_ts": 1781486295899,
   "_inv_rn_do_2026_06_04": {
     "value": 100,
     "evidence": null,
