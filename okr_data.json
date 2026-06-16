@@ -1524,10 +1524,10 @@
         "tal": "Running KPI individu store",
         "deadline": "2026-06-30",
         "bobot": 20,
-        "progress": null,
+        "progress": 100,
         "review": "",
         "editing": false,
-        "savedAt": "2026-06-10T01:10:15.338Z"
+        "savedAt": "2026-06-16T06:39:40.399Z"
       },
       {
         "tal": "Drafting & implementasi new rooster",
@@ -1539,7 +1539,7 @@
         "savedAt": "2026-06-10T01:10:15.338Z"
       }
     ],
-    "savedAt": "2026-06-16T06:39:37.477Z"
+    "savedAt": "2026-06-16T06:39:40.399Z"
   },
   "_tal_d11_2026_06": {
     "rows": [
@@ -2516,5 +2516,5 @@
     "savedAt": "2026-06-15T07:31:54.324Z",
     "locked": true
   },
-  "_ts": 1781591977477
+  "_ts": 1781591980399
 }
