@@ -1515,10 +1515,10 @@
         "tal": "Efisiensi tahap 2",
         "deadline": "2026-06-20",
         "bobot": 30,
-        "progress": null,
+        "progress": 100,
         "review": "",
         "editing": false,
-        "savedAt": "2026-06-16T06:39:33.921Z"
+        "savedAt": "2026-06-16T06:39:37.477Z"
       },
       {
         "tal": "Running KPI individu store",
@@ -1539,7 +1539,7 @@
         "savedAt": "2026-06-10T01:10:15.338Z"
       }
     ],
-    "savedAt": "2026-06-16T06:39:33.921Z"
+    "savedAt": "2026-06-16T06:39:37.477Z"
   },
   "_tal_d11_2026_06": {
     "rows": [
@@ -2516,5 +2516,5 @@
     "savedAt": "2026-06-15T07:31:54.324Z",
     "locked": true
   },
-  "_ts": 1781591973921
+  "_ts": 1781591977477
 }
