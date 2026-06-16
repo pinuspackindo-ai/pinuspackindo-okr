@@ -1506,10 +1506,10 @@
         "tal": "Efisiensi tahap 1",
         "deadline": "2026-06-07",
         "bobot": 40,
-        "progress": null,
+        "progress": 100,
         "review": "",
         "editing": false,
-        "savedAt": "2026-06-10T01:10:15.338Z"
+        "savedAt": "2026-06-16T06:39:32.393Z"
       },
       {
         "tal": "Efisiensi tahap 2",
@@ -1538,7 +1538,8 @@
         "editing": false,
         "savedAt": "2026-06-10T01:10:15.338Z"
       }
-    ]
+    ],
+    "savedAt": "2026-06-16T06:39:32.394Z"
   },
   "_tal_d11_2026_06": {
     "rows": [
@@ -2515,5 +2516,5 @@
     "savedAt": "2026-06-15T07:31:54.324Z",
     "locked": true
   },
-  "_ts": 1781591891510
+  "_ts": 1781591972394
 }
