@@ -649,7 +649,7 @@
           "target": 75
         },
         {
-          "actual": 99.13,
+          "actual": 98.33,
           "bobot": 10,
           "id": "r17804720965137ahi",
           "keyResult": "Akurasi DO & RN",
@@ -2516,7 +2516,7 @@
     "savedAt": "2026-06-15T07:31:54.324Z",
     "locked": true
   },
-  "_ts": 1781666946138,
+  "_ts": 1781667013888,
   "_inv_rn_do_2026_06_15": {
     "value": 98,
     "evidence": "https://raw.githubusercontent.com/pinuspackindo-ai/pinuspackindo-okr/data/uploads/inventory/1781666949550_9tjpt6_WhatsApp_Image_2026-06-15_at_18.35.44.jpeg",
