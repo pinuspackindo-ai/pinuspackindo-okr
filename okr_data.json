@@ -1569,9 +1569,9 @@
         "bobot": 40,
         "deadline": "2026-06-07",
         "editing": false,
-        "progress": 50,
+        "progress": 100,
         "review": "",
-        "savedAt": "2026-06-10T01:37:30.981Z",
+        "savedAt": "2026-06-17T03:49:40.615Z",
         "tal": "Revisi DD, Bizflow, SOP Warehouse"
       },
       {
@@ -1601,7 +1601,8 @@
         "savedAt": "2026-06-03T02:51:09.006Z",
         "tal": "Develop Website"
       }
-    ]
+    ],
+    "savedAt": "2026-06-17T03:49:40.616Z"
   },
   "_tal_d3_2026_06": {
     "rows": [
@@ -2566,5 +2567,5 @@
       }
     ]
   },
-  "_ts": 1781668155852
+  "_ts": 1781668180616
 }
