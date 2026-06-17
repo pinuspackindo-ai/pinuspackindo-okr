@@ -1621,7 +1621,7 @@
         "progress": null,
         "review": "",
         "editing": false,
-        "savedAt": "2026-06-17T03:45:20.438Z"
+        "savedAt": "2026-06-17T03:45:21.759Z"
       },
       {
         "tal": "Drafting SOP dresscode/grooming",
@@ -1642,7 +1642,7 @@
         "savedAt": "2026-06-10T01:11:47.320Z"
       }
     ],
-    "savedAt": "2026-06-17T03:45:20.438Z"
+    "savedAt": "2026-06-17T03:45:21.759Z"
   },
   "_w_akurasi_w_2026_05": {
     "evidence": "https://raw.githubusercontent.com/pinuspackindo-ai/pinuspackindo-okr/data/uploads/warehouse/1780907282426_b1hne4_Pinus.jpg",
@@ -2566,5 +2566,5 @@
       }
     ]
   },
-  "_ts": 1781667920438
+  "_ts": 1781667921759
 }
