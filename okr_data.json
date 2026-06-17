@@ -1596,13 +1596,13 @@
         "bobot": 10,
         "deadline": "2026-06-30",
         "editing": true,
-        "progress": null,
+        "progress": 50,
         "review": "",
-        "savedAt": "2026-06-03T02:51:09.006Z",
+        "savedAt": "2026-06-17T03:49:46.576Z",
         "tal": "Develop Website"
       }
     ],
-    "savedAt": "2026-06-17T03:49:40.616Z"
+    "savedAt": "2026-06-17T03:49:46.576Z"
   },
   "_tal_d3_2026_06": {
     "rows": [
@@ -2567,5 +2567,5 @@
       }
     ]
   },
-  "_ts": 1781668186840
+  "_ts": 1781668186576
 }
