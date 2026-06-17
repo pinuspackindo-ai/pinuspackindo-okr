@@ -1,5 +1,4 @@
 {
-  "_ts": 1781658964877,
   "_userAccess": {
     "Finance & Accounting": {
       "modules": [
@@ -1507,39 +1506,40 @@
         "tal": "Efisiensi tahap 1",
         "deadline": "2026-06-07",
         "bobot": 40,
-        "progress": null,
+        "progress": 100,
         "review": "",
         "editing": false,
-        "savedAt": "2026-06-10T01:10:15.338Z"
+        "savedAt": "2026-06-16T06:39:32.393Z"
       },
       {
         "tal": "Efisiensi tahap 2",
         "deadline": "2026-06-20",
         "bobot": 30,
-        "progress": null,
+        "progress": 100,
         "review": "",
         "editing": false,
-        "savedAt": "2026-06-10T01:10:15.338Z"
+        "savedAt": "2026-06-16T06:39:37.477Z"
       },
       {
         "tal": "Running KPI individu store",
         "deadline": "2026-06-30",
         "bobot": 20,
-        "progress": null,
+        "progress": 100,
         "review": "",
         "editing": false,
-        "savedAt": "2026-06-10T01:10:15.338Z"
+        "savedAt": "2026-06-16T06:39:40.399Z"
       },
       {
         "tal": "Drafting & implementasi new rooster",
         "deadline": "2026-06-30",
         "bobot": 10,
-        "progress": null,
+        "progress": 100,
         "review": "",
         "editing": false,
-        "savedAt": "2026-06-10T01:10:15.338Z"
+        "savedAt": "2026-06-16T06:39:43.503Z"
       }
-    ]
+    ],
+    "savedAt": "2026-06-16T06:39:43.503Z"
   },
   "_tal_d11_2026_06": {
     "rows": [
@@ -2508,12 +2508,13 @@
     "locked": true
   },
   "_p_ins_2026_06_15": {
-    "file1": null,
+    "file1": "https://raw.githubusercontent.com/pinuspackindo-ai/pinuspackindo-okr/data/uploads/purchasing/1781591837176_of3c2l_product.product.xlsx",
     "file1Name": "product.product.xlsx",
     "file2": "https://raw.githubusercontent.com/pinuspackindo-ai/pinuspackindo-okr/data/uploads/purchasing/1781508714614_hsx187_product.product_1.xlsx",
     "file2Name": "product.product (1).xlsx",
     "score": 91.03,
     "savedAt": "2026-06-15T07:31:54.324Z",
     "locked": true
-  }
+  },
+  "_ts": 1781658965891
 }
