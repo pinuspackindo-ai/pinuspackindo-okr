@@ -2568,6 +2568,7 @@
       }
     ]
   },
+  "_ts": 1781686684385,
   "_p_sv_2026_06_17": {
     "text": "CARNATION, 642,000, 640,600.",
     "evidence": "https://raw.githubusercontent.com/pinuspackindo-ai/pinuspackindo-okr/data/uploads/purchasing/1781686471322_ffcfrz_17.png",
@@ -2575,14 +2576,13 @@
     "savedAt": "2026-06-17T08:54:38.800Z",
     "locked": true
   },
-  "_ts": 1781686684367,
   "_p_ins_2026_06_17": {
     "file1": "https://raw.githubusercontent.com/pinuspackindo-ai/pinuspackindo-okr/data/uploads/purchasing/1781686676371_oq5a0w_product.product.xlsx",
     "file1Name": "product.product.xlsx",
-    "file2": "https://raw.githubusercontent.com/pinuspackindo-ai/pinuspackindo-okr/data/uploads/purchasing/1781686684576_jkgoih_product.product_1.xlsx",
+    "file2": "https://raw.githubusercontent.com/pinuspackindo-ai/pinuspackindo-okr/data/uploads/purchasing/1781686685326_uz1r0k_product.product_1.xlsx",
     "file2Name": "product.product (1).xlsx",
     "score": 89.96,
-    "savedAt": "2026-06-17T08:58:04.364Z",
-    "locked": true
+    "savedAt": null,
+    "locked": false
   }
 }
