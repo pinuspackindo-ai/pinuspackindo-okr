@@ -1,5 +1,5 @@
 {
-  "_ts": 1781667062231,
+  "_ts": 1781667070848,
   "_userAccess": {
     "Finance & Accounting": {
       "modules": [
@@ -650,7 +650,7 @@
           "target": 75
         },
         {
-          "actual": 99.13,
+          "actual": 98.33,
           "bobot": 10,
           "id": "r17804720965137ahi",
           "keyResult": "Akurasi DO & RN",
@@ -2534,7 +2534,7 @@
       },
       {
         "name": "WhatsApp Image 2026-06-15 at 18.33.24.jpeg",
-        "data": null
+        "data": "https://raw.githubusercontent.com/pinuspackindo-ai/pinuspackindo-okr/data/uploads/inventory/1781667010922_wz8xq7_WhatsApp_Image_2026-06-15_at_18.33.24.jpeg"
       }
     ]
   }
