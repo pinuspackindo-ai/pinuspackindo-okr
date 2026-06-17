@@ -2516,7 +2516,7 @@
     "savedAt": "2026-06-15T07:31:54.324Z",
     "locked": true
   },
-  "_ts": 1781667182058,
+  "_ts": 1781667186910,
   "_inv_rn_do_2026_06_15": {
     "value": 98,
     "evidence": "https://raw.githubusercontent.com/pinuspackindo-ai/pinuspackindo-okr/data/uploads/inventory/1781666949550_9tjpt6_WhatsApp_Image_2026-06-15_at_18.35.44.jpeg",
@@ -2542,8 +2542,8 @@
     "text": "PROCHIZ SLICE 12, 256,112, 243,469; PROCHIZ 160 GR, 616,500, 539,441; KARET BIASA, 600,000, 585,000",
     "evidence": "https://raw.githubusercontent.com/pinuspackindo-ai/pinuspackindo-okr/data/uploads/purchasing/1781667178580_yxuk8f_15.png",
     "evidenceName": "15.PNG",
-    "savedAt": null,
-    "locked": false
+    "savedAt": "2026-06-17T03:33:06.910Z",
+    "locked": true
   },
   "_inv_rn_do_2026_06_16": {
     "value": 94.1,
