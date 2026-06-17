@@ -1609,10 +1609,10 @@
         "tal": "Efisiensi store/warehouse tahap 1",
         "deadline": "2026-06-07",
         "bobot": 40,
-        "progress": null,
+        "progress": 100,
         "review": "",
         "editing": false,
-        "savedAt": "2026-06-10T01:11:47.320Z"
+        "savedAt": "2026-06-17T03:45:07.287Z"
       },
       {
         "tal": "Migrasi payroll ke Danamon",
@@ -1641,7 +1641,8 @@
         "editing": false,
         "savedAt": "2026-06-10T01:11:47.320Z"
       }
-    ]
+    ],
+    "savedAt": "2026-06-17T03:45:07.287Z"
   },
   "_w_akurasi_w_2026_05": {
     "evidence": "https://raw.githubusercontent.com/pinuspackindo-ai/pinuspackindo-okr/data/uploads/warehouse/1780907282426_b1hne4_Pinus.jpg",
@@ -2565,5 +2566,5 @@
       }
     ]
   },
-  "_ts": 1781667863624
+  "_ts": 1781667907287
 }
