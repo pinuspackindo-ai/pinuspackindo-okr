@@ -2291,14 +2291,6 @@
       }
     ]
   },
-  "_fa_impl_reko_fa_2026_06": {
-    "value": 90,
-    "evidence": "",
-    "evidenceName": "Pinus (1).jpg",
-    "savedAt": "2026-06-04T17:45:38.021Z",
-    "locked": true,
-    "evidences": []
-  },
   "_s_omzet_2026_06": {
     "value": 3000000000,
     "evidence": "",
@@ -2568,7 +2560,15 @@
       }
     ]
   },
-  "_ts": 1781686684385,
+  "_fa_impl_reko_fa_2026_06": {
+    "value": 90,
+    "evidence": "",
+    "evidenceName": "Pinus (1).jpg",
+    "savedAt": "2026-06-04T17:45:38.021Z",
+    "locked": true,
+    "evidences": []
+  },
+  "_ts": 1781687050489,
   "_p_sv_2026_06_17": {
     "text": "CARNATION, 642,000, 640,600.",
     "evidence": "https://raw.githubusercontent.com/pinuspackindo-ai/pinuspackindo-okr/data/uploads/purchasing/1781686471322_ffcfrz_17.png",
