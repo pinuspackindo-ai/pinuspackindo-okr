@@ -1618,10 +1618,10 @@
         "tal": "Migrasi payroll ke Danamon",
         "deadline": "2026-06-20",
         "bobot": 30,
-        "progress": null,
+        "progress": 50,
         "review": "",
         "editing": false,
-        "savedAt": "2026-06-17T03:45:21.759Z"
+        "savedAt": "2026-06-17T03:45:27.649Z"
       },
       {
         "tal": "Drafting SOP dresscode/grooming",
@@ -1642,7 +1642,7 @@
         "savedAt": "2026-06-10T01:11:47.320Z"
       }
     ],
-    "savedAt": "2026-06-17T03:45:21.759Z"
+    "savedAt": "2026-06-17T03:45:27.649Z"
   },
   "_w_akurasi_w_2026_05": {
     "evidence": "https://raw.githubusercontent.com/pinuspackindo-ai/pinuspackindo-okr/data/uploads/warehouse/1780907282426_b1hne4_Pinus.jpg",
@@ -2558,7 +2558,7 @@
       },
       {
         "name": "WhatsApp Image 2026-06-16 at 15.53.10.jpeg",
-        "data": "https://raw.githubusercontent.com/pinuspackindo-ai/pinuspackindo-okr/data/uploads/inventory/1781667912534_csfds9_WhatsApp_Image_2026-06-16_at_15.53.10.jpeg"
+        "data": "https://raw.githubusercontent.com/pinuspackindo-ai/pinuspackindo-okr/data/uploads/inventory/1781667851906_2tttvs_WhatsApp_Image_2026-06-16_at_15.53.10.jpeg"
       },
       {
         "name": "WhatsApp Image 2026-06-16 at 15.53.33.jpeg",
@@ -2566,5 +2566,5 @@
       }
     ]
   },
-  "_ts": 1781667922077
+  "_ts": 1781667927649
 }
