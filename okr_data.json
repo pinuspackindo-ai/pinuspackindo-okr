@@ -2291,14 +2291,6 @@
       }
     ]
   },
-  "_fa_impl_reko_fa_2026_06": {
-    "value": 90,
-    "evidence": "",
-    "evidenceName": "Pinus (1).jpg",
-    "savedAt": "2026-06-04T17:45:38.021Z",
-    "locked": true,
-    "evidences": []
-  },
   "_s_omzet_2026_06": {
     "value": 3000000000,
     "evidence": "",
@@ -2549,7 +2541,7 @@
   },
   "_inv_rn_do_2026_06_16": {
     "value": 94.1,
-    "evidence": "https://raw.githubusercontent.com/pinuspackindo-ai/pinuspackindo-okr/data/uploads/inventory/1781686474995_hw1m2b_WhatsApp_Image_2026-06-16_at_15.52.14.jpeg",
+    "evidence": "https://raw.githubusercontent.com/pinuspackindo-ai/pinuspackindo-okr/data/uploads/inventory/1781667597870_1o59t0_WhatsApp_Image_2026-06-16_at_15.52.14.jpeg",
     "evidenceName": "WhatsApp Image 2026-06-16 at 15.52.14.jpeg",
     "savedAt": "2026-06-17T03:32:53.085Z",
     "locked": true,
@@ -2560,13 +2552,21 @@
       },
       {
         "name": "WhatsApp Image 2026-06-16 at 15.53.10.jpeg",
-        "data": null
+        "data": "https://raw.githubusercontent.com/pinuspackindo-ai/pinuspackindo-okr/data/uploads/inventory/1781667912534_csfds9_WhatsApp_Image_2026-06-16_at_15.53.10.jpeg"
       },
       {
         "name": "WhatsApp Image 2026-06-16 at 15.53.33.jpeg",
         "data": "https://raw.githubusercontent.com/pinuspackindo-ai/pinuspackindo-okr/data/uploads/inventory/1781667179013_8r65sf_WhatsApp_Image_2026-06-16_at_15.53.33.jpeg"
       }
     ]
+  },
+  "_fa_impl_reko_fa_2026_06": {
+    "value": 90,
+    "evidence": "",
+    "evidenceName": "Pinus (1).jpg",
+    "savedAt": "2026-06-04T17:45:38.021Z",
+    "locked": true,
+    "evidences": []
   },
   "_p_sv_2026_06_17": {
     "text": "CARNATION, 642,000, 640,600.",
@@ -2584,5 +2584,5 @@
     "savedAt": "2026-06-17T08:58:04.364Z",
     "locked": true
   },
-  "_ts": 1781745181861
+  "_ts": 1781745189410
 }
