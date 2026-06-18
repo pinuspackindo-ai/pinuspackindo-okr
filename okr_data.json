@@ -1637,13 +1637,13 @@
         "tal": "Perumusan KPI Operasional",
         "deadline": "2026-06-30",
         "bobot": 10,
-        "progress": 50,
+        "progress": 70,
         "review": "",
         "editing": false,
-        "savedAt": "2026-06-17T03:45:34.859Z"
+        "savedAt": "2026-06-18T09:20:11.472Z"
       }
     ],
-    "savedAt": "2026-06-17T03:45:34.859Z"
+    "savedAt": "2026-06-18T09:20:11.473Z"
   },
   "_w_akurasi_w_2026_05": {
     "evidence": "https://raw.githubusercontent.com/pinuspackindo-ai/pinuspackindo-okr/data/uploads/warehouse/1780907282426_b1hne4_Pinus.jpg",
@@ -2591,5 +2591,5 @@
     "savedAt": "2026-06-18T08:44:23.566Z",
     "locked": true
   },
-  "_ts": 1781774399162
+  "_ts": 1781774411473
 }
