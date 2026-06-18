@@ -678,7 +678,7 @@
       "actionPlan": "Membuat 4 konten sosmed",
       "rows": [
         {
-          "actual": 90.37,
+          "actual": 90.4,
           "bobot": 35,
           "id": "r1780472096513ueyz",
           "keyResult": "Tingkat in stock",
@@ -2560,6 +2560,7 @@
       }
     ]
   },
+  "_ts": 1781744282257,
   "_fa_impl_reko_fa_2026_06": {
     "value": 90,
     "evidence": "",
@@ -2567,22 +2568,5 @@
     "savedAt": "2026-06-04T17:45:38.021Z",
     "locked": true,
     "evidences": []
-  },
-  "_p_sv_2026_06_17": {
-    "text": "CARNATION, 642,000, 640,600.",
-    "evidence": "https://raw.githubusercontent.com/pinuspackindo-ai/pinuspackindo-okr/data/uploads/purchasing/1781686471322_ffcfrz_17.png",
-    "evidenceName": "17.PNG",
-    "savedAt": "2026-06-17T08:54:38.800Z",
-    "locked": true
-  },
-  "_p_ins_2026_06_17": {
-    "file1": "https://raw.githubusercontent.com/pinuspackindo-ai/pinuspackindo-okr/data/uploads/purchasing/1781686676371_oq5a0w_product.product.xlsx",
-    "file1Name": "product.product.xlsx",
-    "file2": "https://raw.githubusercontent.com/pinuspackindo-ai/pinuspackindo-okr/data/uploads/purchasing/1781686685326_uz1r0k_product.product_1.xlsx",
-    "file2Name": "product.product (1).xlsx",
-    "score": 89.96,
-    "savedAt": null,
-    "locked": false
-  },
-  "_ts": 1781688470589
+  }
 }
