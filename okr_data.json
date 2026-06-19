@@ -2593,7 +2593,6 @@
     "savedAt": "2026-06-19T09:02:28.082Z",
     "locked": true
   },
-  "_ts": 1781860224727,
   "_p_sv_2026_06_18": {
     "text": "ONGKIR, 200,000, 150,000; GELAS UKUR 250, 6,670, 6,038",
     "evidence": "https://raw.githubusercontent.com/pinuspackindo-ai/pinuspackindo-okr/data/uploads/purchasing/1781772257165_usxkph_18.png",
@@ -2672,5 +2671,6 @@
     "score": 90.74,
     "savedAt": "2026-06-19T09:05:32.890Z",
     "locked": true
-  }
+  },
+  "_ts": 1781860233794
 }
