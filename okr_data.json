@@ -1,4 +1,5 @@
 {
+  "_ts": 1781834589537,
   "_userAccess": {
     "Finance & Accounting": {
       "modules": [
@@ -649,7 +650,7 @@
           "target": 75
         },
         {
-          "actual": 98.33,
+          "actual": 98.74,
           "bobot": 10,
           "id": "r17804720965137ahi",
           "keyResult": "Akurasi DO & RN",
@@ -678,7 +679,7 @@
       "actionPlan": "Membuat 4 konten sosmed",
       "rows": [
         {
-          "actual": 90.37,
+          "actual": 90.4,
           "bobot": 35,
           "id": "r1780472096513ueyz",
           "keyResult": "Tingkat in stock",
@@ -1628,22 +1629,22 @@
         "tal": "Drafting SOP dresscode/grooming",
         "deadline": "2026-06-30",
         "bobot": 20,
-        "progress": 100,
+        "progress": 50,
         "review": "",
         "editing": false,
-        "savedAt": "2026-06-18T09:20:26.481Z"
+        "savedAt": "2026-06-17T03:45:31.769Z"
       },
       {
         "tal": "Perumusan KPI Operasional",
         "deadline": "2026-06-30",
         "bobot": 10,
-        "progress": 70,
+        "progress": 50,
         "review": "",
         "editing": false,
-        "savedAt": "2026-06-18T09:20:11.472Z"
+        "savedAt": "2026-06-17T03:45:34.859Z"
       }
     ],
-    "savedAt": "2026-06-18T09:20:26.481Z"
+    "savedAt": "2026-06-17T03:45:34.859Z"
   },
   "_w_akurasi_w_2026_05": {
     "evidence": "https://raw.githubusercontent.com/pinuspackindo-ai/pinuspackindo-okr/data/uploads/warehouse/1780907282426_b1hne4_Pinus.jpg",
@@ -2291,6 +2292,14 @@
       }
     ]
   },
+  "_fa_impl_reko_fa_2026_06": {
+    "value": 90,
+    "evidence": "",
+    "evidenceName": "Pinus (1).jpg",
+    "savedAt": "2026-06-04T17:45:38.021Z",
+    "locked": true,
+    "evidences": []
+  },
   "_s_omzet_2026_06": {
     "value": 3000000000,
     "evidence": "",
@@ -2532,64 +2541,32 @@
       }
     ]
   },
-  "_p_sv_2026_06_15": {
-    "text": "PROCHIZ SLICE 12, 256,112, 243,469; PROCHIZ 160 GR, 616,500, 539,441; KARET BIASA, 600,000, 585,000",
-    "evidence": "https://raw.githubusercontent.com/pinuspackindo-ai/pinuspackindo-okr/data/uploads/purchasing/1781667178580_yxuk8f_15.png",
-    "evidenceName": "15.PNG",
-    "savedAt": "2026-06-17T03:33:06.910Z",
-    "locked": true
-  },
   "_inv_rn_do_2026_06_16": {
     "value": 94.1,
-    "evidence": "https://raw.githubusercontent.com/pinuspackindo-ai/pinuspackindo-okr/data/uploads/inventory/1781667597870_1o59t0_WhatsApp_Image_2026-06-16_at_15.52.14.jpeg",
+    "evidence": null,
     "evidenceName": "WhatsApp Image 2026-06-16 at 15.52.14.jpeg",
     "savedAt": "2026-06-17T03:32:53.085Z",
     "locked": true,
     "evidences": [
       {
         "name": "WhatsApp Image 2026-06-16 at 15.52.14.jpeg",
-        "data": "https://raw.githubusercontent.com/pinuspackindo-ai/pinuspackindo-okr/data/uploads/inventory/1781667183882_66b7n3_WhatsApp_Image_2026-06-16_at_15.52.14.jpeg"
+        "data": "https://raw.githubusercontent.com/pinuspackindo-ai/pinuspackindo-okr/data/uploads/inventory/1781667173914_1tll0m_WhatsApp_Image_2026-06-16_at_15.52.14.jpeg"
       },
       {
         "name": "WhatsApp Image 2026-06-16 at 15.53.10.jpeg",
-        "data": "https://raw.githubusercontent.com/pinuspackindo-ai/pinuspackindo-okr/data/uploads/inventory/1781667912534_csfds9_WhatsApp_Image_2026-06-16_at_15.53.10.jpeg"
+        "data": null
       },
       {
         "name": "WhatsApp Image 2026-06-16 at 15.53.33.jpeg",
-        "data": "https://raw.githubusercontent.com/pinuspackindo-ai/pinuspackindo-okr/data/uploads/inventory/1781667179013_8r65sf_WhatsApp_Image_2026-06-16_at_15.53.33.jpeg"
+        "data": null
       }
     ]
   },
-  "_fa_impl_reko_fa_2026_06": {
-    "value": 90,
-    "evidence": "",
-    "evidenceName": "Pinus (1).jpg",
-    "savedAt": "2026-06-04T17:45:38.021Z",
-    "locked": true,
-    "evidences": []
-  },
-  "_p_sv_2026_06_17": {
-    "text": "CARNATION, 642,000, 640,600.",
-    "evidence": "https://raw.githubusercontent.com/pinuspackindo-ai/pinuspackindo-okr/data/uploads/purchasing/1781686471322_ffcfrz_17.png",
-    "evidenceName": "17.PNG",
-    "savedAt": "2026-06-17T08:54:38.800Z",
+  "_p_sv_2026_06_15": {
+    "text": "PROCHIZ SLICE 12, 256,112, 243,469; PROCHIZ 160 GR, 616,500, 539,441; KARET BIASA, 600,000, 585,000",
+    "evidence": "https://raw.githubusercontent.com/pinuspackindo-ai/pinuspackindo-okr/data/uploads/purchasing/1781667178580_yxuk8f_15.png",
+    "evidenceName": "15.PNG",
+    "savedAt": "2026-06-17T03:33:06.910Z",
     "locked": true
-  },
-  "_p_ins_2026_06_17": {
-    "file1": "https://raw.githubusercontent.com/pinuspackindo-ai/pinuspackindo-okr/data/uploads/purchasing/1781686676371_oq5a0w_product.product.xlsx",
-    "file1Name": "product.product.xlsx",
-    "file2": "https://raw.githubusercontent.com/pinuspackindo-ai/pinuspackindo-okr/data/uploads/purchasing/1781686684576_jkgoih_product.product_1.xlsx",
-    "file2Name": "product.product (1).xlsx",
-    "score": 89.96,
-    "savedAt": "2026-06-17T08:58:04.364Z",
-    "locked": true
-  },
-  "_p_sv_2026_06_18": {
-    "text": "ONGKIR, 200,000, 150,000; GELAS UKUR 250, 6,670, 6,038",
-    "evidence": "https://raw.githubusercontent.com/pinuspackindo-ai/pinuspackindo-okr/data/uploads/purchasing/1781772257165_usxkph_18.png",
-    "evidenceName": "18.PNG",
-    "savedAt": "2026-06-18T08:44:23.566Z",
-    "locked": true
-  },
-  "_ts": 1781831675891
+  }
 }
