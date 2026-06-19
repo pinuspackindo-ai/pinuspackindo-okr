@@ -2158,7 +2158,7 @@
         "progress": 100,
         "review": "",
         "editing": true,
-        "savedAt": "2026-06-19T09:06:21.928Z"
+        "savedAt": "2026-06-19T09:07:04.293Z"
       },
       {
         "tal": "Meneruskan SO harian % ED",
@@ -2170,7 +2170,7 @@
         "savedAt": "2026-06-10T00:26:12.329Z"
       }
     ],
-    "savedAt": "2026-06-19T09:06:21.931Z"
+    "savedAt": "2026-06-19T09:07:04.293Z"
   },
   "_tal_d2_2026_06": {
     "rows": [
@@ -2593,7 +2593,7 @@
     "savedAt": "2026-06-19T09:02:28.082Z",
     "locked": true
   },
-  "_ts": 1781859981931,
+  "_ts": 1781860024293,
   "_p_sv_2026_06_18": {
     "text": "ONGKIR, 200,000, 150,000; GELAS UKUR 250, 6,670, 6,038",
     "evidence": "https://raw.githubusercontent.com/pinuspackindo-ai/pinuspackindo-okr/data/uploads/purchasing/1781772257165_usxkph_18.png",
