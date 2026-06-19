@@ -1,5 +1,5 @@
 {
-  "_ts": 1781860429896,
+  "_ts": 1781860530590,
   "_userAccess": {
     "Finance & Accounting": {
       "modules": [
@@ -785,7 +785,7 @@
           "target": 95
         },
         {
-          "actual": null,
+          "actual": 89,
           "bobot": 20,
           "id": "r1780472096513fj95",
           "keyResult": "Score avg cartrack",
@@ -2686,7 +2686,7 @@
       },
       {
         "name": "Screenshot 2026-06-19 16.09.47.png",
-        "data": null
+        "data": "https://raw.githubusercontent.com/pinuspackindo-ai/pinuspackindo-okr/data/uploads/warehouse/1781860432558_k683qj_Screenshot_2026-06-19_16.09.47.png"
       },
       {
         "name": "Screenshot 2026-06-19 16.09.47.png",
