@@ -2146,10 +2146,10 @@
         "tal": "Penguasaan DD, Bizflow, SOP Warehouse",
         "deadline": "2026-06-30",
         "bobot": 40,
-        "progress": null,
+        "progress": 50,
         "review": "",
         "editing": true,
-        "savedAt": "2026-06-12T01:58:09.890Z"
+        "savedAt": "2026-06-19T09:07:27.917Z"
       },
       {
         "tal": "Drafting formasi harian & Lembur senin pagi",
@@ -2170,7 +2170,7 @@
         "savedAt": "2026-06-19T09:07:12.507Z"
       }
     ],
-    "savedAt": "2026-06-19T09:07:12.507Z"
+    "savedAt": "2026-06-19T09:07:27.917Z"
   },
   "_tal_d2_2026_06": {
     "rows": [
@@ -2593,7 +2593,7 @@
     "savedAt": "2026-06-19T09:02:28.082Z",
     "locked": true
   },
-  "_ts": 1781860032507,
+  "_ts": 1781860047917,
   "_p_sv_2026_06_18": {
     "text": "ONGKIR, 200,000, 150,000; GELAS UKUR 250, 6,670, 6,038",
     "evidence": "https://raw.githubusercontent.com/pinuspackindo-ai/pinuspackindo-okr/data/uploads/purchasing/1781772257165_usxkph_18.png",
