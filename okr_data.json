@@ -678,7 +678,7 @@
       "actionPlan": "Membuat 4 konten sosmed",
       "rows": [
         {
-          "actual": 90.38,
+          "actual": 90.41,
           "bobot": 35,
           "id": "r1780472096513ueyz",
           "keyResult": "Tingkat in stock",
@@ -2593,7 +2593,7 @@
     "savedAt": "2026-06-19T09:02:28.082Z",
     "locked": true
   },
-  "_ts": 1781860047917,
+  "_ts": 1781860224727,
   "_p_sv_2026_06_18": {
     "text": "ONGKIR, 200,000, 150,000; GELAS UKUR 250, 6,670, 6,038",
     "evidence": "https://raw.githubusercontent.com/pinuspackindo-ai/pinuspackindo-okr/data/uploads/purchasing/1781772257165_usxkph_18.png",
