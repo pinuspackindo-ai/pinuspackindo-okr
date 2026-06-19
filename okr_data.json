@@ -2591,7 +2591,7 @@
     "savedAt": "2026-06-18T08:44:23.566Z",
     "locked": true
   },
-  "_ts": 1781843394196,
+  "_ts": 1781843403215,
   "_inv_rn_do_2026_06_17": {
     "value": 100,
     "evidence": "https://raw.githubusercontent.com/pinuspackindo-ai/pinuspackindo-okr/data/uploads/inventory/1781834913421_xvd9ju_WhatsApp_Image_2026-06-19_at_09.04.15_1.jpeg",
@@ -2642,5 +2642,26 @@
     "score": null,
     "savedAt": "2026-06-19T04:07:10.354Z",
     "locked": true
+  },
+  "_inv_rn_do_2026_06_19": {
+    "value": 100,
+    "evidence": null,
+    "evidenceName": "WhatsApp Image 2026-06-19 at 09.07.43.jpeg",
+    "savedAt": "2026-06-19T02:08:38.775Z",
+    "locked": false,
+    "evidences": [
+      {
+        "name": "WhatsApp Image 2026-06-19 at 09.07.43.jpeg",
+        "data": null
+      },
+      {
+        "name": "WhatsApp Image 2026-06-19 at 09.07.42 (1).jpeg",
+        "data": null
+      },
+      {
+        "name": "WhatsApp Image 2026-06-19 at 09.07.42.jpeg",
+        "data": null
+      }
+    ]
   }
 }
