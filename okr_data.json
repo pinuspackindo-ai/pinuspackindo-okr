@@ -1,5 +1,4 @@
 {
-  "_ts": 1781842079746,
   "_userAccess": {
     "Finance & Accounting": {
       "modules": [
@@ -650,7 +649,7 @@
           "target": 75
         },
         {
-          "actual": 98.98,
+          "actual": 98.91,
           "bobot": 10,
           "id": "r17804720965137ahi",
           "keyResult": "Akurasi DO & RN",
@@ -2592,6 +2591,7 @@
     "savedAt": "2026-06-18T08:44:23.566Z",
     "locked": true
   },
+  "_ts": 1781843394173,
   "_inv_rn_do_2026_06_17": {
     "value": 100,
     "evidence": "https://raw.githubusercontent.com/pinuspackindo-ai/pinuspackindo-okr/data/uploads/inventory/1781834913421_xvd9ju_WhatsApp_Image_2026-06-19_at_09.04.15_1.jpeg",
@@ -2609,7 +2609,7 @@
       },
       {
         "name": "WhatsApp Image 2026-06-19 at 09.04.14.jpeg",
-        "data": null
+        "data": "https://raw.githubusercontent.com/pinuspackindo-ai/pinuspackindo-okr/data/uploads/inventory/1781834921000_mqedgu_WhatsApp_Image_2026-06-19_at_09.04.14.jpeg"
       }
     ]
   },
@@ -2622,7 +2622,7 @@
     "evidences": [
       {
         "name": "WhatsApp Image 2026-06-19 at 09.05.48 (2).jpeg",
-        "data": "https://raw.githubusercontent.com/pinuspackindo-ai/pinuspackindo-okr/data/uploads/inventory/1781842001222_t0bmej_WhatsApp_Image_2026-06-19_at_09.05.48_2.jpeg"
+        "data": "https://raw.githubusercontent.com/pinuspackindo-ai/pinuspackindo-okr/data/uploads/inventory/1781834921649_gdoggv_WhatsApp_Image_2026-06-19_at_09.05.48_2.jpeg"
       },
       {
         "name": "WhatsApp Image 2026-06-19 at 09.05.48 (1).jpeg",
@@ -2630,28 +2630,7 @@
       },
       {
         "name": "WhatsApp Image 2026-06-19 at 09.05.48.jpeg",
-        "data": "https://raw.githubusercontent.com/pinuspackindo-ai/pinuspackindo-okr/data/uploads/inventory/1781842009176_cx1wyn_WhatsApp_Image_2026-06-19_at_09.05.48.jpeg"
-      }
-    ]
-  },
-  "_inv_rn_do_2026_06_19": {
-    "value": 100,
-    "evidence": null,
-    "evidenceName": "WhatsApp Image 2026-06-19 at 09.07.43.jpeg",
-    "savedAt": "2026-06-19T02:08:38.775Z",
-    "locked": true,
-    "evidences": [
-      {
-        "name": "WhatsApp Image 2026-06-19 at 09.07.43.jpeg",
-        "data": null
-      },
-      {
-        "name": "WhatsApp Image 2026-06-19 at 09.07.42 (1).jpeg",
-        "data": null
-      },
-      {
-        "name": "WhatsApp Image 2026-06-19 at 09.07.42.jpeg",
-        "data": null
+        "data": "https://raw.githubusercontent.com/pinuspackindo-ai/pinuspackindo-okr/data/uploads/inventory/1781834922432_87v5nu_WhatsApp_Image_2026-06-19_at_09.05.48.jpeg"
       }
     ]
   },
