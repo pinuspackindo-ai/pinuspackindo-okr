@@ -1516,9 +1516,9 @@
         "deadline": "2026-06-20",
         "bobot": 30,
         "progress": 100,
-        "review": "",
+        "review": "ok",
         "editing": false,
-        "savedAt": "2026-06-20T08:12:12.734Z"
+        "savedAt": "2026-06-20T08:12:15.334Z"
       },
       {
         "tal": "Running KPI individu store",
@@ -1539,7 +1539,7 @@
         "savedAt": "2026-06-16T06:39:43.503Z"
       }
     ],
-    "savedAt": "2026-06-20T08:12:12.734Z"
+    "savedAt": "2026-06-20T08:12:15.334Z"
   },
   "_tal_d11_2026_06": {
     "rows": [
@@ -2568,7 +2568,7 @@
       }
     ]
   },
-  "_ts": 1781943132734,
+  "_ts": 1781943135334,
   "_p_sv_2026_06_17": {
     "text": "CARNATION, 642,000, 640,600.",
     "evidence": "https://raw.githubusercontent.com/pinuspackindo-ai/pinuspackindo-okr/data/uploads/purchasing/1781686471322_ffcfrz_17.png",
