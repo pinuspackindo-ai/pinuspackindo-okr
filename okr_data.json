@@ -2189,12 +2189,12 @@
         "deadline": "2026-06-30",
         "bobot": 40,
         "progress": null,
-        "review": "masih sampling tahap 1",
+        "review": "sampling pertama perlu review bufel",
         "editing": false,
-        "savedAt": "2026-06-20T08:37:23.633Z"
+        "savedAt": "2026-06-20T08:41:45.406Z"
       }
     ],
-    "savedAt": "2026-06-20T08:37:23.633Z"
+    "savedAt": "2026-06-20T08:41:45.406Z"
   },
   "_tal_d9_2026_06": {
     "rows": [
@@ -2569,7 +2569,7 @@
       }
     ]
   },
-  "_ts": 1781944883589,
+  "_ts": 1781944905406,
   "_p_sv_2026_06_17": {
     "text": "CARNATION, 642,000, 640,600.",
     "evidence": "https://raw.githubusercontent.com/pinuspackindo-ai/pinuspackindo-okr/data/uploads/purchasing/1781686471322_ffcfrz_17.png",
