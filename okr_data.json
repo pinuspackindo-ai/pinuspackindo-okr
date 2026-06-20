@@ -2202,9 +2202,9 @@
         "deadline": "2026-06-07",
         "bobot": 40,
         "progress": 100,
-        "review": "",
+        "review": "ok",
         "editing": false,
-        "savedAt": "2026-06-17T05:30:44.823Z"
+        "savedAt": "2026-06-20T08:37:45.718Z"
       },
       {
         "tal": "Buang Dead Stock di Shopee",
@@ -2225,7 +2225,7 @@
         "savedAt": "2026-06-17T05:30:51.906Z"
       }
     ],
-    "savedAt": "2026-06-17T05:30:51.906Z"
+    "savedAt": "2026-06-20T08:37:45.718Z"
   },
   "_p_sv_2026_05_30": {
     "text": "A",
@@ -2568,7 +2568,7 @@
       }
     ]
   },
-  "_ts": 1781944643633,
+  "_ts": 1781944665718,
   "_p_sv_2026_06_17": {
     "text": "CARNATION, 642,000, 640,600.",
     "evidence": "https://raw.githubusercontent.com/pinuspackindo-ai/pinuspackindo-okr/data/uploads/purchasing/1781686471322_ffcfrz_17.png",
