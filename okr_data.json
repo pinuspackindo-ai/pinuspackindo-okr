@@ -2221,12 +2221,12 @@
         "deadline": "2026-06-30",
         "bobot": 25,
         "progress": 80,
-        "review": "",
+        "review": "titik kurang dikit",
         "editing": false,
-        "savedAt": "2026-06-17T05:30:51.906Z"
+        "savedAt": "2026-06-20T08:40:39.337Z"
       }
     ],
-    "savedAt": "2026-06-20T08:37:48.336Z"
+    "savedAt": "2026-06-20T08:40:39.337Z"
   },
   "_p_sv_2026_05_30": {
     "text": "A",
@@ -2569,7 +2569,7 @@
       }
     ]
   },
-  "_ts": 1781944822572,
+  "_ts": 1781944839337,
   "_p_sv_2026_06_17": {
     "text": "CARNATION, 642,000, 640,600.",
     "evidence": "https://raw.githubusercontent.com/pinuspackindo-ai/pinuspackindo-okr/data/uploads/purchasing/1781686471322_ffcfrz_17.png",
