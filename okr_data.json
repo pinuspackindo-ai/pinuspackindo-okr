@@ -678,7 +678,7 @@
       "actionPlan": "Membuat 4 konten sosmed",
       "rows": [
         {
-          "actual": 90.52,
+          "actual": 90.4,
           "bobot": 35,
           "id": "r1780472096513ueyz",
           "keyResult": "Tingkat in stock",
@@ -768,7 +768,7 @@
       "actionPlan": "",
       "rows": [
         {
-          "actual": 92.05,
+          "actual": null,
           "bobot": 30,
           "id": "r1780472096513er4q",
           "keyResult": "Tingkat akurasi stok fisik vs data",
@@ -784,7 +784,7 @@
           "target": 95
         },
         {
-          "actual": 89,
+          "actual": null,
           "bobot": 20,
           "id": "r1780472096513fj95",
           "keyResult": "Score avg cartrack",
@@ -1507,9 +1507,9 @@
         "deadline": "2026-06-07",
         "bobot": 40,
         "progress": 100,
-        "review": "",
+        "review": "ok",
         "editing": false,
-        "savedAt": "2026-06-16T06:39:32.393Z"
+        "savedAt": "2026-06-20T08:12:11.884Z"
       },
       {
         "tal": "Efisiensi tahap 2",
@@ -1518,7 +1518,7 @@
         "progress": 100,
         "review": "",
         "editing": false,
-        "savedAt": "2026-06-16T06:39:37.477Z"
+        "savedAt": "2026-06-20T08:12:12.734Z"
       },
       {
         "tal": "Running KPI individu store",
@@ -1539,7 +1539,7 @@
         "savedAt": "2026-06-16T06:39:43.503Z"
       }
     ],
-    "savedAt": "2026-06-16T06:39:43.503Z"
+    "savedAt": "2026-06-20T08:12:12.734Z"
   },
   "_tal_d11_2026_06": {
     "rows": [
@@ -2549,7 +2549,7 @@
   },
   "_inv_rn_do_2026_06_16": {
     "value": 94.1,
-    "evidence": "https://raw.githubusercontent.com/pinuspackindo-ai/pinuspackindo-okr/data/uploads/inventory/1781686474995_hw1m2b_WhatsApp_Image_2026-06-16_at_15.52.14.jpeg",
+    "evidence": "https://raw.githubusercontent.com/pinuspackindo-ai/pinuspackindo-okr/data/uploads/inventory/1781667597870_1o59t0_WhatsApp_Image_2026-06-16_at_15.52.14.jpeg",
     "evidenceName": "WhatsApp Image 2026-06-16 at 15.52.14.jpeg",
     "savedAt": "2026-06-17T03:32:53.085Z",
     "locked": true,
@@ -2560,7 +2560,7 @@
       },
       {
         "name": "WhatsApp Image 2026-06-16 at 15.53.10.jpeg",
-        "data": null
+        "data": "https://raw.githubusercontent.com/pinuspackindo-ai/pinuspackindo-okr/data/uploads/inventory/1781943133809_q8eopq_WhatsApp_Image_2026-06-16_at_15.53.10.jpeg"
       },
       {
         "name": "WhatsApp Image 2026-06-16 at 15.53.33.jpeg",
@@ -2568,6 +2568,7 @@
       }
     ]
   },
+  "_ts": 1781943132734,
   "_p_sv_2026_06_17": {
     "text": "CARNATION, 642,000, 640,600.",
     "evidence": "https://raw.githubusercontent.com/pinuspackindo-ai/pinuspackindo-okr/data/uploads/purchasing/1781686471322_ffcfrz_17.png",
@@ -2584,6 +2585,13 @@
     "savedAt": "2026-06-17T08:58:04.364Z",
     "locked": true
   },
+  "_p_sv_2026_06_18": {
+    "text": "ONGKIR, 200,000, 150,000; GELAS UKUR 250, 6,670, 6,038",
+    "evidence": "https://raw.githubusercontent.com/pinuspackindo-ai/pinuspackindo-okr/data/uploads/purchasing/1781772257165_usxkph_18.png",
+    "evidenceName": "18.PNG",
+    "savedAt": "2026-06-18T08:44:23.566Z",
+    "locked": true
+  },
   "_p_ins_2026_06_18": {
     "file1": "https://raw.githubusercontent.com/pinuspackindo-ai/pinuspackindo-okr/data/uploads/purchasing/1781859749318_moouuc_product.product.xlsx",
     "file1Name": "product.product.xlsx",
@@ -2591,13 +2599,6 @@
     "file2Name": "product.product (1).xlsx",
     "score": 90.62,
     "savedAt": "2026-06-19T09:02:28.082Z",
-    "locked": true
-  },
-  "_p_sv_2026_06_18": {
-    "text": "ONGKIR, 200,000, 150,000; GELAS UKUR 250, 6,670, 6,038",
-    "evidence": "https://raw.githubusercontent.com/pinuspackindo-ai/pinuspackindo-okr/data/uploads/purchasing/1781772257165_usxkph_18.png",
-    "evidenceName": "18.PNG",
-    "savedAt": "2026-06-18T08:44:23.566Z",
     "locked": true
   },
   "_inv_rn_do_2026_06_17": {
@@ -2706,7 +2707,6 @@
       }
     ]
   },
-  "_ts": 1781937029465,
   "_p_sv_2026_06_20": {
     "text": "SEGIITGA ALAS COKLAT, 425,000, 375,000",
     "evidence": "https://raw.githubusercontent.com/pinuspackindo-ai/pinuspackindo-okr/data/uploads/purchasing/1781933995650_oh43vc_20.png",
