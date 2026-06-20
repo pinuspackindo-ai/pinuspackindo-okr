@@ -1611,9 +1611,9 @@
         "deadline": "2026-06-07",
         "bobot": 40,
         "progress": 100,
-        "review": "",
+        "review": "ok",
         "editing": false,
-        "savedAt": "2026-06-17T03:45:07.287Z"
+        "savedAt": "2026-06-20T08:36:48.517Z"
       },
       {
         "tal": "Migrasi payroll ke Danamon",
@@ -1643,7 +1643,7 @@
         "savedAt": "2026-06-18T09:20:11.472Z"
       }
     ],
-    "savedAt": "2026-06-18T09:20:26.481Z"
+    "savedAt": "2026-06-20T08:36:48.517Z"
   },
   "_w_akurasi_w_2026_05": {
     "evidence": "https://raw.githubusercontent.com/pinuspackindo-ai/pinuspackindo-okr/data/uploads/warehouse/1780907282426_b1hne4_Pinus.jpg",
@@ -2568,7 +2568,7 @@
       }
     ]
   },
-  "_ts": 1781944601750,
+  "_ts": 1781944608517,
   "_p_sv_2026_06_17": {
     "text": "CARNATION, 642,000, 640,600.",
     "evidence": "https://raw.githubusercontent.com/pinuspackindo-ai/pinuspackindo-okr/data/uploads/purchasing/1781686471322_ffcfrz_17.png",
