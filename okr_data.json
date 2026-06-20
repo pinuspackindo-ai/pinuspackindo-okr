@@ -1587,10 +1587,10 @@
       {
         "bobot": 20,
         "deadline": "2026-06-30",
-        "editing": true,
+        "editing": false,
         "progress": 50,
-        "review": "",
-        "savedAt": "2026-06-20T03:25:33.449Z",
+        "review": "kurang cetak dan tempel",
+        "savedAt": "2026-06-20T08:40:14.337Z",
         "tal": "Visualisasi Bizflow di Warehouse"
       },
       {
@@ -1603,7 +1603,7 @@
         "tal": "Develop Website"
       }
     ],
-    "savedAt": "2026-06-20T08:40:04.171Z"
+    "savedAt": "2026-06-20T08:40:14.337Z"
   },
   "_tal_d3_2026_06": {
     "rows": [
@@ -2569,7 +2569,7 @@
       }
     ]
   },
-  "_ts": 1781944804171,
+  "_ts": 1781944814337,
   "_p_sv_2026_06_17": {
     "text": "CARNATION, 642,000, 640,600.",
     "evidence": "https://raw.githubusercontent.com/pinuspackindo-ai/pinuspackindo-okr/data/uploads/purchasing/1781686471322_ffcfrz_17.png",
