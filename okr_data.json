@@ -1639,12 +1639,12 @@
         "deadline": "2026-06-30",
         "bobot": 10,
         "progress": 70,
-        "review": "kurang eksekusi soal revisi bufel",
+        "review": "kurang eksekusi revisian bufel",
         "editing": false,
-        "savedAt": "2026-06-20T08:41:12.672Z"
+        "savedAt": "2026-06-20T08:41:23.589Z"
       }
     ],
-    "savedAt": "2026-06-20T08:41:12.672Z"
+    "savedAt": "2026-06-20T08:41:23.589Z"
   },
   "_w_akurasi_w_2026_05": {
     "evidence": "https://raw.githubusercontent.com/pinuspackindo-ai/pinuspackindo-okr/data/uploads/warehouse/1780907282426_b1hne4_Pinus.jpg",
@@ -2569,7 +2569,7 @@
       }
     ]
   },
-  "_ts": 1781944872672,
+  "_ts": 1781944883589,
   "_p_sv_2026_06_17": {
     "text": "CARNATION, 642,000, 640,600.",
     "evidence": "https://raw.githubusercontent.com/pinuspackindo-ai/pinuspackindo-okr/data/uploads/purchasing/1781686471322_ffcfrz_17.png",
