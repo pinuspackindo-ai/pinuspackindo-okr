@@ -1548,21 +1548,21 @@
         "deadline": "2026-06-30",
         "bobot": 60,
         "progress": null,
-        "review": "",
-        "editing": true,
-        "savedAt": "2026-06-10T00:24:21.186Z"
+        "review": "nunggu bu fel sisanya",
+        "editing": false,
+        "savedAt": "2026-06-20T08:39:10.584Z"
       },
       {
         "tal": "Pengadaan Kitcheware",
         "deadline": "2026-06-30",
         "bobot": 40,
         "progress": 100,
-        "review": "",
+        "review": "ok",
         "editing": false,
-        "savedAt": "2026-06-20T08:38:59.501Z"
+        "savedAt": "2026-06-20T08:39:03.468Z"
       }
     ],
-    "savedAt": "2026-06-20T08:38:59.501Z"
+    "savedAt": "2026-06-20T08:39:10.584Z"
   },
   "_tal_d12_2026_06": {
     "rows": [
@@ -2569,7 +2569,7 @@
       }
     ]
   },
-  "_ts": 1781944739501,
+  "_ts": 1781944750584,
   "_p_sv_2026_06_17": {
     "text": "CARNATION, 642,000, 640,600.",
     "evidence": "https://raw.githubusercontent.com/pinuspackindo-ai/pinuspackindo-okr/data/uploads/purchasing/1781686471322_ffcfrz_17.png",
