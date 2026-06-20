@@ -2156,9 +2156,9 @@
         "deadline": "2026-06-30",
         "bobot": 35,
         "progress": 100,
-        "review": "",
-        "editing": true,
-        "savedAt": "2026-06-19T09:07:04.293Z"
+        "review": "ok",
+        "editing": false,
+        "savedAt": "2026-06-20T08:38:22.051Z"
       },
       {
         "tal": "Meneruskan SO harian % ED",
@@ -2170,7 +2170,7 @@
         "savedAt": "2026-06-20T08:38:18.017Z"
       }
     ],
-    "savedAt": "2026-06-20T08:38:18.017Z"
+    "savedAt": "2026-06-20T08:38:22.051Z"
   },
   "_tal_d2_2026_06": {
     "rows": [
@@ -2568,7 +2568,7 @@
       }
     ]
   },
-  "_ts": 1781944698017,
+  "_ts": 1781944702051,
   "_p_sv_2026_06_17": {
     "text": "CARNATION, 642,000, 640,600.",
     "evidence": "https://raw.githubusercontent.com/pinuspackindo-ai/pinuspackindo-okr/data/uploads/purchasing/1781686471322_ffcfrz_17.png",
