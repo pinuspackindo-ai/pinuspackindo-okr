@@ -2179,9 +2179,9 @@
         "deadline": "2026-06-30",
         "bobot": 60,
         "progress": 100,
-        "review": "",
+        "review": "ok",
         "editing": false,
-        "savedAt": "2026-06-13T01:54:15.012Z"
+        "savedAt": "2026-06-20T08:36:41.750Z"
       },
       {
         "tal": "Drafting Business Flow Departemen",
@@ -2193,7 +2193,7 @@
         "savedAt": "2026-06-10T00:27:23.594Z"
       }
     ],
-    "savedAt": "2026-06-13T01:54:15.012Z"
+    "savedAt": "2026-06-20T08:36:41.750Z"
   },
   "_tal_d9_2026_06": {
     "rows": [
@@ -2568,7 +2568,7 @@
       }
     ]
   },
-  "_ts": 1781944590133,
+  "_ts": 1781944601750,
   "_p_sv_2026_06_17": {
     "text": "CARNATION, 642,000, 640,600.",
     "evidence": "https://raw.githubusercontent.com/pinuspackindo-ai/pinuspackindo-okr/data/uploads/purchasing/1781686471322_ffcfrz_17.png",
