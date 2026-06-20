@@ -1547,10 +1547,10 @@
         "tal": "Merapikan SKU Inventory",
         "deadline": "2026-06-30",
         "bobot": 60,
-        "progress": null,
+        "progress": 50,
         "review": "nunggu bu fel sisanya",
         "editing": false,
-        "savedAt": "2026-06-20T08:39:10.584Z"
+        "savedAt": "2026-06-20T08:39:14.618Z"
       },
       {
         "tal": "Pengadaan Kitcheware",
@@ -1562,7 +1562,7 @@
         "savedAt": "2026-06-20T08:39:03.468Z"
       }
     ],
-    "savedAt": "2026-06-20T08:39:10.584Z"
+    "savedAt": "2026-06-20T08:39:14.618Z"
   },
   "_tal_d12_2026_06": {
     "rows": [
@@ -2569,7 +2569,7 @@
       }
     ]
   },
-  "_ts": 1781944750584,
+  "_ts": 1781944754618,
   "_p_sv_2026_06_17": {
     "text": "CARNATION, 642,000, 640,600.",
     "evidence": "https://raw.githubusercontent.com/pinuspackindo-ai/pinuspackindo-okr/data/uploads/purchasing/1781686471322_ffcfrz_17.png",
