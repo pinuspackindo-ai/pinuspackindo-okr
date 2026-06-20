@@ -1578,10 +1578,10 @@
       {
         "bobot": 30,
         "deadline": "2026-06-13",
-        "editing": true,
+        "editing": false,
         "progress": 100,
-        "review": "",
-        "savedAt": "2026-06-10T01:37:35.103Z",
+        "review": "ok",
+        "savedAt": "2026-06-20T08:40:04.171Z",
         "tal": "Pengesahan DD Telesales"
       },
       {
@@ -1603,7 +1603,7 @@
         "tal": "Develop Website"
       }
     ],
-    "savedAt": "2026-06-20T03:25:37.794Z"
+    "savedAt": "2026-06-20T08:40:04.171Z"
   },
   "_tal_d3_2026_06": {
     "rows": [
@@ -2569,7 +2569,7 @@
       }
     ]
   },
-  "_ts": 1781944754618,
+  "_ts": 1781944804171,
   "_p_sv_2026_06_17": {
     "text": "CARNATION, 642,000, 640,600.",
     "evidence": "https://raw.githubusercontent.com/pinuspackindo-ai/pinuspackindo-okr/data/uploads/purchasing/1781686471322_ffcfrz_17.png",
