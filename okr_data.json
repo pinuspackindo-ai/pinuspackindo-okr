@@ -2167,10 +2167,10 @@
         "progress": 100,
         "review": "",
         "editing": false,
-        "savedAt": "2026-06-19T09:07:12.507Z"
+        "savedAt": "2026-06-20T08:38:06.200Z"
       }
     ],
-    "savedAt": "2026-06-19T09:07:27.917Z"
+    "savedAt": "2026-06-20T08:38:06.200Z"
   },
   "_tal_d2_2026_06": {
     "rows": [
@@ -2211,9 +2211,9 @@
         "deadline": "2026-06-30",
         "bobot": 35,
         "progress": 100,
-        "review": "",
+        "review": "ok",
         "editing": false,
-        "savedAt": "2026-06-17T05:30:48.893Z"
+        "savedAt": "2026-06-20T08:37:48.336Z"
       },
       {
         "tal": "Finalisasi pengumpulan titik kirim customer",
@@ -2225,7 +2225,7 @@
         "savedAt": "2026-06-17T05:30:51.906Z"
       }
     ],
-    "savedAt": "2026-06-20T08:37:45.718Z"
+    "savedAt": "2026-06-20T08:37:48.336Z"
   },
   "_p_sv_2026_05_30": {
     "text": "A",
@@ -2568,7 +2568,7 @@
       }
     ]
   },
-  "_ts": 1781944665718,
+  "_ts": 1781944686200,
   "_p_sv_2026_06_17": {
     "text": "CARNATION, 642,000, 640,600.",
     "evidence": "https://raw.githubusercontent.com/pinuspackindo-ai/pinuspackindo-okr/data/uploads/purchasing/1781686471322_ffcfrz_17.png",
