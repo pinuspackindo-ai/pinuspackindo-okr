@@ -1621,9 +1621,9 @@
         "deadline": "2026-06-20",
         "bobot": 30,
         "progress": 50,
-        "review": "",
+        "review": "kurang atm dan finalisasi administrasi",
         "editing": false,
-        "savedAt": "2026-06-17T03:45:27.649Z"
+        "savedAt": "2026-06-20T08:40:51.288Z"
       },
       {
         "tal": "Drafting SOP dresscode/grooming",
@@ -1644,7 +1644,7 @@
         "savedAt": "2026-06-18T09:20:11.472Z"
       }
     ],
-    "savedAt": "2026-06-20T08:36:52.517Z"
+    "savedAt": "2026-06-20T08:40:51.288Z"
   },
   "_w_akurasi_w_2026_05": {
     "evidence": "https://raw.githubusercontent.com/pinuspackindo-ai/pinuspackindo-okr/data/uploads/warehouse/1780907282426_b1hne4_Pinus.jpg",
@@ -2569,7 +2569,7 @@
       }
     ]
   },
-  "_ts": 1781944839337,
+  "_ts": 1781944851288,
   "_p_sv_2026_06_17": {
     "text": "CARNATION, 642,000, 640,600.",
     "evidence": "https://raw.githubusercontent.com/pinuspackindo-ai/pinuspackindo-okr/data/uploads/purchasing/1781686471322_ffcfrz_17.png",
