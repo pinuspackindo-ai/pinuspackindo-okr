@@ -525,7 +525,7 @@
           "target": 98
         },
         {
-          "actual": null,
+          "actual": 90,
           "bobot": 10,
           "id": "r17804720965137oje",
           "keyResult": "Tingkat implementasi rekomendasi audit",
@@ -768,7 +768,7 @@
       "actionPlan": "",
       "rows": [
         {
-          "actual": null,
+          "actual": 92.05,
           "bobot": 30,
           "id": "r1780472096513er4q",
           "keyResult": "Tingkat akurasi stok fisik vs data",
@@ -784,7 +784,7 @@
           "target": 95
         },
         {
-          "actual": null,
+          "actual": 89,
           "bobot": 20,
           "id": "r1780472096513fj95",
           "keyResult": "Score avg cartrack",
@@ -2291,6 +2291,14 @@
       }
     ]
   },
+  "_fa_impl_reko_fa_2026_06": {
+    "value": 90,
+    "evidence": "",
+    "evidenceName": "Pinus (1).jpg",
+    "savedAt": "2026-06-04T17:45:38.021Z",
+    "locked": true,
+    "evidences": []
+  },
   "_s_omzet_2026_06": {
     "value": 3000000000,
     "evidence": "",
@@ -2576,7 +2584,6 @@
     "savedAt": "2026-06-17T08:58:04.364Z",
     "locked": true
   },
-  "_ts": 1781917831606,
   "_p_ins_2026_06_18": {
     "file1": "https://raw.githubusercontent.com/pinuspackindo-ai/pinuspackindo-okr/data/uploads/purchasing/1781859749318_moouuc_product.product.xlsx",
     "file1Name": "product.product.xlsx",
@@ -2688,7 +2695,7 @@
   },
   "_w_akurasi_w_2026_06": {
     "value": 92.05,
-    "evidence": null,
+    "evidence": "https://raw.githubusercontent.com/pinuspackindo-ai/pinuspackindo-okr/data/uploads/warehouse/1781880758925_anlmfx_Screenshot_2026-06-19_21.51.14.png",
     "evidenceName": "Screenshot 2026-06-19 21.51.14.png",
     "savedAt": "2026-06-19T14:52:37.096Z",
     "locked": true,
@@ -2698,5 +2705,6 @@
         "data": null
       }
     ]
-  }
+  },
+  "_ts": 1781921297589
 }
