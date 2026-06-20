@@ -1587,9 +1587,9 @@
         "bobot": 20,
         "deadline": "2026-06-30",
         "editing": true,
-        "progress": null,
+        "progress": 50,
         "review": "",
-        "savedAt": "2026-06-10T01:56:22.917Z",
+        "savedAt": "2026-06-20T03:25:33.449Z",
         "tal": "Visualisasi Bizflow di Warehouse"
       },
       {
@@ -1602,7 +1602,7 @@
         "tal": "Develop Website"
       }
     ],
-    "savedAt": "2026-06-17T03:49:46.576Z"
+    "savedAt": "2026-06-20T03:25:33.449Z"
   },
   "_tal_d3_2026_06": {
     "rows": [
@@ -2698,5 +2698,5 @@
       }
     ]
   },
-  "_ts": 1781925902433
+  "_ts": 1781925933449
 }
