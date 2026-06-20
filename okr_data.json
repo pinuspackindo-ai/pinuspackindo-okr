@@ -678,7 +678,7 @@
       "actionPlan": "Membuat 4 konten sosmed",
       "rows": [
         {
-          "actual": 90.41,
+          "actual": 90.52,
           "bobot": 35,
           "id": "r1780472096513ueyz",
           "keyResult": "Tingkat in stock",
@@ -1587,22 +1587,22 @@
         "bobot": 20,
         "deadline": "2026-06-30",
         "editing": true,
-        "progress": null,
+        "progress": 50,
         "review": "",
-        "savedAt": "2026-06-10T01:56:22.917Z",
+        "savedAt": "2026-06-20T03:25:33.449Z",
         "tal": "Visualisasi Bizflow di Warehouse"
       },
       {
         "bobot": 10,
         "deadline": "2026-06-30",
         "editing": true,
-        "progress": 50,
+        "progress": 100,
         "review": "",
-        "savedAt": "2026-06-17T03:49:46.576Z",
+        "savedAt": "2026-06-20T03:25:37.794Z",
         "tal": "Develop Website"
       }
     ],
-    "savedAt": "2026-06-17T03:49:46.576Z"
+    "savedAt": "2026-06-20T03:25:37.794Z"
   },
   "_tal_d3_2026_06": {
     "rows": [
@@ -2706,5 +2706,21 @@
       }
     ]
   },
-  "_ts": 1781936782705
+  "_ts": 1781936784396,
+  "_p_sv_2026_06_20": {
+    "text": "SEGIITGA ALAS COKLAT, 425,000, 375,000",
+    "evidence": "https://raw.githubusercontent.com/pinuspackindo-ai/pinuspackindo-okr/data/uploads/purchasing/1781933995650_oh43vc_20.png",
+    "evidenceName": "20.PNG",
+    "savedAt": "2026-06-20T05:39:57.822Z",
+    "locked": true
+  },
+  "_p_ins_2026_06_20": {
+    "file1": "https://raw.githubusercontent.com/pinuspackindo-ai/pinuspackindo-okr/data/uploads/purchasing/1781936167284_vsg478_product.product.xlsx",
+    "file1Name": "product.product.xlsx",
+    "file2": "https://raw.githubusercontent.com/pinuspackindo-ai/pinuspackindo-okr/data/uploads/purchasing/1781936785426_xzexwo_product.product_1.xlsx",
+    "file2Name": "product.product (1).xlsx",
+    "score": 92.21,
+    "savedAt": "2026-06-20T06:16:07.893Z",
+    "locked": true
+  }
 }
