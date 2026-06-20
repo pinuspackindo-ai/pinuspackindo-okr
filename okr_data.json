@@ -1,5 +1,4 @@
 {
-  "_ts": 1781936095322,
   "_userAccess": {
     "Finance & Accounting": {
       "modules": [
@@ -769,7 +768,7 @@
       "actionPlan": "",
       "rows": [
         {
-          "actual": null,
+          "actual": 92.05,
           "bobot": 30,
           "id": "r1780472096513er4q",
           "keyResult": "Tingkat akurasi stok fisik vs data",
@@ -785,7 +784,7 @@
           "target": 95
         },
         {
-          "actual": null,
+          "actual": 89,
           "bobot": 20,
           "id": "r1780472096513fj95",
           "keyResult": "Score avg cartrack",
@@ -1588,22 +1587,22 @@
         "bobot": 20,
         "deadline": "2026-06-30",
         "editing": true,
-        "progress": null,
+        "progress": 50,
         "review": "",
-        "savedAt": "2026-06-10T01:56:22.917Z",
+        "savedAt": "2026-06-20T03:25:33.449Z",
         "tal": "Visualisasi Bizflow di Warehouse"
       },
       {
         "bobot": 10,
         "deadline": "2026-06-30",
         "editing": true,
-        "progress": 50,
+        "progress": 100,
         "review": "",
-        "savedAt": "2026-06-17T03:49:46.576Z",
+        "savedAt": "2026-06-20T03:25:37.794Z",
         "tal": "Develop Website"
       }
     ],
-    "savedAt": "2026-06-17T03:49:46.576Z"
+    "savedAt": "2026-06-20T03:25:37.794Z"
   },
   "_tal_d3_2026_06": {
     "rows": [
@@ -2682,16 +2681,37 @@
     "evidences": [
       {
         "name": "Screenshot 2026-06-19 16.09.47.png",
-        "data": null
+        "data": "https://raw.githubusercontent.com/pinuspackindo-ai/pinuspackindo-okr/data/uploads/warehouse/1781860331075_emk0cz_Screenshot_2026-06-19_16.09.47.png"
       },
       {
         "name": "Screenshot 2026-06-19 16.09.47.png",
-        "data": null
+        "data": "https://raw.githubusercontent.com/pinuspackindo-ai/pinuspackindo-okr/data/uploads/warehouse/1781860432558_k683qj_Screenshot_2026-06-19_16.09.47.png"
       },
       {
         "name": "Screenshot 2026-06-19 16.09.47.png",
         "data": null
       }
     ]
-  }
+  },
+  "_w_akurasi_w_2026_06": {
+    "value": 92.05,
+    "evidence": "https://raw.githubusercontent.com/pinuspackindo-ai/pinuspackindo-okr/data/uploads/warehouse/1781880758925_anlmfx_Screenshot_2026-06-19_21.51.14.png",
+    "evidenceName": "Screenshot 2026-06-19 21.51.14.png",
+    "savedAt": "2026-06-19T14:52:37.096Z",
+    "locked": true,
+    "evidences": [
+      {
+        "name": "Screenshot 2026-06-19 21.51.14.png",
+        "data": null
+      }
+    ]
+  },
+  "_p_sv_2026_06_20": {
+    "text": "SEGIITGA ALAS COKLAT, 425,000, 375,000",
+    "evidence": "https://raw.githubusercontent.com/pinuspackindo-ai/pinuspackindo-okr/data/uploads/purchasing/1781933995650_oh43vc_20.png",
+    "evidenceName": "20.PNG",
+    "savedAt": "2026-06-20T05:39:57.822Z",
+    "locked": true
+  },
+  "_ts": 1781936095776
 }
