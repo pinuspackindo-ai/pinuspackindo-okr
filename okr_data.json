@@ -678,7 +678,7 @@
       "actionPlan": "Membuat 4 konten sosmed",
       "rows": [
         {
-          "actual": 90.41,
+          "actual": 90.52,
           "bobot": 35,
           "id": "r1780472096513ueyz",
           "keyResult": "Tingkat in stock",
@@ -768,7 +768,7 @@
       "actionPlan": "",
       "rows": [
         {
-          "actual": null,
+          "actual": 92.05,
           "bobot": 30,
           "id": "r1780472096513er4q",
           "keyResult": "Tingkat akurasi stok fisik vs data",
@@ -784,7 +784,7 @@
           "target": 95
         },
         {
-          "actual": null,
+          "actual": 89,
           "bobot": 20,
           "id": "r1780472096513fj95",
           "keyResult": "Score avg cartrack",
@@ -2291,6 +2291,14 @@
       }
     ]
   },
+  "_fa_impl_reko_fa_2026_06": {
+    "value": 90,
+    "evidence": "",
+    "evidenceName": "Pinus (1).jpg",
+    "savedAt": "2026-06-04T17:45:38.021Z",
+    "locked": true,
+    "evidences": []
+  },
   "_s_omzet_2026_06": {
     "value": 3000000000,
     "evidence": "",
@@ -2687,7 +2695,7 @@
   },
   "_w_akurasi_w_2026_06": {
     "value": 92.05,
-    "evidence": null,
+    "evidence": "https://raw.githubusercontent.com/pinuspackindo-ai/pinuspackindo-okr/data/uploads/warehouse/1781880758925_anlmfx_Screenshot_2026-06-19_21.51.14.png",
     "evidenceName": "Screenshot 2026-06-19 21.51.14.png",
     "savedAt": "2026-06-19T14:52:37.096Z",
     "locked": true,
@@ -2698,13 +2706,21 @@
       }
     ]
   },
-  "_fa_impl_reko_fa_2026_06": {
-    "value": 90,
-    "evidence": "",
-    "evidenceName": "Pinus (1).jpg",
-    "savedAt": "2026-06-04T17:45:38.021Z",
-    "locked": true,
-    "evidences": []
+  "_ts": 1781937029465,
+  "_p_sv_2026_06_20": {
+    "text": "SEGIITGA ALAS COKLAT, 425,000, 375,000",
+    "evidence": "https://raw.githubusercontent.com/pinuspackindo-ai/pinuspackindo-okr/data/uploads/purchasing/1781933995650_oh43vc_20.png",
+    "evidenceName": "20.PNG",
+    "savedAt": "2026-06-20T05:39:57.822Z",
+    "locked": true
   },
-  "_ts": 1781936953735
+  "_p_ins_2026_06_20": {
+    "file1": "https://raw.githubusercontent.com/pinuspackindo-ai/pinuspackindo-okr/data/uploads/purchasing/1781936167284_vsg478_product.product.xlsx",
+    "file1Name": "product.product.xlsx",
+    "file2": "https://raw.githubusercontent.com/pinuspackindo-ai/pinuspackindo-okr/data/uploads/purchasing/1781936785426_xzexwo_product.product_1.xlsx",
+    "file2Name": "product.product (1).xlsx",
+    "score": 92.21,
+    "savedAt": "2026-06-20T06:16:07.893Z",
+    "locked": true
+  }
 }
