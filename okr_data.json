@@ -1,4 +1,5 @@
 {
+  "_ts": 1782094020973,
   "_userAccess": {
     "Finance & Accounting": {
       "modules": [
@@ -768,7 +769,7 @@
       "actionPlan": "",
       "rows": [
         {
-          "actual": null,
+          "actual": 92.05,
           "bobot": 30,
           "id": "r1780472096513er4q",
           "keyResult": "Tingkat akurasi stok fisik vs data",
@@ -784,7 +785,7 @@
           "target": 95
         },
         {
-          "actual": null,
+          "actual": 89,
           "bobot": 20,
           "id": "r1780472096513fj95",
           "keyResult": "Score avg cartrack",
@@ -1507,39 +1508,39 @@
         "deadline": "2026-06-07",
         "bobot": 40,
         "progress": 100,
-        "review": "ok",
+        "review": "",
         "editing": false,
-        "savedAt": "2026-06-20T08:12:11.884Z"
+        "savedAt": "2026-06-16T06:39:32.393Z"
       },
       {
         "tal": "Efisiensi tahap 2",
         "deadline": "2026-06-20",
         "bobot": 30,
         "progress": 100,
-        "review": "ok",
+        "review": "",
         "editing": false,
-        "savedAt": "2026-06-20T08:12:15.334Z"
+        "savedAt": "2026-06-16T06:39:37.477Z"
       },
       {
         "tal": "Running KPI individu store",
         "deadline": "2026-06-30",
         "bobot": 20,
         "progress": 100,
-        "review": "ok",
+        "review": "",
         "editing": false,
-        "savedAt": "2026-06-20T08:36:26.884Z"
+        "savedAt": "2026-06-16T06:39:40.399Z"
       },
       {
         "tal": "Drafting & implementasi new rooster",
         "deadline": "2026-06-30",
         "bobot": 10,
         "progress": 100,
-        "review": "ok",
+        "review": "",
         "editing": false,
-        "savedAt": "2026-06-20T08:36:30.133Z"
+        "savedAt": "2026-06-16T06:39:43.503Z"
       }
     ],
-    "savedAt": "2026-06-20T08:36:30.133Z"
+    "savedAt": "2026-06-16T06:39:43.503Z"
   },
   "_tal_d11_2026_06": {
     "rows": [
@@ -1547,22 +1548,21 @@
         "tal": "Merapikan SKU Inventory",
         "deadline": "2026-06-30",
         "bobot": 60,
-        "progress": 50,
-        "review": "nunggu bu fel sisanya",
-        "editing": false,
-        "savedAt": "2026-06-20T08:39:14.618Z"
+        "progress": null,
+        "review": "",
+        "editing": true,
+        "savedAt": "2026-06-10T00:24:21.186Z"
       },
       {
         "tal": "Pengadaan Kitcheware",
         "deadline": "2026-06-30",
         "bobot": 40,
-        "progress": 100,
-        "review": "ok",
-        "editing": false,
-        "savedAt": "2026-06-20T08:39:03.468Z"
+        "progress": null,
+        "review": "",
+        "editing": true,
+        "savedAt": "2026-06-10T00:24:21.186Z"
       }
-    ],
-    "savedAt": "2026-06-20T08:39:14.618Z"
+    ]
   },
   "_tal_d12_2026_06": {
     "rows": [
@@ -1571,39 +1571,39 @@
         "deadline": "2026-06-07",
         "editing": false,
         "progress": 100,
-        "review": "ok",
-        "savedAt": "2026-06-20T08:40:17.538Z",
+        "review": "",
+        "savedAt": "2026-06-17T03:49:40.615Z",
         "tal": "Revisi DD, Bizflow, SOP Warehouse"
       },
       {
         "bobot": 30,
         "deadline": "2026-06-13",
-        "editing": false,
+        "editing": true,
         "progress": 100,
-        "review": "ok",
-        "savedAt": "2026-06-20T08:40:04.171Z",
+        "review": "",
+        "savedAt": "2026-06-10T01:37:35.103Z",
         "tal": "Pengesahan DD Telesales"
       },
       {
         "bobot": 20,
         "deadline": "2026-06-30",
-        "editing": false,
+        "editing": true,
         "progress": 50,
-        "review": "kurang cetak dan tempel",
-        "savedAt": "2026-06-20T08:40:14.337Z",
+        "review": "",
+        "savedAt": "2026-06-20T03:25:33.449Z",
         "tal": "Visualisasi Bizflow di Warehouse"
       },
       {
         "bobot": 10,
         "deadline": "2026-06-30",
-        "editing": false,
+        "editing": true,
         "progress": 100,
-        "review": "ok",
-        "savedAt": "2026-06-20T08:40:22.572Z",
+        "review": "",
+        "savedAt": "2026-06-20T03:25:37.794Z",
         "tal": "Develop Website"
       }
     ],
-    "savedAt": "2026-06-20T08:40:22.572Z"
+    "savedAt": "2026-06-20T03:25:37.794Z"
   },
   "_tal_d3_2026_06": {
     "rows": [
@@ -1612,39 +1612,39 @@
         "deadline": "2026-06-07",
         "bobot": 40,
         "progress": 100,
-        "review": "ok",
+        "review": "",
         "editing": false,
-        "savedAt": "2026-06-20T08:36:48.517Z"
+        "savedAt": "2026-06-17T03:45:07.287Z"
       },
       {
         "tal": "Migrasi payroll ke Danamon",
         "deadline": "2026-06-20",
         "bobot": 30,
         "progress": 50,
-        "review": "kurang atm dan finalisasi administrasi",
+        "review": "",
         "editing": false,
-        "savedAt": "2026-06-20T08:40:51.288Z"
+        "savedAt": "2026-06-17T03:45:27.649Z"
       },
       {
         "tal": "Drafting SOP dresscode/grooming",
         "deadline": "2026-06-30",
         "bobot": 20,
         "progress": 100,
-        "review": "ok",
+        "review": "",
         "editing": false,
-        "savedAt": "2026-06-20T08:36:52.517Z"
+        "savedAt": "2026-06-18T09:20:26.481Z"
       },
       {
         "tal": "Perumusan KPI Operasional",
         "deadline": "2026-06-30",
         "bobot": 10,
         "progress": 70,
-        "review": "kurang eksekusi revisian bufel",
+        "review": "",
         "editing": false,
-        "savedAt": "2026-06-20T08:41:23.589Z"
+        "savedAt": "2026-06-18T09:20:11.472Z"
       }
     ],
-    "savedAt": "2026-06-20T08:41:23.589Z"
+    "savedAt": "2026-06-18T09:20:26.481Z"
   },
   "_w_akurasi_w_2026_05": {
     "evidence": "https://raw.githubusercontent.com/pinuspackindo-ai/pinuspackindo-okr/data/uploads/warehouse/1780907282426_b1hne4_Pinus.jpg",
@@ -2148,30 +2148,30 @@
         "deadline": "2026-06-30",
         "bobot": 40,
         "progress": 50,
-        "review": "senin test random",
-        "editing": false,
-        "savedAt": "2026-06-20T08:38:48.482Z"
+        "review": "",
+        "editing": true,
+        "savedAt": "2026-06-19T09:07:27.917Z"
       },
       {
         "tal": "Drafting formasi harian & Lembur senin pagi",
         "deadline": "2026-06-30",
         "bobot": 35,
         "progress": 100,
-        "review": "ok",
-        "editing": false,
-        "savedAt": "2026-06-20T08:38:22.051Z"
+        "review": "",
+        "editing": true,
+        "savedAt": "2026-06-19T09:07:04.293Z"
       },
       {
         "tal": "Meneruskan SO harian % ED",
         "deadline": "2026-06-30",
         "bobot": 25,
         "progress": 100,
-        "review": "ok",
+        "review": "",
         "editing": false,
-        "savedAt": "2026-06-20T08:38:18.017Z"
+        "savedAt": "2026-06-19T09:07:12.507Z"
       }
     ],
-    "savedAt": "2026-06-20T08:38:48.482Z"
+    "savedAt": "2026-06-19T09:07:27.917Z"
   },
   "_tal_d2_2026_06": {
     "rows": [
@@ -2180,21 +2180,21 @@
         "deadline": "2026-06-30",
         "bobot": 60,
         "progress": 100,
-        "review": "ok",
+        "review": "",
         "editing": false,
-        "savedAt": "2026-06-20T08:36:41.750Z"
+        "savedAt": "2026-06-13T01:54:15.012Z"
       },
       {
         "tal": "Drafting Business Flow Departemen",
         "deadline": "2026-06-30",
         "bobot": 40,
         "progress": null,
-        "review": "sampling pertama perlu review bufel",
+        "review": "",
         "editing": false,
-        "savedAt": "2026-06-20T08:41:45.406Z"
+        "savedAt": "2026-06-10T00:27:23.594Z"
       }
     ],
-    "savedAt": "2026-06-20T08:41:45.406Z"
+    "savedAt": "2026-06-13T01:54:15.012Z"
   },
   "_tal_d9_2026_06": {
     "rows": [
@@ -2203,30 +2203,30 @@
         "deadline": "2026-06-07",
         "bobot": 40,
         "progress": 100,
-        "review": "ok",
+        "review": "",
         "editing": false,
-        "savedAt": "2026-06-20T08:37:45.718Z"
+        "savedAt": "2026-06-17T05:30:44.823Z"
       },
       {
         "tal": "Buang Dead Stock di Shopee",
         "deadline": "2026-06-30",
         "bobot": 35,
         "progress": 100,
-        "review": "ok",
+        "review": "",
         "editing": false,
-        "savedAt": "2026-06-20T08:37:48.336Z"
+        "savedAt": "2026-06-17T05:30:48.893Z"
       },
       {
         "tal": "Finalisasi pengumpulan titik kirim customer",
         "deadline": "2026-06-30",
         "bobot": 25,
         "progress": 80,
-        "review": "titik kurang dikit",
+        "review": "",
         "editing": false,
-        "savedAt": "2026-06-20T08:40:39.337Z"
+        "savedAt": "2026-06-17T05:30:51.906Z"
       }
     ],
-    "savedAt": "2026-06-20T08:40:39.337Z"
+    "savedAt": "2026-06-17T05:30:51.906Z"
   },
   "_p_sv_2026_05_30": {
     "text": "A",
@@ -2291,6 +2291,14 @@
         "data": "https://raw.githubusercontent.com/pinuspackindo-ai/pinuspackindo-okr/data/uploads/inventory/1780886110700_z10ubz_WhatsApp_Image_2026-06-04_at_17.02.52.jpeg"
       }
     ]
+  },
+  "_fa_impl_reko_fa_2026_06": {
+    "value": 90,
+    "evidence": "",
+    "evidenceName": "Pinus (1).jpg",
+    "savedAt": "2026-06-04T17:45:38.021Z",
+    "locked": true,
+    "evidences": []
   },
   "_s_omzet_2026_06": {
     "value": 3000000000,
@@ -2688,7 +2696,7 @@
   },
   "_w_akurasi_w_2026_06": {
     "value": 92.05,
-    "evidence": null,
+    "evidence": "https://raw.githubusercontent.com/pinuspackindo-ai/pinuspackindo-okr/data/uploads/warehouse/1781880758925_anlmfx_Screenshot_2026-06-19_21.51.14.png",
     "evidenceName": "Screenshot 2026-06-19 21.51.14.png",
     "savedAt": "2026-06-19T14:52:37.096Z",
     "locked": true,
@@ -2698,14 +2706,6 @@
         "data": null
       }
     ]
-  },
-  "_fa_impl_reko_fa_2026_06": {
-    "value": 90,
-    "evidence": "",
-    "evidenceName": "Pinus (1).jpg",
-    "savedAt": "2026-06-04T17:45:38.021Z",
-    "locked": true,
-    "evidences": []
   },
   "_p_sv_2026_06_20": {
     "text": "SEGIITGA ALAS COKLAT, 425,000, 375,000",
@@ -2722,6 +2722,5 @@
     "score": 92.21,
     "savedAt": "2026-06-20T06:16:07.893Z",
     "locked": true
-  },
-  "_ts": 1782091158623
+  }
 }
