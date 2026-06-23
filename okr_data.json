@@ -2781,7 +2781,6 @@
       }
     ]
   },
-  "_ts": 1782181238428,
   "_hrd_kpi_2026_06": {
     "value": 96,
     "evidence": "https://raw.githubusercontent.com/pinuspackindo-ai/pinuspackindo-okr/data/uploads/hrd/1782181159744_9wk0x1_WhatsApp_Image_2026-06-23_at_09.18.21.jpeg",
@@ -2794,5 +2793,6 @@
         "data": null
       }
     ]
-  }
+  },
+  "_ts": 1782190999084
 }
