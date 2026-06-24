@@ -525,7 +525,7 @@
           "target": 98
         },
         {
-          "actual": 90,
+          "actual": null,
           "bobot": 10,
           "id": "r17804720965137oje",
           "keyResult": "Tingkat implementasi rekomendasi audit",
@@ -2699,14 +2699,6 @@
       }
     ]
   },
-  "_fa_impl_reko_fa_2026_06": {
-    "value": 90,
-    "evidence": "",
-    "evidenceName": "Pinus (1).jpg",
-    "savedAt": "2026-06-04T17:45:38.021Z",
-    "locked": true,
-    "evidences": []
-  },
   "_p_sv_2026_06_20": {
     "text": "SEGIITGA ALAS COKLAT, 425,000, 375,000",
     "evidence": "https://raw.githubusercontent.com/pinuspackindo-ai/pinuspackindo-okr/data/uploads/purchasing/1781933995650_oh43vc_20.png",
@@ -2831,6 +2823,5 @@
     "savedAt": "2026-06-23T09:05:17.547Z",
     "locked": true
   },
-  "_ts": 1782264162808,
-  "_slim": 1
+  "_ts": 1782264228604
 }
