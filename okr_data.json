@@ -1,5 +1,4 @@
 {
-  "_ts": 1782267347243,
   "_userAccess": {
     "Finance & Accounting": {
       "modules": [
@@ -1589,9 +1588,9 @@
         "bobot": 20,
         "deadline": "2026-06-30",
         "editing": false,
-        "progress": 50,
+        "progress": 80,
         "review": "kurang cetak dan tempel",
-        "savedAt": "2026-06-20T08:40:14.337Z",
+        "savedAt": "2026-06-24T01:22:24.461Z",
         "tal": "Visualisasi Bizflow di Warehouse"
       },
       {
@@ -1604,7 +1603,7 @@
         "tal": "Develop Website"
       }
     ],
-    "savedAt": "2026-06-20T08:40:22.572Z"
+    "savedAt": "2026-06-24T01:22:24.461Z"
   },
   "_tal_d3_2026_06": {
     "rows": [
@@ -2700,14 +2699,6 @@
       }
     ]
   },
-  "_fa_impl_reko_fa_2026_06": {
-    "value": 90,
-    "evidence": "",
-    "evidenceName": "Pinus (1).jpg",
-    "savedAt": "2026-06-04T17:45:38.021Z",
-    "locked": true,
-    "evidences": []
-  },
   "_p_sv_2026_06_20": {
     "text": "SEGIITGA ALAS COKLAT, 425,000, 375,000",
     "evidence": "https://raw.githubusercontent.com/pinuspackindo-ai/pinuspackindo-okr/data/uploads/purchasing/1781933995650_oh43vc_20.png",
@@ -2774,7 +2765,7 @@
       },
       {
         "name": "WhatsApp Image 2026-06-22 at 16.51.19.jpeg",
-        "data": null
+        "data": "https://raw.githubusercontent.com/pinuspackindo-ai/pinuspackindo-okr/data/uploads/inventory/1782264153673_1rgmbi_WhatsApp_Image_2026-06-22_at_16.51.19.jpeg"
       },
       {
         "name": "WhatsApp Image 2026-06-22 at 15.37.03.jpeg",
@@ -2804,11 +2795,11 @@
     "evidences": [
       {
         "name": "WhatsApp Image 2026-06-23 at 15.47.22.jpeg",
-        "data": null
+        "data": "https://raw.githubusercontent.com/pinuspackindo-ai/pinuspackindo-okr/data/uploads/inventory/1782264159725_76n1lx_WhatsApp_Image_2026-06-23_at_15.47.22.jpeg"
       },
       {
         "name": "WhatsApp Image 2026-06-23 at 15.46.39.jpeg",
-        "data": null
+        "data": "https://raw.githubusercontent.com/pinuspackindo-ai/pinuspackindo-okr/data/uploads/inventory/1782264230429_xqm7fw_WhatsApp_Image_2026-06-23_at_15.46.39.jpeg"
       },
       {
         "name": "WhatsApp Image 2026-06-23 at 15.21.53.jpeg",
@@ -2831,5 +2822,14 @@
     "score": 90.9,
     "savedAt": "2026-06-23T09:05:17.547Z",
     "locked": true
+  },
+  "_ts": 1782267352685,
+  "_fa_impl_reko_fa_2026_06": {
+    "value": 90,
+    "evidence": "",
+    "evidenceName": "Pinus (1).jpg",
+    "savedAt": "2026-06-04T17:45:38.021Z",
+    "locked": true,
+    "evidences": []
   }
 }
