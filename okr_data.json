@@ -1,5 +1,4 @@
 {
-  "_ts": 1782380226012,
   "_userAccess": {
     "Finance & Accounting": {
       "modules": [
@@ -679,7 +678,7 @@
       "actionPlan": "Membuat 4 konten sosmed",
       "rows": [
         {
-          "actual": 90.54,
+          "actual": 90.58,
           "bobot": 35,
           "id": "r1780472096513ueyz",
           "keyResult": "Tingkat in stock",
@@ -2808,7 +2807,7 @@
       },
       {
         "name": "WhatsApp Image 2026-06-23 at 15.46.39.jpeg",
-        "data": null
+        "data": "https://raw.githubusercontent.com/pinuspackindo-ai/pinuspackindo-okr/data/uploads/inventory/1782352793549_3hicd7_WhatsApp_Image_2026-06-23_at_15.46.39.jpeg"
       },
       {
         "name": "WhatsApp Image 2026-06-23 at 15.21.53.jpeg",
@@ -2833,19 +2832,27 @@
     "locked": true
   },
   "_p_ins_2026_06_24": {
-    "file1": "https://raw.githubusercontent.com/pinuspackindo-ai/pinuspackindo-okr/data/uploads/purchasing/1782290833434_ynrons_product.product.xlsx",
+    "file1": "https://raw.githubusercontent.com/pinuspackindo-ai/pinuspackindo-okr/data/uploads/purchasing/1782378276482_3shriu_product.product.xlsx",
     "file1Name": "product.product.xlsx",
-    "file2": "https://raw.githubusercontent.com/pinuspackindo-ai/pinuspackindo-okr/data/uploads/purchasing/1782290832701_n2dbbd_product.product_1.xlsx",
+    "file2": "https://raw.githubusercontent.com/pinuspackindo-ai/pinuspackindo-okr/data/uploads/purchasing/1782378288031_0jef3l_product.product_1.xlsx",
     "file2Name": "product.product (1).xlsx",
-    "score": 90.73,
-    "savedAt": "2026-06-24T08:47:11.875Z",
+    "score": 91.44,
+    "savedAt": "2026-06-25T09:04:47.840Z",
     "locked": true
   },
+  "_ts": 1782380227170,
   "_p_sv_2026_06_24": {
     "text": "ONGKIR SURYANDARU, 15,000, 0",
     "evidence": "https://raw.githubusercontent.com/pinuspackindo-ai/pinuspackindo-okr/data/uploads/purchasing/1782352802321_rkpmyp_24.png",
     "evidenceName": "24.PNG",
     "savedAt": "2026-06-25T02:00:03.935Z",
+    "locked": true
+  },
+  "_p_sv_2026_06_25": {
+    "text": "ONGKIR SUMBER CAHAYA, 1,200,000, 1,120,000",
+    "evidence": "https://raw.githubusercontent.com/pinuspackindo-ai/pinuspackindo-okr/data/uploads/purchasing/1782378385624_sifq64_25.png",
+    "evidenceName": "25.PNG",
+    "savedAt": "2026-06-25T09:06:27.757Z",
     "locked": true
   }
 }
