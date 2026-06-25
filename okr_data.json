@@ -2831,6 +2831,7 @@
     "savedAt": "2026-06-23T09:05:17.547Z",
     "locked": true
   },
+  "_ts": 1782352736851,
   "_p_ins_2026_06_24": {
     "file1": "https://raw.githubusercontent.com/pinuspackindo-ai/pinuspackindo-okr/data/uploads/purchasing/1782290833434_ynrons_product.product.xlsx",
     "file1Name": "product.product.xlsx",
@@ -2840,6 +2841,5 @@
     "savedAt": "2026-06-24T08:47:11.875Z",
     "locked": true
   },
-  "_ts": 1782351648007,
   "_slim": 1
 }
