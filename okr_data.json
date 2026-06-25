@@ -1620,10 +1620,10 @@
         "tal": "Migrasi payroll ke Danamon",
         "deadline": "2026-06-20",
         "bobot": 30,
-        "progress": 50,
+        "progress": 80,
         "review": "kurang atm dan finalisasi administrasi",
         "editing": false,
-        "savedAt": "2026-06-20T08:40:51.288Z"
+        "savedAt": "2026-06-25T02:07:09.474Z"
       },
       {
         "tal": "Drafting SOP dresscode/grooming",
@@ -1644,7 +1644,7 @@
         "savedAt": "2026-06-20T08:41:23.589Z"
       }
     ],
-    "savedAt": "2026-06-20T08:41:23.589Z"
+    "savedAt": "2026-06-25T02:07:09.474Z"
   },
   "_w_akurasi_w_2026_05": {
     "evidence": "https://raw.githubusercontent.com/pinuspackindo-ai/pinuspackindo-okr/data/uploads/warehouse/1780907282426_b1hne4_Pinus.jpg",
@@ -2847,5 +2847,5 @@
     "savedAt": "2026-06-25T02:00:03.935Z",
     "locked": true
   },
-  "_ts": 1782353212353
+  "_ts": 1782353229474
 }
