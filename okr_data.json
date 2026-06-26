@@ -2847,14 +2847,14 @@
     "savedAt": "2026-06-25T02:00:03.935Z",
     "locked": true
   },
-  "_ts": 1782464823786,
   "_p_ins_2026_06_25": {
-    "file1": "https://raw.githubusercontent.com/pinuspackindo-ai/pinuspackindo-okr/data/uploads/purchasing/1782454685269_cgr15s_product.product.xlsx",
+    "file1": null,
     "file1Name": "product.product.xlsx",
     "file2": "https://raw.githubusercontent.com/pinuspackindo-ai/pinuspackindo-okr/data/uploads/purchasing/1782448012294_og23uo_product.product_1.xlsx",
     "file2Name": "product.product (1).xlsx",
     "score": 91.68,
     "savedAt": "2026-06-26T04:26:52.519Z",
     "locked": true
-  }
+  },
+  "_ts": 1782464824483
 }
