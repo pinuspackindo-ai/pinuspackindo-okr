@@ -1,5 +1,4 @@
 {
-  "_ts": 1782539609652,
   "_userAccess": {
     "Finance & Accounting": {
       "modules": [
@@ -2858,12 +2857,20 @@
     "locked": true
   },
   "_p_ins_2026_06_26": {
-    "file1": null,
+    "file1": "https://raw.githubusercontent.com/pinuspackindo-ai/pinuspackindo-okr/data/uploads/purchasing/1782522061112_p4kbk4_product.product.xlsx",
     "file1Name": "product.product.xlsx",
-    "file2": "https://raw.githubusercontent.com/pinuspackindo-ai/pinuspackindo-okr/data/uploads/purchasing/1782464851041_e2vwpj_product.product_1.xlsx",
+    "file2": "https://raw.githubusercontent.com/pinuspackindo-ai/pinuspackindo-okr/data/uploads/purchasing/1782464850213_7nnp07_product.product_1.xlsx",
     "file2Name": "product.product (1).xlsx",
     "score": 91.51,
     "savedAt": "2026-06-26T09:07:30.571Z",
     "locked": true
-  }
+  },
+  "_p_sv_2026_06_25": {
+    "text": "SEMANGGI, 190,000, 189,500; ERKA 38,500/ KG, JADI 34,800/ KG; PASEO ABSORB, 220,661, 205,950; JOLLY CORE, 114,376, 04,755; JOLLY POP UP, 267,500, 245,000; PENGOCOK KOPI OTOMATIS, 8,388, 8,013",
+    "evidence": "https://raw.githubusercontent.com/pinuspackindo-ai/pinuspackindo-okr/data/uploads/purchasing/1782535294061_jba5cy_26.png",
+    "evidenceName": "26.PNG",
+    "savedAt": "2026-06-27T04:41:36.862Z",
+    "locked": true
+  },
+  "_ts": 1782539613723
 }
