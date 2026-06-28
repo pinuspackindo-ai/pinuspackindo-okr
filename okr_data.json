@@ -678,7 +678,7 @@
       "actionPlan": "Membuat 4 konten sosmed",
       "rows": [
         {
-          "actual": 90.6,
+          "actual": 90.69,
           "bobot": 35,
           "id": "r1780472096513ueyz",
           "keyResult": "Tingkat in stock",
@@ -2848,7 +2848,7 @@
     "locked": true
   },
   "_p_ins_2026_06_25": {
-    "file1": "https://raw.githubusercontent.com/pinuspackindo-ai/pinuspackindo-okr/data/uploads/purchasing/1782454685269_cgr15s_product.product.xlsx",
+    "file1": null,
     "file1Name": "product.product.xlsx",
     "file2": "https://raw.githubusercontent.com/pinuspackindo-ai/pinuspackindo-okr/data/uploads/purchasing/1782448012294_og23uo_product.product_1.xlsx",
     "file2Name": "product.product (1).xlsx",
@@ -2856,5 +2856,37 @@
     "savedAt": "2026-06-26T04:26:52.519Z",
     "locked": true
   },
-  "_ts": 1782635242059
+  "_p_ins_2026_06_26": {
+    "file1": "https://raw.githubusercontent.com/pinuspackindo-ai/pinuspackindo-okr/data/uploads/purchasing/1782522061112_p4kbk4_product.product.xlsx",
+    "file1Name": "product.product.xlsx",
+    "file2": "https://raw.githubusercontent.com/pinuspackindo-ai/pinuspackindo-okr/data/uploads/purchasing/1782464850213_7nnp07_product.product_1.xlsx",
+    "file2Name": "product.product (1).xlsx",
+    "score": 91.51,
+    "savedAt": "2026-06-26T09:07:30.571Z",
+    "locked": true
+  },
+  "_p_sv_2026_06_25": {
+    "text": "SEMANGGI, 190,000, 189,500; ERKA 38,500/ KG, JADI 34,800/ KG; PASEO ABSORB, 220,661, 205,950; JOLLY CORE, 114,376, 04,755; JOLLY POP UP, 267,500, 245,000; PENGOCOK KOPI OTOMATIS, 8,388, 8,013",
+    "evidence": "https://raw.githubusercontent.com/pinuspackindo-ai/pinuspackindo-okr/data/uploads/purchasing/1782535294061_jba5cy_26.png",
+    "evidenceName": "26.PNG",
+    "savedAt": "2026-06-27T04:41:36.862Z",
+    "locked": true
+  },
+  "_p_ins_2026_06_27": {
+    "file1": "https://raw.githubusercontent.com/pinuspackindo-ai/pinuspackindo-okr/data/uploads/purchasing/1782539901166_k3zq56_product.product.xlsx",
+    "file1Name": "product.product.xlsx",
+    "file2": "https://raw.githubusercontent.com/pinuspackindo-ai/pinuspackindo-okr/data/uploads/purchasing/1782539631338_wm4oq3_product.product_1.xlsx",
+    "file2Name": "product.product (1).xlsx",
+    "score": 91.73,
+    "savedAt": "2026-06-27T05:53:49.714Z",
+    "locked": true
+  },
+  "_p_sv_2026_06_27": {
+    "text": "ONGKIR JUJURA, 40,000, 0",
+    "evidence": "https://raw.githubusercontent.com/pinuspackindo-ai/pinuspackindo-okr/data/uploads/purchasing/1782539897956_dqgbq5_27.png",
+    "evidenceName": "27.PNG",
+    "savedAt": "2026-06-27T05:58:23.676Z",
+    "locked": true
+  },
+  "_ts": 1782635243242
 }
