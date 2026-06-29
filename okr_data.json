@@ -1588,9 +1588,9 @@
         "bobot": 20,
         "deadline": "2026-06-30",
         "editing": false,
-        "progress": 80,
+        "progress": 100,
         "review": "kurang cetak dan tempel",
-        "savedAt": "2026-06-24T01:22:24.461Z",
+        "savedAt": "2026-06-29T05:17:30.777Z",
         "tal": "Visualisasi Bizflow di Warehouse"
       },
       {
@@ -1603,7 +1603,7 @@
         "tal": "Develop Website"
       }
     ],
-    "savedAt": "2026-06-24T01:22:24.461Z"
+    "savedAt": "2026-06-29T05:17:30.777Z"
   },
   "_tal_d3_2026_06": {
     "rows": [
@@ -2972,5 +2972,5 @@
       }
     ]
   },
-  "_ts": 1782710241213
+  "_ts": 1782710250777
 }
