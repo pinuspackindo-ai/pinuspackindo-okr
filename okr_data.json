@@ -2865,6 +2865,7 @@
     "savedAt": "2026-06-26T09:07:30.571Z",
     "locked": true
   },
+  "_ts": 1782724322522,
   "_p_sv_2026_06_25": {
     "text": "SEMANGGI, 190,000, 189,500; ERKA 38,500/ KG, JADI 34,800/ KG; PASEO ABSORB, 220,661, 205,950; JOLLY CORE, 114,376, 04,755; JOLLY POP UP, 267,500, 245,000; PENGOCOK KOPI OTOMATIS, 8,388, 8,013",
     "evidence": "https://raw.githubusercontent.com/pinuspackindo-ai/pinuspackindo-okr/data/uploads/purchasing/1782535294061_jba5cy_26.png",
@@ -2972,7 +2973,6 @@
       }
     ]
   },
-  "_ts": 1782724235692,
   "_p_ins_2026_06_29": {
     "file1": null,
     "file1Name": "product.product (2).xlsx",
