@@ -1,5 +1,4 @@
 {
-  "_ts": 1782724120411,
   "_userAccess": {
     "Finance & Accounting": {
       "modules": [
@@ -679,7 +678,7 @@
       "actionPlan": "Membuat 4 konten sosmed",
       "rows": [
         {
-          "actual": 90.69,
+          "actual": 90.71,
           "bobot": 35,
           "id": "r1780472096513ueyz",
           "keyResult": "Tingkat in stock",
@@ -2972,5 +2971,15 @@
         "data": null
       }
     ]
+  },
+  "_ts": 1782724121154,
+  "_p_ins_2026_06_29": {
+    "file1": null,
+    "file1Name": "product.product (2).xlsx",
+    "file2": "https://raw.githubusercontent.com/pinuspackindo-ai/pinuspackindo-okr/data/uploads/purchasing/1782720430386_5ipg86_product.product_3.xlsx",
+    "file2Name": "product.product (3).xlsx",
+    "score": 91.16,
+    "savedAt": "2026-06-29T08:07:08.711Z",
+    "locked": true
   }
 }
