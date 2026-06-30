@@ -1620,10 +1620,10 @@
         "tal": "Migrasi payroll ke Danamon",
         "deadline": "2026-06-20",
         "bobot": 30,
-        "progress": 100,
+        "progress": 80,
         "review": "kurang atm dan finalisasi administrasi",
         "editing": false,
-        "savedAt": "2026-06-30T04:15:00.606Z"
+        "savedAt": "2026-06-25T02:07:09.474Z"
       },
       {
         "tal": "Drafting SOP dresscode/grooming",
@@ -1638,13 +1638,13 @@
         "tal": "Perumusan KPI Operasional",
         "deadline": "2026-06-30",
         "bobot": 10,
-        "progress": 100,
+        "progress": 80,
         "review": "kurang eksekusi revisian bufel",
         "editing": false,
-        "savedAt": "2026-06-30T04:15:07.715Z"
+        "savedAt": "2026-06-25T02:07:45.368Z"
       }
     ],
-    "savedAt": "2026-06-30T04:15:07.715Z"
+    "savedAt": "2026-06-25T02:07:45.368Z"
   },
   "_w_akurasi_w_2026_05": {
     "evidence": "https://raw.githubusercontent.com/pinuspackindo-ai/pinuspackindo-okr/data/uploads/warehouse/1780907282426_b1hne4_Pinus.jpg",
@@ -2972,6 +2972,7 @@
       }
     ]
   },
+  "_ts": 1782802575424,
   "_p_ins_2026_06_29": {
     "file1": null,
     "file1Name": "product.product (2).xlsx",
@@ -2980,6 +2981,5 @@
     "score": 91.16,
     "savedAt": "2026-06-29T08:07:08.711Z",
     "locked": true
-  },
-  "_ts": 1782802458754
+  }
 }
