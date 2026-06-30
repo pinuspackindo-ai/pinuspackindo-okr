@@ -649,7 +649,7 @@
           "target": 75
         },
         {
-          "actual": 98.71,
+          "actual": 98.73,
           "bobot": 10,
           "id": "r17804720965137ahi",
           "keyResult": "Akurasi DO & RN",
@@ -980,13 +980,29 @@
         "tglRequest": "2026-05-22",
         "deadline": "2026-06-20",
         "realisasi": "2026-06-08",
-        "evidence": null,
+        "evidence": "https://raw.githubusercontent.com/pinuspackindo-ai/pinuspackindo-okr/data/uploads/hrd/1782803326770_2ik95d_OJT_Wafa_compressed.pdf",
         "evidenceName": "OJT Wafa_compressed.pdf",
         "editing": false,
         "evidences": [
           {
             "name": "OJT Wafa_compressed.pdf",
             "data": "https://raw.githubusercontent.com/pinuspackindo-ai/pinuspackindo-okr/data/uploads/hrd/1782802874083_dbrtdt_OJT_Wafa_compressed.pdf"
+          }
+        ]
+      },
+      {
+        "jabatan": "STAFF",
+        "namaRequest": "SOSMED",
+        "tglRequest": "2026-06-06",
+        "deadline": "2026-07-05",
+        "realisasi": "2026-06-30",
+        "evidence": null,
+        "evidenceName": "Surat Penawaran Kerja -David Ilham Hakiki ttddocx-compressed.pdf",
+        "editing": false,
+        "evidences": [
+          {
+            "name": "Surat Penawaran Kerja -David Ilham Hakiki ttddocx-compressed.pdf",
+            "data": "https://raw.githubusercontent.com/pinuspackindo-ai/pinuspackindo-okr/data/uploads/hrd/1782803327389_f7qd4i_Surat_Penawaran_Kerja_-David_Ilham_Hakiki_ttddocx-compressed.pdf"
           }
         ]
       }
@@ -2855,7 +2871,7 @@
       },
       {
         "name": "WhatsApp Image 2026-06-23 at 15.46.39.jpeg",
-        "data": null
+        "data": "https://raw.githubusercontent.com/pinuspackindo-ai/pinuspackindo-okr/data/uploads/inventory/1782352793549_3hicd7_WhatsApp_Image_2026-06-23_at_15.46.39.jpeg"
       },
       {
         "name": "WhatsApp Image 2026-06-23 at 15.21.53.jpeg",
@@ -3008,7 +3024,7 @@
     "evidences": [
       {
         "name": "WhatsApp Image 2026-06-27 at 15.59.40.jpeg",
-        "data": null
+        "data": "https://raw.githubusercontent.com/pinuspackindo-ai/pinuspackindo-okr/data/uploads/inventory/1782695106554_zntfdu_WhatsApp_Image_2026-06-27_at_15.59.40.jpeg"
       },
       {
         "name": "WhatsApp Image 2026-06-27 at 15.57.54.jpeg",
@@ -3029,6 +3045,7 @@
     "savedAt": "2026-06-29T08:07:08.711Z",
     "locked": true
   },
+  "_ts": 1782810472122,
   "_hrd_akurasi_adm_2026_06": {
     "value": 98,
     "evidence": null,
@@ -3106,6 +3123,5 @@
     "score": 91.58,
     "savedAt": "2026-06-30T08:27:24.809Z",
     "locked": true
-  },
-  "_ts": 1782810468302
+  }
 }
