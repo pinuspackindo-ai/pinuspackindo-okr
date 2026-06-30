@@ -1,4 +1,5 @@
 {
+  "_ts": 1782808005206,
   "_userAccess": {
     "Finance & Accounting": {
       "modules": [
@@ -567,7 +568,7 @@
       "actionPlan": "Drafting SOP ketidakhadiran",
       "rows": [
         {
-          "actual": 98.54,
+          "actual": null,
           "bobot": 30,
           "id": "r17804720965133xfl",
           "keyResult": "Tingkat kedisiplinan karyawan",
@@ -583,7 +584,7 @@
           "target": 85
         },
         {
-          "actual": 98,
+          "actual": null,
           "bobot": 20,
           "id": "r1780472096513h23f",
           "keyResult": "Akurasi & ketepatan waktu administrasi HR",
@@ -591,7 +592,7 @@
           "target": 95
         },
         {
-          "actual": 100,
+          "actual": null,
           "bobot": 15,
           "id": "r17804720965139eyq",
           "keyResult": "Ketepatan waktu rekrutment",
@@ -599,7 +600,7 @@
           "target": 85
         },
         {
-          "actual": 78.5,
+          "actual": null,
           "bobot": 10,
           "id": "r17804720965138k8x",
           "keyResult": "Skor kinerja karyawan baru",
@@ -747,7 +748,7 @@
           "target": 90
         },
         {
-          "actual": 69.63,
+          "actual": null,
           "bobot": 15,
           "id": "r1780472096513u9a5",
           "keyResult": "Tingkat kepatuhan & kedisiplinan",
@@ -980,29 +981,13 @@
         "tglRequest": "2026-05-22",
         "deadline": "2026-06-20",
         "realisasi": "2026-06-08",
-        "evidence": "https://raw.githubusercontent.com/pinuspackindo-ai/pinuspackindo-okr/data/uploads/hrd/1782803326770_2ik95d_OJT_Wafa_compressed.pdf",
+        "evidence": null,
         "evidenceName": "OJT Wafa_compressed.pdf",
         "editing": false,
         "evidences": [
           {
             "name": "OJT Wafa_compressed.pdf",
             "data": "https://raw.githubusercontent.com/pinuspackindo-ai/pinuspackindo-okr/data/uploads/hrd/1782802874083_dbrtdt_OJT_Wafa_compressed.pdf"
-          }
-        ]
-      },
-      {
-        "jabatan": "STAFF",
-        "namaRequest": "SOSMED",
-        "tglRequest": "2026-06-06",
-        "deadline": "2026-07-05",
-        "realisasi": "2026-06-30",
-        "evidence": null,
-        "evidenceName": "Surat Penawaran Kerja -David Ilham Hakiki ttddocx-compressed.pdf",
-        "editing": false,
-        "evidences": [
-          {
-            "name": "Surat Penawaran Kerja -David Ilham Hakiki ttddocx-compressed.pdf",
-            "data": "https://raw.githubusercontent.com/pinuspackindo-ai/pinuspackindo-okr/data/uploads/hrd/1782803327389_f7qd4i_Surat_Penawaran_Kerja_-David_Ilham_Hakiki_ttddocx-compressed.pdf"
           }
         ]
       }
@@ -3058,7 +3043,6 @@
       }
     ]
   },
-  "_ts": 1782805845912,
   "_hrd_kedisiplinan_2026_06": {
     "value": 98.54,
     "evidence": null,
