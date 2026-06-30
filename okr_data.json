@@ -567,7 +567,7 @@
       "actionPlan": "Drafting SOP ketidakhadiran",
       "rows": [
         {
-          "actual": null,
+          "actual": 98.54,
           "bobot": 30,
           "id": "r17804720965133xfl",
           "keyResult": "Tingkat kedisiplinan karyawan",
@@ -583,7 +583,7 @@
           "target": 85
         },
         {
-          "actual": null,
+          "actual": 98,
           "bobot": 20,
           "id": "r1780472096513h23f",
           "keyResult": "Akurasi & ketepatan waktu administrasi HR",
@@ -599,7 +599,7 @@
           "target": 85
         },
         {
-          "actual": null,
+          "actual": 78.5,
           "bobot": 10,
           "id": "r17804720965138k8x",
           "keyResult": "Skor kinerja karyawan baru",
@@ -747,7 +747,7 @@
           "target": 90
         },
         {
-          "actual": null,
+          "actual": 69.63,
           "bobot": 15,
           "id": "r1780472096513u9a5",
           "keyResult": "Tingkat kepatuhan & kedisiplinan",
@@ -980,7 +980,7 @@
         "tglRequest": "2026-05-22",
         "deadline": "2026-06-20",
         "realisasi": "2026-06-08",
-        "evidence": "https://raw.githubusercontent.com/pinuspackindo-ai/pinuspackindo-okr/data/uploads/hrd/1782803326770_2ik95d_OJT_Wafa_compressed.pdf",
+        "evidence": null,
         "evidenceName": "OJT Wafa_compressed.pdf",
         "editing": false,
         "evidences": [
@@ -3029,7 +3029,6 @@
     "savedAt": "2026-06-29T08:07:08.711Z",
     "locked": true
   },
-  "_ts": 1782808023592,
   "_hrd_akurasi_adm_2026_06": {
     "value": 98,
     "evidence": null,
@@ -3098,5 +3097,6 @@
     "totalScore": 69.62962962962963,
     "savedAt": "2026-06-30T07:40:56.277Z",
     "locked": true
-  }
+  },
+  "_ts": 1782808028042
 }
