@@ -3015,7 +3015,6 @@
     "savedAt": "2026-06-29T08:07:08.711Z",
     "locked": true
   },
-  "_ts": 1782803967103,
   "_hrd_akurasi_adm_2026_06": {
     "value": 98,
     "evidence": null,
@@ -3028,5 +3027,6 @@
         "data": "https://raw.githubusercontent.com/pinuspackindo-ai/pinuspackindo-okr/data/uploads/hrd/1782803439926_b78nu2_Screenshot_2026-06-30_140952.png"
       }
     ]
-  }
+  },
+  "_ts": 1782803972321
 }
