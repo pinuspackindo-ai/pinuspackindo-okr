@@ -567,7 +567,7 @@
       "actionPlan": "Drafting SOP ketidakhadiran",
       "rows": [
         {
-          "actual": 98.54,
+          "actual": null,
           "bobot": 30,
           "id": "r17804720965133xfl",
           "keyResult": "Tingkat kedisiplinan karyawan",
@@ -583,7 +583,7 @@
           "target": 85
         },
         {
-          "actual": 98,
+          "actual": null,
           "bobot": 20,
           "id": "r1780472096513h23f",
           "keyResult": "Akurasi & ketepatan waktu administrasi HR",
@@ -599,7 +599,7 @@
           "target": 85
         },
         {
-          "actual": 78.5,
+          "actual": null,
           "bobot": 10,
           "id": "r17804720965138k8x",
           "keyResult": "Skor kinerja karyawan baru",
@@ -678,7 +678,7 @@
       "actionPlan": "Membuat 4 konten sosmed",
       "rows": [
         {
-          "actual": 90.75,
+          "actual": 90.71,
           "bobot": 35,
           "id": "r1780472096513ueyz",
           "keyResult": "Tingkat in stock",
@@ -747,7 +747,7 @@
           "target": 90
         },
         {
-          "actual": 69.63,
+          "actual": null,
           "bobot": 15,
           "id": "r1780472096513u9a5",
           "keyResult": "Tingkat kepatuhan & kedisiplinan",
@@ -923,37 +923,7 @@
     "value": 98.49
   },
   "_hrd_kin_2026_06": {
-    "rows": [
-      {
-        "nama": "melda Azzahra",
-        "tanggalMasuk": "2026-06-07",
-        "score": 68,
-        "evidence": "https://raw.githubusercontent.com/pinuspackindo-ai/pinuspackindo-okr/data/uploads/hrd/1782804042347_e3bfg3_Screenshot_2026-06-30_141248.png",
-        "evidenceName": "Screenshot 2026-06-30 141248.png",
-        "editing": false,
-        "evidences": [
-          {
-            "name": "Screenshot 2026-06-30 141248.png",
-            "data": null
-          }
-        ]
-      },
-      {
-        "nama": "Nimas Anggraini",
-        "tanggalMasuk": "2026-06-30",
-        "score": 89,
-        "evidence": "https://raw.githubusercontent.com/pinuspackindo-ai/pinuspackindo-okr/data/uploads/hrd/1782804067576_ulzrbk_Screenshot_2026-06-30_141248.png",
-        "evidenceName": "Screenshot 2026-06-30 141248.png",
-        "editing": false,
-        "evidences": [
-          {
-            "name": "Screenshot 2026-06-30 141248.png",
-            "data": null
-          }
-        ]
-      }
-    ],
-    "savedAt": "2026-06-30T07:19:49.240Z"
+    "rows": []
   },
   "_hrd_kpi_2026_05": {
     "evidence": "https://raw.githubusercontent.com/pinuspackindo-ai/pinuspackindo-okr/data/uploads/hrd/1780895741833_v772tv_Pinus.jpg",
@@ -973,25 +943,7 @@
     "value": 96
   },
   "_hrd_rec_2026_06": {
-    "rows": [
-      {
-        "jabatan": "STAFF",
-        "namaRequest": "DRIVER",
-        "tglRequest": "2026-05-22",
-        "deadline": "2026-06-20",
-        "realisasi": "2026-06-08",
-        "evidence": null,
-        "evidenceName": "OJT Wafa_compressed.pdf",
-        "editing": false,
-        "evidences": [
-          {
-            "name": "OJT Wafa_compressed.pdf",
-            "data": "https://raw.githubusercontent.com/pinuspackindo-ai/pinuspackindo-okr/data/uploads/hrd/1782802874083_dbrtdt_OJT_Wafa_compressed.pdf"
-          }
-        ]
-      }
-    ],
-    "savedAt": "2026-06-30T06:55:07.174Z"
+    "rows": []
   },
   "_ia_proj_2026_05": {
     "rows": [
@@ -1668,10 +1620,10 @@
         "tal": "Migrasi payroll ke Danamon",
         "deadline": "2026-06-20",
         "bobot": 30,
-        "progress": 100,
+        "progress": 80,
         "review": "kurang atm dan finalisasi administrasi",
         "editing": false,
-        "savedAt": "2026-06-30T04:15:00.606Z"
+        "savedAt": "2026-06-25T02:07:09.474Z"
       },
       {
         "tal": "Drafting SOP dresscode/grooming",
@@ -1686,13 +1638,13 @@
         "tal": "Perumusan KPI Operasional",
         "deadline": "2026-06-30",
         "bobot": 10,
-        "progress": 100,
+        "progress": 80,
         "review": "kurang eksekusi revisian bufel",
         "editing": false,
-        "savedAt": "2026-06-30T04:15:07.715Z"
+        "savedAt": "2026-06-25T02:07:45.368Z"
       }
     ],
-    "savedAt": "2026-06-30T04:15:07.715Z"
+    "savedAt": "2026-06-25T02:07:45.368Z"
   },
   "_w_akurasi_w_2026_05": {
     "evidence": "https://raw.githubusercontent.com/pinuspackindo-ai/pinuspackindo-okr/data/uploads/warehouse/1780907282426_b1hne4_Pinus.jpg",
@@ -2236,13 +2188,13 @@
         "tal": "Drafting Business Flow Departemen",
         "deadline": "2026-06-30",
         "bobot": 40,
-        "progress": 100,
+        "progress": null,
         "review": "sampling pertama perlu review bufel",
         "editing": false,
-        "savedAt": "2026-06-30T09:06:25.434Z"
+        "savedAt": "2026-06-20T08:41:45.406Z"
       }
     ],
-    "savedAt": "2026-06-30T09:06:25.434Z"
+    "savedAt": "2026-06-20T08:41:45.406Z"
   },
   "_tal_d9_2026_06": {
     "rows": [
@@ -3029,83 +2981,5 @@
     "savedAt": "2026-06-29T08:07:08.711Z",
     "locked": true
   },
-  "_hrd_akurasi_adm_2026_06": {
-    "value": 98,
-    "evidence": null,
-    "evidenceName": "Screenshot 2026-06-30 140952.png",
-    "savedAt": "2026-06-30T07:10:39.560Z",
-    "locked": true,
-    "evidences": [
-      {
-        "name": "Screenshot 2026-06-30 140952.png",
-        "data": "https://raw.githubusercontent.com/pinuspackindo-ai/pinuspackindo-okr/data/uploads/hrd/1782803439926_b78nu2_Screenshot_2026-06-30_140952.png"
-      }
-    ]
-  },
-  "_hrd_kedisiplinan_2026_06": {
-    "value": 98.54,
-    "evidence": null,
-    "evidenceName": "Screenshot 2026-06-30 142158.png",
-    "savedAt": "2026-06-30T07:22:51.540Z",
-    "locked": true,
-    "evidences": [
-      {
-        "name": "Screenshot 2026-06-30 142158.png",
-        "data": "https://raw.githubusercontent.com/pinuspackindo-ai/pinuspackindo-okr/data/uploads/hrd/1782804171703_uw4mn0_Screenshot_2026-06-30_142158.png"
-      }
-    ]
-  },
-  "_hrd_kdk_2026_06": {
-    "abs": {
-      "aktif": 27,
-      "temuan": 15,
-      "ev": null,
-      "evName": "absensi keterlambatan .jpeg",
-      "evs": [
-        {
-          "name": "absensi keterlambatan .jpeg",
-          "data": null
-        }
-      ]
-    },
-    "kep": {
-      "aktif": 27,
-      "temuan": 1,
-      "ev": null,
-      "evName": "WhatsApp Image 2026-06-24 at 16.44.25.jpeg",
-      "evs": [
-        {
-          "name": "WhatsApp Image 2026-06-24 at 16.44.25.jpeg",
-          "data": null
-        }
-      ]
-    },
-    "snk": {
-      "jumlah": 1,
-      "ev": null,
-      "evName": "SP 3 RAKA(pdfgear.com).pdf",
-      "evs": [
-        {
-          "name": "SP 3 RAKA(pdfgear.com).pdf",
-          "data": "https://raw.githubusercontent.com/pinuspackindo-ai/pinuspackindo-okr/data/uploads/hrd/1782805257034_15pqtw_SP_3_RAKA_pdfgear.com.pdf"
-        }
-      ]
-    },
-    "absScore": 44.44444444444444,
-    "kepScore": 96.29629629629629,
-    "snkScore": 66.66666666666666,
-    "totalScore": 69.62962962962963,
-    "savedAt": "2026-06-30T07:40:56.277Z",
-    "locked": true
-  },
-  "_ts": 1782810441527,
-  "_p_ins_2026_06_30": {
-    "file1": "https://raw.githubusercontent.com/pinuspackindo-ai/pinuspackindo-okr/data/uploads/purchasing/1782808045954_ot2re2_product.product.xlsx",
-    "file1Name": "product.product.xlsx",
-    "file2": "https://raw.githubusercontent.com/pinuspackindo-ai/pinuspackindo-okr/data/uploads/purchasing/1782808045172_6trov1_product.product_1.xlsx",
-    "file2Name": "product.product (1).xlsx",
-    "score": 91.58,
-    "savedAt": "2026-06-30T08:27:24.809Z",
-    "locked": true
-  }
+  "_ts": 1782810465795
 }
