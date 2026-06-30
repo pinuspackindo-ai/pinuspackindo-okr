@@ -2252,13 +2252,13 @@
         "tal": "Drafting Business Flow Departemen",
         "deadline": "2026-06-30",
         "bobot": 40,
-        "progress": null,
+        "progress": 100,
         "review": "sampling pertama perlu review bufel",
         "editing": false,
-        "savedAt": "2026-06-20T08:41:45.406Z"
+        "savedAt": "2026-06-30T09:06:25.434Z"
       }
     ],
-    "savedAt": "2026-06-20T08:41:45.406Z"
+    "savedAt": "2026-06-30T09:06:25.434Z"
   },
   "_tal_d9_2026_06": {
     "rows": [
@@ -3045,7 +3045,7 @@
     "savedAt": "2026-06-29T08:07:08.711Z",
     "locked": true
   },
-  "_ts": 1782810346394,
+  "_ts": 1782810385434,
   "_hrd_akurasi_adm_2026_06": {
     "value": 98,
     "evidence": null,
