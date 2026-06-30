@@ -591,7 +591,7 @@
           "target": 95
         },
         {
-          "actual": 100,
+          "actual": null,
           "bobot": 15,
           "id": "r17804720965139eyq",
           "keyResult": "Ketepatan waktu rekrutment",
@@ -980,29 +980,13 @@
         "tglRequest": "2026-05-22",
         "deadline": "2026-06-20",
         "realisasi": "2026-06-08",
-        "evidence": "https://raw.githubusercontent.com/pinuspackindo-ai/pinuspackindo-okr/data/uploads/hrd/1782803326770_2ik95d_OJT_Wafa_compressed.pdf",
+        "evidence": null,
         "evidenceName": "OJT Wafa_compressed.pdf",
         "editing": false,
         "evidences": [
           {
             "name": "OJT Wafa_compressed.pdf",
             "data": "https://raw.githubusercontent.com/pinuspackindo-ai/pinuspackindo-okr/data/uploads/hrd/1782802874083_dbrtdt_OJT_Wafa_compressed.pdf"
-          }
-        ]
-      },
-      {
-        "jabatan": "STAFF",
-        "namaRequest": "SOSMED",
-        "tglRequest": "2026-06-06",
-        "deadline": "2026-07-05",
-        "realisasi": "2026-06-30",
-        "evidence": null,
-        "evidenceName": "Surat Penawaran Kerja -David Ilham Hakiki ttddocx-compressed.pdf",
-        "editing": false,
-        "evidences": [
-          {
-            "name": "Surat Penawaran Kerja -David Ilham Hakiki ttddocx-compressed.pdf",
-            "data": "https://raw.githubusercontent.com/pinuspackindo-ai/pinuspackindo-okr/data/uploads/hrd/1782803327389_f7qd4i_Surat_Penawaran_Kerja_-David_Ilham_Hakiki_ttddocx-compressed.pdf"
           }
         ]
       }
@@ -3058,7 +3042,6 @@
       }
     ]
   },
-  "_ts": 1782810553655,
   "_hrd_kedisiplinan_2026_06": {
     "value": 98.54,
     "evidence": null,
@@ -3113,8 +3096,9 @@
     "snkScore": 66.66666666666666,
     "totalScore": 69.62962962962963,
     "savedAt": "2026-06-30T07:40:56.277Z",
-    "locked": false
+    "locked": true
   },
+  "_ts": 1782810561500,
   "_p_ins_2026_06_30": {
     "file1": "https://raw.githubusercontent.com/pinuspackindo-ai/pinuspackindo-okr/data/uploads/purchasing/1782808045954_ot2re2_product.product.xlsx",
     "file1Name": "product.product.xlsx",
