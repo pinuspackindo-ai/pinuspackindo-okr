@@ -1,5 +1,4 @@
 {
-  "_ts": 1782808005206,
   "_userAccess": {
     "Finance & Accounting": {
       "modules": [
@@ -981,7 +980,7 @@
         "tglRequest": "2026-05-22",
         "deadline": "2026-06-20",
         "realisasi": "2026-06-08",
-        "evidence": null,
+        "evidence": "https://raw.githubusercontent.com/pinuspackindo-ai/pinuspackindo-okr/data/uploads/hrd/1782803326770_2ik95d_OJT_Wafa_compressed.pdf",
         "evidenceName": "OJT Wafa_compressed.pdf",
         "editing": false,
         "evidences": [
@@ -3030,6 +3029,7 @@
     "savedAt": "2026-06-29T08:07:08.711Z",
     "locked": true
   },
+  "_ts": 1782808023592,
   "_hrd_akurasi_adm_2026_06": {
     "value": 98,
     "evidence": null,
