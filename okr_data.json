@@ -3106,7 +3106,7 @@
       }
     ]
   },
-  "_ts": 1782870951548,
+  "_ts": 1782870957462,
   "_w_cartrack_2026_06": {
     "value": 89,
     "evidence": null,
@@ -3160,18 +3160,5 @@
     "score": null,
     "savedAt": null,
     "locked": false
-  },
-  "_s_akurasi_2026_06": {
-    "value": 76.1,
-    "evidence": "https://raw.githubusercontent.com/pinuspackindo-ai/pinuspackindo-okr/data/uploads/store/1782870846507_kcjzlg_akurasi.png",
-    "evidenceName": "akurasi.png",
-    "savedAt": "2026-07-01T01:35:38.392Z",
-    "locked": true,
-    "evidences": [
-      {
-        "name": "akurasi.png",
-        "data": "https://raw.githubusercontent.com/pinuspackindo-ai/pinuspackindo-okr/data/uploads/store/1782870797593_o2af6p_akurasi.png"
-      }
-    ]
   }
 }
