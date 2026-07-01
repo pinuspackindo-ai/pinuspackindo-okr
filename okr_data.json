@@ -2356,14 +2356,6 @@
       }
     ]
   },
-  "_s_omzet_2026_06": {
-    "value": 3000000000,
-    "evidence": "",
-    "evidenceName": "Pinus.jpg",
-    "savedAt": "2026-06-05T03:23:42.602Z",
-    "locked": true,
-    "evidences": []
-  },
   "_inv_rn_do_2026_06_11": {
     "value": 100,
     "evidence": "https://raw.githubusercontent.com/pinuspackindo-ai/pinuspackindo-okr/data/uploads/inventory/1781170404324_rqzi4k_WhatsApp_Image_2026-06-11_at_16.16.19.jpeg",
@@ -3135,16 +3127,15 @@
     "savedAt": "2026-06-30T08:27:24.809Z",
     "locked": true
   },
-  "_ts": 1782869969624,
   "_p_apo_2026_06": {
     "file1": "https://raw.githubusercontent.com/pinuspackindo-ai/pinuspackindo-okr/data/uploads/purchasing/1782869918696_vbbdk4_purchase.order.line_14.xlsx",
     "file1Name": "purchase.order.line (14).xlsx",
-    "file2": "https://raw.githubusercontent.com/pinuspackindo-ai/pinuspackindo-okr/data/uploads/purchasing/1782869923776_ctbqqy_account.move_2.xlsx",
-    "file2Name": "account.move (2).xlsx",
+    "file2": "https://raw.githubusercontent.com/pinuspackindo-ai/pinuspackindo-okr/data/uploads/purchasing/1782869500109_oq6j6b_AKURASI_PO.xlsx",
+    "file2Name": "AKURASI PO.xlsx",
     "lateScore": 0,
     "accScore": 0,
     "finalScore": 0,
-    "savedAt": "2026-07-01T01:39:02.655Z",
+    "savedAt": "2026-07-01T01:39:29.455Z",
     "locked": true
   },
   "_s_impl_audit_2026_06": {
@@ -3185,5 +3176,6 @@
         "data": "https://raw.githubusercontent.com/pinuspackindo-ai/pinuspackindo-okr/data/uploads/purchasing/1782869748157_o6p31f_Capture.jpg"
       }
     ]
-  }
+  },
+  "_ts": 1782869969455
 }
