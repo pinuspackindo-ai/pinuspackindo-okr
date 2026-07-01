@@ -3160,19 +3160,6 @@
     "savedAt": null,
     "locked": false
   },
-  "_s_akurasi_2026_06": {
-    "value": 76.1,
-    "evidence": "https://raw.githubusercontent.com/pinuspackindo-ai/pinuspackindo-okr/data/uploads/store/1782870846507_kcjzlg_akurasi.png",
-    "evidenceName": "akurasi.png",
-    "savedAt": "2026-07-01T01:35:38.392Z",
-    "locked": true,
-    "evidences": [
-      {
-        "name": "akurasi.png",
-        "data": "https://raw.githubusercontent.com/pinuspackindo-ai/pinuspackindo-okr/data/uploads/store/1782870797593_o2af6p_akurasi.png"
-      }
-    ]
-  },
   "_s_omzet_2026_06": {
     "value": 2726403501,
     "evidence": null,
@@ -3191,7 +3178,7 @@
     "evidence": "https://raw.githubusercontent.com/pinuspackindo-ai/pinuspackindo-okr/data/uploads/store/1782869771442_y0nrse_kepatuhan_rekomendasi.png",
     "evidenceName": "kepatuhan rekomendasi.png",
     "savedAt": "2026-07-01T01:34:32.095Z",
-    "locked": true,
+    "locked": false,
     "evidences": [
       {
         "name": "kepatuhan rekomendasi.png",
@@ -3199,5 +3186,5 @@
       }
     ]
   },
-  "_ts": 1782871067477
+  "_ts": 1782871088851
 }
