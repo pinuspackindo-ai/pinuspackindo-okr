@@ -694,7 +694,7 @@
           "target": 95
         },
         {
-          "actual": null,
+          "actual": 0,
           "bobot": 20,
           "id": "r1780472096513g85b",
           "keyResult": "Tingkat kwalitas pengadaan",
@@ -3140,7 +3140,7 @@
       }
     ]
   },
-  "_ts": 1782872161375,
+  "_ts": 1782872164679,
   "_s_akurasi_2026_06": {
     "value": 76.1,
     "evidence": "https://raw.githubusercontent.com/pinuspackindo-ai/pinuspackindo-okr/data/uploads/store/1782871131124_hn4obu_akurasi.png",
