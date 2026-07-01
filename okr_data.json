@@ -3178,7 +3178,7 @@
     "evidence": "https://raw.githubusercontent.com/pinuspackindo-ai/pinuspackindo-okr/data/uploads/store/1782869771442_y0nrse_kepatuhan_rekomendasi.png",
     "evidenceName": "kepatuhan rekomendasi.png",
     "savedAt": "2026-07-01T01:34:32.095Z",
-    "locked": true,
+    "locked": false,
     "evidences": [
       {
         "name": "kepatuhan rekomendasi.png",
@@ -3186,5 +3186,5 @@
       }
     ]
   },
-  "_ts": 1782871040589
+  "_ts": 1782871046020
 }
