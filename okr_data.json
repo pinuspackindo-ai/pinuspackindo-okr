@@ -649,7 +649,7 @@
           "target": 75
         },
         {
-          "actual": 98.83,
+          "actual": 98.71,
           "bobot": 10,
           "id": "r17804720965137ahi",
           "keyResult": "Akurasi DO & RN",
@@ -694,7 +694,7 @@
           "target": 95
         },
         {
-          "actual": 0,
+          "actual": null,
           "bobot": 20,
           "id": "r1780472096513g85b",
           "keyResult": "Tingkat kwalitas pengadaan",
@@ -3140,6 +3140,20 @@
       }
     ]
   },
+  "_ts": 1782872161375,
+  "_s_akurasi_2026_06": {
+    "value": 76.1,
+    "evidence": "https://raw.githubusercontent.com/pinuspackindo-ai/pinuspackindo-okr/data/uploads/store/1782871131124_hn4obu_akurasi.png",
+    "evidenceName": "akurasi.png",
+    "savedAt": "2026-07-01T01:35:38.392Z",
+    "locked": true,
+    "evidences": [
+      {
+        "name": "akurasi.png",
+        "data": "https://raw.githubusercontent.com/pinuspackindo-ai/pinuspackindo-okr/data/uploads/store/1782870797593_o2af6p_akurasi.png"
+      }
+    ]
+  },
   "_p_apo_2026_06": {
     "file1": "https://raw.githubusercontent.com/pinuspackindo-ai/pinuspackindo-okr/data/uploads/purchasing/1782871280712_gur6kt_purchase.order.line_15.xlsx",
     "file1Name": "purchase.order.line (15).xlsx",
@@ -3151,29 +3165,6 @@
     "savedAt": "2026-07-01T02:01:20.822Z",
     "locked": true
   },
-  "_p_kpen_2026_06": {
-    "file": "https://raw.githubusercontent.com/pinuspackindo-ai/pinuspackindo-okr/data/uploads/purchasing/1782872050199_v78hki_purchase.order.line_15.xlsx",
-    "fileName": "purchase.order.line (15).xlsx",
-    "totalRows": 0,
-    "accRows": 0,
-    "score": 0,
-    "savedAt": "2026-07-01T02:14:23.637Z",
-    "locked": true
-  },
-  "_ts": 1782872151908,
-  "_s_omzet_2026_06": {
-    "value": 2726403501,
-    "evidence": "https://raw.githubusercontent.com/pinuspackindo-ai/pinuspackindo-okr/data/uploads/store/1782870858502_vnfnpr_omset.png",
-    "evidenceName": "omset.png",
-    "savedAt": "2026-07-01T01:52:57.917Z",
-    "locked": true,
-    "evidences": [
-      {
-        "name": "omset.png",
-        "data": "https://raw.githubusercontent.com/pinuspackindo-ai/pinuspackindo-okr/data/uploads/store/1782870778533_2uaw84_omset.png"
-      }
-    ]
-  },
   "_s_impl_audit_2026_06": {
     "value": 100,
     "evidence": "https://raw.githubusercontent.com/pinuspackindo-ai/pinuspackindo-okr/data/uploads/store/1782869771442_y0nrse_kepatuhan_rekomendasi.png",
@@ -3184,19 +3175,6 @@
       {
         "name": "kepatuhan rekomendasi.png",
         "data": "https://raw.githubusercontent.com/pinuspackindo-ai/pinuspackindo-okr/data/uploads/store/1782869672776_dip64o_kepatuhan_rekomendasi.png"
-      }
-    ]
-  },
-  "_s_akurasi_2026_06": {
-    "value": 76.1,
-    "evidence": "https://raw.githubusercontent.com/pinuspackindo-ai/pinuspackindo-okr/data/uploads/store/1782871131124_hn4obu_akurasi.png",
-    "evidenceName": "akurasi.png",
-    "savedAt": "2026-07-01T01:35:38.392Z",
-    "locked": true,
-    "evidences": [
-      {
-        "name": "akurasi.png",
-        "data": "https://raw.githubusercontent.com/pinuspackindo-ai/pinuspackindo-okr/data/uploads/store/1782870797593_o2af6p_akurasi.png"
       }
     ]
   },
@@ -3217,7 +3195,7 @@
       },
       {
         "name": "WhatsApp Image 2026-06-29 at 16.19.58.jpeg",
-        "data": "https://raw.githubusercontent.com/pinuspackindo-ai/pinuspackindo-okr/data/uploads/inventory/1782871298555_n4sfak_WhatsApp_Image_2026-06-29_at_16.19.58.jpeg"
+        "data": "https://raw.githubusercontent.com/pinuspackindo-ai/pinuspackindo-okr/data/uploads/inventory/1782871288962_oelcl3_WhatsApp_Image_2026-06-29_at_16.19.58.jpeg"
       }
     ]
   },
@@ -3244,7 +3222,7 @@
   },
   "_s_csat_2026_06": {
     "value": 90.11,
-    "evidence": "https://raw.githubusercontent.com/pinuspackindo-ai/pinuspackindo-okr/data/uploads/store/1782872140046_mpuwpi_csat.png",
+    "evidence": "https://raw.githubusercontent.com/pinuspackindo-ai/pinuspackindo-okr/data/uploads/store/1782872091478_lbasui_csat.png",
     "evidenceName": "csat.png",
     "savedAt": "2026-07-01T02:13:40.521Z",
     "locked": true,
@@ -3254,5 +3232,14 @@
         "data": "https://raw.githubusercontent.com/pinuspackindo-ai/pinuspackindo-okr/data/uploads/store/1782872088334_hkal51_csat.png"
       }
     ]
+  },
+  "_p_kpen_2026_06": {
+    "file": "https://raw.githubusercontent.com/pinuspackindo-ai/pinuspackindo-okr/data/uploads/purchasing/1782872050199_v78hki_purchase.order.line_15.xlsx",
+    "fileName": "purchase.order.line (15).xlsx",
+    "totalRows": 0,
+    "accRows": 0,
+    "score": 0,
+    "savedAt": "2026-07-01T02:14:23.637Z",
+    "locked": true
   }
 }
