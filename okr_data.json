@@ -3106,7 +3106,7 @@
       }
     ]
   },
-  "_ts": 1782870907620,
+  "_ts": 1782870923692,
   "_w_cartrack_2026_06": {
     "value": 89,
     "evidence": null,
@@ -3151,19 +3151,6 @@
     "finalScore": 0,
     "savedAt": "2026-07-01T01:39:29.455Z",
     "locked": true
-  },
-  "_s_omzet_2026_06": {
-    "value": 2726403501,
-    "evidence": "https://raw.githubusercontent.com/pinuspackindo-ai/pinuspackindo-okr/data/uploads/store/1782870786186_zf7jcn_omset.png",
-    "evidenceName": "omset.png",
-    "savedAt": "2026-07-01T01:52:57.917Z",
-    "locked": true,
-    "evidences": [
-      {
-        "name": "omset.png",
-        "data": "https://raw.githubusercontent.com/pinuspackindo-ai/pinuspackindo-okr/data/uploads/store/1782870778533_2uaw84_omset.png"
-      }
-    ]
   },
   "_s_impl_audit_2026_06": {
     "value": 100,
