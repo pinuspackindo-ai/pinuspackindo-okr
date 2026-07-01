@@ -3173,18 +3173,5 @@
       }
     ]
   },
-  "_s_impl_audit_2026_06": {
-    "value": 100,
-    "evidence": "https://raw.githubusercontent.com/pinuspackindo-ai/pinuspackindo-okr/data/uploads/store/1782869771442_y0nrse_kepatuhan_rekomendasi.png",
-    "evidenceName": "kepatuhan rekomendasi.png",
-    "savedAt": "2026-07-01T01:34:32.095Z",
-    "locked": false,
-    "evidences": [
-      {
-        "name": "kepatuhan rekomendasi.png",
-        "data": "https://raw.githubusercontent.com/pinuspackindo-ai/pinuspackindo-okr/data/uploads/store/1782869672776_dip64o_kepatuhan_rekomendasi.png"
-      }
-    ]
-  },
-  "_ts": 1782871088851
+  "_ts": 1782871100205
 }
