@@ -3140,7 +3140,6 @@
       }
     ]
   },
-  "_ts": 1782871870120,
   "_s_akurasi_2026_06": {
     "value": 76.1,
     "evidence": "https://raw.githubusercontent.com/pinuspackindo-ai/pinuspackindo-okr/data/uploads/store/1782871131124_hn4obu_akurasi.png",
@@ -3193,7 +3192,7 @@
   },
   "_inv_rn_do_2026_06_29": {
     "value": 100,
-    "evidence": "https://raw.githubusercontent.com/pinuspackindo-ai/pinuspackindo-okr/data/uploads/inventory/1782871871868_47p600_WhatsApp_Image_2026-06-29_at_16.13.47.jpeg",
+    "evidence": "https://raw.githubusercontent.com/pinuspackindo-ai/pinuspackindo-okr/data/uploads/inventory/1782871833882_hegnwe_WhatsApp_Image_2026-06-29_at_16.13.47.jpeg",
     "evidenceName": "WhatsApp Image 2026-06-29 at 16.13.47.jpeg",
     "savedAt": "2026-07-01T02:00:04.429Z",
     "locked": true,
@@ -3214,7 +3213,7 @@
   },
   "_inv_rn_do_2026_06_30": {
     "value": 100,
-    "evidence": "https://raw.githubusercontent.com/pinuspackindo-ai/pinuspackindo-okr/data/uploads/inventory/1782871868466_ibe0eu_WhatsApp_Image_2026-06-30_at_16.12.31.jpeg",
+    "evidence": "https://raw.githubusercontent.com/pinuspackindo-ai/pinuspackindo-okr/data/uploads/inventory/1782871813739_t0ino2_WhatsApp_Image_2026-06-30_at_16.12.31.jpeg",
     "evidenceName": "WhatsApp Image 2026-06-30 at 16.12.31.jpeg",
     "savedAt": "2026-07-01T02:01:36.090Z",
     "locked": true,
@@ -3233,13 +3232,14 @@
       }
     ]
   },
+  "_ts": 1782871878325,
   "_p_kpen_2026_06": {
     "file": "https://raw.githubusercontent.com/pinuspackindo-ai/pinuspackindo-okr/data/uploads/purchasing/1782871834521_5z64rg_purchase.order.line_15.xlsx",
     "fileName": "purchase.order.line (15).xlsx",
     "totalRows": 0,
     "accRows": 0,
-    "score": null,
-    "savedAt": null,
+    "score": 0,
+    "savedAt": "2026-07-01T02:11:06.680Z",
     "locked": false
   }
 }
