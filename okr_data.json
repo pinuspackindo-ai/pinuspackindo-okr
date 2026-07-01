@@ -2356,14 +2356,6 @@
       }
     ]
   },
-  "_s_omzet_2026_06": {
-    "value": 3000000000,
-    "evidence": "",
-    "evidenceName": "Pinus.jpg",
-    "savedAt": "2026-06-05T03:23:42.602Z",
-    "locked": true,
-    "evidences": []
-  },
   "_inv_rn_do_2026_06_11": {
     "value": 100,
     "evidence": "https://raw.githubusercontent.com/pinuspackindo-ai/pinuspackindo-okr/data/uploads/inventory/1781170404324_rqzi4k_WhatsApp_Image_2026-06-11_at_16.16.19.jpeg",
@@ -3185,5 +3177,5 @@
       }
     ]
   },
-  "_ts": 1782869932368
+  "_ts": 1782869940264
 }
