@@ -3140,7 +3140,7 @@
       }
     ]
   },
-  "_ts": 1782871163082,
+  "_ts": 1782871178947,
   "_s_omzet_2026_06": {
     "value": 2726403501,
     "evidence": "https://raw.githubusercontent.com/pinuspackindo-ai/pinuspackindo-okr/data/uploads/store/1782870858502_vnfnpr_omset.png",
@@ -3151,19 +3151,6 @@
       {
         "name": "omset.png",
         "data": "https://raw.githubusercontent.com/pinuspackindo-ai/pinuspackindo-okr/data/uploads/store/1782870778533_2uaw84_omset.png"
-      }
-    ]
-  },
-  "_s_impl_audit_2026_06": {
-    "value": 100,
-    "evidence": "https://raw.githubusercontent.com/pinuspackindo-ai/pinuspackindo-okr/data/uploads/store/1782869771442_y0nrse_kepatuhan_rekomendasi.png",
-    "evidenceName": "kepatuhan rekomendasi.png",
-    "savedAt": "2026-07-01T01:34:32.095Z",
-    "locked": true,
-    "evidences": [
-      {
-        "name": "kepatuhan rekomendasi.png",
-        "data": "https://raw.githubusercontent.com/pinuspackindo-ai/pinuspackindo-okr/data/uploads/store/1782869672776_dip64o_kepatuhan_rekomendasi.png"
       }
     ]
   },
