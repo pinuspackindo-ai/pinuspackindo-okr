@@ -686,7 +686,7 @@
           "target": 90
         },
         {
-          "actual": null,
+          "actual": 0,
           "bobot": 30,
           "id": "r1780472096513jno3",
           "keyResult": "Tingkat akurasi PO",
@@ -3135,16 +3135,16 @@
     "savedAt": "2026-06-30T08:27:24.809Z",
     "locked": true
   },
-  "_ts": 1782869500776,
+  "_ts": 1782869557993,
   "_p_apo_2026_06": {
     "file1": "https://raw.githubusercontent.com/pinuspackindo-ai/pinuspackindo-okr/data/uploads/purchasing/1782869500807_9ux9xd_KETERLAMBATAN_PO.xlsx",
     "file1Name": "KETERLAMBATAN PO.xlsx",
     "file2": "https://raw.githubusercontent.com/pinuspackindo-ai/pinuspackindo-okr/data/uploads/purchasing/1782869500109_oq6j6b_AKURASI_PO.xlsx",
     "file2Name": "AKURASI PO.xlsx",
-    "lateScore": null,
-    "accScore": null,
-    "finalScore": null,
-    "savedAt": null,
-    "locked": false
+    "lateScore": 0,
+    "accScore": 0,
+    "finalScore": 0,
+    "savedAt": "2026-07-01T01:32:37.992Z",
+    "locked": true
   }
 }
