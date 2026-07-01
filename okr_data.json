@@ -3160,18 +3160,5 @@
     "savedAt": null,
     "locked": false
   },
-  "_s_omzet_2026_06": {
-    "value": 2726403501,
-    "evidence": null,
-    "evidenceName": "omset.png",
-    "savedAt": "2026-07-01T01:52:57.917Z",
-    "locked": true,
-    "evidences": [
-      {
-        "name": "omset.png",
-        "data": "https://raw.githubusercontent.com/pinuspackindo-ai/pinuspackindo-okr/data/uploads/store/1782870778533_2uaw84_omset.png"
-      }
-    ]
-  },
-  "_ts": 1782871103491
+  "_ts": 1782871108764
 }
