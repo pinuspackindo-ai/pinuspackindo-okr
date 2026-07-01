@@ -2742,19 +2742,6 @@
       }
     ]
   },
-  "_w_akurasi_w_2026_06": {
-    "value": 92.05,
-    "evidence": null,
-    "evidenceName": "Screenshot 2026-06-19 21.51.14.png",
-    "savedAt": "2026-06-19T14:52:37.096Z",
-    "locked": true,
-    "evidences": [
-      {
-        "name": "Screenshot 2026-06-19 21.51.14.png",
-        "data": null
-      }
-    ]
-  },
   "_fa_impl_reko_fa_2026_06": {
     "value": 90,
     "evidence": "",
@@ -3140,5 +3127,5 @@
       }
     ]
   },
-  "_ts": 1782870516733
+  "_ts": 1782870530389
 }
