@@ -694,7 +694,7 @@
           "target": 95
         },
         {
-          "actual": 0,
+          "actual": null,
           "bobot": 20,
           "id": "r1780472096513g85b",
           "keyResult": "Tingkat kwalitas pengadaan",
@@ -3151,14 +3151,5 @@
     "savedAt": "2026-07-01T01:39:29.455Z",
     "locked": true
   },
-  "_p_kpen_2026_06": {
-    "file": "https://raw.githubusercontent.com/pinuspackindo-ai/pinuspackindo-okr/data/uploads/purchasing/1782870788616_hdxex9_purchase.order.line_14.xlsx",
-    "fileName": "purchase.order.line (14).xlsx",
-    "totalRows": 0,
-    "accRows": 0,
-    "score": 0,
-    "savedAt": "2026-07-01T01:58:52.787Z",
-    "locked": true
-  },
-  "_ts": 1782871132787
+  "_ts": 1782871135491
 }
