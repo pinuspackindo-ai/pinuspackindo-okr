@@ -34,7 +34,11 @@ module.exports = async function handler(req, res) {
         if (r.ok) {
           const text = await r.text();
           dbg.contents_len = text.length;
-          try { return res.status(200).json(JSON.parse(text)); }
+          try {
+            const _p = JSON.parse(text);
+            // ?meta=1 → kirim HANYA {_ts} (≈ puluhan byte) untuk polling hemat transfer
+            return res.status(200).json(req.query && req.query.meta ? { _ts: _p._ts || 0 } : _p);
+          }
           catch (pe) { dbg.parse_err = String(pe).slice(0, 120); }
         }
       } catch (e) { dbg.contents_err = String(e).slice(0, 120); }
@@ -47,7 +51,10 @@ module.exports = async function handler(req, res) {
       if (r.ok) {
         const text = await r.text();
         dbg.raw_len = text.length;
-        try { return res.status(200).json(JSON.parse(text)); }
+        try {
+          const _p2 = JSON.parse(text);
+          return res.status(200).json(req.query && req.query.meta ? { _ts: _p2._ts || 0 } : _p2);
+        }
         catch (pe2) { dbg.raw_parse_err = String(pe2).slice(0, 120); }
       }
     } catch (e) { dbg.raw_err = String(e).slice(0, 120); }
