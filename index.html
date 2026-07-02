@@ -4163,39 +4163,49 @@ function _okrSmartMerge(local,cloud,_inSub){
 }
 function okrAutoSync(){
   if(_okrSyncBlocked)return;
-  fetch('/api/okr?_='+Date.now())
+  // HEMAT TRANSFER: cek dulu cap waktu cloud (?meta=1 → payload ≈ puluhan byte).
+  // Baru tarik data penuh (2,7 MB) kalau cloud memang lebih baru dari lokal.
+  fetch('/api/okr?meta=1&_='+Date.now())
     .then(function(r){return r.ok?r.json():null;})
-    .then(function(cloud){
-      if(!cloud||typeof cloud!=='object')return;
-      var cloudKeys=Object.keys(cloud).filter(function(k){return k!=='_ts';});
-      if(!cloudKeys.length)return;
-      var cloudTs=cloud._ts||0, localTs=okrData._ts||0;
-      // Always try merge regardless of global ts — per-key savedAt decides winner
-      var _adminKs=['_userAccess','_customUsers','_disabledUsers','_userPwd'];
-      _adminKs.forEach(function(k){
-        if(k in cloud&&JSON.stringify(cloud[k])!==JSON.stringify(okrData[k])){
-          okrData[k]=cloud[k];
-        }
-      });
-      if(okrData._slim) _okrRestoreSlim(cloud);
-      var _aChanged=_syncMerge(okrData,cloud);
-      if(_aChanged){
-        okrData._ts=Math.max(cloudTs,okrData._ts||0);
-        try{
-          var _k=(typeof OKR_STORE_KEY!=='undefined'&&OKR_STORE_KEY)?OKR_STORE_KEY:'pinus_okr_v1';
-          var _so=JSON.parse(JSON.stringify(okrData,function(k,v){return (typeof v==='string'&&v.length>500&&v.indexOf('data:')===0)?'__CLOUD__':v;}));
-          _so._slim=1;localStorage.setItem(_k,JSON.stringify(_so));
-        }catch(e){}
-        _okrRerenderCurrent();
-        if(typeof authApplyAccess==='function')authApplyAccess();
-      }
+    .then(function(meta){
+      if(!meta||typeof meta!=='object')return;
+      var cloudTs=meta._ts||0, localTs=okrData._ts||0;
+      if(cloudTs<=localTs)return; // tidak ada perubahan dari device lain → jangan tarik data besar
+      return fetch('/api/okr?_='+Date.now())
+        .then(function(r){return r.ok?r.json():null;})
+        .then(_okrAutoSyncApply);
     }).catch(function(){});
+}
+function _okrAutoSyncApply(cloud){
+  if(!cloud||typeof cloud!=='object')return;
+  var cloudKeys=Object.keys(cloud).filter(function(k){return k!=='_ts';});
+  if(!cloudKeys.length)return;
+  var cloudTs=cloud._ts||0, localTs=okrData._ts||0;
+  // Always try merge regardless of global ts — per-key savedAt decides winner
+  var _adminKs=['_userAccess','_customUsers','_disabledUsers','_userPwd'];
+  _adminKs.forEach(function(k){
+    if(k in cloud&&JSON.stringify(cloud[k])!==JSON.stringify(okrData[k])){
+      okrData[k]=cloud[k];
+    }
+  });
+  if(okrData._slim) _okrRestoreSlim(cloud);
+  var _aChanged=_syncMerge(okrData,cloud);
+  if(_aChanged){
+    okrData._ts=Math.max(cloudTs,okrData._ts||0);
+    try{
+      var _k=(typeof OKR_STORE_KEY!=='undefined'&&OKR_STORE_KEY)?OKR_STORE_KEY:'pinus_okr_v1';
+      var _so=JSON.parse(JSON.stringify(okrData,function(k,v){return (typeof v==='string'&&v.length>500&&v.indexOf('data:')===0)?'__CLOUD__':v;}));
+      _so._slim=1;localStorage.setItem(_k,JSON.stringify(_so));
+    }catch(e){}
+    _okrRerenderCurrent();
+    if(typeof authApplyAccess==='function')authApplyAccess();
+  }
 }
 window._okrAutoSyncStarted=window._okrAutoSyncStarted||false;
 function okrStartAutoSync(){
   if(window._okrAutoSyncStarted)return;
   window._okrAutoSyncStarted=true;
-  setInterval(okrAutoSync,5000); // cek cloud tiap 5 detik
+  setInterval(okrAutoSync,30000); // cek cloud tiap 30 detik (hemat kuota transfer Vercel)
 }
 function showPanel(name,btn){
   window._curPanel=name;
