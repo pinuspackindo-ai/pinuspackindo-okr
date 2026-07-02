@@ -163,7 +163,11 @@ def okr_api():
     if request.method == 'GET':
         if os.path.exists(OKR_DATA_PATH):
             with open(OKR_DATA_PATH, 'r', encoding='utf-8') as f:
-                return jsonify(json.load(f))
+                _d = json.load(f)
+            # ?meta=1 → kirim HANYA {_ts} untuk polling hemat transfer
+            if request.args.get('meta'):
+                return jsonify({'_ts': _d.get('_ts', 0)})
+            return jsonify(_d)
         return jsonify({})
     # POST
     data = request.get_json(silent=True)
