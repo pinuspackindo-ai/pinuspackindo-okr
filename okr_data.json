@@ -92,7 +92,9 @@
     "Store": "1011",
     "Admin": "909"
   },
-  "_deleted": {},
+  "_deleted": {
+    "_w_akurasi_w_2026_06": 1783067999622
+  },
   "2026-05": {
     "Distribution Sales": {
       "actionPlan": "Training new telesales",
@@ -3606,18 +3608,5 @@
   },
   "_p_sv_rn_2026_06": 1024,
   "_p_sv_rn_lk_2026_06": false,
-  "_w_akurasi_w_2026_06": {
-    "value": 92.05,
-    "evidence": null,
-    "evidenceName": "Screenshot 2026-06-19 21.51.14.png",
-    "savedAt": "2026-06-19T14:52:37.096Z",
-    "locked": true,
-    "evidences": [
-      {
-        "name": "Screenshot 2026-06-19 21.51.14.png",
-        "data": null
-      }
-    ]
-  },
-  "_ts": 1783067994326
+  "_ts": 1783067999637
 }
