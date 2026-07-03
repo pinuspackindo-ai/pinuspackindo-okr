@@ -2858,19 +2858,6 @@
       }
     ]
   },
-  "_w_akurasi_w_2026_06": {
-    "value": 92.05,
-    "evidence": null,
-    "evidenceName": "Screenshot 2026-06-19 21.51.14.png",
-    "savedAt": "2026-06-19T14:52:37.096Z",
-    "locked": true,
-    "evidences": [
-      {
-        "name": "Screenshot 2026-06-19 21.51.14.png",
-        "data": null
-      }
-    ]
-  },
   "_fa_impl_reko_fa_2026_06": {
     "value": 90,
     "evidence": "",
@@ -3622,5 +3609,5 @@
   },
   "_p_sv_rn_2026_06": 1024,
   "_p_sv_rn_lk_2026_06": false,
-  "_ts": 1783065838109
+  "_ts": 1783066132433
 }
