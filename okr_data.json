@@ -3328,16 +3328,11 @@
       },
       {
         "namaAudit": "Stock Opname Store",
-        "score": "100",
-        "evidence": "https://raw.githubusercontent.com/pinuspackindo-ai/pinuspackindo-okr/data/uploads/internal_audit/1783052389140_nv6ij5_Bukti.png",
-        "evidenceName": "Bukti.png",
-        "locked": true,
-        "evidences": [
-          {
-            "name": "Bukti.png",
-            "data": "https://raw.githubusercontent.com/pinuspackindo-ai/pinuspackindo-okr/data/uploads/internal_audit/1783052158544_9tdq0w_Bukti.png"
-          }
-        ],
+        "score": "",
+        "evidence": "",
+        "evidenceName": "",
+        "locked": false,
+        "evidences": [],
         "savedAt": "2026-07-03T04:15:59.866Z"
       },
       {
@@ -3395,5 +3390,5 @@
     "savedAt": "2026-07-03T04:24:40.817Z",
     "locked": true
   },
-  "_ts": 1783053543480
+  "_ts": 1783053550943
 }
