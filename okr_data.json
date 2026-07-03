@@ -343,7 +343,7 @@
           "target": 95
         },
         {
-          "actual": 1.1,
+          "actual": 0.73,
           "bobot": 10,
           "id": "r1779890290785bpf0",
           "keyResult": "Tingkat penghematan budget",
@@ -1665,8 +1665,8 @@
     "savedAt": "2026-06-30T09:08:32.293Z",
     "text": "STARINDO 12 OZ, 500,000, 493,000; STARINDO 14 OZ, 500,000, 493,000; LID DATAR HIPS DK, 178,000, 177,000; BERKAH MANIS, MINIMAL NOTA 2 JUTA. NEGO SESUAI KEBUTUHAN; ENO LUNCH BOX L, 495,000, 495,800; MIKA SAUS TANGGUNG, 820,000, 735,000; MIKA ROLL KUE 5 M X 8 CM, 10,575, 10,050; PENGOCOK TELUR KECIL, 8,063, 7,863; ROSE BRRAND TEPUNG KETAN PUTIH 270000 (SUBSTITUSI SUPPLIER KE CV FORTUNE); ROSE BRAND MAIZENA 250 GRAM X 40 IKT 170500; ROSE BRAND TEPUNG TAPIOKA 500 GR X 20  IKT 148500"
   },
-  "_p_sv_rn_2026_05": 2000,
-  "_p_sv_rn_lk_2026_05": false,
+  "_p_sv_rn_2026_05": 3000,
+  "_p_sv_rn_lk_2026_05": true,
   "_tal_d0_2026_06": {
     "rows": [
       {
@@ -3560,7 +3560,7 @@
     "savedAt": "2026-07-03T07:55:23.895Z",
     "locked": true
   },
-  "_ts": 1783065597398,
+  "_ts": 1783065600430,
   "_p_kpen_2026_06": {
     "file": "https://raw.githubusercontent.com/pinuspackindo-ai/pinuspackindo-okr/data/uploads/purchasing/1783064331410_5udbbu_purchase.order.line.xlsx",
     "fileName": "purchase.order.line.xlsx",
