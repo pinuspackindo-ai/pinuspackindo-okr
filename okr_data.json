@@ -3618,22 +3618,7 @@
     ]
   },
   "_ia_proj_2026_07": {
-    "rows": [
-      {
-        "namaProject": "Tools Purchase (database supplier dan history produk)",
-        "tujuan": "Membantu tim purchase dalam proses tracking history produk,history supplier, history pprice, diskon, dlll",
-        "evidence": "https://raw.githubusercontent.com/pinuspackindo-ai/pinuspackindo-okr/data/uploads/internal_audit/1783062904373_lpu8ka_Purchase.jpg",
-        "evidenceName": "Purchase.jpg",
-        "locked": true,
-        "evidences": [
-          {
-            "name": "Purchase.jpg",
-            "data": "https://raw.githubusercontent.com/pinuspackindo-ai/pinuspackindo-okr/data/uploads/internal_audit/1783062911517_2ku302_Purchase.jpg"
-          }
-        ],
-        "savedAt": "2026-07-03T07:15:11.077Z"
-      }
-    ]
+    "rows": []
   },
-  "_ts": 1783063112717
+  "_ts": 1783063119503
 }
