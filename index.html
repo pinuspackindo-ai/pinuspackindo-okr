@@ -4352,6 +4352,7 @@ var OKR_BULAN  = ['Januari','Februari','Maret','April','Mei','Juni',
 function okrLoad(){
   var _k=typeof OKR_STORE_KEY!=='undefined'&&OKR_STORE_KEY?OKR_STORE_KEY:'pinus_okr_v1';
   try{ okrData=JSON.parse(localStorage.getItem(_k)||'{}'); }catch(e){ okrData={}; }
+  try{ window._okrKeySnap=Object.keys(okrData); }catch(e){} // snapshot key utk deteksi hapus (tombstone)
 }
 // ── UPLOAD FILE BUKTI KE GITHUB (file terpisah per divisi) ──
 function _divisiFromKey(k){
@@ -4424,6 +4425,17 @@ function _okrRestoreSlim(src){
 }
 function okrSaveLS(){
   okrData._ts=Date.now();
+  // ── Tombstone: catat key yg dihapus sejak snapshot terakhir; bersihkan utk key yg masih ada (dukung create-ulang) ──
+  try{
+    okrData._deleted=okrData._deleted||{};
+    if(window._okrKeySnap){
+      var _cur={};Object.keys(okrData).forEach(function(k){_cur[k]=1;});
+      window._okrKeySnap.forEach(function(k){if(k==='_ts'||k==='_slim'||k==='_deleted')return;if(!_cur[k])okrData._deleted[k]=okrData._ts;});
+    }
+    Object.keys(okrData).forEach(function(k){if(okrData._deleted[k])delete okrData._deleted[k];}); // key yg ada → buang tombstone
+    var _cut=okrData._ts-45*86400000;Object.keys(okrData._deleted).forEach(function(k){if(okrData._deleted[k]<_cut)delete okrData._deleted[k];}); // buang tombstone kadaluarsa
+    window._okrKeySnap=Object.keys(okrData);
+  }catch(e){}
   // localStorage bisa penuh (QuotaExceededError) karena bukti base64.
   // JANGAN sampai error ini mematahkan init/aplikasi. Data tetap aman ke cloud (POST di bawah).
   // localStorage RINGAN: isi file/bukti (base64) TIDAK disimpan di browser, hanya di cloud/GitHub.
