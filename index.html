@@ -4131,6 +4131,13 @@ function _syncMerge(local, cloud) {
     }
     // Scalar at root level: local wins (no change)
   });
+  // Terapkan tombstone ke key lokal yg tersisa (termasuk yg cloud sudah tak punya) → hapus jika tombstone >= savedAt lokal; kalau lokal lebih baru (create ulang), buang tombstone
+  if(local._deleted){Object.keys(local._deleted).forEach(function(dk){
+    if(!(dk in local))return;
+    var _lv=local[dk];var _ls=(_lv&&_lv.savedAt)?new Date(_lv.savedAt).getTime():0;
+    if(local._deleted[dk]>=_ls){delete local[dk];changed=true;}
+    else{delete local._deleted[dk];}
+  });}
   return changed;
 }
 // Smart merge: cloud values fill-in local 0/null/missing, local non-zero values are preserved.
