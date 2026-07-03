@@ -785,7 +785,7 @@
           "target": 95
         },
         {
-          "actual": null,
+          "actual": 90.2,
           "bobot": 20,
           "id": "r1780472096513fj95",
           "keyResult": "Score avg cartrack",
@@ -2736,11 +2736,11 @@
     "locked": true
   },
   "_w_cartrack_2026_06": {
-    "value": 89,
-    "evidence": null,
-    "evidenceName": "Screenshot 2026-06-19 16.09.47.png",
-    "savedAt": "2026-06-19T09:12:09.541Z",
-    "locked": false,
+    "value": 90.2,
+    "evidence": "https://raw.githubusercontent.com/pinuspackindo-ai/pinuspackindo-okr/data/uploads/warehouse/1783070145866_5lcwsw_fffff.png",
+    "evidenceName": "fffff.png",
+    "savedAt": "2026-07-03T09:15:45.367Z",
+    "locked": true,
     "evidences": [
       {
         "name": "Screenshot 2026-06-19 16.09.47.png",
@@ -3538,5 +3538,5 @@
       }
     ]
   },
-  "_ts": 1783070131871
+  "_ts": 1783070145380
 }
