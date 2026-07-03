@@ -97,7 +97,8 @@
     "_w_cartrack_2026_06": 1783068013030,
     "_s_omzet_2026_06": 1783068109566,
     "_s_akurasi_2026_06": 1783068117093,
-    "_s_csat_2026_06": 1783068122118
+    "_s_csat_2026_06": 1783068122118,
+    "_s_impl_audit_2026_06": 1783068127093
   },
   "2026-05": {
     "Distribution Sales": {
@@ -3227,19 +3228,6 @@
     "savedAt": "2026-07-03T07:55:23.895Z",
     "locked": true
   },
-  "_s_impl_audit_2026_06": {
-    "value": 100,
-    "evidence": "https://raw.githubusercontent.com/pinuspackindo-ai/pinuspackindo-okr/data/uploads/store/1782869771442_y0nrse_kepatuhan_rekomendasi.png",
-    "evidenceName": "kepatuhan rekomendasi.png",
-    "savedAt": "2026-07-01T01:34:32.095Z",
-    "locked": true,
-    "evidences": [
-      {
-        "name": "kepatuhan rekomendasi.png",
-        "data": "https://raw.githubusercontent.com/pinuspackindo-ai/pinuspackindo-okr/data/uploads/store/1782869672776_dip64o_kepatuhan_rekomendasi.png"
-      }
-    ]
-  },
   "_p_ir_2026_06": {
     "value": 100,
     "evidence": null,
@@ -3552,5 +3540,5 @@
   },
   "_p_sv_rn_2026_06": 1024,
   "_p_sv_rn_lk_2026_06": false,
-  "_ts": 1783068122139
+  "_ts": 1783068127093
 }
