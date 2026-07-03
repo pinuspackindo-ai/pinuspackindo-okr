@@ -93,7 +93,8 @@
     "Admin": "909"
   },
   "_deleted": {
-    "_w_akurasi_w_2026_06": 1783069376030
+    "_w_akurasi_w_2026_06": 1783069376030,
+    "_w_cartrack_2026_06": 1783069383115
   },
   "2026-05": {
     "Distribution Sales": {
@@ -2737,27 +2738,6 @@
     "savedAt": "2026-06-19T09:05:32.890Z",
     "locked": true
   },
-  "_w_cartrack_2026_06": {
-    "value": 89,
-    "evidence": null,
-    "evidenceName": "Screenshot 2026-06-19 16.09.47.png",
-    "savedAt": "2026-06-19T09:12:09.541Z",
-    "locked": true,
-    "evidences": [
-      {
-        "name": "Screenshot 2026-06-19 16.09.47.png",
-        "data": "https://raw.githubusercontent.com/pinuspackindo-ai/pinuspackindo-okr/data/uploads/warehouse/1781860331075_emk0cz_Screenshot_2026-06-19_16.09.47.png"
-      },
-      {
-        "name": "Screenshot 2026-06-19 16.09.47.png",
-        "data": "https://raw.githubusercontent.com/pinuspackindo-ai/pinuspackindo-okr/data/uploads/warehouse/1781860432558_k683qj_Screenshot_2026-06-19_16.09.47.png"
-      },
-      {
-        "name": "Screenshot 2026-06-19 16.09.47.png",
-        "data": null
-      }
-    ]
-  },
   "_fa_impl_reko_fa_2026_06": {
     "value": 90,
     "evidence": "",
@@ -3492,7 +3472,7 @@
   },
   "_p_sv_rn_2026_06": 1024,
   "_p_sv_rn_lk_2026_06": false,
-  "_ts": 1783069376046,
+  "_ts": 1783069383143,
   "_p_ins_2026_07_03": {
     "file1": "https://raw.githubusercontent.com/pinuspackindo-ai/pinuspackindo-okr/data/uploads/purchasing/1783069354644_tp1yba_product.product_2.xlsx",
     "file1Name": "product.product (2).xlsx",
