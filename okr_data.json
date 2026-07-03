@@ -1180,9 +1180,9 @@
             "data": "https://raw.githubusercontent.com/pinuspackindo-ai/pinuspackindo-okr/data/uploads/internal_audit/1783052188185_8o2r7x_Bukti.png"
           }
         ],
-        "locked": false,
+        "locked": true,
         "namaAudit": "Stock Opname Store",
-        "savedAt": "2026-06-04T03:29:14.774Z",
+        "savedAt": "2026-07-03T04:16:29.354Z",
         "score": "100"
       },
       {
@@ -3267,7 +3267,7 @@
       }
     ]
   },
-  "_ts": 1783052187479,
+  "_ts": 1783052189377,
   "_p_sv_2026_07_01": {
     "text": "TART MINI AMBULANS, 450,000, 370,000; MIKA PUDING 22B VULAT, 495,000, 420,000; PENGOCOK STAINLESS 550 ML, 50,022, 48,135; ZIPPER BURAM 30X40, 13,675, 13,395; BUBBLE MAILER PUTIH 12X22, 8,866, 7,921; SAUS GOCHUJANG, 14,850, 14,062; HERCULES, 14,610, 12,933; KERTAS BENTO, 10,017, 9,378; POLY MAILER WARNA 25X35, 27,950, 26,692; SUKRO, 308,000, 305,000",
     "evidence": "https://raw.githubusercontent.com/pinuspackindo-ai/pinuspackindo-okr/data/uploads/purchasing/1783051612856_zw2lhr_1.png",
