@@ -3566,27 +3566,6 @@
   "_ia_proj_2026_07": {
     "rows": []
   },
-  "_w_cartrack_2026_06": {
-    "value": 89,
-    "evidence": null,
-    "evidenceName": "Screenshot 2026-06-19 16.09.47.png",
-    "savedAt": "2026-06-19T09:12:09.541Z",
-    "locked": true,
-    "evidences": [
-      {
-        "name": "Screenshot 2026-06-19 16.09.47.png",
-        "data": "https://raw.githubusercontent.com/pinuspackindo-ai/pinuspackindo-okr/data/uploads/warehouse/1781860331075_emk0cz_Screenshot_2026-06-19_16.09.47.png"
-      },
-      {
-        "name": "Screenshot 2026-06-19 16.09.47.png",
-        "data": "https://raw.githubusercontent.com/pinuspackindo-ai/pinuspackindo-okr/data/uploads/warehouse/1781860432558_k683qj_Screenshot_2026-06-19_16.09.47.png"
-      },
-      {
-        "name": "Screenshot 2026-06-19 16.09.47.png",
-        "data": null
-      }
-    ]
-  },
   "_p_apo_2026_06": {
     "file1": "https://raw.githubusercontent.com/pinuspackindo-ai/pinuspackindo-okr/data/uploads/purchasing/1783064372787_cue22e_purchase.order.line.xlsx",
     "file1Name": "purchase.order.line.xlsx",
@@ -3598,5 +3577,5 @@
     "savedAt": null,
     "locked": false
   },
-  "_ts": 1783065269460
+  "_ts": 1783065275919
 }
