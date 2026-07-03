@@ -3159,7 +3159,6 @@
     "savedAt": "2026-07-01T02:01:20.822Z",
     "locked": true
   },
-  "_ts": 1782886955971,
   "_s_impl_audit_2026_06": {
     "value": 100,
     "evidence": "https://raw.githubusercontent.com/pinuspackindo-ai/pinuspackindo-okr/data/uploads/store/1782869771442_y0nrse_kepatuhan_rekomendasi.png",
@@ -3262,5 +3261,6 @@
         "data": "https://raw.githubusercontent.com/pinuspackindo-ai/pinuspackindo-okr/data/uploads/store/1782872044845_v0d0tp_csat.png"
       }
     ]
-  }
+  },
+  "_ts": 1783051311134
 }
