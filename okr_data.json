@@ -96,7 +96,8 @@
     "_w_akurasi_w_2026_06": 1783067999622,
     "_w_cartrack_2026_06": 1783068013030,
     "_s_omzet_2026_06": 1783068109566,
-    "_s_akurasi_2026_06": 1783068117093
+    "_s_akurasi_2026_06": 1783068117093,
+    "_s_csat_2026_06": 1783068122118
   },
   "2026-05": {
     "Distribution Sales": {
@@ -3294,19 +3295,6 @@
       }
     ]
   },
-  "_s_csat_2026_06": {
-    "value": 90.11,
-    "evidence": "https://raw.githubusercontent.com/pinuspackindo-ai/pinuspackindo-okr/data/uploads/store/1782872049554_xredcd_csat.png",
-    "evidenceName": "csat.png",
-    "savedAt": "2026-07-01T02:13:40.521Z",
-    "locked": true,
-    "evidences": [
-      {
-        "name": "csat.png",
-        "data": "https://raw.githubusercontent.com/pinuspackindo-ai/pinuspackindo-okr/data/uploads/store/1782872044845_v0d0tp_csat.png"
-      }
-    ]
-  },
   "_p_sv_2026_07_01": {
     "text": "TART MINI AMBULANS, 450,000, 370,000; MIKA PUDING 22B VULAT, 495,000, 420,000; PENGOCOK STAINLESS 550 ML, 50,022, 48,135; ZIPPER BURAM 30X40, 13,675, 13,395; BUBBLE MAILER PUTIH 12X22, 8,866, 7,921; SAUS GOCHUJANG, 14,850, 14,062; HERCULES, 14,610, 12,933; KERTAS BENTO, 10,017, 9,378; POLY MAILER WARNA 25X35, 27,950, 26,692; SUKRO, 308,000, 305,000",
     "evidence": "https://raw.githubusercontent.com/pinuspackindo-ai/pinuspackindo-okr/data/uploads/purchasing/1783051612856_zw2lhr_1.png",
@@ -3564,5 +3552,5 @@
   },
   "_p_sv_rn_2026_06": 1024,
   "_p_sv_rn_lk_2026_06": false,
-  "_ts": 1783068117107
+  "_ts": 1783068122139
 }
