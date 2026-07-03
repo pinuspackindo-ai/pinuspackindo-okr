@@ -686,7 +686,7 @@
           "target": 90
         },
         {
-          "actual": 51.29,
+          "actual": null,
           "bobot": 30,
           "id": "r1780472096513jno3",
           "keyResult": "Tingkat akurasi PO",
@@ -3217,17 +3217,6 @@
     "savedAt": "2026-06-30T08:27:24.809Z",
     "locked": true
   },
-  "_p_apo_2026_06": {
-    "file1": "https://raw.githubusercontent.com/pinuspackindo-ai/pinuspackindo-okr/data/uploads/purchasing/1782871280712_gur6kt_purchase.order.line_15.xlsx",
-    "file1Name": "purchase.order.line (15).xlsx",
-    "file2": "https://raw.githubusercontent.com/pinuspackindo-ai/pinuspackindo-okr/data/uploads/purchasing/1782871137655_i4t2f8_account.move_3.xlsx",
-    "file2Name": "account.move (3).xlsx",
-    "lateScore": 73.27102803738318,
-    "accScore": 0,
-    "finalScore": 51.28971962616822,
-    "savedAt": "2026-07-01T02:01:20.822Z",
-    "locked": true
-  },
   "_s_impl_audit_2026_06": {
     "value": 100,
     "evidence": "https://raw.githubusercontent.com/pinuspackindo-ai/pinuspackindo-okr/data/uploads/store/1782869771442_y0nrse_kepatuhan_rekomendasi.png",
@@ -3577,7 +3566,7 @@
   "_ia_proj_2026_07": {
     "rows": []
   },
-  "_ts": 1783064362970,
+  "_ts": 1783064367978,
   "_w_cartrack_2026_06": {
     "value": 89,
     "evidence": null,
