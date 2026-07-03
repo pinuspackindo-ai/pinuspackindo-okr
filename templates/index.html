@@ -3398,37 +3398,36 @@ function purchKpenFileChange(month,inp){
 function purchKpenSave(month){
   var y=purchasingYear;var d=_pgKpen(y,month);
   if(!d.file){notify('Upload file terlebih dahulu','error');return;}
-  // Jika file sudah di GitHub (URL), gunakan score existing
-  if(/^https?:/.test(d.file)){
-    var sc=d.score!==null&&d.score!==undefined?d.score:0;
-    _purchPending={type:'kualitas_pen',year:y,month:month,file:d.file,fileName:d.fileName,totalRows:d.totalRows||0,accRows:d.accRows||0,score:sc};
-    document.getElementById('pc-sub').textContent='Kualitas Penerimaan';
-    document.getElementById('pc-bulan').textContent=STORE_BULAN[month-1]+' '+y;
-    document.getElementById('pc-val').textContent='Score: '+sc.toFixed(1)+'% (dari data tersimpan — file di GitHub tidak dapat diproses ulang)';
-    document.getElementById('pc-ev').textContent=d.fileName||'File Penerimaan';
-    document.getElementById('purch-confirm-modal').style.display='flex';
-    return;
-  }
   okrEnsureXLSX(function(){
-  try{
-    function _b64toArr(b64){var bin=atob(b64),bytes=new Uint8Array(bin.length);for(var i=0;i<bin.length;i++)bytes[i]=bin.charCodeAt(i);return bytes;}
-    var fb64=d.file.indexOf(',')!==-1?d.file.split(',')[1]:d.file;
-    var wb=XLSX.read(_b64toArr(fb64),{type:'array',cellDates:true});
-    var rows=XLSX.utils.sheet_to_json(wb.Sheets[wb.SheetNames[0]],{defval:''});
-    var h=Object.keys(rows[0]||{});
-    var rqtyK=findCol(h,['receivedqty','received qty','receivedquantity','qty received','qtyreceived','terima']);
-    var qtyK=h.find(function(c){return c.trim().toLowerCase()==='quantity';})||findCol(h,['quantity','qty']);
-    if(!rqtyK||!qtyK){notify('Kolom Received Qty / Quantity tidak ditemukan','error');return;}
-    var allRows=rows.map(function(row){var rqty=Math.round((parseFloat(row[rqtyK])||0)*100)/100;var qty=Math.round((parseFloat(row[qtyK])||0)*100)/100;return{status:rqty===qty?'Akurat':'Tidak Akurat'};});
-    var total=allRows.length;var accRows=allRows.filter(function(r){return r.status==='Akurat';}).length;
-    var score=total?accRows/total*100:0;
-    _purchPending={type:'kualitas_pen',year:y,month:month,file:d.file,fileName:d.fileName,totalRows:total,accRows:accRows,score:score};
-    document.getElementById('pc-sub').textContent='Kualitas Penerimaan';
-    document.getElementById('pc-bulan').textContent=STORE_BULAN[month-1]+' '+y;
-    document.getElementById('pc-val').textContent='Score: '+score.toFixed(1)+'%  ('+accRows+' dari '+total+' baris akurat)';
-    document.getElementById('pc-ev').textContent=d.fileName||'File Penerimaan';
-    document.getElementById('purch-confirm-modal').style.display='flex';
-  } catch(e){notify('Error memproses file: '+e.message,'error');}
+    // Ambil isi file (base64 baru ATAU fetch URL GitHub) → SELALU hitung ulang, jangan pakai skor lama.
+    function _getArr(src,cb){
+      if(/^https?:/.test(src)){
+        fetch(src).then(function(r){return r.ok?r.arrayBuffer():null;})
+          .then(function(ab){cb(ab?new Uint8Array(ab):null);}).catch(function(){cb(null);});
+      }else{
+        try{var b64=src.indexOf(',')!==-1?src.split(',')[1]:src;var bin=atob(b64),by=new Uint8Array(bin.length);for(var i=0;i<bin.length;i++)by[i]=bin.charCodeAt(i);cb(by);}catch(e){cb(null);}
+      }
+    }
+    _getArr(d.file,function(arr){
+      if(!arr){notify('File Penerimaan gagal dibaca. Upload ulang file-nya.','error');return;}
+      try{
+        var wb=XLSX.read(arr,{type:'array',cellDates:true});
+        var rows=XLSX.utils.sheet_to_json(wb.Sheets[wb.SheetNames[0]],{defval:''});
+        var h=Object.keys(rows[0]||{});
+        var rqtyK=findCol(h,['receivedqty','received qty','receivedquantity','qty received','qtyreceived','terima']);
+        var qtyK=h.find(function(c){return c.trim().toLowerCase()==='quantity';})||findCol(h,['quantity','qty']);
+        if(!rqtyK||!qtyK){notify('Kolom Received Qty / Quantity tidak ditemukan','error');return;}
+        var allRows=rows.map(function(row){var rqty=Math.round((parseFloat(row[rqtyK])||0)*100)/100;var qty=Math.round((parseFloat(row[qtyK])||0)*100)/100;return{status:rqty===qty?'Akurat':'Tidak Akurat'};});
+        var total=allRows.length;var accRows=allRows.filter(function(r){return r.status==='Akurat';}).length;
+        var score=total?accRows/total*100:0;
+        _purchPending={type:'kualitas_pen',year:y,month:month,file:d.file,fileName:d.fileName,totalRows:total,accRows:accRows,score:score};
+        document.getElementById('pc-sub').textContent='Kualitas Penerimaan';
+        document.getElementById('pc-bulan').textContent=STORE_BULAN[month-1]+' '+y;
+        document.getElementById('pc-val').textContent='Score: '+score.toFixed(1)+'%  ('+accRows+' dari '+total+' baris akurat)';
+        document.getElementById('pc-ev').textContent=d.fileName||'File Penerimaan';
+        document.getElementById('purch-confirm-modal').style.display='flex';
+      }catch(e){notify('Error memproses file: '+e.message,'error');}
+    });
   });
 }
 function purchKpenEdit(month){var y=purchasingYear;var d=_pgKpen(y,month);d.locked=false;_psKpen(y,month,d);okrSaveLS();purchKpenRender();}
