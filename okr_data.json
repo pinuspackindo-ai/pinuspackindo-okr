@@ -3462,7 +3462,7 @@
       }
     ]
   },
-  "_ts": 1783061982811,
+  "_ts": 1783062040752,
   "_ia_rot_stokopname_2026_06": {
     "rows": [
       {
@@ -3577,6 +3577,17 @@
           }
         ],
         "savedAt": "2026-07-03T06:59:42.800Z"
+      }
+    ]
+  },
+  "_ia_proj_2026_07": {
+    "rows": [
+      {
+        "namaProject": "",
+        "tujuan": "",
+        "evidence": "",
+        "evidenceName": "",
+        "locked": false
       }
     ]
   }
