@@ -92,6 +92,11 @@
     "Store": "1011",
     "Admin": "909"
   },
+  "_deleted": {
+    "_w_akurasi_w_2026_06": 1783067999622,
+    "_w_cartrack_2026_06": 1783068013030,
+    "_s_omzet_2026_06": 1783068109566
+  },
   "2026-05": {
     "Distribution Sales": {
       "actionPlan": "Training new telesales",
@@ -1430,13 +1435,18 @@
     "rows": [
       {
         "deadline": "2026-06-07",
-        "evidence": "",
-        "evidenceName": "",
-        "evidences": [],
-        "locked": false,
-        "savedAt": "2026-07-03T06:53:52.701Z",
-        "submittedDate": "",
-        "temuan": ""
+        "evidence": "https://raw.githubusercontent.com/pinuspackindo-ai/pinuspackindo-okr/data/uploads/internal_audit/1783067936804_sqqsn4_k7.png",
+        "evidenceName": "k7.png",
+        "evidences": [
+          {
+            "name": "k7.png",
+            "data": "https://raw.githubusercontent.com/pinuspackindo-ai/pinuspackindo-okr/data/uploads/internal_audit/1783067855870_olnhre_k7.png"
+          }
+        ],
+        "locked": true,
+        "savedAt": "2026-07-03T08:37:36.184Z",
+        "submittedDate": "2026-06-07",
+        "temuan": "0"
       },
       {
         "deadline": "2026-06-14",
@@ -2459,19 +2469,6 @@
       }
     ]
   },
-  "_s_omzet_2026_06": {
-    "value": 2726403501,
-    "evidence": "https://raw.githubusercontent.com/pinuspackindo-ai/pinuspackindo-okr/data/uploads/store/1782870797097_h4n4ax_omset.png",
-    "evidenceName": "omset.png",
-    "savedAt": "2026-07-01T01:52:57.917Z",
-    "locked": true,
-    "evidences": [
-      {
-        "name": "omset.png",
-        "data": "https://raw.githubusercontent.com/pinuspackindo-ai/pinuspackindo-okr/data/uploads/store/1782870778533_2uaw84_omset.png"
-      }
-    ]
-  },
   "_inv_rn_do_2026_06_11": {
     "value": 100,
     "evidence": "https://raw.githubusercontent.com/pinuspackindo-ai/pinuspackindo-okr/data/uploads/inventory/1781170404324_rqzi4k_WhatsApp_Image_2026-06-11_at_16.16.19.jpeg",
@@ -2836,40 +2833,6 @@
     "score": 90.74,
     "savedAt": "2026-06-19T09:05:32.890Z",
     "locked": true
-  },
-  "_w_cartrack_2026_06": {
-    "value": 89,
-    "evidence": null,
-    "evidenceName": "Screenshot 2026-06-19 16.09.47.png",
-    "savedAt": "2026-06-19T09:12:09.541Z",
-    "locked": true,
-    "evidences": [
-      {
-        "name": "Screenshot 2026-06-19 16.09.47.png",
-        "data": "https://raw.githubusercontent.com/pinuspackindo-ai/pinuspackindo-okr/data/uploads/warehouse/1781860331075_emk0cz_Screenshot_2026-06-19_16.09.47.png"
-      },
-      {
-        "name": "Screenshot 2026-06-19 16.09.47.png",
-        "data": "https://raw.githubusercontent.com/pinuspackindo-ai/pinuspackindo-okr/data/uploads/warehouse/1781860432558_k683qj_Screenshot_2026-06-19_16.09.47.png"
-      },
-      {
-        "name": "Screenshot 2026-06-19 16.09.47.png",
-        "data": null
-      }
-    ]
-  },
-  "_w_akurasi_w_2026_06": {
-    "value": 92.05,
-    "evidence": null,
-    "evidenceName": "Screenshot 2026-06-19 21.51.14.png",
-    "savedAt": "2026-06-19T14:52:37.096Z",
-    "locked": true,
-    "evidences": [
-      {
-        "name": "Screenshot 2026-06-19 21.51.14.png",
-        "data": null
-      }
-    ]
   },
   "_fa_impl_reko_fa_2026_06": {
     "value": 90,
@@ -3451,19 +3414,10 @@
         "deadline": "2026-07-05",
         "submittedDate": "",
         "temuan": "",
-        "evidence": "https://raw.githubusercontent.com/pinuspackindo-ai/pinuspackindo-okr/data/uploads/internal_audit/1783061577447_nco7j0_Bukti.png",
-        "evidenceName": "Bukti.png",
+        "evidence": "",
+        "evidenceName": "",
         "locked": false,
-        "evidences": [
-          {
-            "name": "Bukti.png",
-            "data": "https://raw.githubusercontent.com/pinuspackindo-ai/pinuspackindo-okr/data/uploads/internal_audit/1783053732967_yrvect_Bukti.png"
-          },
-          {
-            "name": "WhatsApp Image 2026-06-29 at 23.01.14.jpeg",
-            "data": "https://raw.githubusercontent.com/pinuspackindo-ai/pinuspackindo-okr/data/uploads/internal_audit/1783061667064_s8af29_WhatsApp_Image_2026-06-29_at_23.01.14.jpeg"
-          }
-        ]
+        "evidences": []
       },
       {
         "deadline": "2026-07-12",
@@ -3620,8 +3574,7 @@
     "savedAt": "2026-07-03T08:40:42.918Z",
     "locked": true
   },
-  "_ts": 1783068088695,
   "_p_sv_rn_2026_06": 1024,
   "_p_sv_rn_lk_2026_06": false,
-  "_deleted": {}
+  "_ts": 1783068109566
 }
