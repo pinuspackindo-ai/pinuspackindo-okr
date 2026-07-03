@@ -92,7 +92,6 @@
     "Store": "1011",
     "Admin": "909"
   },
-  "_deleted": {},
   "2026-05": {
     "Distribution Sales": {
       "actionPlan": "Training new telesales",
@@ -3503,5 +3502,6 @@
   },
   "_p_sv_rn_2026_06": 1024,
   "_p_sv_rn_lk_2026_06": false,
-  "_ts": 1783069044739
+  "_ts": 1783069048276,
+  "_deleted": {}
 }
