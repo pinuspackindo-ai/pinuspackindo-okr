@@ -3406,19 +3406,10 @@
         "deadline": "2026-07-05",
         "submittedDate": "",
         "temuan": "",
-        "evidence": "https://raw.githubusercontent.com/pinuspackindo-ai/pinuspackindo-okr/data/uploads/internal_audit/1783061577447_nco7j0_Bukti.png",
-        "evidenceName": "Bukti.png",
+        "evidence": "",
+        "evidenceName": "",
         "locked": false,
-        "evidences": [
-          {
-            "name": "Bukti.png",
-            "data": "https://raw.githubusercontent.com/pinuspackindo-ai/pinuspackindo-okr/data/uploads/internal_audit/1783053732967_yrvect_Bukti.png"
-          },
-          {
-            "name": "WhatsApp Image 2026-06-29 at 23.01.14.jpeg",
-            "data": "https://raw.githubusercontent.com/pinuspackindo-ai/pinuspackindo-okr/data/uploads/internal_audit/1783061667064_s8af29_WhatsApp_Image_2026-06-29_at_23.01.14.jpeg"
-          }
-        ]
+        "evidences": []
       },
       {
         "deadline": "2026-07-12",
@@ -3577,5 +3568,5 @@
     "savedAt": null,
     "locked": false
   },
-  "_ts": 1783065275919
+  "_ts": 1783065287367
 }
