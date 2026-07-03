@@ -724,7 +724,7 @@
       "actionPlan": "Planning acara chef Avian",
       "rows": [
         {
-          "actual": null,
+          "actual": 2726403501,
           "bobot": 30,
           "id": "r1780472096513hnb9",
           "keyResult": "Jumlah omset",
@@ -2361,8 +2361,8 @@
     "value": 2726403501,
     "evidence": "https://raw.githubusercontent.com/pinuspackindo-ai/pinuspackindo-okr/data/uploads/store/1782870797097_h4n4ax_omset.png",
     "evidenceName": "omset.png",
-    "savedAt": "2026-07-01T01:52:57.917Z",
-    "locked": false,
+    "savedAt": "2026-07-03T09:18:51.735Z",
+    "locked": true,
     "evidences": [
       {
         "name": "omset.png",
@@ -3537,5 +3537,5 @@
       }
     ]
   },
-  "_ts": 1783070328992
+  "_ts": 1783070331735
 }
