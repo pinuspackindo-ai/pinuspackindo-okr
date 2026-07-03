@@ -769,7 +769,7 @@
       "actionPlan": "",
       "rows": [
         {
-          "actual": null,
+          "actual": 94.56,
           "bobot": 30,
           "id": "r1780472096513er4q",
           "keyResult": "Tingkat akurasi stok fisik vs data",
@@ -2760,8 +2760,8 @@
     "value": 94.56,
     "evidence": "https://raw.githubusercontent.com/pinuspackindo-ai/pinuspackindo-okr/data/uploads/warehouse/1783069820038_7vzxa9_sss.png",
     "evidenceName": "sss.png",
-    "savedAt": "2026-07-03T09:10:19.289Z",
-    "locked": false,
+    "savedAt": "2026-07-03T09:14:21.199Z",
+    "locked": true,
     "evidences": [
       {
         "name": "sss.png",
@@ -3538,5 +3538,5 @@
       }
     ]
   },
-  "_ts": 1783070058505
+  "_ts": 1783070061214
 }
