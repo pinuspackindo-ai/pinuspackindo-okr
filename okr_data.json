@@ -3259,7 +3259,7 @@
     "evidence": "https://raw.githubusercontent.com/pinuspackindo-ai/pinuspackindo-okr/data/uploads/store/1782872049554_xredcd_csat.png",
     "evidenceName": "csat.png",
     "savedAt": "2026-07-01T02:13:40.521Z",
-    "locked": true,
+    "locked": false,
     "evidences": [
       {
         "name": "csat.png",
@@ -3537,5 +3537,5 @@
       }
     ]
   },
-  "_ts": 1783070331735
+  "_ts": 1783070337252
 }
