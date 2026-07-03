@@ -1,5 +1,4 @@
 {
-  "_ts": 1783066906229,
   "_userAccess": {
     "Finance & Accounting": {
       "modules": [
@@ -3502,5 +3501,7 @@
     ]
   },
   "_p_sv_rn_2026_06": 1024,
-  "_p_sv_rn_lk_2026_06": false
+  "_p_sv_rn_lk_2026_06": false,
+  "_ts": 1783067076345,
+  "_deleted": {}
 }
