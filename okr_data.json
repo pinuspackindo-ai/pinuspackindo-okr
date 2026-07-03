@@ -3190,8 +3190,8 @@
     "value": 100,
     "evidence": "https://raw.githubusercontent.com/pinuspackindo-ai/pinuspackindo-okr/data/uploads/purchasing/1782869748157_o6p31f_Capture.jpg",
     "evidenceName": "Capture.JPG",
-    "savedAt": "2026-07-01T01:36:11.662Z",
-    "locked": false,
+    "savedAt": "2026-07-03T09:18:06.367Z",
+    "locked": true,
     "evidences": [
       {
         "name": "Capture.JPG",
@@ -3537,5 +3537,5 @@
       }
     ]
   },
-  "_ts": 1783070281134
+  "_ts": 1783070286367
 }
