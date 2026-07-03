@@ -3310,7 +3310,7 @@ function purchApoSave(month){
       _getArr(d.file2,function(arr2){
         if(!arr2){notify('File Akurasi gagal dibaca. Upload ulang file-nya.','error');return;}
         try{
-          // ── Ketepatan (lateScore) dari file1: Terlambat jika Received Date > Order Date (hari beda & lebih lama) ──
+          // ── Ketepatan (lateScore) dari file1: Terlambat jika Order Date >= Received Date ──
           var wb1=XLSX.read(arr1,{type:'array',cellDates:true});
           var rows1=XLSX.utils.sheet_to_json(wb1.Sheets[wb1.SheetNames[0]],{defval:''});
           var h1=Object.keys(rows1[0]||{});
@@ -3318,7 +3318,7 @@ function purchApoSave(month){
           var ordK=findCol(h1,['orderdate','orddate','tanggalorder','tglorder','purchasedate']);
           var recK=findCol(h1,['receiveddate','receivedate','recdate','tanggalterima','tglterima','received','arrival']);
           if(!refK||!ordK||!recK){notify('File Keterlambatan: kolom tidak ditemukan. Pastikan ada Order Reference, Order Date, Received Date','error');return;}
-          var allRows1=rows1.map(function(row){var ref=String(row[refK]||'').trim();var od=parseDate(row[ordK]);var rd=parseDate(row[recK]);var late=od&&rd&&!sameDay(od,rd)&&(rd.getTime()>od.getTime());return{ref:ref,status:late?'Terlambat':'Ontime'};});
+          var allRows1=rows1.map(function(row){var ref=String(row[refK]||'').trim();var od=parseDate(row[ordK]);var rd=parseDate(row[recK]);var late=od&&rd&&(sameDay(od,rd)||od.getTime()>rd.getTime());return{ref:ref,status:late?'Terlambat':'Ontime'};});
           var refMap={};allRows1.forEach(function(r){if(!r.ref)return;if(!refMap[r.ref])refMap[r.ref]={ref:r.ref,status:r.status};else if(r.status==='Terlambat')refMap[r.ref].status='Terlambat';});
           var uniq=Object.values(refMap);
           var tlbt=uniq.filter(function(r){return r.status==='Terlambat';}).length;
