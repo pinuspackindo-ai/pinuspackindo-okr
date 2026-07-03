@@ -6309,6 +6309,7 @@ function iaRekoViewEvidence(i){
 
 // ════ REPORT AKURAT & ONTIME ════
 function iaRotKey(type,y,m){return '_ia_rot_'+type+'_'+y+'_'+String(m).padStart(2,'0');}
+function _iaYMD(d){return d.getFullYear()+'-'+String(d.getMonth()+1).padStart(2,'0')+'-'+String(d.getDate()).padStart(2,'0');}
 function iaRotDeadlines(typeObj,year,month){
   var deadlines=[]; var day=typeObj.day;
   if(day==='sunday'){
@@ -6329,11 +6330,13 @@ function iaRotLoad(typeKey,y,m){
   var raw=okrData[iaRotKey(typeKey,y,m)];
   var deadlines=iaRotDeadlines(typeObj,y,m);
   if(!raw){
-    raw={rows:deadlines.map(function(d){return {deadline:d.toISOString().slice(0,10),submittedDate:'',temuan:'',evidence:'',evidenceName:'',locked:false};})};
+    raw={rows:deadlines.map(function(d){return {deadline:_iaYMD(d),submittedDate:'',temuan:'',evidence:'',evidenceName:'',locked:false};})};
   }else{
     while(raw.rows.length<deadlines.length){
-      raw.rows.push({deadline:deadlines[raw.rows.length].toISOString().slice(0,10),submittedDate:'',temuan:'',evidence:'',evidenceName:'',locked:false});
+      raw.rows.push({deadline:_iaYMD(deadlines[raw.rows.length]),submittedDate:'',temuan:'',evidence:'',evidenceName:'',locked:false});
     }
+    // Self-heal: perbaiki deadline lama yg tergeser 1 hari (bug toISOString/UTC)
+    for(var _i=0;_i<raw.rows.length&&_i<deadlines.length;_i++){raw.rows[_i].deadline=_iaYMD(deadlines[_i]);}
   }
   return raw;
 }
