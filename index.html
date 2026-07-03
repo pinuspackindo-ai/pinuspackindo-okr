@@ -4542,6 +4542,7 @@ function okrLoadCloud(showMsg){
       var cloudKeys=Object.keys(cloud).filter(function(k){return k!=='_ts';});
       if(!cloudKeys.length){ if(showMsg) notify('Cloud data masih kosong.','error'); return; }
       okrData=cloud;
+      try{ window._okrKeySnap=Object.keys(okrData); }catch(e){} // reset snapshot tombstone (adopt cloud utuh)
       localStorage.setItem(OKR_STORE_KEY,JSON.stringify(cloud));
       okrRender();
       if(showMsg) notify('Data berhasil dimuat dari cloud ✓');
@@ -4588,8 +4589,9 @@ function okrInit(){
           });
           var _rawChanged=_syncMerge(okrData,raw);
           if(localOkrKeys.length===0&&rawOkrKeys.length>0){
-            rawOkrKeys.forEach(function(k){okrData[k]=raw[k];});_rawChanged=true;
-            notify('Struktur OKR dipulihkan dari cloud ✓');
+            var _radopted=false;
+            rawOkrKeys.forEach(function(k){var _tb=(okrData._deleted&&okrData._deleted[k])?okrData._deleted[k]:0;var _cs=(raw[k]&&raw[k].savedAt)?new Date(raw[k].savedAt).getTime():(rawTs||0);if(_tb&&_tb>=_cs)return;okrData[k]=raw[k];_radopted=true;});
+            if(_radopted){_rawChanged=true;notify('Struktur OKR dipulihkan dari cloud ✓');}
           }
           if(_rawChanged||localDataKeys.length===0){
             okrData._ts=Math.max(rawTs,localTs);
@@ -4621,10 +4623,11 @@ function okrInit(){
       });
       // All other keys: savedAt-based merge
       var _mergeChanged=_syncMerge(okrData,cloud);
-      // If local has no OKR month structure at all → take from cloud
+      // If local has no OKR month structure at all → take from cloud (kecuali yg ber-tombstone)
       if(localOkrKeys.length===0&&cloudOkrKeys.length>0){
-        cloudOkrKeys.forEach(function(k){okrData[k]=cloud[k];});_mergeChanged=true;
-        notify('Struktur OKR dipulihkan dari cloud ✓');
+        var _adopted=false;
+        cloudOkrKeys.forEach(function(k){var _tb=(okrData._deleted&&okrData._deleted[k])?okrData._deleted[k]:0;var _cs=(cloud[k]&&cloud[k].savedAt)?new Date(cloud[k].savedAt).getTime():(cloudTs||0);if(_tb&&_tb>=_cs)return;okrData[k]=cloud[k];_adopted=true;});
+        if(_adopted){_mergeChanged=true;notify('Struktur OKR dipulihkan dari cloud ✓');}
       }
       if(_mergeChanged||localEmpty){
         okrData._ts=Math.max(cloudTs,localTs);
