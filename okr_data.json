@@ -3620,20 +3620,6 @@
   "_ia_proj_2026_07": {
     "rows": [
       {
-        "namaProject": "Portal Internal Karyawan (https://internal.pinuspackindo.com/login)",
-        "tujuan": "Memberikan kemudahan akses karyawan terhadap informasi kepegagawaian, prizinan, dll yang berkaitan denagn hak karayawan.",
-        "evidence": "https://raw.githubusercontent.com/pinuspackindo-ai/pinuspackindo-okr/data/uploads/internal_audit/1783062463430_v1jci1_ddd.jpg",
-        "evidenceName": "ddd.jpg",
-        "locked": true,
-        "evidences": [
-          {
-            "name": "ddd.jpg",
-            "data": "https://raw.githubusercontent.com/pinuspackindo-ai/pinuspackindo-okr/data/uploads/internal_audit/1783062441151_gv2dpd_ddd.jpg"
-          }
-        ],
-        "savedAt": "2026-07-03T07:07:42.734Z"
-      },
-      {
         "namaProject": "Tools Flow Proses New Item, Revisi Harga, dan Promotion Program (Link baru : https://tools-purchase-lime.vercel.app/)",
         "tujuan": "Memudahkan dan memperjelas pic terkait untuk proses pengajuan new item, revisi harga, dan promosi.",
         "evidence": "https://raw.githubusercontent.com/pinuspackindo-ai/pinuspackindo-okr/data/uploads/internal_audit/1783062809583_5j75jb_Purchase.jpg",
@@ -3663,5 +3649,5 @@
       }
     ]
   },
-  "_ts": 1783063106304
+  "_ts": 1783063111117
 }
