@@ -92,7 +92,6 @@
     "Store": "1011",
     "Admin": "909"
   },
-  "_deleted": {},
   "2026-05": {
     "Distribution Sales": {
       "actionPlan": "Training new telesales",
@@ -769,7 +768,7 @@
       "actionPlan": "",
       "rows": [
         {
-          "actual": 94.56,
+          "actual": null,
           "bobot": 30,
           "id": "r1780472096513er4q",
           "keyResult": "Tingkat akurasi stok fisik vs data",
@@ -777,7 +776,7 @@
           "target": 98
         },
         {
-          "actual": 91.6,
+          "actual": null,
           "bobot": 25,
           "id": "r1780472096513fsmw",
           "keyResult": "Tingkat akurasi default diary",
@@ -801,7 +800,7 @@
           "target": 90
         },
         {
-          "actual": 100,
+          "actual": null,
           "bobot": 10,
           "id": "r17804720965135ql3",
           "keyResult": "Tingkat implementasi rekomendasi audit",
@@ -3263,6 +3262,7 @@
       }
     ]
   },
+  "_ts": 1783070114486,
   "_p_sv_2026_07_01": {
     "text": "TART MINI AMBULANS, 450,000, 370,000; MIKA PUDING 22B VULAT, 495,000, 420,000; PENGOCOK STAINLESS 550 ML, 50,022, 48,135; ZIPPER BURAM 30X40, 13,675, 13,395; BUBBLE MAILER PUTIH 12X22, 8,866, 7,921; SAUS GOCHUJANG, 14,850, 14,062; HERCULES, 14,610, 12,933; KERTAS BENTO, 10,017, 9,378; POLY MAILER WARNA 25X35, 27,950, 26,692; SUKRO, 308,000, 305,000",
     "evidence": "https://raw.githubusercontent.com/pinuspackindo-ai/pinuspackindo-okr/data/uploads/purchasing/1783051612856_zw2lhr_1.png",
@@ -3503,6 +3503,7 @@
   },
   "_p_sv_rn_2026_06": 1024,
   "_p_sv_rn_lk_2026_06": false,
+  "_deleted": {},
   "_p_ins_2026_07_03": {
     "file1": "https://raw.githubusercontent.com/pinuspackindo-ai/pinuspackindo-okr/data/uploads/purchasing/1783069354644_tp1yba_product.product_2.xlsx",
     "file1Name": "product.product (2).xlsx",
@@ -3537,6 +3538,5 @@
         "data": "https://raw.githubusercontent.com/pinuspackindo-ai/pinuspackindo-okr/data/uploads/warehouse/1783069991720_0t2abs_sss.png"
       }
     ]
-  },
-  "_ts": 1783070100136
+  }
 }
