@@ -740,7 +740,7 @@
           "target": 80
         },
         {
-          "actual": null,
+          "actual": 90.11,
           "bobot": 20,
           "id": "r17804720965132wml",
           "keyResult": "Score kepuasan pelanggan",
@@ -3258,8 +3258,8 @@
     "value": 90.11,
     "evidence": "https://raw.githubusercontent.com/pinuspackindo-ai/pinuspackindo-okr/data/uploads/store/1782872049554_xredcd_csat.png",
     "evidenceName": "csat.png",
-    "savedAt": "2026-07-01T02:13:40.521Z",
-    "locked": false,
+    "savedAt": "2026-07-03T09:18:59.823Z",
+    "locked": true,
     "evidences": [
       {
         "name": "csat.png",
@@ -3537,5 +3537,5 @@
       }
     ]
   },
-  "_ts": 1783070337252
+  "_ts": 1783070339823
 }
