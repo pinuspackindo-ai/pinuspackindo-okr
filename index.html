@@ -4488,6 +4488,8 @@ function _okrPostCloud(){
           else{base[k]=local[k];}
         });
       })(_m,okrData);
+      // Buang key yg sudah dihapus lokal (tombstone) agar tidak resurrect dari basis cloud; bawa peta _deleted
+      if(okrData._deleted){Object.keys(okrData._deleted).forEach(function(dk){if(!(dk in okrData))delete _m[dk];});_m._deleted=okrData._deleted;}
       _body=JSON.stringify(_m);
       // Jika masih ada __CLOUD__ setelah merge (entry baru yg belum di-cloud):
       // Sertakan key tsb tapi ganti __CLOUD__ dengan null (jaga nama/score, biarkan evidence null).
