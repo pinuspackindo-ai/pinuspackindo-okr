@@ -3611,7 +3611,6 @@
   "_ia_proj_2026_07": {
     "rows": []
   },
-  "_ts": 1783063276244,
   "_p_kpen_2026_06": {
     "file": "https://raw.githubusercontent.com/pinuspackindo-ai/pinuspackindo-okr/data/uploads/purchasing/1782872050199_v78hki_purchase.order.line_15.xlsx",
     "fileName": "purchase.order.line (15).xlsx",
@@ -3620,5 +3619,6 @@
     "score": 0,
     "savedAt": "2026-07-01T02:14:23.637Z",
     "locked": true
-  }
+  },
+  "_ts": 1783063554514
 }
