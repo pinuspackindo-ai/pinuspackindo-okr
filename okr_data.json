@@ -95,7 +95,8 @@
   "_deleted": {
     "_w_akurasi_w_2026_06": 1783067999622,
     "_w_cartrack_2026_06": 1783068013030,
-    "_s_omzet_2026_06": 1783068109566
+    "_s_omzet_2026_06": 1783068109566,
+    "_s_akurasi_2026_06": 1783068117093
   },
   "2026-05": {
     "Distribution Sales": {
@@ -3238,19 +3239,6 @@
       }
     ]
   },
-  "_s_akurasi_2026_06": {
-    "value": 76.1,
-    "evidence": null,
-    "evidenceName": "akurasi.png",
-    "savedAt": "2026-07-01T01:35:38.392Z",
-    "locked": true,
-    "evidences": [
-      {
-        "name": "akurasi.png",
-        "data": null
-      }
-    ]
-  },
   "_p_ir_2026_06": {
     "value": 100,
     "evidence": null,
@@ -3576,5 +3564,5 @@
   },
   "_p_sv_rn_2026_06": 1024,
   "_p_sv_rn_lk_2026_06": false,
-  "_ts": 1783068109566
+  "_ts": 1783068117107
 }
