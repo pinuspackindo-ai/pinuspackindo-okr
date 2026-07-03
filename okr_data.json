@@ -3587,19 +3587,6 @@
       }
     ]
   },
-  "_w_akurasi_w_2026_06": {
-    "value": 92.05,
-    "evidence": null,
-    "evidenceName": "Screenshot 2026-06-19 21.51.14.png",
-    "savedAt": "2026-06-19T14:52:37.096Z",
-    "locked": true,
-    "evidences": [
-      {
-        "name": "Screenshot 2026-06-19 21.51.14.png",
-        "data": null
-      }
-    ]
-  },
   "_p_apo_2026_06": {
     "file1": "https://raw.githubusercontent.com/pinuspackindo-ai/pinuspackindo-okr/data/uploads/purchasing/1783064372787_cue22e_purchase.order.line.xlsx",
     "file1Name": "purchase.order.line.xlsx",
@@ -3611,5 +3598,5 @@
     "savedAt": null,
     "locked": false
   },
-  "_ts": 1783065263680
+  "_ts": 1783065269460
 }
