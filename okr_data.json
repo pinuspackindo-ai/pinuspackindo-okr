@@ -779,7 +779,7 @@
           "target": 98
         },
         {
-          "actual": null,
+          "actual": 91.6,
           "bobot": 25,
           "id": "r1780472096513fsmw",
           "keyResult": "Tingkat akurasi default diary",
@@ -3480,13 +3480,13 @@
     "savedAt": null,
     "locked": false
   },
-  "_ts": 1783069965579,
+  "_ts": 1783069972272,
   "_w_default_diary_2026_06": {
     "value": 91.6,
     "evidence": "https://raw.githubusercontent.com/pinuspackindo-ai/pinuspackindo-okr/data/uploads/warehouse/1783069771233_elgroc_Screenshot_2026-07-03_16.06.56.png",
     "evidenceName": "Screenshot 2026-07-03 16.06.56.png",
-    "savedAt": "2026-07-03T09:09:29.412Z",
-    "locked": false,
+    "savedAt": "2026-07-03T09:12:52.272Z",
+    "locked": true,
     "evidences": [
       {
         "name": "Screenshot 2026-07-03 16.06.56.png",
