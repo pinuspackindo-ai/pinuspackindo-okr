@@ -3281,16 +3281,11 @@
     "rows": [
       {
         "namaAudit": "Keuangan",
-        "score": "100",
-        "evidence": "https://raw.githubusercontent.com/pinuspackindo-ai/pinuspackindo-okr/data/uploads/internal_audit/1783052097566_ef2czo_Bukti.png",
-        "evidenceName": "Bukti.png",
-        "locked": true,
-        "evidences": [
-          {
-            "name": "Bukti.png",
-            "data": "https://raw.githubusercontent.com/pinuspackindo-ai/pinuspackindo-okr/data/uploads/internal_audit/1783052098809_smll3u_Bukti.png"
-          }
-        ],
+        "score": "",
+        "evidence": "",
+        "evidenceName": "",
+        "locked": false,
+        "evidences": [],
         "savedAt": "2026-07-03T04:14:57.955Z"
       },
       {
@@ -3538,5 +3533,5 @@
       }
     ]
   },
-  "_ts": 1783070155792
+  "_ts": 1783070191215
 }
