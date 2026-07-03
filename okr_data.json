@@ -1056,7 +1056,15 @@
     ]
   },
   "_ia_proj_2026_06": {
-    "rows": []
+    "rows": [
+      {
+        "namaProject": "",
+        "tujuan": "",
+        "evidence": "",
+        "evidenceName": "",
+        "locked": false
+      }
+    ]
   },
   "_ia_reko_2026_05": {
     "rows": [
@@ -3462,7 +3470,7 @@
       }
     ]
   },
-  "_ts": 1783062911077,
+  "_ts": 1783062934534,
   "_ia_rot_stokopname_2026_06": {
     "rows": [
       {
