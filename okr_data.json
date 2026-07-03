@@ -2362,7 +2362,7 @@
     "evidence": "https://raw.githubusercontent.com/pinuspackindo-ai/pinuspackindo-okr/data/uploads/store/1782870797097_h4n4ax_omset.png",
     "evidenceName": "omset.png",
     "savedAt": "2026-07-01T01:52:57.917Z",
-    "locked": true,
+    "locked": false,
     "evidences": [
       {
         "name": "omset.png",
@@ -3537,5 +3537,5 @@
       }
     ]
   },
-  "_ts": 1783070317576
+  "_ts": 1783070328992
 }
