@@ -3620,20 +3620,6 @@
   "_ia_proj_2026_07": {
     "rows": [
       {
-        "namaProject": "Tools Flow Proses New Item, Revisi Harga, dan Promotion Program (Link baru : https://tools-purchase-lime.vercel.app/)",
-        "tujuan": "Memudahkan dan memperjelas pic terkait untuk proses pengajuan new item, revisi harga, dan promosi.",
-        "evidence": "https://raw.githubusercontent.com/pinuspackindo-ai/pinuspackindo-okr/data/uploads/internal_audit/1783062809583_5j75jb_Purchase.jpg",
-        "evidenceName": "Purchase.jpg",
-        "locked": true,
-        "evidences": [
-          {
-            "name": "Purchase.jpg",
-            "data": "https://raw.githubusercontent.com/pinuspackindo-ai/pinuspackindo-okr/data/uploads/internal_audit/1783062807326_afewtw_Purchase.jpg"
-          }
-        ],
-        "savedAt": "2026-07-03T07:13:29.111Z"
-      },
-      {
         "namaProject": "Tools Purchase (database supplier dan history produk)",
         "tujuan": "Membantu tim purchase dalam proses tracking history produk,history supplier, history pprice, diskon, dlll",
         "evidence": "https://raw.githubusercontent.com/pinuspackindo-ai/pinuspackindo-okr/data/uploads/internal_audit/1783062904373_lpu8ka_Purchase.jpg",
@@ -3649,5 +3635,5 @@
       }
     ]
   },
-  "_ts": 1783063111117
+  "_ts": 1783063112717
 }
