@@ -3178,7 +3178,7 @@
     "evidence": null,
     "evidenceName": "akurasi.png",
     "savedAt": "2026-07-01T01:35:38.392Z",
-    "locked": true,
+    "locked": false,
     "evidences": [
       {
         "name": "akurasi.png",
@@ -3537,5 +3537,5 @@
       }
     ]
   },
-  "_ts": 1783070286367
+  "_ts": 1783070317576
 }
