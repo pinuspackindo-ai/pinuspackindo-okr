@@ -4100,9 +4100,14 @@ function _okrRerenderCurrent(){
 function _syncMerge(local, cloud) {
   if (!cloud || typeof cloud !== 'object') return false;
   var changed = false;
+  // Union penanda hapus (tombstone) — ambil timestamp terbaru dari lokal & cloud
+  if(cloud._deleted){local._deleted=local._deleted||{};Object.keys(cloud._deleted).forEach(function(dk){var ct=cloud._deleted[dk]||0,lt=local._deleted[dk]||0;if(ct>lt)local._deleted[dk]=ct;});}
   Object.keys(cloud).forEach(function(k) {
-    if (k === '_ts' || k === '_slim') return;
+    if (k === '_ts' || k === '_slim' || k === '_deleted') return;
     var cv = cloud[k], lv = local[k];
+    // Tombstone: kalau key sudah dihapus (tomb >= savedAt cloud) → jangan hidupkan lagi; kalau cloud lebih baru (di-create ulang) → buang tombstone & adopt
+    var _tb=(local._deleted&&local._deleted[k])?local._deleted[k]:0;
+    if(_tb){var _cs=(cv&&cv.savedAt)?new Date(cv.savedAt).getTime():(cloud._ts||0);if(_tb>=_cs){if(k in local){delete local[k];changed=true;}return;}else{delete local._deleted[k];}}
     // Always restore __CLOUD__ placeholders
     if (lv === '__CLOUD__') { local[k] = cv; changed = true; return; }
     // Missing locally → take cloud
@@ -4117,6 +4122,13 @@ function _syncMerge(local, cloud) {
     }
     // Scalar at root level: local wins (no change)
   });
+  // Terapkan tombstone ke key lokal yg tersisa (termasuk yg cloud sudah tak punya) → hapus jika tombstone >= savedAt lokal; kalau lokal lebih baru (create ulang), buang tombstone
+  if(local._deleted){Object.keys(local._deleted).forEach(function(dk){
+    if(!(dk in local))return;
+    var _lv=local[dk];var _ls=(_lv&&_lv.savedAt)?new Date(_lv.savedAt).getTime():0;
+    if(local._deleted[dk]>=_ls){delete local[dk];changed=true;}
+    else{delete local._deleted[dk];}
+  });}
   return changed;
 }
 // Smart merge: cloud values fill-in local 0/null/missing, local non-zero values are preserved.
