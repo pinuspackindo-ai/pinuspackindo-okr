@@ -92,7 +92,9 @@
     "Store": "1011",
     "Admin": "909"
   },
-  "_deleted": {},
+  "_deleted": {
+    "_ga_rot_2026_06": 1783134158109
+  },
   "2026-05": {
     "Distribution Sales": {
       "actionPlan": "Training new telesales",
@@ -555,7 +557,7 @@
           "target": 95
         },
         {
-          "actual": 100,
+          "actual": null,
           "bobot": 25,
           "id": "r1780472096513nvke",
           "keyResult": "Laporan inventaris akurat dan on time",
@@ -3686,7 +3688,7 @@
       }
     ]
   },
-  "_ts": 1783134152669,
+  "_ts": 1783134158109,
   "_ga_so_2026_05": {
     "value": 98.2,
     "evidence": "https://raw.githubusercontent.com/pinuspackindo-ai/pinuspackindo-okr/data/uploads/general_affair/1783134084937_5jxm8v_Cuplikan_layar_2026-07-04_095817.png",
@@ -3726,35 +3728,6 @@
       {
         "name": "Pinus.jpg",
         "data": "https://raw.githubusercontent.com/pinuspackindo-ai/pinuspackindo-okr/data/uploads/general_affair/1783134078312_nh79ic_Pinus.jpg"
-      }
-    ]
-  },
-  "_ga_rot_2026_06": {
-    "poin": [
-      0,
-      0,
-      0
-    ],
-    "akurasiEv": "https://raw.githubusercontent.com/pinuspackindo-ai/pinuspackindo-okr/data/uploads/general_affair/1783134120963_5cgj0d_Pinus.jpg",
-    "akurasiEvName": "Pinus.jpg",
-    "ontimeDate": "2026-06-06",
-    "ontimeEv": "https://raw.githubusercontent.com/pinuspackindo-ai/pinuspackindo-okr/data/uploads/general_affair/1783134101522_1gb872_Pinus.jpg",
-    "ontimeEvName": "Pinus.jpg",
-    "akurasiScore": 100,
-    "ontimeScore": 100,
-    "totalScore": 100,
-    "savedAt": "2026-07-04T03:02:32.669Z",
-    "locked": true,
-    "ontimeEvs": [
-      {
-        "name": "Pinus.jpg",
-        "data": "https://raw.githubusercontent.com/pinuspackindo-ai/pinuspackindo-okr/data/uploads/general_affair/1783134084478_lniu3u_Pinus.jpg"
-      }
-    ],
-    "akurasiEvs": [
-      {
-        "name": "Pinus.jpg",
-        "data": "https://raw.githubusercontent.com/pinuspackindo-ai/pinuspackindo-okr/data/uploads/general_affair/1783134087423_y6rkcu_Pinus.jpg"
       }
     ]
   }
