@@ -1271,7 +1271,7 @@
             "data": "https://raw.githubusercontent.com/pinuspackindo-ai/pinuspackindo-okr/data/uploads/internal_audit/1783133039337_g71y23_Cuplikan_layar_2026-07-04_092336.png"
           }
         ],
-        "locked": true,
+        "locked": false,
         "namaAudit": "Inventory",
         "savedAt": "2026-07-04T02:43:59.360Z",
         "score": "100"
@@ -3678,5 +3678,5 @@
       }
     ]
   },
-  "_ts": 1783133066356
+  "_ts": 1783133079969
 }
