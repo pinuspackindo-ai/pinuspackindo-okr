@@ -1222,7 +1222,7 @@
             "data": "https://raw.githubusercontent.com/pinuspackindo-ai/pinuspackindo-okr/data/uploads/internal_audit/1783132661538_5w1ybl_Cuplikan_layar_2026-07-04_092336.png"
           }
         ],
-        "locked": true,
+        "locked": false,
         "namaAudit": "Keuangan",
         "savedAt": "2026-07-04T02:37:55.650Z",
         "score": "100"
@@ -3851,5 +3851,5 @@
     ],
     "locked": false
   },
-  "_ts": 1783139259576
+  "_ts": 1783139260537
 }
