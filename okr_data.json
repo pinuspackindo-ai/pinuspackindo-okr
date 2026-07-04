@@ -1310,9 +1310,9 @@
             "data": "https://raw.githubusercontent.com/pinuspackindo-ai/pinuspackindo-okr/data/uploads/internal_audit/1783132860075_g8946m_Cuplikan_layar_2026-07-04_092336.png"
           }
         ],
-        "locked": false,
+        "locked": true,
         "namaAudit": "Cartrack",
-        "savedAt": "2026-07-04T02:41:02.306Z",
+        "savedAt": "2026-07-04T04:27:07.709Z",
         "score": "100"
       }
     ]
@@ -3851,5 +3851,5 @@
     ],
     "locked": false
   },
-  "_ts": 1783139225661
+  "_ts": 1783139227715
 }
