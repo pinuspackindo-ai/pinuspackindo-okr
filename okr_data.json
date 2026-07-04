@@ -2394,7 +2394,7 @@
         "progress": 100,
         "review": "ok",
         "editing": false,
-        "savedAt": "2026-06-20T08:37:48.336Z"
+        "savedAt": "2026-07-04T06:17:21.463Z"
       },
       {
         "tal": "Finalisasi pengumpulan titik kirim customer",
@@ -2406,7 +2406,7 @@
         "savedAt": "2026-07-04T06:17:14.687Z"
       }
     ],
-    "savedAt": "2026-07-04T06:17:14.687Z"
+    "savedAt": "2026-07-04T06:17:21.463Z"
   },
   "_p_sv_2026_05_30": {
     "text": "A",
@@ -3851,5 +3851,5 @@
     ],
     "locked": false
   },
-  "_ts": 1783145834687
+  "_ts": 1783145841463
 }
