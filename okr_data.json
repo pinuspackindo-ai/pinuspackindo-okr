@@ -2400,13 +2400,13 @@
         "tal": "Finalisasi pengumpulan titik kirim customer",
         "deadline": "2026-06-30",
         "bobot": 25,
-        "progress": 80,
+        "progress": 100,
         "review": "titik kurang dikit",
         "editing": false,
-        "savedAt": "2026-06-20T08:40:39.337Z"
+        "savedAt": "2026-07-04T06:17:14.687Z"
       }
     ],
-    "savedAt": "2026-06-20T08:40:39.337Z"
+    "savedAt": "2026-07-04T06:17:14.687Z"
   },
   "_p_sv_2026_05_30": {
     "text": "A",
@@ -3851,5 +3851,5 @@
     ],
     "locked": false
   },
-  "_ts": 1783145797634
+  "_ts": 1783145834687
 }
