@@ -1057,7 +1057,15 @@
     ]
   },
   "_ia_proj_2026_06": {
-    "rows": []
+    "rows": [
+      {
+        "namaProject": "",
+        "tujuan": "",
+        "evidence": "",
+        "evidenceName": "",
+        "locked": false
+      }
+    ]
   },
   "_ia_reko_2026_05": {
     "rows": [
@@ -3600,6 +3608,6 @@
       }
     ]
   },
-  "_ts": 1783132355563,
+  "_ts": 1783132420834,
   "_slim": 1
 }
