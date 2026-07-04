@@ -621,7 +621,7 @@
           "target": 100
         },
         {
-          "actual": 0,
+          "actual": 75,
           "bobot": 35,
           "id": "r1780472096513rv9r",
           "keyResult": "Laporan audit akurat dan on time",
@@ -1348,7 +1348,7 @@
   "_ia_rot_keuangan_2026_06": {
     "rows": [
       {
-        "deadline": "2026-06-06",
+        "deadline": "2026-06-07",
         "evidence": "",
         "evidenceName": "",
         "evidences": [],
@@ -1358,7 +1358,7 @@
         "temuan": ""
       },
       {
-        "deadline": "2026-06-13",
+        "deadline": "2026-06-14",
         "evidence": "",
         "evidenceName": "",
         "locked": false,
@@ -1366,7 +1366,7 @@
         "temuan": ""
       },
       {
-        "deadline": "2026-06-20",
+        "deadline": "2026-06-21",
         "evidence": "",
         "evidenceName": "",
         "locked": false,
@@ -1374,7 +1374,7 @@
         "temuan": ""
       },
       {
-        "deadline": "2026-06-27",
+        "deadline": "2026-06-28",
         "evidence": "",
         "evidenceName": "",
         "locked": false,
@@ -3327,7 +3327,7 @@
   "_ia_rot_keuangan_2026_07": {
     "rows": [
       {
-        "deadline": "2026-07-04",
+        "deadline": "2026-07-05",
         "submittedDate": "",
         "temuan": "",
         "evidence": null,
@@ -3345,7 +3345,7 @@
         ]
       },
       {
-        "deadline": "2026-07-11",
+        "deadline": "2026-07-12",
         "submittedDate": "",
         "temuan": "",
         "evidence": "",
@@ -3353,7 +3353,7 @@
         "locked": false
       },
       {
-        "deadline": "2026-07-18",
+        "deadline": "2026-07-19",
         "submittedDate": "",
         "temuan": "",
         "evidence": "",
@@ -3361,7 +3361,7 @@
         "locked": false
       },
       {
-        "deadline": "2026-07-25",
+        "deadline": "2026-07-26",
         "submittedDate": "",
         "temuan": "",
         "evidence": "",
@@ -3448,7 +3448,7 @@
         "temuan": "0",
         "evidence": null,
         "evidenceName": "cjuni.png",
-        "locked": true,
+        "locked": false,
         "evidences": [
           {
             "name": "cjuni.png",
@@ -3541,5 +3541,5 @@
       }
     ]
   },
-  "_ts": 1783125545271
+  "_ts": 1783125580742
 }
