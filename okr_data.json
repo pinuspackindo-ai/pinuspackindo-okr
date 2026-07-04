@@ -3688,7 +3688,7 @@
       }
     ]
   },
-  "_ts": 1783134158109,
+  "_ts": 1783134164485,
   "_ga_so_2026_05": {
     "value": 98.2,
     "evidence": "https://raw.githubusercontent.com/pinuspackindo-ai/pinuspackindo-okr/data/uploads/general_affair/1783134084937_5jxm8v_Cuplikan_layar_2026-07-04_095817.png",
@@ -3713,11 +3713,11 @@
     "ontimeDate": "2026-06-03",
     "ontimeEv": "https://raw.githubusercontent.com/pinuspackindo-ai/pinuspackindo-okr/data/uploads/general_affair/1783134108718_jy704y_Pinus.jpg",
     "ontimeEvName": "Pinus.jpg",
-    "akurasiScore": null,
-    "ontimeScore": null,
-    "totalScore": null,
-    "savedAt": null,
-    "locked": false,
+    "akurasiScore": 100,
+    "ontimeScore": 100,
+    "totalScore": 100,
+    "savedAt": "2026-07-04T03:02:44.485Z",
+    "locked": true,
     "ontimeEvs": [
       {
         "name": "Pinus.jpg",
