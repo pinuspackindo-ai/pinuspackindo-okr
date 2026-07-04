@@ -1357,8 +1357,8 @@
             "data": "https://raw.githubusercontent.com/pinuspackindo-ai/pinuspackindo-okr/data/uploads/internal_audit/1783132208890_90g84h_k7.png"
           }
         ],
-        "locked": false,
-        "savedAt": "2026-07-04T02:27:01.356Z",
+        "locked": true,
+        "savedAt": "2026-07-04T02:30:10.115Z",
         "submittedDate": "2026-06-07",
         "temuan": "0"
       },
@@ -3562,5 +3562,5 @@
       }
     ]
   },
-  "_ts": 1783132207523
+  "_ts": 1783132210128
 }
