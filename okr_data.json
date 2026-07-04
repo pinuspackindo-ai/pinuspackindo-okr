@@ -1,4 +1,5 @@
 {
+  "_ts": 1783133391345,
   "_userAccess": {
     "Finance & Accounting": {
       "modules": [
@@ -442,7 +443,7 @@
           "target": 90
         },
         {
-          "actual": 98.23,
+          "actual": 98.225,
           "bobot": 10,
           "id": "r1779890290785xbtj",
           "keyResult": "Tingkat implementasi rekomendasi audit",
@@ -613,7 +614,7 @@
       "actionPlan": "Finalisasi DD, bizflow, SOP warehouse",
       "rows": [
         {
-          "actual": 100,
+          "actual": 0,
           "bobot": 45,
           "id": "r1780472096513p4fv",
           "keyResult": "Tingkat implementasi rekomendasi audit",
@@ -621,7 +622,7 @@
           "target": 100
         },
         {
-          "actual": 99.6,
+          "actual": 0,
           "bobot": 35,
           "id": "r1780472096513rv9r",
           "keyResult": "Laporan audit akurat dan on time",
@@ -629,7 +630,7 @@
           "target": 100
         },
         {
-          "actual": 3,
+          "actual": 0,
           "bobot": 20,
           "id": "r1780472096513vb39",
           "keyResult": "Jumlah inisiatif proaktif",
@@ -724,7 +725,7 @@
       "actionPlan": "Planning acara chef Avian",
       "rows": [
         {
-          "actual": 2726403501,
+          "actual": null,
           "bobot": 30,
           "id": "r1780472096513hnb9",
           "keyResult": "Jumlah omset",
@@ -732,7 +733,7 @@
           "target": 3040000000
         },
         {
-          "actual": 76.1,
+          "actual": null,
           "bobot": 25,
           "id": "r1780472096513tjlr",
           "keyResult": "Tingkat akurasi stok fisik vs data",
@@ -740,7 +741,7 @@
           "target": 80
         },
         {
-          "actual": 90.11,
+          "actual": null,
           "bobot": 20,
           "id": "r17804720965132wml",
           "keyResult": "Score kepuasan pelanggan",
@@ -756,7 +757,7 @@
           "target": 95
         },
         {
-          "actual": 100,
+          "actual": null,
           "bobot": 10,
           "id": "r1780472096513qiyu",
           "keyResult": "Tingkat implementasi rekomendasi audit",
@@ -769,7 +770,7 @@
       "actionPlan": "",
       "rows": [
         {
-          "actual": 94.56,
+          "actual": null,
           "bobot": 30,
           "id": "r1780472096513er4q",
           "keyResult": "Tingkat akurasi stok fisik vs data",
@@ -785,7 +786,7 @@
           "target": 95
         },
         {
-          "actual": 90.2,
+          "actual": null,
           "bobot": 20,
           "id": "r1780472096513fj95",
           "keyResult": "Score avg cartrack",
@@ -801,7 +802,7 @@
           "target": 90
         },
         {
-          "actual": 89.28,
+          "actual": null,
           "bobot": 10,
           "id": "r17804720965135ql3",
           "keyResult": "Tingkat implementasi rekomendasi audit",
@@ -1057,54 +1058,7 @@
     ]
   },
   "_ia_proj_2026_06": {
-    "rows": [
-      {
-        "namaProject": "Portal Internal Karyawan (https://internal.pinuspackindo.com/login)",
-        "tujuan": "Memberikan kemudahan akses karyawan terhadap informasi kepegagawaian, prizinan, dll yang berkaitan denagn hak karayawan.",
-        "evidence": "https://raw.githubusercontent.com/pinuspackindo-ai/pinuspackindo-okr/data/uploads/internal_audit/1783132487111_y3hc9w_ddd.jpg",
-        "evidenceName": "ddd.jpg",
-        "locked": true,
-        "evidences": [
-          {
-            "name": "ddd.jpg",
-            "data": "https://raw.githubusercontent.com/pinuspackindo-ai/pinuspackindo-okr/data/uploads/internal_audit/1783132488104_imwdha_ddd.jpg"
-          }
-        ],
-        "savedAt": "2026-07-04T02:34:46.906Z"
-      },
-      {
-        "namaProject": "Tools Flow Proses New Item, Revisi Harga, dan Promotion Program (Link baru : https://tools-purchase-lime.vercel.app/)",
-        "tujuan": "Membantu tim pruchasing dan pic lain dalam flow proses new item, revisi harga, dan pengajuan program promosi.",
-        "evidence": "https://raw.githubusercontent.com/pinuspackindo-ai/pinuspackindo-okr/data/uploads/internal_audit/1783133104942_jijkeb_Purchase.jpg",
-        "evidenceName": "Purchase.jpg",
-        "locked": true,
-        "evidences": [
-          {
-            "name": "Purchase.jpg",
-            "data": "https://raw.githubusercontent.com/pinuspackindo-ai/pinuspackindo-okr/data/uploads/internal_audit/1783132548510_2tqx5f_Purchase.jpg"
-          },
-          {
-            "name": "Purchase.jpg",
-            "data": "https://raw.githubusercontent.com/pinuspackindo-ai/pinuspackindo-okr/data/uploads/internal_audit/1783133103214_45qow9_Purchase.jpg"
-          }
-        ],
-        "savedAt": "2026-07-04T02:45:03.784Z"
-      },
-      {
-        "namaProject": "Tools Purchase (database supplier dan history produk)",
-        "tujuan": "membantu tim purchase dalam mencari histori pembelian by produk supplier, diskon, tax, dll",
-        "evidence": "https://raw.githubusercontent.com/pinuspackindo-ai/pinuspackindo-okr/data/uploads/internal_audit/1783132587461_6066c8_Purchase.jpg",
-        "evidenceName": "Purchase.jpg",
-        "locked": true,
-        "evidences": [
-          {
-            "name": "Purchase.jpg",
-            "data": "https://raw.githubusercontent.com/pinuspackindo-ai/pinuspackindo-okr/data/uploads/internal_audit/1783132587099_h7crgm_Purchase.jpg"
-          }
-        ],
-        "savedAt": "2026-07-04T02:36:26.146Z"
-      }
-    ]
+    "rows": []
   },
   "_ia_reko_2026_05": {
     "rows": [
@@ -1211,106 +1165,67 @@
   "_ia_reko_2026_06": {
     "rows": [
       {
-        "evidence": "https://raw.githubusercontent.com/pinuspackindo-ai/pinuspackindo-okr/data/uploads/internal_audit/1783132676838_4vi2tj_Cuplikan_layar_2026-07-04_092336.png",
-        "evidenceName": "Cuplikan layar 2026-07-04 092336.png",
-        "evidences": [
-          {
-            "name": "Cuplikan layar 2026-07-04 092336.png",
-            "data": "https://raw.githubusercontent.com/pinuspackindo-ai/pinuspackindo-okr/data/uploads/internal_audit/1783132661538_5w1ybl_Cuplikan_layar_2026-07-04_092336.png"
-          }
-        ],
-        "locked": true,
+        "evidence": "",
+        "evidenceName": "",
+        "evidences": [],
+        "locked": false,
         "namaAudit": "Keuangan",
-        "savedAt": "2026-07-04T02:37:55.650Z",
-        "score": "100"
+        "savedAt": "2026-06-04T17:50:58.801Z",
+        "score": ""
       },
       {
-        "evidence": "https://raw.githubusercontent.com/pinuspackindo-ai/pinuspackindo-okr/data/uploads/internal_audit/1783132718820_l6hyyo_Cuplikan_layar_2026-07-04_092336.png",
-        "evidenceName": "Cuplikan layar 2026-07-04 092336.png",
-        "evidences": [
-          {
-            "name": "Cuplikan layar 2026-07-04 092336.png",
-            "data": "https://raw.githubusercontent.com/pinuspackindo-ai/pinuspackindo-okr/data/uploads/internal_audit/1783132722452_ph2k9r_Cuplikan_layar_2026-07-04_092336.png"
-          }
-        ],
-        "locked": true,
+        "evidence": "",
+        "evidenceName": "",
+        "evidences": [],
+        "locked": false,
         "namaAudit": "Stock Opname Store",
-        "savedAt": "2026-07-04T02:38:41.249Z",
-        "score": "100"
+        "savedAt": "2026-06-04T03:29:14.774Z",
+        "score": ""
       },
       {
-        "evidence": "https://raw.githubusercontent.com/pinuspackindo-ai/pinuspackindo-okr/data/uploads/internal_audit/1783132765918_lfcw2q_Cuplikan_layar_2026-07-04_092336.png",
-        "evidenceName": "Cuplikan layar 2026-07-04 092336.png",
-        "evidences": [
-          {
-            "name": "Cuplikan layar 2026-07-04 092336.png",
-            "data": "https://raw.githubusercontent.com/pinuspackindo-ai/pinuspackindo-okr/data/uploads/internal_audit/1783132764541_mhtvgb_Cuplikan_layar_2026-07-04_092336.png"
-          }
-        ],
-        "locked": true,
+        "evidence": "",
+        "evidenceName": "",
+        "evidences": [],
+        "locked": false,
         "namaAudit": "Stock Opname Warehouse",
-        "savedAt": "2026-07-04T02:39:24.737Z",
-        "score": "100"
+        "savedAt": "2026-06-04T03:29:16.973Z",
+        "score": ""
       },
       {
-        "evidence": "https://raw.githubusercontent.com/pinuspackindo-ai/pinuspackindo-okr/data/uploads/internal_audit/1783132979407_05kdiz_Cuplikan_layar_2026-07-04_092336.png",
-        "evidenceName": "Cuplikan layar 2026-07-04 092336.png",
-        "evidences": [
-          {
-            "name": "Cuplikan layar 2026-07-04 092336.png",
-            "data": "https://raw.githubusercontent.com/pinuspackindo-ai/pinuspackindo-okr/data/uploads/internal_audit/1783132980583_jk1n3e_Cuplikan_layar_2026-07-04_092336.png"
-          }
-        ],
-        "locked": true,
+        "evidence": "",
+        "evidenceName": "",
+        "evidences": [],
+        "locked": false,
         "namaAudit": "Purchasing",
-        "savedAt": "2026-07-04T02:42:59.314Z",
-        "score": "100"
+        "savedAt": "2026-06-04T03:29:19.317Z",
+        "score": ""
       },
       {
-        "evidence": "https://raw.githubusercontent.com/pinuspackindo-ai/pinuspackindo-okr/data/uploads/internal_audit/1783133086771_rcy645_Cuplikan_layar_2026-07-04_092336.png",
-        "evidenceName": "Cuplikan layar 2026-07-04 092336.png",
-        "evidences": [
-          {
-            "name": "Cuplikan layar 2026-07-04 092336.png",
-            "data": "https://raw.githubusercontent.com/pinuspackindo-ai/pinuspackindo-okr/data/uploads/internal_audit/1783133039337_g71y23_Cuplikan_layar_2026-07-04_092336.png"
-          },
-          {
-            "name": "Cuplikan layar 2026-07-04 092336.png",
-            "data": "https://raw.githubusercontent.com/pinuspackindo-ai/pinuspackindo-okr/data/uploads/internal_audit/1783133095396_kxefvq_Cuplikan_layar_2026-07-04_092336.png"
-          }
-        ],
-        "locked": true,
+        "evidence": "",
+        "evidenceName": "",
+        "evidences": [],
+        "locked": false,
         "namaAudit": "Inventory",
-        "savedAt": "2026-07-04T02:44:45.600Z",
-        "score": "100"
+        "savedAt": "2026-06-04T03:29:21.470Z",
+        "score": ""
       },
       {
-        "evidence": "https://raw.githubusercontent.com/pinuspackindo-ai/pinuspackindo-okr/data/uploads/internal_audit/1783132817395_k3rn0x_Cuplikan_layar_2026-07-04_092336.png",
-        "evidenceName": "Cuplikan layar 2026-07-04 092336.png",
-        "evidences": [
-          {
-            "name": "Cuplikan layar 2026-07-04 092336.png",
-            "data": "https://raw.githubusercontent.com/pinuspackindo-ai/pinuspackindo-okr/data/uploads/internal_audit/1783132815960_talo4w_Cuplikan_layar_2026-07-04_092336.png"
-          }
-        ],
-        "locked": true,
+        "evidence": "",
+        "evidenceName": "",
+        "evidences": [],
+        "locked": false,
         "namaAudit": "Default Diary",
-        "savedAt": "2026-07-04T02:40:16.453Z",
-        "score": "100"
+        "savedAt": "2026-06-04T03:29:24.774Z",
+        "score": ""
       },
       {
-        "evidence": "https://raw.githubusercontent.com/pinuspackindo-ai/pinuspackindo-okr/data/uploads/internal_audit/1783132863263_b5cmrl_Cuplikan_layar_2026-07-04_092336.png",
-        "evidenceName": "Cuplikan layar 2026-07-04 092336.png",
-        "evidences": [
-          {
-            "name": "Cuplikan layar 2026-07-04 092336.png",
-            "data": "https://raw.githubusercontent.com/pinuspackindo-ai/pinuspackindo-okr/data/uploads/internal_audit/1783132860075_g8946m_Cuplikan_layar_2026-07-04_092336.png"
-          }
-        ],
-        "locked": true,
+        "evidence": "",
+        "evidenceName": "",
+        "evidences": [],
+        "locked": false,
         "namaAudit": "Cartrack",
-        "savedAt": "2026-07-04T02:41:02.306Z",
-        "score": "100"
+        "savedAt": "2026-06-04T03:29:27.822Z",
+        "score": ""
       }
     ]
   },
@@ -1434,64 +1349,38 @@
   "_ia_rot_keuangan_2026_06": {
     "rows": [
       {
-        "deadline": "2026-06-07",
-        "evidence": "https://raw.githubusercontent.com/pinuspackindo-ai/pinuspackindo-okr/data/uploads/internal_audit/1783132208296_mi6iwy_k7.png",
-        "evidenceName": "k7.png",
-        "evidences": [
-          {
-            "name": "k7.png",
-            "data": "https://raw.githubusercontent.com/pinuspackindo-ai/pinuspackindo-okr/data/uploads/internal_audit/1783132208890_90g84h_k7.png"
-          }
-        ],
-        "locked": true,
-        "savedAt": "2026-07-04T02:30:10.115Z",
-        "submittedDate": "2026-06-07",
-        "temuan": "0"
+        "deadline": "2026-06-06",
+        "evidence": "",
+        "evidenceName": "",
+        "evidences": [],
+        "locked": false,
+        "savedAt": "2026-06-04T17:51:20.940Z",
+        "submittedDate": "",
+        "temuan": ""
       },
       {
-        "deadline": "2026-06-14",
-        "evidence": "https://raw.githubusercontent.com/pinuspackindo-ai/pinuspackindo-okr/data/uploads/internal_audit/1783132067396_8wo6lt_k14.png",
-        "evidenceName": "k14.png",
-        "locked": true,
-        "submittedDate": "2026-06-14",
-        "temuan": "0",
-        "evidences": [
-          {
-            "name": "k14.png",
-            "data": "https://raw.githubusercontent.com/pinuspackindo-ai/pinuspackindo-okr/data/uploads/internal_audit/1783132051831_pvsokv_k14.png"
-          }
-        ],
-        "savedAt": "2026-07-04T02:27:31.819Z"
+        "deadline": "2026-06-13",
+        "evidence": "",
+        "evidenceName": "",
+        "locked": false,
+        "submittedDate": "",
+        "temuan": ""
       },
       {
-        "deadline": "2026-06-21",
-        "evidence": "https://raw.githubusercontent.com/pinuspackindo-ai/pinuspackindo-okr/data/uploads/internal_audit/1783132068048_krkjwq_k21.png",
-        "evidenceName": "k21.png",
-        "locked": true,
-        "submittedDate": "2026-06-21",
-        "temuan": "0",
-        "evidences": [
-          {
-            "name": "k21.png",
-            "data": "https://raw.githubusercontent.com/pinuspackindo-ai/pinuspackindo-okr/data/uploads/internal_audit/1783132069005_w8zklv_k21.png"
-          }
-        ],
-        "savedAt": "2026-07-04T02:27:47.827Z"
+        "deadline": "2026-06-20",
+        "evidence": "",
+        "evidenceName": "",
+        "locked": false,
+        "submittedDate": "",
+        "temuan": ""
       },
       {
-        "deadline": "2026-06-28",
-        "evidence": "https://raw.githubusercontent.com/pinuspackindo-ai/pinuspackindo-okr/data/uploads/internal_audit/1783132087230_jsnj07_k28.png",
-        "evidenceName": "k28.png",
-        "locked": true,
-        "submittedDate": "2026-06-28",
-        "temuan": "0",
-        "evidences": [
-          {
-            "name": "k28.png",
-            "data": "https://raw.githubusercontent.com/pinuspackindo-ai/pinuspackindo-okr/data/uploads/internal_audit/1783132086225_74grof_k28.png"
-          }
-        ],
-        "savedAt": "2026-07-04T02:28:06.027Z"
+        "deadline": "2026-06-27",
+        "evidence": "",
+        "evidenceName": "",
+        "locked": false,
+        "submittedDate": "",
+        "temuan": ""
       }
     ]
   },
@@ -3372,11 +3261,16 @@
     "rows": [
       {
         "namaAudit": "Keuangan",
-        "score": "",
-        "evidence": "",
-        "evidenceName": "",
-        "locked": false,
-        "evidences": [],
+        "score": "100",
+        "evidence": "https://raw.githubusercontent.com/pinuspackindo-ai/pinuspackindo-okr/data/uploads/internal_audit/1783052097566_ef2czo_Bukti.png",
+        "evidenceName": "Bukti.png",
+        "locked": true,
+        "evidences": [
+          {
+            "name": "Bukti.png",
+            "data": "https://raw.githubusercontent.com/pinuspackindo-ai/pinuspackindo-okr/data/uploads/internal_audit/1783052098809_smll3u_Bukti.png"
+          }
+        ],
         "savedAt": "2026-07-03T04:14:57.955Z"
       },
       {
@@ -3444,7 +3338,7 @@
   "_ia_rot_keuangan_2026_07": {
     "rows": [
       {
-        "deadline": "2026-07-05",
+        "deadline": "2026-07-04",
         "submittedDate": "",
         "temuan": "",
         "evidence": null,
@@ -3462,7 +3356,7 @@
         ]
       },
       {
-        "deadline": "2026-07-12",
+        "deadline": "2026-07-11",
         "submittedDate": "",
         "temuan": "",
         "evidence": "",
@@ -3470,7 +3364,7 @@
         "locked": false
       },
       {
-        "deadline": "2026-07-19",
+        "deadline": "2026-07-18",
         "submittedDate": "",
         "temuan": "",
         "evidence": "",
@@ -3478,7 +3372,7 @@
         "locked": false
       },
       {
-        "deadline": "2026-07-26",
+        "deadline": "2026-07-25",
         "submittedDate": "",
         "temuan": "",
         "evidence": "",
@@ -3493,76 +3387,48 @@
         "deadline": "2026-06-02",
         "submittedDate": "2026-06-02",
         "temuan": "0",
-        "evidence": "https://raw.githubusercontent.com/pinuspackindo-ai/pinuspackindo-okr/data/uploads/internal_audit/1783132233269_y4hk53_s2.png",
+        "evidence": "https://raw.githubusercontent.com/pinuspackindo-ai/pinuspackindo-okr/data/uploads/internal_audit/1783061767937_yvb33y_s2.png",
         "evidenceName": "s2.png",
         "locked": true,
         "evidences": [
           {
             "name": "s2.png",
-            "data": "https://raw.githubusercontent.com/pinuspackindo-ai/pinuspackindo-okr/data/uploads/internal_audit/1783132234684_o9hdcy_s2.png"
+            "data": null
           }
         ],
-        "savedAt": "2026-07-04T02:30:33.531Z"
+        "savedAt": "2026-07-03T06:56:07.225Z"
       },
       {
         "deadline": "2026-06-09",
-        "submittedDate": "2026-06-09",
-        "temuan": "0",
-        "evidence": "https://raw.githubusercontent.com/pinuspackindo-ai/pinuspackindo-okr/data/uploads/internal_audit/1783132267948_79hzpe_s9.png",
-        "evidenceName": "s9.png",
-        "locked": true,
-        "evidences": [
-          {
-            "name": "s9.png",
-            "data": "https://raw.githubusercontent.com/pinuspackindo-ai/pinuspackindo-okr/data/uploads/internal_audit/1783132252427_faz3no_s9.png"
-          }
-        ],
-        "savedAt": "2026-07-04T02:30:51.258Z"
+        "submittedDate": "",
+        "temuan": "",
+        "evidence": "",
+        "evidenceName": "",
+        "locked": false
       },
       {
         "deadline": "2026-06-16",
-        "submittedDate": "2026-06-16",
-        "temuan": "0",
-        "evidence": "https://raw.githubusercontent.com/pinuspackindo-ai/pinuspackindo-okr/data/uploads/internal_audit/1783132270792_ypkm5j_s16.png",
-        "evidenceName": "s16.png",
-        "locked": true,
-        "evidences": [
-          {
-            "name": "s16.png",
-            "data": "https://raw.githubusercontent.com/pinuspackindo-ai/pinuspackindo-okr/data/uploads/internal_audit/1783132310820_vc6fk5_s16.png"
-          }
-        ],
-        "savedAt": "2026-07-04T02:31:09.772Z"
+        "submittedDate": "",
+        "temuan": "",
+        "evidence": "",
+        "evidenceName": "",
+        "locked": false
       },
       {
         "deadline": "2026-06-23",
-        "submittedDate": "2026-06-23",
-        "temuan": "0",
-        "evidence": "https://raw.githubusercontent.com/pinuspackindo-ai/pinuspackindo-okr/data/uploads/internal_audit/1783132291553_iuxvfe_s23.png",
-        "evidenceName": "s23.png",
-        "locked": true,
-        "evidences": [
-          {
-            "name": "s23.png",
-            "data": "https://raw.githubusercontent.com/pinuspackindo-ai/pinuspackindo-okr/data/uploads/internal_audit/1783132288860_7y544s_s23.png"
-          }
-        ],
-        "savedAt": "2026-07-04T02:31:30.338Z"
+        "submittedDate": "",
+        "temuan": "",
+        "evidence": "",
+        "evidenceName": "",
+        "locked": false
       },
       {
         "deadline": "2026-06-30",
-        "submittedDate": "2026-07-01",
-        "temuan": "0",
-        "evidence": "https://raw.githubusercontent.com/pinuspackindo-ai/pinuspackindo-okr/data/uploads/internal_audit/1783132338567_1x2kao_s30.png",
-        "evidenceName": "s30.png",
-        "locked": true,
-        "evidences": [
-          {
-            "name": "s30.png",
-            "data": "https://raw.githubusercontent.com/pinuspackindo-ai/pinuspackindo-okr/data/uploads/internal_audit/1783132309718_xj267h_s30.png"
-          }
-        ],
-        "savedAt": "2026-07-04T02:31:49.634Z"
+        "submittedDate": "",
+        "temuan": "",
+        "evidence": "",
+        "evidenceName": "",
+        "locked": false
       }
     ]
   },
@@ -3591,16 +3457,16 @@
         "deadline": "2026-06-30",
         "submittedDate": "2026-06-18",
         "temuan": "0",
-        "evidence": "",
+        "evidence": null,
         "evidenceName": "cjuni.png",
         "locked": true,
         "evidences": [
           {
             "name": "cjuni.png",
-            "data": "https://raw.githubusercontent.com/pinuspackindo-ai/pinuspackindo-okr/data/uploads/internal_audit/1783132343255_vb2fdu_cjuni.png"
+            "data": "https://raw.githubusercontent.com/pinuspackindo-ai/pinuspackindo-okr/data/uploads/internal_audit/1783061982555_g0txdm_cjuni.png"
           }
         ],
-        "savedAt": "2026-07-04T02:32:22.098Z"
+        "savedAt": "2026-07-03T06:59:42.800Z"
       }
     ]
   },
@@ -3685,6 +3551,5 @@
         "data": null
       }
     ]
-  },
-  "_ts": 1783133352833
+  }
 }
