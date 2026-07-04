@@ -3686,7 +3686,7 @@
       }
     ]
   },
-  "_ts": 1783134107788,
+  "_ts": 1783134120229,
   "_ga_so_2026_05": {
     "value": 98.2,
     "evidence": "https://raw.githubusercontent.com/pinuspackindo-ai/pinuspackindo-okr/data/uploads/general_affair/1783134084937_5jxm8v_Cuplikan_layar_2026-07-04_095817.png",
@@ -3744,7 +3744,7 @@
     "ontimeScore": 100,
     "totalScore": 91.66666666666667,
     "savedAt": "2026-07-04T03:01:47.788Z",
-    "locked": true,
+    "locked": false,
     "ontimeEvs": [
       {
         "name": "Pinus.jpg",
