@@ -4103,9 +4103,19 @@ function _okrRerenderCurrent(){
   var fn=map[window._curPanel||'dashboard'];
   try{ if(fn&&typeof window[fn]==='function')window[fn](); }catch(e){}
 }
-// _syncMerge: merge cloud into local using per-key savedAt timestamps
-// Cloud wins only if its savedAt is strictly newer than local's savedAt
-// For keys without savedAt: cloud wins if it has data and local doesn't
+// _okrDeepSaved: cari cap-waktu savedAt TERBARU di mana pun dalam objek (utk key tanpa savedAt di level atas)
+function _okrDeepSaved(o){
+  var mx=0;
+  (function scan(x){
+    if(!x||typeof x!=='object')return;
+    if(x.savedAt){var t=new Date(x.savedAt).getTime();if(t>mx)mx=t;}
+    if(Array.isArray(x)){for(var i=0;i<x.length;i++)scan(x[i]);}
+    else{for(var k in x){if(k==='savedAt')continue;scan(x[k]);}}
+  })(o);
+  return mx;
+}
+// _syncMerge: merge cloud into local using per-key savedAt timestamps (yang TERBARU menang — GitHub sbg sumber kebenaran)
+// Cloud wins only if its (deep) savedAt is strictly newer than local's
 function _syncMerge(local, cloud) {
   if (!cloud || typeof cloud !== 'object') return false;
   var changed = false;
@@ -4123,9 +4133,9 @@ function _syncMerge(local, cloud) {
     if (lv === undefined || lv === null) { local[k] = cv; changed = true; return; }
     // Both are objects: compare savedAt
     if (typeof cv === 'object' && cv !== null && typeof lv === 'object' && lv !== null) {
-      var lSaved = lv.savedAt ? new Date(lv.savedAt).getTime() : 0;
-      var cSaved = cv.savedAt ? new Date(cv.savedAt).getTime() : 0;
-      if (cSaved > lSaved) { local[k] = cv; changed = true; } // cloud newer → take it
+      var lSaved = lv.savedAt ? new Date(lv.savedAt).getTime() : _okrDeepSaved(lv);
+      var cSaved = cv.savedAt ? new Date(cv.savedAt).getTime() : _okrDeepSaved(cv);
+      if (cSaved > lSaved) { local[k] = cv; changed = true; } // cloud lebih baru → ambil cloud
       // local newer or equal → keep local (no change)
       return;
     }
