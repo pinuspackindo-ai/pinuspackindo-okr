@@ -1296,7 +1296,7 @@
             "data": "https://raw.githubusercontent.com/pinuspackindo-ai/pinuspackindo-okr/data/uploads/internal_audit/1783132815960_talo4w_Cuplikan_layar_2026-07-04_092336.png"
           }
         ],
-        "locked": true,
+        "locked": false,
         "namaAudit": "Default Diary",
         "savedAt": "2026-07-04T02:40:16.453Z",
         "score": "100"
@@ -3851,5 +3851,5 @@
     ],
     "locked": false
   },
-  "_ts": 1783139235078
+  "_ts": 1783139249448
 }
