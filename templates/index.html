@@ -4638,6 +4638,13 @@ function okrRender(){
       if(_srot.locked&&_srot.totalScore!==null)inventorySyncOKR('report_ot',okrCurYear,_sm,_srot.totalScore);
     }
   }
+  // Sync Warehouse sub-modules → OKR (akurasi stock, default diary, cartrack, impl audit) — selalu re-derive dari sub-modul
+  if(typeof WAREHOUSE_SUBS!=='undefined'&&Array.isArray(WAREHOUSE_SUBS)&&typeof warehouseSyncOKR==='function'){
+    WAREHOUSE_SUBS.forEach(function(sub){
+      var _wd=_wg(sub.id,okrCurYear,okrCurMonth);
+      if(_wd.locked&&_wd.value!==null&&_wd.value!==undefined&&_wd.value!=='')warehouseSyncOKR(sub.id,okrCurYear,okrCurMonth,Math.round(_wd.value*100)/100);
+    });
+  }
   // Sync In Stock → OKR Purchasing untuk bulan yang sedang ditampilkan
   if(typeof purchInstockSyncOKR==='function')purchInstockSyncOKR(okrCurYear,okrCurMonth);
   // Sync purchasing monthly sub-modules (APO, Kpen, Impl Reko) → OKR Purchasing
