@@ -1,5 +1,5 @@
 {
-  "_ts": 1783134495703,
+  "_ts": 1783134497508,
   "_userAccess": {
     "Finance & Accounting": {
       "modules": [
@@ -909,21 +909,6 @@
   "_ga_wp_2026_06": {
     "locked": false,
     "rows": [
-      {
-        "nama": "ASAL 5",
-        "deadline": "2026-06-01",
-        "realisasi": "2026-06-02",
-        "pelaksana": "Asal",
-        "evidence": "https://raw.githubusercontent.com/pinuspackindo-ai/pinuspackindo-okr/data/uploads/general_affair/1783134459230_1a6dt6_Pinus.jpg",
-        "evidenceName": "Pinus.jpg",
-        "editing": false,
-        "evidences": [
-          {
-            "name": "Pinus.jpg",
-            "data": "https://raw.githubusercontent.com/pinuspackindo-ai/pinuspackindo-okr/data/uploads/general_affair/1783134458552_4ty9jn_Pinus.jpg"
-          }
-        ]
-      },
       {
         "nama": "ASAL 6",
         "deadline": "2026-06-01",
