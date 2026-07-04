@@ -3507,7 +3507,7 @@
     "evidence": "https://raw.githubusercontent.com/pinuspackindo-ai/pinuspackindo-okr/data/uploads/warehouse/1783069932502_h1e5et_sss.png",
     "evidenceName": "sss.png",
     "savedAt": "2026-07-03T09:14:40.776Z",
-    "locked": true,
+    "locked": false,
     "evidences": [
       {
         "name": "sss.png",
@@ -3536,5 +3536,5 @@
       }
     ]
   },
-  "_ts": 1783131276152
+  "_ts": 1783131747166
 }
