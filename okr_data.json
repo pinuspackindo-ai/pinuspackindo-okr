@@ -93,7 +93,8 @@
     "Admin": "909"
   },
   "_deleted": {
-    "_ga_rot_2026_06": 1783134158109
+    "_ga_rot_2026_06": 1783134158109,
+    "_ga_rot_2026_07": 1783134170325
   },
   "2026-05": {
     "Distribution Sales": {
@@ -3688,7 +3689,7 @@
       }
     ]
   },
-  "_ts": 1783134164485,
+  "_ts": 1783134170325,
   "_ga_so_2026_05": {
     "value": 98.2,
     "evidence": "https://raw.githubusercontent.com/pinuspackindo-ai/pinuspackindo-okr/data/uploads/general_affair/1783134084937_5jxm8v_Cuplikan_layar_2026-07-04_095817.png",
@@ -3699,35 +3700,6 @@
       {
         "name": "Cuplikan layar 2026-07-04 095817.png",
         "data": "https://raw.githubusercontent.com/pinuspackindo-ai/pinuspackindo-okr/data/uploads/general_affair/1783133949407_tbfs70_Cuplikan_layar_2026-07-04_095817.png"
-      }
-    ]
-  },
-  "_ga_rot_2026_07": {
-    "poin": [
-      0,
-      0,
-      0
-    ],
-    "akurasiEv": "https://raw.githubusercontent.com/pinuspackindo-ai/pinuspackindo-okr/data/uploads/general_affair/1783134127376_an1fnz_Pinus.jpg",
-    "akurasiEvName": "Pinus.jpg",
-    "ontimeDate": "2026-06-03",
-    "ontimeEv": "https://raw.githubusercontent.com/pinuspackindo-ai/pinuspackindo-okr/data/uploads/general_affair/1783134108718_jy704y_Pinus.jpg",
-    "ontimeEvName": "Pinus.jpg",
-    "akurasiScore": 100,
-    "ontimeScore": 100,
-    "totalScore": 100,
-    "savedAt": "2026-07-04T03:02:44.485Z",
-    "locked": true,
-    "ontimeEvs": [
-      {
-        "name": "Pinus.jpg",
-        "data": "https://raw.githubusercontent.com/pinuspackindo-ai/pinuspackindo-okr/data/uploads/general_affair/1783134077765_alakmq_Pinus.jpg"
-      }
-    ],
-    "akurasiEvs": [
-      {
-        "name": "Pinus.jpg",
-        "data": "https://raw.githubusercontent.com/pinuspackindo-ai/pinuspackindo-okr/data/uploads/general_affair/1783134078312_nh79ic_Pinus.jpg"
       }
     ]
   }
