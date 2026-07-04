@@ -1236,7 +1236,7 @@
             "data": "https://raw.githubusercontent.com/pinuspackindo-ai/pinuspackindo-okr/data/uploads/internal_audit/1783132722452_ph2k9r_Cuplikan_layar_2026-07-04_092336.png"
           }
         ],
-        "locked": true,
+        "locked": false,
         "namaAudit": "Stock Opname Store",
         "savedAt": "2026-07-04T02:38:41.249Z",
         "score": "100"
@@ -3851,5 +3851,5 @@
     ],
     "locked": false
   },
-  "_ts": 1783139257610
+  "_ts": 1783139258598
 }
