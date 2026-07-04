@@ -1077,7 +1077,7 @@
         "tujuan": "Membantu tim pruchasing dan pic lain dalam flow proses new item, revisi harga, dan pengajuan program promosi.",
         "evidence": null,
         "evidenceName": "Purchase.jpg",
-        "locked": true,
+        "locked": false,
         "evidences": [
           {
             "name": "Purchase.jpg",
@@ -3682,5 +3682,5 @@
       }
     ]
   },
-  "_ts": 1783133085613
+  "_ts": 1783133094232
 }
