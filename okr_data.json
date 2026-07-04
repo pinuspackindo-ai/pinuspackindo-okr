@@ -1,5 +1,4 @@
 {
-  "_ts": 1783133391345,
   "_userAccess": {
     "Finance & Accounting": {
       "modules": [
@@ -725,7 +724,7 @@
       "actionPlan": "Planning acara chef Avian",
       "rows": [
         {
-          "actual": null,
+          "actual": 2726403501,
           "bobot": 30,
           "id": "r1780472096513hnb9",
           "keyResult": "Jumlah omset",
@@ -733,7 +732,7 @@
           "target": 3040000000
         },
         {
-          "actual": null,
+          "actual": 76.1,
           "bobot": 25,
           "id": "r1780472096513tjlr",
           "keyResult": "Tingkat akurasi stok fisik vs data",
@@ -741,7 +740,7 @@
           "target": 80
         },
         {
-          "actual": null,
+          "actual": 90.11,
           "bobot": 20,
           "id": "r17804720965132wml",
           "keyResult": "Score kepuasan pelanggan",
@@ -757,7 +756,7 @@
           "target": 95
         },
         {
-          "actual": null,
+          "actual": 100,
           "bobot": 10,
           "id": "r1780472096513qiyu",
           "keyResult": "Tingkat implementasi rekomendasi audit",
@@ -770,7 +769,7 @@
       "actionPlan": "",
       "rows": [
         {
-          "actual": null,
+          "actual": 94.56,
           "bobot": 30,
           "id": "r1780472096513er4q",
           "keyResult": "Tingkat akurasi stok fisik vs data",
@@ -786,7 +785,7 @@
           "target": 95
         },
         {
-          "actual": null,
+          "actual": 90.2,
           "bobot": 20,
           "id": "r1780472096513fj95",
           "keyResult": "Score avg cartrack",
@@ -802,7 +801,7 @@
           "target": 90
         },
         {
-          "actual": null,
+          "actual": 89.28,
           "bobot": 10,
           "id": "r17804720965135ql3",
           "keyResult": "Tingkat implementasi rekomendasi audit",
@@ -3551,5 +3550,6 @@
         "data": null
       }
     ]
-  }
+  },
+  "_ts": 1783133557115
 }
