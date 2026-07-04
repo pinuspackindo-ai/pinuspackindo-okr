@@ -92,6 +92,7 @@
     "Store": "1011",
     "Admin": "909"
   },
+  "_deleted": {},
   "2026-05": {
     "Distribution Sales": {
       "actionPlan": "Training new telesales",
@@ -3476,8 +3477,6 @@
   },
   "_p_sv_rn_2026_06": 1024,
   "_p_sv_rn_lk_2026_06": false,
-  "_ts": 1783086241872,
-  "_deleted": {},
   "_p_ins_2026_07_03": {
     "file1": "https://raw.githubusercontent.com/pinuspackindo-ai/pinuspackindo-okr/data/uploads/purchasing/1783069354644_tp1yba_product.product_2.xlsx",
     "file1Name": "product.product (2).xlsx",
@@ -3546,5 +3545,6 @@
         "data": null
       }
     ]
-  }
+  },
+  "_ts": 1783124472134
 }
