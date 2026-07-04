@@ -4671,6 +4671,20 @@ function okrRender(){
       if(_wd.locked&&_wd.value!==null&&_wd.value!==undefined&&_wd.value!=='')warehouseSyncOKR(sub.id,okrCurYear,okrCurMonth,Math.round(_wd.value*100)/100);
     });
   }
+  // Sync Store sub-modules → OKR — selalu re-derive dari sub-modul
+  if(typeof STORE_SUBS!=='undefined'&&Array.isArray(STORE_SUBS)&&typeof storeSyncOKR==='function'){
+    STORE_SUBS.forEach(function(sub){
+      var _sd=_sg(sub.id,okrCurYear,okrCurMonth);
+      if(_sd.locked&&_sd.value!==null&&_sd.value!==undefined&&_sd.value!=='')storeSyncOKR(sub.id,okrCurYear,okrCurMonth,Math.round(_sd.value*100)/100);
+    });
+  }
+  // Sync Distribution sub-modules → OKR — selalu re-derive dari sub-modul
+  if(typeof DISTRIB_SUBS!=='undefined'&&Array.isArray(DISTRIB_SUBS)&&typeof distribSyncOKR==='function'){
+    DISTRIB_SUBS.forEach(function(sub){
+      var _dd=_dg(sub.id,okrCurYear,okrCurMonth);
+      if(_dd.locked&&_dd.value!==null&&_dd.value!==undefined&&_dd.value!=='')distribSyncOKR(sub.id,okrCurYear,okrCurMonth,Math.round(_dd.value*100)/100);
+    });
+  }
   // Sync In Stock → OKR Purchasing untuk bulan yang sedang ditampilkan
   if(typeof purchInstockSyncOKR==='function')purchInstockSyncOKR(okrCurYear,okrCurMonth);
   // Sync purchasing monthly sub-modules (APO, Kpen, Impl Reko) → OKR Purchasing
