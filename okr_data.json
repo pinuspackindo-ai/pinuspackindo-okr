@@ -1,5 +1,5 @@
 {
-  "_ts": 1783134476867,
+  "_ts": 1783134490148,
   "_userAccess": {
     "Finance & Accounting": {
       "modules": [
@@ -551,7 +551,7 @@
           "target": 98
         },
         {
-          "actual": 94.05,
+          "actual": 94.29,
           "bobot": 35,
           "id": "r178047209651331vz",
           "keyResult": "Tingkat akurasi lead time pengadaan / maintenance",
@@ -909,21 +909,6 @@
   "_ga_wp_2026_06": {
     "locked": false,
     "rows": [
-      {
-        "nama": "ASAL",
-        "deadline": "2026-06-01",
-        "realisasi": "2026-06-02",
-        "pelaksana": "Asal",
-        "evidence": "https://raw.githubusercontent.com/pinuspackindo-ai/pinuspackindo-okr/data/uploads/general_affair/1783134285260_0y89mv_Pinus.jpg",
-        "evidenceName": "Pinus.jpg",
-        "editing": false,
-        "evidences": [
-          {
-            "name": "Pinus.jpg",
-            "data": "https://raw.githubusercontent.com/pinuspackindo-ai/pinuspackindo-okr/data/uploads/general_affair/1783134264285_0yxyi3_Pinus.jpg"
-          }
-        ]
-      },
       {
         "nama": "ASAL 2",
         "deadline": "2026-06-01",
