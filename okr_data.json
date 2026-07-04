@@ -555,7 +555,7 @@
           "target": 95
         },
         {
-          "actual": 91.66666666666667,
+          "actual": 100,
           "bobot": 25,
           "id": "r1780472096513nvke",
           "keyResult": "Laporan inventaris akurat dan on time",
@@ -3686,7 +3686,7 @@
       }
     ]
   },
-  "_ts": 1783134120229,
+  "_ts": 1783134126652,
   "_ga_so_2026_05": {
     "value": 98.2,
     "evidence": "https://raw.githubusercontent.com/pinuspackindo-ai/pinuspackindo-okr/data/uploads/general_affair/1783134084937_5jxm8v_Cuplikan_layar_2026-07-04_095817.png",
@@ -3733,18 +3733,18 @@
     "poin": [
       0,
       0,
-      1
+      0
     ],
     "akurasiEv": "https://raw.githubusercontent.com/pinuspackindo-ai/pinuspackindo-okr/data/uploads/general_affair/1783134120963_5cgj0d_Pinus.jpg",
     "akurasiEvName": "Pinus.jpg",
-    "ontimeDate": "2026-06-04",
+    "ontimeDate": "2026-06-06",
     "ontimeEv": "https://raw.githubusercontent.com/pinuspackindo-ai/pinuspackindo-okr/data/uploads/general_affair/1783134101522_1gb872_Pinus.jpg",
     "ontimeEvName": "Pinus.jpg",
-    "akurasiScore": 83.33333333333334,
+    "akurasiScore": 100,
     "ontimeScore": 100,
-    "totalScore": 91.66666666666667,
-    "savedAt": "2026-07-04T03:01:47.788Z",
-    "locked": false,
+    "totalScore": 100,
+    "savedAt": "2026-07-04T03:02:06.652Z",
+    "locked": true,
     "ontimeEvs": [
       {
         "name": "Pinus.jpg",
