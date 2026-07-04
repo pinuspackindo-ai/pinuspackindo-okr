@@ -621,7 +621,7 @@
           "target": 100
         },
         {
-          "actual": 75,
+          "actual": 50,
           "bobot": 35,
           "id": "r1780472096513rv9r",
           "keyResult": "Laporan audit akurat dan on time",
@@ -3444,17 +3444,12 @@
     "rows": [
       {
         "deadline": "2026-06-30",
-        "submittedDate": "2026-06-18",
-        "temuan": "0",
-        "evidence": null,
-        "evidenceName": "cjuni.png",
+        "submittedDate": "",
+        "temuan": "",
+        "evidence": "",
+        "evidenceName": "",
         "locked": false,
-        "evidences": [
-          {
-            "name": "cjuni.png",
-            "data": "https://raw.githubusercontent.com/pinuspackindo-ai/pinuspackindo-okr/data/uploads/internal_audit/1783061982555_g0txdm_cjuni.png"
-          }
-        ],
+        "evidences": [],
         "savedAt": "2026-07-03T06:59:42.800Z"
       }
     ]
@@ -3541,5 +3536,5 @@
       }
     ]
   },
-  "_ts": 1783125580742
+  "_ts": 1783125587339
 }
