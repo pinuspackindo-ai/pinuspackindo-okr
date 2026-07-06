@@ -3860,7 +3860,7 @@
       }
     ]
   },
-  "_ts": 1783309554494,
+  "_ts": 1783309555744,
   "_tal_d0_2026_07": {
     "rows": [
       {
@@ -3869,8 +3869,8 @@
         "bobot": 40,
         "progress": null,
         "review": "",
-        "editing": true,
-        "savedAt": "2026-07-06T02:06:50.940Z"
+        "editing": false,
+        "savedAt": "2026-07-06T03:45:55.744Z"
       },
       {
         "tal": "Running RN by checker",
@@ -3878,8 +3878,8 @@
         "bobot": 30,
         "progress": null,
         "review": "",
-        "editing": true,
-        "savedAt": "2026-07-06T02:06:57.522Z"
+        "editing": false,
+        "savedAt": "2026-07-06T03:45:55.227Z"
       },
       {
         "tal": "Running repacking by checker + ITR by md sales",
@@ -3900,7 +3900,7 @@
         "savedAt": "2026-07-06T03:45:54.494Z"
       }
     ],
-    "savedAt": "2026-07-06T03:45:54.494Z"
+    "savedAt": "2026-07-06T03:45:55.744Z"
   },
   "_tal_d12_2026_07": {
     "rows": [
