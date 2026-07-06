@@ -4121,8 +4121,10 @@ function _syncMerge(local, cloud) {
   var changed = false;
   // Union penanda hapus (tombstone) — ambil timestamp terbaru dari lokal & cloud
   if(cloud._deleted){local._deleted=local._deleted||{};Object.keys(cloud._deleted).forEach(function(dk){var ct=cloud._deleted[dk]||0,lt=local._deleted[dk]||0;if(ct>lt)local._deleted[dk]=ct;});}
+  // Union status KUNCI OKR (_okrLock) — per-entry, timestamp terbaru menang (kunci/buka menyebar ke semua device)
+  if(cloud._okrLock){local._okrLock=local._okrLock||{};Object.keys(cloud._okrLock).forEach(function(lk){var c=cloud._okrLock[lk]||{},l=local._okrLock[lk]||{};if((c.t||0)>(l.t||0))local._okrLock[lk]=c;});}
   Object.keys(cloud).forEach(function(k) {
-    if (k === '_ts' || k === '_slim' || k === '_deleted') return;
+    if (k === '_ts' || k === '_slim' || k === '_deleted' || k === '_okrLock') return;
     var cv = cloud[k], lv = local[k];
     // Tombstone: kalau key sudah dihapus (tomb >= savedAt cloud) → jangan hidupkan lagi; kalau cloud lebih baru (di-create ulang) → buang tombstone & adopt
     var _tb=(local._deleted&&local._deleted[k])?local._deleted[k]:0;
@@ -4990,6 +4992,7 @@ function okrDuplicate(){
 
 // ── HAPUS DIVISI ──
 function okrDeleteDivisi(div){
+  if(okrIsLocked(okrKey(),div)){notify('🔒 "'+div+'" terkunci. Buka kunci dulu (Admin) untuk menghapus.','error');return;}
   var labelBulan=(typeof OKR_BULAN!=='undefined'?OKR_BULAN:['Januari','Februari','Maret','April','Mei','Juni','Juli','Agustus','September','Oktober','November','Desember'])[okrCurMonth-1]||('Bulan '+okrCurMonth);
   var msg='Hapus OKR '+div+' untuk '+labelBulan+' '+okrCurYear+'?\n\nData yang dihapus tidak dapat dikembalikan.';
   if(!confirm(msg)) return;
@@ -5023,6 +5026,7 @@ function okrOpenNew(){
 }
 
 function okrOpenEdit(div){
+  if(okrIsLocked(okrKey(),div)){notify('🔒 "'+div+'" terkunci. Buka kunci dulu (Admin) untuk mengedit.','error');return;}
   okrModalMode='edit'; okrEditDivisi=div;
   document.getElementById('okr-modal-title').textContent='Edit OKR — '+div;
   document.getElementById('okr-f-divisi').disabled=true;
