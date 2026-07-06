@@ -2912,7 +2912,7 @@ var _okrSyncBlocked=false; // block cloud POST selama initial cloud-load untuk c
 
 // ── Storage helpers ──
 function _pkIns(y,m,d){return '_p_ins_'+y+'_'+String(m).padStart(2,'0')+'_'+String(d).padStart(2,'0');}
-function _pgIns(y,m,d){return okrData[_pkIns(y,m,d)]||{file1:null,file1Name:null,file2:null,file2Name:null,score:null,savedAt:null,locked:false};}
+function _pgIns(y,m,d){return okrData[_pkIns(y,m,d)]||{file1:null,file1Name:null,file2:null,file2Name:null,file3:null,file3Name:null,users:null,score:null,savedAt:null,locked:false};}
 function _psIns(y,m,d,o){okrData[_pkIns(y,m,d)]=o;}
 function _pkApo(y,m){return '_p_apo_'+y+'_'+String(m).padStart(2,'0');}
 function _pgApo(y,m){return okrData[_pkApo(y,m)]||{file1:null,file1Name:null,file2:null,file2Name:null,lateScore:null,accScore:null,finalScore:null,savedAt:null,locked:false};}
