@@ -390,7 +390,7 @@ tbody tr:hover td{background:var(--bg);}
   </nav>
   <div class="sidebar-footer">
     <button class="btn-logout" onclick="doLogout()"><span class="nav-icon">&#x1F6AA;</span><span class="nav-text"> Logout</span></button>
-    <div class="footer-text" style="margin-top:4px;">Upload: .xlsx / .xls / .csv<br>Data diproses di browser<br>Tidak dikirim ke server<br><span style="color:var(--success);font-weight:700;">Build: 2026-07-04-v17 (In Stock Juli per-user)</span></div>
+    <div class="footer-text" style="margin-top:4px;">Upload: .xlsx / .xls / .csv<br>Data diproses di browser<br>Tidak dikirim ke server<br><span style="color:var(--success);font-weight:700;">Build: 2026-07-04-v18 (fix nama Aizatul)</span></div>
   </div>
 </aside>
 
@@ -3079,7 +3079,7 @@ function purchInstockCalcScore(file1DataUrl, file2DataUrl) {
 // ══ FORMULA BARU In Stock (Juli 2026 →): skor per-user dari File 3 (Product + Last Update By) ══
 // Juni 2026 & sebelumnya TETAP pakai 2 file saja (formula lama). Global score selalu dari 2 file.
 function purchInstockNewFormula(y,m){return y>2026||(y===2026&&m>=7);}
-var INSTOCK_USERS=[{key:'Arif Wibowo',m:'arif wibowo'},{key:'Adit Mohgat',m:'adit mohgat'},{key:"A'izatun Nafisah",m:'aizatun nafisah'}];
+var INSTOCK_USERS=[{key:'Arif Wibowo',m:'arif wibowo'},{key:'Adit Mohgat',m:'adit mohgat'},{key:"A'izatul Nafisah",m:'aizatul nafisah'}];
 function _insNorm(s){return String(s||'').toLowerCase().replace(/[^a-z0-9]+/g,' ').trim();}
 function _insStripCode(s){return String(s||'').replace(/^\s*\[[^\]]*\]\s*/,'').trim();} // buang "[kode] " di depan → nama produk
 function _insGetRows(src,cb){
