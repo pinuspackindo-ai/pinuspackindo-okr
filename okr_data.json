@@ -457,41 +457,42 @@
   },
   "2026-06": {
     "Distribution Sales": {
-      "actionPlan": "Training new telesales",
       "rows": [
         {
-          "actual": 2073482142,
-          "bobot": 35,
-          "id": "r1780472096513a40z",
+          "id": "r1783301703962f9ma",
+          "objective": "Mencapai target penjualan, pelanggan puas.",
           "keyResult": "Jumlah omset global",
-          "objective": "Mencapai target penjualan, pelanggan puas.",
-          "target": 3400000000
+          "target": 3400000000,
+          "actual": 2073482142,
+          "bobot": 35
         },
         {
-          "actual": 68.7,
-          "bobot": 30,
-          "id": "r1780472096513vq8w",
+          "id": "r1783301703963c0lw",
+          "objective": "Mencapai target penjualan, pelanggan puas.",
           "keyResult": "Retensi pelanggan",
-          "objective": "Mencapai target penjualan, pelanggan puas.",
-          "target": 2
+          "target": 75,
+          "actual": 68.7,
+          "bobot": 30
         },
         {
-          "actual": null,
-          "bobot": 25,
-          "id": "r1780472096513hja2",
+          "id": "r1783301703963g9hj",
+          "objective": "Mencapai target penjualan, pelanggan puas.",
           "keyResult": "Customers baru",
-          "objective": "Mencapai target penjualan, pelanggan puas.",
-          "target": 10
+          "target": 10,
+          "actual": null,
+          "bobot": 25
         },
         {
-          "actual": 81.4,
-          "bobot": 10,
-          "id": "r1780472096513nzle",
-          "keyResult": "Kepuasan pelanggan",
+          "id": "r1783301703963t37m",
           "objective": "Mencapai target penjualan, pelanggan puas.",
-          "target": 90
+          "keyResult": "Kepuasan pelanggan",
+          "target": 90,
+          "actual": 81.4,
+          "bobot": 10
         }
-      ]
+      ],
+      "actionPlan": "Training new telesales",
+      "savedAt": "2026-07-06T01:35:03.963Z"
     },
     "Finance & Accounting": {
       "actionPlan": "Planning investasi",
@@ -616,7 +617,7 @@
       "actionPlan": "Finalisasi DD, bizflow, SOP warehouse",
       "rows": [
         {
-          "actual": 0,
+          "actual": 100,
           "bobot": 45,
           "id": "r1780472096513p4fv",
           "keyResult": "Tingkat implementasi rekomendasi audit",
@@ -624,7 +625,7 @@
           "target": 100
         },
         {
-          "actual": 0,
+          "actual": 99.6,
           "bobot": 35,
           "id": "r1780472096513rv9r",
           "keyResult": "Laporan audit akurat dan on time",
@@ -3452,7 +3453,7 @@
   "_ia_rot_keuangan_2026_07": {
     "rows": [
       {
-        "deadline": "2026-07-04",
+        "deadline": "2026-07-05",
         "submittedDate": "",
         "temuan": "",
         "evidence": null,
@@ -3470,7 +3471,7 @@
         ]
       },
       {
-        "deadline": "2026-07-11",
+        "deadline": "2026-07-12",
         "submittedDate": "",
         "temuan": "",
         "evidence": "",
@@ -3478,7 +3479,7 @@
         "locked": false
       },
       {
-        "deadline": "2026-07-18",
+        "deadline": "2026-07-19",
         "submittedDate": "",
         "temuan": "",
         "evidence": "",
@@ -3486,7 +3487,7 @@
         "locked": false
       },
       {
-        "deadline": "2026-07-25",
+        "deadline": "2026-07-26",
         "submittedDate": "",
         "temuan": "",
         "evidence": "",
@@ -3853,5 +3854,5 @@
       }
     ]
   },
-  "_ts": 1783301064621
+  "_ts": 1783301703963
 }
