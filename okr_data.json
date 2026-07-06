@@ -1066,7 +1066,7 @@
         "tujuan": "Memberikan kemudahan akses karyawan terhadap informasi kepegagawaian, prizinan, dll yang berkaitan denagn hak karayawan.",
         "evidence": "https://raw.githubusercontent.com/pinuspackindo-ai/pinuspackindo-okr/data/uploads/internal_audit/1783132487111_y3hc9w_ddd.jpg",
         "evidenceName": "ddd.jpg",
-        "locked": true,
+        "locked": false,
         "evidences": [
           {
             "name": "ddd.jpg",
@@ -3853,5 +3853,5 @@
       }
     ]
   },
-  "_ts": 1783301016913
+  "_ts": 1783301022113
 }
