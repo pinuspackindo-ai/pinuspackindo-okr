@@ -3080,6 +3080,43 @@ function purchInstockCalcScore(file1DataUrl, file2DataUrl) {
   } catch(e){ return null; }
 }
 
+// ══ FORMULA BARU In Stock (Juli 2026 →): skor per-user dari File 3 (Product + Last Update By) ══
+// Juni 2026 & sebelumnya TETAP pakai 2 file saja (formula lama). Global score selalu dari 2 file.
+function purchInstockNewFormula(y,m){return y>2026||(y===2026&&m>=7);}
+var INSTOCK_USERS=[{key:'Arif Wibowo',m:'arif wibowo'},{key:'Adit Mohgat',m:'adit mohgat'},{key:"A'izatun Nafisah",m:'aizatun nafisah'}];
+function _insNorm(s){return String(s||'').toLowerCase().replace(/[^a-z0-9]+/g,' ').trim();}
+function _insStripCode(s){return String(s||'').replace(/^\s*\[[^\]]*\]\s*/,'').trim();} // buang "[kode] " di depan → nama produk
+function _insGetRows(src,cb){
+  if(!src){cb([]);return;}
+  if(/^https?:/.test(src)){fetch(src).then(function(r){return r.ok?r.arrayBuffer():null;}).then(function(ab){if(!ab){cb([]);return;}try{var wb=XLSX.read(new Uint8Array(ab),{type:'array'});cb(XLSX.utils.sheet_to_json(wb.Sheets[wb.SheetNames[0]],{defval:null}));}catch(e){cb([]);}}).catch(function(){cb([]);});}
+  else{try{cb(_dataUrlToRows(src));}catch(e){cb([]);}}
+}
+// Hitung skor per-user (butuh rows dari 3 file). Aturan in-stock sama dgn global (tot<=0 & !excluded = tidak in-stock).
+function purchInstockCalcUsers(rows1,rows2,rows3){
+  var res={};INSTOCK_USERS.forEach(function(u){res[u.key]=null;});
+  if(!rows1||!rows2||!rows3||!rows1.length||!rows2.length||!rows3.length)return res;
+  var h1=Object.keys(rows1[0]||{}),h2=Object.keys(rows2[0]||{}),h3=Object.keys(rows3[0]||{});
+  var n1=findCol(h1,['name','nama','product','produk','item']),q1k=findCol(h1,['quantityonhand','qtyonhand','onhand','quantity','qty','stok','stock']);
+  var n2=findCol(h2,['name','nama','product','produk','item']),q2k=findCol(h2,['quantityonhand','qtyonhand','onhand','quantity','qty','stok','stock']);
+  var pk=findCol(h3,['product','produk','name','nama','item']),uk=findCol(h3,['lastupdateby','updateby','updatedby','last update','pic','oleh','user']);
+  if(!n1||!q1k||!n2||!q2k||!pk||!uk)return res;
+  var g={};function add(rows,nk,qk){for(var i=0;i<rows.length;i++){var nm=_insNorm(rows[i][nk]);if(!nm)continue;g[nm]=(g[nm]||0)+(parseFloat(rows[i][qk])||0);}}
+  add(rows1,n1,q1k);add(rows2,n2,q2k);
+  INSTOCK_USERS.forEach(function(u){
+    var seen={},total=0,bc=0;
+    for(var i=0;i<rows3.length;i++){
+      var up=_insNorm(rows3[i][uk]);if(up.indexOf(u.m)===-1)continue;
+      var raw=_insStripCode(rows3[i][pk]),nm=_insNorm(raw);
+      if(!nm||seen[nm])continue;seen[nm]=1;total++;
+      var tot=g[nm]||0;if(tot<=0&&!isExcluded(raw))bc++;
+    }
+    res[u.key]=total?Math.round((total-bc)/total*10000)/100:null;
+  });
+  return res;
+}
+function purchInstockCalcUsersAsync(file1,file2,file3,cb){
+  _insGetRows(file1,function(r1){_insGetRows(file2,function(r2){_insGetRows(file3,function(r3){cb(purchInstockCalcUsers(r1,r2,r3));});});});
+}
 // Perbaiki score null untuk hari yg sudah locked & punya kedua file (dipanggil tiap render)
 function purchInstockFixScores(y, m) {
   var daysInM=new Date(y,m,0).getDate(), fixed=false;
@@ -3177,8 +3214,9 @@ function purchInstockFileChange(day,fileNum,inp){
   reader.onload=function(e){
     var d=_pgIns(y,m,day);
     if(fileNum===1){d.file1=e.target.result;d.file1Name=file.name;}
+    else if(fileNum===3){d.file3=e.target.result;d.file3Name=file.name;}
     else{d.file2=e.target.result;d.file2Name=file.name;}
-    // Auto-hitung score saat kedua file sudah ada
+    // Auto-hitung score GLOBAL saat kedua file (1&2) sudah ada — SELALU dari 2 file (formula lama)
     if(d.file1&&d.file2){
       var sc=purchInstockCalcScore(d.file1,d.file2);
       d.score=sc; // null jika format kolom tidak dikenali → user isi manual
@@ -3187,6 +3225,12 @@ function purchInstockFileChange(day,fileNum,inp){
     purchInstockSyncOKR(y,m); // FIX: sync score ke OKR langsung setelah upload
     _instockDebounceSave();   // simpan localStorage sekarang, cloud POST 5 detik kemudian
     purchInstockRender();
+    // FORMULA BARU (Juli 2026 →): hitung skor per-user dari 3 file (async — bisa fetch URL GitHub)
+    if(purchInstockNewFormula(y,m)&&d.file1&&d.file2&&d.file3){
+      purchInstockCalcUsersAsync(d.file1,d.file2,d.file3,function(users){
+        var dd=_pgIns(y,m,day);dd.users=users;_psIns(y,m,day,dd);_instockDebounceSave();purchInstockRender();
+      });
+    }
     if(d.file1&&d.file2&&d.score!==null){
       notify('File '+fileNum+' diupload ✓  Score: '+d.score.toFixed(1)+'%');
     } else {
