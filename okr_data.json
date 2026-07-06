@@ -188,7 +188,7 @@
       "actionPlan": "Kaji ulang cctv warehouse",
       "rows": [
         {
-          "actual": 98.2,
+          "actual": null,
           "bobot": 40,
           "id": "r177989029078478jg",
           "keyResult": "Tingkat akurasi stok inventaris data vs fisik",
@@ -450,7 +450,7 @@
           "target": 90
         },
         {
-          "actual": 98.23,
+          "actual": 98.225,
           "bobot": 10,
           "id": "r1779890290785xbtj",
           "keyResult": "Tingkat implementasi rekomendasi audit",
@@ -3459,7 +3459,7 @@
   "_ia_rot_keuangan_2026_07": {
     "rows": [
       {
-        "deadline": "2026-07-05",
+        "deadline": "2026-07-04",
         "submittedDate": "",
         "temuan": "",
         "evidence": null,
@@ -3477,7 +3477,7 @@
         ]
       },
       {
-        "deadline": "2026-07-12",
+        "deadline": "2026-07-11",
         "submittedDate": "",
         "temuan": "",
         "evidence": "",
@@ -3485,7 +3485,7 @@
         "locked": false
       },
       {
-        "deadline": "2026-07-19",
+        "deadline": "2026-07-18",
         "submittedDate": "",
         "temuan": "",
         "evidence": "",
@@ -3493,7 +3493,7 @@
         "locked": false
       },
       {
-        "deadline": "2026-07-26",
+        "deadline": "2026-07-25",
         "submittedDate": "",
         "temuan": "",
         "evidence": "",
@@ -3860,7 +3860,6 @@
       }
     ]
   },
-  "_ts": 1783325285623,
   "_tal_d0_2026_07": {
     "rows": [
       {
@@ -4035,6 +4034,7 @@
     ],
     "savedAt": "2026-07-06T02:04:17.521Z"
   },
+  "_ts": 1783325304843,
   "2026-07": {
     "Distribution Sales": {
       "rows": [
@@ -4104,7 +4104,7 @@
           "objective": "Data dan fisik uang akurat, transaksi tepat dan on time.",
           "keyResult": "Laporan keuangan akurat dan on time",
           "target": 98,
-          "actual": null,
+          "actual": 100,
           "bobot": 15
         },
         {
