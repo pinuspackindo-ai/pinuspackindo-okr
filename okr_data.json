@@ -95,7 +95,7 @@
   "_deleted": {
     "_ga_rot_2026_06": 1783134158109,
     "_ga_rot_2026_07": 1783134170325,
-    "_fa_rot_2026_07": 1783306474304
+    "_fa_rot_2026_07": 1783306452837
   },
   "2026-05": {
     "Distribution Sales": {
@@ -3455,7 +3455,7 @@
   "_ia_rot_keuangan_2026_07": {
     "rows": [
       {
-        "deadline": "2026-07-04",
+        "deadline": "2026-07-05",
         "submittedDate": "",
         "temuan": "",
         "evidence": null,
@@ -3473,7 +3473,7 @@
         ]
       },
       {
-        "deadline": "2026-07-11",
+        "deadline": "2026-07-12",
         "submittedDate": "",
         "temuan": "",
         "evidence": "",
@@ -3481,7 +3481,7 @@
         "locked": false
       },
       {
-        "deadline": "2026-07-18",
+        "deadline": "2026-07-19",
         "submittedDate": "",
         "temuan": "",
         "evidence": "",
@@ -3489,7 +3489,7 @@
         "locked": false
       },
       {
-        "deadline": "2026-07-25",
+        "deadline": "2026-07-26",
         "submittedDate": "",
         "temuan": "",
         "evidence": "",
@@ -3856,7 +3856,7 @@
       }
     ]
   },
-  "_ts": 1783306474304,
+  "_ts": 1783306478210,
   "_tal_d0_2026_07": {
     "rows": [
       {
@@ -4100,7 +4100,7 @@
           "objective": "Data dan fisik uang akurat, transaksi tepat dan on time.",
           "keyResult": "Laporan keuangan akurat dan on time",
           "target": 98,
-          "actual": 100,
+          "actual": null,
           "bobot": 15
         },
         {
@@ -4405,7 +4405,7 @@
   },
   "_fa_akurasi_input_fa_2026_06": {
     "value": 100,
-    "evidence": "https://raw.githubusercontent.com/pinuspackindo-ai/pinuspackindo-okr/data/uploads/finance_accounting/1783306234666_f6d31z_WhatsApp_Image_2026-07-06_at_09.22.57.jpeg",
+    "evidence": "https://raw.githubusercontent.com/pinuspackindo-ai/pinuspackindo-okr/data/uploads/finance_accounting/1783305780217_gzyoz0_WhatsApp_Image_2026-07-06_at_09.22.57.jpeg",
     "evidenceName": "WhatsApp Image 2026-07-06 at 09.22.57.jpeg",
     "savedAt": "2026-07-06T02:42:22.667Z",
     "locked": true,
@@ -4418,7 +4418,7 @@
   },
   "_fa_akurasi_saldo_fa_2026_06": {
     "value": 97.8,
-    "evidence": "https://raw.githubusercontent.com/pinuspackindo-ai/pinuspackindo-okr/data/uploads/finance_accounting/1783306192753_6sm7k5_WhatsApp_Image_2026-07-06_at_09.22.57.jpeg",
+    "evidence": null,
     "evidenceName": "WhatsApp Image 2026-07-06 at 09.22.57.jpeg",
     "savedAt": "2026-07-06T02:49:48.515Z",
     "locked": true,
@@ -4447,7 +4447,7 @@
       0,
       0
     ],
-    "akurasiEv": "https://raw.githubusercontent.com/pinuspackindo-ai/pinuspackindo-okr/data/uploads/finance_accounting/1783306295358_9qxzjc_WhatsApp_Image_2026-07-06_at_09.14.59.jpeg",
+    "akurasiEv": "https://raw.githubusercontent.com/pinuspackindo-ai/pinuspackindo-okr/data/uploads/finance_accounting/1783306408991_y0xopy_WhatsApp_Image_2026-07-06_at_09.14.59.jpeg",
     "akurasiEvName": "WhatsApp Image 2026-07-06 at 09.14.59.jpeg",
     "ontimeDate": "2026-07-03",
     "ontimeEv": "https://raw.githubusercontent.com/pinuspackindo-ai/pinuspackindo-okr/data/uploads/finance_accounting/1783306280649_t2un5b_WhatsApp_Image_2026-07-06_at_09.14.59_1.jpeg",
