@@ -3896,7 +3896,6 @@
     ],
     "savedAt": "2026-07-06T02:06:59.081Z"
   },
-  "_ts": 1783309909553,
   "_tal_d12_2026_07": {
     "rows": [
       {
@@ -4429,5 +4428,6 @@
         "data": "https://raw.githubusercontent.com/pinuspackindo-ai/pinuspackindo-okr/data/uploads/finance_accounting/1783304213780_0w7wqg_WhatsApp_Image_2026-07-06_at_09.14.59_1.jpeg"
       }
     ]
-  }
+  },
+  "_ts": 1783309917006
 }
