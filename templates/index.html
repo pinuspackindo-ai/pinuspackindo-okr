@@ -3132,9 +3132,13 @@ function purchInstockRender(){
   var BUL=STORE_BULAN;
   var BULS=['Jan','Feb','Mar','Apr','Mei','Jun','Jul','Agu','Sep','Okt','Nov','Des'];
   var DAYS=['Min','Sen','Sel','Rab','Kam','Jum','Sab'];
+  var useNew=purchInstockNewFormula(y,m); // Juli 2026 → tampilkan File 3 + skor per-user
   var daysInM=new Date(y,m,0).getDate(),totalWD=0,savedD=0,scoreSum=0,scoreDays=0;
-  for(var dd=1;dd<=daysInM;dd++){var dt=new Date(y,m-1,dd);if(dt.getDay()===0)continue;totalWD++;var dd_=_pgIns(y,m,dd);if(dd_.score!==null&&dd_.score!==undefined&&dd_.score!==''){savedD++;scoreSum+=parseFloat(dd_.score)||0;scoreDays++;}}
+  var uSum={},uCnt={};INSTOCK_USERS.forEach(function(u){uSum[u.key]=0;uCnt[u.key]=0;});
+  for(var dd=1;dd<=daysInM;dd++){var dt=new Date(y,m-1,dd);if(dt.getDay()===0)continue;totalWD++;var dd_=_pgIns(y,m,dd);if(dd_.score!==null&&dd_.score!==undefined&&dd_.score!==''){savedD++;scoreSum+=parseFloat(dd_.score)||0;scoreDays++;}if(useNew&&dd_.users){INSTOCK_USERS.forEach(function(u){var v=dd_.users[u.key];if(v!==null&&v!==undefined&&v!==''){uSum[u.key]+=parseFloat(v)||0;uCnt[u.key]++;}});}}
   var score=scoreDays>0?Math.round(scoreSum/scoreDays*100)/100:0;
+  var perUserHtml='';
+  if(useNew){perUserHtml='<div style="margin-top:5px;font-size:10px;line-height:1.6;color:var(--text-m);">';INSTOCK_USERS.forEach(function(u){var v=uCnt[u.key]?Math.round(uSum[u.key]/uCnt[u.key]*100)/100:null;perUserHtml+='<div>'+esc(u.key)+': <strong style="color:var(--text);">'+(v!==null?v.toFixed(1)+'%':'—')+'</strong></div>';});perUserHtml+='</div>';}
   var linked=purchasingIsLinked(y,m);var cls=scoreClass(score);
   var html='';
   html+='<div style="display:flex;align-items:center;gap:12px;margin-bottom:14px;flex-wrap:wrap;">';
@@ -3142,7 +3146,7 @@ function purchInstockRender(){
   html+='<select class="store-year-sel" onchange="purchInstockMonth=parseInt(this.value);purchInstockRender();">';
   for(var mi=1;mi<=12;mi++)html+='<option value="'+mi+'"'+(mi===m?' selected':'')+'>'+BUL[mi-1]+'</option>';
   html+='</select></div>';
-  html+='<div class="metric" style="margin:0;padding:8px 14px;"><div class="metric-label">Score In Stock</div><div class="metric-value '+cls+'" style="font-size:1.3rem;">'+score.toFixed(1)+'%</div></div>';
+  html+='<div class="metric" style="margin:0;padding:8px 14px;"><div class="metric-label">Score In Stock</div><div class="metric-value '+cls+'" style="font-size:1.3rem;">'+score.toFixed(1)+'%</div>'+perUserHtml+'</div>';
   html+='<div style="background:var(--bg2);border:1px solid var(--border);border-radius:var(--radius-sm);padding:6px 14px;font-size:12px;"><span style="color:var(--text-m);">Tersimpan:</span> <strong>'+savedD+' / '+totalWD+' hari</strong></div>';
   html+=linked?'<span style="font-size:11px;color:var(--success);font-weight:600;">&#x1F517; Tersambung OKR</span>':'<span style="font-size:11px;color:var(--text-l);">Tidak tersambung</span>';
   html+='</div>';
@@ -3206,8 +3210,9 @@ function purchInstockFileChange(day,fileNum,inp){
   reader.onload=function(e){
     var d=_pgIns(y,m,day);
     if(fileNum===1){d.file1=e.target.result;d.file1Name=file.name;}
+    else if(fileNum===3){d.file3=e.target.result;d.file3Name=file.name;}
     else{d.file2=e.target.result;d.file2Name=file.name;}
-    // Auto-hitung score saat kedua file sudah ada
+    // Auto-hitung score GLOBAL saat kedua file (1&2) sudah ada — SELALU dari 2 file (formula lama)
     if(d.file1&&d.file2){
       var sc=purchInstockCalcScore(d.file1,d.file2);
       d.score=sc; // null jika format kolom tidak dikenali → user isi manual
@@ -3216,6 +3221,12 @@ function purchInstockFileChange(day,fileNum,inp){
     purchInstockSyncOKR(y,m); // FIX: sync score ke OKR langsung setelah upload
     _instockDebounceSave();   // simpan localStorage sekarang, cloud POST 5 detik kemudian
     purchInstockRender();
+    // FORMULA BARU (Juli 2026 →): hitung skor per-user dari 3 file (async — bisa fetch URL GitHub)
+    if(purchInstockNewFormula(y,m)&&d.file1&&d.file2&&d.file3){
+      purchInstockCalcUsersAsync(d.file1,d.file2,d.file3,function(users){
+        var dd=_pgIns(y,m,day);dd.users=users;_psIns(y,m,day,dd);_instockDebounceSave();purchInstockRender();
+      });
+    }
     if(d.file1&&d.file2&&d.score!==null){
       notify('File '+fileNum+' diupload ✓  Score: '+d.score.toFixed(1)+'%');
     } else {
