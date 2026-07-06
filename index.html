@@ -4921,6 +4921,30 @@ function okrGetAP(divData){
   return divData.actionPlan||'';
 }
 
+// ── KUNCI NILAI OKR (per divisi per bulan) — Admin only, buka pakai password 2712 ──
+var OKR_UNLOCK_PW='2712';
+function okrLockKey(mk,div){return mk+'|'+div;}
+function okrIsLocked(mk,div){var e=okrData._okrLock&&okrData._okrLock[okrLockKey(mk,div)];return !!(e&&e.l);}
+// Snapshot Actual divisi terkunci SEBELUM sync sub-modul, lalu restore SETELAHNYA → nilai tak bisa goyah.
+function okrLockSnapshot(mk){var snap={};if(!okrData[mk])return snap;var DV=(typeof OKR_DIVISI!=='undefined'&&Array.isArray(OKR_DIVISI))?OKR_DIVISI:[];DV.forEach(function(div){if(okrIsLocked(mk,div)&&okrData[mk][div]){snap[div]=okrGetRows(okrData[mk][div]).map(function(r){return r.actual;});}});return snap;}
+function okrLockRestore(mk,snap){if(!okrData[mk])return;Object.keys(snap).forEach(function(div){var dd=okrData[mk][div];if(!dd)return;var rows=okrGetRows(dd);snap[div].forEach(function(a,i){if(rows[i])rows[i].actual=a;});});}
+function okrToggleLock(div){
+  if(typeof isAdminUser==='function'&&!isAdminUser()){notify('Hanya Admin yang dapat mengunci / membuka nilai.','error');return;}
+  var mk=okrKey();var key=okrLockKey(mk,div);
+  okrData._okrLock=okrData._okrLock||{};
+  if(okrIsLocked(mk,div)){
+    var pw=prompt('Password untuk MEMBUKA kunci "'+div+'" ('+mk+'):');
+    if(pw===null)return;
+    if(pw!==OKR_UNLOCK_PW){notify('Password salah — kunci tetap terpasang.','error');return;}
+    okrData._okrLock[key]={l:0,t:Date.now()};
+    notify('🔓 "'+div+'" dibuka. Nilai bisa diperbarui lagi.');
+  }else{
+    okrData._okrLock[key]={l:1,t:Date.now()};
+    notify('🔒 "'+div+'" dikunci. Nilai tidak akan berubah oleh apa pun.');
+  }
+  okrSaveLS();okrRender();
+}
+
 // ── DUPLICATE ──
 function okrDuplicate(){
   var pm=okrCurMonth-1; var py=okrCurYear;
