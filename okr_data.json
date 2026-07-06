@@ -3860,7 +3860,7 @@
       }
     ]
   },
-  "_ts": 1783309544461,
+  "_ts": 1783309553545,
   "_tal_d0_2026_07": {
     "rows": [
       {
@@ -3869,7 +3869,7 @@
         "bobot": 40,
         "progress": null,
         "review": "",
-        "editing": false,
+        "editing": true,
         "savedAt": "2026-07-06T02:06:50.940Z"
       },
       {
@@ -3878,17 +3878,17 @@
         "bobot": 30,
         "progress": null,
         "review": "",
-        "editing": false,
+        "editing": true,
         "savedAt": "2026-07-06T02:06:57.522Z"
       },
       {
-        "tal": "Running repacking + ITR by md sales",
+        "tal": "Running repacking by checker + ITR by md sales",
         "deadline": "2026-07-31",
         "bobot": 20,
         "progress": null,
         "review": "",
         "editing": false,
-        "savedAt": "2026-07-06T03:45:44.461Z"
+        "savedAt": "2026-07-06T03:45:53.545Z"
       },
       {
         "tal": "Finalisasi display toko sesuai planogram",
@@ -3896,11 +3896,11 @@
         "bobot": 10,
         "progress": null,
         "review": "",
-        "editing": false,
+        "editing": true,
         "savedAt": "2026-07-06T02:06:59.081Z"
       }
     ],
-    "savedAt": "2026-07-06T03:45:44.461Z"
+    "savedAt": "2026-07-06T03:45:53.545Z"
   },
   "_tal_d12_2026_07": {
     "rows": [
