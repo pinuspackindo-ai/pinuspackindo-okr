@@ -1,4 +1,5 @@
 {
+  "_ts": 1783306335860,
   "_userAccess": {
     "Finance & Accounting": {
       "modules": [
@@ -457,41 +458,41 @@
   },
   "2026-06": {
     "Distribution Sales": {
+      "actionPlan": "Training new telesales",
       "rows": [
         {
-          "id": "r1783301703962f9ma",
-          "objective": "Mencapai target penjualan, pelanggan puas.",
-          "keyResult": "Jumlah omset global",
-          "target": 3400000000,
           "actual": 2073482142,
-          "bobot": 35
+          "bobot": 35,
+          "id": "r1783301703962f9ma",
+          "keyResult": "Jumlah omset global",
+          "objective": "Mencapai target penjualan, pelanggan puas.",
+          "target": 3400000000
         },
         {
-          "id": "r1783301703963c0lw",
-          "objective": "Mencapai target penjualan, pelanggan puas.",
-          "keyResult": "Retensi pelanggan",
-          "target": 75,
           "actual": 68.7,
-          "bobot": 30
+          "bobot": 30,
+          "id": "r1783301703963c0lw",
+          "keyResult": "Retensi pelanggan",
+          "objective": "Mencapai target penjualan, pelanggan puas.",
+          "target": 75
         },
         {
-          "id": "r1783301703963g9hj",
-          "objective": "Mencapai target penjualan, pelanggan puas.",
-          "keyResult": "Customers baru",
-          "target": 10,
           "actual": null,
-          "bobot": 25
+          "bobot": 25,
+          "id": "r1783301703963g9hj",
+          "keyResult": "Customers baru",
+          "objective": "Mencapai target penjualan, pelanggan puas.",
+          "target": 10
         },
         {
-          "id": "r1783301703963t37m",
-          "objective": "Mencapai target penjualan, pelanggan puas.",
-          "keyResult": "Kepuasan pelanggan",
-          "target": 90,
           "actual": 81.4,
-          "bobot": 10
+          "bobot": 10,
+          "id": "r1783301703963t37m",
+          "keyResult": "Kepuasan pelanggan",
+          "objective": "Mencapai target penjualan, pelanggan puas.",
+          "target": 90
         }
       ],
-      "actionPlan": "Training new telesales",
       "savedAt": "2026-07-06T01:35:03.963Z"
     },
     "Finance & Accounting": {
@@ -643,41 +644,41 @@
       ]
     },
     "Inventory": {
+      "actionPlan": "Planning acara chef Alfian",
       "rows": [
         {
-          "id": "r1783303303063oznj",
-          "objective": "Stok akurat, persediaan optimal, biaya & waste minimal.",
-          "keyResult": "Tingkat akurasi stok fisik vs data",
-          "target": 75,
           "actual": 86.37,
-          "bobot": 20
+          "bobot": 20,
+          "id": "r1783303303063oznj",
+          "keyResult": "Tingkat akurasi stok fisik vs data",
+          "objective": "Stok akurat, persediaan optimal, biaya & waste minimal.",
+          "target": 75
         },
         {
-          "id": "r1783303303064iiwd",
-          "objective": "Stok akurat, persediaan optimal, biaya & waste minimal.",
-          "keyResult": "Akurasi DO & RN",
-          "target": 100,
           "actual": 98.71,
-          "bobot": 10
+          "bobot": 10,
+          "id": "r1783303303064iiwd",
+          "keyResult": "Akurasi DO & RN",
+          "objective": "Stok akurat, persediaan optimal, biaya & waste minimal.",
+          "target": 100
         },
         {
-          "id": "r1783303303064k7i6",
-          "objective": "Stok akurat, persediaan optimal, biaya & waste minimal.",
-          "keyResult": "Tingkat akurasi administrasi",
-          "target": 98,
           "actual": 96.6,
-          "bobot": 40
+          "bobot": 40,
+          "id": "r1783303303064k7i6",
+          "keyResult": "Tingkat akurasi administrasi",
+          "objective": "Stok akurat, persediaan optimal, biaya & waste minimal.",
+          "target": 98
         },
         {
-          "id": "r1783303303064fddc",
-          "objective": "Stok akurat, persediaan optimal, biaya & waste minimal.",
-          "keyResult": "Laporan inventory akurat dan on time",
-          "target": 100,
           "actual": 100,
-          "bobot": 30
+          "bobot": 30,
+          "id": "r1783303303064fddc",
+          "keyResult": "Laporan inventory akurat dan on time",
+          "objective": "Stok akurat, persediaan optimal, biaya & waste minimal.",
+          "target": 100
         }
       ],
-      "actionPlan": "Planning acara chef Alfian",
       "savedAt": "2026-07-06T02:01:43.064Z"
     },
     "Purchasing": {
@@ -4388,7 +4389,6 @@
       "actionPlan": ""
     }
   },
-  "_ts": 1783306311192,
   "_fa_rot_2026_07": {
     "poin": [
       0,
@@ -4407,7 +4407,7 @@
       0,
       0
     ],
-    "akurasiEv": "https://raw.githubusercontent.com/pinuspackindo-ai/pinuspackindo-okr/data/uploads/finance_accounting/1783304220261_rany4q_WhatsApp_Image_2026-07-06_at_09.14.59.jpeg",
+    "akurasiEv": "https://raw.githubusercontent.com/pinuspackindo-ai/pinuspackindo-okr/data/uploads/finance_accounting/1783305740304_wskniz_WhatsApp_Image_2026-07-06_at_09.14.59.jpeg",
     "akurasiEvName": "WhatsApp Image 2026-07-06 at 09.14.59.jpeg",
     "ontimeDate": "2026-07-03",
     "ontimeEv": "https://raw.githubusercontent.com/pinuspackindo-ai/pinuspackindo-okr/data/uploads/finance_accounting/1783304219826_by05h6_WhatsApp_Image_2026-07-06_at_09.14.59_1.jpeg",
@@ -4420,7 +4420,7 @@
     "akurasiEvs": [
       {
         "name": "WhatsApp Image 2026-07-06 at 09.14.59.jpeg",
-        "data": null
+        "data": "https://raw.githubusercontent.com/pinuspackindo-ai/pinuspackindo-okr/data/uploads/finance_accounting/1783306186216_6zevrr_WhatsApp_Image_2026-07-06_at_09.14.59.jpeg"
       }
     ],
     "ontimeEvs": [
@@ -4439,13 +4439,13 @@
     "evidences": [
       {
         "name": "WhatsApp Image 2026-07-06 at 09.22.57.jpeg",
-        "data": "https://raw.githubusercontent.com/pinuspackindo-ai/pinuspackindo-okr/data/uploads/finance_accounting/1783305719876_0e1syy_WhatsApp_Image_2026-07-06_at_09.22.57.jpeg"
+        "data": "https://raw.githubusercontent.com/pinuspackindo-ai/pinuspackindo-okr/data/uploads/finance_accounting/1783305739867_unyzgn_WhatsApp_Image_2026-07-06_at_09.22.57.jpeg"
       }
     ]
   },
   "_fa_akurasi_input_fa_2026_06": {
     "value": 100,
-    "evidence": "https://raw.githubusercontent.com/pinuspackindo-ai/pinuspackindo-okr/data/uploads/finance_accounting/1783305768758_uijo40_WhatsApp_Image_2026-07-06_at_09.22.57.jpeg",
+    "evidence": "https://raw.githubusercontent.com/pinuspackindo-ai/pinuspackindo-okr/data/uploads/finance_accounting/1783305780217_gzyoz0_WhatsApp_Image_2026-07-06_at_09.22.57.jpeg",
     "evidenceName": "WhatsApp Image 2026-07-06 at 09.22.57.jpeg",
     "savedAt": "2026-07-06T02:42:22.667Z",
     "locked": true,
@@ -4487,10 +4487,10 @@
       0,
       0
     ],
-    "akurasiEv": "https://raw.githubusercontent.com/pinuspackindo-ai/pinuspackindo-okr/data/uploads/finance_accounting/1783306295358_9qxzjc_WhatsApp_Image_2026-07-06_at_09.14.59.jpeg",
+    "akurasiEv": null,
     "akurasiEvName": "WhatsApp Image 2026-07-06 at 09.14.59.jpeg",
     "ontimeDate": "2026-07-03",
-    "ontimeEv": "https://raw.githubusercontent.com/pinuspackindo-ai/pinuspackindo-okr/data/uploads/finance_accounting/1783306280649_t2un5b_WhatsApp_Image_2026-07-06_at_09.14.59_1.jpeg",
+    "ontimeEv": null,
     "ontimeEvName": "WhatsApp Image 2026-07-06 at 09.14.59 (1).jpeg",
     "akurasiScore": 100,
     "ontimeScore": 100,
