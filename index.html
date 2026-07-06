@@ -3031,7 +3031,7 @@ function purchDoSave(){
 // ── Utility: download stored base64 file ──
 function purchDownloadFile(prefix,fileKey,ref){
   var y=purchasingYear,b64,fname;
-  if(prefix==='pins'){var m=purchInstockMonth;var dd=_pgIns(y,m,ref);b64=fileKey==='file1'?dd.file1:dd.file2;fname=fileKey==='file1'?(dd.file1Name||'file1.xlsx'):(dd.file2Name||'file2.xlsx');}
+  if(prefix==='pins'){var m=purchInstockMonth;var dd=_pgIns(y,m,ref);b64=fileKey==='file1'?dd.file1:fileKey==='file3'?dd.file3:dd.file2;fname=fileKey==='file1'?(dd.file1Name||'file1.xlsx'):fileKey==='file3'?(dd.file3Name||'file3.xlsx'):(dd.file2Name||'file2.xlsx');}
   else if(prefix==='papo'){var dd=_pgApo(y,ref);b64=fileKey==='file1'?dd.file1:dd.file2;fname=fileKey==='file1'?(dd.file1Name||'keterlambatan.xlsx'):(dd.file2Name||'akurasi.xlsx');}
   else if(prefix==='pkpen'){var dd=_pgKpen(y,ref);b64=dd.file;fname=dd.fileName||'penerimaan.xlsx';}
   else if(prefix==='psv'){var m=purchSavingMonth;var dd=_pgSv(y,m,ref);b64=dd.evidence;fname=dd.evidenceName||'bukti.jpg';}
