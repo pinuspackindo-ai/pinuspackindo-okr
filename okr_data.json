@@ -94,12 +94,7 @@
   },
   "_deleted": {
     "_ga_rot_2026_06": 1783134158109,
-    "_ga_rot_2026_07": 1783134170325,
-    "_fa_rot_2026_07": 1783308087934,
-    "_fa_piutang_jt_2026_06": 1783308285431,
-    "_fa_akurasi_input_fa_2026_06": 1783308285431,
-    "_fa_akurasi_saldo_fa_2026_06": 1783308285431,
-    "_fa_rot_2026_06": 1783308285431
+    "_ga_rot_2026_07": 1783134170325
   },
   "2026-05": {
     "Distribution Sales": {
@@ -3459,7 +3454,7 @@
   "_ia_rot_keuangan_2026_07": {
     "rows": [
       {
-        "deadline": "2026-07-04",
+        "deadline": "2026-07-05",
         "submittedDate": "",
         "temuan": "",
         "evidence": null,
@@ -3477,7 +3472,7 @@
         ]
       },
       {
-        "deadline": "2026-07-11",
+        "deadline": "2026-07-12",
         "submittedDate": "",
         "temuan": "",
         "evidence": "",
@@ -3485,7 +3480,7 @@
         "locked": false
       },
       {
-        "deadline": "2026-07-18",
+        "deadline": "2026-07-19",
         "submittedDate": "",
         "temuan": "",
         "evidence": "",
@@ -3493,7 +3488,7 @@
         "locked": false
       },
       {
-        "deadline": "2026-07-25",
+        "deadline": "2026-07-26",
         "submittedDate": "",
         "temuan": "",
         "evidence": "",
@@ -3860,7 +3855,6 @@
       }
     ]
   },
-  "_ts": 1783309555744,
   "_tal_d0_2026_07": {
     "rows": [
       {
@@ -3870,7 +3864,7 @@
         "progress": null,
         "review": "",
         "editing": false,
-        "savedAt": "2026-07-06T03:45:55.744Z"
+        "savedAt": "2026-07-06T02:06:50.940Z"
       },
       {
         "tal": "Running RN by checker",
@@ -3879,16 +3873,16 @@
         "progress": null,
         "review": "",
         "editing": false,
-        "savedAt": "2026-07-06T03:45:55.227Z"
+        "savedAt": "2026-07-06T02:06:57.522Z"
       },
       {
-        "tal": "Running repacking by checker + ITR by md sales",
+        "tal": "Running repacking + ITR by md sales",
         "deadline": "2026-07-31",
         "bobot": 20,
         "progress": null,
         "review": "",
         "editing": false,
-        "savedAt": "2026-07-06T03:45:53.545Z"
+        "savedAt": "2026-07-06T02:06:58.370Z"
       },
       {
         "tal": "Finalisasi display toko sesuai planogram",
@@ -3897,11 +3891,12 @@
         "progress": null,
         "review": "",
         "editing": false,
-        "savedAt": "2026-07-06T03:45:54.494Z"
+        "savedAt": "2026-07-06T02:06:59.081Z"
       }
     ],
-    "savedAt": "2026-07-06T03:45:55.744Z"
+    "savedAt": "2026-07-06T02:06:59.081Z"
   },
+  "_ts": 1783309850843,
   "_tal_d12_2026_07": {
     "rows": [
       {
@@ -4104,7 +4099,7 @@
           "objective": "Data dan fisik uang akurat, transaksi tepat dan on time.",
           "keyResult": "Laporan keuangan akurat dan on time",
           "target": 98,
-          "actual": null,
+          "actual": 100,
           "bobot": 15
         },
         {
@@ -4393,5 +4388,46 @@
       ],
       "actionPlan": ""
     }
+  },
+  "_fa_rot_2026_07": {
+    "poin": [
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0
+    ],
+    "akurasiEv": "https://raw.githubusercontent.com/pinuspackindo-ai/pinuspackindo-okr/data/uploads/finance_accounting/1783304220261_rany4q_WhatsApp_Image_2026-07-06_at_09.14.59.jpeg",
+    "akurasiEvName": "WhatsApp Image 2026-07-06 at 09.14.59.jpeg",
+    "ontimeDate": "2026-07-03",
+    "ontimeEv": "https://raw.githubusercontent.com/pinuspackindo-ai/pinuspackindo-okr/data/uploads/finance_accounting/1783304219826_by05h6_WhatsApp_Image_2026-07-06_at_09.14.59_1.jpeg",
+    "ontimeEvName": "WhatsApp Image 2026-07-06 at 09.14.59 (1).jpeg",
+    "akurasiScore": 100,
+    "ontimeScore": 100,
+    "totalScore": 100,
+    "savedAt": "2026-07-06T02:16:55.910Z",
+    "locked": true,
+    "akurasiEvs": [
+      {
+        "name": "WhatsApp Image 2026-07-06 at 09.14.59.jpeg",
+        "data": null
+      }
+    ],
+    "ontimeEvs": [
+      {
+        "name": "WhatsApp Image 2026-07-06 at 09.14.59 (1).jpeg",
+        "data": "https://raw.githubusercontent.com/pinuspackindo-ai/pinuspackindo-okr/data/uploads/finance_accounting/1783304213780_0w7wqg_WhatsApp_Image_2026-07-06_at_09.14.59_1.jpeg"
+      }
+    ]
   }
 }
