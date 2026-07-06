@@ -3342,6 +3342,8 @@ function purchApoFileChange(month,fileNum,inp){
   reader.readAsDataURL(file);
 }
 var ACC_KW=['HPP','SUPPLIER','HARGA','KUANTITI','QTY','SALAH','DISKON','LEBIH','KURANG','TEMPO','TERMIN','NAMA'];
+// User untuk penilaian individu Akurasi PO (Juli 2026 →). m = substring pencocokan (ternormalisasi)
+var APO_USERS=[{key:'Arif Wibowo',m:'arif'},{key:'Adit Mohgat',m:'adit'},{key:"A'izatul Nafisah",m:'nafis'}];
 function purchApoSave(month){
   var y=purchasingYear;var d=_pgApo(y,month);
   if(!d.file1||!d.file2){notify('Upload kedua file terlebih dahulu','error');return;}
