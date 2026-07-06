@@ -3085,7 +3085,7 @@ function purchInstockCalcScore(file1DataUrl, file2DataUrl) {
 // Juni 2026 & sebelumnya TETAP pakai 2 file saja (formula lama). Global score selalu dari 2 file.
 function purchInstockNewFormula(y,m){return y>2026||(y===2026&&m>=7);}
 var INSTOCK_USERS=[{key:'Arif Wibowo',m:'arif wibowo'},{key:'Adit Mohgat',m:'adit mohgat'},{key:"A'izatul Nafisah",m:'aizatul nafisah'}];
-function _insNorm(s){return String(s||'').toLowerCase().replace(/[^a-z0-9]+/g,' ').trim();}
+function _insNorm(s){return String(s||'').toLowerCase().replace(/['’`‘’]/g,'').replace(/[^a-z0-9]+/g,' ').trim();} // buang petik dulu (A'izatul → aizatul), baru pisah kata
 function _insStripCode(s){return String(s||'').replace(/^\s*\[[^\]]*\]\s*/,'').trim();} // buang "[kode] " di depan → nama produk
 function _insGetRows(src,cb){
   if(!src){cb([]);return;}
