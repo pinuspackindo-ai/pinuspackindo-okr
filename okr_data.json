@@ -616,7 +616,7 @@
       "actionPlan": "Finalisasi DD, bizflow, SOP warehouse",
       "rows": [
         {
-          "actual": 100,
+          "actual": 0,
           "bobot": 45,
           "id": "r1780472096513p4fv",
           "keyResult": "Tingkat implementasi rekomendasi audit",
@@ -624,7 +624,7 @@
           "target": 100
         },
         {
-          "actual": 99.6,
+          "actual": 0,
           "bobot": 35,
           "id": "r1780472096513rv9r",
           "keyResult": "Laporan audit akurat dan on time",
@@ -3452,7 +3452,7 @@
   "_ia_rot_keuangan_2026_07": {
     "rows": [
       {
-        "deadline": "2026-07-05",
+        "deadline": "2026-07-04",
         "submittedDate": "",
         "temuan": "",
         "evidence": null,
@@ -3470,7 +3470,7 @@
         ]
       },
       {
-        "deadline": "2026-07-12",
+        "deadline": "2026-07-11",
         "submittedDate": "",
         "temuan": "",
         "evidence": "",
@@ -3478,7 +3478,7 @@
         "locked": false
       },
       {
-        "deadline": "2026-07-19",
+        "deadline": "2026-07-18",
         "submittedDate": "",
         "temuan": "",
         "evidence": "",
@@ -3486,7 +3486,7 @@
         "locked": false
       },
       {
-        "deadline": "2026-07-26",
+        "deadline": "2026-07-25",
         "submittedDate": "",
         "temuan": "",
         "evidence": "",
@@ -3853,5 +3853,5 @@
       }
     ]
   },
-  "_ts": 1783301028738
+  "_ts": 1783301064621
 }
