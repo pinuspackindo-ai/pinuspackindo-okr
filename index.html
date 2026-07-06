@@ -2986,6 +2986,7 @@ function purchDoSave(){
   if(p.type==='instock'){
     var d=_pgIns(p.year,p.month,p.day);
     d.file1=p.file1;d.file1Name=p.file1Name;d.file2=p.file2;d.file2Name=p.file2Name;
+    d.file3=p.file3;d.file3Name=p.file3Name;if(p.users!==undefined)d.users=p.users;
     if(p.score!==null&&p.score!==undefined&&!isNaN(p.score))d.score=p.score;
     d.savedAt=new Date().toISOString();d.locked=true;
     _psIns(p.year,p.month,p.day,d);
@@ -3252,7 +3253,7 @@ function purchInstockConfirmSave(day){
   var sc=scEl&&scEl.value!==''?parseFloat(scEl.value):null;
   if(sc===null&&(!d.file1||!d.file2)){notify('Isi Score atau upload kedua file terlebih dahulu','error');return;}
   if(sc!==null&&(isNaN(sc)||sc<0||sc>100)){notify('Score harus antara 0 dan 100','error');return;}
-  _purchPending={type:'instock',year:y,month:m,day:day,file1:d.file1,file1Name:d.file1Name,file2:d.file2,file2Name:d.file2Name,score:sc};
+  _purchPending={type:'instock',year:y,month:m,day:day,file1:d.file1,file1Name:d.file1Name,file2:d.file2,file2Name:d.file2Name,file3:d.file3,file3Name:d.file3Name,users:d.users,score:sc};
   document.getElementById('pc-sub').textContent='In Stock';
   document.getElementById('pc-bulan').textContent=day+' '+STORE_BULAN[m-1]+' '+y;
   document.getElementById('pc-val').textContent=(sc!==null?'Score: '+sc+'%':'Data')+' siap disimpan';
