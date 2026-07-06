@@ -3151,12 +3151,12 @@ function purchInstockRender(){
   html+='<select class="store-year-sel" onchange="purchInstockMonth=parseInt(this.value);purchInstockRender();">';
   for(var mi=1;mi<=12;mi++)html+='<option value="'+mi+'"'+(mi===m?' selected':'')+'>'+BUL[mi-1]+'</option>';
   html+='</select></div>';
-  html+='<div class="metric" style="margin:0;padding:8px 14px;"><div class="metric-label">Score In Stock</div><div class="metric-value '+cls+'" style="font-size:1.3rem;">'+score.toFixed(1)+'%</div></div>';
+  html+='<div class="metric" style="margin:0;padding:8px 14px;"><div class="metric-label">Score In Stock</div><div class="metric-value '+cls+'" style="font-size:1.3rem;">'+score.toFixed(1)+'%</div>'+perUserHtml+'</div>';
   html+='<div style="background:var(--bg2);border:1px solid var(--border);border-radius:var(--radius-sm);padding:6px 14px;font-size:12px;"><span style="color:var(--text-m);">Tersimpan:</span> <strong>'+savedD+' / '+totalWD+' hari</strong></div>';
   html+=linked?'<span style="font-size:11px;color:var(--success);font-weight:600;">&#x1F517; Tersambung OKR</span>':'<span style="font-size:11px;color:var(--text-l);">Tidak tersambung</span>';
   html+='</div>';
   html+='<div class="card" style="padding:0;overflow:hidden;"><div class="table-wrap"><table><thead><tr>';
-  html+='<th style="min-width:110px;">Tanggal</th><th style="min-width:200px;">File 1 (Excel 1)</th><th style="min-width:200px;">File 2 (Excel 2)</th><th style="min-width:100px;text-align:center;">Score (%)</th><th style="min-width:120px;text-align:center;">Aksi</th>';
+  html+='<th style="min-width:110px;">Tanggal</th><th style="min-width:200px;">File 1 (Excel 1)</th><th style="min-width:200px;">File 2 (Excel 2)</th>'+(useNew?'<th style="min-width:190px;">File 3 (Product + Update By)</th>':'')+'<th style="min-width:100px;text-align:center;">Score (%)</th><th style="min-width:120px;text-align:center;">Aksi</th>';
   html+='</tr></thead><tbody>';
   for(var dd=1;dd<=daysInM;dd++){
     var dt=new Date(y,m-1,dd);if(dt.getDay()===0)continue;
