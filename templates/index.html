@@ -390,7 +390,7 @@ tbody tr:hover td{background:var(--bg);}
   </nav>
   <div class="sidebar-footer">
     <button class="btn-logout" onclick="doLogout()"><span class="nav-icon">&#x1F6AA;</span><span class="nav-text"> Logout</span></button>
-    <div class="footer-text" style="margin-top:4px;">Upload: .xlsx / .xls / .csv<br>Data diproses di browser<br>Tidak dikirim ke server<br><span style="color:var(--success);font-weight:700;">Build: 2026-07-04-v15</span></div>
+    <div class="footer-text" style="margin-top:4px;">Upload: .xlsx / .xls / .csv<br>Data diproses di browser<br>Tidak dikirim ke server<br><span style="color:var(--success);font-weight:700;">Build: 2026-07-04-v16 (Kunci Nilai)</span></div>
   </div>
 </aside>
 
@@ -4112,8 +4112,10 @@ function _syncMerge(local, cloud) {
   var changed = false;
   // Union penanda hapus (tombstone) — ambil timestamp terbaru dari lokal & cloud
   if(cloud._deleted){local._deleted=local._deleted||{};Object.keys(cloud._deleted).forEach(function(dk){var ct=cloud._deleted[dk]||0,lt=local._deleted[dk]||0;if(ct>lt)local._deleted[dk]=ct;});}
+  // Union status KUNCI OKR (_okrLock) — per-entry, timestamp terbaru menang (kunci/buka menyebar ke semua device)
+  if(cloud._okrLock){local._okrLock=local._okrLock||{};Object.keys(cloud._okrLock).forEach(function(lk){var c=cloud._okrLock[lk]||{},l=local._okrLock[lk]||{};if((c.t||0)>(l.t||0))local._okrLock[lk]=c;});}
   Object.keys(cloud).forEach(function(k) {
-    if (k === '_ts' || k === '_slim' || k === '_deleted') return;
+    if (k === '_ts' || k === '_slim' || k === '_deleted' || k === '_okrLock') return;
     var cv = cloud[k], lv = local[k];
     // Tombstone: kalau key sudah dihapus (tomb >= savedAt cloud) → jangan hidupkan lagi; kalau cloud lebih baru (di-create ulang) → buang tombstone & adopt
     var _tb=(local._deleted&&local._deleted[k])?local._deleted[k]:0;
@@ -4784,9 +4786,15 @@ function okrRender(){
     html+='<div class="card" style="margin-bottom:16px;padding:0;overflow:hidden;">';
     html+='<div style="background:var(--primary);padding:11px 20px;display:flex;align-items:center;justify-content:space-between;">';
     html+='<span style="font-size:15px;font-weight:800;color:#fff;letter-spacing:.5px;text-transform:uppercase;">&#9733; '+div+'</span>';
-    html+='<div style="display:flex;gap:6px;">';
-    html+='<button style="background:rgba(255,255,255,.15);border:1.5px solid rgba(255,255,255,.3);border-radius:var(--radius-sm);padding:5px 14px;cursor:pointer;font-size:12px;font-family:var(--font);color:#fff;" onclick="okrOpenEdit(\''+okrEsc(div)+'\')">&#x270F;&#xFE0F; Edit OKR</button>';
-    html+='<button style="background:rgba(255,255,255,.15);border:1.5px solid rgba(255,255,255,.3);border-radius:var(--radius-sm);padding:5px 10px;cursor:pointer;font-size:13px;color:#fff;" onclick="okrDeleteDivisi(\''+okrEsc(div)+'\')" title="Hapus OKR '+okrEsc(div)+'">&#x1F5D1;</button>';
+    var _divLk=okrIsLocked(okrKey(),div);
+    var _isAdm=(typeof isAdminUser==='function'&&isAdminUser());
+    html+='<div style="display:flex;gap:6px;align-items:center;">';
+    if(_divLk) html+='<span style="background:rgba(255,255,255,.92);color:var(--primary);border-radius:var(--radius-sm);padding:4px 10px;font-size:11px;font-weight:800;letter-spacing:.5px;">&#x1F512; TERKUNCI</span>';
+    if(_isAdm) html+='<button style="background:'+(_divLk?'#16a34a':'rgba(255,255,255,.15)')+';border:1.5px solid rgba(255,255,255,.4);border-radius:var(--radius-sm);padding:5px 12px;cursor:pointer;font-size:12px;font-family:var(--font);color:#fff;font-weight:600;" onclick="okrToggleLock(\''+okrEsc(div)+'\')">'+(_divLk?'&#x1F513; Buka':'&#x1F512; Kunci')+'</button>';
+    if(!_divLk){
+      html+='<button style="background:rgba(255,255,255,.15);border:1.5px solid rgba(255,255,255,.3);border-radius:var(--radius-sm);padding:5px 14px;cursor:pointer;font-size:12px;font-family:var(--font);color:#fff;" onclick="okrOpenEdit(\''+okrEsc(div)+'\')">&#x270F;&#xFE0F; Edit OKR</button>';
+      html+='<button style="background:rgba(255,255,255,.15);border:1.5px solid rgba(255,255,255,.3);border-radius:var(--radius-sm);padding:5px 10px;cursor:pointer;font-size:13px;color:#fff;" onclick="okrDeleteDivisi(\''+okrEsc(div)+'\')" title="Hapus OKR '+okrEsc(div)+'">&#x1F5D1;</button>';
+    }
     html+='</div>';
     html+='</div>';
 
@@ -4958,6 +4966,7 @@ function okrDuplicate(){
 
 // ── HAPUS DIVISI ──
 function okrDeleteDivisi(div){
+  if(okrIsLocked(okrKey(),div)){notify('🔒 "'+div+'" terkunci. Buka kunci dulu (Admin) untuk menghapus.','error');return;}
   var labelBulan=(typeof OKR_BULAN!=='undefined'?OKR_BULAN:['Januari','Februari','Maret','April','Mei','Juni','Juli','Agustus','September','Oktober','November','Desember'])[okrCurMonth-1]||('Bulan '+okrCurMonth);
   var msg='Hapus OKR '+div+' untuk '+labelBulan+' '+okrCurYear+'?\n\nData yang dihapus tidak dapat dikembalikan.';
   if(!confirm(msg)) return;
@@ -4991,6 +5000,7 @@ function okrOpenNew(){
 }
 
 function okrOpenEdit(div){
+  if(okrIsLocked(okrKey(),div)){notify('🔒 "'+div+'" terkunci. Buka kunci dulu (Admin) untuk mengedit.','error');return;}
   okrModalMode='edit'; okrEditDivisi=div;
   document.getElementById('okr-modal-title').textContent='Edit OKR — '+div;
   document.getElementById('okr-f-divisi').disabled=true;
