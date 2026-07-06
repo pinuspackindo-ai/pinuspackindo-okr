@@ -390,7 +390,7 @@ tbody tr:hover td{background:var(--bg);}
   </nav>
   <div class="sidebar-footer">
     <button class="btn-logout" onclick="doLogout()"><span class="nav-icon">&#x1F6AA;</span><span class="nav-text"> Logout</span></button>
-    <div class="footer-text" style="margin-top:4px;">Upload: .xlsx / .xls / .csv<br>Data diproses di browser<br>Tidak dikirim ke server<br><span style="color:var(--success);font-weight:700;">Build: 2026-07-04-v16 (Kunci Nilai)</span></div>
+    <div class="footer-text" style="margin-top:4px;">Upload: .xlsx / .xls / .csv<br>Data diproses di browser<br>Tidak dikirim ke server<br><span style="color:var(--success);font-weight:700;">Build: 2026-07-04-v17 (In Stock Juli per-user)</span></div>
   </div>
 </aside>
 
@@ -2981,6 +2981,7 @@ function purchDoSave(){
   if(p.type==='instock'){
     var d=_pgIns(p.year,p.month,p.day);
     d.file1=p.file1;d.file1Name=p.file1Name;d.file2=p.file2;d.file2Name=p.file2Name;
+    d.file3=p.file3;d.file3Name=p.file3Name;if(p.users!==undefined)d.users=p.users;
     if(p.score!==null&&p.score!==undefined&&!isNaN(p.score))d.score=p.score;
     d.savedAt=new Date().toISOString();d.locked=true;
     _psIns(p.year,p.month,p.day,d);
@@ -3026,7 +3027,7 @@ function purchDoSave(){
 // ── Utility: download stored base64 file ──
 function purchDownloadFile(prefix,fileKey,ref){
   var y=purchasingYear,b64,fname;
-  if(prefix==='pins'){var m=purchInstockMonth;var dd=_pgIns(y,m,ref);b64=fileKey==='file1'?dd.file1:dd.file2;fname=fileKey==='file1'?(dd.file1Name||'file1.xlsx'):(dd.file2Name||'file2.xlsx');}
+  if(prefix==='pins'){var m=purchInstockMonth;var dd=_pgIns(y,m,ref);b64=fileKey==='file1'?dd.file1:fileKey==='file3'?dd.file3:dd.file2;fname=fileKey==='file1'?(dd.file1Name||'file1.xlsx'):fileKey==='file3'?(dd.file3Name||'file3.xlsx'):(dd.file2Name||'file2.xlsx');}
   else if(prefix==='papo'){var dd=_pgApo(y,ref);b64=fileKey==='file1'?dd.file1:dd.file2;fname=fileKey==='file1'?(dd.file1Name||'keterlambatan.xlsx'):(dd.file2Name||'akurasi.xlsx');}
   else if(prefix==='pkpen'){var dd=_pgKpen(y,ref);b64=dd.file;fname=dd.fileName||'penerimaan.xlsx';}
   else if(prefix==='psv'){var m=purchSavingMonth;var dd=_pgSv(y,m,ref);b64=dd.evidence;fname=dd.evidenceName||'bukti.jpg';}
@@ -3174,6 +3175,7 @@ function purchInstockRender(){
       html+='<label style="cursor:pointer;display:inline-flex;align-items:center;gap:4px;font-size:11px;background:var(--bg);border:1px solid var(--border);border-radius:4px;padding:3px 8px;white-space:nowrap;"><input type="file" multiple accept=".xlsx,.xls,.csv" id="pins-f2-'+dd+'" style="display:none;" onchange="purchInstockFileChange('+dd+',2,this)">&#x1F4CE; File 2</label>';
       if(d.file2)html+='<span style="font-size:10px;color:var(--success);">&#x2713; '+esc(d.file2Name||'')+'</span>';
       html+='</div></td>';
+      if(useNew){html+='<td><div style="display:flex;align-items:center;gap:6px;flex-wrap:wrap;"><label style="cursor:pointer;display:inline-flex;align-items:center;gap:4px;font-size:11px;background:var(--bg);border:1px solid var(--border);border-radius:4px;padding:3px 8px;white-space:nowrap;"><input type="file" accept=".xlsx,.xls,.csv" id="pins-f3-'+dd+'" style="display:none;" onchange="purchInstockFileChange('+dd+',3,this)">&#x1F4CE; File 3</label>';if(d.file3)html+='<span style="font-size:10px;color:var(--success);">&#x2713; '+esc(d.file3Name||'')+'</span>';html+='</div></td>';}
       var hasAutoScore=d.file1&&d.file2&&d.score!==null&&d.score!==undefined;
       html+='<td style="text-align:center;">';
       html+='<input type="number" min="0" max="100" step="0.01" id="pins-sc-'+dd+'" value="'+(d.score!==null&&d.score!==undefined?d.score:'')+'" placeholder="0-100" style="width:72px;padding:4px 6px;border:1.5px solid '+(hasAutoScore?'var(--success)':'var(--border)')+';border-radius:4px;font-size:12px;text-align:center;font-family:var(--font);" />';
@@ -3243,7 +3245,7 @@ function purchInstockConfirmSave(day){
   var sc=scEl&&scEl.value!==''?parseFloat(scEl.value):null;
   if(sc===null&&(!d.file1||!d.file2)){notify('Isi Score atau upload kedua file terlebih dahulu','error');return;}
   if(sc!==null&&(isNaN(sc)||sc<0||sc>100)){notify('Score harus antara 0 dan 100','error');return;}
-  _purchPending={type:'instock',year:y,month:m,day:day,file1:d.file1,file1Name:d.file1Name,file2:d.file2,file2Name:d.file2Name,score:sc};
+  _purchPending={type:'instock',year:y,month:m,day:day,file1:d.file1,file1Name:d.file1Name,file2:d.file2,file2Name:d.file2Name,file3:d.file3,file3Name:d.file3Name,users:d.users,score:sc};
   document.getElementById('pc-sub').textContent='In Stock';
   document.getElementById('pc-bulan').textContent=day+' '+STORE_BULAN[m-1]+' '+y;
   document.getElementById('pc-val').textContent=(sc!==null?'Score: '+sc+'%':'Data')+' siap disimpan';
