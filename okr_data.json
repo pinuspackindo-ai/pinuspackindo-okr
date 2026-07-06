@@ -616,7 +616,7 @@
       "actionPlan": "Finalisasi DD, bizflow, SOP warehouse",
       "rows": [
         {
-          "actual": 100,
+          "actual": 0,
           "bobot": 45,
           "id": "r1780472096513p4fv",
           "keyResult": "Tingkat implementasi rekomendasi audit",
@@ -1266,7 +1266,7 @@
         ],
         "locked": true,
         "namaAudit": "Purchasing",
-        "savedAt": "2026-07-06T01:23:23.017Z",
+        "savedAt": "2026-07-04T04:27:35.502Z",
         "score": "100"
       },
       {
@@ -1282,7 +1282,7 @@
             "data": "https://raw.githubusercontent.com/pinuspackindo-ai/pinuspackindo-okr/data/uploads/internal_audit/1783133095396_kxefvq_Cuplikan_layar_2026-07-04_092336.png"
           }
         ],
-        "locked": false,
+        "locked": true,
         "namaAudit": "Inventory",
         "savedAt": "2026-07-04T04:27:33.334Z",
         "score": "100"
@@ -3853,5 +3853,5 @@
       }
     ]
   },
-  "_ts": 1783301003753
+  "_ts": 1783301004826
 }
