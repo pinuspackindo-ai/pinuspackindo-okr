@@ -95,11 +95,10 @@
   "_deleted": {
     "_ga_rot_2026_06": 1783134158109,
     "_ga_rot_2026_07": 1783134170325,
-    "_fa_rot_2026_07": 1783306491010,
-    "_fa_piutang_jt_2026_06": 1783308064883,
-    "_fa_akurasi_input_fa_2026_06": 1783308064883,
-    "_fa_akurasi_saldo_fa_2026_06": 1783308064883,
-    "_fa_rot_2026_06": 1783308064883
+    "_fa_piutang_jt_2026_06": 1783308028475,
+    "_fa_akurasi_input_fa_2026_06": 1783308028475,
+    "_fa_akurasi_saldo_fa_2026_06": 1783308028475,
+    "_fa_rot_2026_06": 1783308028475
   },
   "2026-05": {
     "Distribution Sales": {
@@ -503,7 +502,7 @@
       "actionPlan": "Planning investasi",
       "rows": [
         {
-          "actual": 100,
+          "actual": null,
           "bobot": 30,
           "id": "r1780472096513lz7h",
           "keyResult": "Tingkat keberhasilan penagihan piutang",
@@ -511,7 +510,7 @@
           "target": 95
         },
         {
-          "actual": 100,
+          "actual": null,
           "bobot": 25,
           "id": "r17804720965139cwc",
           "keyResult": "Payment akurat dan on time",
@@ -519,7 +518,7 @@
           "target": 98
         },
         {
-          "actual": 97.8,
+          "actual": null,
           "bobot": 20,
           "id": "r1780472096513gbd2",
           "keyResult": "Tingkat akurasi uang fisik dan data",
@@ -527,7 +526,7 @@
           "target": 98
         },
         {
-          "actual": 100,
+          "actual": null,
           "bobot": 15,
           "id": "r1780472096513e6q5",
           "keyResult": "Laporan keuangan akurat dan on time",
@@ -3459,7 +3458,7 @@
   "_ia_rot_keuangan_2026_07": {
     "rows": [
       {
-        "deadline": "2026-07-04",
+        "deadline": "2026-07-05",
         "submittedDate": "",
         "temuan": "",
         "evidence": null,
@@ -3477,7 +3476,7 @@
         ]
       },
       {
-        "deadline": "2026-07-11",
+        "deadline": "2026-07-12",
         "submittedDate": "",
         "temuan": "",
         "evidence": "",
@@ -3485,7 +3484,7 @@
         "locked": false
       },
       {
-        "deadline": "2026-07-18",
+        "deadline": "2026-07-19",
         "submittedDate": "",
         "temuan": "",
         "evidence": "",
@@ -3493,7 +3492,7 @@
         "locked": false
       },
       {
-        "deadline": "2026-07-25",
+        "deadline": "2026-07-26",
         "submittedDate": "",
         "temuan": "",
         "evidence": "",
@@ -4393,5 +4392,46 @@
       "actionPlan": ""
     }
   },
-  "_ts": 1783308064883
+  "_fa_rot_2026_07": {
+    "poin": [
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0
+    ],
+    "akurasiEv": "https://raw.githubusercontent.com/pinuspackindo-ai/pinuspackindo-okr/data/uploads/finance_accounting/1783304220261_rany4q_WhatsApp_Image_2026-07-06_at_09.14.59.jpeg",
+    "akurasiEvName": "WhatsApp Image 2026-07-06 at 09.14.59.jpeg",
+    "ontimeDate": "2026-07-03",
+    "ontimeEv": "https://raw.githubusercontent.com/pinuspackindo-ai/pinuspackindo-okr/data/uploads/finance_accounting/1783304219826_by05h6_WhatsApp_Image_2026-07-06_at_09.14.59_1.jpeg",
+    "ontimeEvName": "WhatsApp Image 2026-07-06 at 09.14.59 (1).jpeg",
+    "akurasiScore": 100,
+    "ontimeScore": 100,
+    "totalScore": 100,
+    "savedAt": "2026-07-06T02:16:55.910Z",
+    "locked": true,
+    "akurasiEvs": [
+      {
+        "name": "WhatsApp Image 2026-07-06 at 09.14.59.jpeg",
+        "data": null
+      }
+    ],
+    "ontimeEvs": [
+      {
+        "name": "WhatsApp Image 2026-07-06 at 09.14.59 (1).jpeg",
+        "data": "https://raw.githubusercontent.com/pinuspackindo-ai/pinuspackindo-okr/data/uploads/finance_accounting/1783304213780_0w7wqg_WhatsApp_Image_2026-07-06_at_09.14.59_1.jpeg"
+      }
+    ]
+  },
+  "_ts": 1783308069764
 }
