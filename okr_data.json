@@ -1,5 +1,5 @@
 {
-  "_ts": 1783304725869,
+  "_ts": 1783304864110,
   "_userAccess": {
     "Finance & Accounting": {
       "modules": [
@@ -184,7 +184,7 @@
       "actionPlan": "Kaji ulang cctv warehouse",
       "rows": [
         {
-          "actual": null,
+          "actual": 98.2,
           "bobot": 40,
           "id": "r177989029078478jg",
           "keyResult": "Tingkat akurasi stok inventaris data vs fisik",
@@ -446,7 +446,7 @@
           "target": 90
         },
         {
-          "actual": 98.225,
+          "actual": 98.23,
           "bobot": 10,
           "id": "r1779890290785xbtj",
           "keyResult": "Tingkat implementasi rekomendasi audit",
@@ -458,41 +458,41 @@
   },
   "2026-06": {
     "Distribution Sales": {
+      "actionPlan": "Training new telesales",
       "rows": [
         {
-          "id": "r1783301703962f9ma",
-          "objective": "Mencapai target penjualan, pelanggan puas.",
-          "keyResult": "Jumlah omset global",
-          "target": 3400000000,
           "actual": 2073482142,
-          "bobot": 35
+          "bobot": 35,
+          "id": "r1783301703962f9ma",
+          "keyResult": "Jumlah omset global",
+          "objective": "Mencapai target penjualan, pelanggan puas.",
+          "target": 3400000000
         },
         {
-          "id": "r1783301703963c0lw",
-          "objective": "Mencapai target penjualan, pelanggan puas.",
-          "keyResult": "Retensi pelanggan",
-          "target": 75,
           "actual": 68.7,
-          "bobot": 30
+          "bobot": 30,
+          "id": "r1783301703963c0lw",
+          "keyResult": "Retensi pelanggan",
+          "objective": "Mencapai target penjualan, pelanggan puas.",
+          "target": 75
         },
         {
-          "id": "r1783301703963g9hj",
-          "objective": "Mencapai target penjualan, pelanggan puas.",
-          "keyResult": "Customers baru",
-          "target": 10,
           "actual": null,
-          "bobot": 25
+          "bobot": 25,
+          "id": "r1783301703963g9hj",
+          "keyResult": "Customers baru",
+          "objective": "Mencapai target penjualan, pelanggan puas.",
+          "target": 10
         },
         {
-          "id": "r1783301703963t37m",
-          "objective": "Mencapai target penjualan, pelanggan puas.",
-          "keyResult": "Kepuasan pelanggan",
-          "target": 90,
           "actual": 81.4,
-          "bobot": 10
+          "bobot": 10,
+          "id": "r1783301703963t37m",
+          "keyResult": "Kepuasan pelanggan",
+          "objective": "Mencapai target penjualan, pelanggan puas.",
+          "target": 90
         }
       ],
-      "actionPlan": "Training new telesales",
       "savedAt": "2026-07-06T01:35:03.963Z"
     },
     "Finance & Accounting": {
@@ -644,41 +644,41 @@
       ]
     },
     "Inventory": {
+      "actionPlan": "Planning acara chef Alfian",
       "rows": [
         {
-          "id": "r1783303303063oznj",
-          "objective": "Stok akurat, persediaan optimal, biaya & waste minimal.",
-          "keyResult": "Tingkat akurasi stok fisik vs data",
-          "target": 75,
           "actual": 86.37,
-          "bobot": 20
+          "bobot": 20,
+          "id": "r1783303303063oznj",
+          "keyResult": "Tingkat akurasi stok fisik vs data",
+          "objective": "Stok akurat, persediaan optimal, biaya & waste minimal.",
+          "target": 75
         },
         {
-          "id": "r1783303303064iiwd",
-          "objective": "Stok akurat, persediaan optimal, biaya & waste minimal.",
-          "keyResult": "Akurasi DO & RN",
-          "target": 100,
           "actual": 98.71,
-          "bobot": 10
+          "bobot": 10,
+          "id": "r1783303303064iiwd",
+          "keyResult": "Akurasi DO & RN",
+          "objective": "Stok akurat, persediaan optimal, biaya & waste minimal.",
+          "target": 100
         },
         {
-          "id": "r1783303303064k7i6",
-          "objective": "Stok akurat, persediaan optimal, biaya & waste minimal.",
-          "keyResult": "Tingkat akurasi administrasi",
-          "target": 98,
           "actual": 96.6,
-          "bobot": 40
+          "bobot": 40,
+          "id": "r1783303303064k7i6",
+          "keyResult": "Tingkat akurasi administrasi",
+          "objective": "Stok akurat, persediaan optimal, biaya & waste minimal.",
+          "target": 98
         },
         {
-          "id": "r1783303303064fddc",
-          "objective": "Stok akurat, persediaan optimal, biaya & waste minimal.",
-          "keyResult": "Laporan inventory akurat dan on time",
-          "target": 100,
           "actual": 100,
-          "bobot": 30
+          "bobot": 30,
+          "id": "r1783303303064fddc",
+          "keyResult": "Laporan inventory akurat dan on time",
+          "objective": "Stok akurat, persediaan optimal, biaya & waste minimal.",
+          "target": 100
         }
       ],
-      "actionPlan": "Planning acara chef Alfian",
       "savedAt": "2026-07-06T02:01:43.064Z"
     },
     "Purchasing": {
@@ -3455,7 +3455,7 @@
   "_ia_rot_keuangan_2026_07": {
     "rows": [
       {
-        "deadline": "2026-07-05",
+        "deadline": "2026-07-04",
         "submittedDate": "",
         "temuan": "",
         "evidence": null,
@@ -3473,7 +3473,7 @@
         ]
       },
       {
-        "deadline": "2026-07-12",
+        "deadline": "2026-07-11",
         "submittedDate": "",
         "temuan": "",
         "evidence": "",
@@ -3481,7 +3481,7 @@
         "locked": false
       },
       {
-        "deadline": "2026-07-19",
+        "deadline": "2026-07-18",
         "submittedDate": "",
         "temuan": "",
         "evidence": "",
@@ -3489,7 +3489,7 @@
         "locked": false
       },
       {
-        "deadline": "2026-07-26",
+        "deadline": "2026-07-25",
         "submittedDate": "",
         "temuan": "",
         "evidence": "",
