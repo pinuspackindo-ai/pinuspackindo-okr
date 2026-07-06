@@ -1730,9 +1730,9 @@
         "deadline": "2026-06-30",
         "bobot": 60,
         "progress": 100,
-        "review": "nunggu bu fel sisanya",
+        "review": "ok",
         "editing": false,
-        "savedAt": "2026-07-01T02:15:32.943Z"
+        "savedAt": "2026-07-06T02:14:12.605Z"
       },
       {
         "tal": "Pengadaan Kitcheware",
@@ -1744,7 +1744,7 @@
         "savedAt": "2026-06-20T08:39:03.468Z"
       }
     ],
-    "savedAt": "2026-07-01T02:15:32.943Z"
+    "savedAt": "2026-07-06T02:14:12.605Z"
   },
   "_tal_d12_2026_06": {
     "rows": [
@@ -3855,7 +3855,7 @@
       }
     ]
   },
-  "_ts": 1783304046367,
+  "_ts": 1783304052606,
   "_tal_d0_2026_07": {
     "rows": [
       {
