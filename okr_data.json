@@ -1485,7 +1485,7 @@
         "deadline": "2026-06-28",
         "evidence": "https://raw.githubusercontent.com/pinuspackindo-ai/pinuspackindo-okr/data/uploads/internal_audit/1783132087230_jsnj07_k28.png",
         "evidenceName": "k28.png",
-        "locked": false,
+        "locked": true,
         "submittedDate": "2026-06-28",
         "temuan": "0",
         "evidences": [
@@ -1494,7 +1494,7 @@
             "data": "https://raw.githubusercontent.com/pinuspackindo-ai/pinuspackindo-okr/data/uploads/internal_audit/1783132086225_74grof_k28.png"
           }
         ],
-        "savedAt": "2026-07-04T02:28:06.027Z"
+        "savedAt": "2026-07-06T01:23:36.913Z"
       }
     ]
   },
@@ -3853,5 +3853,5 @@
       }
     ]
   },
-  "_ts": 1783301016137
+  "_ts": 1783301016913
 }
