@@ -643,41 +643,42 @@
       ]
     },
     "Inventory": {
-      "actionPlan": "Planning acara chef Alfian",
       "rows": [
         {
-          "actual": null,
-          "bobot": 20,
-          "id": "r1780472096513ds7d",
+          "id": "r1783303303063oznj",
+          "objective": "Stok akurat, persediaan optimal, biaya & waste minimal.",
           "keyResult": "Tingkat akurasi stok fisik vs data",
-          "objective": "Stok akurat, persediaan optimal, biaya & waste minimal.",
-          "target": 75
+          "target": 75,
+          "actual": 86.37,
+          "bobot": 20
         },
         {
-          "actual": 98.71,
-          "bobot": 10,
-          "id": "r17804720965137ahi",
+          "id": "r1783303303064iiwd",
+          "objective": "Stok akurat, persediaan optimal, biaya & waste minimal.",
           "keyResult": "Akurasi DO & RN",
-          "objective": "Stok akurat, persediaan optimal, biaya & waste minimal.",
-          "target": 100
+          "target": 100,
+          "actual": 98.71,
+          "bobot": 10
         },
         {
-          "actual": null,
-          "bobot": 40,
-          "id": "r1780472096513aiaa",
+          "id": "r1783303303064k7i6",
+          "objective": "Stok akurat, persediaan optimal, biaya & waste minimal.",
           "keyResult": "Tingkat akurasi administrasi",
-          "objective": "Stok akurat, persediaan optimal, biaya & waste minimal.",
-          "target": 98
+          "target": 98,
+          "actual": 96.6,
+          "bobot": 40
         },
         {
-          "actual": null,
-          "bobot": 30,
-          "id": "r17804720965135hni",
-          "keyResult": "Laporan inventory akurat dan on time",
+          "id": "r1783303303064fddc",
           "objective": "Stok akurat, persediaan optimal, biaya & waste minimal.",
-          "target": 100
+          "keyResult": "Laporan inventory akurat dan on time",
+          "target": 100,
+          "actual": 100,
+          "bobot": 30
         }
-      ]
+      ],
+      "actionPlan": "Planning acara chef Alfian",
+      "savedAt": "2026-07-06T02:01:43.064Z"
     },
     "Purchasing": {
       "actionPlan": "Membuat 4 konten sosmed",
@@ -3895,7 +3896,7 @@
     ],
     "savedAt": "2026-07-06T01:53:14.493Z"
   },
-  "_ts": 1783303265323,
+  "_ts": 1783303303064,
   "_tal_d12_2026_07": {
     "rows": [
       {
