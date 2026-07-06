@@ -1,5 +1,4 @@
 {
-  "_ts": 1783304876596,
   "_userAccess": {
     "Finance & Accounting": {
       "modules": [
@@ -3455,7 +3454,7 @@
   "_ia_rot_keuangan_2026_07": {
     "rows": [
       {
-        "deadline": "2026-07-04",
+        "deadline": "2026-07-05",
         "submittedDate": "",
         "temuan": "",
         "evidence": null,
@@ -3473,7 +3472,7 @@
         ]
       },
       {
-        "deadline": "2026-07-11",
+        "deadline": "2026-07-12",
         "submittedDate": "",
         "temuan": "",
         "evidence": "",
@@ -3481,7 +3480,7 @@
         "locked": false
       },
       {
-        "deadline": "2026-07-18",
+        "deadline": "2026-07-19",
         "submittedDate": "",
         "temuan": "",
         "evidence": "",
@@ -3489,7 +3488,7 @@
         "locked": false
       },
       {
-        "deadline": "2026-07-25",
+        "deadline": "2026-07-26",
         "submittedDate": "",
         "temuan": "",
         "evidence": "",
@@ -3897,6 +3896,7 @@
     ],
     "savedAt": "2026-07-06T02:06:59.081Z"
   },
+  "_ts": 1783305127103,
   "_tal_d12_2026_07": {
     "rows": [
       {
