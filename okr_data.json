@@ -3895,5 +3895,46 @@
     ],
     "savedAt": "2026-07-06T01:53:14.493Z"
   },
-  "_ts": 1783303023264
+  "_ts": 1783303024815,
+  "_tal_d12_2026_07": {
+    "rows": [
+      {
+        "tal": "membuat tools untuk repack + ITR",
+        "deadline": "2026-07-31",
+        "bobot": 40,
+        "progress": null,
+        "review": "",
+        "editing": false,
+        "savedAt": "2026-07-06T01:56:54.580Z"
+      },
+      {
+        "tal": "finalisasi training admin inventory",
+        "deadline": "2026-07-31",
+        "bobot": 30,
+        "progress": null,
+        "review": "",
+        "editing": false,
+        "savedAt": "2026-07-06T01:56:54.580Z"
+      },
+      {
+        "tal": "menjalankan proyek hpp bersama purchasing",
+        "deadline": "2026-07-31",
+        "bobot": 20,
+        "progress": null,
+        "review": "",
+        "editing": false,
+        "savedAt": "2026-07-06T01:56:54.580Z"
+      },
+      {
+        "tal": "pendataan GA sebelum staff resign",
+        "deadline": "2026-07-31",
+        "bobot": 10,
+        "progress": null,
+        "review": "",
+        "editing": false,
+        "savedAt": "2026-07-06T01:56:54.580Z"
+      }
+    ],
+    "savedAt": "2026-07-06T01:56:54.580Z"
+  }
 }
