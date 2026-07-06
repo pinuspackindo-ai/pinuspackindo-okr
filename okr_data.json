@@ -95,11 +95,11 @@
   "_deleted": {
     "_ga_rot_2026_06": 1783134158109,
     "_ga_rot_2026_07": 1783134170325,
-    "_fa_rot_2026_07": 1783308087934,
-    "_fa_piutang_jt_2026_06": 1783326222095,
-    "_fa_akurasi_input_fa_2026_06": 1783326222095,
-    "_fa_akurasi_saldo_fa_2026_06": 1783326222095,
-    "_fa_rot_2026_06": 1783326222095
+    "_fa_rot_2026_07": 1783306491010,
+    "_fa_piutang_jt_2026_06": 1783308064883,
+    "_fa_akurasi_input_fa_2026_06": 1783308064883,
+    "_fa_akurasi_saldo_fa_2026_06": 1783308064883,
+    "_fa_rot_2026_06": 1783308064883
   },
   "2026-05": {
     "Distribution Sales": {
@@ -3869,7 +3869,7 @@
         "progress": null,
         "review": "",
         "editing": false,
-        "savedAt": "2026-07-06T03:45:55.744Z"
+        "savedAt": "2026-07-06T02:06:50.940Z"
       },
       {
         "tal": "Running RN by checker",
@@ -3878,16 +3878,16 @@
         "progress": null,
         "review": "",
         "editing": false,
-        "savedAt": "2026-07-06T03:45:55.227Z"
+        "savedAt": "2026-07-06T02:06:57.522Z"
       },
       {
-        "tal": "Running repacking by checker + ITR by md sales",
+        "tal": "Running repacking + ITR by md sales",
         "deadline": "2026-07-31",
         "bobot": 20,
         "progress": null,
         "review": "",
         "editing": false,
-        "savedAt": "2026-07-06T03:45:53.545Z"
+        "savedAt": "2026-07-06T02:06:58.370Z"
       },
       {
         "tal": "Finalisasi display toko sesuai planogram",
@@ -3896,10 +3896,10 @@
         "progress": null,
         "review": "",
         "editing": false,
-        "savedAt": "2026-07-06T03:45:54.494Z"
+        "savedAt": "2026-07-06T02:06:59.081Z"
       }
     ],
-    "savedAt": "2026-07-06T03:45:55.744Z"
+    "savedAt": "2026-07-06T02:06:59.081Z"
   },
   "_tal_d12_2026_07": {
     "rows": [
@@ -4393,5 +4393,5 @@
       "actionPlan": ""
     }
   },
-  "_ts": 1783326222095
+  "_ts": 1783327793269
 }
