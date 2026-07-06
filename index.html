@@ -3137,9 +3137,13 @@ function purchInstockRender(){
   var BUL=STORE_BULAN;
   var BULS=['Jan','Feb','Mar','Apr','Mei','Jun','Jul','Agu','Sep','Okt','Nov','Des'];
   var DAYS=['Min','Sen','Sel','Rab','Kam','Jum','Sab'];
+  var useNew=purchInstockNewFormula(y,m); // Juli 2026 → tampilkan File 3 + skor per-user
   var daysInM=new Date(y,m,0).getDate(),totalWD=0,savedD=0,scoreSum=0,scoreDays=0;
-  for(var dd=1;dd<=daysInM;dd++){var dt=new Date(y,m-1,dd);if(dt.getDay()===0)continue;totalWD++;var dd_=_pgIns(y,m,dd);if(dd_.score!==null&&dd_.score!==undefined&&dd_.score!==''){savedD++;scoreSum+=parseFloat(dd_.score)||0;scoreDays++;}}
+  var uSum={},uCnt={};INSTOCK_USERS.forEach(function(u){uSum[u.key]=0;uCnt[u.key]=0;});
+  for(var dd=1;dd<=daysInM;dd++){var dt=new Date(y,m-1,dd);if(dt.getDay()===0)continue;totalWD++;var dd_=_pgIns(y,m,dd);if(dd_.score!==null&&dd_.score!==undefined&&dd_.score!==''){savedD++;scoreSum+=parseFloat(dd_.score)||0;scoreDays++;}if(useNew&&dd_.users){INSTOCK_USERS.forEach(function(u){var v=dd_.users[u.key];if(v!==null&&v!==undefined&&v!==''){uSum[u.key]+=parseFloat(v)||0;uCnt[u.key]++;}});}}
   var score=scoreDays>0?Math.round(scoreSum/scoreDays*100)/100:0;
+  var perUserHtml='';
+  if(useNew){perUserHtml='<div style="margin-top:5px;font-size:10px;line-height:1.6;color:var(--text-m);">';INSTOCK_USERS.forEach(function(u){var v=uCnt[u.key]?Math.round(uSum[u.key]/uCnt[u.key]*100)/100:null;perUserHtml+='<div>'+esc(u.key)+': <strong style="color:var(--text);">'+(v!==null?v.toFixed(1)+'%':'—')+'</strong></div>';});perUserHtml+='</div>';}
   var linked=purchasingIsLinked(y,m);var cls=scoreClass(score);
   var html='';
   html+='<div style="display:flex;align-items:center;gap:12px;margin-bottom:14px;flex-wrap:wrap;">';
