@@ -3000,6 +3000,7 @@ function purchDoSave(){
     }
     d.file1=p.file1;d.file1Name=p.file1Name;d.file2=p.file2;d.file2Name=p.file2Name;
     d.lateScore=p.lateScore;d.accScore=p.accScore;d.finalScore=p.finalScore;
+    if(p.users!==undefined)d.users=p.users;
     d.savedAt=new Date().toISOString();d.locked=true;
     _psApo(p.year,p.month,d);
     purchasingSyncOKR('akurasi_po',p.year,p.month,Math.round(p.finalScore*100)/100);
@@ -3388,7 +3389,21 @@ function purchApoSave(month){
           var accScore=totalRef?Math.max(0,totalRef-inacc.length)/totalRef*100:0;
           // ── Final ──
           var finalScore=lateScore*0.7+accScore*0.3;
-          _purchPending={type:'akurasi_po',year:y,month:month,file1:d.file1,file1Name:d.file1Name,file2:d.file2,file2Name:d.file2Name,lateScore:lateScore,accScore:accScore,finalScore:finalScore};
+          // ── PER-USER (Juli 2026 →): penyebut = T global (total1), temuan difokuskan per nama ──
+          var apoUsers=null;
+          if(typeof purchInstockNewFormula==='function'&&purchInstockNewFormula(y,month)){
+            var lubK=findCol(h1,['lastupdateby','lastupdatedby','last update by','updateby','updatedby','last update','pic','petugas','oleh','user']);
+            var refUpd={};rows1.forEach(function(row){var ref=String(row[refK]||'').trim();if(!ref)return;if(lubK&&!refUpd[ref])refUpd[ref]=_insNorm(row[lubK]);});
+            apoUsers={};
+            APO_USERS.forEach(function(u){
+              var lateU=0;uniq.forEach(function(r){if(r.status==='Terlambat'&&(refUpd[r.ref]||'').indexOf(u.m)!==-1)lateU++;});
+              var ketU=total1?(total1-lateU)/total1*100:0;
+              var inaccU=inacc.filter(function(row){return _insNorm(row[originK]).indexOf(u.m)!==-1;}).length;
+              var akuU=totalRef?Math.max(0,totalRef-inaccU)/totalRef*100:0;
+              apoUsers[u.key]={ket:Math.round(ketU*100)/100,aku:Math.round(akuU*100)/100,score:Math.round((ketU*0.7+akuU*0.3)*100)/100};
+            });
+          }
+          _purchPending={type:'akurasi_po',year:y,month:month,file1:d.file1,file1Name:d.file1Name,file2:d.file2,file2Name:d.file2Name,lateScore:lateScore,accScore:accScore,finalScore:finalScore,users:apoUsers};
           document.getElementById('pc-sub').textContent='Akurasi PO';
           document.getElementById('pc-bulan').textContent=STORE_BULAN[month-1]+' '+y;
           document.getElementById('pc-val').textContent='Score: '+finalScore.toFixed(1)+'%  (Ket: '+lateScore.toFixed(1)+'%\xd770%  +  Aku: '+accScore.toFixed(1)+'%\xd730%)';
