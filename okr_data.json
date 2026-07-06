@@ -4459,7 +4459,7 @@
       "actionPlan": ""
     }
   },
-  "_ts": 1783351724400,
+  "_ts": 1783351733145,
   "_p_ins_2026_07_06": {
     "file1": "https://raw.githubusercontent.com/pinuspackindo-ai/pinuspackindo-okr/data/uploads/purchasing/1783351592360_fl0abx_product.product.xlsx",
     "file1Name": "product.product.xlsx",
@@ -4473,7 +4473,7 @@
       "A'izatun Nafisah": null
     },
     "score": 90.56,
-    "savedAt": "2026-07-06T15:26:30.321Z",
-    "locked": false
+    "savedAt": "2026-07-06T15:28:53.145Z",
+    "locked": true
   }
 }
