@@ -3307,6 +3307,7 @@ function purchApoRender(){
       var fs=d.finalScore;var cls=fs!==null?scoreClass(fs):'';
       html+='<td style="text-align:center;"><span class="metric-value '+cls+'" style="font-size:.95rem;">'+(fs!==null?fs.toFixed(1)+'%':'&#x2014;')+'</span>';
       if(fs!==null)html+='<div style="font-size:9px;color:var(--text-l);">Ket:'+d.lateScore.toFixed(0)+'% Aku:'+d.accScore.toFixed(0)+'%</div>';
+      if(fs!==null&&d.users){Object.keys(d.users).forEach(function(un){var uu=d.users[un];if(uu&&typeof uu.score==='number')html+='<div style="font-size:9px;color:var(--text-m);">'+esc(un)+': <strong>'+uu.score.toFixed(1)+'%</strong></div>';});}
       html+='</td>';
       html+='<td style="text-align:center;">'+(linked?(fs!==null?'<span style="color:var(--success);font-weight:600;">'+fs.toFixed(1)+'%</span>':'<span style="color:var(--text-l);">&#x2014;</span>'):'<span style="font-size:10px;color:var(--text-l);">Tidak tersambung</span>')+'</td>';
       html+='<td style="text-align:center;white-space:nowrap;"><div style="display:flex;gap:4px;justify-content:center;align-items:center;"><button onclick="purchApoEdit('+m+')" style="background:none;border:1px solid var(--border);color:var(--text-m);border-radius:var(--radius-sm);padding:4px 10px;cursor:pointer;font-size:11px;font-family:var(--font);">&#x270F;&#xFE0F; Edit</button><button onclick="purchApoDelete('+m+')" style="background:none;border:1.5px solid #fca5a5;color:#dc2626;border-radius:var(--radius-sm);padding:4px 8px;cursor:pointer;font-size:12px;font-family:var(--font);">&#x1F5D1;</button></div></td>';
