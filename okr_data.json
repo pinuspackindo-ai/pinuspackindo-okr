@@ -1,5 +1,5 @@
 {
-  "_ts": 1783306424815,
+  "_ts": 1783306430694,
   "_userAccess": {
     "Finance & Accounting": {
       "modules": [
@@ -499,7 +499,7 @@
       "actionPlan": "Planning investasi",
       "rows": [
         {
-          "actual": null,
+          "actual": 100,
           "bobot": 30,
           "id": "r1780472096513lz7h",
           "keyResult": "Tingkat keberhasilan penagihan piutang",
@@ -507,7 +507,7 @@
           "target": 95
         },
         {
-          "actual": null,
+          "actual": 100,
           "bobot": 25,
           "id": "r17804720965139cwc",
           "keyResult": "Payment akurat dan on time",
@@ -515,7 +515,7 @@
           "target": 98
         },
         {
-          "actual": null,
+          "actual": 97.8,
           "bobot": 20,
           "id": "r1780472096513gbd2",
           "keyResult": "Tingkat akurasi uang fisik dan data",
