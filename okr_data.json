@@ -3454,7 +3454,7 @@
   "_ia_rot_keuangan_2026_07": {
     "rows": [
       {
-        "deadline": "2026-07-05",
+        "deadline": "2026-07-04",
         "submittedDate": "",
         "temuan": "",
         "evidence": null,
@@ -3472,7 +3472,7 @@
         ]
       },
       {
-        "deadline": "2026-07-12",
+        "deadline": "2026-07-11",
         "submittedDate": "",
         "temuan": "",
         "evidence": "",
@@ -3480,7 +3480,7 @@
         "locked": false
       },
       {
-        "deadline": "2026-07-19",
+        "deadline": "2026-07-18",
         "submittedDate": "",
         "temuan": "",
         "evidence": "",
@@ -3488,7 +3488,7 @@
         "locked": false
       },
       {
-        "deadline": "2026-07-26",
+        "deadline": "2026-07-25",
         "submittedDate": "",
         "temuan": "",
         "evidence": "",
@@ -3855,6 +3855,7 @@
       }
     ]
   },
+  "_ts": 1783303313845,
   "_tal_d0_2026_07": {
     "rows": [
       {
@@ -3896,7 +3897,6 @@
     ],
     "savedAt": "2026-07-06T01:53:14.493Z"
   },
-  "_ts": 1783303303064,
   "_tal_d12_2026_07": {
     "rows": [
       {
@@ -3992,5 +3992,19 @@
       }
     ],
     "savedAt": "2026-07-06T02:00:45.071Z"
+  },
+  "_tal_d2_2026_07": {
+    "rows": [
+      {
+        "tal": "menyusun 50% SOP finance berdasar business flow finance",
+        "deadline": "2026-07-31",
+        "bobot": 100,
+        "progress": null,
+        "review": "",
+        "editing": false,
+        "savedAt": "2026-07-06T02:01:53.845Z"
+      }
+    ],
+    "savedAt": "2026-07-06T02:01:53.845Z"
   }
 }
