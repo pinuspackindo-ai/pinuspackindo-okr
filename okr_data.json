@@ -1771,8 +1771,8 @@
         "deadline": "2026-06-30",
         "editing": false,
         "progress": 100,
-        "review": "kurang cetak dan tempel",
-        "savedAt": "2026-06-29T05:17:30.777Z",
+        "review": "ok",
+        "savedAt": "2026-07-06T02:14:17.271Z",
         "tal": "Visualisasi Bizflow di Warehouse"
       },
       {
@@ -1785,7 +1785,7 @@
         "tal": "Develop Website"
       }
     ],
-    "savedAt": "2026-06-29T05:17:30.777Z"
+    "savedAt": "2026-07-06T02:14:17.271Z"
   },
   "_tal_d3_2026_06": {
     "rows": [
@@ -3855,7 +3855,7 @@
       }
     ]
   },
-  "_ts": 1783304052606,
+  "_ts": 1783304057271,
   "_tal_d0_2026_07": {
     "rows": [
       {
