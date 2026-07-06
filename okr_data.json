@@ -2330,9 +2330,9 @@
         "deadline": "2026-06-30",
         "bobot": 40,
         "progress": 50,
-        "review": "senin test random",
+        "review": "ok",
         "editing": false,
-        "savedAt": "2026-06-20T08:38:48.482Z"
+        "savedAt": "2026-07-06T02:14:06.367Z"
       },
       {
         "tal": "Drafting formasi harian & Lembur senin pagi",
@@ -2353,7 +2353,7 @@
         "savedAt": "2026-06-20T08:38:18.017Z"
       }
     ],
-    "savedAt": "2026-06-20T08:38:48.482Z"
+    "savedAt": "2026-07-06T02:14:06.367Z"
   },
   "_tal_d2_2026_06": {
     "rows": [
@@ -3855,7 +3855,7 @@
       }
     ]
   },
-  "_ts": 1783304040155,
+  "_ts": 1783304046367,
   "_tal_d0_2026_07": {
     "rows": [
       {
