@@ -3854,5 +3854,46 @@
       }
     ]
   },
-  "_ts": 1783301718736
+  "_ts": 1783302794493,
+  "_tal_d0_2026_07": {
+    "rows": [
+      {
+        "tal": "Melebur md sales + inval md, set target omset per individu",
+        "deadline": "2026-07-31",
+        "bobot": 40,
+        "progress": null,
+        "review": "",
+        "editing": false,
+        "savedAt": "2026-07-06T01:53:14.493Z"
+      },
+      {
+        "tal": "Running RN by checker",
+        "deadline": "2026-07-31",
+        "bobot": 30,
+        "progress": null,
+        "review": "",
+        "editing": false,
+        "savedAt": "2026-07-06T01:53:14.493Z"
+      },
+      {
+        "tal": "Running repacking + ITR by md sales",
+        "deadline": "2026-07-31",
+        "bobot": 20,
+        "progress": null,
+        "review": "",
+        "editing": false,
+        "savedAt": "2026-07-06T01:53:14.493Z"
+      },
+      {
+        "tal": "Finalisasi display toko sesuai planogram",
+        "deadline": "2026-07-31",
+        "bobot": 10,
+        "progress": null,
+        "review": "",
+        "editing": false,
+        "savedAt": "2026-07-06T01:53:14.493Z"
+      }
+    ],
+    "savedAt": "2026-07-06T01:53:14.493Z"
+  }
 }
