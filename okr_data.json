@@ -4338,7 +4338,7 @@
           "objective": "Pengadaan stok tepat waktu dan berkwalitas, administrasi akurat..",
           "keyResult": "Tingkat akurasi PO",
           "target": 95,
-          "actual": null,
+          "actual": 68.28,
           "bobot": 30
         },
         {
@@ -4480,11 +4480,28 @@
     "file1Name": "purchase.order.line (3).xlsx",
     "file2": "https://raw.githubusercontent.com/pinuspackindo-ai/pinuspackindo-okr/data/uploads/purchasing/1783386935885_32wvbg_account.move_2.xlsx",
     "file2Name": "account.move (2).xlsx",
-    "lateScore": null,
-    "accScore": null,
-    "finalScore": null,
-    "savedAt": null,
-    "locked": false
+    "lateScore": 59.780907668231606,
+    "accScore": 88.10641627543035,
+    "finalScore": 68.27856025039122,
+    "savedAt": "2026-07-07T01:22:58.809Z",
+    "locked": true,
+    "users": {
+      "Arif Wibowo": {
+        "ket": 97.5,
+        "aku": 100,
+        "score": 98.25
+      },
+      "Adit Mohgat": {
+        "ket": 97.18,
+        "aku": 100,
+        "score": 98.03
+      },
+      "A'izatul Nafisah": {
+        "ket": 99.69,
+        "aku": 100,
+        "score": 99.78
+      }
+    }
   },
-  "_ts": 1783387367471
+  "_ts": 1783387378809
 }
