@@ -470,6 +470,21 @@ tbody tr:hover td{background:var(--bg);}
       <div id="pengaturan-content"></div>
     </div>
 
+    <!-- ════════ PANEL START BUSINESS GOAL ════════ -->
+    <div id="panel-sbg" class="panel">
+      <div style="display:flex;align-items:flex-start;justify-content:space-between;margin-bottom:14px;gap:12px;flex-wrap:wrap;">
+        <div>
+          <div style="font-size:18px;font-weight:800;color:var(--text);">&#x1F3AF; Start Business Goal <span style="font-size:13px;font-weight:400;color:var(--text-m);">— SBG (Starter Business Goal)</span></div>
+          <div style="font-size:12px;color:var(--text-l);margin-top:3px;">CV Pinus Packindo &middot; %Ach = Actual/Target &middot; Score = %Ach &times; %Weight</div>
+        </div>
+        <div style="display:flex;align-items:center;gap:8px;">
+          <span style="font-size:12px;color:var(--text-m);">Tahun:</span>
+          <select id="sbg-year-sel" class="store-year-sel" onchange="sbgYearChange(this.value)"></select>
+        </div>
+      </div>
+      <div id="sbg-content"></div>
+    </div>
+
     <!-- ════════ PANEL STORE ════════ -->
     <div id="panel-store" class="panel">
       <div style="position:sticky;top:53px;z-index:40;background:var(--bg);padding-bottom:16px;">
@@ -4184,6 +4199,7 @@ const panelTitles={
   hrd:'HRD — Data Operasional',
   ia:'Internal Audit — Data Operasional',
   tal:'TAL — Task Achievement List',
+  sbg:'Start Business Goal',
   pengaturan:'Pengaturan Akun'
 };
 // ── AUTO-SINKRON REAL-TIME ANTAR USER/DEVICE ──
@@ -4335,6 +4351,7 @@ function showPanel(name,btn){
   if(name==='hrd'){hrdInit();}
   if(name==='ia'){iaInit();}
   if(name==='tal'){talInit();}
+  if(name==='sbg'){sbgInit();}
   if(name==='pengaturan'){pengaturanInit();}
   applyPanelRoleUI(name);
 }
