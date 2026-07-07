@@ -4355,7 +4355,7 @@
           "objective": "Pengadaan stok tepat waktu dan berkwalitas, administrasi akurat..",
           "keyResult": "Tingkat penghematan budget",
           "target": 3,
-          "actual": 0,
+          "actual": null,
           "bobot": 10
         },
         {
@@ -4476,7 +4476,7 @@
     "savedAt": "2026-07-06T15:47:38.743Z",
     "locked": true
   },
-  "_ts": 1783389603119,
+  "_ts": 1783393288786,
   "_p_sv_2026_07_06": {
     "text": "PENGGILING ADONAN, 23,150, 21,750; TOPPER HBD KECIL, 941, 894",
     "evidence": "https://raw.githubusercontent.com/pinuspackindo-ai/pinuspackindo-okr/data/uploads/purchasing/1783389600987_p7m4vy_6.png",
