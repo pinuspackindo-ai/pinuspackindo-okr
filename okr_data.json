@@ -4784,7 +4784,7 @@
           "objective": "Melindungi dan mengawasi sistem internal berbasis dari resiko yg timbul.",
           "keyResult": "Jumlah inisiatif proaktif",
           "target": 2,
-          "actual": null,
+          "actual": 0,
           "bobot": 20
         }
       ],
@@ -6040,5 +6040,5 @@
       "actionPlan": ""
     }
   },
-  "_ts": 1783412953585
+  "_ts": 1783412955337
 }
