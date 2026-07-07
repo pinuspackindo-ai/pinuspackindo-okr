@@ -100,7 +100,8 @@
     "_fa_akurasi_input_fa_2026_06": 1783326222095,
     "_fa_akurasi_saldo_fa_2026_06": 1783326222095,
     "_fa_rot_2026_06": 1783326222095,
-    "_p_apo_2026_07": 1783387433699
+    "_p_apo_2026_07": 1783387433699,
+    "_p_kpen_2026_07": 1783393431960
   },
   "_okrLock": {
     "2026-05|Store": {
@@ -4347,7 +4348,7 @@
           "objective": "Pengadaan stok tepat waktu dan berkwalitas, administrasi akurat..",
           "keyResult": "Tingkat kwalitas pengadaan",
           "target": 95,
-          "actual": 94.66,
+          "actual": null,
           "bobot": 20
         },
         {
@@ -4483,25 +4484,5 @@
     "savedAt": "2026-07-07T02:00:03.119Z",
     "locked": true
   },
-  "_ts": 1783393416560,
-  "_p_kpen_2026_07": {
-    "file": "https://raw.githubusercontent.com/pinuspackindo-ai/pinuspackindo-okr/data/uploads/purchasing/1783393418325_jexcjn_purchase.order.line_4.xlsx",
-    "fileName": "purchase.order.line (4).xlsx",
-    "totalRows": 2041,
-    "accRows": 1932,
-    "score": 94.65948064674178,
-    "savedAt": "2026-07-07T03:03:36.559Z",
-    "locked": true,
-    "users": {
-      "Arif Wibowo": {
-        "score": 99.71
-      },
-      "Adit Mohgat": {
-        "score": 99.76
-      },
-      "A'izatul Nafisah": {
-        "score": 99.95
-      }
-    }
-  }
+  "_ts": 1783393431960
 }
