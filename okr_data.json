@@ -6058,40 +6058,40 @@
         "goal": "Total omzet retail",
         "target": "Rp38,000,000,000",
         "actual": "",
-        "weight": ""
+        "weight": "30"
       },
       {
         "goal": "Total omzet distribution",
         "target": "Rp36,000,000,000",
         "actual": "",
-        "weight": ""
+        "weight": "25"
       },
       {
         "goal": "OKR score all divisions",
         "target": "90%",
         "actual": "",
-        "weight": ""
+        "weight": "20"
       },
       {
         "goal": "Avg KPIM scores all teams",
         "target": "90%",
         "actual": "",
-        "weight": ""
+        "weight": "15"
       },
       {
         "goal": "Avg TAL scores all teams",
         "target": "90%",
         "actual": "",
-        "weight": ""
+        "weight": "6"
       },
       {
         "goal": "Buka cabang",
         "target": "1",
         "actual": "",
-        "weight": ""
+        "weight": "4"
       }
     ],
-    "savedAt": "2026-07-07T14:46:04.154Z"
+    "savedAt": "2026-07-07T15:23:56.184Z"
   },
-  "_ts": 1783437749557
+  "_ts": 1783437836184
 }
