@@ -3008,6 +3008,7 @@ function purchDoSave(){
   } else if(p.type==='kualitas_pen'){
     var d=_pgKpen(p.year,p.month);
     d.file=p.file;d.fileName=p.fileName;d.totalRows=p.totalRows;d.accRows=p.accRows;d.score=p.score;
+    if(p.users!==undefined)d.users=p.users;
     d.savedAt=new Date().toISOString();d.locked=true;
     _psKpen(p.year,p.month,d);
     purchasingSyncOKR('kualitas_pen',p.year,p.month,Math.round(p.score*100)/100);
@@ -3494,10 +3495,20 @@ function purchKpenSave(month){
         var rqtyK=findCol(h,['receivedqty','received qty','receivedquantity','qty received','qtyreceived','terima']);
         var qtyK=h.find(function(c){return c.trim().toLowerCase()==='quantity';})||findCol(h,['quantity','qty']);
         if(!rqtyK||!qtyK){notify('Kolom Received Qty / Quantity tidak ditemukan','error');return;}
-        var allRows=rows.map(function(row){var rqty=Math.round((parseFloat(row[rqtyK])||0)*100)/100;var qty=Math.round((parseFloat(row[qtyK])||0)*100)/100;return{status:rqty===qty?'Akurat':'Tidak Akurat'};});
+        var lubK=findCol(h,['lastupdateby','lastupdatedby','last update by','updateby','updatedby','last update','pic','petugas','oleh','user']);
+        var allRows=rows.map(function(row){var rqty=Math.round((parseFloat(row[rqtyK])||0)*100)/100;var qty=Math.round((parseFloat(row[qtyK])||0)*100)/100;return{status:rqty===qty?'Akurat':'Tidak Akurat',upd:lubK?_insNorm(row[lubK]):''};});
         var total=allRows.length;var accRows=allRows.filter(function(r){return r.status==='Akurat';}).length;
         var score=total?accRows/total*100:0;
-        _purchPending={type:'kualitas_pen',year:y,month:month,file:d.file,fileName:d.fileName,totalRows:total,accRows:accRows,score:score};
+        // ── PER-USER (Juli 2026 →): penyebut = total global, temuan (tidak akurat) difokuskan per nama ──
+        var kpenUsers=null;
+        if(typeof purchInstockNewFormula==='function'&&purchInstockNewFormula(y,month)&&typeof APO_USERS!=='undefined'){
+          kpenUsers={};
+          APO_USERS.forEach(function(u){
+            var badU=allRows.filter(function(r){return r.status==='Tidak Akurat'&&r.upd.indexOf(u.m)!==-1;}).length;
+            kpenUsers[u.key]={score:total?Math.round((total-badU)/total*10000)/100:0};
+          });
+        }
+        _purchPending={type:'kualitas_pen',year:y,month:month,file:d.file,fileName:d.fileName,totalRows:total,accRows:accRows,score:score,users:kpenUsers};
         document.getElementById('pc-sub').textContent='Kualitas Penerimaan';
         document.getElementById('pc-bulan').textContent=STORE_BULAN[month-1]+' '+y;
         document.getElementById('pc-val').textContent='Score: '+score.toFixed(1)+'%  ('+accRows+' dari '+total+' baris akurat)';
