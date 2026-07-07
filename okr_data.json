@@ -256,7 +256,7 @@
       "actionPlan": "Kaji ulang cctv warehouse",
       "rows": [
         {
-          "actual": 98.2,
+          "actual": null,
           "bobot": 40,
           "id": "r177989029078478jg",
           "keyResult": "Tingkat akurasi stok inventaris data vs fisik",
@@ -518,7 +518,7 @@
           "target": 90
         },
         {
-          "actual": 98.23,
+          "actual": 98.225,
           "bobot": 10,
           "id": "r1779890290785xbtj",
           "keyResult": "Tingkat implementasi rekomendasi audit",
@@ -4524,5 +4524,5 @@
     "savedAt": "2026-07-07T03:04:41.483Z"
   },
   "_hrdViewAllV1": 1,
-  "_ts": 1783399518382
+  "_ts": 1783399523454
 }
