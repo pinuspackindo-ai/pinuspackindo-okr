@@ -1161,6 +1161,7 @@ function authGetAccess(user){
 }
 function authCanAccess(moduleKey){
   if(!APP_CUR_USER) return false;
+  if(moduleKey==='sbg') return true; // Start Business Goal: semua user boleh VIEW (edit tetap Owner/Admin)
   if(APP_CUR_USER==='Admin') return true;
   return authGetAccess(APP_CUR_USER).modules.indexOf(moduleKey)!==-1;
 }
