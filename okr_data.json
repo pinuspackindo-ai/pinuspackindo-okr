@@ -6052,5 +6052,46 @@
     "savedAt": "2026-07-07T09:14:40.429Z",
     "locked": true
   },
-  "_ts": 1783435517648
+  "_ts": 1783435564154,
+  "_sbg_2026": {
+    "rows": [
+      {
+        "goal": "Total omzet retail",
+        "target": "Rp38,000,000,000",
+        "actual": "",
+        "weight": ""
+      },
+      {
+        "goal": "Total omzet distribution",
+        "target": "Rp36,000,000,000",
+        "actual": "",
+        "weight": ""
+      },
+      {
+        "goal": "OKR score all divisions",
+        "target": "90%",
+        "actual": "",
+        "weight": ""
+      },
+      {
+        "goal": "Avg KPIM scores all teams",
+        "target": "90%",
+        "actual": "",
+        "weight": ""
+      },
+      {
+        "goal": "Avg TAL scores all teams",
+        "target": "90%",
+        "actual": "",
+        "weight": ""
+      },
+      {
+        "goal": "Buka cabang",
+        "target": "1",
+        "actual": "",
+        "weight": ""
+      }
+    ],
+    "savedAt": "2026-07-07T14:46:04.154Z"
+  }
 }
