@@ -3862,7 +3862,7 @@
       }
     ]
   },
-  "_ts": 1783393481483,
+  "_ts": 1783393499954,
   "_tal_d0_2026_07": {
     "rows": [
       {
@@ -4267,7 +4267,7 @@
           "objective": "Pengadaan stok tepat waktu dan berkwalitas, administrasi akurat..",
           "keyResult": "Tingkat in stock",
           "target": 90,
-          "actual": 91.6,
+          "actual": 91.39,
           "bobot": 35
         },
         {
