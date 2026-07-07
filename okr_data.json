@@ -3774,7 +3774,7 @@
     "evidence": null,
     "evidenceName": "Cuplikan layar 2026-07-04 095817.png",
     "savedAt": "2026-07-04T02:59:07.870Z",
-    "locked": true,
+    "locked": false,
     "evidences": [
       {
         "name": "Cuplikan layar 2026-07-04 095817.png",
@@ -4600,5 +4600,5 @@
       }
     ]
   },
-  "_ts": 1783409050059
+  "_ts": 1783409059024
 }
