@@ -591,7 +591,7 @@
           "target": 98
         },
         {
-          "actual": null,
+          "actual": 100,
           "bobot": 15,
           "id": "r1780472096513e6q5",
           "keyResult": "Laporan keuangan akurat dan on time",
@@ -4520,7 +4520,6 @@
     "savedAt": "2026-07-07T03:04:41.483Z"
   },
   "_hrdViewAllV1": 1,
-  "_ts": 1783407270884,
   "_fa_piutang_jt_2026_06": {
     "value": 100,
     "evidence": "https://raw.githubusercontent.com/pinuspackindo-ai/pinuspackindo-okr/data/uploads/finance_accounting/1783305710630_ioy7f7_WhatsApp_Image_2026-07-06_at_09.22.57.jpeg",
@@ -4600,5 +4599,6 @@
         "data": "https://raw.githubusercontent.com/pinuspackindo-ai/pinuspackindo-okr/data/uploads/finance_accounting/1783306272696_h7pib7_WhatsApp_Image_2026-07-06_at_09.14.59_1.jpeg"
       }
     ]
-  }
+  },
+  "_ts": 1783407279269
 }
