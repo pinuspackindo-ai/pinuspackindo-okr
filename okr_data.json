@@ -103,72 +103,6 @@
     "_p_apo_2026_07": 1783387433699,
     "_p_kpen_2026_07": 1783393431960
   },
-  "_okrLock": {
-    "2026-05|Store": {
-      "l": 1,
-      "t": 1783329220201
-    },
-    "2026-05|Distribution Sales": {
-      "l": 1,
-      "t": 1783329223338
-    },
-    "2026-05|Warehouse": {
-      "l": 1,
-      "t": 1783329227034
-    },
-    "2026-05|Inventory": {
-      "l": 1,
-      "t": 1783329228555
-    },
-    "2026-05|Purchasing": {
-      "l": 1,
-      "t": 1783329230402
-    },
-    "2026-05|Finance & Accounting": {
-      "l": 1,
-      "t": 1783329232073
-    },
-    "2026-05|General Affair": {
-      "l": 1,
-      "t": 1783329233706
-    },
-    "2026-05|HRD": {
-      "l": 1,
-      "t": 1783329235866
-    },
-    "2026-05|Internal Audit": {
-      "l": 1,
-      "t": 1783329237514
-    },
-    "2026-06|Store": {
-      "l": 1,
-      "t": 1783329245338
-    },
-    "2026-06|Warehouse": {
-      "l": 1,
-      "t": 1783329252434
-    },
-    "2026-06|Inventory": {
-      "l": 1,
-      "t": 1783329255194
-    },
-    "2026-06|Purchasing": {
-      "l": 0,
-      "t": 1783329261880
-    },
-    "2026-06|Finance & Accounting": {
-      "l": 1,
-      "t": 1783329264514
-    },
-    "2026-06|HRD": {
-      "l": 1,
-      "t": 1783329268987
-    },
-    "2026-06|Internal Audit": {
-      "l": 1,
-      "t": 1783329270698
-    }
-  },
   "2026-05": {
     "Distribution Sales": {
       "actionPlan": "Training new telesales",
@@ -3928,6 +3862,7 @@
       }
     ]
   },
+  "_ts": 1783394097247,
   "_tal_d0_2026_07": {
     "rows": [
       {
@@ -4328,15 +4263,15 @@
     "Purchasing": {
       "rows": [
         {
-          "id": "r1783303760597gkuq",
+          "id": "r1783393960388side",
           "objective": "Pengadaan stok tepat waktu dan berkwalitas, administrasi akurat..",
           "keyResult": "Tingkat in stock",
-          "target": 90,
+          "target": 95,
           "actual": 91.39,
-          "bobot": 35
+          "bobot": 40
         },
         {
-          "id": "r1783303760597zdtr",
+          "id": "r1783393960388m9bq",
           "objective": "Pengadaan stok tepat waktu dan berkwalitas, administrasi akurat..",
           "keyResult": "Tingkat akurasi PO",
           "target": 95,
@@ -4344,7 +4279,7 @@
           "bobot": 30
         },
         {
-          "id": "r17833037605980srw",
+          "id": "r1783393960388auig",
           "objective": "Pengadaan stok tepat waktu dan berkwalitas, administrasi akurat..",
           "keyResult": "Tingkat kwalitas pengadaan",
           "target": 95,
@@ -4352,23 +4287,16 @@
           "bobot": 20
         },
         {
-          "id": "r1783303760598iycx",
-          "objective": "Pengadaan stok tepat waktu dan berkwalitas, administrasi akurat..",
-          "keyResult": "Tingkat penghematan budget",
-          "target": 3,
-          "actual": null,
-          "bobot": 10
-        },
-        {
-          "id": "r1783303760598mh48",
+          "id": "r17833939603884vhg",
           "objective": "Pengadaan stok tepat waktu dan berkwalitas, administrasi akurat..",
           "keyResult": "Tingkat implementasi rekomendasi audit",
           "target": 100,
           "actual": null,
-          "bobot": 5
+          "bobot": 10
         }
       ],
-      "actionPlan": "Membuat 4 konten sosmed"
+      "actionPlan": "",
+      "savedAt": "2026-07-07T03:12:40.388Z"
     },
     "Store": {
       "rows": [
@@ -4461,6 +4389,72 @@
       "actionPlan": ""
     }
   },
+  "_okrLock": {
+    "2026-05|Store": {
+      "l": 1,
+      "t": 1783329220201
+    },
+    "2026-05|Distribution Sales": {
+      "l": 1,
+      "t": 1783329223338
+    },
+    "2026-05|Warehouse": {
+      "l": 1,
+      "t": 1783329227034
+    },
+    "2026-05|Inventory": {
+      "l": 1,
+      "t": 1783329228555
+    },
+    "2026-05|Purchasing": {
+      "l": 1,
+      "t": 1783329230402
+    },
+    "2026-05|Finance & Accounting": {
+      "l": 1,
+      "t": 1783329232073
+    },
+    "2026-05|General Affair": {
+      "l": 1,
+      "t": 1783329233706
+    },
+    "2026-05|HRD": {
+      "l": 1,
+      "t": 1783329235866
+    },
+    "2026-05|Internal Audit": {
+      "l": 1,
+      "t": 1783329237514
+    },
+    "2026-06|Store": {
+      "l": 1,
+      "t": 1783329245338
+    },
+    "2026-06|Warehouse": {
+      "l": 1,
+      "t": 1783329252434
+    },
+    "2026-06|Inventory": {
+      "l": 1,
+      "t": 1783329255194
+    },
+    "2026-06|Purchasing": {
+      "l": 0,
+      "t": 1783329261880
+    },
+    "2026-06|Finance & Accounting": {
+      "l": 1,
+      "t": 1783329264514
+    },
+    "2026-06|HRD": {
+      "l": 1,
+      "t": 1783329268987
+    },
+    "2026-06|Internal Audit": {
+      "l": 1,
+      "t": 1783329270698
+    }
+  },
   "_p_ins_2026_07_06": {
     "file1": "https://raw.githubusercontent.com/pinuspackindo-ai/pinuspackindo-okr/data/uploads/purchasing/1783352860387_dgge1j_product.product_1.xlsx",
     "file1Name": "product.product (1).xlsx",
@@ -4530,6 +4524,5 @@
     ],
     "savedAt": "2026-07-07T03:04:41.483Z"
   },
-  "_ts": 1783394074720,
   "_hrdViewAllV1": 1
 }
