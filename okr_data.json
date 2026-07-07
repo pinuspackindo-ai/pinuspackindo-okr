@@ -22,7 +22,7 @@
         "hrd",
         "tal"
       ],
-      "okrAll": false
+      "okrAll": true
     },
     "Internal Audit": {
       "modules": [
@@ -99,7 +99,9 @@
     "_fa_piutang_jt_2026_06": 1783326222095,
     "_fa_akurasi_input_fa_2026_06": 1783326222095,
     "_fa_akurasi_saldo_fa_2026_06": 1783326222095,
-    "_fa_rot_2026_06": 1783326222095
+    "_fa_rot_2026_06": 1783326222095,
+    "_p_apo_2026_07": 1783387433699,
+    "_p_kpen_2026_07": 1783393431960
   },
   "2026-05": {
     "Distribution Sales": {
@@ -4103,7 +4105,7 @@
           "objective": "Data dan fisik uang akurat, transaksi tepat dan on time.",
           "keyResult": "Laporan keuangan akurat dan on time",
           "target": 98,
-          "actual": 100,
+          "actual": null,
           "bobot": 15
         },
         {
@@ -4260,15 +4262,15 @@
     "Purchasing": {
       "rows": [
         {
-          "id": "r1783303760597gkuq",
+          "id": "r1783393960388side",
           "objective": "Pengadaan stok tepat waktu dan berkwalitas, administrasi akurat..",
           "keyResult": "Tingkat in stock",
-          "target": 90,
-          "actual": 91.6,
-          "bobot": 35
+          "target": 95,
+          "actual": 91.39,
+          "bobot": 40
         },
         {
-          "id": "r1783303760597zdtr",
+          "id": "r1783393960388m9bq",
           "objective": "Pengadaan stok tepat waktu dan berkwalitas, administrasi akurat..",
           "keyResult": "Tingkat akurasi PO",
           "target": 95,
@@ -4276,7 +4278,7 @@
           "bobot": 30
         },
         {
-          "id": "r17833037605980srw",
+          "id": "r1783393960388auig",
           "objective": "Pengadaan stok tepat waktu dan berkwalitas, administrasi akurat..",
           "keyResult": "Tingkat kwalitas pengadaan",
           "target": 95,
@@ -4284,23 +4286,16 @@
           "bobot": 20
         },
         {
-          "id": "r1783303760598iycx",
-          "objective": "Pengadaan stok tepat waktu dan berkwalitas, administrasi akurat..",
-          "keyResult": "Tingkat penghematan budget",
-          "target": 3,
-          "actual": null,
-          "bobot": 10
-        },
-        {
-          "id": "r1783303760598mh48",
+          "id": "r17833939603884vhg",
           "objective": "Pengadaan stok tepat waktu dan berkwalitas, administrasi akurat..",
           "keyResult": "Tingkat implementasi rekomendasi audit",
           "target": 100,
           "actual": null,
-          "bobot": 5
+          "bobot": 10
         }
       ],
-      "actionPlan": "Membuat 4 konten sosmed"
+      "actionPlan": "",
+      "savedAt": "2026-07-07T03:12:40.388Z"
     },
     "Store": {
       "rows": [
@@ -4393,7 +4388,7 @@
       "actionPlan": ""
     }
   },
-  "_ts": 1783399440835,
+  "_ts": 1783399442032,
   "_okrLock": {
     "2026-05|Store": {
       "l": 1,
@@ -4459,5 +4454,75 @@
       "l": 1,
       "t": 1783329270698
     }
-  }
+  },
+  "_p_ins_2026_07_06": {
+    "file1": "https://raw.githubusercontent.com/pinuspackindo-ai/pinuspackindo-okr/data/uploads/purchasing/1783352860387_dgge1j_product.product_1.xlsx",
+    "file1Name": "product.product (1).xlsx",
+    "file2": null,
+    "file2Name": "product.product.xlsx",
+    "file3": null,
+    "file3Name": "purchase.order.line (1).xlsx",
+    "users": {
+      "Arif Wibowo": 92.57,
+      "Adit Mohgat": 89.83,
+      "A'izatul Nafisah": 91.26
+    },
+    "score": 90.56,
+    "savedAt": "2026-07-06T15:47:38.743Z",
+    "locked": true
+  },
+  "_p_sv_2026_07_06": {
+    "text": "PENGGILING ADONAN, 23,150, 21,750; TOPPER HBD KECIL, 941, 894",
+    "evidence": "https://raw.githubusercontent.com/pinuspackindo-ai/pinuspackindo-okr/data/uploads/purchasing/1783389600987_p7m4vy_6.png",
+    "evidenceName": "6.PNG",
+    "savedAt": "2026-07-07T02:00:03.119Z",
+    "locked": true
+  },
+  "_tal_d4_2026_07": {
+    "rows": [
+      {
+        "tal": "pendataan inventaris sebelum resign",
+        "deadline": "2026-07-31",
+        "bobot": 100,
+        "progress": null,
+        "review": "",
+        "editing": false,
+        "savedAt": "2026-07-07T03:03:14.684Z"
+      }
+    ],
+    "savedAt": "2026-07-07T03:03:14.684Z"
+  },
+  "_tal_d9_2026_07": {
+    "rows": [
+      {
+        "tal": "buang sumo, gocup14, bintang oz",
+        "deadline": "2026-07-31",
+        "bobot": 40,
+        "progress": null,
+        "review": "",
+        "editing": false,
+        "savedAt": "2026-07-07T03:04:41.483Z"
+      },
+      {
+        "tal": "survey kontrakan cabang juwana",
+        "deadline": "2026-07-31",
+        "bobot": 30,
+        "progress": null,
+        "review": "",
+        "editing": false,
+        "savedAt": "2026-07-07T03:04:41.483Z"
+      },
+      {
+        "tal": "bersih bersih customer kecil",
+        "deadline": "2026-07-31",
+        "bobot": 20,
+        "progress": null,
+        "review": "",
+        "editing": false,
+        "savedAt": "2026-07-07T03:04:41.483Z"
+      }
+    ],
+    "savedAt": "2026-07-07T03:04:41.483Z"
+  },
+  "_hrdViewAllV1": 1
 }
