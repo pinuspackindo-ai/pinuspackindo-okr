@@ -102,72 +102,6 @@
     "_fa_rot_2026_06": 1783326222095,
     "_p_apo_2026_07": 1783387433699
   },
-  "_okrLock": {
-    "2026-05|Store": {
-      "l": 1,
-      "t": 1783329220201
-    },
-    "2026-05|Distribution Sales": {
-      "l": 1,
-      "t": 1783329223338
-    },
-    "2026-05|Warehouse": {
-      "l": 1,
-      "t": 1783329227034
-    },
-    "2026-05|Inventory": {
-      "l": 1,
-      "t": 1783329228555
-    },
-    "2026-05|Purchasing": {
-      "l": 1,
-      "t": 1783329230402
-    },
-    "2026-05|Finance & Accounting": {
-      "l": 1,
-      "t": 1783329232073
-    },
-    "2026-05|General Affair": {
-      "l": 1,
-      "t": 1783329233706
-    },
-    "2026-05|HRD": {
-      "l": 1,
-      "t": 1783329235866
-    },
-    "2026-05|Internal Audit": {
-      "l": 1,
-      "t": 1783329237514
-    },
-    "2026-06|Store": {
-      "l": 1,
-      "t": 1783329245338
-    },
-    "2026-06|Warehouse": {
-      "l": 1,
-      "t": 1783329252434
-    },
-    "2026-06|Inventory": {
-      "l": 1,
-      "t": 1783329255194
-    },
-    "2026-06|Purchasing": {
-      "l": 0,
-      "t": 1783329261880
-    },
-    "2026-06|Finance & Accounting": {
-      "l": 1,
-      "t": 1783329264514
-    },
-    "2026-06|HRD": {
-      "l": 1,
-      "t": 1783329268987
-    },
-    "2026-06|Internal Audit": {
-      "l": 1,
-      "t": 1783329270698
-    }
-  },
   "2026-05": {
     "Distribution Sales": {
       "actionPlan": "Training new telesales",
@@ -255,7 +189,7 @@
       "actionPlan": "Kaji ulang cctv warehouse",
       "rows": [
         {
-          "actual": 98.2,
+          "actual": null,
           "bobot": 40,
           "id": "r177989029078478jg",
           "keyResult": "Tingkat akurasi stok inventaris data vs fisik",
@@ -517,7 +451,7 @@
           "target": 90
         },
         {
-          "actual": 98.23,
+          "actual": 98.225,
           "bobot": 10,
           "id": "r1779890290785xbtj",
           "keyResult": "Tingkat implementasi rekomendasi audit",
@@ -570,7 +504,7 @@
       "actionPlan": "Planning investasi",
       "rows": [
         {
-          "actual": 100,
+          "actual": null,
           "bobot": 30,
           "id": "r1780472096513lz7h",
           "keyResult": "Tingkat keberhasilan penagihan piutang",
@@ -578,7 +512,7 @@
           "target": 95
         },
         {
-          "actual": 100,
+          "actual": null,
           "bobot": 25,
           "id": "r17804720965139cwc",
           "keyResult": "Payment akurat dan on time",
@@ -586,7 +520,7 @@
           "target": 98
         },
         {
-          "actual": 97.8,
+          "actual": null,
           "bobot": 20,
           "id": "r1780472096513gbd2",
           "keyResult": "Tingkat akurasi uang fisik dan data",
@@ -594,7 +528,7 @@
           "target": 98
         },
         {
-          "actual": 100,
+          "actual": null,
           "bobot": 15,
           "id": "r1780472096513e6q5",
           "keyResult": "Laporan keuangan akurat dan on time",
@@ -3526,7 +3460,7 @@
   "_ia_rot_keuangan_2026_07": {
     "rows": [
       {
-        "deadline": "2026-07-05",
+        "deadline": "2026-07-04",
         "submittedDate": "",
         "temuan": "",
         "evidence": null,
@@ -3544,7 +3478,7 @@
         ]
       },
       {
-        "deadline": "2026-07-12",
+        "deadline": "2026-07-11",
         "submittedDate": "",
         "temuan": "",
         "evidence": "",
@@ -3552,7 +3486,7 @@
         "locked": false
       },
       {
-        "deadline": "2026-07-19",
+        "deadline": "2026-07-18",
         "submittedDate": "",
         "temuan": "",
         "evidence": "",
@@ -3560,7 +3494,7 @@
         "locked": false
       },
       {
-        "deadline": "2026-07-26",
+        "deadline": "2026-07-25",
         "submittedDate": "",
         "temuan": "",
         "evidence": "",
@@ -3927,6 +3861,7 @@
       }
     ]
   },
+  "_ts": 1783393394684,
   "_tal_d0_2026_07": {
     "rows": [
       {
@@ -4331,7 +4266,7 @@
           "objective": "Pengadaan stok tepat waktu dan berkwalitas, administrasi akurat..",
           "keyResult": "Tingkat in stock",
           "target": 90,
-          "actual": 91.39,
+          "actual": 91.6,
           "bobot": 35
         },
         {
@@ -4460,6 +4395,72 @@
       "actionPlan": ""
     }
   },
+  "_okrLock": {
+    "2026-05|Store": {
+      "l": 1,
+      "t": 1783329220201
+    },
+    "2026-05|Distribution Sales": {
+      "l": 1,
+      "t": 1783329223338
+    },
+    "2026-05|Warehouse": {
+      "l": 1,
+      "t": 1783329227034
+    },
+    "2026-05|Inventory": {
+      "l": 1,
+      "t": 1783329228555
+    },
+    "2026-05|Purchasing": {
+      "l": 1,
+      "t": 1783329230402
+    },
+    "2026-05|Finance & Accounting": {
+      "l": 1,
+      "t": 1783329232073
+    },
+    "2026-05|General Affair": {
+      "l": 1,
+      "t": 1783329233706
+    },
+    "2026-05|HRD": {
+      "l": 1,
+      "t": 1783329235866
+    },
+    "2026-05|Internal Audit": {
+      "l": 1,
+      "t": 1783329237514
+    },
+    "2026-06|Store": {
+      "l": 1,
+      "t": 1783329245338
+    },
+    "2026-06|Warehouse": {
+      "l": 1,
+      "t": 1783329252434
+    },
+    "2026-06|Inventory": {
+      "l": 1,
+      "t": 1783329255194
+    },
+    "2026-06|Purchasing": {
+      "l": 0,
+      "t": 1783329261880
+    },
+    "2026-06|Finance & Accounting": {
+      "l": 1,
+      "t": 1783329264514
+    },
+    "2026-06|HRD": {
+      "l": 1,
+      "t": 1783329268987
+    },
+    "2026-06|Internal Audit": {
+      "l": 1,
+      "t": 1783329270698
+    }
+  },
   "_p_ins_2026_07_06": {
     "file1": "https://raw.githubusercontent.com/pinuspackindo-ai/pinuspackindo-okr/data/uploads/purchasing/1783352860387_dgge1j_product.product_1.xlsx",
     "file1Name": "product.product (1).xlsx",
@@ -4483,5 +4484,18 @@
     "savedAt": "2026-07-07T02:00:03.119Z",
     "locked": true
   },
-  "_ts": 1783393299215
+  "_tal_d4_2026_07": {
+    "rows": [
+      {
+        "tal": "pendataan inventaris sebelum resign",
+        "deadline": "2026-07-31",
+        "bobot": 100,
+        "progress": null,
+        "review": "",
+        "editing": false,
+        "savedAt": "2026-07-07T03:03:14.684Z"
+      }
+    ],
+    "savedAt": "2026-07-07T03:03:14.684Z"
+  }
 }
