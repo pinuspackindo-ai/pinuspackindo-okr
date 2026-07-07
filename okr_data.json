@@ -4025,13 +4025,13 @@
         "tal": "menyusun SOP pengelolaan tips warehouse",
         "deadline": "2026-07-31",
         "bobot": 40,
-        "progress": null,
+        "progress": 5,
         "review": "",
         "editing": false,
-        "savedAt": "2026-07-06T01:58:46.490Z"
+        "savedAt": "2026-07-07T04:46:53.329Z"
       }
     ],
-    "savedAt": "2026-07-07T04:46:18.257Z"
+    "savedAt": "2026-07-07T04:46:53.329Z"
   },
   "_tal_d3_2026_07": {
     "rows": [
@@ -4524,5 +4524,5 @@
     "savedAt": "2026-07-07T03:04:41.483Z"
   },
   "_hrdViewAllV1": 1,
-  "_ts": 1783399578257
+  "_ts": 1783399613329
 }
