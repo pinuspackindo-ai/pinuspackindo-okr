@@ -5453,39 +5453,32 @@
     "Distribution Sales": {
       "rows": [
         {
-          "id": "r1783411906819_117hea",
+          "id": "r17834799304578zzx",
           "objective": "Mencapai target penjualan, pelanggan puas.",
           "keyResult": "Jumlah omset global",
-          "target": 3400000000,
-          "actual": null,
-          "bobot": 35
+          "target": 3000000000,
+          "actual": 2734890954,
+          "bobot": 50
         },
         {
-          "id": "r1783411906819_118ylk",
-          "objective": "Mencapai target penjualan, pelanggan puas.",
-          "keyResult": "Retensi pelanggan",
-          "target": 100,
-          "actual": null,
-          "bobot": 30
-        },
-        {
-          "id": "r1783411906819_119d94",
+          "id": "r1783479930457j4zn",
           "objective": "Mencapai target penjualan, pelanggan puas.",
           "keyResult": "Customers baru",
           "target": 10,
-          "actual": null,
-          "bobot": 25
+          "actual": 10,
+          "bobot": 30
         },
         {
-          "id": "r1783411906819_120qqu",
+          "id": "r17834799304571c4z",
           "objective": "Mencapai target penjualan, pelanggan puas.",
           "keyResult": "Kepuasan pelanggan",
           "target": 90,
-          "actual": null,
-          "bobot": 10
+          "actual": 92,
+          "bobot": 20
         }
       ],
-      "actionPlan": "Training new telesales"
+      "actionPlan": "Training new telesales",
+      "savedAt": "2026-07-08T03:05:30.457Z"
     },
     "Finance & Accounting": {
       "rows": [
@@ -5817,7 +5810,7 @@
     ],
     "savedAt": "2026-07-07T15:23:56.184Z"
   },
-  "_ts": 1783479875729,
+  "_ts": 1783479930457,
   "_p_apo_2026_07": {
     "file1": "https://raw.githubusercontent.com/pinuspackindo-ai/pinuspackindo-okr/data/uploads/purchasing/1783386936569_aanc1x_purchase.order.line_3.xlsx",
     "file1Name": "purchase.order.line (3).xlsx",
