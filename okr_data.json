@@ -371,7 +371,7 @@
       "actionPlan": "Kaji ulang cctv warehouse",
       "rows": [
         {
-          "actual": null,
+          "actual": 98.2,
           "bobot": 40,
           "id": "r177989029078478jg",
           "keyResult": "Tingkat akurasi stok inventaris data vs fisik",
@@ -633,7 +633,7 @@
           "target": 90
         },
         {
-          "actual": 98.225,
+          "actual": 98.23,
           "bobot": 10,
           "id": "r1779890290785xbtj",
           "keyResult": "Tingkat implementasi rekomendasi audit",
@@ -667,7 +667,7 @@
           "objective": "Mencapai target penjualan, pelanggan puas.",
           "keyResult": "Customers baru",
           "target": 10,
-          "actual": null,
+          "actual": 8,
           "bobot": 25
         },
         {
@@ -4176,22 +4176,22 @@
         "tal": "pengadaan atribut dresscode sesuai SOP + internal memo nya",
         "deadline": "2026-07-31",
         "bobot": 35,
-        "progress": 10,
+        "progress": null,
         "review": "",
         "editing": false,
-        "savedAt": "2026-07-08T08:26:04.336Z"
+        "savedAt": "2026-07-06T02:00:45.071Z"
       },
       {
         "tal": "menyusun business flow departement HRD",
         "deadline": "2026-07-31",
         "bobot": 20,
-        "progress": 10,
+        "progress": null,
         "review": "",
         "editing": false,
-        "savedAt": "2026-07-08T08:26:13.711Z"
+        "savedAt": "2026-07-06T02:00:45.071Z"
       }
     ],
-    "savedAt": "2026-07-08T08:26:13.711Z"
+    "savedAt": "2026-07-06T02:00:45.071Z"
   },
   "_tal_d2_2026_07": {
     "rows": [
@@ -4460,7 +4460,7 @@
           "objective": "Pengadaan stok tepat waktu dan berkwalitas, administrasi akurat..",
           "keyResult": "Tingkat in stock",
           "target": 95,
-          "actual": 91.34,
+          "actual": 91.26,
           "bobot": 40
         },
         {
@@ -5880,7 +5880,6 @@
     "savedAt": null,
     "locked": false
   },
-  "_ts": 1783502294379,
   "_d_new_cust_2026_06": {
     "value": 8,
     "evidence": null,
@@ -5895,19 +5894,20 @@
     ]
   },
   "_p_ins_2026_07_08": {
-    "file1": "https://raw.githubusercontent.com/pinuspackindo-ai/pinuspackindo-okr/data/uploads/purchasing/1783500179050_4neyes_product.product.xlsx",
+    "file1": "https://raw.githubusercontent.com/pinuspackindo-ai/pinuspackindo-okr/data/uploads/purchasing/1783496032524_1z3c1v_product.product.xlsx",
     "file1Name": "product.product.xlsx",
-    "file2": "https://raw.githubusercontent.com/pinuspackindo-ai/pinuspackindo-okr/data/uploads/purchasing/1783500190361_y1jhv2_product.product_1.xlsx",
+    "file2": "https://raw.githubusercontent.com/pinuspackindo-ai/pinuspackindo-okr/data/uploads/purchasing/1783496094887_sncj6g_product.product_1.xlsx",
     "file2Name": "product.product (1).xlsx",
-    "file3": "https://raw.githubusercontent.com/pinuspackindo-ai/pinuspackindo-okr/data/uploads/purchasing/1783500191560_tef540_purchase.order.line.xlsx",
+    "file3": "https://raw.githubusercontent.com/pinuspackindo-ai/pinuspackindo-okr/data/uploads/purchasing/1783496033943_891kz1_purchase.order.line.xlsx",
     "file3Name": "purchase.order.line.xlsx",
     "users": {
-      "Arif Wibowo": 96.18,
-      "Adit Mohgat": 93.08,
-      "A'izatul Nafisah": 95.39
+      "Arif Wibowo": 95.54,
+      "Adit Mohgat": 90.38,
+      "A'izatul Nafisah": 93.75
     },
-    "score": 91.73,
-    "savedAt": "2026-07-08T08:43:09.816Z",
-    "locked": true
-  }
+    "score": 91.15,
+    "savedAt": null,
+    "locked": false
+  },
+  "_ts": 1783502919593
 }
