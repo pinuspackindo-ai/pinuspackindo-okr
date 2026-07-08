@@ -4224,7 +4224,19 @@ function sbgAutoActual(r,year){if(!r||!r.src)return null;if(r.src==='store_omzet
 function sbgRowVals(r,year){var act=r.src?sbgAutoActual(r,year):sbgNum(r.actual);var t=sbgNum(r.target),w=sbgNum(r.weight);var score=(t&&act!=null&&t!==0&&w!=null)?(act/t*w):null;return {act:act,score:score};}
 function sbgFmtLike(v,target){if(v==null)return '—';var t=String(target||'');if(/rp/i.test(t))return 'Rp'+Math.round(v).toLocaleString('en-US');if(t.indexOf('%')!==-1)return (Math.round(v*100)/100)+'%';return (Math.round(v*100)/100).toLocaleString('en-US');}
 // ── Init / render ──
-function sbgLoadRows(){_sbgRows=JSON.parse(JSON.stringify(_sbgGet(sbgYear).rows||[]));}
+function sbgLoadRows(){
+  _sbgRows=JSON.parse(JSON.stringify(_sbgGet(sbgYear).rows||[]));
+  // Backfill src utk data lama (disimpan sebelum fitur auto) — cocokkan berdasarkan Goal, atau via kata kunci.
+  _sbgRows.forEach(function(r){
+    if(r.src)return;
+    var d=SBG_DEFAULT_ROWS.filter(function(x){return x.goal===r.goal;})[0];
+    if(d&&d.src){r.src=d.src;return;}
+    var g=String(r.goal||'').toLowerCase();
+    if(/(omzet|omset).*(retail)|retail.*(omzet|omset)/.test(g))r.src='store_omzet';
+    else if(/(omzet|omset).*(distrib)|distrib.*(omzet|omset)/.test(g))r.src='distrib_omzet';
+    else if(/okr.*score|score.*divisi|score.*division/.test(g))r.src='okr_global';
+  });
+}
 function sbgInit(){
   sbgYear=new Date().getFullYear();
   var sel=document.getElementById('sbg-year-sel');

@@ -475,7 +475,7 @@ tbody tr:hover td{background:var(--bg);}
       <div style="display:flex;align-items:flex-start;justify-content:space-between;margin-bottom:14px;gap:12px;flex-wrap:wrap;">
         <div>
           <div style="font-size:18px;font-weight:800;color:var(--text);">&#x1F3AF; Start Business Goal <span style="font-size:13px;font-weight:400;color:var(--text-m);">— SBG (Starter Business Goal)</span></div>
-          <div style="font-size:12px;color:var(--text-l);margin-top:3px;">CV Pinus Packindo &middot; %Ach = Actual/Target &middot; Score = %Ach &times; %Weight</div>
+          <div style="font-size:12px;color:var(--text-l);margin-top:3px;">CV Pinus Packindo &middot; Score = (Actual &divide; Target) &times; %Weight &middot; sebagian Actual otomatis dari OKR</div>
         </div>
         <div style="display:flex;align-items:center;gap:8px;">
           <span style="font-size:12px;color:var(--text-m);">Tahun:</span>
@@ -4232,7 +4232,19 @@ function sbgAutoActual(r,year){if(!r||!r.src)return null;if(r.src==='store_omzet
 function sbgRowVals(r,year){var act=r.src?sbgAutoActual(r,year):sbgNum(r.actual);var t=sbgNum(r.target),w=sbgNum(r.weight);var score=(t&&act!=null&&t!==0&&w!=null)?(act/t*w):null;return {act:act,score:score};}
 function sbgFmtLike(v,target){if(v==null)return '—';var t=String(target||'');if(/rp/i.test(t))return 'Rp'+Math.round(v).toLocaleString('en-US');if(t.indexOf('%')!==-1)return (Math.round(v*100)/100)+'%';return (Math.round(v*100)/100).toLocaleString('en-US');}
 // ── Init / render ──
-function sbgLoadRows(){_sbgRows=JSON.parse(JSON.stringify(_sbgGet(sbgYear).rows||[]));}
+function sbgLoadRows(){
+  _sbgRows=JSON.parse(JSON.stringify(_sbgGet(sbgYear).rows||[]));
+  // Backfill src utk data lama (disimpan sebelum fitur auto) — cocokkan berdasarkan Goal, atau via kata kunci.
+  _sbgRows.forEach(function(r){
+    if(r.src)return;
+    var d=SBG_DEFAULT_ROWS.filter(function(x){return x.goal===r.goal;})[0];
+    if(d&&d.src){r.src=d.src;return;}
+    var g=String(r.goal||'').toLowerCase();
+    if(/(omzet|omset).*(retail)|retail.*(omzet|omset)/.test(g))r.src='store_omzet';
+    else if(/(omzet|omset).*(distrib)|distrib.*(omzet|omset)/.test(g))r.src='distrib_omzet';
+    else if(/okr.*score|score.*divisi|score.*division/.test(g))r.src='okr_global';
+  });
+}
 function sbgInit(){
   sbgYear=new Date().getFullYear();
   var sel=document.getElementById('sbg-year-sel');
