@@ -376,6 +376,8 @@ tbody tr:hover td{background:var(--bg);}
     <button class="nav-item active" id="nav-dashboard" onclick="showPanel('dashboard',this)"><span class="nav-icon">&#x1F4CA;</span><span class="nav-text"> Dashboard OKR</span></button>
     <button class="nav-item" id="nav-tal" onclick="showPanel('tal',this)"><span class="nav-icon">&#x1F4CB;</span><span class="nav-text"> TAL</span></button>
     <button class="nav-item" id="nav-sbg" onclick="showPanel('sbg',this)"><span class="nav-icon">&#x1F3AF;</span><span class="nav-text"> Start Business Goal</span></button>
+    <button class="nav-item" id="nav-kpi" onclick="showPanel('kpi',this)"><span class="nav-icon">&#x1F4C8;</span><span class="nav-text"> KPI Karyawan</span></button>
+    <button class="nav-item" id="nav-cabang" onclick="showPanel('cabang',this)"><span class="nav-icon">&#x1F3E2;</span><span class="nav-text"> Buka Cabang</span></button>
     <div class="nav-label" style="margin-top:10px;">Modul Data</div>
     <button class="nav-item" id="nav-store" onclick="showPanel('store',this)"><span class="nav-icon">&#x1F4E6;</span><span class="nav-text"> Store</span></button>
     <button class="nav-item" id="nav-distrib" onclick="showPanel('distrib',this)"><span class="nav-icon">&#x1F69A;</span><span class="nav-text"> Distribution Sales</span></button>
@@ -483,6 +485,36 @@ tbody tr:hover td{background:var(--bg);}
         </div>
       </div>
       <div id="sbg-content"></div>
+    </div>
+
+    <!-- ════════ PANEL KPI KARYAWAN ════════ -->
+    <div id="panel-kpi" class="panel">
+      <div style="display:flex;align-items:flex-start;justify-content:space-between;margin-bottom:14px;gap:12px;flex-wrap:wrap;">
+        <div>
+          <div style="font-size:18px;font-weight:800;color:var(--text);">&#x1F4C8; KPI Karyawan</div>
+          <div style="font-size:12px;color:var(--text-l);margin-top:3px;">Nilai KPI per bulan + bukti (maks 500KB). Score Global = rata-rata bulan terisi &rarr; masuk SBG (Avg KPIM).</div>
+        </div>
+        <div style="display:flex;align-items:center;gap:8px;">
+          <span style="font-size:12px;color:var(--text-m);">Tahun:</span>
+          <select id="kpi-year-sel" class="store-year-sel" onchange="kpiYearChange(this.value)"></select>
+        </div>
+      </div>
+      <div id="kpi-content"></div>
+    </div>
+
+    <!-- ════════ PANEL BUKA CABANG ════════ -->
+    <div id="panel-cabang" class="panel">
+      <div style="display:flex;align-items:flex-start;justify-content:space-between;margin-bottom:14px;gap:12px;flex-wrap:wrap;">
+        <div>
+          <div style="font-size:18px;font-weight:800;color:var(--text);">&#x1F3E2; Buka Cabang</div>
+          <div style="font-size:12px;color:var(--text-l);margin-top:3px;">Daftar cabang baru per tahun. Jumlah cabang tahun ini &rarr; masuk SBG (Buka cabang).</div>
+        </div>
+        <div style="display:flex;align-items:center;gap:8px;">
+          <span style="font-size:12px;color:var(--text-m);">Tahun:</span>
+          <select id="cabang-year-sel" class="store-year-sel" onchange="cabangYearChange(this.value)"></select>
+        </div>
+      </div>
+      <div id="cabang-content"></div>
     </div>
 
     <!-- ════════ PANEL STORE ════════ -->
