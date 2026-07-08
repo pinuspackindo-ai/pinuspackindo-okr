@@ -5119,39 +5119,32 @@
     "Distribution Sales": {
       "rows": [
         {
-          "id": "r1783411906819_789v6",
+          "id": "r1783478888604ukks",
           "objective": "Mencapai target penjualan, pelanggan puas.",
           "keyResult": "Jumlah omset global",
-          "target": 3400000000,
-          "actual": null,
-          "bobot": 35
+          "target": 3000000000,
+          "actual": 2737751429,
+          "bobot": 50
         },
         {
-          "id": "r1783411906819_79v4e",
-          "objective": "Mencapai target penjualan, pelanggan puas.",
-          "keyResult": "Retensi pelanggan",
-          "target": 100,
-          "actual": null,
-          "bobot": 30
-        },
-        {
-          "id": "r1783411906819_80xvi",
+          "id": "r17834788886043s9k",
           "objective": "Mencapai target penjualan, pelanggan puas.",
           "keyResult": "Customers baru",
           "target": 10,
-          "actual": null,
-          "bobot": 25
+          "actual": 10,
+          "bobot": 30
         },
         {
-          "id": "r1783411906819_81k5e",
+          "id": "r1783478888604pk7o",
           "objective": "Mencapai target penjualan, pelanggan puas.",
           "keyResult": "Kepuasan pelanggan",
-          "target": 90,
-          "actual": null,
-          "bobot": 10
+          "target": 80,
+          "actual": 98,
+          "bobot": 20
         }
       ],
-      "actionPlan": "Training new telesales"
+      "actionPlan": "Training new telesales",
+      "savedAt": "2026-07-08T02:48:08.604Z"
     },
     "Finance & Accounting": {
       "rows": [
@@ -5842,6 +5835,7 @@
     ],
     "savedAt": "2026-07-07T15:23:56.184Z"
   },
+  "_ts": 1783478888604,
   "_p_apo_2026_07": {
     "file1": "https://raw.githubusercontent.com/pinuspackindo-ai/pinuspackindo-okr/data/uploads/purchasing/1783386936569_aanc1x_purchase.order.line_3.xlsx",
     "file1Name": "purchase.order.line (3).xlsx",
@@ -5852,6 +5846,5 @@
     "finalScore": null,
     "savedAt": null,
     "locked": false
-  },
-  "_ts": 1783478862474
+  }
 }
