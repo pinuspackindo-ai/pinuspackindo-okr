@@ -194,6 +194,10 @@
     "2026-02|Distribution Sales": {
       "l": 1,
       "t": 1783477604472
+    },
+    "2026-02|General Affair": {
+      "l": 1,
+      "t": 1783477689577
     }
   },
   "2026-05": {
@@ -4873,47 +4877,40 @@
     "Finance & Accounting": {
       "rows": [
         {
-          "id": "r1783411906819_431bi",
+          "id": "r17834778917834vq3",
           "objective": "Data dan fisik uang akurat, transaksi tepat dan on time.",
           "keyResult": "Tingkat keberhasilan penagihan piutang",
           "target": 95,
-          "actual": null,
-          "bobot": 30
-        },
-        {
-          "id": "r1783411906819_44fcc",
-          "objective": "Data dan fisik uang akurat, transaksi tepat dan on time.",
-          "keyResult": "Payment akurat dan on time",
-          "target": 98,
-          "actual": null,
-          "bobot": 25
-        },
-        {
-          "id": "r1783411906819_45j3i",
-          "objective": "Data dan fisik uang akurat, transaksi tepat dan on time.",
-          "keyResult": "Tingkat akurasi uang fisik dan data",
-          "target": 98,
-          "actual": null,
+          "actual": 100,
           "bobot": 20
         },
         {
-          "id": "r1783411906819_469vt",
+          "id": "r1783477891783vblj",
+          "objective": "Data dan fisik uang akurat, transaksi tepat dan on time.",
+          "keyResult": "Payment akurat dan on time",
+          "target": 98,
+          "actual": 100,
+          "bobot": 30
+        },
+        {
+          "id": "r1783477891783dahd",
+          "objective": "Data dan fisik uang akurat, transaksi tepat dan on time.",
+          "keyResult": "Tingkat akurasi uang fisik dan data",
+          "target": 98,
+          "actual": 96.5,
+          "bobot": 40
+        },
+        {
+          "id": "r1783477891783dwm6",
           "objective": "Data dan fisik uang akurat, transaksi tepat dan on time.",
           "keyResult": "Laporan keuangan akurat dan on time",
           "target": 98,
-          "actual": null,
-          "bobot": 15
-        },
-        {
-          "id": "r1783411906819_47mjv",
-          "objective": "Data dan fisik uang akurat, transaksi tepat dan on time.",
-          "keyResult": "Tingkat implementasi rekomendasi audit",
-          "target": 100,
-          "actual": null,
+          "actual": 90,
           "bobot": 10
         }
       ],
-      "actionPlan": "Planning investasi"
+      "actionPlan": "Planning investasi",
+      "savedAt": "2026-07-08T02:31:31.783Z"
     },
     "General Affair": {
       "rows": [
@@ -5873,6 +5870,7 @@
     ],
     "savedAt": "2026-07-07T15:23:56.184Z"
   },
+  "_ts": 1783477891783,
   "_p_apo_2026_07": {
     "file1": "https://raw.githubusercontent.com/pinuspackindo-ai/pinuspackindo-okr/data/uploads/purchasing/1783386936569_aanc1x_purchase.order.line_3.xlsx",
     "file1Name": "purchase.order.line (3).xlsx",
@@ -5883,6 +5881,5 @@
     "finalScore": null,
     "savedAt": null,
     "locked": false
-  },
-  "_ts": 1783477728826
+  }
 }
