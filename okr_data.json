@@ -4103,10 +4103,10 @@
         "tal": "finalisasi training admin inventory",
         "deadline": "2026-07-31",
         "bobot": 30,
-        "progress": null,
+        "progress": 30,
         "review": "",
         "editing": false,
-        "savedAt": "2026-07-06T01:56:54.580Z"
+        "savedAt": "2026-07-08T03:23:57.948Z"
       },
       {
         "tal": "menjalankan proyek hpp bersama purchasing",
@@ -4127,7 +4127,7 @@
         "savedAt": "2026-07-06T01:56:54.580Z"
       }
     ],
-    "savedAt": "2026-07-06T01:56:54.580Z"
+    "savedAt": "2026-07-08T03:23:57.948Z"
   },
   "_tal_d10_2026_07": {
     "rows": [
@@ -5860,7 +5860,7 @@
     ],
     "savedAt": "2026-07-07T15:23:56.184Z"
   },
-  "_ts": 1783480944178,
+  "_ts": 1783481037949,
   "_p_apo_2026_07": {
     "file1": "https://raw.githubusercontent.com/pinuspackindo-ai/pinuspackindo-okr/data/uploads/purchasing/1783386936569_aanc1x_purchase.order.line_3.xlsx",
     "file1Name": "purchase.order.line (3).xlsx",
