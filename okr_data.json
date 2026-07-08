@@ -4740,47 +4740,40 @@
     "Purchasing": {
       "rows": [
         {
-          "id": "r1783411906815_24pvc",
+          "id": "r1783474579555vwdc",
           "objective": "Pengadaan stok tepat waktu dan berkwalitas, administrasi akurat..",
           "keyResult": "Tingkat in stock",
-          "target": 90,
-          "actual": null,
-          "bobot": 35
+          "target": 95,
+          "actual": 81.6,
+          "bobot": 40
         },
         {
-          "id": "r1783411906815_2557w",
+          "id": "r1783474579555zk6w",
           "objective": "Pengadaan stok tepat waktu dan berkwalitas, administrasi akurat..",
           "keyResult": "Tingkat akurasi PO",
           "target": 95,
-          "actual": null,
+          "actual": 97.4,
           "bobot": 30
         },
         {
-          "id": "r1783411906815_268z0",
+          "id": "r17834745795552ond",
           "objective": "Pengadaan stok tepat waktu dan berkwalitas, administrasi akurat..",
           "keyResult": "Tingkat kwalitas pengadaan",
           "target": 95,
-          "actual": null,
+          "actual": 98.3,
           "bobot": 20
         },
         {
-          "id": "r1783411906815_27prv",
+          "id": "r17834745795553iym",
           "objective": "Pengadaan stok tepat waktu dan berkwalitas, administrasi akurat..",
           "keyResult": "Tingkat penghematan budget",
-          "target": 3,
-          "actual": null,
+          "target": 5,
+          "actual": 1.1,
           "bobot": 10
-        },
-        {
-          "id": "r1783411906815_28dpn",
-          "objective": "Pengadaan stok tepat waktu dan berkwalitas, administrasi akurat..",
-          "keyResult": "Tingkat implementasi rekomendasi audit",
-          "target": 100,
-          "actual": null,
-          "bobot": 5
         }
       ],
-      "actionPlan": "Membuat 4 konten sosmed"
+      "actionPlan": "Membuat 4 konten sosmed",
+      "savedAt": "2026-07-08T01:36:19.555Z"
     },
     "Store": {
       "rows": [
@@ -5935,7 +5928,7 @@
     ],
     "savedAt": "2026-07-07T15:23:56.184Z"
   },
-  "_ts": 1783474578161,
+  "_ts": 1783474579576,
   "_p_apo_2026_07": {
     "file1": "https://raw.githubusercontent.com/pinuspackindo-ai/pinuspackindo-okr/data/uploads/purchasing/1783386936569_aanc1x_purchase.order.line_3.xlsx",
     "file1Name": "purchase.order.line (3).xlsx",
