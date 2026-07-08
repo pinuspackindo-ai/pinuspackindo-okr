@@ -4991,39 +4991,32 @@
     "Inventory": {
       "rows": [
         {
-          "id": "r1783411906819_5956b",
+          "id": "r178347854130895am",
           "objective": "Stok akurat, persediaan optimal, biaya & waste minimal.",
           "keyResult": "Tingkat akurasi stok fisik vs data",
-          "target": 75,
-          "actual": null,
-          "bobot": 20
+          "target": 95,
+          "actual": 84.1,
+          "bobot": 35
         },
         {
-          "id": "r1783411906819_60kin",
-          "objective": "Stok akurat, persediaan optimal, biaya & waste minimal.",
-          "keyResult": "Akurasi DO & RN",
-          "target": 100,
-          "actual": null,
-          "bobot": 10
-        },
-        {
-          "id": "r1783411906819_61u2n",
+          "id": "r178347854130815jb",
           "objective": "Stok akurat, persediaan optimal, biaya & waste minimal.",
           "keyResult": "Tingkat akurasi administrasi",
           "target": 98,
-          "actual": null,
-          "bobot": 40
+          "actual": 99.26,
+          "bobot": 45
         },
         {
-          "id": "r1783411906819_62dby",
+          "id": "r1783478541308rtt3",
           "objective": "Stok akurat, persediaan optimal, biaya & waste minimal.",
-          "keyResult": "Laporan inventory akurat dan on time",
-          "target": 100,
-          "actual": null,
-          "bobot": 30
+          "keyResult": "Tingkat akurasi logbook oke vs tidak oke",
+          "target": 70,
+          "actual": 80.53,
+          "bobot": 20
         }
       ],
-      "actionPlan": "Planning acara chef Alfian"
+      "actionPlan": "Planning acara chef Alfian",
+      "savedAt": "2026-07-08T02:42:21.308Z"
     },
     "Purchasing": {
       "rows": [
@@ -5889,7 +5882,7 @@
     ],
     "savedAt": "2026-07-07T15:23:56.184Z"
   },
-  "_ts": 1783478363184,
+  "_ts": 1783478541308,
   "_p_apo_2026_07": {
     "file1": "https://raw.githubusercontent.com/pinuspackindo-ai/pinuspackindo-okr/data/uploads/purchasing/1783386936569_aanc1x_purchase.order.line_3.xlsx",
     "file1Name": "purchase.order.line (3).xlsx",
