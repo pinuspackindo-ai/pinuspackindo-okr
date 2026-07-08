@@ -667,7 +667,7 @@
           "objective": "Mencapai target penjualan, pelanggan puas.",
           "keyResult": "Customers baru",
           "target": 10,
-          "actual": 8,
+          "actual": null,
           "bobot": 25
         },
         {
@@ -5869,6 +5869,7 @@
     ],
     "savedAt": "2026-07-08T04:40:20.887Z"
   },
+  "_ts": 1783491893002,
   "_p_apo_2026_07": {
     "file1": "https://raw.githubusercontent.com/pinuspackindo-ai/pinuspackindo-okr/data/uploads/purchasing/1783386936569_aanc1x_purchase.order.line_3.xlsx",
     "file1Name": "purchase.order.line (3).xlsx",
@@ -5892,6 +5893,5 @@
         "data": "https://raw.githubusercontent.com/pinuspackindo-ai/pinuspackindo-okr/data/uploads/distribution_sales/1783488798886_zkfiq1_Screenshot_2026-07-08_at_12.32.57_PM.png"
       }
     ]
-  },
-  "_ts": 1783491656157
+  }
 }
