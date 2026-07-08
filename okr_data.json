@@ -5070,47 +5070,48 @@
     "Store": {
       "rows": [
         {
-          "id": "r1783411906819_68ydi",
-          "objective": "Mencapai target penjualan, \r\nstok akurat, pelanggan puas, operasional sesuai SOP.",
+          "id": "r1783478320301kva5",
+          "objective": "Mencapai target penjualan, stok akurat, pelanggan puas, operasional sesuai SOP.",
           "keyResult": "Jumlah omset",
-          "target": 3040000000,
-          "actual": null,
+          "target": 3762000000,
+          "actual": 3577395400,
           "bobot": 30
         },
         {
-          "id": "r1783411906819_699my",
-          "objective": "Mencapai target penjualan, \r\nstok akurat, pelanggan puas, operasional sesuai SOP.",
+          "id": "r1783478320301ugzr",
+          "objective": "Mencapai target penjualan, stok akurat, pelanggan puas, operasional sesuai SOP.",
           "keyResult": "Tingkat akurasi stok fisik vs data",
           "target": 80,
-          "actual": null,
+          "actual": 73.86,
           "bobot": 25
         },
         {
-          "id": "r1783411906819_70sm3",
-          "objective": "Mencapai target penjualan, \r\nstok akurat, pelanggan puas, operasional sesuai SOP.",
+          "id": "r1783478320301dzp5",
+          "objective": "Mencapai target penjualan, stok akurat, pelanggan puas, operasional sesuai SOP.",
           "keyResult": "Score kepuasan pelanggan",
           "target": 90,
-          "actual": null,
+          "actual": 91,
           "bobot": 20
         },
         {
-          "id": "r1783411906819_71mo5",
-          "objective": "Mencapai target penjualan, \r\nstok akurat, pelanggan puas, operasional sesuai SOP.",
+          "id": "r1783478320301z86h",
+          "objective": "Mencapai target penjualan, stok akurat, pelanggan puas, operasional sesuai SOP.",
           "keyResult": "Tingkat kepatuhan & kedisiplinan",
           "target": 95,
-          "actual": null,
+          "actual": 98,
           "bobot": 15
         },
         {
-          "id": "r1783411906819_72rky",
-          "objective": "Mencapai target penjualan, \r\nstok akurat, pelanggan puas, operasional sesuai SOP.",
-          "keyResult": "Tingkat implementasi rekomendasi audit",
-          "target": 100,
-          "actual": null,
+          "id": "r1783478320301emzg",
+          "objective": "Mencapai target penjualan, stok akurat, pelanggan puas, operasional sesuai SOP.",
+          "keyResult": "Score Google review",
+          "target": 4.9,
+          "actual": 4.9,
           "bobot": 10
         }
       ],
-      "actionPlan": "Planning acara chef Avian"
+      "actionPlan": "Planning acara chef Avian",
+      "savedAt": "2026-07-08T02:38:40.301Z"
     }
   },
   "2026-03": {
@@ -5884,6 +5885,7 @@
     ],
     "savedAt": "2026-07-07T15:23:56.184Z"
   },
+  "_ts": 1783478320319,
   "_p_apo_2026_07": {
     "file1": "https://raw.githubusercontent.com/pinuspackindo-ai/pinuspackindo-okr/data/uploads/purchasing/1783386936569_aanc1x_purchase.order.line_3.xlsx",
     "file1Name": "purchase.order.line (3).xlsx",
@@ -5894,6 +5896,5 @@
     "finalScore": null,
     "savedAt": null,
     "locked": false
-  },
-  "_ts": 1783478208644
+  }
 }
