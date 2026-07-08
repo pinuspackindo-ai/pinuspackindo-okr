@@ -6910,6 +6910,16 @@ function talRowScore(row){
 function talTotalScore(d,y,m){
   return Math.round((_talG(d,y,m).rows||[]).filter(function(r){return r.tal&&r.bobot;}).reduce(function(acc,r){return acc+talRowScore(r);},0)*100)/100;
 }
+// Score Global TAL = rata-rata Score Akhir tiap divisi yang punya TAL (bulan m). null jika tidak ada.
+function talGlobalScore(y,m){
+  var arr=[];
+  TAL_DIV_NAMES.forEach(function(nm,d){
+    var rows=(_talG(d,y,m).rows||[]).filter(function(r){return r.tal&&r.bobot;});
+    if(rows.length>0)arr.push(talTotalScore(d,y,m));
+  });
+  if(!arr.length)return null;
+  return Math.round(arr.reduce(function(a,b){return a+b;},0)/arr.length*100)/100;
+}
 
 function talInit(){
   talYear=new Date().getFullYear();
