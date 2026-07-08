@@ -22,7 +22,7 @@
         "hrd",
         "tal"
       ],
-      "okrAll": true
+      "okrAll": false
     },
     "Internal Audit": {
       "modules": [
@@ -96,7 +96,6 @@
     "_ga_rot_2026_06": 1783134158109,
     "_ga_rot_2026_07": 1783134170325,
     "_fa_rot_2026_07": 1783308087934,
-    "_p_apo_2026_07": 1783387433699,
     "_p_kpen_2026_07": 1783393431960
   },
   "_okrLock": {
@@ -163,6 +162,126 @@
     "2026-06|Internal Audit": {
       "l": 1,
       "t": 1783329270698
+    },
+    "2026-01|Store": {
+      "l": 1,
+      "t": 1783474755092
+    },
+    "2026-01|Distribution Sales": {
+      "l": 1,
+      "t": 1783474757832
+    },
+    "2026-01|Purchasing": {
+      "l": 1,
+      "t": 1783474760488
+    },
+    "2026-01|Finance & Accounting": {
+      "l": 1,
+      "t": 1783474762344
+    },
+    "2026-01|General Affair": {
+      "l": 1,
+      "t": 1783474764256
+    },
+    "2026-01|Internal Audit": {
+      "l": 1,
+      "t": 1783474765624
+    },
+    "2026-01|Inventory": {
+      "l": 1,
+      "t": 1783474886105
+    },
+    "2026-02|Distribution Sales": {
+      "l": 1,
+      "t": 1783477604472
+    },
+    "2026-02|General Affair": {
+      "l": 1,
+      "t": 1783477689577
+    },
+    "2026-02|Finance & Accounting": {
+      "l": 1,
+      "t": 1783477895383
+    },
+    "2026-02|Internal Audit": {
+      "l": 1,
+      "t": 1783478054655
+    },
+    "2026-02|Purchasing": {
+      "l": 1,
+      "t": 1783478171294
+    },
+    "2026-02|Store": {
+      "l": 1,
+      "t": 1783478363183
+    },
+    "2026-02|Inventory": {
+      "l": 1,
+      "t": 1783478567620
+    },
+    "2026-03|Store": {
+      "l": 1,
+      "t": 1783478895653
+    },
+    "2026-03|Distribution Sales": {
+      "l": 1,
+      "t": 1783478897501
+    },
+    "2026-03|Warehouse": {
+      "l": 1,
+      "t": 1783479018196
+    },
+    "2026-03|Inventory": {
+      "l": 1,
+      "t": 1783479134827
+    },
+    "2026-03|Purchasing": {
+      "l": 1,
+      "t": 1783479286027
+    },
+    "2026-03|Finance & Accounting": {
+      "l": 1,
+      "t": 1783479449771
+    },
+    "2026-03|General Affair": {
+      "l": 1,
+      "t": 1783479517098
+    },
+    "2026-03|Internal Audit": {
+      "l": 1,
+      "t": 1783479644241
+    },
+    "2026-04|Store": {
+      "l": 1,
+      "t": 1783479875708
+    },
+    "2026-04|Distribution Sales": {
+      "l": 1,
+      "t": 1783479937864
+    },
+    "2026-04|Warehouse": {
+      "l": 1,
+      "t": 1783480059289
+    },
+    "2026-04|Inventory": {
+      "l": 1,
+      "t": 1783480255823
+    },
+    "2026-04|Purchasing": {
+      "l": 1,
+      "t": 1783480480127
+    },
+    "2026-04|Finance & Accounting": {
+      "l": 1,
+      "t": 1783480586015
+    },
+    "2026-04|General Affair": {
+      "l": 1,
+      "t": 1783480687518
+    },
+    "2026-04|Internal Audit": {
+      "l": 1,
+      "t": 1783480850054
     }
   },
   "2026-05": {
@@ -252,7 +371,7 @@
       "actionPlan": "Kaji ulang cctv warehouse",
       "rows": [
         {
-          "actual": null,
+          "actual": 98.2,
           "bobot": 40,
           "id": "r177989029078478jg",
           "keyResult": "Tingkat akurasi stok inventaris data vs fisik",
@@ -514,7 +633,7 @@
           "target": 90
         },
         {
-          "actual": 98.225,
+          "actual": 98.23,
           "bobot": 10,
           "id": "r1779890290785xbtj",
           "keyResult": "Tingkat implementasi rekomendasi audit",
@@ -548,7 +667,7 @@
           "objective": "Mencapai target penjualan, pelanggan puas.",
           "keyResult": "Customers baru",
           "target": 10,
-          "actual": null,
+          "actual": 8,
           "bobot": 25
         },
         {
@@ -567,7 +686,7 @@
       "actionPlan": "Planning investasi",
       "rows": [
         {
-          "actual": null,
+          "actual": 100,
           "bobot": 30,
           "id": "r1780472096513lz7h",
           "keyResult": "Tingkat keberhasilan penagihan piutang",
@@ -575,7 +694,7 @@
           "target": 95
         },
         {
-          "actual": null,
+          "actual": 100,
           "bobot": 25,
           "id": "r17804720965139cwc",
           "keyResult": "Payment akurat dan on time",
@@ -583,7 +702,7 @@
           "target": 98
         },
         {
-          "actual": null,
+          "actual": 97.8,
           "bobot": 20,
           "id": "r1780472096513gbd2",
           "keyResult": "Tingkat akurasi uang fisik dan data",
@@ -591,7 +710,7 @@
           "target": 98
         },
         {
-          "actual": null,
+          "actual": 100,
           "bobot": 15,
           "id": "r1780472096513e6q5",
           "keyResult": "Laporan keuangan akurat dan on time",
@@ -3984,10 +4103,10 @@
         "tal": "finalisasi training admin inventory",
         "deadline": "2026-07-31",
         "bobot": 30,
-        "progress": null,
+        "progress": 30,
         "review": "",
         "editing": false,
-        "savedAt": "2026-07-06T01:56:54.580Z"
+        "savedAt": "2026-07-08T03:23:57.948Z"
       },
       {
         "tal": "menjalankan proyek hpp bersama purchasing",
@@ -4008,30 +4127,39 @@
         "savedAt": "2026-07-06T01:56:54.580Z"
       }
     ],
-    "savedAt": "2026-07-06T01:56:54.580Z"
+    "savedAt": "2026-07-08T03:23:57.948Z"
   },
   "_tal_d10_2026_07": {
     "rows": [
       {
         "tal": "revisi planogram warehouse",
         "deadline": "2026-07-31",
-        "bobot": 60,
-        "progress": 5,
-        "review": "",
-        "editing": false,
-        "savedAt": "2026-07-07T04:46:18.256Z"
-      },
-      {
-        "tal": "menyusun SOP pengelolaan tips warehouse",
-        "deadline": "2026-07-31",
         "bobot": 40,
         "progress": 5,
         "review": "",
         "editing": false,
-        "savedAt": "2026-07-07T04:46:53.329Z"
+        "savedAt": "2026-07-08T05:00:53.118Z"
+      },
+      {
+        "tal": "planning & eksekusi pengelolaan tips warehouse",
+        "deadline": "2026-07-31",
+        "bobot": 35,
+        "progress": 5,
+        "review": "",
+        "editing": false,
+        "savedAt": "2026-07-08T05:00:48.518Z"
+      },
+      {
+        "tal": "planning & eksekusi palet warehouse",
+        "deadline": "2026-07-31",
+        "bobot": 25,
+        "progress": null,
+        "review": "",
+        "editing": false,
+        "savedAt": "2026-07-08T05:00:52.336Z"
       }
     ],
-    "savedAt": "2026-07-07T04:46:53.329Z"
+    "savedAt": "2026-07-08T05:00:53.118Z"
   },
   "_tal_d3_2026_07": {
     "rows": [
@@ -4332,7 +4460,7 @@
           "objective": "Pengadaan stok tepat waktu dan berkwalitas, administrasi akurat..",
           "keyResult": "Tingkat in stock",
           "target": 95,
-          "actual": 91.28,
+          "actual": 91.26,
           "bobot": 40
         },
         {
@@ -4480,16 +4608,16 @@
   "_tal_d4_2026_07": {
     "rows": [
       {
-        "tal": "pendataan inventaris sebelum resign",
+        "tal": "pendataan inventaris & vendor",
         "deadline": "2026-07-31",
         "bobot": 100,
         "progress": null,
         "review": "",
         "editing": false,
-        "savedAt": "2026-07-07T03:03:14.684Z"
+        "savedAt": "2026-07-08T03:41:50.225Z"
       }
     ],
-    "savedAt": "2026-07-07T03:03:14.684Z"
+    "savedAt": "2026-07-08T03:41:50.225Z"
   },
   "_tal_d9_2026_07": {
     "rows": [
@@ -4524,7 +4652,6 @@
     "savedAt": "2026-07-07T03:04:41.483Z"
   },
   "_hrdViewAllV1": 1,
-  "_ts": 1783498943665,
   "_fa_piutang_jt_2026_06": {
     "value": 100,
     "evidence": "https://raw.githubusercontent.com/pinuspackindo-ai/pinuspackindo-okr/data/uploads/finance_accounting/1783305710630_ioy7f7_WhatsApp_Image_2026-07-06_at_09.22.57.jpeg",
@@ -4609,1436 +4736,1084 @@
     "Distribution Sales": {
       "rows": [
         {
-          "id": "r1783411906814_0uua",
+          "id": "r1783474074899p782",
           "objective": "Mencapai target penjualan, pelanggan puas.",
           "keyResult": "Jumlah omset global",
-          "target": 3400000000,
-          "actual": null,
-          "bobot": 35
+          "target": 3000000000,
+          "actual": 2425486050,
+          "bobot": 60
         },
         {
-          "id": "r1783411906815_1chb",
+          "id": "r1783474074899ur9v",
           "objective": "Mencapai target penjualan, pelanggan puas.",
           "keyResult": "Retensi pelanggan",
-          "target": 100,
-          "actual": null,
-          "bobot": 30
-        },
-        {
-          "id": "r1783411906815_2e4e",
-          "objective": "Mencapai target penjualan, pelanggan puas.",
-          "keyResult": "Customers baru",
-          "target": 10,
-          "actual": null,
-          "bobot": 25
-        },
-        {
-          "id": "r1783411906815_3clm",
-          "objective": "Mencapai target penjualan, pelanggan puas.",
-          "keyResult": "Kepuasan pelanggan",
-          "target": 90,
-          "actual": null,
-          "bobot": 10
+          "target": 1800000000,
+          "actual": 2081500901,
+          "bobot": 40
         }
       ],
-      "actionPlan": "Training new telesales"
+      "actionPlan": "",
+      "savedAt": "2026-07-08T01:27:54.899Z"
     },
     "Finance & Accounting": {
       "rows": [
         {
-          "id": "r1783411906815_4rgc",
+          "id": "r17834744485211ivf",
           "objective": "Data dan fisik uang akurat, transaksi tepat dan on time.",
           "keyResult": "Tingkat keberhasilan penagihan piutang",
-          "target": 95,
-          "actual": null,
-          "bobot": 30
+          "target": 90,
+          "actual": 91.8,
+          "bobot": 35
         },
         {
-          "id": "r1783411906815_52hq",
-          "objective": "Data dan fisik uang akurat, transaksi tepat dan on time.",
-          "keyResult": "Payment akurat dan on time",
-          "target": 98,
-          "actual": null,
-          "bobot": 25
-        },
-        {
-          "id": "r1783411906815_6urx",
+          "id": "r1783474448521wue8",
           "objective": "Data dan fisik uang akurat, transaksi tepat dan on time.",
           "keyResult": "Tingkat akurasi uang fisik dan data",
-          "target": 98,
-          "actual": null,
-          "bobot": 20
+          "target": 100,
+          "actual": 94.7,
+          "bobot": 45
         },
         {
-          "id": "r1783411906815_7vyq",
+          "id": "r1783474448521nxja",
           "objective": "Data dan fisik uang akurat, transaksi tepat dan on time.",
           "keyResult": "Laporan keuangan akurat dan on time",
-          "target": 98,
-          "actual": null,
-          "bobot": 15
-        },
-        {
-          "id": "r1783411906815_8u2q",
-          "objective": "Data dan fisik uang akurat, transaksi tepat dan on time.",
-          "keyResult": "Tingkat implementasi rekomendasi audit",
           "target": 100,
-          "actual": null,
-          "bobot": 10
+          "actual": 98.8,
+          "bobot": 20
         }
       ],
-      "actionPlan": "Planning investasi"
+      "actionPlan": "Planning investasi",
+      "savedAt": "2026-07-08T01:34:08.521Z"
     },
     "General Affair": {
       "rows": [
         {
-          "id": "r1783411906815_9sba",
+          "id": "r1783474315956bemt",
           "objective": "Inventaris utuh terawat, pengadaan tepat waktu, operasional aman lancar, user puas.",
           "keyResult": "Tingkat akurasi stok inventaris data vs fisik",
-          "target": 98,
-          "actual": null,
-          "bobot": 40
+          "target": 95,
+          "actual": 95,
+          "bobot": 60
         },
         {
-          "id": "r1783411906815_10thz",
+          "id": "r1783474315956sv83",
           "objective": "Inventaris utuh terawat, pengadaan tepat waktu, operasional aman lancar, user puas.",
           "keyResult": "Tingkat akurasi lead time pengadaan / maintenance",
           "target": 95,
-          "actual": null,
-          "bobot": 35
-        },
-        {
-          "id": "r1783411906815_11txu",
-          "objective": "Inventaris utuh terawat, pengadaan tepat waktu, operasional aman lancar, user puas.",
-          "keyResult": "Laporan inventaris akurat dan on time",
-          "target": 100,
-          "actual": null,
-          "bobot": 25
+          "actual": 67,
+          "bobot": 40
         }
       ],
-      "actionPlan": "Kaji ulang cctv warehouse"
-    },
-    "HRD": {
-      "rows": [
-        {
-          "id": "r1783411906815_120id",
-          "objective": "Membangun dan menjaga SDM yg kompeten, disiplin, produktif, inisiatif, guna mendukung perusahaan berkembang.",
-          "keyResult": "Tingkat kedisiplinan karyawan",
-          "target": 90,
-          "actual": null,
-          "bobot": 30
-        },
-        {
-          "id": "r1783411906815_13o15",
-          "objective": "Membangun dan menjaga SDM yg kompeten, disiplin, produktif, inisiatif, guna mendukung perusahaan berkembang.",
-          "keyResult": "Skor pencapaian KPI seluruh team",
-          "target": 85,
-          "actual": null,
-          "bobot": 25
-        },
-        {
-          "id": "r1783411906815_14zoi",
-          "objective": "Membangun dan menjaga SDM yg kompeten, disiplin, produktif, inisiatif, guna mendukung perusahaan berkembang.",
-          "keyResult": "Akurasi & ketepatan waktu administrasi HR",
-          "target": 95,
-          "actual": null,
-          "bobot": 20
-        },
-        {
-          "id": "r1783411906815_15o7g",
-          "objective": "Membangun dan menjaga SDM yg kompeten, disiplin, produktif, inisiatif, guna mendukung perusahaan berkembang.",
-          "keyResult": "Ketepatan waktu rekrutment",
-          "target": 85,
-          "actual": null,
-          "bobot": 15
-        },
-        {
-          "id": "r1783411906815_16s9m",
-          "objective": "Membangun dan menjaga SDM yg kompeten, disiplin, produktif, inisiatif, guna mendukung perusahaan berkembang.",
-          "keyResult": "Skor kinerja karyawan baru",
-          "target": 85,
-          "actual": null,
-          "bobot": 10
-        }
-      ],
-      "actionPlan": "Drafting SOP ketidakhadiran"
+      "actionPlan": "Kaji ulang cctv warehouse",
+      "savedAt": "2026-07-08T01:31:55.956Z"
     },
     "Internal Audit": {
       "rows": [
         {
-          "id": "r1783411906815_170ln",
+          "id": "r17834745194970itj",
           "objective": "Melindungi dan mengawasi sistem internal berbasis dari resiko yg timbul.",
           "keyResult": "Tingkat implementasi rekomendasi audit",
-          "target": 100,
-          "actual": null,
-          "bobot": 45
+          "target": 95,
+          "actual": 100,
+          "bobot": 60
         },
         {
-          "id": "r1783411906815_18evt",
+          "id": "r1783474519497qlrd",
           "objective": "Melindungi dan mengawasi sistem internal berbasis dari resiko yg timbul.",
           "keyResult": "Laporan audit akurat dan on time",
           "target": 100,
-          "actual": null,
-          "bobot": 35
-        },
-        {
-          "id": "r1783411906815_19dur",
-          "objective": "Melindungi dan mengawasi sistem internal berbasis dari resiko yg timbul.",
-          "keyResult": "Jumlah inisiatif proaktif",
-          "target": 2,
-          "actual": null,
-          "bobot": 20
+          "actual": 100,
+          "bobot": 40
         }
       ],
-      "actionPlan": "Finalisasi DD, bizflow, SOP warehouse"
+      "actionPlan": "Finalisasi DD, bizflow, SOP warehouse",
+      "savedAt": "2026-07-08T01:35:19.497Z"
     },
     "Inventory": {
       "rows": [
         {
-          "id": "r1783411906815_20ta5",
+          "id": "r1783474874488kc1q",
           "objective": "Stok akurat, persediaan optimal, biaya & waste minimal.",
           "keyResult": "Tingkat akurasi stok fisik vs data",
-          "target": 75,
-          "actual": null,
+          "target": 95,
+          "actual": 85.7,
+          "bobot": 30
+        },
+        {
+          "id": "r1783474874488ark7",
+          "objective": "Stok akurat, persediaan optimal, biaya & waste minimal.",
+          "keyResult": "Tingkat in stock",
+          "target": 95,
+          "actual": 81.6,
           "bobot": 20
         },
         {
-          "id": "r1783411906815_21s07",
-          "objective": "Stok akurat, persediaan optimal, biaya & waste minimal.",
-          "keyResult": "Akurasi DO & RN",
-          "target": 100,
-          "actual": null,
-          "bobot": 10
-        },
-        {
-          "id": "r1783411906815_22uph",
+          "id": "r1783474874488wwf8",
           "objective": "Stok akurat, persediaan optimal, biaya & waste minimal.",
           "keyResult": "Tingkat akurasi administrasi",
           "target": 98,
-          "actual": null,
-          "bobot": 40
-        },
-        {
-          "id": "r1783411906815_238je",
-          "objective": "Stok akurat, persediaan optimal, biaya & waste minimal.",
-          "keyResult": "Laporan inventory akurat dan on time",
-          "target": 100,
-          "actual": null,
-          "bobot": 30
+          "actual": 99.5,
+          "bobot": 50
         }
       ],
-      "actionPlan": "Planning acara chef Alfian"
+      "actionPlan": "Planning acara chef Alfian",
+      "savedAt": "2026-07-08T01:41:14.488Z"
     },
     "Purchasing": {
       "rows": [
         {
-          "id": "r1783411906815_24pvc",
+          "id": "r1783474579555vwdc",
           "objective": "Pengadaan stok tepat waktu dan berkwalitas, administrasi akurat..",
           "keyResult": "Tingkat in stock",
-          "target": 90,
-          "actual": null,
-          "bobot": 35
+          "target": 95,
+          "actual": 81.6,
+          "bobot": 40
         },
         {
-          "id": "r1783411906815_2557w",
+          "id": "r1783474579555zk6w",
           "objective": "Pengadaan stok tepat waktu dan berkwalitas, administrasi akurat..",
           "keyResult": "Tingkat akurasi PO",
           "target": 95,
-          "actual": null,
+          "actual": 97.4,
           "bobot": 30
         },
         {
-          "id": "r1783411906815_268z0",
+          "id": "r17834745795552ond",
           "objective": "Pengadaan stok tepat waktu dan berkwalitas, administrasi akurat..",
           "keyResult": "Tingkat kwalitas pengadaan",
           "target": 95,
-          "actual": null,
+          "actual": 98.3,
           "bobot": 20
         },
         {
-          "id": "r1783411906815_27prv",
+          "id": "r17834745795553iym",
           "objective": "Pengadaan stok tepat waktu dan berkwalitas, administrasi akurat..",
           "keyResult": "Tingkat penghematan budget",
-          "target": 3,
-          "actual": null,
+          "target": 5,
+          "actual": 1.1,
           "bobot": 10
-        },
-        {
-          "id": "r1783411906815_28dpn",
-          "objective": "Pengadaan stok tepat waktu dan berkwalitas, administrasi akurat..",
-          "keyResult": "Tingkat implementasi rekomendasi audit",
-          "target": 100,
-          "actual": null,
-          "bobot": 5
         }
       ],
-      "actionPlan": "Membuat 4 konten sosmed"
+      "actionPlan": "Membuat 4 konten sosmed",
+      "savedAt": "2026-07-08T01:36:19.555Z"
     },
     "Store": {
       "rows": [
         {
-          "id": "r1783411906815_29ucr",
-          "objective": "Mencapai target penjualan, \r\nstok akurat, pelanggan puas, operasional sesuai SOP.",
+          "id": "r1783474731080zggr",
+          "objective": "Mencapai target penjualan, stok akurat, pelanggan puas, operasional sesuai SOP.",
           "keyResult": "Jumlah omset",
           "target": 3040000000,
-          "actual": null,
+          "actual": 2843257400,
           "bobot": 30
         },
         {
-          "id": "r1783411906815_303pz",
-          "objective": "Mencapai target penjualan, \r\nstok akurat, pelanggan puas, operasional sesuai SOP.",
-          "keyResult": "Tingkat akurasi stok fisik vs data",
-          "target": 80,
-          "actual": null,
-          "bobot": 25
-        },
-        {
-          "id": "r1783411906815_31ksl",
-          "objective": "Mencapai target penjualan, \r\nstok akurat, pelanggan puas, operasional sesuai SOP.",
+          "id": "r1783474731080958a",
+          "objective": "Mencapai target penjualan, stok akurat, pelanggan puas, operasional sesuai SOP.",
           "keyResult": "Score kepuasan pelanggan",
           "target": 90,
-          "actual": null,
-          "bobot": 20
-        },
-        {
-          "id": "r1783411906815_32ozq",
-          "objective": "Mencapai target penjualan, \r\nstok akurat, pelanggan puas, operasional sesuai SOP.",
-          "keyResult": "Tingkat kepatuhan & kedisiplinan",
-          "target": 95,
-          "actual": null,
-          "bobot": 15
-        },
-        {
-          "id": "r1783411906815_33vcn",
-          "objective": "Mencapai target penjualan, \r\nstok akurat, pelanggan puas, operasional sesuai SOP.",
-          "keyResult": "Tingkat implementasi rekomendasi audit",
-          "target": 100,
-          "actual": null,
-          "bobot": 10
-        }
-      ],
-      "actionPlan": "Planning acara chef Avian"
-    },
-    "Warehouse": {
-      "rows": [
-        {
-          "id": "r1783411906815_34esl",
-          "objective": "Stok akurat, operasional berjalan sesuai SOP.",
-          "keyResult": "Tingkat akurasi stok fisik vs data",
-          "target": 98,
-          "actual": null,
-          "bobot": 30
-        },
-        {
-          "id": "r1783411906815_3513p",
-          "objective": "Stok akurat, operasional berjalan sesuai SOP.",
-          "keyResult": "Tingkat akurasi default diary",
-          "target": 95,
-          "actual": null,
+          "actual": 92,
           "bobot": 25
         },
         {
-          "id": "r1783411906815_363o4",
-          "objective": "Stok akurat, operasional berjalan sesuai SOP.",
-          "keyResult": "Score avg cartrack",
-          "target": 90,
-          "actual": null,
+          "id": "r178347473108096oc",
+          "objective": "Mencapai target penjualan, stok akurat, pelanggan puas, operasional sesuai SOP.",
+          "keyResult": "Tingkat akurasi stok fisik vs data",
+          "target": 70,
+          "actual": 70,
           "bobot": 20
         },
         {
-          "id": "r1783411906815_37691",
-          "objective": "Stok akurat, operasional berjalan sesuai SOP.",
-          "keyResult": "Score kepuasan pelanggan distribusi",
-          "target": 90,
-          "actual": null,
+          "id": "r1783474731080dt8w",
+          "objective": "Mencapai target penjualan, stok akurat, pelanggan puas, operasional sesuai SOP.",
+          "keyResult": "Tingkat kepatuhan SOP  (tiap pelanggaran pot 2%)",
+          "target": 95,
+          "actual": 82,
           "bobot": 15
         },
         {
-          "id": "r1783411906815_38rob",
-          "objective": "Stok akurat, operasional berjalan sesuai SOP.",
-          "keyResult": "Tingkat implementasi rekomendasi audit",
-          "target": 100,
-          "actual": null,
+          "id": "r1783474731080mhu7",
+          "objective": "Mencapai target penjualan, stok akurat, pelanggan puas, operasional sesuai SOP.",
+          "keyResult": "Score Google review",
+          "target": 4.9,
+          "actual": 4.9,
           "bobot": 10
         }
       ],
-      "actionPlan": ""
+      "actionPlan": "",
+      "savedAt": "2026-07-08T01:38:51.080Z"
     }
   },
   "2026-02": {
     "Distribution Sales": {
       "rows": [
         {
-          "id": "r1783411906819_395rj",
+          "id": "r1783477582832ef5i",
           "objective": "Mencapai target penjualan, pelanggan puas.",
           "keyResult": "Jumlah omset global",
-          "target": 3400000000,
-          "actual": null,
-          "bobot": 35
+          "target": 3000000000,
+          "actual": 2736017285,
+          "bobot": 65
         },
         {
-          "id": "r1783411906819_40ls2",
-          "objective": "Mencapai target penjualan, pelanggan puas.",
-          "keyResult": "Retensi pelanggan",
-          "target": 100,
-          "actual": null,
-          "bobot": 30
-        },
-        {
-          "id": "r1783411906819_41uua",
+          "id": "r1783477582832akev",
           "objective": "Mencapai target penjualan, pelanggan puas.",
           "keyResult": "Customers baru",
           "target": 10,
-          "actual": null,
-          "bobot": 25
-        },
-        {
-          "id": "r1783411906819_4237w",
-          "objective": "Mencapai target penjualan, pelanggan puas.",
-          "keyResult": "Kepuasan pelanggan",
-          "target": 90,
-          "actual": null,
-          "bobot": 10
+          "actual": 10,
+          "bobot": 35
         }
       ],
-      "actionPlan": "Training new telesales"
+      "actionPlan": "Training new telesales",
+      "savedAt": "2026-07-08T02:26:22.832Z"
     },
     "Finance & Accounting": {
       "rows": [
         {
-          "id": "r1783411906819_431bi",
+          "id": "r17834778917834vq3",
           "objective": "Data dan fisik uang akurat, transaksi tepat dan on time.",
           "keyResult": "Tingkat keberhasilan penagihan piutang",
           "target": 95,
-          "actual": null,
-          "bobot": 30
-        },
-        {
-          "id": "r1783411906819_44fcc",
-          "objective": "Data dan fisik uang akurat, transaksi tepat dan on time.",
-          "keyResult": "Payment akurat dan on time",
-          "target": 98,
-          "actual": null,
-          "bobot": 25
-        },
-        {
-          "id": "r1783411906819_45j3i",
-          "objective": "Data dan fisik uang akurat, transaksi tepat dan on time.",
-          "keyResult": "Tingkat akurasi uang fisik dan data",
-          "target": 98,
-          "actual": null,
+          "actual": 100,
           "bobot": 20
         },
         {
-          "id": "r1783411906819_469vt",
+          "id": "r1783477891783vblj",
+          "objective": "Data dan fisik uang akurat, transaksi tepat dan on time.",
+          "keyResult": "Payment akurat dan on time",
+          "target": 98,
+          "actual": 100,
+          "bobot": 30
+        },
+        {
+          "id": "r1783477891783dahd",
+          "objective": "Data dan fisik uang akurat, transaksi tepat dan on time.",
+          "keyResult": "Tingkat akurasi uang fisik dan data",
+          "target": 98,
+          "actual": 96.5,
+          "bobot": 40
+        },
+        {
+          "id": "r1783477891783dwm6",
           "objective": "Data dan fisik uang akurat, transaksi tepat dan on time.",
           "keyResult": "Laporan keuangan akurat dan on time",
           "target": 98,
-          "actual": null,
-          "bobot": 15
-        },
-        {
-          "id": "r1783411906819_47mjv",
-          "objective": "Data dan fisik uang akurat, transaksi tepat dan on time.",
-          "keyResult": "Tingkat implementasi rekomendasi audit",
-          "target": 100,
-          "actual": null,
+          "actual": 90,
           "bobot": 10
         }
       ],
-      "actionPlan": "Planning investasi"
+      "actionPlan": "Planning investasi",
+      "savedAt": "2026-07-08T02:31:31.783Z"
     },
     "General Affair": {
       "rows": [
         {
-          "id": "r1783411906819_48v55",
+          "id": "r1783477681545a17h",
           "objective": "Inventaris utuh terawat, pengadaan tepat waktu, operasional aman lancar, user puas.",
           "keyResult": "Tingkat akurasi stok inventaris data vs fisik",
-          "target": 98,
-          "actual": null,
-          "bobot": 40
+          "target": 95,
+          "actual": 98,
+          "bobot": 50
         },
         {
-          "id": "r1783411906819_49zzv",
+          "id": "r1783477681545h2qy",
           "objective": "Inventaris utuh terawat, pengadaan tepat waktu, operasional aman lancar, user puas.",
           "keyResult": "Tingkat akurasi lead time pengadaan / maintenance",
           "target": 95,
-          "actual": null,
-          "bobot": 35
-        },
-        {
-          "id": "r1783411906819_502vo",
-          "objective": "Inventaris utuh terawat, pengadaan tepat waktu, operasional aman lancar, user puas.",
-          "keyResult": "Laporan inventaris akurat dan on time",
-          "target": 100,
-          "actual": null,
-          "bobot": 25
-        }
-      ],
-      "actionPlan": "Kaji ulang cctv warehouse"
-    },
-    "HRD": {
-      "rows": [
-        {
-          "id": "r1783411906819_51qsl",
-          "objective": "Membangun dan menjaga SDM yg kompeten, disiplin, produktif, inisiatif, guna mendukung perusahaan berkembang.",
-          "keyResult": "Tingkat kedisiplinan karyawan",
-          "target": 90,
-          "actual": null,
+          "actual": 82,
           "bobot": 30
         },
         {
-          "id": "r1783411906819_52jwz",
-          "objective": "Membangun dan menjaga SDM yg kompeten, disiplin, produktif, inisiatif, guna mendukung perusahaan berkembang.",
-          "keyResult": "Skor pencapaian KPI seluruh team",
-          "target": 85,
-          "actual": null,
-          "bobot": 25
-        },
-        {
-          "id": "r1783411906819_53qvk",
-          "objective": "Membangun dan menjaga SDM yg kompeten, disiplin, produktif, inisiatif, guna mendukung perusahaan berkembang.",
-          "keyResult": "Akurasi & ketepatan waktu administrasi HR",
-          "target": 95,
-          "actual": null,
+          "id": "r1783477681545pv1d",
+          "objective": "Inventaris utuh terawat, pengadaan tepat waktu, operasional aman lancar, user puas.",
+          "keyResult": "Laporan inventaris akurat dan on time",
+          "target": 98,
+          "actual": 96,
           "bobot": 20
-        },
-        {
-          "id": "r1783411906819_543rh",
-          "objective": "Membangun dan menjaga SDM yg kompeten, disiplin, produktif, inisiatif, guna mendukung perusahaan berkembang.",
-          "keyResult": "Ketepatan waktu rekrutment",
-          "target": 85,
-          "actual": null,
-          "bobot": 15
-        },
-        {
-          "id": "r1783411906819_55r6s",
-          "objective": "Membangun dan menjaga SDM yg kompeten, disiplin, produktif, inisiatif, guna mendukung perusahaan berkembang.",
-          "keyResult": "Skor kinerja karyawan baru",
-          "target": 85,
-          "actual": null,
-          "bobot": 10
         }
       ],
-      "actionPlan": "Drafting SOP ketidakhadiran"
+      "actionPlan": "Kaji ulang cctv warehouse",
+      "savedAt": "2026-07-08T02:28:01.545Z"
     },
     "Internal Audit": {
       "rows": [
         {
-          "id": "r1783411906819_567iz",
+          "id": "r1783478053022l4ac",
           "objective": "Melindungi dan mengawasi sistem internal berbasis dari resiko yg timbul.",
           "keyResult": "Tingkat implementasi rekomendasi audit",
-          "target": 100,
-          "actual": null,
+          "target": 95,
+          "actual": 100,
           "bobot": 45
         },
         {
-          "id": "r1783411906819_57dgf",
+          "id": "r1783478053022xw5s",
           "objective": "Melindungi dan mengawasi sistem internal berbasis dari resiko yg timbul.",
           "keyResult": "Laporan audit akurat dan on time",
           "target": 100,
-          "actual": null,
-          "bobot": 35
+          "actual": 100,
+          "bobot": 20
         },
         {
-          "id": "r1783411906819_587jz",
+          "id": "r1783478053022wmzb",
           "objective": "Melindungi dan mengawasi sistem internal berbasis dari resiko yg timbul.",
-          "keyResult": "Jumlah inisiatif proaktif",
-          "target": 2,
-          "actual": null,
-          "bobot": 20
+          "keyResult": "Tingkat implementasi rekomendasi default diary",
+          "target": 95,
+          "actual": 100,
+          "bobot": 35
         }
       ],
-      "actionPlan": "Finalisasi DD, bizflow, SOP warehouse"
+      "actionPlan": "Finalisasi DD, bizflow, SOP warehouse",
+      "savedAt": "2026-07-08T02:34:13.022Z"
     },
     "Inventory": {
       "rows": [
         {
-          "id": "r1783411906819_5956b",
+          "id": "r178347854130895am",
           "objective": "Stok akurat, persediaan optimal, biaya & waste minimal.",
           "keyResult": "Tingkat akurasi stok fisik vs data",
-          "target": 75,
-          "actual": null,
-          "bobot": 20
+          "target": 95,
+          "actual": 84.1,
+          "bobot": 35
         },
         {
-          "id": "r1783411906819_60kin",
-          "objective": "Stok akurat, persediaan optimal, biaya & waste minimal.",
-          "keyResult": "Akurasi DO & RN",
-          "target": 100,
-          "actual": null,
-          "bobot": 10
-        },
-        {
-          "id": "r1783411906819_61u2n",
+          "id": "r178347854130815jb",
           "objective": "Stok akurat, persediaan optimal, biaya & waste minimal.",
           "keyResult": "Tingkat akurasi administrasi",
           "target": 98,
-          "actual": null,
-          "bobot": 40
+          "actual": 99.26,
+          "bobot": 45
         },
         {
-          "id": "r1783411906819_62dby",
+          "id": "r1783478541308rtt3",
           "objective": "Stok akurat, persediaan optimal, biaya & waste minimal.",
-          "keyResult": "Laporan inventory akurat dan on time",
-          "target": 100,
-          "actual": null,
-          "bobot": 30
+          "keyResult": "Tingkat akurasi logbook oke vs tidak oke",
+          "target": 70,
+          "actual": 80.53,
+          "bobot": 20
         }
       ],
-      "actionPlan": "Planning acara chef Alfian"
+      "actionPlan": "Planning acara chef Alfian",
+      "savedAt": "2026-07-08T02:42:21.308Z"
     },
     "Purchasing": {
       "rows": [
         {
-          "id": "r1783411906819_63nmv",
+          "id": "r17834781613455ytt",
           "objective": "Pengadaan stok tepat waktu dan berkwalitas, administrasi akurat..",
           "keyResult": "Tingkat in stock",
-          "target": 90,
-          "actual": null,
-          "bobot": 35
-        },
-        {
-          "id": "r1783411906819_64lp2",
-          "objective": "Pengadaan stok tepat waktu dan berkwalitas, administrasi akurat..",
-          "keyResult": "Tingkat akurasi PO",
           "target": 95,
-          "actual": null,
+          "actual": 48.36,
           "bobot": 30
         },
         {
-          "id": "r1783411906819_65vlk",
+          "id": "r1783478161345exul",
+          "objective": "Pengadaan stok tepat waktu dan berkwalitas, administrasi akurat..",
+          "keyResult": "Tingkat akurasi PO",
+          "target": 95,
+          "actual": 92.69,
+          "bobot": 25
+        },
+        {
+          "id": "r1783478161345ic5h",
           "objective": "Pengadaan stok tepat waktu dan berkwalitas, administrasi akurat..",
           "keyResult": "Tingkat kwalitas pengadaan",
           "target": 95,
-          "actual": null,
+          "actual": 95.78,
           "bobot": 20
         },
         {
-          "id": "r1783411906819_66x08",
+          "id": "r1783478161345q2f6",
           "objective": "Pengadaan stok tepat waktu dan berkwalitas, administrasi akurat..",
           "keyResult": "Tingkat penghematan budget",
-          "target": 3,
-          "actual": null,
+          "target": 5,
+          "actual": 0.48,
           "bobot": 10
         },
         {
-          "id": "r1783411906819_674n4",
+          "id": "r1783478161345pubr",
           "objective": "Pengadaan stok tepat waktu dan berkwalitas, administrasi akurat..",
-          "keyResult": "Tingkat implementasi rekomendasi audit",
-          "target": 100,
-          "actual": null,
-          "bobot": 5
+          "keyResult": "Tingkat inventory health",
+          "target": 90,
+          "actual": 99.87,
+          "bobot": 15
         }
       ],
-      "actionPlan": "Membuat 4 konten sosmed"
+      "actionPlan": "Membuat 4 konten sosmed",
+      "savedAt": "2026-07-08T02:36:01.345Z"
     },
     "Store": {
       "rows": [
         {
-          "id": "r1783411906819_68ydi",
-          "objective": "Mencapai target penjualan, \r\nstok akurat, pelanggan puas, operasional sesuai SOP.",
+          "id": "r17834783563996ryz",
+          "objective": "Mencapai target penjualan, stok akurat, pelanggan puas, operasional sesuai SOP.",
           "keyResult": "Jumlah omset",
-          "target": 3040000000,
-          "actual": null,
+          "target": 3762000000,
+          "actual": 3577395400,
           "bobot": 30
         },
         {
-          "id": "r1783411906819_699my",
-          "objective": "Mencapai target penjualan, \r\nstok akurat, pelanggan puas, operasional sesuai SOP.",
+          "id": "r1783478356399ui05",
+          "objective": "Mencapai target penjualan, stok akurat, pelanggan puas, operasional sesuai SOP.",
           "keyResult": "Tingkat akurasi stok fisik vs data",
-          "target": 80,
-          "actual": null,
+          "target": 75,
+          "actual": 73.86,
           "bobot": 25
         },
         {
-          "id": "r1783411906819_70sm3",
-          "objective": "Mencapai target penjualan, \r\nstok akurat, pelanggan puas, operasional sesuai SOP.",
+          "id": "r1783478356400fueg",
+          "objective": "Mencapai target penjualan, stok akurat, pelanggan puas, operasional sesuai SOP.",
           "keyResult": "Score kepuasan pelanggan",
           "target": 90,
-          "actual": null,
+          "actual": 91,
           "bobot": 20
         },
         {
-          "id": "r1783411906819_71mo5",
-          "objective": "Mencapai target penjualan, \r\nstok akurat, pelanggan puas, operasional sesuai SOP.",
+          "id": "r1783478356400k1mf",
+          "objective": "Mencapai target penjualan, stok akurat, pelanggan puas, operasional sesuai SOP.",
           "keyResult": "Tingkat kepatuhan & kedisiplinan",
           "target": 95,
-          "actual": null,
+          "actual": 98,
           "bobot": 15
         },
         {
-          "id": "r1783411906819_72rky",
-          "objective": "Mencapai target penjualan, \r\nstok akurat, pelanggan puas, operasional sesuai SOP.",
-          "keyResult": "Tingkat implementasi rekomendasi audit",
-          "target": 100,
-          "actual": null,
+          "id": "r178347835640047a4",
+          "objective": "Mencapai target penjualan, stok akurat, pelanggan puas, operasional sesuai SOP.",
+          "keyResult": "Score Google review",
+          "target": 4.9,
+          "actual": 4.9,
           "bobot": 10
         }
       ],
-      "actionPlan": "Planning acara chef Avian"
-    },
-    "Warehouse": {
-      "rows": [
-        {
-          "id": "r1783411906819_73hjk",
-          "objective": "Stok akurat, operasional berjalan sesuai SOP.",
-          "keyResult": "Tingkat akurasi stok fisik vs data",
-          "target": 98,
-          "actual": null,
-          "bobot": 30
-        },
-        {
-          "id": "r1783411906819_744pm",
-          "objective": "Stok akurat, operasional berjalan sesuai SOP.",
-          "keyResult": "Tingkat akurasi default diary",
-          "target": 95,
-          "actual": null,
-          "bobot": 25
-        },
-        {
-          "id": "r1783411906819_751b4",
-          "objective": "Stok akurat, operasional berjalan sesuai SOP.",
-          "keyResult": "Score avg cartrack",
-          "target": 90,
-          "actual": null,
-          "bobot": 20
-        },
-        {
-          "id": "r1783411906819_76wvj",
-          "objective": "Stok akurat, operasional berjalan sesuai SOP.",
-          "keyResult": "Score kepuasan pelanggan distribusi",
-          "target": 90,
-          "actual": null,
-          "bobot": 15
-        },
-        {
-          "id": "r1783411906819_77ev2",
-          "objective": "Stok akurat, operasional berjalan sesuai SOP.",
-          "keyResult": "Tingkat implementasi rekomendasi audit",
-          "target": 100,
-          "actual": null,
-          "bobot": 10
-        }
-      ],
-      "actionPlan": ""
+      "actionPlan": "Planning acara chef Avian",
+      "savedAt": "2026-07-08T02:39:16.400Z"
     }
   },
   "2026-03": {
     "Distribution Sales": {
       "rows": [
         {
-          "id": "r1783411906819_789v6",
+          "id": "r1783478888604ukks",
           "objective": "Mencapai target penjualan, pelanggan puas.",
           "keyResult": "Jumlah omset global",
-          "target": 3400000000,
-          "actual": null,
-          "bobot": 35
+          "target": 3000000000,
+          "actual": 2737751429,
+          "bobot": 50
         },
         {
-          "id": "r1783411906819_79v4e",
-          "objective": "Mencapai target penjualan, pelanggan puas.",
-          "keyResult": "Retensi pelanggan",
-          "target": 100,
-          "actual": null,
-          "bobot": 30
-        },
-        {
-          "id": "r1783411906819_80xvi",
+          "id": "r17834788886043s9k",
           "objective": "Mencapai target penjualan, pelanggan puas.",
           "keyResult": "Customers baru",
           "target": 10,
-          "actual": null,
-          "bobot": 25
+          "actual": 10,
+          "bobot": 30
         },
         {
-          "id": "r1783411906819_81k5e",
+          "id": "r1783478888604pk7o",
           "objective": "Mencapai target penjualan, pelanggan puas.",
           "keyResult": "Kepuasan pelanggan",
-          "target": 90,
-          "actual": null,
-          "bobot": 10
+          "target": 80,
+          "actual": 98,
+          "bobot": 20
         }
       ],
-      "actionPlan": "Training new telesales"
+      "actionPlan": "Training new telesales",
+      "savedAt": "2026-07-08T02:48:08.604Z"
     },
     "Finance & Accounting": {
       "rows": [
         {
-          "id": "r1783411906819_828ji",
+          "id": "r178347944265935fk",
           "objective": "Data dan fisik uang akurat, transaksi tepat dan on time.",
           "keyResult": "Tingkat keberhasilan penagihan piutang",
           "target": 95,
-          "actual": null,
-          "bobot": 30
-        },
-        {
-          "id": "r1783411906819_839sl",
-          "objective": "Data dan fisik uang akurat, transaksi tepat dan on time.",
-          "keyResult": "Payment akurat dan on time",
-          "target": 98,
-          "actual": null,
-          "bobot": 25
-        },
-        {
-          "id": "r1783411906819_84tkt",
-          "objective": "Data dan fisik uang akurat, transaksi tepat dan on time.",
-          "keyResult": "Tingkat akurasi uang fisik dan data",
-          "target": 98,
-          "actual": null,
+          "actual": 99.84,
           "bobot": 20
         },
         {
-          "id": "r1783411906819_8567p",
+          "id": "r1783479442659yaxa",
+          "objective": "Data dan fisik uang akurat, transaksi tepat dan on time.",
+          "keyResult": "Payment akurat dan on time",
+          "target": 98,
+          "actual": 100,
+          "bobot": 25
+        },
+        {
+          "id": "r1783479442659xnjz",
+          "objective": "Data dan fisik uang akurat, transaksi tepat dan on time.",
+          "keyResult": "Tingkat akurasi uang fisik dan data",
+          "target": 98,
+          "actual": 96.5,
+          "bobot": 30
+        },
+        {
+          "id": "r1783479442659gj5g",
           "objective": "Data dan fisik uang akurat, transaksi tepat dan on time.",
           "keyResult": "Laporan keuangan akurat dan on time",
           "target": 98,
-          "actual": null,
+          "actual": 90.7,
           "bobot": 15
         },
         {
-          "id": "r1783411906819_8692a",
+          "id": "r1783479442659wy4q",
           "objective": "Data dan fisik uang akurat, transaksi tepat dan on time.",
           "keyResult": "Tingkat implementasi rekomendasi audit",
           "target": 100,
-          "actual": null,
+          "actual": 100,
           "bobot": 10
         }
       ],
-      "actionPlan": "Planning investasi"
+      "actionPlan": "Planning investasi",
+      "savedAt": "2026-07-08T02:57:22.659Z"
     },
     "General Affair": {
       "rows": [
         {
-          "id": "r1783411906819_87opl",
+          "id": "r1783479509146xjki",
           "objective": "Inventaris utuh terawat, pengadaan tepat waktu, operasional aman lancar, user puas.",
           "keyResult": "Tingkat akurasi stok inventaris data vs fisik",
-          "target": 98,
-          "actual": null,
-          "bobot": 40
+          "target": 95,
+          "actual": 98,
+          "bobot": 50
         },
         {
-          "id": "r1783411906819_88fv7",
+          "id": "r17834795091461ssd",
           "objective": "Inventaris utuh terawat, pengadaan tepat waktu, operasional aman lancar, user puas.",
           "keyResult": "Tingkat akurasi lead time pengadaan / maintenance",
           "target": 95,
-          "actual": null,
-          "bobot": 35
-        },
-        {
-          "id": "r1783411906819_89vo1",
-          "objective": "Inventaris utuh terawat, pengadaan tepat waktu, operasional aman lancar, user puas.",
-          "keyResult": "Laporan inventaris akurat dan on time",
-          "target": 100,
-          "actual": null,
-          "bobot": 25
-        }
-      ],
-      "actionPlan": "Kaji ulang cctv warehouse"
-    },
-    "HRD": {
-      "rows": [
-        {
-          "id": "r1783411906819_90gdc",
-          "objective": "Membangun dan menjaga SDM yg kompeten, disiplin, produktif, inisiatif, guna mendukung perusahaan berkembang.",
-          "keyResult": "Tingkat kedisiplinan karyawan",
-          "target": 90,
-          "actual": null,
+          "actual": 83,
           "bobot": 30
         },
         {
-          "id": "r1783411906819_91tp0",
-          "objective": "Membangun dan menjaga SDM yg kompeten, disiplin, produktif, inisiatif, guna mendukung perusahaan berkembang.",
-          "keyResult": "Skor pencapaian KPI seluruh team",
-          "target": 85,
-          "actual": null,
-          "bobot": 25
-        },
-        {
-          "id": "r1783411906819_92wg6",
-          "objective": "Membangun dan menjaga SDM yg kompeten, disiplin, produktif, inisiatif, guna mendukung perusahaan berkembang.",
-          "keyResult": "Akurasi & ketepatan waktu administrasi HR",
-          "target": 95,
-          "actual": null,
+          "id": "r1783479509147igjs",
+          "objective": "Inventaris utuh terawat, pengadaan tepat waktu, operasional aman lancar, user puas.",
+          "keyResult": "Laporan inventaris akurat dan on time",
+          "target": 98,
+          "actual": 75,
           "bobot": 20
-        },
-        {
-          "id": "r1783411906819_93wk9",
-          "objective": "Membangun dan menjaga SDM yg kompeten, disiplin, produktif, inisiatif, guna mendukung perusahaan berkembang.",
-          "keyResult": "Ketepatan waktu rekrutment",
-          "target": 85,
-          "actual": null,
-          "bobot": 15
-        },
-        {
-          "id": "r1783411906819_94kij",
-          "objective": "Membangun dan menjaga SDM yg kompeten, disiplin, produktif, inisiatif, guna mendukung perusahaan berkembang.",
-          "keyResult": "Skor kinerja karyawan baru",
-          "target": 85,
-          "actual": null,
-          "bobot": 10
         }
       ],
-      "actionPlan": "Drafting SOP ketidakhadiran"
+      "actionPlan": "Kaji ulang cctv warehouse",
+      "savedAt": "2026-07-08T02:58:29.147Z"
     },
     "Internal Audit": {
       "rows": [
         {
-          "id": "r1783411906819_95pyo",
+          "id": "r17834796388347iwl",
           "objective": "Melindungi dan mengawasi sistem internal berbasis dari resiko yg timbul.",
           "keyResult": "Tingkat implementasi rekomendasi audit",
-          "target": 100,
-          "actual": null,
+          "target": 95,
+          "actual": 100,
           "bobot": 45
         },
         {
-          "id": "r1783411906819_96so6",
+          "id": "r17834796388348adt",
           "objective": "Melindungi dan mengawasi sistem internal berbasis dari resiko yg timbul.",
           "keyResult": "Laporan audit akurat dan on time",
           "target": 100,
-          "actual": null,
-          "bobot": 35
+          "actual": 99,
+          "bobot": 20
         },
         {
-          "id": "r1783411906819_977b7",
+          "id": "r17834796388347z3v",
           "objective": "Melindungi dan mengawasi sistem internal berbasis dari resiko yg timbul.",
-          "keyResult": "Jumlah inisiatif proaktif",
-          "target": 2,
-          "actual": null,
-          "bobot": 20
+          "keyResult": "Tingkat implementasi rekomendasi default diary",
+          "target": 95,
+          "actual": 100,
+          "bobot": 35
         }
       ],
-      "actionPlan": "Finalisasi DD, bizflow, SOP warehouse"
+      "actionPlan": "Finalisasi DD, bizflow, SOP warehouse",
+      "savedAt": "2026-07-08T03:00:38.834Z"
     },
     "Inventory": {
       "rows": [
         {
-          "id": "r1783411906819_98owy",
+          "id": "r17834791272035ttb",
           "objective": "Stok akurat, persediaan optimal, biaya & waste minimal.",
           "keyResult": "Tingkat akurasi stok fisik vs data",
-          "target": 75,
-          "actual": null,
+          "target": 70,
+          "actual": 81.4,
           "bobot": 20
         },
         {
-          "id": "r1783411906819_990pl",
-          "objective": "Stok akurat, persediaan optimal, biaya & waste minimal.",
-          "keyResult": "Akurasi DO & RN",
-          "target": 100,
-          "actual": null,
-          "bobot": 10
-        },
-        {
-          "id": "r1783411906819_100o35",
+          "id": "r178347912720320qt",
           "objective": "Stok akurat, persediaan optimal, biaya & waste minimal.",
           "keyResult": "Tingkat akurasi administrasi",
           "target": 98,
-          "actual": null,
-          "bobot": 40
+          "actual": 99.7,
+          "bobot": 45
         },
         {
-          "id": "r1783411906819_101kun",
+          "id": "r1783479127203sq2v",
           "objective": "Stok akurat, persediaan optimal, biaya & waste minimal.",
-          "keyResult": "Laporan inventory akurat dan on time",
-          "target": 100,
-          "actual": null,
-          "bobot": 30
+          "keyResult": "Tingkat akurasi logbook",
+          "target": 96,
+          "actual": 79.33,
+          "bobot": 35
         }
       ],
-      "actionPlan": "Planning acara chef Alfian"
+      "actionPlan": "Planning acara chef Alfian",
+      "savedAt": "2026-07-08T02:52:07.203Z"
     },
     "Purchasing": {
       "rows": [
         {
-          "id": "r1783411906819_102j9g",
+          "id": "r1783479278843u86c",
           "objective": "Pengadaan stok tepat waktu dan berkwalitas, administrasi akurat..",
           "keyResult": "Tingkat in stock",
-          "target": 90,
-          "actual": null,
-          "bobot": 35
+          "target": 95,
+          "actual": 80,
+          "bobot": 40
         },
         {
-          "id": "r1783411906819_103v8r",
+          "id": "r17834792788434j2i",
           "objective": "Pengadaan stok tepat waktu dan berkwalitas, administrasi akurat..",
           "keyResult": "Tingkat akurasi PO",
           "target": 95,
-          "actual": null,
+          "actual": 75,
           "bobot": 30
         },
         {
-          "id": "r1783411906819_104q9b",
+          "id": "r1783479278843f9nx",
           "objective": "Pengadaan stok tepat waktu dan berkwalitas, administrasi akurat..",
           "keyResult": "Tingkat kwalitas pengadaan",
           "target": 95,
-          "actual": null,
+          "actual": 95,
           "bobot": 20
         },
         {
-          "id": "r1783411906819_105q94",
-          "objective": "Pengadaan stok tepat waktu dan berkwalitas, administrasi akurat..",
-          "keyResult": "Tingkat penghematan budget",
-          "target": 3,
-          "actual": null,
-          "bobot": 10
-        },
-        {
-          "id": "r1783411906819_10631u",
+          "id": "r1783479278843zpu6",
           "objective": "Pengadaan stok tepat waktu dan berkwalitas, administrasi akurat..",
           "keyResult": "Tingkat implementasi rekomendasi audit",
           "target": 100,
-          "actual": null,
-          "bobot": 5
+          "actual": 88.75,
+          "bobot": 10
         }
       ],
-      "actionPlan": "Membuat 4 konten sosmed"
+      "actionPlan": "Membuat 4 konten sosmed",
+      "savedAt": "2026-07-08T02:54:38.843Z"
     },
     "Store": {
       "rows": [
         {
-          "id": "r1783411906819_107fx2",
-          "objective": "Mencapai target penjualan, \r\nstok akurat, pelanggan puas, operasional sesuai SOP.",
+          "id": "r1783478822745sgna",
+          "objective": "Mencapai target penjualan, stok akurat, pelanggan puas, operasional sesuai SOP.",
           "keyResult": "Jumlah omset",
-          "target": 3040000000,
-          "actual": null,
+          "target": 3610000000,
+          "actual": 4192384000,
           "bobot": 30
         },
         {
-          "id": "r1783411906819_1084l3",
-          "objective": "Mencapai target penjualan, \r\nstok akurat, pelanggan puas, operasional sesuai SOP.",
+          "id": "r1783478822745irbp",
+          "objective": "Mencapai target penjualan, stok akurat, pelanggan puas, operasional sesuai SOP.",
           "keyResult": "Tingkat akurasi stok fisik vs data",
-          "target": 80,
-          "actual": null,
-          "bobot": 25
-        },
-        {
-          "id": "r1783411906819_10954e",
-          "objective": "Mencapai target penjualan, \r\nstok akurat, pelanggan puas, operasional sesuai SOP.",
-          "keyResult": "Score kepuasan pelanggan",
-          "target": 90,
-          "actual": null,
+          "target": 75,
+          "actual": 65,
           "bobot": 20
         },
         {
-          "id": "r1783411906819_110cr5",
-          "objective": "Mencapai target penjualan, \r\nstok akurat, pelanggan puas, operasional sesuai SOP.",
+          "id": "r1783478822745vtej",
+          "objective": "Mencapai target penjualan, stok akurat, pelanggan puas, operasional sesuai SOP.",
+          "keyResult": "Score kepuasan pelanggan",
+          "target": 90,
+          "actual": 90.3,
+          "bobot": 25
+        },
+        {
+          "id": "r1783478822745fcpn",
+          "objective": "Mencapai target penjualan, stok akurat, pelanggan puas, operasional sesuai SOP.",
           "keyResult": "Tingkat kepatuhan & kedisiplinan",
           "target": 95,
-          "actual": null,
+          "actual": 96,
           "bobot": 15
         },
         {
-          "id": "r1783411906819_1114qd",
-          "objective": "Mencapai target penjualan, \r\nstok akurat, pelanggan puas, operasional sesuai SOP.",
+          "id": "r1783478822745oze0",
+          "objective": "Mencapai target penjualan, stok akurat, pelanggan puas, operasional sesuai SOP.",
           "keyResult": "Tingkat implementasi rekomendasi audit",
           "target": 100,
-          "actual": null,
+          "actual": 100,
           "bobot": 10
         }
       ],
-      "actionPlan": "Planning acara chef Avian"
+      "actionPlan": "Planning acara chef Avian",
+      "savedAt": "2026-07-08T02:47:02.745Z"
     },
     "Warehouse": {
       "rows": [
         {
-          "id": "r1783411906819_112btd",
+          "id": "r1783479013667ua99",
           "objective": "Stok akurat, operasional berjalan sesuai SOP.",
           "keyResult": "Tingkat akurasi stok fisik vs data",
-          "target": 98,
-          "actual": null,
+          "target": 95,
+          "actual": 98,
           "bobot": 30
         },
         {
-          "id": "r1783411906819_113aay",
+          "id": "r1783479013667ljc1",
           "objective": "Stok akurat, operasional berjalan sesuai SOP.",
           "keyResult": "Tingkat akurasi default diary",
-          "target": 95,
-          "actual": null,
+          "target": 90,
+          "actual": 90,
           "bobot": 25
         },
         {
-          "id": "r1783411906819_1144u6",
+          "id": "r1783479013667jluo",
           "objective": "Stok akurat, operasional berjalan sesuai SOP.",
           "keyResult": "Score avg cartrack",
           "target": 90,
-          "actual": null,
+          "actual": 91,
           "bobot": 20
         },
         {
-          "id": "r1783411906819_115mbr",
+          "id": "r1783479013667wh8y",
           "objective": "Stok akurat, operasional berjalan sesuai SOP.",
           "keyResult": "Score kepuasan pelanggan distribusi",
-          "target": 90,
-          "actual": null,
+          "target": 80,
+          "actual": 98,
           "bobot": 15
         },
         {
-          "id": "r1783411906819_116ka4",
+          "id": "r178347901366783e4",
           "objective": "Stok akurat, operasional berjalan sesuai SOP.",
           "keyResult": "Tingkat implementasi rekomendasi audit",
           "target": 100,
-          "actual": null,
+          "actual": 100,
           "bobot": 10
         }
       ],
-      "actionPlan": ""
+      "actionPlan": "",
+      "savedAt": "2026-07-08T02:50:13.667Z"
     }
   },
   "2026-04": {
     "Distribution Sales": {
       "rows": [
         {
-          "id": "r1783411906819_117hea",
+          "id": "r17834799304578zzx",
           "objective": "Mencapai target penjualan, pelanggan puas.",
           "keyResult": "Jumlah omset global",
-          "target": 3400000000,
-          "actual": null,
-          "bobot": 35
+          "target": 3000000000,
+          "actual": 2734890954,
+          "bobot": 50
         },
         {
-          "id": "r1783411906819_118ylk",
-          "objective": "Mencapai target penjualan, pelanggan puas.",
-          "keyResult": "Retensi pelanggan",
-          "target": 100,
-          "actual": null,
-          "bobot": 30
-        },
-        {
-          "id": "r1783411906819_119d94",
+          "id": "r1783479930457j4zn",
           "objective": "Mencapai target penjualan, pelanggan puas.",
           "keyResult": "Customers baru",
           "target": 10,
-          "actual": null,
-          "bobot": 25
+          "actual": 10,
+          "bobot": 30
         },
         {
-          "id": "r1783411906819_120qqu",
+          "id": "r17834799304571c4z",
           "objective": "Mencapai target penjualan, pelanggan puas.",
           "keyResult": "Kepuasan pelanggan",
           "target": 90,
-          "actual": null,
-          "bobot": 10
+          "actual": 92,
+          "bobot": 20
         }
       ],
-      "actionPlan": "Training new telesales"
+      "actionPlan": "Training new telesales",
+      "savedAt": "2026-07-08T03:05:30.457Z"
     },
     "Finance & Accounting": {
       "rows": [
         {
-          "id": "r1783411906819_121x3p",
+          "id": "r17834805792472vqj",
           "objective": "Data dan fisik uang akurat, transaksi tepat dan on time.",
           "keyResult": "Tingkat keberhasilan penagihan piutang",
           "target": 95,
-          "actual": null,
-          "bobot": 30
-        },
-        {
-          "id": "r1783411906819_122guq",
-          "objective": "Data dan fisik uang akurat, transaksi tepat dan on time.",
-          "keyResult": "Payment akurat dan on time",
-          "target": 98,
-          "actual": null,
-          "bobot": 25
-        },
-        {
-          "id": "r1783411906819_123tmk",
-          "objective": "Data dan fisik uang akurat, transaksi tepat dan on time.",
-          "keyResult": "Tingkat akurasi uang fisik dan data",
-          "target": 98,
-          "actual": null,
+          "actual": 100,
           "bobot": 20
         },
         {
-          "id": "r1783411906819_124aq1",
+          "id": "r1783480579247omq8",
+          "objective": "Data dan fisik uang akurat, transaksi tepat dan on time.",
+          "keyResult": "Payment akurat dan on time",
+          "target": 98,
+          "actual": 100,
+          "bobot": 25
+        },
+        {
+          "id": "r17834805792471cme",
+          "objective": "Data dan fisik uang akurat, transaksi tepat dan on time.",
+          "keyResult": "Tingkat akurasi uang fisik dan data",
+          "target": 98,
+          "actual": 99.53,
+          "bobot": 30
+        },
+        {
+          "id": "r1783480579247c0ag",
           "objective": "Data dan fisik uang akurat, transaksi tepat dan on time.",
           "keyResult": "Laporan keuangan akurat dan on time",
           "target": 98,
-          "actual": null,
+          "actual": 100,
           "bobot": 15
         },
         {
-          "id": "r1783411906819_12514j",
+          "id": "r1783480579247kpll",
           "objective": "Data dan fisik uang akurat, transaksi tepat dan on time.",
           "keyResult": "Tingkat implementasi rekomendasi audit",
           "target": 100,
-          "actual": null,
+          "actual": 100,
           "bobot": 10
         }
       ],
-      "actionPlan": "Planning investasi"
+      "actionPlan": "Planning investasi",
+      "savedAt": "2026-07-08T03:16:19.247Z"
     },
     "General Affair": {
       "rows": [
         {
-          "id": "r1783411906819_126um2",
+          "id": "r1783480684672iaol",
           "objective": "Inventaris utuh terawat, pengadaan tepat waktu, operasional aman lancar, user puas.",
           "keyResult": "Tingkat akurasi stok inventaris data vs fisik",
           "target": 98,
-          "actual": null,
+          "actual": 97.78,
           "bobot": 40
         },
         {
-          "id": "r1783411906819_127xtg",
+          "id": "r1783480684672cq92",
           "objective": "Inventaris utuh terawat, pengadaan tepat waktu, operasional aman lancar, user puas.",
           "keyResult": "Tingkat akurasi lead time pengadaan / maintenance",
           "target": 95,
-          "actual": null,
-          "bobot": 35
-        },
-        {
-          "id": "r1783411906819_1282pe",
-          "objective": "Inventaris utuh terawat, pengadaan tepat waktu, operasional aman lancar, user puas.",
-          "keyResult": "Laporan inventaris akurat dan on time",
-          "target": 100,
-          "actual": null,
-          "bobot": 25
-        }
-      ],
-      "actionPlan": "Kaji ulang cctv warehouse"
-    },
-    "HRD": {
-      "rows": [
-        {
-          "id": "r1783411906819_129iqs",
-          "objective": "Membangun dan menjaga SDM yg kompeten, disiplin, produktif, inisiatif, guna mendukung perusahaan berkembang.",
-          "keyResult": "Tingkat kedisiplinan karyawan",
-          "target": 90,
-          "actual": null,
+          "actual": 90,
           "bobot": 30
         },
         {
-          "id": "r1783411906819_130lc1",
-          "objective": "Membangun dan menjaga SDM yg kompeten, disiplin, produktif, inisiatif, guna mendukung perusahaan berkembang.",
-          "keyResult": "Skor pencapaian KPI seluruh team",
-          "target": 85,
-          "actual": null,
-          "bobot": 25
-        },
-        {
-          "id": "r1783411906819_131bi8",
-          "objective": "Membangun dan menjaga SDM yg kompeten, disiplin, produktif, inisiatif, guna mendukung perusahaan berkembang.",
-          "keyResult": "Akurasi & ketepatan waktu administrasi HR",
-          "target": 95,
-          "actual": null,
-          "bobot": 20
-        },
-        {
-          "id": "r1783411906819_132zdr",
-          "objective": "Membangun dan menjaga SDM yg kompeten, disiplin, produktif, inisiatif, guna mendukung perusahaan berkembang.",
-          "keyResult": "Ketepatan waktu rekrutment",
-          "target": 85,
-          "actual": null,
-          "bobot": 15
-        },
-        {
-          "id": "r1783411906819_1330hl",
-          "objective": "Membangun dan menjaga SDM yg kompeten, disiplin, produktif, inisiatif, guna mendukung perusahaan berkembang.",
-          "keyResult": "Skor kinerja karyawan baru",
-          "target": 85,
-          "actual": null,
+          "id": "r1783480684672lsng",
+          "objective": "Inventaris utuh terawat, pengadaan tepat waktu, operasional aman lancar, user puas.",
+          "keyResult": "Laporan inventaris akurat dan on time",
+          "target": 100,
+          "actual": 100,
           "bobot": 10
+        },
+        {
+          "id": "r1783480684672reaw",
+          "objective": "Inventaris utuh terawat, pengadaan tepat waktu, operasional aman lancar, user puas.",
+          "keyResult": "Tingkat kepuasan user",
+          "target": 95,
+          "actual": 85.1,
+          "bobot": 20
         }
       ],
-      "actionPlan": "Drafting SOP ketidakhadiran"
+      "actionPlan": "Kaji ulang cctv warehouse",
+      "savedAt": "2026-07-08T03:18:04.672Z"
     },
     "Internal Audit": {
       "rows": [
         {
-          "id": "r1783411906819_134lpg",
+          "id": "r17834808472738jmh",
           "objective": "Melindungi dan mengawasi sistem internal berbasis dari resiko yg timbul.",
           "keyResult": "Tingkat implementasi rekomendasi audit",
-          "target": 100,
-          "actual": null,
-          "bobot": 45
+          "target": 95,
+          "actual": 100,
+          "bobot": 40
         },
         {
-          "id": "r1783411906819_135mdi",
+          "id": "r1783480847273g0xw",
           "objective": "Melindungi dan mengawasi sistem internal berbasis dari resiko yg timbul.",
           "keyResult": "Laporan audit akurat dan on time",
           "target": 100,
-          "actual": null,
-          "bobot": 35
+          "actual": 100,
+          "bobot": 10
         },
         {
-          "id": "r1783411906819_136hcv",
+          "id": "r178348084727328lj",
           "objective": "Melindungi dan mengawasi sistem internal berbasis dari resiko yg timbul.",
-          "keyResult": "Jumlah inisiatif proaktif",
-          "target": 2,
-          "actual": null,
+          "keyResult": "Tingkat implementasi rekomendasi default diary",
+          "target": 95,
+          "actual": 100,
+          "bobot": 30
+        },
+        {
+          "id": "r17834808472730f9k",
+          "objective": "Melindungi dan mengawasi sistem internal berbasis dari resiko yg timbul.",
+          "keyResult": "Tingkat kepuasan user",
+          "target": 90,
+          "actual": 79.4,
           "bobot": 20
         }
       ],
-      "actionPlan": "Finalisasi DD, bizflow, SOP warehouse"
+      "actionPlan": "Finalisasi DD, bizflow, SOP warehouse",
+      "savedAt": "2026-07-08T03:20:47.273Z"
     },
     "Inventory": {
       "rows": [
         {
-          "id": "r1783411906819_137srv",
+          "id": "r17834802261596e6z",
           "objective": "Stok akurat, persediaan optimal, biaya & waste minimal.",
           "keyResult": "Tingkat akurasi stok fisik vs data",
           "target": 75,
-          "actual": null,
+          "actual": 82.3,
           "bobot": 20
         },
         {
-          "id": "r1783411906819_138d2h",
+          "id": "r1783480226159jgfg",
           "objective": "Stok akurat, persediaan optimal, biaya & waste minimal.",
-          "keyResult": "Akurasi DO & RN",
-          "target": 100,
-          "actual": null,
-          "bobot": 10
+          "keyResult": "Tingkat akurasi logbook",
+          "target": 95,
+          "actual": 82.61,
+          "bobot": 30
         },
         {
-          "id": "r1783411906819_139319",
+          "id": "r1783480226159rman",
           "objective": "Stok akurat, persediaan optimal, biaya & waste minimal.",
           "keyResult": "Tingkat akurasi administrasi",
           "target": 98,
-          "actual": null,
+          "actual": 99.7,
           "bobot": 40
         },
         {
-          "id": "r1783411906819_140cu6",
+          "id": "r1783480226159celd",
           "objective": "Stok akurat, persediaan optimal, biaya & waste minimal.",
           "keyResult": "Laporan inventory akurat dan on time",
           "target": 100,
-          "actual": null,
-          "bobot": 30
+          "actual": 100,
+          "bobot": 10
         }
       ],
-      "actionPlan": "Planning acara chef Alfian"
+      "actionPlan": "Planning acara chef Alfian",
+      "savedAt": "2026-07-08T03:10:26.159Z"
     },
     "Purchasing": {
       "rows": [
         {
-          "id": "r1783411906819_141ccv",
+          "id": "r1783480476310ojrz",
           "objective": "Pengadaan stok tepat waktu dan berkwalitas, administrasi akurat..",
           "keyResult": "Tingkat in stock",
           "target": 90,
-          "actual": null,
+          "actual": 85.78,
           "bobot": 35
         },
         {
-          "id": "r1783411906819_142u9u",
+          "id": "r1783480476310f4p7",
           "objective": "Pengadaan stok tepat waktu dan berkwalitas, administrasi akurat..",
           "keyResult": "Tingkat akurasi PO",
           "target": 95,
-          "actual": null,
+          "actual": 82.6,
           "bobot": 30
         },
         {
-          "id": "r1783411906819_143gke",
+          "id": "r1783480476310wimx",
           "objective": "Pengadaan stok tepat waktu dan berkwalitas, administrasi akurat..",
           "keyResult": "Tingkat kwalitas pengadaan",
           "target": 95,
-          "actual": null,
+          "actual": 96.13,
           "bobot": 20
         },
         {
-          "id": "r1783411906819_144tj9",
+          "id": "r1783480476310d4h4",
           "objective": "Pengadaan stok tepat waktu dan berkwalitas, administrasi akurat..",
           "keyResult": "Tingkat penghematan budget",
           "target": 3,
-          "actual": null,
+          "actual": 1.13,
           "bobot": 10
         },
         {
-          "id": "r1783411906819_145wl5",
+          "id": "r1783480476310t8i1",
           "objective": "Pengadaan stok tepat waktu dan berkwalitas, administrasi akurat..",
           "keyResult": "Tingkat implementasi rekomendasi audit",
           "target": 100,
-          "actual": null,
+          "actual": 100,
           "bobot": 5
         }
       ],
-      "actionPlan": "Membuat 4 konten sosmed"
+      "actionPlan": "Membuat 4 konten sosmed",
+      "savedAt": "2026-07-08T03:14:36.310Z"
     },
     "Store": {
       "rows": [
         {
-          "id": "r1783411906819_1466rf",
-          "objective": "Mencapai target penjualan, \r\nstok akurat, pelanggan puas, operasional sesuai SOP.",
+          "id": "r1783479869585srjg",
+          "objective": "Mencapai target penjualan, stok akurat, pelanggan puas, operasional sesuai SOP.",
           "keyResult": "Jumlah omset",
-          "target": 3040000000,
-          "actual": null,
+          "target": 3382000000,
+          "actual": 3322181000,
           "bobot": 30
         },
         {
-          "id": "r1783411906819_147hio",
-          "objective": "Mencapai target penjualan, \r\nstok akurat, pelanggan puas, operasional sesuai SOP.",
+          "id": "r17834798695851obm",
+          "objective": "Mencapai target penjualan, stok akurat, pelanggan puas, operasional sesuai SOP.",
           "keyResult": "Tingkat akurasi stok fisik vs data",
           "target": 80,
-          "actual": null,
-          "bobot": 25
-        },
-        {
-          "id": "r1783411906819_148ilf",
-          "objective": "Mencapai target penjualan, \r\nstok akurat, pelanggan puas, operasional sesuai SOP.",
-          "keyResult": "Score kepuasan pelanggan",
-          "target": 90,
-          "actual": null,
+          "actual": 68,
           "bobot": 20
         },
         {
-          "id": "r1783411906819_149wa0",
-          "objective": "Mencapai target penjualan, \r\nstok akurat, pelanggan puas, operasional sesuai SOP.",
+          "id": "r17834798695859yvm",
+          "objective": "Mencapai target penjualan, stok akurat, pelanggan puas, operasional sesuai SOP.",
+          "keyResult": "Score kepuasan pelanggan",
+          "target": 90,
+          "actual": 94,
+          "bobot": 25
+        },
+        {
+          "id": "r1783479869585929v",
+          "objective": "Mencapai target penjualan, stok akurat, pelanggan puas, operasional sesuai SOP.",
           "keyResult": "Tingkat kepatuhan & kedisiplinan",
           "target": 95,
-          "actual": null,
+          "actual": 98,
           "bobot": 15
         },
         {
-          "id": "r1783411906819_150yyi",
-          "objective": "Mencapai target penjualan, \r\nstok akurat, pelanggan puas, operasional sesuai SOP.",
+          "id": "r17834798695850hth",
+          "objective": "Mencapai target penjualan, stok akurat, pelanggan puas, operasional sesuai SOP.",
           "keyResult": "Tingkat implementasi rekomendasi audit",
           "target": 100,
-          "actual": null,
+          "actual": 100,
           "bobot": 10
         }
       ],
-      "actionPlan": "Planning acara chef Avian"
+      "actionPlan": "Planning acara chef Avian",
+      "savedAt": "2026-07-08T03:04:29.585Z"
     },
     "Warehouse": {
       "rows": [
         {
-          "id": "r1783411906819_151bkx",
+          "id": "r1783480042551ekdp",
           "objective": "Stok akurat, operasional berjalan sesuai SOP.",
           "keyResult": "Tingkat akurasi stok fisik vs data",
           "target": 98,
-          "actual": null,
+          "actual": 98.62,
           "bobot": 30
         },
         {
-          "id": "r1783411906819_152oh9",
+          "id": "r1783480042551rj7r",
           "objective": "Stok akurat, operasional berjalan sesuai SOP.",
           "keyResult": "Tingkat akurasi default diary",
           "target": 95,
-          "actual": null,
+          "actual": 95.04,
           "bobot": 25
         },
         {
-          "id": "r1783411906819_153zax",
+          "id": "r1783480042552q7xf",
           "objective": "Stok akurat, operasional berjalan sesuai SOP.",
           "keyResult": "Score avg cartrack",
           "target": 90,
-          "actual": null,
+          "actual": 89.4275,
           "bobot": 20
         },
         {
-          "id": "r1783411906819_1548qf",
+          "id": "r178348004255251eo",
           "objective": "Stok akurat, operasional berjalan sesuai SOP.",
           "keyResult": "Score kepuasan pelanggan distribusi",
           "target": 90,
-          "actual": null,
+          "actual": 92,
           "bobot": 15
         },
         {
-          "id": "r1783411906819_155wk1",
+          "id": "r17834800425526cko",
           "objective": "Stok akurat, operasional berjalan sesuai SOP.",
           "keyResult": "Tingkat implementasi rekomendasi audit",
           "target": 100,
-          "actual": null,
+          "actual": 100,
           "bobot": 10
         }
       ],
-      "actionPlan": ""
+      "actionPlan": "",
+      "savedAt": "2026-07-08T03:07:22.552Z"
     }
   },
   "_p_ins_2026_07_07": {
@@ -6052,5 +5827,87 @@
     "score": 90.73,
     "savedAt": "2026-07-07T09:14:40.429Z",
     "locked": true
-  }
+  },
+  "_sbg_2026": {
+    "rows": [
+      {
+        "goal": "Total omzet retail",
+        "target": "Rp38,000,000,000",
+        "actual": "",
+        "weight": "30"
+      },
+      {
+        "goal": "Total omzet distribution",
+        "target": "Rp36,000,000,000",
+        "actual": "",
+        "weight": "25"
+      },
+      {
+        "goal": "OKR score all divisions",
+        "target": "90%",
+        "actual": "",
+        "weight": "20"
+      },
+      {
+        "goal": "Avg KPIM scores all teams",
+        "target": "90%",
+        "actual": "",
+        "weight": "15"
+      },
+      {
+        "goal": "Avg TAL scores all teams",
+        "target": "90%",
+        "actual": "",
+        "weight": "6"
+      },
+      {
+        "goal": "Buka cabang",
+        "target": "1",
+        "actual": "",
+        "weight": "4"
+      }
+    ],
+    "savedAt": "2026-07-08T04:40:20.887Z"
+  },
+  "_p_apo_2026_07": {
+    "file1": "https://raw.githubusercontent.com/pinuspackindo-ai/pinuspackindo-okr/data/uploads/purchasing/1783386936569_aanc1x_purchase.order.line_3.xlsx",
+    "file1Name": "purchase.order.line (3).xlsx",
+    "file2": "https://raw.githubusercontent.com/pinuspackindo-ai/pinuspackindo-okr/data/uploads/purchasing/1783386935885_32wvbg_account.move_2.xlsx",
+    "file2Name": "account.move (2).xlsx",
+    "lateScore": null,
+    "accScore": null,
+    "finalScore": null,
+    "savedAt": null,
+    "locked": false
+  },
+  "_d_new_cust_2026_06": {
+    "value": 8,
+    "evidence": null,
+    "evidenceName": "Screenshot 2026-07-08 at 12.32.57 PM.png",
+    "savedAt": "2026-07-08T05:33:17.400Z",
+    "locked": true,
+    "evidences": [
+      {
+        "name": "Screenshot 2026-07-08 at 12.32.57 PM.png",
+        "data": "https://raw.githubusercontent.com/pinuspackindo-ai/pinuspackindo-okr/data/uploads/distribution_sales/1783488798886_zkfiq1_Screenshot_2026-07-08_at_12.32.57_PM.png"
+      }
+    ]
+  },
+  "_p_ins_2026_07_08": {
+    "file1": "https://raw.githubusercontent.com/pinuspackindo-ai/pinuspackindo-okr/data/uploads/purchasing/1783496032524_1z3c1v_product.product.xlsx",
+    "file1Name": "product.product.xlsx",
+    "file2": "https://raw.githubusercontent.com/pinuspackindo-ai/pinuspackindo-okr/data/uploads/purchasing/1783496094887_sncj6g_product.product_1.xlsx",
+    "file2Name": "product.product (1).xlsx",
+    "file3": "https://raw.githubusercontent.com/pinuspackindo-ai/pinuspackindo-okr/data/uploads/purchasing/1783496033943_891kz1_purchase.order.line.xlsx",
+    "file3Name": "purchase.order.line.xlsx",
+    "users": {
+      "Arif Wibowo": 95.54,
+      "Adit Mohgat": 90.38,
+      "A'izatul Nafisah": 93.75
+    },
+    "score": 91.15,
+    "savedAt": null,
+    "locked": false
+  },
+  "_ts": 1783498944413
 }
