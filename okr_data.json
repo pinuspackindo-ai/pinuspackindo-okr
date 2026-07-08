@@ -4176,10 +4176,10 @@
         "tal": "pengadaan atribut dresscode sesuai SOP + internal memo nya",
         "deadline": "2026-07-31",
         "bobot": 35,
-        "progress": null,
+        "progress": 10,
         "review": "",
         "editing": false,
-        "savedAt": "2026-07-06T02:00:45.071Z"
+        "savedAt": "2026-07-08T08:26:04.336Z"
       },
       {
         "tal": "menyusun business flow departement HRD",
@@ -4191,7 +4191,7 @@
         "savedAt": "2026-07-06T02:00:45.071Z"
       }
     ],
-    "savedAt": "2026-07-06T02:00:45.071Z"
+    "savedAt": "2026-07-08T08:26:04.336Z"
   },
   "_tal_d2_2026_07": {
     "rows": [
@@ -5909,5 +5909,5 @@
     "savedAt": null,
     "locked": false
   },
-  "_ts": 1783498952810
+  "_ts": 1783499164336
 }
