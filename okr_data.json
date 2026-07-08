@@ -5388,47 +5388,48 @@
     "Warehouse": {
       "rows": [
         {
-          "id": "r1783411906819_112btd",
+          "id": "r1783479013667ua99",
           "objective": "Stok akurat, operasional berjalan sesuai SOP.",
           "keyResult": "Tingkat akurasi stok fisik vs data",
-          "target": 98,
-          "actual": null,
+          "target": 95,
+          "actual": 98,
           "bobot": 30
         },
         {
-          "id": "r1783411906819_113aay",
+          "id": "r1783479013667ljc1",
           "objective": "Stok akurat, operasional berjalan sesuai SOP.",
           "keyResult": "Tingkat akurasi default diary",
-          "target": 95,
-          "actual": null,
+          "target": 90,
+          "actual": 90,
           "bobot": 25
         },
         {
-          "id": "r1783411906819_1144u6",
+          "id": "r1783479013667jluo",
           "objective": "Stok akurat, operasional berjalan sesuai SOP.",
           "keyResult": "Score avg cartrack",
           "target": 90,
-          "actual": null,
+          "actual": 91,
           "bobot": 20
         },
         {
-          "id": "r1783411906819_115mbr",
+          "id": "r1783479013667wh8y",
           "objective": "Stok akurat, operasional berjalan sesuai SOP.",
           "keyResult": "Score kepuasan pelanggan distribusi",
-          "target": 90,
-          "actual": null,
+          "target": 80,
+          "actual": 98,
           "bobot": 15
         },
         {
-          "id": "r1783411906819_116ka4",
+          "id": "r178347901366783e4",
           "objective": "Stok akurat, operasional berjalan sesuai SOP.",
           "keyResult": "Tingkat implementasi rekomendasi audit",
           "target": 100,
-          "actual": null,
+          "actual": 100,
           "bobot": 10
         }
       ],
-      "actionPlan": ""
+      "actionPlan": "",
+      "savedAt": "2026-07-08T02:50:13.667Z"
     }
   },
   "2026-04": {
@@ -5843,7 +5844,7 @@
     ],
     "savedAt": "2026-07-07T15:23:56.184Z"
   },
-  "_ts": 1783478897518,
+  "_ts": 1783479013667,
   "_p_apo_2026_07": {
     "file1": "https://raw.githubusercontent.com/pinuspackindo-ai/pinuspackindo-okr/data/uploads/purchasing/1783386936569_aanc1x_purchase.order.line_3.xlsx",
     "file1Name": "purchase.order.line (3).xlsx",
