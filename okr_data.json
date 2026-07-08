@@ -234,6 +234,10 @@
     "2026-03|Inventory": {
       "l": 1,
       "t": 1783479134827
+    },
+    "2026-03|Purchasing": {
+      "l": 1,
+      "t": 1783479286027
     }
   },
   "2026-05": {
@@ -5838,7 +5842,7 @@
     ],
     "savedAt": "2026-07-07T15:23:56.184Z"
   },
-  "_ts": 1783479278861,
+  "_ts": 1783479286028,
   "_p_apo_2026_07": {
     "file1": "https://raw.githubusercontent.com/pinuspackindo-ai/pinuspackindo-okr/data/uploads/purchasing/1783386936569_aanc1x_purchase.order.line_3.xlsx",
     "file1Name": "purchase.order.line (3).xlsx",
