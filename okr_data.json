@@ -4137,8 +4137,8 @@
         "bobot": 40,
         "progress": 5,
         "review": "",
-        "editing": false,
-        "savedAt": "2026-07-08T05:00:53.118Z"
+        "editing": true,
+        "savedAt": "2026-07-08T05:00:34.317Z"
       },
       {
         "tal": "planning & eksekusi pengelolaan tips warehouse",
@@ -4159,7 +4159,7 @@
         "savedAt": "2026-07-08T05:00:52.336Z"
       }
     ],
-    "savedAt": "2026-07-08T05:00:53.118Z"
+    "savedAt": "2026-07-08T05:00:52.336Z"
   },
   "_tal_d3_2026_07": {
     "rows": [
@@ -5880,5 +5880,5 @@
     "savedAt": null,
     "locked": false
   },
-  "_ts": 1783487318812
+  "_ts": 1783487341381
 }
