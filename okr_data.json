@@ -5020,47 +5020,48 @@
     "Purchasing": {
       "rows": [
         {
-          "id": "r1783411906819_63nmv",
+          "id": "r17834781613455ytt",
           "objective": "Pengadaan stok tepat waktu dan berkwalitas, administrasi akurat..",
           "keyResult": "Tingkat in stock",
-          "target": 90,
-          "actual": null,
-          "bobot": 35
-        },
-        {
-          "id": "r1783411906819_64lp2",
-          "objective": "Pengadaan stok tepat waktu dan berkwalitas, administrasi akurat..",
-          "keyResult": "Tingkat akurasi PO",
           "target": 95,
-          "actual": null,
+          "actual": 48.36,
           "bobot": 30
         },
         {
-          "id": "r1783411906819_65vlk",
+          "id": "r1783478161345exul",
+          "objective": "Pengadaan stok tepat waktu dan berkwalitas, administrasi akurat..",
+          "keyResult": "Tingkat akurasi PO",
+          "target": 95,
+          "actual": 92.69,
+          "bobot": 25
+        },
+        {
+          "id": "r1783478161345ic5h",
           "objective": "Pengadaan stok tepat waktu dan berkwalitas, administrasi akurat..",
           "keyResult": "Tingkat kwalitas pengadaan",
           "target": 95,
-          "actual": null,
+          "actual": 95.78,
           "bobot": 20
         },
         {
-          "id": "r1783411906819_66x08",
+          "id": "r1783478161345q2f6",
           "objective": "Pengadaan stok tepat waktu dan berkwalitas, administrasi akurat..",
           "keyResult": "Tingkat penghematan budget",
-          "target": 3,
-          "actual": null,
+          "target": 5,
+          "actual": 0.48,
           "bobot": 10
         },
         {
-          "id": "r1783411906819_674n4",
+          "id": "r1783478161345pubr",
           "objective": "Pengadaan stok tepat waktu dan berkwalitas, administrasi akurat..",
-          "keyResult": "Tingkat implementasi rekomendasi audit",
-          "target": 100,
-          "actual": null,
-          "bobot": 5
+          "keyResult": "Tingkat inventory health",
+          "target": 90,
+          "actual": 99.87,
+          "bobot": 15
         }
       ],
-      "actionPlan": "Membuat 4 konten sosmed"
+      "actionPlan": "Membuat 4 konten sosmed",
+      "savedAt": "2026-07-08T02:36:01.345Z"
     },
     "Store": {
       "rows": [
@@ -5879,6 +5880,7 @@
     ],
     "savedAt": "2026-07-07T15:23:56.184Z"
   },
+  "_ts": 1783478161365,
   "_p_apo_2026_07": {
     "file1": "https://raw.githubusercontent.com/pinuspackindo-ai/pinuspackindo-okr/data/uploads/purchasing/1783386936569_aanc1x_purchase.order.line_3.xlsx",
     "file1Name": "purchase.order.line (3).xlsx",
@@ -5889,6 +5891,5 @@
     "finalScore": null,
     "savedAt": null,
     "locked": false
-  },
-  "_ts": 1783478088627
+  }
 }
