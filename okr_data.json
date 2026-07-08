@@ -5591,31 +5591,40 @@
     "Internal Audit": {
       "rows": [
         {
-          "id": "r1783411906819_134lpg",
+          "id": "r17834808201413nab",
           "objective": "Melindungi dan mengawasi sistem internal berbasis dari resiko yg timbul.",
           "keyResult": "Tingkat implementasi rekomendasi audit",
-          "target": 100,
-          "actual": null,
-          "bobot": 45
+          "target": 95,
+          "actual": 100,
+          "bobot": 40
         },
         {
-          "id": "r1783411906819_135mdi",
+          "id": "r17834808201414nnu",
           "objective": "Melindungi dan mengawasi sistem internal berbasis dari resiko yg timbul.",
           "keyResult": "Laporan audit akurat dan on time",
           "target": 100,
-          "actual": null,
-          "bobot": 35
+          "actual": 100,
+          "bobot": 20
         },
         {
-          "id": "r1783411906819_136hcv",
+          "id": "r17834808201416ve5",
           "objective": "Melindungi dan mengawasi sistem internal berbasis dari resiko yg timbul.",
-          "keyResult": "Jumlah inisiatif proaktif",
-          "target": 2,
-          "actual": 0,
-          "bobot": 20
+          "keyResult": "Tingkat implementasi rekomendasi default diary",
+          "target": 95,
+          "actual": 100,
+          "bobot": 30
+        },
+        {
+          "id": "r17834808201416ryc",
+          "objective": "Melindungi dan mengawasi sistem internal berbasis dari resiko yg timbul.",
+          "keyResult": "Tingkat kepuasan user",
+          "target": 90,
+          "actual": 79.4,
+          "bobot": 10
         }
       ],
-      "actionPlan": "Finalisasi DD, bizflow, SOP warehouse"
+      "actionPlan": "Finalisasi DD, bizflow, SOP warehouse",
+      "savedAt": "2026-07-08T03:20:20.141Z"
     },
     "Inventory": {
       "rows": [
@@ -5847,7 +5856,7 @@
     ],
     "savedAt": "2026-07-07T15:23:56.184Z"
   },
-  "_ts": 1783480687519,
+  "_ts": 1783480820141,
   "_p_apo_2026_07": {
     "file1": "https://raw.githubusercontent.com/pinuspackindo-ai/pinuspackindo-okr/data/uploads/purchasing/1783386936569_aanc1x_purchase.order.line_3.xlsx",
     "file1Name": "purchase.order.line (3).xlsx",
