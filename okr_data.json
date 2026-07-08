@@ -4778,24 +4778,48 @@
     "Store": {
       "rows": [
         {
-          "id": "r1783473924933ewig",
+          "id": "r1783474731080zggr",
           "objective": "Mencapai target penjualan, stok akurat, pelanggan puas, operasional sesuai SOP.",
           "keyResult": "Jumlah omset",
-          "target": 3000000000,
-          "actual": 2425486050,
-          "bobot": 60
+          "target": 3040000000,
+          "actual": 2843257400,
+          "bobot": 30
         },
         {
-          "id": "r1783473924933t0m4",
+          "id": "r1783474731080958a",
           "objective": "Mencapai target penjualan, stok akurat, pelanggan puas, operasional sesuai SOP.",
-          "keyResult": "Jumlah omset product focused",
-          "target": 1800000000,
-          "actual": 2081500901,
-          "bobot": 40
+          "keyResult": "Score kepuasan pelanggan",
+          "target": 90,
+          "actual": 92,
+          "bobot": 25
+        },
+        {
+          "id": "r178347473108096oc",
+          "objective": "Mencapai target penjualan, stok akurat, pelanggan puas, operasional sesuai SOP.",
+          "keyResult": "Tingkat akurasi stok fisik vs data",
+          "target": 70,
+          "actual": 70,
+          "bobot": 20
+        },
+        {
+          "id": "r1783474731080dt8w",
+          "objective": "Mencapai target penjualan, stok akurat, pelanggan puas, operasional sesuai SOP.",
+          "keyResult": "Tingkat kepatuhan SOP  (tiap pelanggaran pot 2%)",
+          "target": 95,
+          "actual": 82,
+          "bobot": 15
+        },
+        {
+          "id": "r1783474731080mhu7",
+          "objective": "Mencapai target penjualan, stok akurat, pelanggan puas, operasional sesuai SOP.",
+          "keyResult": "Score Google review",
+          "target": 4.9,
+          "actual": 4.9,
+          "bobot": 10
         }
       ],
       "actionPlan": "",
-      "savedAt": "2026-07-08T01:25:24.933Z"
+      "savedAt": "2026-07-08T01:38:51.080Z"
     }
   },
   "2026-02": {
@@ -5928,7 +5952,7 @@
     ],
     "savedAt": "2026-07-07T15:23:56.184Z"
   },
-  "_ts": 1783474638025,
+  "_ts": 1783474731080,
   "_p_apo_2026_07": {
     "file1": "https://raw.githubusercontent.com/pinuspackindo-ai/pinuspackindo-okr/data/uploads/purchasing/1783386936569_aanc1x_purchase.order.line_3.xlsx",
     "file1Name": "purchase.order.line (3).xlsx",
