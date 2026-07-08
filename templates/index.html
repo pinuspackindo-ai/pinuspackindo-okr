@@ -6936,6 +6936,165 @@ function iaProjViewEvidence(i){
 }
 
 
+// ─── KPI KARYAWAN MODULE (independen — untuk SBG Avg KPIM) ───
+var kpiYear=new Date().getFullYear();
+function _kpiKey(y,m){return '_kpi_'+y+'_'+String(m).padStart(2,'0');}
+function _kpiG(y,m){return okrData[_kpiKey(y,m)]||{value:null,evidence:null,evidenceName:null,evidences:null,savedAt:null,locked:false};}
+function _kpiS(y,m,o){o.savedAt=o.savedAt||new Date().toISOString();okrData[_kpiKey(y,m)]=o;}
+// Score Global KPI = rata-rata bulan yang terisi di tahun itu.
+function kpiGlobalScore(year){
+  var arr=[];
+  for(var m=1;m<=12;m++){var d=_kpiG(year,m);if(d.value!=null)arr.push(d.value);}
+  if(!arr.length)return null;
+  return Math.round(arr.reduce(function(a,b){return a+b;},0)/arr.length*100)/100;
+}
+function kpiInit(){
+  kpiYear=new Date().getFullYear();
+  var ysel=document.getElementById('kpi-year-sel');
+  if(ysel){ysel.innerHTML='';var cy=new Date().getFullYear();for(var i=cy-1;i<=cy+1;i++){var o=document.createElement('option');o.value=i;o.textContent=i;if(i===kpiYear)o.selected=true;ysel.appendChild(o);}}
+  kpiRender();
+}
+function kpiYearChange(v){kpiYear=parseInt(v)||new Date().getFullYear();kpiRender();}
+function kpiRender(){
+  var wrap=document.getElementById('kpi-content');if(!wrap)return;
+  var html='';
+  var glob=kpiGlobalScore(kpiYear);
+  if(glob!==null){
+    var gc=scoreClass(glob);
+    html+='<div class="card" style="margin-bottom:16px;padding:16px 20px;border:2px solid var(--primary);"><div style="display:flex;align-items:center;gap:20px;flex-wrap:wrap;">';
+    html+='<div style="min-width:120px;"><div style="font-size:10px;font-weight:700;color:var(--text-l);text-transform:uppercase;letter-spacing:1px;margin-bottom:2px;">Score Global KPI</div><div class="'+gc+'" style="font-size:2rem;font-weight:800;line-height:1;">'+glob.toFixed(2)+'</div></div>';
+    html+='<div style="flex:1;min-width:200px;"><div style="font-size:12px;color:var(--text-m);margin-bottom:6px;">Rata-rata bulan terisi &mdash; '+kpiYear+' &middot; masuk SBG (Avg KPIM)</div><div class="progress-track"><div class="progress-fill '+gc+'" style="width:'+Math.min(100,Math.max(0,glob)).toFixed(1)+'%"></div></div></div>';
+    html+='</div></div>';
+  }
+  html+='<div class="card">';
+  html+='<div style="font-size:14px;font-weight:700;color:var(--text);margin-bottom:4px;">&#x1F4C8; Nilai KPI Bulanan</div>';
+  html+='<div style="font-size:12px;color:var(--text-m);margin-bottom:16px;">Skor pencapaian KPI seluruh karyawan per bulan (%). Masukkan nilai lalu upload bukti dan simpan.</div>';
+  html+='<div style="overflow-x:auto;"><table style="width:100%;border-collapse:collapse;font-size:13px;">';
+  html+='<thead><tr style="border-bottom:2px solid var(--border);background:var(--bg);">';
+  ['No','Bulan','Nilai (%)','Bukti','Aksi'].forEach(function(h,i){html+='<th style="text-align:'+(i===0?'center':'left')+';padding:9px 12px;color:var(--text-m);font-weight:600;white-space:nowrap;">'+h+'</th>';});
+  html+='</tr></thead><tbody>';
+  for(var mi=1;mi<=12;mi++){
+    var d=_kpiG(kpiYear,mi);var locked=!!d.locked;var hasVal=d.value!==null&&d.value!==undefined;
+    html+='<tr style="border-bottom:1px solid var(--border);'+(locked?'background:var(--bg2);':'')+'">';
+    html+='<td style="padding:8px 12px;text-align:center;color:var(--text-l);font-size:12px;">'+mi+'</td>';
+    html+='<td style="padding:8px 12px;font-weight:'+(locked?'600':'400')+';color:var(--text);white-space:nowrap;">'+BULS[mi-1]+' '+kpiYear+'</td>';
+    if(locked){
+      html+='<td style="padding:8px 12px;"><span class="score-num '+scoreClass(d.value)+'" style="font-size:1.1rem;">'+(hasVal?d.value.toFixed(1)+'%':'—')+'</span></td>';
+      html+='<td style="padding:8px 12px;">'+(d.evidence?_ghBadge(d.evidence)+'<button onclick="kpiViewEv('+mi+')" style="background:none;border:1.5px solid var(--primary);color:var(--primary);border-radius:var(--radius-sm);padding:4px 10px;cursor:pointer;font-size:11px;font-family:var(--font);">&#x1F441; Lihat</button>':'<span style="color:var(--text-l);font-size:12px;">—</span>')+'</td>';
+      html+='<td style="padding:8px 12px;white-space:nowrap;"><button onclick="kpiEdit('+mi+')" style="background:none;border:1.5px solid var(--border);color:var(--text-m);border-radius:var(--radius-sm);padding:4px 8px;cursor:pointer;font-size:11px;font-family:var(--font);">&#x270F;&#xFE0F;</button> <button onclick="kpiDelete('+mi+')" style="background:none;border:1.5px solid #fca5a5;color:#dc2626;border-radius:var(--radius-sm);padding:4px 8px;cursor:pointer;font-size:11px;font-family:var(--font);">&#x1F5D1;</button></td>';
+    }else{
+      html+='<td style="padding:6px 12px;"><input type="number" id="kpi-val-'+mi+'" min="0" max="100" step="0.01" placeholder="0 – 100" value="'+(hasVal?d.value:'')+'" style="width:110px;padding:6px 10px;border:1.5px solid var(--border);border-radius:var(--radius-sm);font-family:var(--font);font-size:13px;"></td>';
+      html+='<td style="padding:6px 12px;"><label for="kpi-ev-'+mi+'" style="display:inline-flex;align-items:center;gap:4px;cursor:pointer;padding:5px 12px;border:1.5px '+(d.evidence?'solid var(--success)':'dashed var(--border)')+';border-radius:var(--radius-sm);font-size:12px;color:'+(d.evidence?'var(--success)':'var(--text-m)')+';white-space:nowrap;">'+(d.evidence?'&#x2705; '+okrEsc(d.evidenceName||'OK'):'&#x1F4CE; Upload')+'</label><input type="file" multiple id="kpi-ev-'+mi+'" accept="image/*" style="display:none;" onchange="kpiUpload('+mi+',this)"></td>';
+      html+='<td style="padding:6px 12px;"><button onclick="kpiSave('+mi+')" style="background:var(--primary);border:none;color:#fff;border-radius:var(--radius-sm);padding:6px 16px;cursor:pointer;font-family:var(--font);font-size:12px;font-weight:700;white-space:nowrap;">&#x1F4BE; Simpan</button></td>';
+    }
+    html+='</tr>';
+  }
+  html+='</tbody></table></div></div>';
+  wrap.innerHTML=html;
+}
+function kpiUpload(mi,inp){
+  var _fs=Array.from(inp.files||[]);if(_fs.length===0)return;
+  if(_fs.length>3){notify('Maksimal 3 file per upload.','error');inp.value='';return;}
+  if(_fs.some(function(f){return f.size>500*1024;})){notify('Ukuran file maksimal 500 KB per file.','error');inp.value='';return;}
+  var file=_fs[0];
+  function _sv(b64,_evs){var d=_kpiG(kpiYear,mi);var ve=document.getElementById('kpi-val-'+mi);if(ve&&ve.value.trim()!==''){var v=parseFloat(ve.value);if(!isNaN(v))d.value=Math.min(100,Math.max(0,v));}d.evidences=_apEv(d.evidences,_evs);d.evidence=b64;d.evidenceName=file.name;_kpiS(kpiYear,mi,d);kpiRender();notify('Bukti diupload ✓');}
+  _processImgFiles(_fs,function(results){_sv(results[0]?results[0].data:'',results);});
+}
+function kpiSave(mi){
+  var d=_kpiG(kpiYear,mi);var ve=document.getElementById('kpi-val-'+mi);
+  var val=ve?parseFloat(ve.value):NaN;
+  if(!ve||ve.value.trim()===''||isNaN(val)){notify('Isi nilai % terlebih dahulu.','error');return;}
+  val=Math.min(100,Math.max(0,val));if(!d.evidence){notify('Upload bukti terlebih dahulu.','error');return;}
+  d.value=val;d.savedAt=new Date().toISOString();d.locked=true;_kpiS(kpiYear,mi,d);
+  okrSaveLS();kpiRender();notify('Data '+BULS[mi-1]+' '+kpiYear+' tersimpan ✓');
+}
+function kpiEdit(mi){if(!confirm('Buka kunci data '+BULS[mi-1]+' '+kpiYear+' untuk diedit?'))return;var d=_kpiG(kpiYear,mi);d.locked=false;_kpiS(kpiYear,mi,d);okrSaveLS();kpiRender();}
+function kpiDelete(mi){if(!confirm('Hapus data '+BULS[mi-1]+' '+kpiYear+'?'))return;var key=_kpiKey(kpiYear,mi);if(okrData[key])delete okrData[key];okrSaveLS();kpiRender();notify('Data dihapus.');}
+function kpiViewEv(mi){var d=_kpiG(kpiYear,mi);if(!d.evidence){notify('Tidak ada bukti.','error');return;}var _evs=_evBuild(d.evidences,d.evidence,d.evidenceName||'File');_viewEvs(_evs);}
+
+// ─── BUKA CABANG MODULE (daftar cabang baru per tahun — untuk SBG Buka cabang) ───
+var cabangYear=new Date().getFullYear();
+function _cabangKey(y){return '_cabang_'+y;}
+function _cabangG(y){return okrData[_cabangKey(y)]||{rows:[]};}
+function _cabangS(y,o){okrData[_cabangKey(y)]=o;}
+function cabangCount(year){var data=_cabangG(year);return (data.rows||[]).filter(function(r){return !r.editing&&r.nama;}).length;}
+function cabangInit(){
+  cabangYear=new Date().getFullYear();
+  var sel=document.getElementById('cabang-year-sel');
+  if(sel){sel.innerHTML='';var cy=new Date().getFullYear();for(var y=cy+1;y>=cy-3;y--){var o=document.createElement('option');o.value=y;o.textContent=y;if(y===cabangYear)o.selected=true;sel.appendChild(o);}}
+  cabangRender();
+}
+function cabangYearChange(v){cabangYear=parseInt(v)||new Date().getFullYear();cabangRender();}
+function cabangRender(){
+  var wrap=document.getElementById('cabang-content');if(!wrap)return;
+  var data=_cabangG(cabangYear);var rows=data.rows||[];
+  var cnt=cabangCount(cabangYear);
+  var html='<div style="display:flex;align-items:center;gap:16px;padding:14px 18px;background:var(--bg2);border:2px solid var(--primary);border-radius:var(--radius);margin-bottom:16px;flex-wrap:wrap;">';
+  html+='<div><div style="font-size:11px;font-weight:600;color:var(--text-m);">CABANG DIBUKA '+cabangYear+'</div><div class="final-big good" style="font-size:2rem;">'+cnt+'</div></div>';
+  html+='<div style="font-size:12px;color:var(--text-m);">masuk SBG (Buka cabang)</div></div>';
+  html+='<div class="card"><div style="display:flex;align-items:center;justify-content:space-between;margin-bottom:4px;gap:10px;flex-wrap:wrap;">';
+  html+='<div style="font-size:14px;font-weight:700;color:var(--text);">&#x1F3E2; Daftar Cabang Baru — '+cabangYear+'</div>';
+  html+='<button onclick="cabangAddRow()" style="background:none;border:1.5px dashed var(--primary);color:var(--primary);border-radius:var(--radius-sm);padding:5px 16px;cursor:pointer;font-size:12px;font-family:var(--font);">&#x2795; Tambah</button>';
+  html+='</div>';
+  html+='<div style="font-size:12px;color:var(--text-m);margin-bottom:14px;">Jumlah cabang tersimpan tahun ini otomatis masuk Actual SBG.</div>';
+  if(rows.length===0){
+    html+='<div style="padding:20px;font-size:13px;color:var(--text-l);text-align:center;">Belum ada cabang baru untuk '+cabangYear+'</div>';
+  }else{
+    html+='<div style="overflow-x:auto;"><table style="width:100%;border-collapse:collapse;min-width:460px;font-size:12px;">';
+    html+='<thead><tr style="border-bottom:2px solid var(--border);background:var(--bg);">';
+    ['No','Nama Cabang','Tgl Dibuka','Alamat','Bukti','Aksi'].forEach(function(h,i){html+='<th style="text-align:'+(i===0||i===4?'center':'left')+';padding:8px 10px;color:var(--text-m);font-weight:600;white-space:nowrap;">'+h+'</th>';});
+    html+='</tr></thead><tbody>';
+    rows.forEach(function(row,idx){
+      if(row.editing){
+        html+='<tr style="background:var(--bg);border-bottom:1px solid var(--border);">';
+        html+='<td style="padding:6px 10px;text-align:center;color:var(--text-l);">'+(idx+1)+'</td>';
+        html+='<td style="padding:5px 8px;"><input id="cabang-nm-'+idx+'" type="text" value="'+okrEsc(row.nama||'')+'" placeholder="Nama cabang..." style="width:100%;padding:5px 8px;border:1.5px solid var(--border);border-radius:var(--radius-sm);font-family:var(--font);font-size:12px;box-sizing:border-box;"></td>';
+        html+='<td style="padding:5px 8px;"><input id="cabang-tg-'+idx+'" type="date" value="'+okrEsc(row.tanggal||'')+'" style="padding:5px 8px;border:1.5px solid var(--border);border-radius:var(--radius-sm);font-family:var(--font);font-size:12px;"></td>';
+        html+='<td style="padding:5px 8px;"><input id="cabang-al-'+idx+'" type="text" value="'+okrEsc(row.alamat||'')+'" placeholder="Alamat (opsional)" style="width:100%;padding:5px 8px;border:1.5px solid var(--border);border-radius:var(--radius-sm);font-family:var(--font);font-size:12px;box-sizing:border-box;"></td>';
+        html+='<td style="padding:5px 8px;text-align:center;"><label for="cabang-ev-'+idx+'" style="cursor:pointer;display:inline-flex;align-items:center;gap:3px;padding:4px 8px;border:1.5px '+(row.evidence?'solid var(--success)':'dashed var(--border)')+';border-radius:var(--radius-sm);font-size:11px;color:'+(row.evidence?'var(--success)':'var(--text-m)')+';">'+(row.evidence?'&#x2705;':'&#x1F4CE;')+'</label><input type="file" multiple id="cabang-ev-'+idx+'" accept="image/*" style="display:none;" onchange="cabangUploadRow('+idx+',this)"></td>';
+        html+='<td style="padding:5px 8px;text-align:center;"><button onclick="cabangSaveRow('+idx+')" style="background:var(--primary);border:none;color:#fff;border-radius:var(--radius-sm);padding:5px 12px;cursor:pointer;font-size:11px;font-family:var(--font);">&#x2713; Simpan</button></td>';
+        html+='</tr>';
+      }else{
+        html+='<tr style="border-bottom:1px solid var(--border);">';
+        html+='<td style="padding:7px 10px;text-align:center;color:var(--text-l);">'+(idx+1)+'</td>';
+        html+='<td style="padding:7px 10px;font-weight:600;color:var(--text);">'+okrEsc(row.nama||'—')+'</td>';
+        html+='<td style="padding:7px 10px;white-space:nowrap;">'+okrEsc(row.tanggal||'—')+'</td>';
+        html+='<td style="padding:7px 10px;">'+okrEsc(row.alamat||'—')+'</td>';
+        html+='<td style="padding:7px 10px;text-align:center;">'+(row.evidence?_ghBadge(row.evidence)+'<button onclick="cabangViewEv('+idx+')" style="background:none;border:1.5px solid var(--primary);color:var(--primary);border-radius:var(--radius-sm);padding:3px 8px;cursor:pointer;font-size:11px;font-family:var(--font);">&#x1F441;</button>':'<span style="color:var(--text-l);">—</span>')+'</td>';
+        html+='<td style="padding:7px 10px;text-align:center;white-space:nowrap;"><button onclick="cabangEditRow('+idx+')" style="background:none;border:1.5px solid var(--border);color:var(--text-m);border-radius:var(--radius-sm);padding:4px 8px;cursor:pointer;font-size:11px;font-family:var(--font);">&#x270F;&#xFE0F;</button> <button onclick="cabangDeleteRow('+idx+')" style="background:none;border:1.5px solid #fca5a5;color:#dc2626;border-radius:var(--radius-sm);padding:4px 8px;cursor:pointer;font-size:11px;font-family:var(--font);">&#x1F5D1;</button></td>';
+        html+='</tr>';
+      }
+    });
+    html+='</tbody></table></div>';
+  }
+  html+='</div>';
+  wrap.innerHTML=html;
+}
+function cabangAddRow(){var data=_cabangG(cabangYear);data.rows.push({nama:'',tanggal:'',alamat:'',evidence:null,evidenceName:null,editing:true});_cabangS(cabangYear,data);cabangRender();}
+function cabangSaveRow(idx){
+  var data=_cabangG(cabangYear);var row=data.rows[idx];if(!row)return;
+  var nmEl=document.getElementById('cabang-nm-'+idx);var tgEl=document.getElementById('cabang-tg-'+idx);var alEl=document.getElementById('cabang-al-'+idx);
+  if(!nmEl)return;
+  var nama=(nmEl.value||'').trim();
+  if(!nama){notify('Nama cabang wajib diisi.','error');return;}
+  row.nama=nama;row.tanggal=tgEl?tgEl.value:'';row.alamat=alEl?(alEl.value||'').trim():'';row.editing=false;
+  _cabangS(cabangYear,data);okrSaveLS();cabangRender();notify('Data disimpan ✓');
+}
+function cabangEditRow(idx){var data=_cabangG(cabangYear);if(data.rows[idx])data.rows[idx].editing=true;_cabangS(cabangYear,data);cabangRender();}
+function cabangDeleteRow(idx){
+  if(!confirm('Hapus cabang ini?'))return;
+  var data=_cabangG(cabangYear);data.rows.splice(idx,1);_cabangS(cabangYear,data);okrSaveLS();cabangRender();notify('Data dihapus.');
+}
+function cabangUploadRow(idx,inp){
+  var _fs=Array.from(inp.files||[]);if(_fs.length===0)return;
+  if(_fs.length>3){notify('Maksimal 3 file per upload.','error');inp.value='';return;}
+  if(_fs.some(function(f){return f.size>500*1024;})){notify('Ukuran file maksimal 500 KB per file.','error');inp.value='';return;}
+  var file=_fs[0];
+  function _sv(b64,_evs){var data=_cabangG(cabangYear);var row=data.rows[idx];if(!row)return;var nmEl=document.getElementById('cabang-nm-'+idx);var tgEl=document.getElementById('cabang-tg-'+idx);var alEl=document.getElementById('cabang-al-'+idx);if(nmEl)row.nama=(nmEl.value||'').trim();if(tgEl)row.tanggal=tgEl.value;if(alEl)row.alamat=(alEl.value||'').trim();row.evidences=_apEv(row.evidences,_evs);row.evidence=b64;row.evidenceName=file.name;_cabangS(cabangYear,data);cabangRender();notify('Bukti diupload ✓');}
+  _processImgFiles(_fs,function(results){_sv(results[0]?results[0].data:'',results);});
+}
+function cabangViewEv(idx){var data=_cabangG(cabangYear);var row=data.rows[idx];if(!row||!row.evidence){notify('Tidak ada bukti.','error');return;}var _evs=_evBuild(row.evidences,row.evidence,row.evidenceName||'File');_viewEvs(_evs);}
+
 // ─── TAL MODULE ───
 var TAL_DIV_NAMES=['STORE','MARKETING','FINANCE & ACCOUNTING','HRD','GENERAL AFFAIR','PURCHASING','IT','OPERASIONAL','MANAGEMENT','DISTRIBUTION SALES','WAREHOUSE','INVENTORY','INTERNAL AUDIT'];
 var talYear=new Date().getFullYear();
