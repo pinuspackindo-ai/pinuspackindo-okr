@@ -5144,51 +5144,6 @@
         }
       ],
       "actionPlan": "Planning acara chef Avian"
-    },
-    "Warehouse": {
-      "rows": [
-        {
-          "id": "r1783411906819_73hjk",
-          "objective": "Stok akurat, operasional berjalan sesuai SOP.",
-          "keyResult": "Tingkat akurasi stok fisik vs data",
-          "target": 98,
-          "actual": null,
-          "bobot": 30
-        },
-        {
-          "id": "r1783411906819_744pm",
-          "objective": "Stok akurat, operasional berjalan sesuai SOP.",
-          "keyResult": "Tingkat akurasi default diary",
-          "target": 95,
-          "actual": null,
-          "bobot": 25
-        },
-        {
-          "id": "r1783411906819_751b4",
-          "objective": "Stok akurat, operasional berjalan sesuai SOP.",
-          "keyResult": "Score avg cartrack",
-          "target": 90,
-          "actual": null,
-          "bobot": 20
-        },
-        {
-          "id": "r1783411906819_76wvj",
-          "objective": "Stok akurat, operasional berjalan sesuai SOP.",
-          "keyResult": "Score kepuasan pelanggan distribusi",
-          "target": 90,
-          "actual": null,
-          "bobot": 15
-        },
-        {
-          "id": "r1783411906819_77ev2",
-          "objective": "Stok akurat, operasional berjalan sesuai SOP.",
-          "keyResult": "Tingkat implementasi rekomendasi audit",
-          "target": 100,
-          "actual": null,
-          "bobot": 10
-        }
-      ],
-      "actionPlan": ""
     }
   },
   "2026-03": {
@@ -5962,6 +5917,7 @@
     ],
     "savedAt": "2026-07-07T15:23:56.184Z"
   },
+  "_ts": 1783477624333,
   "_p_apo_2026_07": {
     "file1": "https://raw.githubusercontent.com/pinuspackindo-ai/pinuspackindo-okr/data/uploads/purchasing/1783386936569_aanc1x_purchase.order.line_3.xlsx",
     "file1Name": "purchase.order.line (3).xlsx",
@@ -5972,6 +5928,5 @@
     "finalScore": null,
     "savedAt": null,
     "locked": false
-  },
-  "_ts": 1783477608864
+  }
 }
