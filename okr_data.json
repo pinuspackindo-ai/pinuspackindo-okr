@@ -1,5 +1,4 @@
 {
-  "_ts": 1783496093263,
   "_userAccess": {
     "Finance & Accounting": {
       "modules": [
@@ -5897,7 +5896,7 @@
   "_p_ins_2026_07_08": {
     "file1": "https://raw.githubusercontent.com/pinuspackindo-ai/pinuspackindo-okr/data/uploads/purchasing/1783496032524_1z3c1v_product.product.xlsx",
     "file1Name": "product.product.xlsx",
-    "file2": null,
+    "file2": "https://raw.githubusercontent.com/pinuspackindo-ai/pinuspackindo-okr/data/uploads/purchasing/1783496094887_sncj6g_product.product_1.xlsx",
     "file2Name": "product.product (1).xlsx",
     "file3": "https://raw.githubusercontent.com/pinuspackindo-ai/pinuspackindo-okr/data/uploads/purchasing/1783496033943_891kz1_purchase.order.line.xlsx",
     "file3Name": "purchase.order.line.xlsx",
@@ -5909,5 +5908,6 @@
     "score": 91.15,
     "savedAt": null,
     "locked": false
-  }
+  },
+  "_ts": 1783496094413
 }
