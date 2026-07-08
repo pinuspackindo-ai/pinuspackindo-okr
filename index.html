@@ -4214,7 +4214,7 @@ var SBG_DEFAULT_ROWS=[
   {goal:'Total omzet distribution',  target:'Rp36,000,000,000', weight:'', src:'distrib_omzet'},
   {goal:'OKR score all divisions',   target:'90%',              weight:'', src:'okr_global'},
   {goal:'Avg KPIM scores all teams', target:'90%',              weight:'', src:''},
-  {goal:'Avg TAL scores all teams',  target:'90%',              weight:'', src:''},
+  {goal:'Avg TAL scores all teams',  target:'90%',              weight:'', src:'tal_avg'},
   {goal:'Buka cabang',               target:'1',                weight:'', src:''}
 ];
 var sbgYear=new Date().getFullYear();
@@ -4228,7 +4228,8 @@ function sbgNum(v){var n=parseFloat(String(v==null?'':v).replace(/[^0-9.]/g,''))
 function sbgDivOmzetSum(divName,year){var sum=0,found=false;for(var m=1;m<=12;m++){var mk=year+'-'+String(m).padStart(2,'0');var d=okrData[mk]&&okrData[mk][divName];if(!d)continue;okrGetRows(d).forEach(function(r){if(/omzet|omset/i.test(r.keyResult||'')){var a=parseFloat(r.actual);if(!isNaN(a)){sum+=a;found=true;}}});}return found?sum:null;}
 function sbgMonthGlobal(mk){var md=okrData[mk];if(!md)return null;var arr=[];var DV=(typeof OKR_DIVISI!=='undefined'&&Array.isArray(OKR_DIVISI))?OKR_DIVISI:[];DV.forEach(function(div){var gr=okrGetRows(md[div]);if(!gr||!gr.length)return;var gs=0;gr.forEach(function(row){if(row.actual!=null&&row.actual!==''&&row.target>0){gs+=(parseFloat(row.actual)/parseFloat(row.target))*(parseFloat(row.bobot)||0);}});arr.push(gs);});if(!arr.length)return null;return arr.reduce(function(a,b){return a+b;},0)/arr.length;}
 function sbgOKRGlobalAvg(year){var arr=[];for(var m=1;m<=12;m++){var g=sbgMonthGlobal(year+'-'+String(m).padStart(2,'0'));if(g!=null)arr.push(g);}if(!arr.length)return null;return arr.reduce(function(a,b){return a+b;},0)/arr.length;}
-function sbgAutoActual(r,year){if(!r||!r.src)return null;if(r.src==='store_omzet')return sbgDivOmzetSum('Store',year);if(r.src==='distrib_omzet')return sbgDivOmzetSum('Distribution Sales',year);if(r.src==='okr_global')return sbgOKRGlobalAvg(year);return null;}
+function sbgTALAvg(year){if(typeof talGlobalScore!=='function')return null;var arr=[];for(var m=1;m<=12;m++){var g=talGlobalScore(year,m);if(g!=null)arr.push(g);}if(!arr.length)return null;return arr.reduce(function(a,b){return a+b;},0)/arr.length;}
+function sbgAutoActual(r,year){if(!r||!r.src)return null;if(r.src==='store_omzet')return sbgDivOmzetSum('Store',year);if(r.src==='distrib_omzet')return sbgDivOmzetSum('Distribution Sales',year);if(r.src==='okr_global')return sbgOKRGlobalAvg(year);if(r.src==='tal_avg')return sbgTALAvg(year);return null;}
 function sbgRowVals(r,year){var act=r.src?sbgAutoActual(r,year):sbgNum(r.actual);var t=sbgNum(r.target),w=sbgNum(r.weight);var score=(t&&act!=null&&t!==0&&w!=null)?(act/t*w):null;return {act:act,score:score};}
 function sbgFmtLike(v,target){if(v==null)return '—';var t=String(target||'');if(/rp/i.test(t))return 'Rp'+Math.round(v).toLocaleString('en-US');if(t.indexOf('%')!==-1)return (Math.round(v*100)/100)+'%';return (Math.round(v*100)/100).toLocaleString('en-US');}
 // ── Init / render ──
@@ -4243,6 +4244,7 @@ function sbgLoadRows(){
     if(/(omzet|omset).*(retail)|retail.*(omzet|omset)/.test(g))r.src='store_omzet';
     else if(/(omzet|omset).*(distrib)|distrib.*(omzet|omset)/.test(g))r.src='distrib_omzet';
     else if(/okr.*score|score.*divisi|score.*division/.test(g))r.src='okr_global';
+    else if(/\btal\b/.test(g))r.src='tal_avg';
   });
 }
 function sbgInit(){
