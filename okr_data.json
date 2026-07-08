@@ -4874,47 +4874,24 @@
     "Store": {
       "rows": [
         {
-          "id": "r1783411906815_29ucr",
-          "objective": "Mencapai target penjualan, \r\nstok akurat, pelanggan puas, operasional sesuai SOP.",
+          "id": "r1783473924933ewig",
+          "objective": "Mencapai target penjualan, stok akurat, pelanggan puas, operasional sesuai SOP.",
           "keyResult": "Jumlah omset",
-          "target": 3040000000,
-          "actual": null,
-          "bobot": 30
+          "target": 3000000000,
+          "actual": 2425486050,
+          "bobot": 60
         },
         {
-          "id": "r1783411906815_303pz",
-          "objective": "Mencapai target penjualan, \r\nstok akurat, pelanggan puas, operasional sesuai SOP.",
-          "keyResult": "Tingkat akurasi stok fisik vs data",
-          "target": 80,
-          "actual": null,
-          "bobot": 25
-        },
-        {
-          "id": "r1783411906815_31ksl",
-          "objective": "Mencapai target penjualan, \r\nstok akurat, pelanggan puas, operasional sesuai SOP.",
-          "keyResult": "Score kepuasan pelanggan",
-          "target": 90,
-          "actual": null,
-          "bobot": 20
-        },
-        {
-          "id": "r1783411906815_32ozq",
-          "objective": "Mencapai target penjualan, \r\nstok akurat, pelanggan puas, operasional sesuai SOP.",
-          "keyResult": "Tingkat kepatuhan & kedisiplinan",
-          "target": 95,
-          "actual": null,
-          "bobot": 15
-        },
-        {
-          "id": "r1783411906815_33vcn",
-          "objective": "Mencapai target penjualan, \r\nstok akurat, pelanggan puas, operasional sesuai SOP.",
-          "keyResult": "Tingkat implementasi rekomendasi audit",
-          "target": 100,
-          "actual": null,
-          "bobot": 10
+          "id": "r1783473924933t0m4",
+          "objective": "Mencapai target penjualan, stok akurat, pelanggan puas, operasional sesuai SOP.",
+          "keyResult": "Jumlah omset product focused",
+          "target": 1800000000,
+          "actual": 2081500901,
+          "bobot": 40
         }
       ],
-      "actionPlan": "Planning acara chef Avian"
+      "actionPlan": "",
+      "savedAt": "2026-07-08T01:25:24.933Z"
     },
     "Warehouse": {
       "rows": [
@@ -6092,7 +6069,7 @@
     ],
     "savedAt": "2026-07-07T15:23:56.184Z"
   },
-  "_ts": 1783473728564,
+  "_ts": 1783473924933,
   "_p_apo_2026_07": {
     "file1": "https://raw.githubusercontent.com/pinuspackindo-ai/pinuspackindo-okr/data/uploads/purchasing/1783386936569_aanc1x_purchase.order.line_3.xlsx",
     "file1Name": "purchase.order.line (3).xlsx",
