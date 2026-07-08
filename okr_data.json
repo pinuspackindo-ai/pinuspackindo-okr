@@ -5893,6 +5893,7 @@
       }
     ]
   },
+  "_ts": 1783500679717,
   "_p_ins_2026_07_08": {
     "file1": "https://raw.githubusercontent.com/pinuspackindo-ai/pinuspackindo-okr/data/uploads/purchasing/1783500179050_4neyes_product.product.xlsx",
     "file1Name": "product.product.xlsx",
@@ -5908,6 +5909,5 @@
     "score": 91.73,
     "savedAt": "2026-07-08T08:43:09.816Z",
     "locked": true
-  },
-  "_ts": 1783500189820
+  }
 }
