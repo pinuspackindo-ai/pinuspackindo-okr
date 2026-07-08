@@ -4944,51 +4944,6 @@
       ],
       "actionPlan": "Kaji ulang cctv warehouse"
     },
-    "HRD": {
-      "rows": [
-        {
-          "id": "r1783411906819_51qsl",
-          "objective": "Membangun dan menjaga SDM yg kompeten, disiplin, produktif, inisiatif, guna mendukung perusahaan berkembang.",
-          "keyResult": "Tingkat kedisiplinan karyawan",
-          "target": 90,
-          "actual": null,
-          "bobot": 30
-        },
-        {
-          "id": "r1783411906819_52jwz",
-          "objective": "Membangun dan menjaga SDM yg kompeten, disiplin, produktif, inisiatif, guna mendukung perusahaan berkembang.",
-          "keyResult": "Skor pencapaian KPI seluruh team",
-          "target": 85,
-          "actual": null,
-          "bobot": 25
-        },
-        {
-          "id": "r1783411906819_53qvk",
-          "objective": "Membangun dan menjaga SDM yg kompeten, disiplin, produktif, inisiatif, guna mendukung perusahaan berkembang.",
-          "keyResult": "Akurasi & ketepatan waktu administrasi HR",
-          "target": 95,
-          "actual": null,
-          "bobot": 20
-        },
-        {
-          "id": "r1783411906819_543rh",
-          "objective": "Membangun dan menjaga SDM yg kompeten, disiplin, produktif, inisiatif, guna mendukung perusahaan berkembang.",
-          "keyResult": "Ketepatan waktu rekrutment",
-          "target": 85,
-          "actual": null,
-          "bobot": 15
-        },
-        {
-          "id": "r1783411906819_55r6s",
-          "objective": "Membangun dan menjaga SDM yg kompeten, disiplin, produktif, inisiatif, guna mendukung perusahaan berkembang.",
-          "keyResult": "Skor kinerja karyawan baru",
-          "target": 85,
-          "actual": null,
-          "bobot": 10
-        }
-      ],
-      "actionPlan": "Drafting SOP ketidakhadiran"
-    },
     "Internal Audit": {
       "rows": [
         {
@@ -5917,7 +5872,7 @@
     ],
     "savedAt": "2026-07-07T15:23:56.184Z"
   },
-  "_ts": 1783477624333,
+  "_ts": 1783477629703,
   "_p_apo_2026_07": {
     "file1": "https://raw.githubusercontent.com/pinuspackindo-ai/pinuspackindo-okr/data/uploads/purchasing/1783386936569_aanc1x_purchase.order.line_3.xlsx",
     "file1Name": "purchase.order.line (3).xlsx",
