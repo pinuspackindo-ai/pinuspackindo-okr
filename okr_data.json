@@ -4629,47 +4629,32 @@
     "Finance & Accounting": {
       "rows": [
         {
-          "id": "r1783411906815_4rgc",
+          "id": "r17834744485211ivf",
           "objective": "Data dan fisik uang akurat, transaksi tepat dan on time.",
           "keyResult": "Tingkat keberhasilan penagihan piutang",
-          "target": 95,
-          "actual": null,
-          "bobot": 30
+          "target": 90,
+          "actual": 91.8,
+          "bobot": 35
         },
         {
-          "id": "r1783411906815_52hq",
-          "objective": "Data dan fisik uang akurat, transaksi tepat dan on time.",
-          "keyResult": "Payment akurat dan on time",
-          "target": 98,
-          "actual": null,
-          "bobot": 25
-        },
-        {
-          "id": "r1783411906815_6urx",
+          "id": "r1783474448521wue8",
           "objective": "Data dan fisik uang akurat, transaksi tepat dan on time.",
           "keyResult": "Tingkat akurasi uang fisik dan data",
-          "target": 98,
-          "actual": null,
-          "bobot": 20
+          "target": 100,
+          "actual": 94.7,
+          "bobot": 45
         },
         {
-          "id": "r1783411906815_7vyq",
+          "id": "r1783474448521nxja",
           "objective": "Data dan fisik uang akurat, transaksi tepat dan on time.",
           "keyResult": "Laporan keuangan akurat dan on time",
-          "target": 98,
-          "actual": null,
-          "bobot": 15
-        },
-        {
-          "id": "r1783411906815_8u2q",
-          "objective": "Data dan fisik uang akurat, transaksi tepat dan on time.",
-          "keyResult": "Tingkat implementasi rekomendasi audit",
           "target": 100,
-          "actual": null,
-          "bobot": 10
+          "actual": 98.8,
+          "bobot": 20
         }
       ],
-      "actionPlan": "Planning investasi"
+      "actionPlan": "Planning investasi",
+      "savedAt": "2026-07-08T01:34:08.521Z"
     },
     "General Affair": {
       "rows": [
@@ -5957,6 +5942,7 @@
     ],
     "savedAt": "2026-07-07T15:23:56.184Z"
   },
+  "_ts": 1783474448521,
   "_p_apo_2026_07": {
     "file1": "https://raw.githubusercontent.com/pinuspackindo-ai/pinuspackindo-okr/data/uploads/purchasing/1783386936569_aanc1x_purchase.order.line_3.xlsx",
     "file1Name": "purchase.order.line (3).xlsx",
@@ -5967,6 +5953,5 @@
     "finalScore": null,
     "savedAt": null,
     "locked": false
-  },
-  "_ts": 1783474369045
+  }
 }
