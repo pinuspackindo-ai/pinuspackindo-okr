@@ -335,7 +335,7 @@
       "actionPlan": "Kaji ulang cctv warehouse",
       "rows": [
         {
-          "actual": null,
+          "actual": 98.2,
           "bobot": 40,
           "id": "r177989029078478jg",
           "keyResult": "Tingkat akurasi stok inventaris data vs fisik",
@@ -597,7 +597,7 @@
           "target": 90
         },
         {
-          "actual": 98.225,
+          "actual": 98.23,
           "bobot": 10,
           "id": "r1779890290785xbtj",
           "keyResult": "Tingkat implementasi rekomendasi audit",
@@ -5253,15 +5253,15 @@
     "Internal Audit": {
       "rows": [
         {
-          "id": "r1783479629249f8pz",
+          "id": "r17834796388347iwl",
           "objective": "Melindungi dan mengawasi sistem internal berbasis dari resiko yg timbul.",
           "keyResult": "Tingkat implementasi rekomendasi audit",
           "target": 95,
-          "actual": 1001,
+          "actual": 100,
           "bobot": 45
         },
         {
-          "id": "r17834796292497ik5",
+          "id": "r17834796388348adt",
           "objective": "Melindungi dan mengawasi sistem internal berbasis dari resiko yg timbul.",
           "keyResult": "Laporan audit akurat dan on time",
           "target": 100,
@@ -5269,7 +5269,7 @@
           "bobot": 20
         },
         {
-          "id": "r1783479629249i3q0",
+          "id": "r17834796388347z3v",
           "objective": "Melindungi dan mengawasi sistem internal berbasis dari resiko yg timbul.",
           "keyResult": "Tingkat implementasi rekomendasi default diary",
           "target": 95,
@@ -5278,7 +5278,7 @@
         }
       ],
       "actionPlan": "Finalisasi DD, bizflow, SOP warehouse",
-      "savedAt": "2026-07-08T03:00:29.249Z"
+      "savedAt": "2026-07-08T03:00:38.834Z"
     },
     "Inventory": {
       "rows": [
@@ -5853,6 +5853,7 @@
     ],
     "savedAt": "2026-07-07T15:23:56.184Z"
   },
+  "_ts": 1783479638852,
   "_p_apo_2026_07": {
     "file1": "https://raw.githubusercontent.com/pinuspackindo-ai/pinuspackindo-okr/data/uploads/purchasing/1783386936569_aanc1x_purchase.order.line_3.xlsx",
     "file1Name": "purchase.order.line (3).xlsx",
@@ -5863,6 +5864,5 @@
     "finalScore": null,
     "savedAt": null,
     "locked": false
-  },
-  "_ts": 1783479633263
+  }
 }
