@@ -1,4 +1,5 @@
 {
+  "_ts": 1783472636724,
   "_userAccess": {
     "Finance & Accounting": {
       "modules": [
@@ -22,7 +23,7 @@
         "hrd",
         "tal"
       ],
-      "okrAll": false
+      "okrAll": true
     },
     "Internal Audit": {
       "modules": [
@@ -96,6 +97,7 @@
     "_ga_rot_2026_06": 1783134158109,
     "_ga_rot_2026_07": 1783134170325,
     "_fa_rot_2026_07": 1783308087934,
+    "_p_apo_2026_07": 1783387433699,
     "_p_kpen_2026_07": 1783393431960
   },
   "_okrLock": {
@@ -3522,7 +3524,7 @@
   "_ia_rot_keuangan_2026_07": {
     "rows": [
       {
-        "deadline": "2026-07-04",
+        "deadline": "2026-07-05",
         "submittedDate": "",
         "temuan": "",
         "evidence": null,
@@ -3540,7 +3542,7 @@
         ]
       },
       {
-        "deadline": "2026-07-11",
+        "deadline": "2026-07-12",
         "submittedDate": "",
         "temuan": "",
         "evidence": "",
@@ -3548,7 +3550,7 @@
         "locked": false
       },
       {
-        "deadline": "2026-07-18",
+        "deadline": "2026-07-19",
         "submittedDate": "",
         "temuan": "",
         "evidence": "",
@@ -3556,7 +3558,7 @@
         "locked": false
       },
       {
-        "deadline": "2026-07-25",
+        "deadline": "2026-07-26",
         "submittedDate": "",
         "temuan": "",
         "evidence": "",
@@ -4783,7 +4785,7 @@
           "objective": "Melindungi dan mengawasi sistem internal berbasis dari resiko yg timbul.",
           "keyResult": "Jumlah inisiatif proaktif",
           "target": 2,
-          "actual": 0,
+          "actual": null,
           "bobot": 20
         }
       ],
@@ -5142,7 +5144,7 @@
           "objective": "Melindungi dan mengawasi sistem internal berbasis dari resiko yg timbul.",
           "keyResult": "Jumlah inisiatif proaktif",
           "target": 2,
-          "actual": 0,
+          "actual": null,
           "bobot": 20
         }
       ],
@@ -5501,7 +5503,7 @@
           "objective": "Melindungi dan mengawasi sistem internal berbasis dari resiko yg timbul.",
           "keyResult": "Jumlah inisiatif proaktif",
           "target": 2,
-          "actual": 0,
+          "actual": null,
           "bobot": 20
         }
       ],
@@ -5860,7 +5862,7 @@
           "objective": "Melindungi dan mengawasi sistem internal berbasis dari resiko yg timbul.",
           "keyResult": "Jumlah inisiatif proaktif",
           "target": 2,
-          "actual": 0,
+          "actual": null,
           "bobot": 20
         }
       ],
@@ -6042,65 +6044,12 @@
   "_p_ins_2026_07_07": {
     "file1": "https://raw.githubusercontent.com/pinuspackindo-ai/pinuspackindo-okr/data/uploads/purchasing/1783415046268_mg6jlu_product.product_6.xlsx",
     "file1Name": "product.product (6).xlsx",
-    "file2": "https://raw.githubusercontent.com/pinuspackindo-ai/pinuspackindo-okr/data/uploads/purchasing/1783415680834_9vhg0k_product.product_7.xlsx",
+    "file2": null,
     "file2Name": "product.product (7).xlsx",
     "file3": null,
     "file3Name": null,
     "users": null,
     "score": 90.73,
-    "savedAt": "2026-07-07T09:14:40.429Z",
-    "locked": true
-  },
-  "_sbg_2026": {
-    "rows": [
-      {
-        "goal": "Total omzet retail",
-        "target": "Rp38,000,000,000",
-        "actual": "",
-        "weight": "30"
-      },
-      {
-        "goal": "Total omzet distribution",
-        "target": "Rp36,000,000,000",
-        "actual": "",
-        "weight": "25"
-      },
-      {
-        "goal": "OKR score all divisions",
-        "target": "90%",
-        "actual": "",
-        "weight": "20"
-      },
-      {
-        "goal": "Avg KPIM scores all teams",
-        "target": "90%",
-        "actual": "",
-        "weight": "15"
-      },
-      {
-        "goal": "Avg TAL scores all teams",
-        "target": "90%",
-        "actual": "",
-        "weight": "6"
-      },
-      {
-        "goal": "Buka cabang",
-        "target": "1",
-        "actual": "",
-        "weight": "4"
-      }
-    ],
-    "savedAt": "2026-07-07T15:23:56.184Z"
-  },
-  "_ts": 1783472622393,
-  "_p_apo_2026_07": {
-    "file1": "https://raw.githubusercontent.com/pinuspackindo-ai/pinuspackindo-okr/data/uploads/purchasing/1783386936569_aanc1x_purchase.order.line_3.xlsx",
-    "file1Name": "purchase.order.line (3).xlsx",
-    "file2": "https://raw.githubusercontent.com/pinuspackindo-ai/pinuspackindo-okr/data/uploads/purchasing/1783386935885_32wvbg_account.move_2.xlsx",
-    "file2Name": "account.move (2).xlsx",
-    "lateScore": null,
-    "accScore": null,
-    "finalScore": null,
     "savedAt": null,
     "locked": false
   }
