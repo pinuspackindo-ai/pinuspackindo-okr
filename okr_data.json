@@ -4727,39 +4727,32 @@
     "Inventory": {
       "rows": [
         {
-          "id": "r1783411906815_20ta5",
+          "id": "r1783474874488kc1q",
           "objective": "Stok akurat, persediaan optimal, biaya & waste minimal.",
           "keyResult": "Tingkat akurasi stok fisik vs data",
-          "target": 75,
-          "actual": null,
+          "target": 95,
+          "actual": 85.7,
+          "bobot": 30
+        },
+        {
+          "id": "r1783474874488ark7",
+          "objective": "Stok akurat, persediaan optimal, biaya & waste minimal.",
+          "keyResult": "Tingkat in stock",
+          "target": 95,
+          "actual": 81.6,
           "bobot": 20
         },
         {
-          "id": "r1783411906815_21s07",
-          "objective": "Stok akurat, persediaan optimal, biaya & waste minimal.",
-          "keyResult": "Akurasi DO & RN",
-          "target": 100,
-          "actual": null,
-          "bobot": 10
-        },
-        {
-          "id": "r1783411906815_22uph",
+          "id": "r1783474874488wwf8",
           "objective": "Stok akurat, persediaan optimal, biaya & waste minimal.",
           "keyResult": "Tingkat akurasi administrasi",
           "target": 98,
-          "actual": null,
-          "bobot": 40
-        },
-        {
-          "id": "r1783411906815_238je",
-          "objective": "Stok akurat, persediaan optimal, biaya & waste minimal.",
-          "keyResult": "Laporan inventory akurat dan on time",
-          "target": 100,
-          "actual": null,
-          "bobot": 30
+          "actual": 99.5,
+          "bobot": 50
         }
       ],
-      "actionPlan": "Planning acara chef Alfian"
+      "actionPlan": "Planning acara chef Alfian",
+      "savedAt": "2026-07-08T01:41:14.488Z"
     },
     "Purchasing": {
       "rows": [
@@ -5976,6 +5969,7 @@
     ],
     "savedAt": "2026-07-07T15:23:56.184Z"
   },
+  "_ts": 1783474874517,
   "_p_apo_2026_07": {
     "file1": "https://raw.githubusercontent.com/pinuspackindo-ai/pinuspackindo-okr/data/uploads/purchasing/1783386936569_aanc1x_purchase.order.line_3.xlsx",
     "file1Name": "purchase.order.line (3).xlsx",
@@ -5986,6 +5980,5 @@
     "finalScore": null,
     "savedAt": null,
     "locked": false
-  },
-  "_ts": 1783474788823
+  }
 }
