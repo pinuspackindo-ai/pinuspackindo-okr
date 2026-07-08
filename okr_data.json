@@ -4599,16 +4599,16 @@
   "_tal_d4_2026_07": {
     "rows": [
       {
-        "tal": "pendataan inventaris sebelum resign",
+        "tal": "pendataan inventaris & vendor",
         "deadline": "2026-07-31",
         "bobot": 100,
         "progress": null,
         "review": "",
         "editing": false,
-        "savedAt": "2026-07-08T03:41:27.625Z"
+        "savedAt": "2026-07-08T03:41:48.009Z"
       }
     ],
-    "savedAt": "2026-07-08T03:41:27.625Z"
+    "savedAt": "2026-07-08T03:41:48.010Z"
   },
   "_tal_d9_2026_07": {
     "rows": [
@@ -5871,5 +5871,5 @@
     "savedAt": null,
     "locked": false
   },
-  "_ts": 1783482087625
+  "_ts": 1783482108010
 }
