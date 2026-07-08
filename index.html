@@ -487,6 +487,36 @@ tbody tr:hover td{background:var(--bg);}
       <div id="sbg-content"></div>
     </div>
 
+    <!-- ════════ PANEL KPI KARYAWAN ════════ -->
+    <div id="panel-kpi" class="panel">
+      <div style="display:flex;align-items:flex-start;justify-content:space-between;margin-bottom:14px;gap:12px;flex-wrap:wrap;">
+        <div>
+          <div style="font-size:18px;font-weight:800;color:var(--text);">&#x1F4C8; KPI Karyawan</div>
+          <div style="font-size:12px;color:var(--text-l);margin-top:3px;">Nilai KPI per bulan + bukti (maks 500KB). Score Global = rata-rata bulan terisi &rarr; masuk SBG (Avg KPIM).</div>
+        </div>
+        <div style="display:flex;align-items:center;gap:8px;">
+          <span style="font-size:12px;color:var(--text-m);">Tahun:</span>
+          <select id="kpi-year-sel" class="store-year-sel" onchange="kpiYearChange(this.value)"></select>
+        </div>
+      </div>
+      <div id="kpi-content"></div>
+    </div>
+
+    <!-- ════════ PANEL BUKA CABANG ════════ -->
+    <div id="panel-cabang" class="panel">
+      <div style="display:flex;align-items:flex-start;justify-content:space-between;margin-bottom:14px;gap:12px;flex-wrap:wrap;">
+        <div>
+          <div style="font-size:18px;font-weight:800;color:var(--text);">&#x1F3E2; Buka Cabang</div>
+          <div style="font-size:12px;color:var(--text-l);margin-top:3px;">Daftar cabang baru per tahun. Jumlah cabang tahun ini &rarr; masuk SBG (Buka cabang).</div>
+        </div>
+        <div style="display:flex;align-items:center;gap:8px;">
+          <span style="font-size:12px;color:var(--text-m);">Tahun:</span>
+          <select id="cabang-year-sel" class="store-year-sel" onchange="cabangYearChange(this.value)"></select>
+        </div>
+      </div>
+      <div id="cabang-content"></div>
+    </div>
+
     <!-- ════════ PANEL STORE ════════ -->
     <div id="panel-store" class="panel">
       <div style="position:sticky;top:53px;z-index:40;background:var(--bg);padding-bottom:16px;">
