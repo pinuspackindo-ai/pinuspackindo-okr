@@ -7043,6 +7043,16 @@ function talRender(){
     html+='</div>';
   }
 
+  // Score Global TAL = rata-rata Score Akhir tiap divisi (bulan ini)
+  var _talGlob=talGlobalScore(talYear,talMonth);
+  if(_talGlob!==null){
+    var _tgc=scoreClass(_talGlob);
+    var _tgb=(typeof OKR_BULAN!=='undefined'&&OKR_BULAN[talMonth-1])?OKR_BULAN[talMonth-1]:('Bulan '+talMonth);
+    html+='<div class="card" style="margin-bottom:16px;padding:16px 20px;border:2px solid var(--primary);"><div style="display:flex;align-items:center;gap:20px;flex-wrap:wrap;">';
+    html+='<div style="min-width:120px;"><div style="font-size:10px;font-weight:700;color:var(--text-l);text-transform:uppercase;letter-spacing:1px;margin-bottom:2px;">Score Global TAL</div><div class="'+_tgc+'" style="font-size:2rem;font-weight:800;line-height:1;">'+_talGlob.toFixed(2)+'</div></div>';
+    html+='<div style="flex:1;min-width:200px;"><div style="font-size:12px;color:var(--text-m);margin-bottom:6px;">Rata-rata Score Akhir semua divisi TAL yang terisi &mdash; '+_tgb+' '+talYear+'</div><div class="progress-track"><div class="progress-fill '+_tgc+'" style="width:'+Math.min(100,Math.max(0,_talGlob)).toFixed(1)+'%"></div></div></div>';
+    html+='</div></div>';
+  }
   // Only render cards for divisions that have data
   var hasAny=false;
   divsToShow.forEach(function(d){
