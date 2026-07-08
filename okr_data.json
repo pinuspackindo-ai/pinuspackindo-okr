@@ -5591,7 +5591,7 @@
     "Internal Audit": {
       "rows": [
         {
-          "id": "r17834808201413nab",
+          "id": "r17834808472738jmh",
           "objective": "Melindungi dan mengawasi sistem internal berbasis dari resiko yg timbul.",
           "keyResult": "Tingkat implementasi rekomendasi audit",
           "target": 95,
@@ -5599,15 +5599,15 @@
           "bobot": 40
         },
         {
-          "id": "r17834808201414nnu",
+          "id": "r1783480847273g0xw",
           "objective": "Melindungi dan mengawasi sistem internal berbasis dari resiko yg timbul.",
           "keyResult": "Laporan audit akurat dan on time",
           "target": 100,
           "actual": 100,
-          "bobot": 20
+          "bobot": 10
         },
         {
-          "id": "r17834808201416ve5",
+          "id": "r178348084727328lj",
           "objective": "Melindungi dan mengawasi sistem internal berbasis dari resiko yg timbul.",
           "keyResult": "Tingkat implementasi rekomendasi default diary",
           "target": 95,
@@ -5615,16 +5615,16 @@
           "bobot": 30
         },
         {
-          "id": "r17834808201416ryc",
+          "id": "r17834808472730f9k",
           "objective": "Melindungi dan mengawasi sistem internal berbasis dari resiko yg timbul.",
           "keyResult": "Tingkat kepuasan user",
           "target": 90,
           "actual": 79.4,
-          "bobot": 10
+          "bobot": 20
         }
       ],
       "actionPlan": "Finalisasi DD, bizflow, SOP warehouse",
-      "savedAt": "2026-07-08T03:20:20.141Z"
+      "savedAt": "2026-07-08T03:20:47.273Z"
     },
     "Inventory": {
       "rows": [
@@ -5856,7 +5856,7 @@
     ],
     "savedAt": "2026-07-07T15:23:56.184Z"
   },
-  "_ts": 1783480820141,
+  "_ts": 1783480847273,
   "_p_apo_2026_07": {
     "file1": "https://raw.githubusercontent.com/pinuspackindo-ai/pinuspackindo-okr/data/uploads/purchasing/1783386936569_aanc1x_purchase.order.line_3.xlsx",
     "file1Name": "purchase.order.line (3).xlsx",
