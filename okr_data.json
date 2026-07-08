@@ -4137,20 +4137,20 @@
         "bobot": 60,
         "progress": 5,
         "review": "",
-        "editing": false,
+        "editing": true,
         "savedAt": "2026-07-07T04:46:18.256Z"
       },
       {
-        "tal": "menyusun SOP pengelolaan tips warehouse",
+        "tal": "eksekusi SOP pengelolaan tips warehouse",
         "deadline": "2026-07-31",
         "bobot": 40,
         "progress": 5,
         "review": "",
         "editing": false,
-        "savedAt": "2026-07-07T04:46:53.329Z"
+        "savedAt": "2026-07-08T03:42:04.331Z"
       }
     ],
-    "savedAt": "2026-07-07T04:46:53.329Z"
+    "savedAt": "2026-07-08T03:42:04.331Z"
   },
   "_tal_d3_2026_07": {
     "rows": [
@@ -5871,5 +5871,5 @@
     "savedAt": null,
     "locked": false
   },
-  "_ts": 1783482110225
+  "_ts": 1783482124331
 }
