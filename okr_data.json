@@ -4151,15 +4151,15 @@
       },
       {
         "tal": "planning & eksekusi palet warehouse",
-        "deadline": "",
+        "deadline": "2026-07-31",
         "bobot": 25,
         "progress": null,
         "review": "",
-        "editing": true,
-        "savedAt": "2026-07-08T05:00:27.518Z"
+        "editing": false,
+        "savedAt": "2026-07-08T05:00:52.336Z"
       }
     ],
-    "savedAt": "2026-07-08T05:00:48.518Z"
+    "savedAt": "2026-07-08T05:00:52.336Z"
   },
   "_tal_d3_2026_07": {
     "rows": [
@@ -5880,5 +5880,5 @@
     "savedAt": null,
     "locked": false
   },
-  "_ts": 1783486848518
+  "_ts": 1783486852336
 }
