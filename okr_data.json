@@ -4134,11 +4134,11 @@
       {
         "tal": "revisi planogram warehouse",
         "deadline": "2026-07-31",
-        "bobot": 60,
+        "bobot": 40,
         "progress": 5,
         "review": "",
-        "editing": true,
-        "savedAt": "2026-07-08T03:42:05.092Z"
+        "editing": false,
+        "savedAt": "2026-07-08T05:00:34.317Z"
       },
       {
         "tal": "planning & eksekusi pengelolaan tips warehouse",
@@ -4159,7 +4159,7 @@
         "savedAt": "2026-07-08T05:00:27.518Z"
       }
     ],
-    "savedAt": "2026-07-08T05:00:27.518Z"
+    "savedAt": "2026-07-08T05:00:34.317Z"
   },
   "_tal_d3_2026_07": {
     "rows": [
@@ -5880,5 +5880,5 @@
     "savedAt": null,
     "locked": false
   },
-  "_ts": 1783486827518
+  "_ts": 1783486834317
 }
