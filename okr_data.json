@@ -4681,15 +4681,15 @@
     "Internal Audit": {
       "rows": [
         {
-          "id": "r1783474494539fhh9",
+          "id": "r17834745194970itj",
           "objective": "Melindungi dan mengawasi sistem internal berbasis dari resiko yg timbul.",
           "keyResult": "Tingkat implementasi rekomendasi audit",
-          "target": 100,
+          "target": 95,
           "actual": 100,
           "bobot": 60
         },
         {
-          "id": "r1783474494539yzob",
+          "id": "r1783474519497qlrd",
           "objective": "Melindungi dan mengawasi sistem internal berbasis dari resiko yg timbul.",
           "keyResult": "Laporan audit akurat dan on time",
           "target": 100,
@@ -4698,7 +4698,7 @@
         }
       ],
       "actionPlan": "Finalisasi DD, bizflow, SOP warehouse",
-      "savedAt": "2026-07-08T01:34:54.539Z"
+      "savedAt": "2026-07-08T01:35:19.497Z"
     },
     "Inventory": {
       "rows": [
@@ -5935,7 +5935,7 @@
     ],
     "savedAt": "2026-07-07T15:23:56.184Z"
   },
-  "_ts": 1783474518211,
+  "_ts": 1783474519497,
   "_p_apo_2026_07": {
     "file1": "https://raw.githubusercontent.com/pinuspackindo-ai/pinuspackindo-okr/data/uploads/purchasing/1783386936569_aanc1x_purchase.order.line_3.xlsx",
     "file1Name": "purchase.order.line (3).xlsx",
