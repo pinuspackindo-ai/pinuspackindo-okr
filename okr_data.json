@@ -4918,31 +4918,32 @@
     "General Affair": {
       "rows": [
         {
-          "id": "r1783411906819_48v55",
+          "id": "r1783477681545a17h",
           "objective": "Inventaris utuh terawat, pengadaan tepat waktu, operasional aman lancar, user puas.",
           "keyResult": "Tingkat akurasi stok inventaris data vs fisik",
-          "target": 98,
-          "actual": null,
-          "bobot": 40
+          "target": 95,
+          "actual": 98,
+          "bobot": 50
         },
         {
-          "id": "r1783411906819_49zzv",
+          "id": "r1783477681545h2qy",
           "objective": "Inventaris utuh terawat, pengadaan tepat waktu, operasional aman lancar, user puas.",
           "keyResult": "Tingkat akurasi lead time pengadaan / maintenance",
           "target": 95,
-          "actual": null,
-          "bobot": 35
+          "actual": 82,
+          "bobot": 30
         },
         {
-          "id": "r1783411906819_502vo",
+          "id": "r1783477681545pv1d",
           "objective": "Inventaris utuh terawat, pengadaan tepat waktu, operasional aman lancar, user puas.",
           "keyResult": "Laporan inventaris akurat dan on time",
-          "target": 100,
-          "actual": null,
-          "bobot": 25
+          "target": 98,
+          "actual": 96,
+          "bobot": 20
         }
       ],
-      "actionPlan": "Kaji ulang cctv warehouse"
+      "actionPlan": "Kaji ulang cctv warehouse",
+      "savedAt": "2026-07-08T02:28:01.545Z"
     },
     "Internal Audit": {
       "rows": [
@@ -5872,7 +5873,7 @@
     ],
     "savedAt": "2026-07-07T15:23:56.184Z"
   },
-  "_ts": 1783477629703,
+  "_ts": 1783477681545,
   "_p_apo_2026_07": {
     "file1": "https://raw.githubusercontent.com/pinuspackindo-ai/pinuspackindo-okr/data/uploads/purchasing/1783386936569_aanc1x_purchase.order.line_3.xlsx",
     "file1Name": "purchase.order.line (3).xlsx",
