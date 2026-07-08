@@ -5718,47 +5718,48 @@
     "Warehouse": {
       "rows": [
         {
-          "id": "r1783411906819_151bkx",
+          "id": "r1783480042551ekdp",
           "objective": "Stok akurat, operasional berjalan sesuai SOP.",
           "keyResult": "Tingkat akurasi stok fisik vs data",
           "target": 98,
-          "actual": null,
+          "actual": 98.62,
           "bobot": 30
         },
         {
-          "id": "r1783411906819_152oh9",
+          "id": "r1783480042551rj7r",
           "objective": "Stok akurat, operasional berjalan sesuai SOP.",
           "keyResult": "Tingkat akurasi default diary",
           "target": 95,
-          "actual": null,
+          "actual": 95.04,
           "bobot": 25
         },
         {
-          "id": "r1783411906819_153zax",
+          "id": "r1783480042552q7xf",
           "objective": "Stok akurat, operasional berjalan sesuai SOP.",
           "keyResult": "Score avg cartrack",
           "target": 90,
-          "actual": null,
+          "actual": 89.4275,
           "bobot": 20
         },
         {
-          "id": "r1783411906819_1548qf",
+          "id": "r178348004255251eo",
           "objective": "Stok akurat, operasional berjalan sesuai SOP.",
           "keyResult": "Score kepuasan pelanggan distribusi",
           "target": 90,
-          "actual": null,
+          "actual": 92,
           "bobot": 15
         },
         {
-          "id": "r1783411906819_155wk1",
+          "id": "r17834800425526cko",
           "objective": "Stok akurat, operasional berjalan sesuai SOP.",
           "keyResult": "Tingkat implementasi rekomendasi audit",
           "target": 100,
-          "actual": null,
+          "actual": 100,
           "bobot": 10
         }
       ],
-      "actionPlan": ""
+      "actionPlan": "",
+      "savedAt": "2026-07-08T03:07:22.552Z"
     }
   },
   "_p_ins_2026_07_07": {
@@ -5814,7 +5815,7 @@
     ],
     "savedAt": "2026-07-07T15:23:56.184Z"
   },
-  "_ts": 1783479937885,
+  "_ts": 1783480042552,
   "_p_apo_2026_07": {
     "file1": "https://raw.githubusercontent.com/pinuspackindo-ai/pinuspackindo-okr/data/uploads/purchasing/1783386936569_aanc1x_purchase.order.line_3.xlsx",
     "file1Name": "purchase.order.line (3).xlsx",
