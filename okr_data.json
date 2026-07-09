@@ -4094,10 +4094,10 @@
         "tal": "membuat tools untuk repack + ITR",
         "deadline": "2026-07-31",
         "bobot": 40,
-        "progress": null,
+        "progress": 100,
         "review": "",
         "editing": false,
-        "savedAt": "2026-07-06T01:56:54.580Z"
+        "savedAt": "2026-07-09T04:21:32.196Z"
       },
       {
         "tal": "finalisasi training admin inventory",
@@ -4127,7 +4127,7 @@
         "savedAt": "2026-07-06T01:56:54.580Z"
       }
     ],
-    "savedAt": "2026-07-08T03:23:57.948Z"
+    "savedAt": "2026-07-09T04:21:32.196Z"
   },
   "_tal_d10_2026_07": {
     "rows": [
@@ -5978,5 +5978,5 @@
     "savedAt": "2026-07-09T02:07:54.372Z",
     "locked": true
   },
-  "_ts": 1783570877714
+  "_ts": 1783570892196
 }
