@@ -1199,12 +1199,14 @@ function authCanAccess(moduleKey){
 }
 function authCanSeeAllOKR(){
   if(!APP_CUR_USER) return false;
+  if(APP_CUR_USER==='HRD') return true; // HRD selalu lihat semua OKR (setara Internal Audit) — permanen, tidak tergantung data tersimpan
   return !!authGetAccess(APP_CUR_USER).okrAll;
 }
 function isOwnerOrAdmin(){return APP_CUR_USER==='Owner'||APP_CUR_USER==='Admin';}
 function isAdminUser(){return APP_CUR_USER==='Admin';}
 function authGetVisibleOKRDivs(){
   if(!APP_CUR_USER) return [];
+  if(APP_CUR_USER==='HRD') return null; // HRD selalu lihat semua divisi OKR
   var acc=authGetAccess(APP_CUR_USER);
   if(acc.okrAll) return null; // see all divisions
   var mods=acc.modules||[];
@@ -1219,6 +1221,7 @@ function authGetVisibleTALDivs(){
   if(!APP_CUR_USER) return [];
   // Tanpa akses modul TAL -> tidak lihat TAL apapun
   if(!isOwnerOrAdmin()&&!authCanAccess('tal')) return [];
+  if(APP_CUR_USER==='HRD') return null; // HRD selalu lihat semua divisi TAL
   var acc=authGetAccess(APP_CUR_USER);
   if(acc.okrAll) return null; // see all TAL divisions (Owner/Admin/Internal Audit)
   var mods=acc.modules||[];
@@ -1230,13 +1233,13 @@ function authGetVisibleTALDivs(){
   return divs;
 }
 function authApplyAccess(){
-  // Migrasi sekali: samakan akses HRD dengan Internal Audit (view semua OKR & TAL). Guard flag _hrdViewAllV1.
+  // Samakan akses HRD dengan Internal Audit (view semua OKR & TAL) — permanen, self-heal tiap load.
+  // (Bukan migrasi sekali: kalau okrAll ke-reset false oleh sumber lain, di sini diperbaiki lagi.)
   try{
-    if(okrData._userAccess&&okrData._userAccess['HRD']&&okrData._userAccess['HRD'].okrAll!==true&&!okrData._hrdViewAllV1){
+    if(okrData._userAccess&&okrData._userAccess['HRD']&&okrData._userAccess['HRD'].okrAll!==true){
       okrData._userAccess['HRD'].okrAll=true;
       var _hm=okrData._userAccess['HRD'].modules||(okrData._userAccess['HRD'].modules=[]);
       ['dashboard','tal','hrd'].forEach(function(x){if(_hm.indexOf(x)===-1)_hm.push(x);});
-      okrData._hrdViewAllV1=1;
       try{okrSaveLS();}catch(e){}
     }
   }catch(e){}
