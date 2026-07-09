@@ -22,7 +22,7 @@
         "hrd",
         "tal"
       ],
-      "okrAll": false
+      "okrAll": true
     },
     "Internal Audit": {
       "modules": [
@@ -5978,5 +5978,5 @@
     "savedAt": "2026-07-09T02:07:54.372Z",
     "locked": true
   },
-  "_ts": 1783569856561
+  "_ts": 1783569860929
 }
