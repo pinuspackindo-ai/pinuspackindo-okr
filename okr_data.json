@@ -1,5 +1,4 @@
 {
-  "_ts": 1783569603485,
   "_userAccess": {
     "Finance & Accounting": {
       "modules": [
@@ -23,7 +22,7 @@
         "hrd",
         "tal"
       ],
-      "okrAll": false
+      "okrAll": true
     },
     "Internal Audit": {
       "modules": [
@@ -5930,7 +5929,7 @@
     "evidences": [
       {
         "name": "feb 2026.png",
-        "data": null
+        "data": "https://raw.githubusercontent.com/pinuspackindo-ai/pinuspackindo-okr/data/uploads/umum/1783563144094_odlhyj_feb_2026.png"
       }
     ],
     "savedAt": "2026-07-09T01:23:06.063Z",
@@ -5978,5 +5977,6 @@
     ],
     "savedAt": "2026-07-09T02:07:54.372Z",
     "locked": true
-  }
+  },
+  "_ts": 1783569611225
 }
