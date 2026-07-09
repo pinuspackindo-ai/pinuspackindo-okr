@@ -3893,7 +3893,7 @@
     "evidence": "https://raw.githubusercontent.com/pinuspackindo-ai/pinuspackindo-okr/data/uploads/general_affair/1783409069784_u73ap0_Pinus.jpg",
     "evidenceName": "Pinus.jpg",
     "savedAt": "2026-07-07T07:24:28.599Z",
-    "locked": true,
+    "locked": false,
     "evidences": [
       {
         "name": "Cuplikan layar 2026-07-04 095817.png",
@@ -5961,7 +5961,7 @@
     "savedAt": "2026-07-09T02:04:53.254Z",
     "locked": true
   },
-  "_ts": 1783563093646,
+  "_ts": 1783563107681,
   "_kpi_2026_05": {
     "value": 96,
     "evidence": null,
