@@ -371,7 +371,7 @@
       "actionPlan": "Kaji ulang cctv warehouse",
       "rows": [
         {
-          "actual": null,
+          "actual": 98.2,
           "bobot": 40,
           "id": "r177989029078478jg",
           "keyResult": "Tingkat akurasi stok inventaris data vs fisik",
@@ -633,7 +633,7 @@
           "target": 90
         },
         {
-          "actual": 98.225,
+          "actual": 98.23,
           "bobot": 10,
           "id": "r1779890290785xbtj",
           "keyResult": "Tingkat implementasi rekomendasi audit",
@@ -667,7 +667,7 @@
           "objective": "Mencapai target penjualan, pelanggan puas.",
           "keyResult": "Customers baru",
           "target": 10,
-          "actual": null,
+          "actual": 8,
           "bobot": 25
         },
         {
@@ -5924,7 +5924,7 @@
   },
   "_kpi_2026_02": {
     "value": 95.85,
-    "evidence": "https://raw.githubusercontent.com/pinuspackindo-ai/pinuspackindo-okr/data/uploads/umum/1783568247165_gvt1ws_feb_2026.png",
+    "evidence": "https://raw.githubusercontent.com/pinuspackindo-ai/pinuspackindo-okr/data/uploads/umum/1783562906780_rnoaee_feb_2026.png",
     "evidenceName": "feb 2026.png",
     "evidences": [
       {
@@ -5955,7 +5955,7 @@
     "evidences": [
       {
         "name": "APRIL 2026 .png",
-        "data": "https://raw.githubusercontent.com/pinuspackindo-ai/pinuspackindo-okr/data/uploads/umum/1783562903819_i7890o_APRIL_2026.png"
+        "data": "https://raw.githubusercontent.com/pinuspackindo-ai/pinuspackindo-okr/data/uploads/umum/1783563050076_uksg3s_APRIL_2026.png"
       }
     ],
     "savedAt": "2026-07-09T02:04:53.254Z",
@@ -5978,6 +5978,7 @@
     "savedAt": "2026-07-09T02:07:54.372Z",
     "locked": true
   },
+  "_ts": 1783695345232,
   "_p_ins_2026_07_09": {
     "file1": "https://raw.githubusercontent.com/pinuspackindo-ai/pinuspackindo-okr/data/uploads/purchasing/1783587953935_lriwgd_product.product.xlsx",
     "file1Name": "product.product.xlsx",
@@ -6001,7 +6002,6 @@
     "savedAt": "2026-07-10T02:00:10.681Z",
     "locked": true
   },
-  "_ts": 1783675566717,
   "_p_ins_2026_07_10": {
     "file1": "https://raw.githubusercontent.com/pinuspackindo-ai/pinuspackindo-okr/data/uploads/purchasing/1783675463831_d7ur5g_product.product_2.xlsx",
     "file1Name": "product.product (2).xlsx",
