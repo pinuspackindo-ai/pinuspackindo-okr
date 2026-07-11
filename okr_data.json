@@ -6024,7 +6024,7 @@
     "savedAt": "2026-07-11T02:01:50.813Z",
     "locked": true
   },
-  "_ts": 1783746415475,
+  "_ts": 1783746450974,
   "_p_ins_2026_07_11": {
     "file1": "https://raw.githubusercontent.com/pinuspackindo-ai/pinuspackindo-okr/data/uploads/purchasing/1783746421117_0x42up_product.product.xlsx",
     "file1Name": "product.product.xlsx",
@@ -6038,7 +6038,7 @@
       "A'izatul Nafisah": 96.26
     },
     "score": null,
-    "savedAt": null,
-    "locked": false
+    "savedAt": "2026-07-11T05:07:30.974Z",
+    "locked": true
   }
 }
