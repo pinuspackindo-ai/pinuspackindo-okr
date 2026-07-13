@@ -1,5 +1,5 @@
 {
-  "_ts": 1783912438407,
+  "_ts": 1783913200781,
   "_userAccess": {
     "Finance & Accounting": {
       "modules": [
@@ -4168,10 +4168,10 @@
         "tal": "setting KPI bagi yg belum punya",
         "deadline": "2026-07-31",
         "bobot": 45,
-        "progress": 10,
+        "progress": 25,
         "review": "",
         "editing": false,
-        "savedAt": "2026-07-13T02:47:15.164Z"
+        "savedAt": "2026-07-13T03:26:40.779Z"
       },
       {
         "tal": "pengadaan atribut dresscode sesuai SOP + internal memo nya",
@@ -4192,7 +4192,7 @@
         "savedAt": "2026-07-13T02:47:27.071Z"
       }
     ],
-    "savedAt": "2026-07-13T02:47:27.071Z"
+    "savedAt": "2026-07-13T03:26:40.780Z"
   },
   "_tal_d2_2026_07": {
     "rows": [
