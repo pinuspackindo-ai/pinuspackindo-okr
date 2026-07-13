@@ -4185,13 +4185,13 @@
         "tal": "menyusun business flow departement HRD",
         "deadline": "2026-07-31",
         "bobot": 20,
-        "progress": 10,
+        "progress": 40,
         "review": "",
         "editing": false,
-        "savedAt": "2026-07-08T08:26:13.711Z"
+        "savedAt": "2026-07-13T02:47:27.071Z"
       }
     ],
-    "savedAt": "2026-07-13T02:47:20.986Z"
+    "savedAt": "2026-07-13T02:47:27.071Z"
   },
   "_tal_d2_2026_07": {
     "rows": [
@@ -6017,5 +6017,5 @@
     "savedAt": "2026-07-10T09:26:06.716Z",
     "locked": true
   },
-  "_ts": 1783910840986
+  "_ts": 1783910847071
 }
