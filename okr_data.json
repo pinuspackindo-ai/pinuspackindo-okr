@@ -4494,47 +4494,40 @@
     "Store": {
       "rows": [
         {
-          "id": "r17833037605982oav",
-          "objective": "Mencapai target penjualan, \r\nstok akurat, pelanggan puas, operasional sesuai SOP.",
+          "id": "r1783922585494bud9",
+          "objective": "Mencapai target penjualan, stok akurat, pelanggan puas, operasional sesuai SOP.",
           "keyResult": "Jumlah omset",
           "target": 3040000000,
           "actual": null,
           "bobot": 30
         },
         {
-          "id": "r1783303760598pjya",
-          "objective": "Mencapai target penjualan, \r\nstok akurat, pelanggan puas, operasional sesuai SOP.",
+          "id": "r1783922585494hg3u",
+          "objective": "Mencapai target penjualan, stok akurat, pelanggan puas, operasional sesuai SOP.",
           "keyResult": "Tingkat akurasi stok fisik vs data",
           "target": 80,
           "actual": null,
           "bobot": 25
         },
         {
-          "id": "r1783303760598r0as",
-          "objective": "Mencapai target penjualan, \r\nstok akurat, pelanggan puas, operasional sesuai SOP.",
+          "id": "r1783922585494htn7",
+          "objective": "Mencapai target penjualan, stok akurat, pelanggan puas, operasional sesuai SOP.",
           "keyResult": "Score kepuasan pelanggan",
           "target": 90,
           "actual": null,
           "bobot": 20
         },
         {
-          "id": "r1783303760598qbvq",
-          "objective": "Mencapai target penjualan, \r\nstok akurat, pelanggan puas, operasional sesuai SOP.",
-          "keyResult": "Tingkat kepatuhan & kedisiplinan",
-          "target": 95,
-          "actual": null,
-          "bobot": 15
-        },
-        {
-          "id": "r178330376059875i6",
-          "objective": "Mencapai target penjualan, \r\nstok akurat, pelanggan puas, operasional sesuai SOP.",
+          "id": "r1783922585494ii2k",
+          "objective": "Mencapai target penjualan, stok akurat, pelanggan puas, operasional sesuai SOP.",
           "keyResult": "Tingkat implementasi rekomendasi audit",
           "target": 100,
           "actual": null,
           "bobot": 10
         }
       ],
-      "actionPlan": "Planning acara chef Avian"
+      "actionPlan": "Planning acara chef Avian",
+      "savedAt": "2026-07-13T06:03:05.494Z"
     },
     "Warehouse": {
       "rows": [
@@ -5880,7 +5873,7 @@
     "savedAt": null,
     "locked": false
   },
-  "_ts": 1783920358978,
+  "_ts": 1783922585494,
   "_d_new_cust_2026_06": {
     "value": 8,
     "evidence": null,
