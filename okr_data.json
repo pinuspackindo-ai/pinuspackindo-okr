@@ -667,7 +667,7 @@
           "objective": "Mencapai target penjualan, pelanggan puas.",
           "keyResult": "Customers baru",
           "target": 10,
-          "actual": 8,
+          "actual": null,
           "bobot": 25
         },
         {
@@ -5880,6 +5880,7 @@
     "savedAt": null,
     "locked": false
   },
+  "_ts": 1783920358978,
   "_d_new_cust_2026_06": {
     "value": 8,
     "evidence": null,
@@ -5924,7 +5925,7 @@
   },
   "_kpi_2026_02": {
     "value": 95.85,
-    "evidence": "https://raw.githubusercontent.com/pinuspackindo-ai/pinuspackindo-okr/data/uploads/umum/1783562906780_rnoaee_feb_2026.png",
+    "evidence": "https://raw.githubusercontent.com/pinuspackindo-ai/pinuspackindo-okr/data/uploads/umum/1783568247165_gvt1ws_feb_2026.png",
     "evidenceName": "feb 2026.png",
     "evidences": [
       {
@@ -5955,7 +5956,7 @@
     "evidences": [
       {
         "name": "APRIL 2026 .png",
-        "data": "https://raw.githubusercontent.com/pinuspackindo-ai/pinuspackindo-okr/data/uploads/umum/1783563050076_uksg3s_APRIL_2026.png"
+        "data": "https://raw.githubusercontent.com/pinuspackindo-ai/pinuspackindo-okr/data/uploads/umum/1783562903819_i7890o_APRIL_2026.png"
       }
     ],
     "savedAt": "2026-07-09T02:04:53.254Z",
@@ -6091,6 +6092,5 @@
       }
     ],
     "savedAt": "2026-07-13T03:06:24.340Z"
-  },
-  "_ts": 1783918449341
+  }
 }
