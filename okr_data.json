@@ -4381,7 +4381,7 @@
           "objective": "Membangun dan menjaga SDM yg kompeten, disiplin, produktif, inisiatif, guna mendukung perusahaan berkembang.",
           "keyResult": "Skor kinerja karyawan baru",
           "target": 85,
-          "actual": null,
+          "actual": 81.6,
           "bobot": 10
         }
       ],
@@ -5880,7 +5880,6 @@
     "savedAt": null,
     "locked": false
   },
-  "_ts": 1783918209258,
   "_d_new_cust_2026_06": {
     "value": 8,
     "evidence": null,
@@ -6092,5 +6091,6 @@
       }
     ],
     "savedAt": "2026-07-13T03:06:24.340Z"
-  }
+  },
+  "_ts": 1783918217491
 }
