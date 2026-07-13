@@ -4121,13 +4121,13 @@
         "tal": "pendataan GA sebelum staff resign",
         "deadline": "2026-07-31",
         "bobot": 10,
-        "progress": null,
+        "progress": 50,
         "review": "",
         "editing": false,
-        "savedAt": "2026-07-06T01:56:54.580Z"
+        "savedAt": "2026-07-13T04:44:37.215Z"
       }
     ],
-    "savedAt": "2026-07-09T04:21:32.196Z"
+    "savedAt": "2026-07-13T04:44:37.215Z"
   },
   "_tal_d10_2026_07": {
     "rows": [
@@ -6092,5 +6092,5 @@
     ],
     "savedAt": "2026-07-13T03:06:24.340Z"
   },
-  "_ts": 1783917861576
+  "_ts": 1783917877215
 }
