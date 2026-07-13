@@ -1,4 +1,5 @@
 {
+  "_ts": 1783910939223,
   "_userAccess": {
     "Finance & Accounting": {
       "modules": [
@@ -22,7 +23,7 @@
         "hrd",
         "tal"
       ],
-      "okrAll": true
+      "okrAll": false
     },
     "Internal Audit": {
       "modules": [
@@ -371,7 +372,7 @@
       "actionPlan": "Kaji ulang cctv warehouse",
       "rows": [
         {
-          "actual": 98.2,
+          "actual": null,
           "bobot": 40,
           "id": "r177989029078478jg",
           "keyResult": "Tingkat akurasi stok inventaris data vs fisik",
@@ -633,7 +634,7 @@
           "target": 90
         },
         {
-          "actual": 98.23,
+          "actual": 98.225,
           "bobot": 10,
           "id": "r1779890290785xbtj",
           "keyResult": "Tingkat implementasi rekomendasi audit",
@@ -667,7 +668,7 @@
           "objective": "Mencapai target penjualan, pelanggan puas.",
           "keyResult": "Customers baru",
           "target": 10,
-          "actual": 8,
+          "actual": null,
           "bobot": 25
         },
         {
@@ -3892,7 +3893,7 @@
     "value": 98.2,
     "evidence": "https://raw.githubusercontent.com/pinuspackindo-ai/pinuspackindo-okr/data/uploads/general_affair/1783409069784_u73ap0_Pinus.jpg",
     "evidenceName": "Pinus.jpg",
-    "savedAt": "2026-07-09T02:11:50.148Z",
+    "savedAt": "2026-07-07T07:24:28.599Z",
     "locked": true,
     "evidences": [
       {
@@ -4094,10 +4095,10 @@
         "tal": "membuat tools untuk repack + ITR",
         "deadline": "2026-07-31",
         "bobot": 40,
-        "progress": 100,
+        "progress": null,
         "review": "",
         "editing": false,
-        "savedAt": "2026-07-09T04:21:32.196Z"
+        "savedAt": "2026-07-06T01:56:54.580Z"
       },
       {
         "tal": "finalisasi training admin inventory",
@@ -4127,7 +4128,7 @@
         "savedAt": "2026-07-06T01:56:54.580Z"
       }
     ],
-    "savedAt": "2026-07-09T04:21:32.196Z"
+    "savedAt": "2026-07-08T03:23:57.948Z"
   },
   "_tal_d10_2026_07": {
     "rows": [
@@ -4167,31 +4168,31 @@
         "tal": "setting KPI bagi yg belum punya",
         "deadline": "2026-07-31",
         "bobot": 45,
-        "progress": 10,
+        "progress": null,
         "review": "",
         "editing": false,
-        "savedAt": "2026-07-13T02:47:15.164Z"
+        "savedAt": "2026-07-06T02:00:45.071Z"
       },
       {
         "tal": "pengadaan atribut dresscode sesuai SOP + internal memo nya",
         "deadline": "2026-07-31",
         "bobot": 35,
-        "progress": 40,
+        "progress": 10,
         "review": "",
         "editing": false,
-        "savedAt": "2026-07-13T02:47:20.986Z"
+        "savedAt": "2026-07-08T08:26:04.336Z"
       },
       {
         "tal": "menyusun business flow departement HRD",
         "deadline": "2026-07-31",
         "bobot": 20,
-        "progress": 40,
+        "progress": 10,
         "review": "",
         "editing": false,
-        "savedAt": "2026-07-13T02:47:27.071Z"
+        "savedAt": "2026-07-08T08:26:13.711Z"
       }
     ],
-    "savedAt": "2026-07-13T02:47:27.071Z"
+    "savedAt": "2026-07-08T08:26:13.711Z"
   },
   "_tal_d2_2026_07": {
     "rows": [
@@ -4460,7 +4461,7 @@
           "objective": "Pengadaan stok tepat waktu dan berkwalitas, administrasi akurat..",
           "keyResult": "Tingkat in stock",
           "target": 95,
-          "actual": 91.39,
+          "actual": 91.34,
           "bobot": 40
         },
         {
@@ -5908,114 +5909,5 @@
     "score": 91.73,
     "savedAt": "2026-07-08T08:43:09.816Z",
     "locked": true
-  },
-  "_kpi_2026_01": {
-    "value": 94.86,
-    "evidence": "https://raw.githubusercontent.com/pinuspackindo-ai/pinuspackindo-okr/data/uploads/umum/1783560072882_krscqt_jan_2026.png",
-    "evidenceName": "jan 2026.png",
-    "evidences": [
-      {
-        "name": "jan 2026.png",
-        "data": "https://raw.githubusercontent.com/pinuspackindo-ai/pinuspackindo-okr/data/uploads/umum/1783560185796_dpeo60_jan_2026.png"
-      }
-    ],
-    "savedAt": "2026-07-09T01:21:12.617Z",
-    "locked": true
-  },
-  "_kpi_2026_02": {
-    "value": 95.85,
-    "evidence": "https://raw.githubusercontent.com/pinuspackindo-ai/pinuspackindo-okr/data/uploads/umum/1783562906780_rnoaee_feb_2026.png",
-    "evidenceName": "feb 2026.png",
-    "evidences": [
-      {
-        "name": "feb 2026.png",
-        "data": "https://raw.githubusercontent.com/pinuspackindo-ai/pinuspackindo-okr/data/uploads/umum/1783563144094_odlhyj_feb_2026.png"
-      }
-    ],
-    "savedAt": "2026-07-09T01:23:06.063Z",
-    "locked": true
-  },
-  "_kpi_2026_03": {
-    "value": 99,
-    "evidence": "https://raw.githubusercontent.com/pinuspackindo-ai/pinuspackindo-okr/data/uploads/umum/1783562693341_6lmvsw_Mar_2026.png",
-    "evidenceName": "Mar 2026.png",
-    "evidences": [
-      {
-        "name": "Mar 2026.png",
-        "data": "https://raw.githubusercontent.com/pinuspackindo-ai/pinuspackindo-okr/data/uploads/umum/1783561933760_ssab4y_Mar_2026.png"
-      }
-    ],
-    "savedAt": "2026-07-09T01:52:13.767Z",
-    "locked": true
-  },
-  "_kpi_2026_04": {
-    "value": 95.3,
-    "evidence": "https://raw.githubusercontent.com/pinuspackindo-ai/pinuspackindo-okr/data/uploads/umum/1783562753024_74yenx_APRIL_2026.png",
-    "evidenceName": "APRIL 2026 .png",
-    "evidences": [
-      {
-        "name": "APRIL 2026 .png",
-        "data": "https://raw.githubusercontent.com/pinuspackindo-ai/pinuspackindo-okr/data/uploads/umum/1783563050076_uksg3s_APRIL_2026.png"
-      }
-    ],
-    "savedAt": "2026-07-09T02:04:53.254Z",
-    "locked": true
-  },
-  "_kpi_2026_05": {
-    "value": 96,
-    "evidence": null,
-    "evidenceName": "MEI 2026.png",
-    "evidences": [
-      {
-        "name": "MEI 2026.png",
-        "data": null
-      },
-      {
-        "name": "MEI 2026.png",
-        "data": null
-      }
-    ],
-    "savedAt": "2026-07-09T02:07:54.372Z",
-    "locked": true
-  },
-  "_p_ins_2026_07_09": {
-    "file1": "https://raw.githubusercontent.com/pinuspackindo-ai/pinuspackindo-okr/data/uploads/purchasing/1783587953935_lriwgd_product.product.xlsx",
-    "file1Name": "product.product.xlsx",
-    "file2": "https://raw.githubusercontent.com/pinuspackindo-ai/pinuspackindo-okr/data/uploads/purchasing/1783587962624_gpy5jr_product.product_1.xlsx",
-    "file2Name": "product.product (1).xlsx",
-    "file3": "https://raw.githubusercontent.com/pinuspackindo-ai/pinuspackindo-okr/data/uploads/purchasing/1783587954990_bqgjoq_purchase.order.line.xlsx",
-    "file3Name": "purchase.order.line.xlsx",
-    "users": {
-      "Arif Wibowo": 94.58,
-      "Adit Mohgat": 91.8,
-      "A'izatul Nafisah": 96
-    },
-    "score": 91.73,
-    "savedAt": "2026-07-09T09:06:02.207Z",
-    "locked": true
-  },
-  "_p_sv_2026_07_09": {
-    "text": "TIGA BERLIAN SAGU MUTIARA, 270,000, 260,000",
-    "evidence": "https://raw.githubusercontent.com/pinuspackindo-ai/pinuspackindo-okr/data/uploads/purchasing/1783648805307_12lt77_09.png",
-    "evidenceName": "09.PNG",
-    "savedAt": "2026-07-10T02:00:10.681Z",
-    "locked": true
-  },
-  "_p_ins_2026_07_10": {
-    "file1": "https://raw.githubusercontent.com/pinuspackindo-ai/pinuspackindo-okr/data/uploads/purchasing/1783675463831_d7ur5g_product.product_2.xlsx",
-    "file1Name": "product.product (2).xlsx",
-    "file2": "https://raw.githubusercontent.com/pinuspackindo-ai/pinuspackindo-okr/data/uploads/purchasing/1783675444616_i5cqdu_product.product_3.xlsx",
-    "file2Name": "product.product (3).xlsx",
-    "file3": "https://raw.githubusercontent.com/pinuspackindo-ai/pinuspackindo-okr/data/uploads/purchasing/1783675568191_p0kcqn_purchase.order.line.xlsx",
-    "file3Name": "purchase.order.line.xlsx",
-    "users": {
-      "Arif Wibowo": 95.21,
-      "Adit Mohgat": 91.63,
-      "A'izatul Nafisah": 95.39
-    },
-    "score": null,
-    "savedAt": "2026-07-10T09:26:06.716Z",
-    "locked": true
-  },
-  "_ts": 1783910847071
+  }
 }
