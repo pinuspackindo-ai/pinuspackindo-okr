@@ -96,9 +96,7 @@
     "_ga_rot_2026_06": 1783134158109,
     "_ga_rot_2026_07": 1783134170325,
     "_fa_rot_2026_07": 1783308087934,
-    "_p_kpen_2026_07": 1783393431960,
-    "_p_ins_2026_07_11": 1784018099321,
-    "_p_ins_2026_07_13": 1784018099321
+    "_p_kpen_2026_07": 1783393431960
   },
   "_okrLock": {
     "2026-05|Store": {
@@ -6094,7 +6092,7 @@
     "savedAt": "2026-07-14T01:39:20.274Z",
     "locked": true
   },
-  "_ts": 1784018159853,
+  "_ts": 1784018260919,
   "_p_ins_2026_07_11": {
     "file1": "https://raw.githubusercontent.com/pinuspackindo-ai/pinuspackindo-okr/data/uploads/purchasing/1784018148182_04e8xv_product.product.xlsx",
     "file1Name": "product.product.xlsx",
@@ -6108,8 +6106,8 @@
       "A'izatul Nafisah": 96.26
     },
     "score": 91.8,
-    "savedAt": null,
-    "locked": false
+    "savedAt": "2026-07-14T08:37:40.919Z",
+    "locked": true
   },
   "_p_ins_2026_07_13": {
     "file1": "https://raw.githubusercontent.com/pinuspackindo-ai/pinuspackindo-okr/data/uploads/purchasing/1784018158945_zu3fsf_product.product.xlsx",
