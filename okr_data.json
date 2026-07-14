@@ -6085,5 +6085,60 @@
     ],
     "savedAt": "2026-07-13T03:06:24.340Z"
   },
-  "_ts": 1784042406697
+  "_ts": 1784042408283,
+  "_p_sv_2026_07_10": {
+    "text": "(S) PENJEPIT MAKANAN 22 CM, 7,050, 6,975; (S) PISAU ZIG ZAG STAINLESS 19 CM, 4,856, 4,093; (S) PLASTIK ZIPPER BURAM 35X45 X10, 17,105, 16,850",
+    "evidence": "https://raw.githubusercontent.com/pinuspackindo-ai/pinuspackindo-okr/data/uploads/purchasing/1783993150254_p4tqrv_10.png",
+    "evidenceName": "10.PNG",
+    "savedAt": "2026-07-14T01:39:20.274Z",
+    "locked": true
+  },
+  "_p_ins_2026_07_11": {
+    "file1": "https://raw.githubusercontent.com/pinuspackindo-ai/pinuspackindo-okr/data/uploads/purchasing/1784018148182_04e8xv_product.product.xlsx",
+    "file1Name": "product.product.xlsx",
+    "file2": "https://raw.githubusercontent.com/pinuspackindo-ai/pinuspackindo-okr/data/uploads/purchasing/1784018158273_fhstue_product.product_1.xlsx",
+    "file2Name": "product.product (1).xlsx",
+    "file3": "https://raw.githubusercontent.com/pinuspackindo-ai/pinuspackindo-okr/data/uploads/purchasing/1784018159856_ezvr73_purchase.order.line_1.xlsx",
+    "file3Name": "purchase.order.line (1).xlsx",
+    "users": {
+      "Arif Wibowo": 94.05,
+      "Adit Mohgat": 90.26,
+      "A'izatul Nafisah": 96.26
+    },
+    "score": 91.8,
+    "savedAt": "2026-07-14T08:37:40.919Z",
+    "locked": true
+  },
+  "_p_ins_2026_07_13": {
+    "file1": "https://raw.githubusercontent.com/pinuspackindo-ai/pinuspackindo-okr/data/uploads/purchasing/1784018158945_zu3fsf_product.product.xlsx",
+    "file1Name": "product.product.xlsx",
+    "file2": "https://raw.githubusercontent.com/pinuspackindo-ai/pinuspackindo-okr/data/uploads/purchasing/1784018165293_bw7x8t_product.product_1.xlsx",
+    "file2Name": "product.product (1).xlsx",
+    "file3": "https://raw.githubusercontent.com/pinuspackindo-ai/pinuspackindo-okr/data/uploads/purchasing/1784018166840_ind13e_purchase.order.line.xlsx",
+    "file3Name": "purchase.order.line.xlsx",
+    "users": {
+      "Arif Wibowo": 94.71,
+      "Adit Mohgat": 89.8,
+      "A'izatul Nafisah": 95.03
+    },
+    "score": 90.99,
+    "savedAt": "2026-07-14T08:37:42.998Z",
+    "locked": true
+  },
+  "_p_ins_2026_07_14": {
+    "file1": "https://raw.githubusercontent.com/pinuspackindo-ai/pinuspackindo-okr/data/uploads/purchasing/1784018319180_5yzjuk_product.product.xlsx",
+    "file1Name": "product.product.xlsx",
+    "file2": "https://raw.githubusercontent.com/pinuspackindo-ai/pinuspackindo-okr/data/uploads/purchasing/1784018327033_oiex1t_product.product_1.xlsx",
+    "file2Name": "product.product (1).xlsx",
+    "file3": "https://raw.githubusercontent.com/pinuspackindo-ai/pinuspackindo-okr/data/uploads/purchasing/1784018328059_ngrog7_purchase.order.line.xlsx",
+    "file3Name": "purchase.order.line.xlsx",
+    "users": {
+      "Arif Wibowo": 94.71,
+      "Adit Mohgat": 89.8,
+      "A'izatul Nafisah": 95.03
+    },
+    "score": null,
+    "savedAt": "2026-07-14T08:38:46.222Z",
+    "locked": true
+  }
 }
