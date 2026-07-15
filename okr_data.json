@@ -4053,10 +4053,10 @@
         "tal": "Melebur md sales + inval md, revisi kpi per individu",
         "deadline": "2026-07-31",
         "bobot": 40,
-        "progress": null,
+        "progress": 50,
         "review": "",
         "editing": false,
-        "savedAt": "2026-07-06T03:45:55.744Z"
+        "savedAt": "2026-07-15T04:01:42.158Z"
       },
       {
         "tal": "Running RN by checker",
@@ -4086,7 +4086,7 @@
         "savedAt": "2026-07-06T03:45:54.494Z"
       }
     ],
-    "savedAt": "2026-07-06T03:45:55.744Z"
+    "savedAt": "2026-07-15T04:01:42.158Z"
   },
   "_tal_d12_2026_07": {
     "rows": [
@@ -6140,5 +6140,5 @@
     "savedAt": "2026-07-14T08:38:46.222Z",
     "locked": true
   },
-  "_ts": 1784087991759
+  "_ts": 1784088102158
 }
