@@ -5873,7 +5873,6 @@
     "savedAt": null,
     "locked": false
   },
-  "_ts": 1784088164544,
   "_d_new_cust_2026_06": {
     "value": 8,
     "evidence": null,
@@ -6140,5 +6139,6 @@
     "score": null,
     "savedAt": "2026-07-14T08:38:46.222Z",
     "locked": true
-  }
+  },
+  "_ts": 1784088165495
 }
