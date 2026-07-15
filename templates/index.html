@@ -6235,16 +6235,42 @@ var _HRD_REC_JAB=[
   {label:'SPV/MANAGER',days:45},
   {label:'EKSEKUTIF/SPESIALIS',days:90}
 ];
+// Hitung deadline otomatis dari tglRequest + SLA jabatan (H+1 = besok dari tgl request, dst)
 function _hrdRecCalcDeadline(tglRequest,jabatan){
   if(!tglRequest||!jabatan)return '';
   var sla=_HRD_REC_JAB.find(function(j){return j.label===jabatan;});
   if(!sla)return '';
   var d=new Date(tglRequest+'T00:00:00');
   d.setDate(d.getDate()+sla.days);
-  return d.toISOString().slice(0,10);
+  return _iaYMD(d); // pakai formatter tanggal lokal — JANGAN toISOString() (geser -1 hari krn UTC)
 }
-function _hrdRecRowScore(row){
+// Self-heal: perbaiki deadline baris lama yg kena bug toISOString/UTC (tergeser 1 hari)
+function _hrdRecSelfHealDeadlines(y,m){
+  var data=_hrdRecG(y,m);var changed=false;
+  (data.rows||[]).forEach(function(r){
+    if(r.editing||!r.tglRequest||!r.jabatan)return;
+    var fixed=_hrdRecCalcDeadline(r.tglRequest,r.jabatan);
+    if(fixed&&fixed!==r.deadline){r.deadline=fixed;changed=true;}
+  });
+  if(changed){try{okrSaveLS();}catch(e){}}
+  return changed;
+}
+// Cutover formula skor: mulai Juli 2026 pakai formula baru, sebelumnya tetap formula lama.
+function hrdRecNewFormula(y,m){return y>2026||(y===2026&&m>=7);}
+// Score per baris:
+//  >= Juli 2026 (baru): Score = SLA hari ÷ hari realisasi × 100%, maks 100% (tidak telat = 100%).
+//  <  Juli 2026 (lama):  Ontime (realisasi ≤ deadline) = 100. Telat 1–13 hari = (14-daysLate)/14*100 (linear turun). Telat ≥14 hari = 0.
+function _hrdRecRowScore(row,y,m){
   if(!row.deadline||!row.realisasi)return null;
+  if(hrdRecNewFormula(y,m)){
+    if(!row.tglRequest)return null;
+    var sla=_HRD_REC_JAB.find(function(j){return j.label===row.jabatan;});
+    if(!sla)return null;
+    var rq=new Date(row.tglRequest+'T00:00:00'),rl2=new Date(row.realisasi+'T00:00:00');
+    var realDays=Math.round((rl2-rq)/86400000);
+    if(realDays<=0)return 100;
+    return Math.min(100,Math.round(sla.days/realDays*10000)/100);
+  }
   var dl=new Date(row.deadline+'T00:00:00');
   var rl=new Date(row.realisasi+'T00:00:00');
   var daysLate=Math.max(0,Math.ceil((rl-dl)/86400000));
@@ -6254,9 +6280,10 @@ function _hrdRecRowScore(row){
 }
 function hrdRecMonthChange(m){hrdRecruitMonth=parseInt(m)||new Date().getMonth()+1;hrdRenderRecruitment();}
 function _hrdRecSyncAndSave(y,m){
+  _hrdRecSelfHealDeadlines(y,m);
   var data=_hrdRecG(y,m);
   var dr=(data.rows||[]).filter(function(r){return !r.editing&&(r.jabatan||r.request)&&r.deadline&&r.realisasi;});
-  if(dr.length>0){var avg=dr.map(function(r){return _hrdRecRowScore(r)||0;}).reduce(function(a,b){return a+b;},0)/dr.length;hrdSyncOKR('recruitment',y,m,Math.round(avg*100)/100);}
+  if(dr.length>0){var avg=dr.map(function(r){return _hrdRecRowScore(r,y,m)||0;}).reduce(function(a,b){return a+b;},0)/dr.length;hrdSyncOKR('recruitment',y,m,Math.round(avg*100)/100);}
   else hrdSyncOKR('recruitment',y,m,null);
   okrSaveLS();
 }
