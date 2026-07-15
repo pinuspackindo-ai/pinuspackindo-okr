@@ -1172,7 +1172,7 @@
         "jabatan": "STAFF",
         "namaRequest": "DRIVER",
         "tglRequest": "2026-05-22",
-        "deadline": "2026-06-20",
+        "deadline": "2026-06-21",
         "realisasi": "2026-06-08",
         "evidence": "https://raw.githubusercontent.com/pinuspackindo-ai/pinuspackindo-okr/data/uploads/hrd/1782803326770_2ik95d_OJT_Wafa_compressed.pdf",
         "evidenceName": "OJT Wafa_compressed.pdf",
@@ -1188,7 +1188,7 @@
         "jabatan": "STAFF",
         "namaRequest": "SOSMED",
         "tglRequest": "2026-06-06",
-        "deadline": "2026-07-05",
+        "deadline": "2026-07-06",
         "realisasi": "2026-06-30",
         "evidence": null,
         "evidenceName": "Surat Penawaran Kerja -David Ilham Hakiki ttddocx-compressed.pdf",
@@ -6146,7 +6146,7 @@
         "jabatan": "STAFF",
         "namaRequest": "CUSTOMER SERVICE TOKO",
         "tglRequest": "2026-06-06",
-        "deadline": "2026-07-05",
+        "deadline": "2026-07-06",
         "realisasi": "2026-07-13",
         "evidence": null,
         "evidenceName": "bukti offering letter mentari cs 130726.jpeg",
@@ -6177,5 +6177,5 @@
     "savedAt": "2026-07-15T10:19:51.843Z",
     "locked": true
   },
-  "_ts": 1784125023625
+  "_ts": 1784125024161
 }
