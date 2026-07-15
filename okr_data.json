@@ -4115,7 +4115,7 @@
         "progress": null,
         "review": "",
         "editing": false,
-        "savedAt": "2026-07-06T01:56:54.580Z"
+        "savedAt": "2026-07-15T13:38:29.089Z"
       },
       {
         "tal": "pendataan GA sebelum staff resign",
@@ -4127,7 +4127,7 @@
         "savedAt": "2026-07-15T13:38:26.808Z"
       }
     ],
-    "savedAt": "2026-07-15T13:38:26.808Z"
+    "savedAt": "2026-07-15T13:38:29.089Z"
   },
   "_tal_d10_2026_07": {
     "rows": [
@@ -6177,6 +6177,6 @@
     "savedAt": "2026-07-15T10:19:51.843Z",
     "locked": true
   },
-  "_ts": 1784122706808,
+  "_ts": 1784122709089,
   "_slim": 1
 }
