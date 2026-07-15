@@ -5001,9 +5001,10 @@ function okrRender(){
       if(_hsd.locked&&_hsd.value!==null&&_hsd.value!==undefined)hrdSyncOKR(sid,okrCurYear,okrCurMonth,Math.round(_hsd.value*100)/100);
     });
     for(var _hrm=1;_hrm<=12;_hrm++){
+      _hrdRecSelfHealDeadlines(okrCurYear,_hrm);
       var _hrd5=_hrdRecG(okrCurYear,_hrm);
       var _hrd5r=(_hrd5.rows||[]).filter(function(r){return !r.editing&&r.request&&r.deadline&&r.realisasi;});
-      if(_hrd5r.length>0){var _hrd5a=_hrd5r.map(function(r){return _hrdRecRowScore(r)||0;}).reduce(function(a,b){return a+b;},0)/_hrd5r.length;hrdSyncOKR('recruitment',okrCurYear,_hrm,Math.round(_hrd5a*100)/100);}
+      if(_hrd5r.length>0){var _hrd5a=_hrd5r.map(function(r){return _hrdRecRowScore(r,okrCurYear,_hrm)||0;}).reduce(function(a,b){return a+b;},0)/_hrd5r.length;hrdSyncOKR('recruitment',okrCurYear,_hrm,Math.round(_hrd5a*100)/100);}
     }
     for(var _hkm=1;_hkm<=12;_hkm++){var _hkavg=_hrdKinMonthAvg(okrCurYear,_hkm);if(_hkavg!==null)hrdSyncOKR('kinerja',okrCurYear,_hkm,Math.round(_hkavg*100)/100);}
   }
@@ -6359,7 +6360,7 @@ function hrdRenderRecruitment(){
   });
   html+='</tr></thead><tbody>';
   rows.forEach(function(row,idx){
-    var sc=_hrdRecRowScore(row);
+    var sc=_hrdRecRowScore(row,y,m);
     var hasNew=!!(row.jabatan);  // baris baru pakai jabatan, lama pakai request
     var complete=!row.editing&&(row.jabatan||row.request)&&row.deadline&&row.realisasi;
     var daysLate=complete?Math.max(0,Math.ceil((new Date(row.realisasi+'T00:00:00')-new Date(row.deadline+'T00:00:00'))/86400000)):null;
