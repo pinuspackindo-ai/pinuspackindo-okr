@@ -371,7 +371,7 @@
       "actionPlan": "Kaji ulang cctv warehouse",
       "rows": [
         {
-          "actual": 98.2,
+          "actual": null,
           "bobot": 40,
           "id": "r177989029078478jg",
           "keyResult": "Tingkat akurasi stok inventaris data vs fisik",
@@ -633,7 +633,7 @@
           "target": 90
         },
         {
-          "actual": 98.23,
+          "actual": 98.225,
           "bobot": 10,
           "id": "r1779890290785xbtj",
           "keyResult": "Tingkat implementasi rekomendasi audit",
@@ -667,7 +667,7 @@
           "objective": "Mencapai target penjualan, pelanggan puas.",
           "keyResult": "Customers baru",
           "target": 10,
-          "actual": 8,
+          "actual": null,
           "bobot": 25
         },
         {
@@ -5917,7 +5917,7 @@
   },
   "_kpi_2026_02": {
     "value": 95.85,
-    "evidence": "https://raw.githubusercontent.com/pinuspackindo-ai/pinuspackindo-okr/data/uploads/umum/1783562906780_rnoaee_feb_2026.png",
+    "evidence": "https://raw.githubusercontent.com/pinuspackindo-ai/pinuspackindo-okr/data/uploads/umum/1783568247165_gvt1ws_feb_2026.png",
     "evidenceName": "feb 2026.png",
     "evidences": [
       {
@@ -5948,7 +5948,7 @@
     "evidences": [
       {
         "name": "APRIL 2026 .png",
-        "data": "https://raw.githubusercontent.com/pinuspackindo-ai/pinuspackindo-okr/data/uploads/umum/1783563050076_uksg3s_APRIL_2026.png"
+        "data": "https://raw.githubusercontent.com/pinuspackindo-ai/pinuspackindo-okr/data/uploads/umum/1783562903819_i7890o_APRIL_2026.png"
       }
     ],
     "savedAt": "2026-07-09T02:04:53.254Z",
@@ -6008,14 +6008,6 @@
     },
     "score": null,
     "savedAt": "2026-07-10T09:26:06.716Z",
-    "locked": true
-  },
-  "_ts": 1784078159824,
-  "_p_sv_2026_07_10": {
-    "text": "(S) PENJEPIT MAKANAN 22 CM, 7,050, 6,975; (S) PISAU ZIG ZAG STAINLESS 19 CM, 4,856, 4,093; (S) PLASTIK ZIPPER BURAM 35X45 X10, 17,105, 16,850",
-    "evidence": "https://raw.githubusercontent.com/pinuspackindo-ai/pinuspackindo-okr/data/uploads/purchasing/1783993150254_p4tqrv_10.png",
-    "evidenceName": "10.PNG",
-    "savedAt": "2026-07-14T01:39:20.274Z",
     "locked": true
   },
   "_hrd_kin_2026_07": {
@@ -6093,6 +6085,13 @@
     ],
     "savedAt": "2026-07-13T03:06:24.340Z"
   },
+  "_p_sv_2026_07_10": {
+    "text": "(S) PENJEPIT MAKANAN 22 CM, 7,050, 6,975; (S) PISAU ZIG ZAG STAINLESS 19 CM, 4,856, 4,093; (S) PLASTIK ZIPPER BURAM 35X45 X10, 17,105, 16,850",
+    "evidence": "https://raw.githubusercontent.com/pinuspackindo-ai/pinuspackindo-okr/data/uploads/purchasing/1783993150254_p4tqrv_10.png",
+    "evidenceName": "10.PNG",
+    "savedAt": "2026-07-14T01:39:20.274Z",
+    "locked": true
+  },
   "_p_ins_2026_07_11": {
     "file1": "https://raw.githubusercontent.com/pinuspackindo-ai/pinuspackindo-okr/data/uploads/purchasing/1784018148182_04e8xv_product.product.xlsx",
     "file1Name": "product.product.xlsx",
@@ -6140,5 +6139,6 @@
     "score": null,
     "savedAt": "2026-07-14T08:38:46.222Z",
     "locked": true
-  }
+  },
+  "_ts": 1784078160944
 }
