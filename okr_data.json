@@ -4071,10 +4071,10 @@
         "tal": "Running repacking by checker + ITR by md sales",
         "deadline": "2026-07-31",
         "bobot": 20,
-        "progress": null,
+        "progress": 100,
         "review": "",
         "editing": false,
-        "savedAt": "2026-07-06T03:45:53.545Z"
+        "savedAt": "2026-07-15T04:02:20.628Z"
       },
       {
         "tal": "Finalisasi display toko sesuai planogram",
@@ -4086,7 +4086,7 @@
         "savedAt": "2026-07-06T03:45:54.494Z"
       }
     ],
-    "savedAt": "2026-07-15T04:02:17.474Z"
+    "savedAt": "2026-07-15T04:02:20.628Z"
   },
   "_tal_d12_2026_07": {
     "rows": [
@@ -6140,5 +6140,5 @@
     "savedAt": "2026-07-14T08:38:46.222Z",
     "locked": true
   },
-  "_ts": 1784088137474
+  "_ts": 1784088140628
 }
