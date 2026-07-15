@@ -2355,7 +2355,7 @@
         "jabatan": "STAFF",
         "namaRequest": "KASIR",
         "tglRequest": "2026-04-07",
-        "deadline": "2026-05-06",
+        "deadline": "2026-05-07",
         "realisasi": "2026-05-04",
         "evidence": "https://raw.githubusercontent.com/pinuspackindo-ai/pinuspackindo-okr/data/uploads/hrd/1780973717956_wtfu92_laporan_rekrutmen.png",
         "evidenceName": "laporan rekrutmen .png",
@@ -2371,7 +2371,7 @@
         "jabatan": "STAFF",
         "namaRequest": "HELPER",
         "tglRequest": "2026-04-07",
-        "deadline": "2026-05-06",
+        "deadline": "2026-05-07",
         "realisasi": "2026-04-24",
         "evidence": "https://raw.githubusercontent.com/pinuspackindo-ai/pinuspackindo-okr/data/uploads/hrd/1780994721001_jrnrjj_laporan_rekrutmen.png",
         "evidenceName": "laporan rekrutmen .png",
@@ -2387,7 +2387,7 @@
         "jabatan": "SPV/MANAGER",
         "namaRequest": "SPV STORE",
         "tglRequest": "2026-04-18",
-        "deadline": "2026-06-01",
+        "deadline": "2026-06-02",
         "realisasi": "2026-05-18",
         "evidence": "https://raw.githubusercontent.com/pinuspackindo-ai/pinuspackindo-okr/data/uploads/hrd/1780994709886_p02nqq_laporan_rekrutmen.png",
         "evidenceName": "laporan rekrutmen .png",
@@ -2403,7 +2403,7 @@
         "jabatan": "EKSEKUTIF/SPESIALIS",
         "namaRequest": "STAFF PURSHASING",
         "tglRequest": "2026-05-18",
-        "deadline": "2026-08-15",
+        "deadline": "2026-08-16",
         "realisasi": "2026-05-26",
         "evidence": "https://raw.githubusercontent.com/pinuspackindo-ai/pinuspackindo-okr/data/uploads/hrd/1780974009060_xahfgt_laporan_rekrutmen.png",
         "evidenceName": "laporan rekrutmen .png",
@@ -2419,7 +2419,7 @@
         "jabatan": "STAFF",
         "namaRequest": "STAFF LEGAL N PAYROLL",
         "tglRequest": "2026-04-10",
-        "deadline": "2026-05-09",
+        "deadline": "2026-05-10",
         "realisasi": "2026-05-10",
         "evidence": "https://raw.githubusercontent.com/pinuspackindo-ai/pinuspackindo-okr/data/uploads/hrd/1780974009060_xahfgt_laporan_rekrutmen.png",
         "evidenceName": "laporan rekrutmen .png",
@@ -6177,5 +6177,5 @@
     "savedAt": "2026-07-15T10:19:51.843Z",
     "locked": true
   },
-  "_ts": 1784124917843
+  "_ts": 1784125023625
 }
