@@ -4062,10 +4062,10 @@
         "tal": "Running RN by checker",
         "deadline": "2026-07-31",
         "bobot": 30,
-        "progress": null,
+        "progress": 100,
         "review": "",
         "editing": false,
-        "savedAt": "2026-07-06T03:45:55.227Z"
+        "savedAt": "2026-07-15T04:02:17.474Z"
       },
       {
         "tal": "Running repacking by checker + ITR by md sales",
@@ -4086,7 +4086,7 @@
         "savedAt": "2026-07-06T03:45:54.494Z"
       }
     ],
-    "savedAt": "2026-07-15T04:01:42.158Z"
+    "savedAt": "2026-07-15T04:02:17.474Z"
   },
   "_tal_d12_2026_07": {
     "rows": [
@@ -5873,7 +5873,6 @@
     "savedAt": null,
     "locked": false
   },
-  "_ts": 1784088104498,
   "_d_new_cust_2026_06": {
     "value": 8,
     "evidence": null,
@@ -6140,5 +6139,6 @@
     "score": null,
     "savedAt": "2026-07-14T08:38:46.222Z",
     "locked": true
-  }
+  },
+  "_ts": 1784088137474
 }
