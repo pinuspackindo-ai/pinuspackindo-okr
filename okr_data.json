@@ -1,5 +1,5 @@
 {
-  "_ts": 1784182945518,
+  "_ts": 1784182954248,
   "_userAccess": {
     "Finance & Accounting": {
       "modules": [
@@ -4177,10 +4177,10 @@
         "tal": "pengadaan atribut dresscode sesuai SOP + internal memo nya",
         "deadline": "2026-07-31",
         "bobot": 35,
-        "progress": 50,
+        "progress": 70,
         "review": "",
         "editing": false,
-        "savedAt": "2026-07-16T06:16:47.790Z"
+        "savedAt": "2026-07-16T06:22:34.248Z"
       },
       {
         "tal": "menyusun business flow departement HRD",
@@ -4192,7 +4192,7 @@
         "savedAt": "2026-07-16T06:22:25.518Z"
       }
     ],
-    "savedAt": "2026-07-16T06:22:25.518Z"
+    "savedAt": "2026-07-16T06:22:34.248Z"
   },
   "_tal_d2_2026_07": {
     "rows": [
