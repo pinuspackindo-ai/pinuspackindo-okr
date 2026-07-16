@@ -1,5 +1,4 @@
 {
-  "_ts": 1784171457543,
   "_userAccess": {
     "Finance & Accounting": {
       "modules": [
@@ -1173,7 +1172,7 @@
         "jabatan": "STAFF",
         "namaRequest": "DRIVER",
         "tglRequest": "2026-05-22",
-        "deadline": "2026-06-20",
+        "deadline": "2026-06-21",
         "realisasi": "2026-06-08",
         "evidence": "https://raw.githubusercontent.com/pinuspackindo-ai/pinuspackindo-okr/data/uploads/hrd/1782803326770_2ik95d_OJT_Wafa_compressed.pdf",
         "evidenceName": "OJT Wafa_compressed.pdf",
@@ -1189,7 +1188,7 @@
         "jabatan": "STAFF",
         "namaRequest": "SOSMED",
         "tglRequest": "2026-06-06",
-        "deadline": "2026-07-05",
+        "deadline": "2026-07-06",
         "realisasi": "2026-06-30",
         "evidence": null,
         "evidenceName": "Surat Penawaran Kerja -David Ilham Hakiki ttddocx-compressed.pdf",
@@ -2356,7 +2355,7 @@
         "jabatan": "STAFF",
         "namaRequest": "KASIR",
         "tglRequest": "2026-04-07",
-        "deadline": "2026-05-06",
+        "deadline": "2026-05-07",
         "realisasi": "2026-05-04",
         "evidence": "https://raw.githubusercontent.com/pinuspackindo-ai/pinuspackindo-okr/data/uploads/hrd/1780973717956_wtfu92_laporan_rekrutmen.png",
         "evidenceName": "laporan rekrutmen .png",
@@ -2372,7 +2371,7 @@
         "jabatan": "STAFF",
         "namaRequest": "HELPER",
         "tglRequest": "2026-04-07",
-        "deadline": "2026-05-06",
+        "deadline": "2026-05-07",
         "realisasi": "2026-04-24",
         "evidence": "https://raw.githubusercontent.com/pinuspackindo-ai/pinuspackindo-okr/data/uploads/hrd/1780994721001_jrnrjj_laporan_rekrutmen.png",
         "evidenceName": "laporan rekrutmen .png",
@@ -2388,7 +2387,7 @@
         "jabatan": "SPV/MANAGER",
         "namaRequest": "SPV STORE",
         "tglRequest": "2026-04-18",
-        "deadline": "2026-06-01",
+        "deadline": "2026-06-02",
         "realisasi": "2026-05-18",
         "evidence": "https://raw.githubusercontent.com/pinuspackindo-ai/pinuspackindo-okr/data/uploads/hrd/1780994709886_p02nqq_laporan_rekrutmen.png",
         "evidenceName": "laporan rekrutmen .png",
@@ -2404,7 +2403,7 @@
         "jabatan": "EKSEKUTIF/SPESIALIS",
         "namaRequest": "STAFF PURSHASING",
         "tglRequest": "2026-05-18",
-        "deadline": "2026-08-15",
+        "deadline": "2026-08-16",
         "realisasi": "2026-05-26",
         "evidence": "https://raw.githubusercontent.com/pinuspackindo-ai/pinuspackindo-okr/data/uploads/hrd/1780974009060_xahfgt_laporan_rekrutmen.png",
         "evidenceName": "laporan rekrutmen .png",
@@ -2420,7 +2419,7 @@
         "jabatan": "STAFF",
         "namaRequest": "STAFF LEGAL N PAYROLL",
         "tglRequest": "2026-04-10",
-        "deadline": "2026-05-09",
+        "deadline": "2026-05-10",
         "realisasi": "2026-05-10",
         "evidence": "https://raw.githubusercontent.com/pinuspackindo-ai/pinuspackindo-okr/data/uploads/hrd/1780974009060_xahfgt_laporan_rekrutmen.png",
         "evidenceName": "laporan rekrutmen .png",
@@ -4113,22 +4112,22 @@
         "tal": "menjalankan proyek hpp bersama purchasing",
         "deadline": "2026-07-31",
         "bobot": 20,
-        "progress": null,
+        "progress": 30,
         "review": "",
         "editing": false,
-        "savedAt": "2026-07-06T01:56:54.580Z"
+        "savedAt": "2026-07-15T13:38:32.614Z"
       },
       {
         "tal": "pendataan GA sebelum staff resign",
         "deadline": "2026-07-31",
         "bobot": 10,
-        "progress": 50,
+        "progress": 80,
         "review": "",
         "editing": false,
-        "savedAt": "2026-07-13T04:44:37.215Z"
+        "savedAt": "2026-07-15T13:38:26.808Z"
       }
     ],
-    "savedAt": "2026-07-13T04:44:48.496Z"
+    "savedAt": "2026-07-15T13:38:32.614Z"
   },
   "_tal_d10_2026_07": {
     "rows": [
@@ -4374,7 +4373,7 @@
           "objective": "Membangun dan menjaga SDM yg kompeten, disiplin, produktif, inisiatif, guna mendukung perusahaan berkembang.",
           "keyResult": "Ketepatan waktu rekrutment",
           "target": 85,
-          "actual": 71.43,
+          "actual": null,
           "bobot": 15
         },
         {
@@ -4461,7 +4460,7 @@
           "objective": "Pengadaan stok tepat waktu dan berkwalitas, administrasi akurat..",
           "keyResult": "Tingkat in stock",
           "target": 95,
-          "actual": 91.39,
+          "actual": 91.37,
           "bobot": 40
         },
         {
@@ -6147,35 +6146,43 @@
         "jabatan": "STAFF",
         "namaRequest": "CUSTOMER SERVICE TOKO",
         "tglRequest": "2026-06-06",
-        "deadline": "2026-07-05",
+        "deadline": "2026-07-06",
         "realisasi": "2026-07-13",
-        "evidence": "https://raw.githubusercontent.com/pinuspackindo-ai/pinuspackindo-okr/data/uploads/hrd/1784100691975_5wv0yg_bukti_offering_letter_mentari_cs_130726.jpeg",
+        "evidence": null,
         "evidenceName": "bukti offering letter mentari cs 130726.jpeg",
         "editing": false,
         "evidences": [
           {
             "name": "bukti offering letter mentari cs 130726.jpeg",
-            "data": null
-          }
-        ]
-      },
-      {
-        "jabatan": "STAFF",
-        "namaRequest": "ACCOUNT PAYABLE",
-        "tglRequest": "2026-06-16",
-        "deadline": "2026-07-15",
-        "realisasi": "2026-07-15",
-        "evidence": "https://raw.githubusercontent.com/pinuspackindo-ai/pinuspackindo-okr/data/uploads/hrd/1784106544662_kpp4yw_bukti_offering_letter_vica_AP.png",
-        "evidenceName": "bukti offering letter vica AP .png",
-        "editing": false,
-        "evidences": [
-          {
-            "name": "bukti offering letter vica AP .png",
-            "data": null
+            "data": "https://raw.githubusercontent.com/pinuspackindo-ai/pinuspackindo-okr/data/uploads/hrd/1784110792450_mqclex_bukti_offering_letter_mentari_cs_130726.jpeg"
           }
         ]
       }
     ],
     "savedAt": "2026-07-15T07:20:17.341Z"
-  }
+  },
+  "_p_ins_2026_07_15": {
+    "file1": "https://raw.githubusercontent.com/pinuspackindo-ai/pinuspackindo-okr/data/uploads/purchasing/1784122655352_n9890x_product.product.xlsx",
+    "file1Name": "product.product.xlsx",
+    "file2": "https://raw.githubusercontent.com/pinuspackindo-ai/pinuspackindo-okr/data/uploads/purchasing/1784111733210_idyk0s_product.product_1.xlsx",
+    "file2Name": "product.product (1).xlsx",
+    "file3": "https://raw.githubusercontent.com/pinuspackindo-ai/pinuspackindo-okr/data/uploads/purchasing/1784110794219_kp8506_purchase.order.line.xlsx",
+    "file3Name": "purchase.order.line.xlsx",
+    "users": {
+      "Arif Wibowo": 94.64,
+      "Adit Mohgat": 87.4,
+      "A'izatul Nafisah": 95.62
+    },
+    "score": 91.17,
+    "savedAt": "2026-07-15T10:19:51.843Z",
+    "locked": true
+  },
+  "_p_sv_2026_07_15": {
+    "text": "METANOL, 1,750,000, 1,700,000",
+    "evidence": "https://raw.githubusercontent.com/pinuspackindo-ai/pinuspackindo-okr/data/uploads/purchasing/1784164161900_fmwiux_15.png",
+    "evidenceName": "15.PNG",
+    "savedAt": "2026-07-16T01:09:38.937Z",
+    "locked": true
+  },
+  "_ts": 1784171463662
 }
