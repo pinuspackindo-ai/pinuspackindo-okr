@@ -6177,5 +6177,12 @@
     "savedAt": "2026-07-15T10:19:51.843Z",
     "locked": true
   },
-  "_ts": 1784164116931
+  "_ts": 1784164170457,
+  "_p_sv_2026_07_15": {
+    "text": "METANOL, 1,750,000, 1,700,000",
+    "evidence": "https://raw.githubusercontent.com/pinuspackindo-ai/pinuspackindo-okr/data/uploads/purchasing/1784164161900_fmwiux_15.png",
+    "evidenceName": "15.PNG",
+    "savedAt": null,
+    "locked": false
+  }
 }
