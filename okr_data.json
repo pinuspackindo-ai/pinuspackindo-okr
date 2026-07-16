@@ -1,5 +1,5 @@
 {
-  "_ts": 1784182922255,
+  "_ts": 1784182932439,
   "_userAccess": {
     "Finance & Accounting": {
       "modules": [
@@ -4186,13 +4186,13 @@
         "tal": "menyusun business flow departement HRD",
         "deadline": "2026-07-31",
         "bobot": 20,
-        "progress": 40,
+        "progress": 50,
         "review": "",
         "editing": false,
-        "savedAt": "2026-07-13T02:47:27.071Z"
+        "savedAt": "2026-07-16T06:22:12.439Z"
       }
     ],
-    "savedAt": "2026-07-16T06:22:02.255Z"
+    "savedAt": "2026-07-16T06:22:12.439Z"
   },
   "_tal_d2_2026_07": {
     "rows": [
