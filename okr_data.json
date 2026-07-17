@@ -1,4 +1,5 @@
 {
+  "_ts": 1784268842523,
   "_userAccess": {
     "Finance & Accounting": {
       "modules": [
@@ -667,7 +668,7 @@
           "objective": "Mencapai target penjualan, pelanggan puas.",
           "keyResult": "Customers baru",
           "target": 10,
-          "actual": null,
+          "actual": 8,
           "bobot": 25
         },
         {
@@ -4053,40 +4054,40 @@
         "tal": "Melebur md sales + inval md, revisi kpi per individu",
         "deadline": "2026-07-31",
         "bobot": 40,
-        "progress": null,
+        "progress": 50,
         "review": "",
         "editing": false,
-        "savedAt": "2026-07-06T03:45:55.744Z"
+        "savedAt": "2026-07-15T04:01:42.158Z"
       },
       {
         "tal": "Running RN by checker",
         "deadline": "2026-07-31",
         "bobot": 30,
-        "progress": null,
+        "progress": 100,
         "review": "",
         "editing": false,
-        "savedAt": "2026-07-06T03:45:55.227Z"
+        "savedAt": "2026-07-15T04:02:17.474Z"
       },
       {
         "tal": "Running repacking by checker + ITR by md sales",
         "deadline": "2026-07-31",
         "bobot": 20,
-        "progress": null,
+        "progress": 100,
         "review": "",
         "editing": false,
-        "savedAt": "2026-07-06T03:45:53.545Z"
+        "savedAt": "2026-07-15T04:02:20.628Z"
       },
       {
         "tal": "Finalisasi display toko sesuai planogram",
         "deadline": "2026-07-31",
         "bobot": 10,
-        "progress": null,
+        "progress": 100,
         "review": "",
         "editing": false,
-        "savedAt": "2026-07-06T03:45:54.494Z"
+        "savedAt": "2026-07-15T04:02:23.608Z"
       }
     ],
-    "savedAt": "2026-07-06T03:45:55.744Z"
+    "savedAt": "2026-07-15T04:02:23.608Z"
   },
   "_tal_d12_2026_07": {
     "rows": [
@@ -4373,7 +4374,7 @@
           "objective": "Membangun dan menjaga SDM yg kompeten, disiplin, produktif, inisiatif, guna mendukung perusahaan berkembang.",
           "keyResult": "Ketepatan waktu rekrutment",
           "target": 85,
-          "actual": null,
+          "actual": 90.54,
           "bobot": 15
         },
         {
@@ -4431,7 +4432,7 @@
           "objective": "Stok akurat, persediaan optimal, biaya & waste minimal.",
           "keyResult": "Akurasi DO & RN",
           "target": 100,
-          "actual": null,
+          "actual": 99.71,
           "bobot": 10
         },
         {
@@ -6286,18 +6287,18 @@
   },
   "_inv_rn_do_2026_07_06": {
     "value": 100,
-    "evidence": "https://raw.githubusercontent.com/pinuspackindo-ai/pinuspackindo-okr/data/uploads/inventory/1784188364158_zuq2do_WhatsApp_Image_2026-07-16_at_13.54.35.jpeg",
+    "evidence": null,
     "evidenceName": "WhatsApp Image 2026-07-16 at 13.54.35.jpeg",
     "savedAt": "2026-07-16T06:55:24.454Z",
     "locked": true,
     "evidences": [
       {
         "name": "WhatsApp Image 2026-07-16 at 13.54.35.jpeg",
-        "data": "https://raw.githubusercontent.com/pinuspackindo-ai/pinuspackindo-okr/data/uploads/inventory/1784189538788_2nf2xu_WhatsApp_Image_2026-07-16_at_13.54.35.jpeg"
+        "data": null
       },
       {
         "name": "WhatsApp Image 2026-07-16 at 13.54.34 (1).jpeg",
-        "data": "https://raw.githubusercontent.com/pinuspackindo-ai/pinuspackindo-okr/data/uploads/inventory/1784195404477_w0sgu9_WhatsApp_Image_2026-07-16_at_13.54.34_1.jpeg"
+        "data": null
       },
       {
         "name": "WhatsApp Image 2026-07-16 at 13.54.34.jpeg",
@@ -6343,7 +6344,7 @@
       },
       {
         "name": "WhatsApp Image 2026-07-16 at 13.58.17.jpeg",
-        "data": "https://raw.githubusercontent.com/pinuspackindo-ai/pinuspackindo-okr/data/uploads/inventory/1784213194156_e5usjf_WhatsApp_Image_2026-07-16_at_13.58.17.jpeg"
+        "data": null
       }
     ]
   },
@@ -6417,6 +6418,5 @@
     "score": 90.72,
     "savedAt": "2026-07-16T08:12:51.196Z",
     "locked": true
-  },
-  "_ts": 1784268736628
+  }
 }
