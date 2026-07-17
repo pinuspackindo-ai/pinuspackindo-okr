@@ -4627,10 +4627,10 @@
         "tal": "survey kontrakan cabang juwana",
         "deadline": "2026-07-31",
         "bobot": 30,
-        "progress": null,
+        "progress": 100,
         "review": "",
         "editing": false,
-        "savedAt": "2026-07-07T03:04:41.483Z"
+        "savedAt": "2026-07-17T18:48:48.962Z"
       },
       {
         "tal": "bersih bersih customer kecil",
@@ -4642,7 +4642,7 @@
         "savedAt": "2026-07-07T03:04:41.483Z"
       }
     ],
-    "savedAt": "2026-07-07T03:04:41.483Z"
+    "savedAt": "2026-07-17T18:48:48.962Z"
   },
   "_hrdViewAllV1": 1,
   "_fa_piutang_jt_2026_06": {
@@ -6434,5 +6434,5 @@
     "savedAt": "2026-07-17T10:37:09.263Z",
     "locked": true
   },
-  "_ts": 1784314084347
+  "_ts": 1784314128962
 }
