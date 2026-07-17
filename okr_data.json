@@ -1,4 +1,5 @@
 {
+  "_ts": 1784276976170,
   "_userAccess": {
     "Finance & Accounting": {
       "modules": [
@@ -4094,19 +4095,19 @@
         "tal": "membuat tools untuk repack + ITR",
         "deadline": "2026-07-31",
         "bobot": 40,
-        "progress": 100,
+        "progress": null,
         "review": "",
         "editing": false,
-        "savedAt": "2026-07-09T04:21:32.196Z"
+        "savedAt": "2026-07-06T01:56:54.580Z"
       },
       {
         "tal": "finalisasi training admin inventory",
         "deadline": "2026-07-31",
         "bobot": 30,
-        "progress": 50,
+        "progress": null,
         "review": "",
         "editing": false,
-        "savedAt": "2026-07-13T04:44:48.496Z"
+        "savedAt": "2026-07-06T01:56:54.580Z"
       },
       {
         "tal": "menjalankan proyek hpp bersama purchasing",
@@ -4121,45 +4122,36 @@
         "tal": "pendataan GA sebelum staff resign",
         "deadline": "2026-07-31",
         "bobot": 10,
-        "progress": 50,
+        "progress": null,
         "review": "",
         "editing": false,
-        "savedAt": "2026-07-13T04:44:37.215Z"
+        "savedAt": "2026-07-06T01:56:54.580Z"
       }
     ],
-    "savedAt": "2026-07-13T04:44:48.496Z"
+    "savedAt": "2026-07-06T01:56:54.580Z"
   },
   "_tal_d10_2026_07": {
     "rows": [
       {
         "tal": "revisi planogram warehouse",
         "deadline": "2026-07-31",
+        "bobot": 60,
+        "progress": 5,
+        "review": "",
+        "editing": false,
+        "savedAt": "2026-07-07T04:46:18.256Z"
+      },
+      {
+        "tal": "menyusun SOP pengelolaan tips warehouse",
+        "deadline": "2026-07-31",
         "bobot": 40,
-        "progress": 80,
+        "progress": 5,
         "review": "",
         "editing": false,
-        "savedAt": "2026-07-13T04:50:56.041Z"
-      },
-      {
-        "tal": "planning & eksekusi pengelolaan tips warehouse",
-        "deadline": "2026-07-31",
-        "bobot": 35,
-        "progress": 20,
-        "review": "",
-        "editing": false,
-        "savedAt": "2026-07-13T04:51:47.087Z"
-      },
-      {
-        "tal": "planning & eksekusi palet warehouse",
-        "deadline": "2026-07-31",
-        "bobot": 25,
-        "progress": 40,
-        "review": "",
-        "editing": false,
-        "savedAt": "2026-07-13T04:51:27.700Z"
+        "savedAt": "2026-07-07T04:46:53.329Z"
       }
     ],
-    "savedAt": "2026-07-13T04:51:47.087Z"
+    "savedAt": "2026-07-07T04:46:53.329Z"
   },
   "_tal_d3_2026_07": {
     "rows": [
@@ -4167,31 +4159,31 @@
         "tal": "setting KPI bagi yg belum punya",
         "deadline": "2026-07-31",
         "bobot": 45,
-        "progress": 70,
+        "progress": null,
         "review": "",
         "editing": false,
-        "savedAt": "2026-07-17T06:46:57.209Z"
+        "savedAt": "2026-07-06T02:00:45.071Z"
       },
       {
         "tal": "pengadaan atribut dresscode sesuai SOP + internal memo nya",
         "deadline": "2026-07-31",
         "bobot": 35,
-        "progress": 90,
+        "progress": null,
         "review": "",
         "editing": false,
-        "savedAt": "2026-07-17T06:46:44.809Z"
+        "savedAt": "2026-07-06T02:00:45.071Z"
       },
       {
         "tal": "menyusun business flow departement HRD",
         "deadline": "2026-07-31",
         "bobot": 20,
-        "progress": 40,
+        "progress": null,
         "review": "",
         "editing": false,
-        "savedAt": "2026-07-13T02:47:27.071Z"
+        "savedAt": "2026-07-06T02:00:45.071Z"
       }
     ],
-    "savedAt": "2026-07-17T06:46:57.209Z"
+    "savedAt": "2026-07-06T02:00:45.071Z"
   },
   "_tal_d2_2026_07": {
     "rows": [
@@ -4373,7 +4365,7 @@
           "objective": "Membangun dan menjaga SDM yg kompeten, disiplin, produktif, inisiatif, guna mendukung perusahaan berkembang.",
           "keyResult": "Ketepatan waktu rekrutment",
           "target": 85,
-          "actual": null,
+          "actual": 90.54,
           "bobot": 15
         },
         {
@@ -4431,7 +4423,7 @@
           "objective": "Stok akurat, persediaan optimal, biaya & waste minimal.",
           "keyResult": "Akurasi DO & RN",
           "target": 100,
-          "actual": null,
+          "actual": 99.71,
           "bobot": 10
         },
         {
@@ -4601,16 +4593,16 @@
   "_tal_d4_2026_07": {
     "rows": [
       {
-        "tal": "pendataan inventaris & vendor",
+        "tal": "pendataan inventaris sebelum resign",
         "deadline": "2026-07-31",
         "bobot": 100,
         "progress": null,
         "review": "",
         "editing": false,
-        "savedAt": "2026-07-08T03:41:50.225Z"
+        "savedAt": "2026-07-07T03:03:14.684Z"
       }
     ],
-    "savedAt": "2026-07-08T03:41:50.225Z"
+    "savedAt": "2026-07-07T03:03:14.684Z"
   },
   "_tal_d9_2026_07": {
     "rows": [
@@ -6293,11 +6285,11 @@
     "evidences": [
       {
         "name": "WhatsApp Image 2026-07-16 at 13.54.35.jpeg",
-        "data": "https://raw.githubusercontent.com/pinuspackindo-ai/pinuspackindo-okr/data/uploads/inventory/1784189538788_2nf2xu_WhatsApp_Image_2026-07-16_at_13.54.35.jpeg"
+        "data": null
       },
       {
         "name": "WhatsApp Image 2026-07-16 at 13.54.34 (1).jpeg",
-        "data": "https://raw.githubusercontent.com/pinuspackindo-ai/pinuspackindo-okr/data/uploads/inventory/1784195404477_w0sgu9_WhatsApp_Image_2026-07-16_at_13.54.34_1.jpeg"
+        "data": null
       },
       {
         "name": "WhatsApp Image 2026-07-16 at 13.54.34.jpeg",
@@ -6343,7 +6335,7 @@
       },
       {
         "name": "WhatsApp Image 2026-07-16 at 13.58.17.jpeg",
-        "data": "https://raw.githubusercontent.com/pinuspackindo-ai/pinuspackindo-okr/data/uploads/inventory/1784213194156_e5usjf_WhatsApp_Image_2026-07-16_at_13.58.17.jpeg"
+        "data": null
       }
     ]
   },
@@ -6417,6 +6409,5 @@
     "score": 90.72,
     "savedAt": "2026-07-16T08:12:51.196Z",
     "locked": true
-  },
-  "_ts": 1784271017920
+  }
 }
