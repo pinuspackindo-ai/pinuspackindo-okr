@@ -4618,10 +4618,10 @@
         "tal": "buang sumo, gocup14, bintang oz",
         "deadline": "2026-07-31",
         "bobot": 40,
-        "progress": null,
+        "progress": 50,
         "review": "",
         "editing": false,
-        "savedAt": "2026-07-07T03:04:41.483Z"
+        "savedAt": "2026-07-17T18:49:10.276Z"
       },
       {
         "tal": "survey kontrakan cabang juwana",
@@ -4642,7 +4642,7 @@
         "savedAt": "2026-07-17T18:49:04.156Z"
       }
     ],
-    "savedAt": "2026-07-17T18:49:04.156Z"
+    "savedAt": "2026-07-17T18:49:10.276Z"
   },
   "_hrdViewAllV1": 1,
   "_fa_piutang_jt_2026_06": {
@@ -6434,5 +6434,5 @@
     "savedAt": "2026-07-17T10:37:09.263Z",
     "locked": true
   },
-  "_ts": 1784314144156
+  "_ts": 1784314150276
 }
