@@ -4176,22 +4176,22 @@
         "tal": "pengadaan atribut dresscode sesuai SOP + internal memo nya",
         "deadline": "2026-07-31",
         "bobot": 35,
-        "progress": 90,
+        "progress": 100,
         "review": "",
         "editing": false,
-        "savedAt": "2026-07-17T06:46:44.809Z"
+        "savedAt": "2026-07-18T01:38:18.969Z"
       },
       {
         "tal": "menyusun business flow departement HRD",
         "deadline": "2026-07-31",
         "bobot": 20,
-        "progress": 40,
+        "progress": 50,
         "review": "",
         "editing": false,
-        "savedAt": "2026-07-13T02:47:27.071Z"
+        "savedAt": "2026-07-18T01:38:37.334Z"
       }
     ],
-    "savedAt": "2026-07-17T06:46:57.209Z"
+    "savedAt": "2026-07-18T01:38:37.334Z"
   },
   "_tal_d2_2026_07": {
     "rows": [
@@ -4618,31 +4618,31 @@
         "tal": "buang sumo, gocup14, bintang oz",
         "deadline": "2026-07-31",
         "bobot": 40,
-        "progress": null,
+        "progress": 50,
         "review": "",
         "editing": false,
-        "savedAt": "2026-07-07T03:04:41.483Z"
+        "savedAt": "2026-07-17T18:49:10.276Z"
       },
       {
         "tal": "survey kontrakan cabang juwana",
         "deadline": "2026-07-31",
         "bobot": 30,
-        "progress": null,
+        "progress": 100,
         "review": "",
         "editing": false,
-        "savedAt": "2026-07-07T03:04:41.483Z"
+        "savedAt": "2026-07-17T18:48:48.962Z"
       },
       {
         "tal": "bersih bersih customer kecil",
         "deadline": "2026-07-31",
         "bobot": 20,
-        "progress": null,
+        "progress": 50,
         "review": "",
         "editing": false,
-        "savedAt": "2026-07-07T03:04:41.483Z"
+        "savedAt": "2026-07-17T18:49:04.156Z"
       }
     ],
-    "savedAt": "2026-07-07T03:04:41.483Z"
+    "savedAt": "2026-07-17T18:49:10.276Z"
   },
   "_hrdViewAllV1": 1,
   "_fa_piutang_jt_2026_06": {
@@ -6418,7 +6418,6 @@
     "savedAt": "2026-07-16T08:12:51.196Z",
     "locked": true
   },
-  "_ts": 1784349547192,
   "_p_ins_2026_07_17": {
     "file1": "https://raw.githubusercontent.com/pinuspackindo-ai/pinuspackindo-okr/data/uploads/purchasing/1784284631940_7leah6_product.product.xlsx",
     "file1Name": "product.product.xlsx",
@@ -6434,5 +6433,6 @@
     "score": 90.55,
     "savedAt": "2026-07-17T10:37:09.263Z",
     "locked": true
-  }
+  },
+  "_ts": 1784349551888
 }
