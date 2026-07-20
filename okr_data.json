@@ -4167,31 +4167,31 @@
         "tal": "setting KPI bagi yg belum punya",
         "deadline": "2026-07-31",
         "bobot": 45,
-        "progress": 25,
+        "progress": 70,
         "review": "",
         "editing": false,
-        "savedAt": "2026-07-13T03:26:40.779Z"
+        "savedAt": "2026-07-17T06:46:57.209Z"
       },
       {
         "tal": "pengadaan atribut dresscode sesuai SOP + internal memo nya",
         "deadline": "2026-07-31",
         "bobot": 35,
-        "progress": 40,
+        "progress": 100,
         "review": "",
         "editing": false,
-        "savedAt": "2026-07-13T02:47:20.986Z"
+        "savedAt": "2026-07-18T01:38:18.969Z"
       },
       {
         "tal": "menyusun business flow departement HRD",
         "deadline": "2026-07-31",
         "bobot": 20,
-        "progress": 40,
+        "progress": 50,
         "review": "",
         "editing": false,
-        "savedAt": "2026-07-13T02:47:27.071Z"
+        "savedAt": "2026-07-18T01:38:37.334Z"
       }
     ],
-    "savedAt": "2026-07-13T03:26:40.780Z"
+    "savedAt": "2026-07-18T01:38:37.334Z"
   },
   "_tal_d2_2026_07": {
     "rows": [
@@ -4460,7 +4460,7 @@
           "objective": "Pengadaan stok tepat waktu dan berkwalitas, administrasi akurat..",
           "keyResult": "Tingkat in stock",
           "target": 95,
-          "actual": 91.32,
+          "actual": 91.26,
           "bobot": 40
         },
         {
@@ -4618,31 +4618,31 @@
         "tal": "buang sumo, gocup14, bintang oz",
         "deadline": "2026-07-31",
         "bobot": 40,
-        "progress": null,
+        "progress": 50,
         "review": "",
         "editing": false,
-        "savedAt": "2026-07-07T03:04:41.483Z"
+        "savedAt": "2026-07-17T18:49:10.276Z"
       },
       {
         "tal": "survey kontrakan cabang juwana",
         "deadline": "2026-07-31",
         "bobot": 30,
-        "progress": null,
+        "progress": 100,
         "review": "",
         "editing": false,
-        "savedAt": "2026-07-07T03:04:41.483Z"
+        "savedAt": "2026-07-17T18:48:48.962Z"
       },
       {
         "tal": "bersih bersih customer kecil",
         "deadline": "2026-07-31",
         "bobot": 20,
-        "progress": null,
+        "progress": 50,
         "review": "",
         "editing": false,
-        "savedAt": "2026-07-07T03:04:41.483Z"
+        "savedAt": "2026-07-17T18:49:04.156Z"
       }
     ],
-    "savedAt": "2026-07-07T03:04:41.483Z"
+    "savedAt": "2026-07-17T18:49:10.276Z"
   },
   "_hrdViewAllV1": 1,
   "_fa_piutang_jt_2026_06": {
@@ -6085,7 +6085,7 @@
     ],
     "savedAt": "2026-07-13T03:06:24.340Z"
   },
-  "_ts": 1784511874177,
+  "_ts": 1784512133500,
   "_p_sv_2026_07_10": {
     "text": "(S) PENJEPIT MAKANAN 22 CM, 7,050, 6,975; (S) PISAU ZIG ZAG STAINLESS 19 CM, 4,856, 4,093; (S) PLASTIK ZIPPER BURAM 35X45 X10, 17,105, 16,850",
     "evidence": "https://raw.githubusercontent.com/pinuspackindo-ai/pinuspackindo-okr/data/uploads/purchasing/1783993150254_p4tqrv_10.png",
@@ -6417,6 +6417,38 @@
     },
     "score": 90.72,
     "savedAt": "2026-07-16T08:12:51.196Z",
+    "locked": true
+  },
+  "_p_ins_2026_07_17": {
+    "file1": "https://raw.githubusercontent.com/pinuspackindo-ai/pinuspackindo-okr/data/uploads/purchasing/1784284631940_7leah6_product.product.xlsx",
+    "file1Name": "product.product.xlsx",
+    "file2": "https://raw.githubusercontent.com/pinuspackindo-ai/pinuspackindo-okr/data/uploads/purchasing/1784284630197_icq906_product.product_1.xlsx",
+    "file2Name": "product.product (1).xlsx",
+    "file3": "https://raw.githubusercontent.com/pinuspackindo-ai/pinuspackindo-okr/data/uploads/purchasing/1784284633644_16d2cf_purchase.order.line.xlsx",
+    "file3Name": "purchase.order.line.xlsx",
+    "users": {
+      "Arif Wibowo": 95.45,
+      "Adit Mohgat": 86.78,
+      "A'izatul Nafisah": 93.89
+    },
+    "score": 90.55,
+    "savedAt": "2026-07-17T10:37:09.263Z",
+    "locked": true
+  },
+  "_p_ins_2026_07_18": {
+    "file1": "https://raw.githubusercontent.com/pinuspackindo-ai/pinuspackindo-okr/data/uploads/purchasing/1784349577080_t3wt78_product.product.xlsx",
+    "file1Name": "product.product.xlsx",
+    "file2": "https://raw.githubusercontent.com/pinuspackindo-ai/pinuspackindo-okr/data/uploads/purchasing/1784349585990_i8r5dp_product.product_1.xlsx",
+    "file2Name": "product.product (1).xlsx",
+    "file3": "https://raw.githubusercontent.com/pinuspackindo-ai/pinuspackindo-okr/data/uploads/purchasing/1784349587520_v5cv18_purchase.order.line.xlsx",
+    "file3Name": "purchase.order.line.xlsx",
+    "users": {
+      "Arif Wibowo": 95.12,
+      "Adit Mohgat": 86.01,
+      "A'izatul Nafisah": 94.5
+    },
+    "score": null,
+    "savedAt": "2026-07-18T04:39:45.206Z",
     "locked": true
   }
 }
