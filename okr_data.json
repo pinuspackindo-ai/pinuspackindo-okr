@@ -667,7 +667,7 @@
           "objective": "Mencapai target penjualan, pelanggan puas.",
           "keyResult": "Customers baru",
           "target": 10,
-          "actual": null,
+          "actual": 8,
           "bobot": 25
         },
         {
@@ -6451,5 +6451,5 @@
     "savedAt": "2026-07-18T04:39:45.206Z",
     "locked": true
   },
-  "_ts": 1784537440323
+  "_ts": 1784537465078
 }
