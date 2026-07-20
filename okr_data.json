@@ -667,7 +667,7 @@
           "objective": "Mencapai target penjualan, pelanggan puas.",
           "keyResult": "Customers baru",
           "target": 10,
-          "actual": 8,
+          "actual": null,
           "bobot": 25
         },
         {
@@ -4176,22 +4176,22 @@
         "tal": "pengadaan atribut dresscode sesuai SOP + internal memo nya",
         "deadline": "2026-07-31",
         "bobot": 35,
-        "progress": 90,
+        "progress": 100,
         "review": "",
         "editing": false,
-        "savedAt": "2026-07-17T06:46:44.809Z"
+        "savedAt": "2026-07-18T01:38:18.969Z"
       },
       {
         "tal": "menyusun business flow departement HRD",
         "deadline": "2026-07-31",
         "bobot": 20,
-        "progress": 40,
+        "progress": 50,
         "review": "",
         "editing": false,
-        "savedAt": "2026-07-13T02:47:27.071Z"
+        "savedAt": "2026-07-18T01:38:37.334Z"
       }
     ],
-    "savedAt": "2026-07-17T06:46:57.209Z"
+    "savedAt": "2026-07-18T01:38:37.334Z"
   },
   "_tal_d2_2026_07": {
     "rows": [
@@ -6434,5 +6434,21 @@
     "savedAt": "2026-07-17T10:37:09.263Z",
     "locked": true
   },
-  "_ts": 1784516757192
+  "_p_ins_2026_07_18": {
+    "file1": "https://raw.githubusercontent.com/pinuspackindo-ai/pinuspackindo-okr/data/uploads/purchasing/1784349577080_t3wt78_product.product.xlsx",
+    "file1Name": "product.product.xlsx",
+    "file2": "https://raw.githubusercontent.com/pinuspackindo-ai/pinuspackindo-okr/data/uploads/purchasing/1784349585990_i8r5dp_product.product_1.xlsx",
+    "file2Name": "product.product (1).xlsx",
+    "file3": "https://raw.githubusercontent.com/pinuspackindo-ai/pinuspackindo-okr/data/uploads/purchasing/1784349587520_v5cv18_purchase.order.line.xlsx",
+    "file3Name": "purchase.order.line.xlsx",
+    "users": {
+      "Arif Wibowo": 95.12,
+      "Adit Mohgat": 86.01,
+      "A'izatul Nafisah": 94.5
+    },
+    "score": null,
+    "savedAt": "2026-07-18T04:39:45.206Z",
+    "locked": true
+  },
+  "_ts": 1784516759137
 }
