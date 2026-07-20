@@ -371,7 +371,7 @@
       "actionPlan": "Kaji ulang cctv warehouse",
       "rows": [
         {
-          "actual": 98.2,
+          "actual": null,
           "bobot": 40,
           "id": "r177989029078478jg",
           "keyResult": "Tingkat akurasi stok inventaris data vs fisik",
@@ -3892,7 +3892,7 @@
     "value": 98.2,
     "evidence": "https://raw.githubusercontent.com/pinuspackindo-ai/pinuspackindo-okr/data/uploads/general_affair/1783409069784_u73ap0_Pinus.jpg",
     "evidenceName": "Pinus.jpg",
-    "savedAt": "2026-07-19T13:47:45.384Z",
+    "savedAt": "2026-07-09T02:11:50.148Z",
     "locked": true,
     "evidences": [
       {
@@ -4112,22 +4112,22 @@
         "tal": "menjalankan proyek hpp bersama purchasing",
         "deadline": "2026-07-31",
         "bobot": 20,
-        "progress": 30,
+        "progress": null,
         "review": "",
         "editing": false,
-        "savedAt": "2026-07-19T13:49:08.107Z"
+        "savedAt": "2026-07-06T01:56:54.580Z"
       },
       {
         "tal": "pendataan GA sebelum staff resign",
         "deadline": "2026-07-31",
         "bobot": 10,
-        "progress": 100,
+        "progress": 50,
         "review": "",
         "editing": false,
-        "savedAt": "2026-07-19T13:49:03.232Z"
+        "savedAt": "2026-07-13T04:44:37.215Z"
       }
     ],
-    "savedAt": "2026-07-19T13:49:08.107Z"
+    "savedAt": "2026-07-13T04:44:48.496Z"
   },
   "_tal_d10_2026_07": {
     "rows": [
@@ -6434,6 +6434,7 @@
     "savedAt": "2026-07-17T10:37:09.263Z",
     "locked": true
   },
+  "_ts": 1784509437663,
   "_p_ins_2026_07_18": {
     "file1": "https://raw.githubusercontent.com/pinuspackindo-ai/pinuspackindo-okr/data/uploads/purchasing/1784349577080_t3wt78_product.product.xlsx",
     "file1Name": "product.product.xlsx",
@@ -6449,6 +6450,5 @@
     "score": null,
     "savedAt": "2026-07-18T04:39:45.206Z",
     "locked": true
-  },
-  "_ts": 1784468948107
+  }
 }
