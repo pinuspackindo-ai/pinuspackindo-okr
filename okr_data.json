@@ -728,33 +728,34 @@
       ]
     },
     "General Affair": {
-      "actionPlan": "Kaji ulang cctv warehouse",
       "rows": [
         {
-          "actual": null,
-          "bobot": 40,
-          "id": "r1780472096513kowy",
+          "id": "r17845375060260en2",
+          "objective": "Inventaris utuh terawat, pengadaan tepat waktu, operasional aman lancar, user puas.",
           "keyResult": "Tingkat akurasi stok inventaris data vs fisik",
-          "objective": "Inventaris utuh terawat, pengadaan tepat waktu, operasional aman lancar, user puas.",
-          "target": 98
+          "target": 98,
+          "actual": 0,
+          "bobot": 40
         },
         {
-          "actual": null,
-          "bobot": 35,
-          "id": "r178047209651331vz",
+          "id": "r1784537506026kta7",
+          "objective": "Inventaris utuh terawat, pengadaan tepat waktu, operasional aman lancar, user puas.",
           "keyResult": "Tingkat akurasi lead time pengadaan / maintenance",
-          "objective": "Inventaris utuh terawat, pengadaan tepat waktu, operasional aman lancar, user puas.",
-          "target": 95
+          "target": 95,
+          "actual": 50,
+          "bobot": 35
         },
         {
-          "actual": null,
-          "bobot": 25,
-          "id": "r1780472096513nvke",
-          "keyResult": "Laporan inventaris akurat dan on time",
+          "id": "r1784537506026uo3t",
           "objective": "Inventaris utuh terawat, pengadaan tepat waktu, operasional aman lancar, user puas.",
-          "target": 100
+          "keyResult": "Laporan inventaris akurat dan on time",
+          "target": 100,
+          "actual": 0,
+          "bobot": 25
         }
-      ]
+      ],
+      "actionPlan": "",
+      "savedAt": "2026-07-20T08:51:46.026Z"
     },
     "HRD": {
       "actionPlan": "Drafting SOP ketidakhadiran",
@@ -6451,5 +6452,5 @@
     "savedAt": "2026-07-18T04:39:45.206Z",
     "locked": true
   },
-  "_ts": 1784537465078
+  "_ts": 1784537506042
 }
