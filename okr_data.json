@@ -1173,7 +1173,7 @@
         "jabatan": "STAFF",
         "namaRequest": "DRIVER",
         "tglRequest": "2026-05-22",
-        "deadline": "2026-06-20",
+        "deadline": "2026-06-21",
         "realisasi": "2026-06-08",
         "evidence": "https://raw.githubusercontent.com/pinuspackindo-ai/pinuspackindo-okr/data/uploads/hrd/1782803326770_2ik95d_OJT_Wafa_compressed.pdf",
         "evidenceName": "OJT Wafa_compressed.pdf",
@@ -1189,7 +1189,7 @@
         "jabatan": "STAFF",
         "namaRequest": "SOSMED",
         "tglRequest": "2026-06-06",
-        "deadline": "2026-07-05",
+        "deadline": "2026-07-06",
         "realisasi": "2026-06-30",
         "evidence": null,
         "evidenceName": "Surat Penawaran Kerja -David Ilham Hakiki ttddocx-compressed.pdf",
@@ -2356,7 +2356,7 @@
         "jabatan": "STAFF",
         "namaRequest": "KASIR",
         "tglRequest": "2026-04-07",
-        "deadline": "2026-05-06",
+        "deadline": "2026-05-07",
         "realisasi": "2026-05-04",
         "evidence": "https://raw.githubusercontent.com/pinuspackindo-ai/pinuspackindo-okr/data/uploads/hrd/1780973717956_wtfu92_laporan_rekrutmen.png",
         "evidenceName": "laporan rekrutmen .png",
@@ -2372,7 +2372,7 @@
         "jabatan": "STAFF",
         "namaRequest": "HELPER",
         "tglRequest": "2026-04-07",
-        "deadline": "2026-05-06",
+        "deadline": "2026-05-07",
         "realisasi": "2026-04-24",
         "evidence": "https://raw.githubusercontent.com/pinuspackindo-ai/pinuspackindo-okr/data/uploads/hrd/1780994721001_jrnrjj_laporan_rekrutmen.png",
         "evidenceName": "laporan rekrutmen .png",
@@ -2388,7 +2388,7 @@
         "jabatan": "SPV/MANAGER",
         "namaRequest": "SPV STORE",
         "tglRequest": "2026-04-18",
-        "deadline": "2026-06-01",
+        "deadline": "2026-06-02",
         "realisasi": "2026-05-18",
         "evidence": "https://raw.githubusercontent.com/pinuspackindo-ai/pinuspackindo-okr/data/uploads/hrd/1780994709886_p02nqq_laporan_rekrutmen.png",
         "evidenceName": "laporan rekrutmen .png",
@@ -2404,7 +2404,7 @@
         "jabatan": "EKSEKUTIF/SPESIALIS",
         "namaRequest": "STAFF PURSHASING",
         "tglRequest": "2026-05-18",
-        "deadline": "2026-08-15",
+        "deadline": "2026-08-16",
         "realisasi": "2026-05-26",
         "evidence": "https://raw.githubusercontent.com/pinuspackindo-ai/pinuspackindo-okr/data/uploads/hrd/1780974009060_xahfgt_laporan_rekrutmen.png",
         "evidenceName": "laporan rekrutmen .png",
@@ -2420,7 +2420,7 @@
         "jabatan": "STAFF",
         "namaRequest": "STAFF LEGAL N PAYROLL",
         "tglRequest": "2026-04-10",
-        "deadline": "2026-05-09",
+        "deadline": "2026-05-10",
         "realisasi": "2026-05-10",
         "evidence": "https://raw.githubusercontent.com/pinuspackindo-ai/pinuspackindo-okr/data/uploads/hrd/1780974009060_xahfgt_laporan_rekrutmen.png",
         "evidenceName": "laporan rekrutmen .png",
@@ -6087,7 +6087,6 @@
     ],
     "savedAt": "2026-07-13T03:06:24.340Z"
   },
-  "_ts": 1784556958204,
   "_p_sv_2026_07_10": {
     "text": "(S) PENJEPIT MAKANAN 22 CM, 7,050, 6,975; (S) PISAU ZIG ZAG STAINLESS 19 CM, 4,856, 4,093; (S) PLASTIK ZIPPER BURAM 35X45 X10, 17,105, 16,850",
     "evidence": "https://raw.githubusercontent.com/pinuspackindo-ai/pinuspackindo-okr/data/uploads/purchasing/1783993150254_p4tqrv_10.png",
@@ -6468,5 +6467,6 @@
     "score": 91.08,
     "savedAt": "2026-07-20T09:31:22.933Z",
     "locked": true
-  }
+  },
+  "_ts": 1784556958986
 }
