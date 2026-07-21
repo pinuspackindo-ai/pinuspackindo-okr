@@ -728,33 +728,34 @@
       ]
     },
     "General Affair": {
-      "actionPlan": "Kaji ulang cctv warehouse",
       "rows": [
         {
-          "actual": null,
-          "bobot": 40,
-          "id": "r1780472096513kowy",
+          "id": "r17845375060260en2",
+          "objective": "Inventaris utuh terawat, pengadaan tepat waktu, operasional aman lancar, user puas.",
           "keyResult": "Tingkat akurasi stok inventaris data vs fisik",
-          "objective": "Inventaris utuh terawat, pengadaan tepat waktu, operasional aman lancar, user puas.",
-          "target": 98
+          "target": 98,
+          "actual": 0,
+          "bobot": 40
         },
         {
-          "actual": null,
-          "bobot": 35,
-          "id": "r178047209651331vz",
+          "id": "r1784537506026kta7",
+          "objective": "Inventaris utuh terawat, pengadaan tepat waktu, operasional aman lancar, user puas.",
           "keyResult": "Tingkat akurasi lead time pengadaan / maintenance",
-          "objective": "Inventaris utuh terawat, pengadaan tepat waktu, operasional aman lancar, user puas.",
-          "target": 95
+          "target": 95,
+          "actual": 50,
+          "bobot": 35
         },
         {
-          "actual": null,
-          "bobot": 25,
-          "id": "r1780472096513nvke",
-          "keyResult": "Laporan inventaris akurat dan on time",
+          "id": "r1784537506026uo3t",
           "objective": "Inventaris utuh terawat, pengadaan tepat waktu, operasional aman lancar, user puas.",
-          "target": 100
+          "keyResult": "Laporan inventaris akurat dan on time",
+          "target": 100,
+          "actual": 0,
+          "bobot": 25
         }
-      ]
+      ],
+      "actionPlan": "",
+      "savedAt": "2026-07-20T08:51:46.026Z"
     },
     "HRD": {
       "actionPlan": "Drafting SOP ketidakhadiran",
@@ -4135,31 +4136,31 @@
         "tal": "revisi planogram warehouse",
         "deadline": "2026-07-31",
         "bobot": 40,
-        "progress": 80,
+        "progress": 90,
         "review": "",
         "editing": false,
-        "savedAt": "2026-07-13T04:50:56.041Z"
+        "savedAt": "2026-07-20T14:41:14.648Z"
       },
       {
         "tal": "planning & eksekusi pengelolaan tips warehouse",
         "deadline": "2026-07-31",
         "bobot": 35,
-        "progress": 20,
+        "progress": 60,
         "review": "",
         "editing": false,
-        "savedAt": "2026-07-13T04:51:47.087Z"
+        "savedAt": "2026-07-20T14:16:41.255Z"
       },
       {
         "tal": "planning & eksekusi palet warehouse",
         "deadline": "2026-07-31",
         "bobot": 25,
-        "progress": 40,
+        "progress": 70,
         "review": "",
         "editing": false,
-        "savedAt": "2026-07-13T04:51:27.700Z"
+        "savedAt": "2026-07-20T14:17:00.130Z"
       }
     ],
-    "savedAt": "2026-07-13T04:51:47.087Z"
+    "savedAt": "2026-07-20T14:41:14.649Z"
   },
   "_tal_d3_2026_07": {
     "rows": [
@@ -4316,31 +4317,32 @@
     "General Affair": {
       "rows": [
         {
-          "id": "r1783303760597d1ks",
+          "id": "r1784537440308gma7",
           "objective": "Inventaris utuh terawat, pengadaan tepat waktu, operasional aman lancar, user puas.",
           "keyResult": "Tingkat akurasi stok inventaris data vs fisik",
           "target": 98,
-          "actual": null,
+          "actual": 0,
           "bobot": 40
         },
         {
-          "id": "r1783303760597xdvh",
+          "id": "r17845374403083gga",
           "objective": "Inventaris utuh terawat, pengadaan tepat waktu, operasional aman lancar, user puas.",
           "keyResult": "Tingkat akurasi lead time pengadaan / maintenance",
           "target": 95,
-          "actual": null,
+          "actual": 50,
           "bobot": 35
         },
         {
-          "id": "r17833037605978omh",
+          "id": "r1784537440309fbtr",
           "objective": "Inventaris utuh terawat, pengadaan tepat waktu, operasional aman lancar, user puas.",
           "keyResult": "Laporan inventaris akurat dan on time",
           "target": 100,
-          "actual": null,
+          "actual": 0,
           "bobot": 25
         }
       ],
-      "actionPlan": "Kaji ulang cctv warehouse"
+      "actionPlan": "Kaji ulang cctv warehouse",
+      "savedAt": "2026-07-20T08:50:40.309Z"
     },
     "HRD": {
       "rows": [
@@ -4460,7 +4462,7 @@
           "objective": "Pengadaan stok tepat waktu dan berkwalitas, administrasi akurat..",
           "keyResult": "Tingkat in stock",
           "target": 95,
-          "actual": 91.26,
+          "actual": 91.25,
           "bobot": 40
         },
         {
@@ -6434,7 +6436,6 @@
     "savedAt": "2026-07-17T10:37:09.263Z",
     "locked": true
   },
-  "_ts": 1784596061469,
   "_p_ins_2026_07_18": {
     "file1": "https://raw.githubusercontent.com/pinuspackindo-ai/pinuspackindo-okr/data/uploads/purchasing/1784349577080_t3wt78_product.product.xlsx",
     "file1Name": "product.product.xlsx",
@@ -6450,5 +6451,22 @@
     "score": null,
     "savedAt": "2026-07-18T04:39:45.206Z",
     "locked": true
-  }
+  },
+  "_p_ins_2026_07_20": {
+    "file1": "https://raw.githubusercontent.com/pinuspackindo-ai/pinuspackindo-okr/data/uploads/purchasing/1784539883862_s8ec3w_product.product.xlsx",
+    "file1Name": "product.product.xlsx",
+    "file2": "https://raw.githubusercontent.com/pinuspackindo-ai/pinuspackindo-okr/data/uploads/purchasing/1784539956764_h0xzf4_product.product_1.xlsx",
+    "file2Name": "product.product (1).xlsx",
+    "file3": "https://raw.githubusercontent.com/pinuspackindo-ai/pinuspackindo-okr/data/uploads/purchasing/1784539957818_velq7t_purchase.order.line.xlsx",
+    "file3Name": "purchase.order.line.xlsx",
+    "users": {
+      "Arif Wibowo": 93.27,
+      "Adit Mohgat": 91.2,
+      "A'izatul Nafisah": 93.1
+    },
+    "score": 91.08,
+    "savedAt": "2026-07-20T09:31:22.933Z",
+    "locked": true
+  },
+  "_ts": 1784596062185
 }
