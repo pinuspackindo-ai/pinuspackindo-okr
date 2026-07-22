@@ -4063,19 +4063,19 @@
         "tal": "Running RN by checker",
         "deadline": "2026-07-31",
         "bobot": 30,
-        "progress": null,
+        "progress": 100,
         "review": "",
         "editing": false,
-        "savedAt": "2026-07-06T03:45:55.227Z"
+        "savedAt": "2026-07-22T01:15:52.943Z"
       },
       {
         "tal": "Running repacking by checker + ITR by md sales",
         "deadline": "2026-07-31",
         "bobot": 20,
-        "progress": null,
+        "progress": 100,
         "review": "",
         "editing": false,
-        "savedAt": "2026-07-06T03:45:53.545Z"
+        "savedAt": "2026-07-22T01:15:57.291Z"
       },
       {
         "tal": "Finalisasi display toko sesuai planogram",
@@ -4087,7 +4087,7 @@
         "savedAt": "2026-07-06T03:45:54.494Z"
       }
     ],
-    "savedAt": "2026-07-06T03:45:55.744Z"
+    "savedAt": "2026-07-22T01:15:57.291Z"
   },
   "_tal_d12_2026_07": {
     "rows": [
@@ -6484,5 +6484,5 @@
     "savedAt": "2026-07-21T09:04:34.334Z",
     "locked": true
   },
-  "_ts": 1784682956041
+  "_ts": 1784682957291
 }
