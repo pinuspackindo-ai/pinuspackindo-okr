@@ -371,7 +371,7 @@
       "actionPlan": "Kaji ulang cctv warehouse",
       "rows": [
         {
-          "actual": null,
+          "actual": 98.2,
           "bobot": 40,
           "id": "r177989029078478jg",
           "keyResult": "Tingkat akurasi stok inventaris data vs fisik",
@@ -728,34 +728,33 @@
       ]
     },
     "General Affair": {
+      "actionPlan": "Kaji ulang cctv warehouse",
       "rows": [
         {
-          "id": "r17845375060260en2",
-          "objective": "Inventaris utuh terawat, pengadaan tepat waktu, operasional aman lancar, user puas.",
+          "actual": null,
+          "bobot": 40,
+          "id": "r1780472096513kowy",
           "keyResult": "Tingkat akurasi stok inventaris data vs fisik",
-          "target": 98,
-          "actual": 0,
-          "bobot": 40
+          "objective": "Inventaris utuh terawat, pengadaan tepat waktu, operasional aman lancar, user puas.",
+          "target": 98
         },
         {
-          "id": "r1784537506026kta7",
-          "objective": "Inventaris utuh terawat, pengadaan tepat waktu, operasional aman lancar, user puas.",
+          "actual": null,
+          "bobot": 35,
+          "id": "r178047209651331vz",
           "keyResult": "Tingkat akurasi lead time pengadaan / maintenance",
-          "target": 95,
-          "actual": 50,
-          "bobot": 35
+          "objective": "Inventaris utuh terawat, pengadaan tepat waktu, operasional aman lancar, user puas.",
+          "target": 95
         },
         {
-          "id": "r1784537506026uo3t",
-          "objective": "Inventaris utuh terawat, pengadaan tepat waktu, operasional aman lancar, user puas.",
+          "actual": null,
+          "bobot": 25,
+          "id": "r1780472096513nvke",
           "keyResult": "Laporan inventaris akurat dan on time",
-          "target": 100,
-          "actual": 0,
-          "bobot": 25
+          "objective": "Inventaris utuh terawat, pengadaan tepat waktu, operasional aman lancar, user puas.",
+          "target": 100
         }
-      ],
-      "actionPlan": "",
-      "savedAt": "2026-07-20T08:51:46.026Z"
+      ]
     },
     "HRD": {
       "actionPlan": "Drafting SOP ketidakhadiran",
@@ -3893,7 +3892,7 @@
     "value": 98.2,
     "evidence": "https://raw.githubusercontent.com/pinuspackindo-ai/pinuspackindo-okr/data/uploads/general_affair/1783409069784_u73ap0_Pinus.jpg",
     "evidenceName": "Pinus.jpg",
-    "savedAt": "2026-07-09T02:11:50.148Z",
+    "savedAt": "2026-07-19T13:47:45.384Z",
     "locked": true,
     "evidences": [
       {
@@ -4054,40 +4053,40 @@
         "tal": "Melebur md sales + inval md, revisi kpi per individu",
         "deadline": "2026-07-31",
         "bobot": 40,
-        "progress": 100,
+        "progress": null,
         "review": "",
         "editing": false,
-        "savedAt": "2026-07-22T01:16:11.331Z"
+        "savedAt": "2026-07-06T03:45:55.744Z"
       },
       {
         "tal": "Running RN by checker",
         "deadline": "2026-07-31",
         "bobot": 30,
-        "progress": 100,
+        "progress": null,
         "review": "",
         "editing": false,
-        "savedAt": "2026-07-22T01:15:52.943Z"
+        "savedAt": "2026-07-06T03:45:55.227Z"
       },
       {
         "tal": "Running repacking by checker + ITR by md sales",
         "deadline": "2026-07-31",
         "bobot": 20,
-        "progress": 100,
+        "progress": null,
         "review": "",
         "editing": false,
-        "savedAt": "2026-07-22T01:15:57.291Z"
+        "savedAt": "2026-07-06T03:45:53.545Z"
       },
       {
         "tal": "Finalisasi display toko sesuai planogram",
         "deadline": "2026-07-31",
         "bobot": 10,
-        "progress": 100,
+        "progress": null,
         "review": "",
         "editing": false,
-        "savedAt": "2026-07-22T01:16:00.549Z"
+        "savedAt": "2026-07-06T03:45:54.494Z"
       }
     ],
-    "savedAt": "2026-07-22T01:16:11.331Z"
+    "savedAt": "2026-07-06T03:45:55.744Z"
   },
   "_tal_d12_2026_07": {
     "rows": [
@@ -4113,22 +4112,22 @@
         "tal": "menjalankan proyek hpp bersama purchasing",
         "deadline": "2026-07-31",
         "bobot": 20,
-        "progress": null,
+        "progress": 30,
         "review": "",
         "editing": false,
-        "savedAt": "2026-07-06T01:56:54.580Z"
+        "savedAt": "2026-07-19T13:49:08.107Z"
       },
       {
         "tal": "pendataan GA sebelum staff resign",
         "deadline": "2026-07-31",
         "bobot": 10,
-        "progress": 50,
+        "progress": 100,
         "review": "",
         "editing": false,
-        "savedAt": "2026-07-13T04:44:37.215Z"
+        "savedAt": "2026-07-19T13:49:03.232Z"
       }
     ],
-    "savedAt": "2026-07-13T04:44:48.496Z"
+    "savedAt": "2026-07-19T13:49:08.107Z"
   },
   "_tal_d10_2026_07": {
     "rows": [
@@ -4136,31 +4135,31 @@
         "tal": "revisi planogram warehouse",
         "deadline": "2026-07-31",
         "bobot": 40,
-        "progress": 90,
+        "progress": 80,
         "review": "",
         "editing": false,
-        "savedAt": "2026-07-20T14:41:14.648Z"
+        "savedAt": "2026-07-13T04:50:56.041Z"
       },
       {
         "tal": "planning & eksekusi pengelolaan tips warehouse",
         "deadline": "2026-07-31",
         "bobot": 35,
-        "progress": 90,
+        "progress": 20,
         "review": "",
         "editing": false,
-        "savedAt": "2026-07-22T04:51:30.570Z"
+        "savedAt": "2026-07-13T04:51:47.087Z"
       },
       {
         "tal": "planning & eksekusi palet warehouse",
         "deadline": "2026-07-31",
         "bobot": 25,
-        "progress": 100,
+        "progress": 40,
         "review": "",
         "editing": false,
-        "savedAt": "2026-07-22T04:51:38.609Z"
+        "savedAt": "2026-07-13T04:51:27.700Z"
       }
     ],
-    "savedAt": "2026-07-22T04:51:38.609Z"
+    "savedAt": "2026-07-13T04:51:47.087Z"
   },
   "_tal_d3_2026_07": {
     "rows": [
@@ -4186,13 +4185,13 @@
         "tal": "menyusun business flow departement HRD",
         "deadline": "2026-07-31",
         "bobot": 20,
-        "progress": 100,
+        "progress": 50,
         "review": "",
         "editing": false,
-        "savedAt": "2026-07-21T07:22:41.058Z"
+        "savedAt": "2026-07-18T01:38:37.334Z"
       }
     ],
-    "savedAt": "2026-07-21T07:22:41.058Z"
+    "savedAt": "2026-07-18T01:38:37.334Z"
   },
   "_tal_d2_2026_07": {
     "rows": [
@@ -4214,10 +4213,10 @@
         "tal": "kids baking demo bersama chef alvian",
         "deadline": "2026-07-31",
         "bobot": 60,
-        "progress": 50,
+        "progress": null,
         "review": "",
         "editing": false,
-        "savedAt": "2026-07-22T01:11:18.142Z"
+        "savedAt": "2026-07-06T02:04:17.521Z"
       },
       {
         "tal": "lulus training SO dan lancar lepas RN + ITR ke checker",
@@ -4229,7 +4228,7 @@
         "savedAt": "2026-07-06T02:04:17.521Z"
       }
     ],
-    "savedAt": "2026-07-22T01:11:18.142Z"
+    "savedAt": "2026-07-06T02:04:17.521Z"
   },
   "2026-07": {
     "Distribution Sales": {
@@ -4317,32 +4316,31 @@
     "General Affair": {
       "rows": [
         {
-          "id": "r1784537440308gma7",
+          "id": "r1783303760597d1ks",
           "objective": "Inventaris utuh terawat, pengadaan tepat waktu, operasional aman lancar, user puas.",
           "keyResult": "Tingkat akurasi stok inventaris data vs fisik",
           "target": 98,
-          "actual": 0,
+          "actual": null,
           "bobot": 40
         },
         {
-          "id": "r17845374403083gga",
+          "id": "r1783303760597xdvh",
           "objective": "Inventaris utuh terawat, pengadaan tepat waktu, operasional aman lancar, user puas.",
           "keyResult": "Tingkat akurasi lead time pengadaan / maintenance",
           "target": 95,
-          "actual": 50,
+          "actual": null,
           "bobot": 35
         },
         {
-          "id": "r1784537440309fbtr",
+          "id": "r17833037605978omh",
           "objective": "Inventaris utuh terawat, pengadaan tepat waktu, operasional aman lancar, user puas.",
           "keyResult": "Laporan inventaris akurat dan on time",
           "target": 100,
-          "actual": 0,
+          "actual": null,
           "bobot": 25
         }
       ],
-      "actionPlan": "Kaji ulang cctv warehouse",
-      "savedAt": "2026-07-20T08:50:40.309Z"
+      "actionPlan": "Kaji ulang cctv warehouse"
     },
     "HRD": {
       "rows": [
@@ -4462,7 +4460,7 @@
           "objective": "Pengadaan stok tepat waktu dan berkwalitas, administrasi akurat..",
           "keyResult": "Tingkat in stock",
           "target": 95,
-          "actual": 91.3,
+          "actual": 91.26,
           "bobot": 40
         },
         {
@@ -6452,60 +6450,5 @@
     "savedAt": "2026-07-18T04:39:45.206Z",
     "locked": true
   },
-  "_p_ins_2026_07_20": {
-    "file1": "https://raw.githubusercontent.com/pinuspackindo-ai/pinuspackindo-okr/data/uploads/purchasing/1784539883862_s8ec3w_product.product.xlsx",
-    "file1Name": "product.product.xlsx",
-    "file2": "https://raw.githubusercontent.com/pinuspackindo-ai/pinuspackindo-okr/data/uploads/purchasing/1784539956764_h0xzf4_product.product_1.xlsx",
-    "file2Name": "product.product (1).xlsx",
-    "file3": "https://raw.githubusercontent.com/pinuspackindo-ai/pinuspackindo-okr/data/uploads/purchasing/1784539957818_velq7t_purchase.order.line.xlsx",
-    "file3Name": "purchase.order.line.xlsx",
-    "users": {
-      "Arif Wibowo": 93.27,
-      "Adit Mohgat": 91.2,
-      "A'izatul Nafisah": 93.1
-    },
-    "score": 91.08,
-    "savedAt": "2026-07-20T09:31:22.933Z",
-    "locked": true
-  },
-  "_p_ins_2026_07_21": {
-    "file1": "https://raw.githubusercontent.com/pinuspackindo-ai/pinuspackindo-okr/data/uploads/purchasing/1784624678469_xscrgo_product.product.xlsx",
-    "file1Name": "product.product.xlsx",
-    "file2": "https://raw.githubusercontent.com/pinuspackindo-ai/pinuspackindo-okr/data/uploads/purchasing/1784624675037_bvdz3d_product.product_1.xlsx",
-    "file2Name": "product.product (1).xlsx",
-    "file3": null,
-    "file3Name": "purchase.order.line.xlsx",
-    "users": {
-      "Arif Wibowo": 92.31,
-      "Adit Mohgat": 93.65,
-      "A'izatul Nafisah": 94.89
-    },
-    "score": 91.26,
-    "savedAt": "2026-07-21T09:04:34.334Z",
-    "locked": true
-  },
-  "_ts": 1784729637635,
-  "_p_sv_2026_07_20": {
-    "text": "(S) HAECHANDLE SAUS GOCHUJANG 170 GR, 14,062, 13,489; (S) HERCULES BAKING POWDER 110 GR, 12,933, 12,079; (S) PLASTIK SELAMAT MENIKMATI 20X20 X 50, 3,217, 2,715 > (S) SPATULA BUTTERCREAM STAINLESS 32 CM, 12,790, 9,201",
-    "evidence": "https://raw.githubusercontent.com/pinuspackindo-ai/pinuspackindo-okr/data/uploads/purchasing/1784709798690_2cfueq_20.png",
-    "evidenceName": "20.PNG",
-    "savedAt": "2026-07-22T08:43:25.983Z",
-    "locked": true
-  },
-  "_p_ins_2026_07_22": {
-    "file1": "https://raw.githubusercontent.com/pinuspackindo-ai/pinuspackindo-okr/data/uploads/purchasing/1784720412864_4332l4_product.product.xlsx",
-    "file1Name": "product.product.xlsx",
-    "file2": "https://raw.githubusercontent.com/pinuspackindo-ai/pinuspackindo-okr/data/uploads/purchasing/1784720412033_kp97gq_product.product_1.xlsx",
-    "file2Name": "product.product (1).xlsx",
-    "file3": null,
-    "file3Name": "purchase.order.line.xlsx",
-    "users": {
-      "Arif Wibowo": 93.44,
-      "Adit Mohgat": 91.96,
-      "A'izatul Nafisah": 92.73
-    },
-    "score": 92.03,
-    "savedAt": "2026-07-22T11:40:11.451Z",
-    "locked": true
-  }
+  "_ts": 1784731017271
 }
