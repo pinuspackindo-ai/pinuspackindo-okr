@@ -1,4 +1,5 @@
 {
+  "_ts": 1784682557013,
   "_userAccess": {
     "Finance & Accounting": {
       "modules": [
@@ -6469,11 +6470,11 @@
     "locked": true
   },
   "_p_ins_2026_07_21": {
-    "file1": "https://raw.githubusercontent.com/pinuspackindo-ai/pinuspackindo-okr/data/uploads/purchasing/1784624678469_xscrgo_product.product.xlsx",
+    "file1": null,
     "file1Name": "product.product.xlsx",
-    "file2": "https://raw.githubusercontent.com/pinuspackindo-ai/pinuspackindo-okr/data/uploads/purchasing/1784624675037_bvdz3d_product.product_1.xlsx",
+    "file2": null,
     "file2Name": "product.product (1).xlsx",
-    "file3": "https://raw.githubusercontent.com/pinuspackindo-ai/pinuspackindo-okr/data/uploads/purchasing/1784682024562_0w4u4i_purchase.order.line.xlsx",
+    "file3": null,
     "file3Name": "purchase.order.line.xlsx",
     "users": {
       "Arif Wibowo": 92.31,
@@ -6483,6 +6484,5 @@
     "score": 91.26,
     "savedAt": "2026-07-21T09:04:34.334Z",
     "locked": true
-  },
-  "_ts": 1784682027577
+  }
 }
