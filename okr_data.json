@@ -4145,10 +4145,10 @@
         "tal": "planning & eksekusi pengelolaan tips warehouse",
         "deadline": "2026-07-31",
         "bobot": 35,
-        "progress": 60,
+        "progress": 90,
         "review": "",
         "editing": false,
-        "savedAt": "2026-07-20T14:16:41.255Z"
+        "savedAt": "2026-07-22T04:51:30.570Z"
       },
       {
         "tal": "planning & eksekusi palet warehouse",
@@ -4160,7 +4160,7 @@
         "savedAt": "2026-07-20T14:17:00.130Z"
       }
     ],
-    "savedAt": "2026-07-20T14:41:14.649Z"
+    "savedAt": "2026-07-22T04:51:30.581Z"
   },
   "_tal_d3_2026_07": {
     "rows": [
@@ -6484,5 +6484,5 @@
     "savedAt": "2026-07-21T09:04:34.334Z",
     "locked": true
   },
-  "_ts": 1784690110685
+  "_ts": 1784695890582
 }
