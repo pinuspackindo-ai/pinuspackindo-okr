@@ -1,5 +1,4 @@
 {
-  "_ts": 1784706943662,
   "_userAccess": {
     "Finance & Accounting": {
       "modules": [
@@ -4376,7 +4375,7 @@
           "objective": "Membangun dan menjaga SDM yg kompeten, disiplin, produktif, inisiatif, guna mendukung perusahaan berkembang.",
           "keyResult": "Ketepatan waktu rekrutment",
           "target": 85,
-          "actual": 93.69,
+          "actual": null,
           "bobot": 15
         },
         {
@@ -6176,22 +6175,6 @@
             "data": null
           }
         ]
-      },
-      {
-        "jabatan": "STAFF",
-        "namaRequest": "GENERAL AFFAIR",
-        "tglRequest": "2026-06-22",
-        "deadline": "2026-07-22",
-        "realisasi": "2026-07-22",
-        "evidence": null,
-        "evidenceName": "Screenshot 2026-07-22 145441.png",
-        "editing": false,
-        "evidences": [
-          {
-            "name": "Screenshot 2026-07-22 145441.png",
-            "data": "https://raw.githubusercontent.com/pinuspackindo-ai/pinuspackindo-okr/data/uploads/hrd/1784706918220_6hyxu1_Screenshot_2026-07-22_145441.png"
-          }
-        ]
       }
     ],
     "savedAt": "2026-07-15T07:20:17.341Z"
@@ -6490,7 +6473,7 @@
     "file1Name": "product.product.xlsx",
     "file2": "https://raw.githubusercontent.com/pinuspackindo-ai/pinuspackindo-okr/data/uploads/purchasing/1784624675037_bvdz3d_product.product_1.xlsx",
     "file2Name": "product.product (1).xlsx",
-    "file3": "https://raw.githubusercontent.com/pinuspackindo-ai/pinuspackindo-okr/data/uploads/purchasing/1784682024562_0w4u4i_purchase.order.line.xlsx",
+    "file3": null,
     "file3Name": "purchase.order.line.xlsx",
     "users": {
       "Arif Wibowo": 92.31,
@@ -6500,5 +6483,6 @@
     "score": 91.26,
     "savedAt": "2026-07-21T09:04:34.334Z",
     "locked": true
-  }
+  },
+  "_ts": 1784709524986
 }
