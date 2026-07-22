@@ -1,5 +1,4 @@
 {
-  "_ts": 1784696132606,
   "_userAccess": {
     "Finance & Accounting": {
       "modules": [
@@ -4055,40 +4054,40 @@
         "tal": "Melebur md sales + inval md, revisi kpi per individu",
         "deadline": "2026-07-31",
         "bobot": 40,
-        "progress": null,
+        "progress": 100,
         "review": "",
         "editing": false,
-        "savedAt": "2026-07-06T03:45:55.744Z"
+        "savedAt": "2026-07-22T01:16:11.331Z"
       },
       {
         "tal": "Running RN by checker",
         "deadline": "2026-07-31",
         "bobot": 30,
-        "progress": null,
+        "progress": 100,
         "review": "",
         "editing": false,
-        "savedAt": "2026-07-06T03:45:55.227Z"
+        "savedAt": "2026-07-22T01:15:52.943Z"
       },
       {
         "tal": "Running repacking by checker + ITR by md sales",
         "deadline": "2026-07-31",
         "bobot": 20,
-        "progress": null,
+        "progress": 100,
         "review": "",
         "editing": false,
-        "savedAt": "2026-07-06T03:45:53.545Z"
+        "savedAt": "2026-07-22T01:15:57.291Z"
       },
       {
         "tal": "Finalisasi display toko sesuai planogram",
         "deadline": "2026-07-31",
         "bobot": 10,
-        "progress": null,
+        "progress": 100,
         "review": "",
         "editing": false,
-        "savedAt": "2026-07-06T03:45:54.494Z"
+        "savedAt": "2026-07-22T01:16:00.549Z"
       }
     ],
-    "savedAt": "2026-07-06T03:45:55.744Z"
+    "savedAt": "2026-07-22T01:16:11.331Z"
   },
   "_tal_d12_2026_07": {
     "rows": [
@@ -4146,22 +4145,22 @@
         "tal": "planning & eksekusi pengelolaan tips warehouse",
         "deadline": "2026-07-31",
         "bobot": 35,
-        "progress": 60,
+        "progress": 90,
         "review": "",
         "editing": false,
-        "savedAt": "2026-07-20T14:16:41.255Z"
+        "savedAt": "2026-07-22T04:51:30.570Z"
       },
       {
         "tal": "planning & eksekusi palet warehouse",
         "deadline": "2026-07-31",
         "bobot": 25,
-        "progress": 70,
+        "progress": 100,
         "review": "",
         "editing": false,
-        "savedAt": "2026-07-20T14:17:00.130Z"
+        "savedAt": "2026-07-22T04:51:38.609Z"
       }
     ],
-    "savedAt": "2026-07-20T14:41:14.649Z"
+    "savedAt": "2026-07-22T04:51:38.609Z"
   },
   "_tal_d3_2026_07": {
     "rows": [
@@ -4215,10 +4214,10 @@
         "tal": "kids baking demo bersama chef alvian",
         "deadline": "2026-07-31",
         "bobot": 60,
-        "progress": null,
+        "progress": 50,
         "review": "",
         "editing": false,
-        "savedAt": "2026-07-06T02:04:17.521Z"
+        "savedAt": "2026-07-22T01:11:18.142Z"
       },
       {
         "tal": "lulus training SO dan lancar lepas RN + ITR ke checker",
@@ -4230,7 +4229,7 @@
         "savedAt": "2026-07-06T02:04:17.521Z"
       }
     ],
-    "savedAt": "2026-07-06T02:04:17.521Z"
+    "savedAt": "2026-07-22T01:11:18.142Z"
   },
   "2026-07": {
     "Distribution Sales": {
@@ -6474,7 +6473,7 @@
     "file1Name": "product.product.xlsx",
     "file2": "https://raw.githubusercontent.com/pinuspackindo-ai/pinuspackindo-okr/data/uploads/purchasing/1784624675037_bvdz3d_product.product_1.xlsx",
     "file2Name": "product.product (1).xlsx",
-    "file3": null,
+    "file3": "https://raw.githubusercontent.com/pinuspackindo-ai/pinuspackindo-okr/data/uploads/purchasing/1784682024562_0w4u4i_purchase.order.line.xlsx",
     "file3Name": "purchase.order.line.xlsx",
     "users": {
       "Arif Wibowo": 92.31,
@@ -6484,5 +6483,6 @@
     "score": 91.26,
     "savedAt": "2026-07-21T09:04:34.334Z",
     "locked": true
-  }
+  },
+  "_ts": 1784696133309
 }
