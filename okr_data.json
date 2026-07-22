@@ -4104,10 +4104,10 @@
         "tal": "finalisasi training admin inventory",
         "deadline": "2026-07-31",
         "bobot": 30,
-        "progress": 50,
+        "progress": 100,
         "review": "",
         "editing": false,
-        "savedAt": "2026-07-13T04:44:48.496Z"
+        "savedAt": "2026-07-22T14:37:58.482Z"
       },
       {
         "tal": "menjalankan proyek hpp bersama purchasing",
@@ -4128,7 +4128,7 @@
         "savedAt": "2026-07-22T14:37:52.792Z"
       }
     ],
-    "savedAt": "2026-07-22T14:37:52.792Z"
+    "savedAt": "2026-07-22T14:37:58.482Z"
   },
   "_tal_d10_2026_07": {
     "rows": [
@@ -6507,5 +6507,5 @@
     "savedAt": "2026-07-22T11:40:11.451Z",
     "locked": true
   },
-  "_ts": 1784731072792
+  "_ts": 1784731078482
 }
