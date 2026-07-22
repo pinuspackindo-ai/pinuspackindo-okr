@@ -4214,10 +4214,10 @@
         "tal": "kids baking demo bersama chef alvian",
         "deadline": "2026-07-31",
         "bobot": 60,
-        "progress": null,
+        "progress": 50,
         "review": "",
         "editing": false,
-        "savedAt": "2026-07-06T02:04:17.521Z"
+        "savedAt": "2026-07-22T01:11:18.142Z"
       },
       {
         "tal": "lulus training SO dan lancar lepas RN + ITR ke checker",
@@ -4229,7 +4229,7 @@
         "savedAt": "2026-07-06T02:04:17.521Z"
       }
     ],
-    "savedAt": "2026-07-06T02:04:17.521Z"
+    "savedAt": "2026-07-22T01:11:18.142Z"
   },
   "2026-07": {
     "Distribution Sales": {
@@ -6484,5 +6484,5 @@
     "savedAt": "2026-07-21T09:04:34.334Z",
     "locked": true
   },
-  "_ts": 1784682661686
+  "_ts": 1784682678142
 }
