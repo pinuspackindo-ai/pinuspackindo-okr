@@ -3199,6 +3199,9 @@ function purchInstockCalcUsersAsync(file1,file2,file3,cb){
   _insGetRows(file1,function(r1){_insGetRows(file2,function(r2){_insGetRows(file3,function(r3){cb(purchInstockCalcUsers(r1,r2,r3));});});});
 }
 // Perbaiki score null untuk hari yg sudah locked & punya kedua file (dipanggil tiap render)
+// Coba sync dulu (cepat, kalau file masih DataURL lokal). Kalau file1/file2 sudah jadi URL GitHub
+// (sudah ke-upload), lanjut coba async via fetch — ini yg self-heal kasus "file lengkap tapi score —".
+var _instockFixInFlight={};
 function purchInstockFixScores(y, m) {
   var daysInM=new Date(y,m,0).getDate(), fixed=false;
   for (var dd=1;dd<=daysInM;dd++){
@@ -3206,7 +3209,21 @@ function purchInstockFixScores(y, m) {
     if (!d.locked||!d.file1||!d.file2) continue;
     if (d.score!==null&&d.score!==undefined) continue;
     var sc=purchInstockCalcScore(d.file1, d.file2);
-    if (sc!==null){d.score=sc;_psIns(y,m,dd,d);fixed=true;}
+    if (sc!==null){d.score=sc;_psIns(y,m,dd,d);fixed=true;continue;}
+    var fk=y+'_'+m+'_'+dd;
+    if (_instockFixInFlight[fk]) continue;
+    _instockFixInFlight[fk]=true;
+    (function(dd,fk,f1,f2){
+      purchInstockCalcScoreAsync(f1,f2,function(scAsync){
+        delete _instockFixInFlight[fk];
+        if (scAsync===null) return;
+        var d2=_pgIns(y,m,dd);
+        if (!d2.locked||d2.score!==null&&d2.score!==undefined) return;
+        d2.score=scAsync;_psIns(y,m,dd,d2);
+        purchInstockSyncOKR(y,m);okrSaveLS();
+        if (purchasingYear===y&&purchInstockMonth===m) purchInstockRender();
+      });
+    })(dd,fk,d.file1,d.file2);
   }
   if (fixed){purchInstockSyncOKR(y,m);okrSaveLS();}
 }
