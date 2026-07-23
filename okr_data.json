@@ -4054,40 +4054,40 @@
         "tal": "Melebur md sales + inval md, revisi kpi per individu",
         "deadline": "2026-07-31",
         "bobot": 40,
-        "progress": 100,
+        "progress": null,
         "review": "",
         "editing": false,
-        "savedAt": "2026-07-22T01:16:11.331Z"
+        "savedAt": "2026-07-06T03:45:55.744Z"
       },
       {
         "tal": "Running RN by checker",
         "deadline": "2026-07-31",
         "bobot": 30,
-        "progress": 100,
+        "progress": null,
         "review": "",
         "editing": false,
-        "savedAt": "2026-07-22T01:15:52.943Z"
+        "savedAt": "2026-07-06T03:45:55.227Z"
       },
       {
         "tal": "Running repacking by checker + ITR by md sales",
         "deadline": "2026-07-31",
         "bobot": 20,
-        "progress": 100,
+        "progress": null,
         "review": "",
         "editing": false,
-        "savedAt": "2026-07-22T01:15:57.291Z"
+        "savedAt": "2026-07-06T03:45:53.545Z"
       },
       {
         "tal": "Finalisasi display toko sesuai planogram",
         "deadline": "2026-07-31",
         "bobot": 10,
-        "progress": 100,
+        "progress": null,
         "review": "",
         "editing": false,
-        "savedAt": "2026-07-22T01:16:00.549Z"
+        "savedAt": "2026-07-06T03:45:54.494Z"
       }
     ],
-    "savedAt": "2026-07-22T01:16:11.331Z"
+    "savedAt": "2026-07-06T03:45:55.744Z"
   },
   "_tal_d12_2026_07": {
     "rows": [
@@ -4104,31 +4104,31 @@
         "tal": "finalisasi training admin inventory",
         "deadline": "2026-07-31",
         "bobot": 30,
-        "progress": 100,
+        "progress": 50,
         "review": "",
         "editing": false,
-        "savedAt": "2026-07-22T14:37:58.482Z"
+        "savedAt": "2026-07-13T04:44:48.496Z"
       },
       {
         "tal": "menjalankan proyek hpp bersama purchasing",
         "deadline": "2026-07-31",
         "bobot": 20,
-        "progress": 30,
+        "progress": null,
         "review": "",
         "editing": false,
-        "savedAt": "2026-07-22T14:37:47.298Z"
+        "savedAt": "2026-07-06T01:56:54.580Z"
       },
       {
         "tal": "pendataan GA sebelum staff resign",
         "deadline": "2026-07-31",
         "bobot": 10,
-        "progress": 75,
+        "progress": 50,
         "review": "",
         "editing": false,
-        "savedAt": "2026-07-22T14:37:52.792Z"
+        "savedAt": "2026-07-13T04:44:37.215Z"
       }
     ],
-    "savedAt": "2026-07-22T14:37:58.482Z"
+    "savedAt": "2026-07-13T04:44:48.496Z"
   },
   "_tal_d10_2026_07": {
     "rows": [
@@ -4145,22 +4145,22 @@
         "tal": "planning & eksekusi pengelolaan tips warehouse",
         "deadline": "2026-07-31",
         "bobot": 35,
-        "progress": 90,
+        "progress": 60,
         "review": "",
         "editing": false,
-        "savedAt": "2026-07-22T04:51:30.570Z"
+        "savedAt": "2026-07-20T14:16:41.255Z"
       },
       {
         "tal": "planning & eksekusi palet warehouse",
         "deadline": "2026-07-31",
         "bobot": 25,
-        "progress": 100,
+        "progress": 70,
         "review": "",
         "editing": false,
-        "savedAt": "2026-07-22T04:51:38.609Z"
+        "savedAt": "2026-07-20T14:17:00.130Z"
       }
     ],
-    "savedAt": "2026-07-22T04:51:38.609Z"
+    "savedAt": "2026-07-20T14:41:14.649Z"
   },
   "_tal_d3_2026_07": {
     "rows": [
@@ -4214,10 +4214,10 @@
         "tal": "kids baking demo bersama chef alvian",
         "deadline": "2026-07-31",
         "bobot": 60,
-        "progress": 50,
+        "progress": null,
         "review": "",
         "editing": false,
-        "savedAt": "2026-07-22T01:11:18.142Z"
+        "savedAt": "2026-07-06T02:04:17.521Z"
       },
       {
         "tal": "lulus training SO dan lancar lepas RN + ITR ke checker",
@@ -4229,7 +4229,7 @@
         "savedAt": "2026-07-06T02:04:17.521Z"
       }
     ],
-    "savedAt": "2026-07-22T01:11:18.142Z"
+    "savedAt": "2026-07-06T02:04:17.521Z"
   },
   "2026-07": {
     "Distribution Sales": {
@@ -4462,7 +4462,7 @@
           "objective": "Pengadaan stok tepat waktu dan berkwalitas, administrasi akurat..",
           "keyResult": "Tingkat in stock",
           "target": 95,
-          "actual": 91.3,
+          "actual": 91.25,
           "bobot": 40
         },
         {
@@ -6009,7 +6009,7 @@
       "A'izatul Nafisah": 95.39
     },
     "score": null,
-    "savedAt": "2026-07-22T14:38:35.824Z",
+    "savedAt": "2026-07-10T09:26:06.716Z",
     "locked": true
   },
   "_hrd_kin_2026_07": {
@@ -6473,7 +6473,7 @@
     "file1Name": "product.product.xlsx",
     "file2": "https://raw.githubusercontent.com/pinuspackindo-ai/pinuspackindo-okr/data/uploads/purchasing/1784624675037_bvdz3d_product.product_1.xlsx",
     "file2Name": "product.product (1).xlsx",
-    "file3": null,
+    "file3": "https://raw.githubusercontent.com/pinuspackindo-ai/pinuspackindo-okr/data/uploads/purchasing/1784682024562_0w4u4i_purchase.order.line.xlsx",
     "file3Name": "purchase.order.line.xlsx",
     "users": {
       "Arif Wibowo": 92.31,
@@ -6484,28 +6484,5 @@
     "savedAt": "2026-07-21T09:04:34.334Z",
     "locked": true
   },
-  "_p_sv_2026_07_20": {
-    "text": "(S) HAECHANDLE SAUS GOCHUJANG 170 GR, 14,062, 13,489; (S) HERCULES BAKING POWDER 110 GR, 12,933, 12,079; (S) PLASTIK SELAMAT MENIKMATI 20X20 X 50, 3,217, 2,715 > (S) SPATULA BUTTERCREAM STAINLESS 32 CM, 12,790, 9,201",
-    "evidence": "https://raw.githubusercontent.com/pinuspackindo-ai/pinuspackindo-okr/data/uploads/purchasing/1784709798690_2cfueq_20.png",
-    "evidenceName": "20.PNG",
-    "savedAt": "2026-07-22T08:43:25.983Z",
-    "locked": true
-  },
-  "_p_ins_2026_07_22": {
-    "file1": "https://raw.githubusercontent.com/pinuspackindo-ai/pinuspackindo-okr/data/uploads/purchasing/1784720412864_4332l4_product.product.xlsx",
-    "file1Name": "product.product.xlsx",
-    "file2": "https://raw.githubusercontent.com/pinuspackindo-ai/pinuspackindo-okr/data/uploads/purchasing/1784720412033_kp97gq_product.product_1.xlsx",
-    "file2Name": "product.product (1).xlsx",
-    "file3": null,
-    "file3Name": "purchase.order.line.xlsx",
-    "users": {
-      "Arif Wibowo": 93.44,
-      "Adit Mohgat": 91.96,
-      "A'izatul Nafisah": 92.73
-    },
-    "score": 92.03,
-    "savedAt": "2026-07-22T11:40:11.451Z",
-    "locked": true
-  },
-  "_ts": 1784731115824
+  "_ts": 1784768053259
 }
