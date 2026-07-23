@@ -96,7 +96,8 @@
     "_ga_rot_2026_06": 1783134158109,
     "_ga_rot_2026_07": 1783134170325,
     "_fa_rot_2026_07": 1783308087934,
-    "_p_kpen_2026_07": 1783393431960
+    "_p_kpen_2026_07": 1783393431960,
+    "_inv_rn_do_2026_07_08": 1784796455650
   },
   "_okrLock": {
     "2026-05|Store": {
@@ -4433,7 +4434,7 @@
           "objective": "Stok akurat, persediaan optimal, biaya & waste minimal.",
           "keyResult": "Akurasi DO & RN",
           "target": 100,
-          "actual": null,
+          "actual": 99.67,
           "bobot": 10
         },
         {
@@ -6328,27 +6329,6 @@
       }
     ]
   },
-  "_inv_rn_do_2026_07_08": {
-    "value": 100,
-    "evidence": null,
-    "evidenceName": "WhatsApp Image 2026-07-16 at 13.58.18.jpeg",
-    "savedAt": "2026-07-16T06:58:41.729Z",
-    "locked": false,
-    "evidences": [
-      {
-        "name": "WhatsApp Image 2026-07-16 at 13.58.18.jpeg",
-        "data": null
-      },
-      {
-        "name": "WhatsApp Image 2026-07-16 at 13.58.17 (1).jpeg",
-        "data": null
-      },
-      {
-        "name": "WhatsApp Image 2026-07-16 at 13.58.17.jpeg",
-        "data": "https://raw.githubusercontent.com/pinuspackindo-ai/pinuspackindo-okr/data/uploads/inventory/1784213194156_e5usjf_WhatsApp_Image_2026-07-16_at_13.58.17.jpeg"
-      }
-    ]
-  },
   "_inv_rn_do_2026_07_09": {
     "value": 100,
     "evidence": null,
@@ -6507,5 +6487,5 @@
     "savedAt": "2026-07-22T11:40:11.451Z",
     "locked": true
   },
-  "_ts": 1784796447458
+  "_ts": 1784796455650
 }
