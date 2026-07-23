@@ -4104,31 +4104,31 @@
         "tal": "finalisasi training admin inventory",
         "deadline": "2026-07-31",
         "bobot": 30,
-        "progress": 50,
+        "progress": 100,
         "review": "",
         "editing": false,
-        "savedAt": "2026-07-13T04:44:48.496Z"
+        "savedAt": "2026-07-22T14:37:58.482Z"
       },
       {
         "tal": "menjalankan proyek hpp bersama purchasing",
         "deadline": "2026-07-31",
         "bobot": 20,
-        "progress": null,
+        "progress": 30,
         "review": "",
         "editing": false,
-        "savedAt": "2026-07-06T01:56:54.580Z"
+        "savedAt": "2026-07-22T14:37:47.298Z"
       },
       {
         "tal": "pendataan GA sebelum staff resign",
         "deadline": "2026-07-31",
         "bobot": 10,
-        "progress": 50,
+        "progress": 75,
         "review": "",
         "editing": false,
-        "savedAt": "2026-07-13T04:44:37.215Z"
+        "savedAt": "2026-07-22T14:37:52.792Z"
       }
     ],
-    "savedAt": "2026-07-13T04:44:48.496Z"
+    "savedAt": "2026-07-22T14:37:58.482Z"
   },
   "_tal_d10_2026_07": {
     "rows": [
@@ -6009,7 +6009,7 @@
       "A'izatul Nafisah": 95.39
     },
     "score": null,
-    "savedAt": "2026-07-10T09:26:06.716Z",
+    "savedAt": "2026-07-23T03:26:54.798Z",
     "locked": true
   },
   "_hrd_kin_2026_07": {
@@ -6484,7 +6484,7 @@
     "savedAt": "2026-07-21T09:04:34.334Z",
     "locked": true
   },
-  "_ts": 1784778914853,
+  "_ts": 1784778919632,
   "_p_sv_2026_07_20": {
     "text": "(S) HAECHANDLE SAUS GOCHUJANG 170 GR, 14,062, 13,489; (S) HERCULES BAKING POWDER 110 GR, 12,933, 12,079; (S) PLASTIK SELAMAT MENIKMATI 20X20 X 50, 3,217, 2,715 > (S) SPATULA BUTTERCREAM STAINLESS 32 CM, 12,790, 9,201",
     "evidence": "https://raw.githubusercontent.com/pinuspackindo-ai/pinuspackindo-okr/data/uploads/purchasing/1784709798690_2cfueq_20.png",
