@@ -371,7 +371,7 @@
       "actionPlan": "Kaji ulang cctv warehouse",
       "rows": [
         {
-          "actual": null,
+          "actual": 98.2,
           "bobot": 40,
           "id": "r177989029078478jg",
           "keyResult": "Tingkat akurasi stok inventaris data vs fisik",
@@ -6008,7 +6008,7 @@
       "Adit Mohgat": 91.63,
       "A'izatul Nafisah": 95.39
     },
-    "score": null,
+    "score": 92.32,
     "savedAt": "2026-07-23T03:26:54.798Z",
     "locked": true
   },
@@ -6138,7 +6138,7 @@
       "Adit Mohgat": 89.8,
       "A'izatul Nafisah": 95.03
     },
-    "score": null,
+    "score": 90.99,
     "savedAt": "2026-07-14T08:38:46.222Z",
     "locked": true
   },
@@ -6333,7 +6333,7 @@
     "evidence": null,
     "evidenceName": "WhatsApp Image 2026-07-16 at 13.58.18.jpeg",
     "savedAt": "2026-07-16T06:58:41.729Z",
-    "locked": true,
+    "locked": false,
     "evidences": [
       {
         "name": "WhatsApp Image 2026-07-16 at 13.58.18.jpeg",
@@ -6448,7 +6448,7 @@
       "Adit Mohgat": 86.01,
       "A'izatul Nafisah": 94.5
     },
-    "score": null,
+    "score": 90.74,
     "savedAt": "2026-07-18T04:39:45.206Z",
     "locked": true
   },
@@ -6507,5 +6507,5 @@
     "savedAt": "2026-07-22T11:40:11.451Z",
     "locked": true
   },
-  "_ts": 1784788121648
+  "_ts": 1784796447458
 }
