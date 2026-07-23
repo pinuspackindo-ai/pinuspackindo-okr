@@ -4145,22 +4145,22 @@
         "tal": "planning & eksekusi pengelolaan tips warehouse",
         "deadline": "2026-07-31",
         "bobot": 35,
-        "progress": 60,
+        "progress": 90,
         "review": "",
         "editing": false,
-        "savedAt": "2026-07-20T14:16:41.255Z"
+        "savedAt": "2026-07-22T04:51:30.570Z"
       },
       {
         "tal": "planning & eksekusi palet warehouse",
         "deadline": "2026-07-31",
         "bobot": 25,
-        "progress": 70,
+        "progress": 100,
         "review": "",
         "editing": false,
-        "savedAt": "2026-07-20T14:17:00.130Z"
+        "savedAt": "2026-07-22T04:51:38.609Z"
       }
     ],
-    "savedAt": "2026-07-20T14:41:14.649Z"
+    "savedAt": "2026-07-22T04:51:38.609Z"
   },
   "_tal_d3_2026_07": {
     "rows": [
@@ -6473,7 +6473,7 @@
     "file1Name": "product.product.xlsx",
     "file2": "https://raw.githubusercontent.com/pinuspackindo-ai/pinuspackindo-okr/data/uploads/purchasing/1784624675037_bvdz3d_product.product_1.xlsx",
     "file2Name": "product.product (1).xlsx",
-    "file3": "https://raw.githubusercontent.com/pinuspackindo-ai/pinuspackindo-okr/data/uploads/purchasing/1784682024562_0w4u4i_purchase.order.line.xlsx",
+    "file3": null,
     "file3Name": "purchase.order.line.xlsx",
     "users": {
       "Arif Wibowo": 92.31,
@@ -6484,5 +6484,12 @@
     "savedAt": "2026-07-21T09:04:34.334Z",
     "locked": true
   },
-  "_ts": 1784772221372
+  "_p_sv_2026_07_20": {
+    "text": "(S) HAECHANDLE SAUS GOCHUJANG 170 GR, 14,062, 13,489; (S) HERCULES BAKING POWDER 110 GR, 12,933, 12,079; (S) PLASTIK SELAMAT MENIKMATI 20X20 X 50, 3,217, 2,715 > (S) SPATULA BUTTERCREAM STAINLESS 32 CM, 12,790, 9,201",
+    "evidence": "https://raw.githubusercontent.com/pinuspackindo-ai/pinuspackindo-okr/data/uploads/purchasing/1784709798690_2cfueq_20.png",
+    "evidenceName": "20.PNG",
+    "savedAt": "2026-07-22T08:43:25.983Z",
+    "locked": true
+  },
+  "_ts": 1784772222176
 }
