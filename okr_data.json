@@ -4200,13 +4200,13 @@
         "tal": "menyusun 50% SOP finance berdasar business flow finance",
         "deadline": "2026-07-31",
         "bobot": 100,
-        "progress": null,
+        "progress": 50,
         "review": "",
         "editing": false,
-        "savedAt": "2026-07-23T04:59:19.689Z"
+        "savedAt": "2026-07-23T04:59:27.089Z"
       }
     ],
-    "savedAt": "2026-07-23T04:59:19.689Z"
+    "savedAt": "2026-07-23T04:59:27.089Z"
   },
   "_tal_d11_2026_07": {
     "rows": [
@@ -6507,5 +6507,5 @@
     "savedAt": "2026-07-22T11:40:11.451Z",
     "locked": true
   },
-  "_ts": 1784782778977
+  "_ts": 1784782785731
 }
