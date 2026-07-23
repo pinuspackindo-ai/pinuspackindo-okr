@@ -371,7 +371,7 @@
       "actionPlan": "Kaji ulang cctv warehouse",
       "rows": [
         {
-          "actual": 98.2,
+          "actual": null,
           "bobot": 40,
           "id": "r177989029078478jg",
           "keyResult": "Tingkat akurasi stok inventaris data vs fisik",
@@ -4462,7 +4462,7 @@
           "objective": "Pengadaan stok tepat waktu dan berkwalitas, administrasi akurat..",
           "keyResult": "Tingkat in stock",
           "target": 95,
-          "actual": 91.32,
+          "actual": 91.3,
           "bobot": 40
         },
         {
@@ -6008,7 +6008,7 @@
       "Adit Mohgat": 91.63,
       "A'izatul Nafisah": 95.39
     },
-    "score": 92.32,
+    "score": null,
     "savedAt": "2026-07-23T03:26:54.798Z",
     "locked": true
   },
@@ -6448,7 +6448,7 @@
       "Adit Mohgat": 86.01,
       "A'izatul Nafisah": 94.5
     },
-    "score": 90.74,
+    "score": null,
     "savedAt": "2026-07-18T04:39:45.206Z",
     "locked": true
   },
@@ -6507,5 +6507,5 @@
     "savedAt": "2026-07-22T11:40:11.451Z",
     "locked": true
   },
-  "_ts": 1784783107114
+  "_ts": 1784783136351
 }
