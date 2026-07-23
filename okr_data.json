@@ -371,7 +371,7 @@
       "actionPlan": "Kaji ulang cctv warehouse",
       "rows": [
         {
-          "actual": null,
+          "actual": 98.2,
           "bobot": 40,
           "id": "r177989029078478jg",
           "keyResult": "Tingkat akurasi stok inventaris data vs fisik",
@@ -3893,8 +3893,8 @@
     "value": 98.2,
     "evidence": "https://raw.githubusercontent.com/pinuspackindo-ai/pinuspackindo-okr/data/uploads/general_affair/1783409069784_u73ap0_Pinus.jpg",
     "evidenceName": "Pinus.jpg",
-    "savedAt": "2026-07-09T02:11:50.148Z",
-    "locked": false,
+    "savedAt": "2026-07-23T05:04:54.125Z",
+    "locked": true,
     "evidences": [
       {
         "name": "Cuplikan layar 2026-07-04 095817.png",
@@ -6507,5 +6507,5 @@
     "savedAt": "2026-07-22T11:40:11.451Z",
     "locked": true
   },
-  "_ts": 1784783091575
+  "_ts": 1784783094125
 }
