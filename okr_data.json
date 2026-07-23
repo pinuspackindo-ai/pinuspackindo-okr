@@ -6484,7 +6484,6 @@
     "savedAt": "2026-07-21T09:04:34.334Z",
     "locked": true
   },
-  "_ts": 1784782322973,
   "_p_sv_2026_07_20": {
     "text": "(S) HAECHANDLE SAUS GOCHUJANG 170 GR, 14,062, 13,489; (S) HERCULES BAKING POWDER 110 GR, 12,933, 12,079; (S) PLASTIK SELAMAT MENIKMATI 20X20 X 50, 3,217, 2,715 > (S) SPATULA BUTTERCREAM STAINLESS 32 CM, 12,790, 9,201",
     "evidence": "https://raw.githubusercontent.com/pinuspackindo-ai/pinuspackindo-okr/data/uploads/purchasing/1784709798690_2cfueq_20.png",
@@ -6507,5 +6506,6 @@
     "score": 92.03,
     "savedAt": "2026-07-22T11:40:11.451Z",
     "locked": true
-  }
+  },
+  "_ts": 1784782331458
 }
