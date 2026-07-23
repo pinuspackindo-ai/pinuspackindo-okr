@@ -6009,8 +6009,8 @@
       "A'izatul Nafisah": 95.39
     },
     "score": null,
-    "savedAt": "2026-07-22T14:38:35.824Z",
-    "locked": false
+    "savedAt": "2026-07-23T03:26:54.798Z",
+    "locked": true
   },
   "_hrd_kin_2026_07": {
     "rows": [
@@ -6507,5 +6507,5 @@
     "savedAt": "2026-07-22T11:40:11.451Z",
     "locked": true
   },
-  "_ts": 1784777210066
+  "_ts": 1784777214798
 }
