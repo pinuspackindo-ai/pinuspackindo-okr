@@ -4463,7 +4463,7 @@
           "objective": "Pengadaan stok tepat waktu dan berkwalitas, administrasi akurat..",
           "keyResult": "Tingkat in stock",
           "target": 95,
-          "actual": 91.3,
+          "actual": 91.28,
           "bobot": 40
         },
         {
@@ -6449,7 +6449,7 @@
       "Adit Mohgat": 86.01,
       "A'izatul Nafisah": 94.5
     },
-    "score": null,
+    "score": 91.08,
     "savedAt": "2026-07-18T04:39:45.206Z",
     "locked": true
   },
@@ -6508,5 +6508,5 @@
     "savedAt": "2026-07-22T11:40:11.451Z",
     "locked": true
   },
-  "_ts": 1784865432736
+  "_ts": 1784865435397
 }
