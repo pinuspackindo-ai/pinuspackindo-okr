@@ -96,10 +96,7 @@
     "_ga_rot_2026_06": 1783134158109,
     "_ga_rot_2026_07": 1783134170325,
     "_fa_rot_2026_07": 1783308087934,
-    "_p_kpen_2026_07": 1783393431960,
-    "_inv_rn_do_2026_07_08": 1784799438425,
-    "_inv_rn_do_2026_07_09": 1784799438425,
-    "_inv_rn_do_2026_07_10": 1784799438425
+    "_p_kpen_2026_07": 1783393431960
   },
   "_okrLock": {
     "2026-05|Store": {
@@ -374,7 +371,7 @@
       "actionPlan": "Kaji ulang cctv warehouse",
       "rows": [
         {
-          "actual": 98.2,
+          "actual": null,
           "bobot": 40,
           "id": "r177989029078478jg",
           "keyResult": "Tingkat akurasi stok inventaris data vs fisik",
@@ -4436,7 +4433,7 @@
           "objective": "Stok akurat, persediaan optimal, biaya & waste minimal.",
           "keyResult": "Akurasi DO & RN",
           "target": 100,
-          "actual": 99.58,
+          "actual": null,
           "bobot": 10
         },
         {
@@ -4465,7 +4462,7 @@
           "objective": "Pengadaan stok tepat waktu dan berkwalitas, administrasi akurat..",
           "keyResult": "Tingkat in stock",
           "target": 95,
-          "actual": 91.45,
+          "actual": 91.3,
           "bobot": 40
         },
         {
@@ -6011,7 +6008,7 @@
       "Adit Mohgat": 91.63,
       "A'izatul Nafisah": 95.39
     },
-    "score": 92.32,
+    "score": null,
     "savedAt": "2026-07-23T03:26:54.798Z",
     "locked": true
   },
@@ -6141,7 +6138,7 @@
       "Adit Mohgat": 89.8,
       "A'izatul Nafisah": 95.03
     },
-    "score": 90.99,
+    "score": null,
     "savedAt": "2026-07-14T08:38:46.222Z",
     "locked": true
   },
@@ -6331,6 +6328,65 @@
       }
     ]
   },
+  "_inv_rn_do_2026_07_08": {
+    "value": 100,
+    "evidence": null,
+    "evidenceName": "WhatsApp Image 2026-07-16 at 13.58.18.jpeg",
+    "savedAt": "2026-07-16T06:58:41.729Z",
+    "locked": true,
+    "evidences": [
+      {
+        "name": "WhatsApp Image 2026-07-16 at 13.58.18.jpeg",
+        "data": null
+      },
+      {
+        "name": "WhatsApp Image 2026-07-16 at 13.58.17 (1).jpeg",
+        "data": null
+      },
+      {
+        "name": "WhatsApp Image 2026-07-16 at 13.58.17.jpeg",
+        "data": "https://raw.githubusercontent.com/pinuspackindo-ai/pinuspackindo-okr/data/uploads/inventory/1784213194156_e5usjf_WhatsApp_Image_2026-07-16_at_13.58.17.jpeg"
+      }
+    ]
+  },
+  "_inv_rn_do_2026_07_09": {
+    "value": 100,
+    "evidence": null,
+    "evidenceName": "WhatsApp Image 2026-07-16 at 13.59.27 (2).jpeg",
+    "savedAt": "2026-07-16T06:59:51.767Z",
+    "locked": true,
+    "evidences": [
+      {
+        "name": "WhatsApp Image 2026-07-16 at 13.59.27 (2).jpeg",
+        "data": null
+      },
+      {
+        "name": "WhatsApp Image 2026-07-16 at 13.59.27 (1).jpeg",
+        "data": null
+      },
+      {
+        "name": "WhatsApp Image 2026-07-16 at 13.59.27.jpeg",
+        "data": null
+      }
+    ]
+  },
+  "_inv_rn_do_2026_07_10": {
+    "value": 100,
+    "evidence": null,
+    "evidenceName": "WhatsApp Image 2026-07-16 at 14.00.47.jpeg",
+    "savedAt": "2026-07-16T07:01:18.973Z",
+    "locked": true,
+    "evidences": [
+      {
+        "name": "WhatsApp Image 2026-07-16 at 14.00.47.jpeg",
+        "data": null
+      },
+      {
+        "name": "WhatsApp Image 2026-07-16 at 14.00.42.jpeg",
+        "data": null
+      }
+    ]
+  },
   "_inv_rn_do_2026_07_11": {
     "value": 100,
     "evidence": null,
@@ -6392,7 +6448,7 @@
       "Adit Mohgat": 86.01,
       "A'izatul Nafisah": 94.5
     },
-    "score": 90.74,
+    "score": null,
     "savedAt": "2026-07-18T04:39:45.206Z",
     "locked": true
   },
@@ -6451,21 +6507,5 @@
     "savedAt": "2026-07-22T11:40:11.451Z",
     "locked": true
   },
-  "_p_ins_2026_07_23": {
-    "file1": "https://raw.githubusercontent.com/pinuspackindo-ai/pinuspackindo-okr/data/uploads/purchasing/1784799616478_m2bkkb_product.product.xlsx",
-    "file1Name": "product.product.xlsx",
-    "file2": "https://raw.githubusercontent.com/pinuspackindo-ai/pinuspackindo-okr/data/uploads/purchasing/1784799620028_0oj0lw_product.product_1.xlsx",
-    "file2Name": "product.product (1).xlsx",
-    "file3": "https://raw.githubusercontent.com/pinuspackindo-ai/pinuspackindo-okr/data/uploads/purchasing/1784799618222_ntt8rf_purchase.order.line.xlsx",
-    "file3Name": "purchase.order.line.xlsx",
-    "users": {
-      "Arif Wibowo": 95.94,
-      "Adit Mohgat": 94.47,
-      "A'izatul Nafisah": 95.17
-    },
-    "score": 94.18,
-    "savedAt": "2026-07-23T09:40:18.178Z",
-    "locked": true
-  },
-  "_ts": 1784819154758
+  "_ts": 1784854354568
 }
