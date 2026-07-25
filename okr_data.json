@@ -97,9 +97,9 @@
     "_ga_rot_2026_07": 1783134170325,
     "_fa_rot_2026_07": 1783308087934,
     "_p_kpen_2026_07": 1783393431960,
-    "_inv_rn_do_2026_07_08": 1784855321737,
-    "_inv_rn_do_2026_07_09": 1784855321737,
-    "_inv_rn_do_2026_07_10": 1784855321737
+    "_inv_rn_do_2026_07_08": 1784884842127,
+    "_inv_rn_do_2026_07_09": 1784884842127,
+    "_inv_rn_do_2026_07_10": 1784884842127
   },
   "_okrLock": {
     "2026-05|Store": {
@@ -4116,10 +4116,10 @@
         "tal": "menjalankan proyek hpp bersama purchasing",
         "deadline": "2026-07-31",
         "bobot": 20,
-        "progress": 30,
+        "progress": 75,
         "review": "",
         "editing": false,
-        "savedAt": "2026-07-22T14:37:47.298Z"
+        "savedAt": "2026-07-24T06:03:20.341Z"
       },
       {
         "tal": "pendataan GA sebelum staff resign",
@@ -4131,7 +4131,7 @@
         "savedAt": "2026-07-22T14:37:52.792Z"
       }
     ],
-    "savedAt": "2026-07-22T14:37:58.482Z"
+    "savedAt": "2026-07-24T06:03:20.341Z"
   },
   "_tal_d10_2026_07": {
     "rows": [
@@ -4465,7 +4465,7 @@
           "objective": "Pengadaan stok tepat waktu dan berkwalitas, administrasi akurat..",
           "keyResult": "Tingkat in stock",
           "target": 95,
-          "actual": 91.45,
+          "actual": 91.73,
           "bobot": 40
         },
         {
@@ -6467,5 +6467,21 @@
     "savedAt": "2026-07-23T09:40:18.178Z",
     "locked": true
   },
-  "_ts": 1784941665261
+  "_p_ins_2026_07_24": {
+    "file1": "https://raw.githubusercontent.com/pinuspackindo-ai/pinuspackindo-okr/data/uploads/purchasing/1784879619553_ec4z03_product.product.xlsx",
+    "file1Name": "product.product.xlsx",
+    "file2": "https://raw.githubusercontent.com/pinuspackindo-ai/pinuspackindo-okr/data/uploads/purchasing/1784879622906_jhjtr3_product.product_1.xlsx",
+    "file2Name": "product.product (1).xlsx",
+    "file3": "https://raw.githubusercontent.com/pinuspackindo-ai/pinuspackindo-okr/data/uploads/purchasing/1784880766939_mnr477_purchase.order.line.xlsx",
+    "file3Name": "purchase.order.line.xlsx",
+    "users": {
+      "Arif Wibowo": 98.98,
+      "Adit Mohgat": 98.78,
+      "A'izatul Nafisah": 97.88
+    },
+    "score": 97.33,
+    "savedAt": "2026-07-24T07:53:42.597Z",
+    "locked": true
+  },
+  "_ts": 1784941665806
 }
