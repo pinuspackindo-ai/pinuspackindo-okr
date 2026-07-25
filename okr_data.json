@@ -6467,6 +6467,7 @@
     "savedAt": "2026-07-23T09:40:18.178Z",
     "locked": true
   },
+  "_ts": 1784941751230,
   "_p_ins_2026_07_24": {
     "file1": "https://raw.githubusercontent.com/pinuspackindo-ai/pinuspackindo-okr/data/uploads/purchasing/1784879619553_ec4z03_product.product.xlsx",
     "file1Name": "product.product.xlsx",
@@ -6482,6 +6483,5 @@
     "score": 97.33,
     "savedAt": "2026-07-24T07:53:42.597Z",
     "locked": true
-  },
-  "_ts": 1784941693863
+  }
 }
