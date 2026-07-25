@@ -3822,7 +3822,7 @@
     ]
   },
   "_p_sv_rn_2026_06": 10000,
-  "_p_sv_rn_lk_2026_06": true,
+  "_p_sv_rn_lk_2026_06": false,
   "_p_ins_2026_07_03": {
     "file1": "https://raw.githubusercontent.com/pinuspackindo-ai/pinuspackindo-okr/data/uploads/purchasing/1783069354644_tp1yba_product.product_2.xlsx",
     "file1Name": "product.product (2).xlsx",
@@ -6467,7 +6467,7 @@
     "savedAt": "2026-07-23T09:40:18.178Z",
     "locked": true
   },
-  "_ts": 1784952714764,
+  "_ts": 1784952716752,
   "_p_ins_2026_07_24": {
     "file1": "https://raw.githubusercontent.com/pinuspackindo-ai/pinuspackindo-okr/data/uploads/purchasing/1784879619553_ec4z03_product.product.xlsx",
     "file1Name": "product.product.xlsx",
