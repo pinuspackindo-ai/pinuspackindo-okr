@@ -97,9 +97,9 @@
     "_ga_rot_2026_07": 1783134170325,
     "_fa_rot_2026_07": 1783308087934,
     "_p_kpen_2026_07": 1783393431960,
-    "_inv_rn_do_2026_07_08": 1784879565638,
-    "_inv_rn_do_2026_07_09": 1784879565638,
-    "_inv_rn_do_2026_07_10": 1784879565638
+    "_inv_rn_do_2026_07_08": 1784884842127,
+    "_inv_rn_do_2026_07_09": 1784884842127,
+    "_inv_rn_do_2026_07_10": 1784884842127
   },
   "_okrLock": {
     "2026-05|Store": {
@@ -6467,7 +6467,6 @@
     "savedAt": "2026-07-23T09:40:18.178Z",
     "locked": true
   },
-  "_ts": 1784940989908,
   "_p_ins_2026_07_24": {
     "file1": "https://raw.githubusercontent.com/pinuspackindo-ai/pinuspackindo-okr/data/uploads/purchasing/1784879619553_ec4z03_product.product.xlsx",
     "file1Name": "product.product.xlsx",
@@ -6483,5 +6482,6 @@
     "score": 97.33,
     "savedAt": "2026-07-24T07:53:42.597Z",
     "locked": true
-  }
+  },
+  "_ts": 1784940991302
 }
