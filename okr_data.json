@@ -4465,7 +4465,7 @@
           "objective": "Pengadaan stok tepat waktu dan berkwalitas, administrasi akurat..",
           "keyResult": "Tingkat in stock",
           "target": 95,
-          "actual": 91.73,
+          "actual": 91.98,
           "bobot": 40
         },
         {
@@ -6497,7 +6497,7 @@
     "savedAt": null,
     "locked": false
   },
-  "_ts": 1784990131686,
+  "_ts": 1784990133075,
   "_w_akurasi_w_2026_07": {
     "value": 95.62,
     "evidence": null,
@@ -6536,5 +6536,21 @@
         "data": "https://raw.githubusercontent.com/pinuspackindo-ai/pinuspackindo-okr/data/uploads/warehouse/1784956459782_qujjqd_CARTRACK_2026-07-25.12.00.31.png"
       }
     ]
+  },
+  "_p_ins_2026_07_25": {
+    "file1": "https://raw.githubusercontent.com/pinuspackindo-ai/pinuspackindo-okr/data/uploads/purchasing/1784973213433_knruuk_product.product.xlsx",
+    "file1Name": "product.product.xlsx",
+    "file2": "https://raw.githubusercontent.com/pinuspackindo-ai/pinuspackindo-okr/data/uploads/purchasing/1784973210138_bjorr4_product.product_1.xlsx",
+    "file2Name": "product.product (1).xlsx",
+    "file3": "https://raw.githubusercontent.com/pinuspackindo-ai/pinuspackindo-okr/data/uploads/purchasing/1784973217459_xxjk7m_purchase.order.line.xlsx",
+    "file3Name": "purchase.order.line.xlsx",
+    "users": {
+      "Arif Wibowo": 99.13,
+      "Adit Mohgat": 98.31,
+      "A'izatul Nafisah": 97.86
+    },
+    "score": 97.22,
+    "savedAt": "2026-07-25T09:53:32.989Z",
+    "locked": true
   }
 }
