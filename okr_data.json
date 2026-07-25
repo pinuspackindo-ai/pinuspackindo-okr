@@ -1,5 +1,4 @@
 {
-  "_ts": 1784972460593,
   "_userAccess": {
     "Finance & Accounting": {
       "modules": [
@@ -98,9 +97,9 @@
     "_ga_rot_2026_07": 1783134170325,
     "_fa_rot_2026_07": 1783308087934,
     "_p_kpen_2026_07": 1783393431960,
-    "_inv_rn_do_2026_07_08": 1784879565638,
-    "_inv_rn_do_2026_07_09": 1784879565638,
-    "_inv_rn_do_2026_07_10": 1784879565638
+    "_inv_rn_do_2026_07_08": 1784884842127,
+    "_inv_rn_do_2026_07_09": 1784884842127,
+    "_inv_rn_do_2026_07_10": 1784884842127
   },
   "_okrLock": {
     "2026-05|Store": {
@@ -4149,10 +4148,10 @@
         "tal": "planning & eksekusi pengelolaan tips warehouse",
         "deadline": "2026-07-31",
         "bobot": 35,
-        "progress": 90,
+        "progress": 95,
         "review": "",
         "editing": false,
-        "savedAt": "2026-07-22T04:51:30.570Z"
+        "savedAt": "2026-07-25T04:59:46.574Z"
       },
       {
         "tal": "planning & eksekusi palet warehouse",
@@ -4164,7 +4163,7 @@
         "savedAt": "2026-07-22T04:51:38.609Z"
       }
     ],
-    "savedAt": "2026-07-23T04:52:48.559Z"
+    "savedAt": "2026-07-25T04:59:46.574Z"
   },
   "_tal_d3_2026_07": {
     "rows": [
@@ -4542,7 +4541,7 @@
           "objective": "Stok akurat, operasional berjalan sesuai SOP.",
           "keyResult": "Tingkat akurasi stok fisik vs data",
           "target": 98,
-          "actual": null,
+          "actual": 95.62,
           "bobot": 30
         },
         {
@@ -4550,7 +4549,7 @@
           "objective": "Stok akurat, operasional berjalan sesuai SOP.",
           "keyResult": "Tingkat akurasi default diary",
           "target": 95,
-          "actual": null,
+          "actual": 92.63,
           "bobot": 25
         },
         {
@@ -4558,7 +4557,7 @@
           "objective": "Stok akurat, operasional berjalan sesuai SOP.",
           "keyResult": "Score avg cartrack",
           "target": 90,
-          "actual": null,
+          "actual": 88.23,
           "bobot": 20
         },
         {
@@ -6473,7 +6472,7 @@
     "file1Name": "product.product.xlsx",
     "file2": "https://raw.githubusercontent.com/pinuspackindo-ai/pinuspackindo-okr/data/uploads/purchasing/1784879622906_jhjtr3_product.product_1.xlsx",
     "file2Name": "product.product (1).xlsx",
-    "file3": null,
+    "file3": "https://raw.githubusercontent.com/pinuspackindo-ai/pinuspackindo-okr/data/uploads/purchasing/1784880766939_mnr477_purchase.order.line.xlsx",
     "file3Name": "purchase.order.line.xlsx",
     "users": {
       "Arif Wibowo": 98.98,
@@ -6483,5 +6482,59 @@
     "score": 97.33,
     "savedAt": "2026-07-24T07:53:42.597Z",
     "locked": true
-  }
+  },
+  "_p_sv_2026_07_21": {
+    "text": "(S) HAECHANDLE SAUS GOCHUJANG 170 GR, 14,062, 13,489; (S) HERCULES BAKING POWDER 110 GR, 12,933, 12,079; (S) PLASTIK SELAMAT MENIKMATI 20X20 X 50, 3,217, 2,715; (S) SPATULA BUTTERCREAM STAINLESS 32 CM, 12,790, 9,201",
+    "evidence": "https://raw.githubusercontent.com/pinuspackindo-ai/pinuspackindo-okr/data/uploads/purchasing/1784941808745_tplgl5_21.png",
+    "evidenceName": "21.PNG",
+    "savedAt": "2026-07-25T01:10:11.157Z",
+    "locked": true
+  },
+  "_p_sv_2026_07_24": {
+    "text": "BOTOL PENGOXOK STAINLESS 550 ML, 48.035, 43.625; (S) DUS KRAFT TALI LAMINASI 20X20X10 CM, 16.900, 16.720; TIMBANGAN DIGITAL MINI, 42.702, 40.196",
+    "evidence": "https://raw.githubusercontent.com/pinuspackindo-ai/pinuspackindo-okr/data/uploads/purchasing/1784941841409_xboxup_24.png",
+    "evidenceName": "24.PNG",
+    "savedAt": null,
+    "locked": false
+  },
+  "_w_akurasi_w_2026_07": {
+    "value": 95.62,
+    "evidence": null,
+    "evidenceName": "STOK OPNAME 2026-07-25 12.04.37.png",
+    "savedAt": "2026-07-25T05:09:27.365Z",
+    "locked": true,
+    "evidences": [
+      {
+        "name": "STOK OPNAME 2026-07-25 12.04.37.png",
+        "data": null
+      }
+    ]
+  },
+  "_w_default_diary_2026_07": {
+    "value": 92.63,
+    "evidence": null,
+    "evidenceName": "DEFAULT DAIRY 2026-07-25 12.02.50.png",
+    "savedAt": "2026-07-25T05:12:31.011Z",
+    "locked": true,
+    "evidences": [
+      {
+        "name": "DEFAULT DAIRY 2026-07-25 12.02.50.png",
+        "data": null
+      }
+    ]
+  },
+  "_w_cartrack_2026_07": {
+    "value": 88.23,
+    "evidence": null,
+    "evidenceName": "CARTRACK 2026-07-25.12.00.31.png",
+    "savedAt": "2026-07-25T05:14:19.333Z",
+    "locked": true,
+    "evidences": [
+      {
+        "name": "CARTRACK 2026-07-25.12.00.31.png",
+        "data": "https://raw.githubusercontent.com/pinuspackindo-ai/pinuspackindo-okr/data/uploads/warehouse/1784956459782_qujjqd_CARTRACK_2026-07-25.12.00.31.png"
+      }
+    ]
+  },
+  "_ts": 1784972461840
 }
