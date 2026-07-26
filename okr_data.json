@@ -96,10 +96,7 @@
     "_ga_rot_2026_06": 1783134158109,
     "_ga_rot_2026_07": 1783134170325,
     "_fa_rot_2026_07": 1783308087934,
-    "_p_kpen_2026_07": 1783393431960,
-    "_inv_rn_do_2026_07_08": 1784884842127,
-    "_inv_rn_do_2026_07_09": 1784884842127,
-    "_inv_rn_do_2026_07_10": 1784884842127
+    "_p_kpen_2026_07": 1783393431960
   },
   "_okrLock": {
     "2026-05|Store": {
@@ -374,7 +371,7 @@
       "actionPlan": "Kaji ulang cctv warehouse",
       "rows": [
         {
-          "actual": 98.2,
+          "actual": null,
           "bobot": 40,
           "id": "r177989029078478jg",
           "keyResult": "Tingkat akurasi stok inventaris data vs fisik",
@@ -3896,7 +3893,7 @@
     "value": 98.2,
     "evidence": "https://raw.githubusercontent.com/pinuspackindo-ai/pinuspackindo-okr/data/uploads/general_affair/1783409069784_u73ap0_Pinus.jpg",
     "evidenceName": "Pinus.jpg",
-    "savedAt": "2026-07-23T05:04:54.125Z",
+    "savedAt": "2026-07-09T02:11:50.148Z",
     "locked": true,
     "evidences": [
       {
@@ -4107,31 +4104,31 @@
         "tal": "finalisasi training admin inventory",
         "deadline": "2026-07-31",
         "bobot": 30,
-        "progress": 100,
+        "progress": 50,
         "review": "",
         "editing": false,
-        "savedAt": "2026-07-22T14:37:58.482Z"
+        "savedAt": "2026-07-13T04:44:48.496Z"
       },
       {
         "tal": "menjalankan proyek hpp bersama purchasing",
         "deadline": "2026-07-31",
         "bobot": 20,
-        "progress": 75,
+        "progress": null,
         "review": "",
         "editing": false,
-        "savedAt": "2026-07-24T06:03:20.341Z"
+        "savedAt": "2026-07-06T01:56:54.580Z"
       },
       {
         "tal": "pendataan GA sebelum staff resign",
         "deadline": "2026-07-31",
         "bobot": 10,
-        "progress": 75,
+        "progress": 50,
         "review": "",
         "editing": false,
-        "savedAt": "2026-07-22T14:37:52.792Z"
+        "savedAt": "2026-07-13T04:44:37.215Z"
       }
     ],
-    "savedAt": "2026-07-24T06:03:20.341Z"
+    "savedAt": "2026-07-13T04:44:48.496Z"
   },
   "_tal_d10_2026_07": {
     "rows": [
@@ -4139,19 +4136,19 @@
         "tal": "revisi planogram warehouse",
         "deadline": "2026-07-31",
         "bobot": 40,
-        "progress": 100,
+        "progress": 90,
         "review": "",
         "editing": false,
-        "savedAt": "2026-07-23T04:52:48.558Z"
+        "savedAt": "2026-07-20T14:41:14.648Z"
       },
       {
         "tal": "planning & eksekusi pengelolaan tips warehouse",
         "deadline": "2026-07-31",
         "bobot": 35,
-        "progress": 95,
+        "progress": 90,
         "review": "",
         "editing": false,
-        "savedAt": "2026-07-25T04:59:46.574Z"
+        "savedAt": "2026-07-22T04:51:30.570Z"
       },
       {
         "tal": "planning & eksekusi palet warehouse",
@@ -4163,7 +4160,7 @@
         "savedAt": "2026-07-22T04:51:38.609Z"
       }
     ],
-    "savedAt": "2026-07-25T04:59:46.574Z"
+    "savedAt": "2026-07-22T04:51:38.609Z"
   },
   "_tal_d3_2026_07": {
     "rows": [
@@ -4203,13 +4200,13 @@
         "tal": "menyusun 50% SOP finance berdasar business flow finance",
         "deadline": "2026-07-31",
         "bobot": 100,
-        "progress": 50,
+        "progress": null,
         "review": "",
         "editing": false,
-        "savedAt": "2026-07-23T04:59:27.089Z"
+        "savedAt": "2026-07-06T02:01:53.845Z"
       }
     ],
-    "savedAt": "2026-07-23T04:59:27.089Z"
+    "savedAt": "2026-07-06T02:01:53.845Z"
   },
   "_tal_d11_2026_07": {
     "rows": [
@@ -4436,7 +4433,7 @@
           "objective": "Stok akurat, persediaan optimal, biaya & waste minimal.",
           "keyResult": "Akurasi DO & RN",
           "target": 100,
-          "actual": 99.58,
+          "actual": null,
           "bobot": 10
         },
         {
@@ -4465,7 +4462,7 @@
           "objective": "Pengadaan stok tepat waktu dan berkwalitas, administrasi akurat..",
           "keyResult": "Tingkat in stock",
           "target": 95,
-          "actual": 91.98,
+          "actual": 91.25,
           "bobot": 40
         },
         {
@@ -4541,7 +4538,7 @@
           "objective": "Stok akurat, operasional berjalan sesuai SOP.",
           "keyResult": "Tingkat akurasi stok fisik vs data",
           "target": 98,
-          "actual": 95.62,
+          "actual": null,
           "bobot": 30
         },
         {
@@ -4549,7 +4546,7 @@
           "objective": "Stok akurat, operasional berjalan sesuai SOP.",
           "keyResult": "Tingkat akurasi default diary",
           "target": 95,
-          "actual": 92.63,
+          "actual": null,
           "bobot": 25
         },
         {
@@ -4557,7 +4554,7 @@
           "objective": "Stok akurat, operasional berjalan sesuai SOP.",
           "keyResult": "Score avg cartrack",
           "target": 90,
-          "actual": 88.23,
+          "actual": null,
           "bobot": 20
         },
         {
@@ -6011,8 +6008,8 @@
       "Adit Mohgat": 91.63,
       "A'izatul Nafisah": 95.39
     },
-    "score": 92.32,
-    "savedAt": "2026-07-23T03:26:54.798Z",
+    "score": null,
+    "savedAt": "2026-07-10T09:26:06.716Z",
     "locked": true
   },
   "_hrd_kin_2026_07": {
@@ -6141,7 +6138,7 @@
       "Adit Mohgat": 89.8,
       "A'izatul Nafisah": 95.03
     },
-    "score": 90.99,
+    "score": null,
     "savedAt": "2026-07-14T08:38:46.222Z",
     "locked": true
   },
@@ -6331,6 +6328,65 @@
       }
     ]
   },
+  "_inv_rn_do_2026_07_08": {
+    "value": 100,
+    "evidence": null,
+    "evidenceName": "WhatsApp Image 2026-07-16 at 13.58.18.jpeg",
+    "savedAt": "2026-07-16T06:58:41.729Z",
+    "locked": true,
+    "evidences": [
+      {
+        "name": "WhatsApp Image 2026-07-16 at 13.58.18.jpeg",
+        "data": null
+      },
+      {
+        "name": "WhatsApp Image 2026-07-16 at 13.58.17 (1).jpeg",
+        "data": null
+      },
+      {
+        "name": "WhatsApp Image 2026-07-16 at 13.58.17.jpeg",
+        "data": "https://raw.githubusercontent.com/pinuspackindo-ai/pinuspackindo-okr/data/uploads/inventory/1784213194156_e5usjf_WhatsApp_Image_2026-07-16_at_13.58.17.jpeg"
+      }
+    ]
+  },
+  "_inv_rn_do_2026_07_09": {
+    "value": 100,
+    "evidence": null,
+    "evidenceName": "WhatsApp Image 2026-07-16 at 13.59.27 (2).jpeg",
+    "savedAt": "2026-07-16T06:59:51.767Z",
+    "locked": true,
+    "evidences": [
+      {
+        "name": "WhatsApp Image 2026-07-16 at 13.59.27 (2).jpeg",
+        "data": null
+      },
+      {
+        "name": "WhatsApp Image 2026-07-16 at 13.59.27 (1).jpeg",
+        "data": null
+      },
+      {
+        "name": "WhatsApp Image 2026-07-16 at 13.59.27.jpeg",
+        "data": null
+      }
+    ]
+  },
+  "_inv_rn_do_2026_07_10": {
+    "value": 100,
+    "evidence": null,
+    "evidenceName": "WhatsApp Image 2026-07-16 at 14.00.47.jpeg",
+    "savedAt": "2026-07-16T07:01:18.973Z",
+    "locked": true,
+    "evidences": [
+      {
+        "name": "WhatsApp Image 2026-07-16 at 14.00.47.jpeg",
+        "data": null
+      },
+      {
+        "name": "WhatsApp Image 2026-07-16 at 14.00.42.jpeg",
+        "data": null
+      }
+    ]
+  },
   "_inv_rn_do_2026_07_11": {
     "value": 100,
     "evidence": null,
@@ -6392,7 +6448,7 @@
       "Adit Mohgat": 86.01,
       "A'izatul Nafisah": 94.5
     },
-    "score": 90.74,
+    "score": null,
     "savedAt": "2026-07-18T04:39:45.206Z",
     "locked": true
   },
@@ -6435,122 +6491,5 @@
     "savedAt": "2026-07-22T08:43:25.983Z",
     "locked": true
   },
-  "_p_ins_2026_07_22": {
-    "file1": "https://raw.githubusercontent.com/pinuspackindo-ai/pinuspackindo-okr/data/uploads/purchasing/1784720412864_4332l4_product.product.xlsx",
-    "file1Name": "product.product.xlsx",
-    "file2": "https://raw.githubusercontent.com/pinuspackindo-ai/pinuspackindo-okr/data/uploads/purchasing/1784720412033_kp97gq_product.product_1.xlsx",
-    "file2Name": "product.product (1).xlsx",
-    "file3": null,
-    "file3Name": "purchase.order.line.xlsx",
-    "users": {
-      "Arif Wibowo": 93.44,
-      "Adit Mohgat": 91.96,
-      "A'izatul Nafisah": 92.73
-    },
-    "score": 92.03,
-    "savedAt": "2026-07-22T11:40:11.451Z",
-    "locked": true
-  },
-  "_p_ins_2026_07_23": {
-    "file1": "https://raw.githubusercontent.com/pinuspackindo-ai/pinuspackindo-okr/data/uploads/purchasing/1784799616478_m2bkkb_product.product.xlsx",
-    "file1Name": "product.product.xlsx",
-    "file2": "https://raw.githubusercontent.com/pinuspackindo-ai/pinuspackindo-okr/data/uploads/purchasing/1784799620028_0oj0lw_product.product_1.xlsx",
-    "file2Name": "product.product (1).xlsx",
-    "file3": "https://raw.githubusercontent.com/pinuspackindo-ai/pinuspackindo-okr/data/uploads/purchasing/1784799618222_ntt8rf_purchase.order.line.xlsx",
-    "file3Name": "purchase.order.line.xlsx",
-    "users": {
-      "Arif Wibowo": 95.94,
-      "Adit Mohgat": 94.47,
-      "A'izatul Nafisah": 95.17
-    },
-    "score": 94.18,
-    "savedAt": "2026-07-23T09:40:18.178Z",
-    "locked": true
-  },
-  "_p_ins_2026_07_24": {
-    "file1": "https://raw.githubusercontent.com/pinuspackindo-ai/pinuspackindo-okr/data/uploads/purchasing/1784879619553_ec4z03_product.product.xlsx",
-    "file1Name": "product.product.xlsx",
-    "file2": "https://raw.githubusercontent.com/pinuspackindo-ai/pinuspackindo-okr/data/uploads/purchasing/1784879622906_jhjtr3_product.product_1.xlsx",
-    "file2Name": "product.product (1).xlsx",
-    "file3": "https://raw.githubusercontent.com/pinuspackindo-ai/pinuspackindo-okr/data/uploads/purchasing/1784880766939_mnr477_purchase.order.line.xlsx",
-    "file3Name": "purchase.order.line.xlsx",
-    "users": {
-      "Arif Wibowo": 98.98,
-      "Adit Mohgat": 98.78,
-      "A'izatul Nafisah": 97.88
-    },
-    "score": 97.33,
-    "savedAt": "2026-07-24T07:53:42.597Z",
-    "locked": true
-  },
-  "_p_sv_2026_07_21": {
-    "text": "(S) HAECHANDLE SAUS GOCHUJANG 170 GR, 14,062, 13,489; (S) HERCULES BAKING POWDER 110 GR, 12,933, 12,079; (S) PLASTIK SELAMAT MENIKMATI 20X20 X 50, 3,217, 2,715; (S) SPATULA BUTTERCREAM STAINLESS 32 CM, 12,790, 9,201",
-    "evidence": "https://raw.githubusercontent.com/pinuspackindo-ai/pinuspackindo-okr/data/uploads/purchasing/1784941808745_tplgl5_21.png",
-    "evidenceName": "21.PNG",
-    "savedAt": "2026-07-25T01:10:11.157Z",
-    "locked": true
-  },
-  "_p_sv_2026_07_24": {
-    "text": "BOTOL PENGOXOK STAINLESS 550 ML, 48.035, 43.625; (S) DUS KRAFT TALI LAMINASI 20X20X10 CM, 16.900, 16.720; TIMBANGAN DIGITAL MINI, 42.702, 40.196",
-    "evidence": "https://raw.githubusercontent.com/pinuspackindo-ai/pinuspackindo-okr/data/uploads/purchasing/1784941841409_xboxup_24.png",
-    "evidenceName": "24.PNG",
-    "savedAt": null,
-    "locked": false
-  },
-  "_ts": 1784990133075,
-  "_w_akurasi_w_2026_07": {
-    "value": 95.62,
-    "evidence": null,
-    "evidenceName": "STOK OPNAME 2026-07-25 12.04.37.png",
-    "savedAt": "2026-07-25T05:09:27.365Z",
-    "locked": true,
-    "evidences": [
-      {
-        "name": "STOK OPNAME 2026-07-25 12.04.37.png",
-        "data": null
-      }
-    ]
-  },
-  "_w_default_diary_2026_07": {
-    "value": 92.63,
-    "evidence": null,
-    "evidenceName": "DEFAULT DAIRY 2026-07-25 12.02.50.png",
-    "savedAt": "2026-07-25T05:12:31.011Z",
-    "locked": true,
-    "evidences": [
-      {
-        "name": "DEFAULT DAIRY 2026-07-25 12.02.50.png",
-        "data": null
-      }
-    ]
-  },
-  "_w_cartrack_2026_07": {
-    "value": 88.23,
-    "evidence": null,
-    "evidenceName": "CARTRACK 2026-07-25.12.00.31.png",
-    "savedAt": "2026-07-25T05:14:19.333Z",
-    "locked": true,
-    "evidences": [
-      {
-        "name": "CARTRACK 2026-07-25.12.00.31.png",
-        "data": "https://raw.githubusercontent.com/pinuspackindo-ai/pinuspackindo-okr/data/uploads/warehouse/1784956459782_qujjqd_CARTRACK_2026-07-25.12.00.31.png"
-      }
-    ]
-  },
-  "_p_ins_2026_07_25": {
-    "file1": "https://raw.githubusercontent.com/pinuspackindo-ai/pinuspackindo-okr/data/uploads/purchasing/1784973213433_knruuk_product.product.xlsx",
-    "file1Name": "product.product.xlsx",
-    "file2": "https://raw.githubusercontent.com/pinuspackindo-ai/pinuspackindo-okr/data/uploads/purchasing/1784973210138_bjorr4_product.product_1.xlsx",
-    "file2Name": "product.product (1).xlsx",
-    "file3": "https://raw.githubusercontent.com/pinuspackindo-ai/pinuspackindo-okr/data/uploads/purchasing/1784973217459_xxjk7m_purchase.order.line.xlsx",
-    "file3Name": "purchase.order.line.xlsx",
-    "users": {
-      "Arif Wibowo": 99.13,
-      "Adit Mohgat": 98.31,
-      "A'izatul Nafisah": 97.86
-    },
-    "score": 97.22,
-    "savedAt": "2026-07-25T09:53:32.989Z",
-    "locked": true
-  }
+  "_ts": 1785029858462
 }
