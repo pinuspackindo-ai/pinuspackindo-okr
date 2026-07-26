@@ -97,9 +97,9 @@
     "_ga_rot_2026_07": 1783134170325,
     "_fa_rot_2026_07": 1783308087934,
     "_p_kpen_2026_07": 1783393431960,
-    "_inv_rn_do_2026_07_08": 1784884842127,
-    "_inv_rn_do_2026_07_09": 1784884842127,
-    "_inv_rn_do_2026_07_10": 1784884842127
+    "_inv_rn_do_2026_07_08": 1785029860108,
+    "_inv_rn_do_2026_07_09": 1785029860108,
+    "_inv_rn_do_2026_07_10": 1785029860108
   },
   "_okrLock": {
     "2026-05|Store": {
@@ -900,7 +900,7 @@
           "target": 95
         },
         {
-          "actual": 0.04,
+          "actual": 0,
           "bobot": 10,
           "id": "r17804720965136s2r",
           "keyResult": "Tingkat penghematan budget",
@@ -3821,8 +3821,8 @@
       }
     ]
   },
-  "_p_sv_rn_2026_06": 135000,
-  "_p_sv_rn_lk_2026_06": true,
+  "_p_sv_rn_2026_06": 1024,
+  "_p_sv_rn_lk_2026_06": false,
   "_p_ins_2026_07_03": {
     "file1": "https://raw.githubusercontent.com/pinuspackindo-ai/pinuspackindo-okr/data/uploads/purchasing/1783069354644_tp1yba_product.product_2.xlsx",
     "file1Name": "product.product (2).xlsx",
@@ -4057,10 +4057,10 @@
         "tal": "Melebur md sales + inval md, revisi kpi per individu",
         "deadline": "2026-07-31",
         "bobot": 40,
-        "progress": 100,
+        "progress": 90,
         "review": "",
         "editing": false,
-        "savedAt": "2026-07-22T01:16:11.331Z"
+        "savedAt": "2026-07-26T01:39:21.825Z"
       },
       {
         "tal": "Running RN by checker",
@@ -4090,7 +4090,7 @@
         "savedAt": "2026-07-22T01:16:00.549Z"
       }
     ],
-    "savedAt": "2026-07-22T01:16:11.331Z"
+    "savedAt": "2026-07-26T01:39:21.825Z"
   },
   "_tal_d12_2026_07": {
     "rows": [
@@ -4148,10 +4148,10 @@
         "tal": "planning & eksekusi pengelolaan tips warehouse",
         "deadline": "2026-07-31",
         "bobot": 35,
-        "progress": 90,
+        "progress": 95,
         "review": "",
         "editing": false,
-        "savedAt": "2026-07-22T04:51:30.570Z"
+        "savedAt": "2026-07-25T04:59:46.574Z"
       },
       {
         "tal": "planning & eksekusi palet warehouse",
@@ -4163,7 +4163,7 @@
         "savedAt": "2026-07-22T04:51:38.609Z"
       }
     ],
-    "savedAt": "2026-07-23T04:52:48.559Z"
+    "savedAt": "2026-07-25T04:59:46.574Z"
   },
   "_tal_d3_2026_07": {
     "rows": [
@@ -4465,7 +4465,7 @@
           "objective": "Pengadaan stok tepat waktu dan berkwalitas, administrasi akurat..",
           "keyResult": "Tingkat in stock",
           "target": 95,
-          "actual": 91.73,
+          "actual": 91.98,
           "bobot": 40
         },
         {
@@ -4541,7 +4541,7 @@
           "objective": "Stok akurat, operasional berjalan sesuai SOP.",
           "keyResult": "Tingkat akurasi stok fisik vs data",
           "target": 98,
-          "actual": null,
+          "actual": 95.62,
           "bobot": 30
         },
         {
@@ -4549,7 +4549,7 @@
           "objective": "Stok akurat, operasional berjalan sesuai SOP.",
           "keyResult": "Tingkat akurasi default diary",
           "target": 95,
-          "actual": null,
+          "actual": 92.63,
           "bobot": 25
         },
         {
@@ -4557,7 +4557,7 @@
           "objective": "Stok akurat, operasional berjalan sesuai SOP.",
           "keyResult": "Score avg cartrack",
           "target": 90,
-          "actual": null,
+          "actual": 88.23,
           "bobot": 20
         },
         {
@@ -6467,7 +6467,6 @@
     "savedAt": "2026-07-23T09:40:18.178Z",
     "locked": true
   },
-  "_ts": 1785073905097,
   "_p_ins_2026_07_24": {
     "file1": "https://raw.githubusercontent.com/pinuspackindo-ai/pinuspackindo-okr/data/uploads/purchasing/1784879619553_ec4z03_product.product.xlsx",
     "file1Name": "product.product.xlsx",
@@ -6497,5 +6496,61 @@
     "evidenceName": "24.PNG",
     "savedAt": null,
     "locked": false
-  }
+  },
+  "_w_akurasi_w_2026_07": {
+    "value": 95.62,
+    "evidence": null,
+    "evidenceName": "STOK OPNAME 2026-07-25 12.04.37.png",
+    "savedAt": "2026-07-25T05:09:27.365Z",
+    "locked": true,
+    "evidences": [
+      {
+        "name": "STOK OPNAME 2026-07-25 12.04.37.png",
+        "data": null
+      }
+    ]
+  },
+  "_w_default_diary_2026_07": {
+    "value": 92.63,
+    "evidence": null,
+    "evidenceName": "DEFAULT DAIRY 2026-07-25 12.02.50.png",
+    "savedAt": "2026-07-25T05:12:31.011Z",
+    "locked": true,
+    "evidences": [
+      {
+        "name": "DEFAULT DAIRY 2026-07-25 12.02.50.png",
+        "data": null
+      }
+    ]
+  },
+  "_w_cartrack_2026_07": {
+    "value": 88.23,
+    "evidence": null,
+    "evidenceName": "CARTRACK 2026-07-25.12.00.31.png",
+    "savedAt": "2026-07-25T05:14:19.333Z",
+    "locked": true,
+    "evidences": [
+      {
+        "name": "CARTRACK 2026-07-25.12.00.31.png",
+        "data": "https://raw.githubusercontent.com/pinuspackindo-ai/pinuspackindo-okr/data/uploads/warehouse/1784956459782_qujjqd_CARTRACK_2026-07-25.12.00.31.png"
+      }
+    ]
+  },
+  "_p_ins_2026_07_25": {
+    "file1": "https://raw.githubusercontent.com/pinuspackindo-ai/pinuspackindo-okr/data/uploads/purchasing/1784973213433_knruuk_product.product.xlsx",
+    "file1Name": "product.product.xlsx",
+    "file2": "https://raw.githubusercontent.com/pinuspackindo-ai/pinuspackindo-okr/data/uploads/purchasing/1784973210138_bjorr4_product.product_1.xlsx",
+    "file2Name": "product.product (1).xlsx",
+    "file3": "https://raw.githubusercontent.com/pinuspackindo-ai/pinuspackindo-okr/data/uploads/purchasing/1784973217459_xxjk7m_purchase.order.line.xlsx",
+    "file3Name": "purchase.order.line.xlsx",
+    "users": {
+      "Arif Wibowo": 99.13,
+      "Adit Mohgat": 98.31,
+      "A'izatul Nafisah": 97.86
+    },
+    "score": 97.22,
+    "savedAt": "2026-07-25T09:53:32.989Z",
+    "locked": true
+  },
+  "_ts": 1785073906524
 }
