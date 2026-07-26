@@ -4320,15 +4320,15 @@
     "General Affair": {
       "rows": [
         {
-          "id": "r1784537440308gma7",
+          "id": "r1785074056280um0n",
           "objective": "Inventaris utuh terawat, pengadaan tepat waktu, operasional aman lancar, user puas.",
           "keyResult": "Tingkat akurasi stok inventaris data vs fisik",
           "target": 98,
-          "actual": 0,
+          "actual": 65,
           "bobot": 40
         },
         {
-          "id": "r17845374403083gga",
+          "id": "r1785074056280kpnv",
           "objective": "Inventaris utuh terawat, pengadaan tepat waktu, operasional aman lancar, user puas.",
           "keyResult": "Tingkat akurasi lead time pengadaan / maintenance",
           "target": 95,
@@ -4336,7 +4336,7 @@
           "bobot": 35
         },
         {
-          "id": "r1784537440309fbtr",
+          "id": "r1785074056280jai3",
           "objective": "Inventaris utuh terawat, pengadaan tepat waktu, operasional aman lancar, user puas.",
           "keyResult": "Laporan inventaris akurat dan on time",
           "target": 100,
@@ -4345,7 +4345,7 @@
         }
       ],
       "actionPlan": "Kaji ulang cctv warehouse",
-      "savedAt": "2026-07-20T08:50:40.309Z"
+      "savedAt": "2026-07-26T13:54:16.280Z"
     },
     "HRD": {
       "rows": [
@@ -6552,5 +6552,5 @@
     "savedAt": "2026-07-25T09:53:32.989Z",
     "locked": true
   },
-  "_ts": 1785074003814
+  "_ts": 1785074056324
 }
