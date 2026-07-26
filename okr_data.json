@@ -900,7 +900,7 @@
           "target": 95
         },
         {
-          "actual": 0,
+          "actual": 0.04,
           "bobot": 10,
           "id": "r17804720965136s2r",
           "keyResult": "Tingkat penghematan budget",
@@ -3821,8 +3821,8 @@
       }
     ]
   },
-  "_p_sv_rn_2026_06": 1024,
-  "_p_sv_rn_lk_2026_06": false,
+  "_p_sv_rn_2026_06": 135000,
+  "_p_sv_rn_lk_2026_06": true,
   "_p_ins_2026_07_03": {
     "file1": "https://raw.githubusercontent.com/pinuspackindo-ai/pinuspackindo-okr/data/uploads/purchasing/1783069354644_tp1yba_product.product_2.xlsx",
     "file1Name": "product.product (2).xlsx",
@@ -6552,5 +6552,5 @@
     "savedAt": "2026-07-25T09:53:32.989Z",
     "locked": true
   },
-  "_ts": 1785073918646
+  "_ts": 1785073954760
 }
