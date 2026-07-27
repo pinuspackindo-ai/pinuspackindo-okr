@@ -4176,10 +4176,10 @@
         "tal": "setting KPI bagi yg belum punya",
         "deadline": "2026-07-31",
         "bobot": 45,
-        "progress": 70,
+        "progress": 100,
         "review": "",
         "editing": false,
-        "savedAt": "2026-07-17T06:46:57.209Z"
+        "savedAt": "2026-07-27T06:43:39.043Z"
       },
       {
         "tal": "pengadaan atribut dresscode sesuai SOP + internal memo nya",
@@ -4200,7 +4200,7 @@
         "savedAt": "2026-07-21T07:22:41.058Z"
       }
     ],
-    "savedAt": "2026-07-21T07:22:41.058Z"
+    "savedAt": "2026-07-27T06:43:39.044Z"
   },
   "_tal_d2_2026_07": {
     "rows": [
@@ -4208,13 +4208,13 @@
         "tal": "menyusun 50% SOP finance berdasar business flow finance",
         "deadline": "2026-07-31",
         "bobot": 100,
-        "progress": 100,
+        "progress": 50,
         "review": "",
         "editing": false,
-        "savedAt": "2026-07-27T06:43:57.437Z"
+        "savedAt": "2026-07-23T04:59:27.089Z"
       }
     ],
-    "savedAt": "2026-07-27T06:43:57.437Z"
+    "savedAt": "2026-07-23T04:59:27.089Z"
   },
   "_tal_d11_2026_07": {
     "rows": [
@@ -4441,7 +4441,7 @@
           "objective": "Stok akurat, persediaan optimal, biaya & waste minimal.",
           "keyResult": "Akurasi DO & RN",
           "target": 100,
-          "actual": 99.58,
+          "actual": 99.8,
           "bobot": 10
         },
         {
@@ -6570,7 +6570,6 @@
       }
     ]
   },
-  "_ts": 1785134637438,
   "_inv_rn_do_2026_07_08": {
     "value": 100,
     "evidence": "https://raw.githubusercontent.com/pinuspackindo-ai/pinuspackindo-okr/data/uploads/inventory/1785116288840_3gwzlf_WhatsApp_Image_2026-07-27_at_08.36.06.jpeg",
@@ -6675,7 +6674,7 @@
       },
       {
         "name": "WhatsApp Image 2026-07-27 at 09.22.32 (1).jpeg",
-        "data": "https://raw.githubusercontent.com/pinuspackindo-ai/pinuspackindo-okr/data/uploads/inventory/1785122234298_6ukfrr_WhatsApp_Image_2026-07-27_at_09.22.32_1.jpeg"
+        "data": null
       },
       {
         "name": "WhatsApp Image 2026-07-27 at 09.22.32.jpeg",
@@ -6688,7 +6687,7 @@
     "evidence": null,
     "evidenceName": "1,4.jpg",
     "savedAt": "2026-07-27T02:29:30.285Z",
-    "locked": true,
+    "locked": false,
     "evidences": [
       {
         "name": "1,4.jpg",
@@ -6700,7 +6699,7 @@
       },
       {
         "name": "1,2.jpg",
-        "data": "https://raw.githubusercontent.com/pinuspackindo-ai/pinuspackindo-okr/data/uploads/inventory/1785122233920_uvx2ft_1_2.jpg"
+        "data": null
       }
     ]
   },
@@ -6745,5 +6744,6 @@
         "data": null
       }
     ]
-  }
+  },
+  "_ts": 1785134628727
 }
