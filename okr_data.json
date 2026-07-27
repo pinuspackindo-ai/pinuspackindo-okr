@@ -1,5 +1,4 @@
 {
-  "_ts": 1785122238751,
   "_userAccess": {
     "Finance & Accounting": {
       "modules": [
@@ -743,7 +742,7 @@
           "objective": "Inventaris utuh terawat, pengadaan tepat waktu, operasional aman lancar, user puas.",
           "keyResult": "Tingkat akurasi stok inventaris data vs fisik",
           "target": 98,
-          "actual": 0,
+          "actual": 65,
           "bobot": 40
         },
         {
@@ -906,7 +905,7 @@
           "target": 95
         },
         {
-          "actual": 0,
+          "actual": 0.04,
           "bobot": 10,
           "id": "r17804720965136s2r",
           "keyResult": "Tingkat penghematan budget",
@@ -3827,8 +3826,8 @@
       }
     ]
   },
-  "_p_sv_rn_2026_06": 1024,
-  "_p_sv_rn_lk_2026_06": false,
+  "_p_sv_rn_2026_06": 135000,
+  "_p_sv_rn_lk_2026_06": true,
   "_p_ins_2026_07_03": {
     "file1": "https://raw.githubusercontent.com/pinuspackindo-ai/pinuspackindo-okr/data/uploads/purchasing/1783069354644_tp1yba_product.product_2.xlsx",
     "file1Name": "product.product (2).xlsx",
@@ -4442,7 +4441,7 @@
           "objective": "Stok akurat, persediaan optimal, biaya & waste minimal.",
           "keyResult": "Akurasi DO & RN",
           "target": 100,
-          "actual": 99.8,
+          "actual": 99.58,
           "bobot": 10
         },
         {
@@ -6571,6 +6570,7 @@
       }
     ]
   },
+  "_ts": 1785127060492,
   "_inv_rn_do_2026_07_08": {
     "value": 100,
     "evidence": "https://raw.githubusercontent.com/pinuspackindo-ai/pinuspackindo-okr/data/uploads/inventory/1785116288840_3gwzlf_WhatsApp_Image_2026-07-27_at_08.36.06.jpeg",
