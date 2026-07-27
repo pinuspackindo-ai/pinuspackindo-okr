@@ -4441,7 +4441,7 @@
           "objective": "Stok akurat, persediaan optimal, biaya & waste minimal.",
           "keyResult": "Akurasi DO & RN",
           "target": 100,
-          "actual": 99.58,
+          "actual": 99.8,
           "bobot": 10
         },
         {
@@ -6674,7 +6674,7 @@
       },
       {
         "name": "WhatsApp Image 2026-07-27 at 09.22.32 (1).jpeg",
-        "data": "https://raw.githubusercontent.com/pinuspackindo-ai/pinuspackindo-okr/data/uploads/inventory/1785122234298_6ukfrr_WhatsApp_Image_2026-07-27_at_09.22.32_1.jpeg"
+        "data": null
       },
       {
         "name": "WhatsApp Image 2026-07-27 at 09.22.32.jpeg",
@@ -6699,7 +6699,7 @@
       },
       {
         "name": "1,2.jpg",
-        "data": "https://raw.githubusercontent.com/pinuspackindo-ai/pinuspackindo-okr/data/uploads/inventory/1785122233920_uvx2ft_1_2.jpg"
+        "data": null
       }
     ]
   },
@@ -6745,5 +6745,5 @@
       }
     ]
   },
-  "_ts": 1785134542230
+  "_ts": 1785134549454
 }
