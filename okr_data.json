@@ -4176,10 +4176,10 @@
         "tal": "setting KPI bagi yg belum punya",
         "deadline": "2026-07-31",
         "bobot": 45,
-        "progress": 70,
+        "progress": 100,
         "review": "",
         "editing": false,
-        "savedAt": "2026-07-17T06:46:57.209Z"
+        "savedAt": "2026-07-27T06:43:39.043Z"
       },
       {
         "tal": "pengadaan atribut dresscode sesuai SOP + internal memo nya",
@@ -4200,7 +4200,7 @@
         "savedAt": "2026-07-21T07:22:41.058Z"
       }
     ],
-    "savedAt": "2026-07-21T07:22:41.058Z"
+    "savedAt": "2026-07-27T06:43:39.044Z"
   },
   "_tal_d2_2026_07": {
     "rows": [
@@ -6745,5 +6745,5 @@
       }
     ]
   },
-  "_ts": 1785134552515
+  "_ts": 1785134619044
 }
