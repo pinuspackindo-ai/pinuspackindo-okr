@@ -96,9 +96,7 @@
     "_ga_rot_2026_06": 1783134158109,
     "_ga_rot_2026_07": 1783134170325,
     "_fa_rot_2026_07": 1783308087934,
-    "_p_kpen_2026_07": 1783393431960,
-    "_inv_rn_do_2026_07_27": 1785287167945,
-    "_inv_rn_do_2026_07_28": 1785287167945
+    "_p_kpen_2026_07": 1783393431960
   },
   "_okrLock": {
     "2026-05|Store": {
@@ -4443,7 +4441,7 @@
           "objective": "Stok akurat, persediaan optimal, biaya & waste minimal.",
           "keyResult": "Akurasi DO & RN",
           "target": 100,
-          "actual": 99.73,
+          "actual": 99.83,
           "bobot": 10
         },
         {
@@ -6756,7 +6754,7 @@
     "evidences": [
       {
         "name": "WhatsApp Image 2026-07-27 at 14.39.52 (1).jpeg",
-        "data": null
+        "data": "https://raw.githubusercontent.com/pinuspackindo-ai/pinuspackindo-okr/data/uploads/inventory/1785200345405_4hunl4_WhatsApp_Image_2026-07-27_at_14.39.52_1.jpeg"
       },
       {
         "name": "WhatsApp Image 2026-07-27 at 14.39.52.jpeg",
@@ -6780,5 +6778,26 @@
     "savedAt": "2026-07-27T09:06:02.436Z",
     "locked": true
   },
-  "_ts": 1785287167945
+  "_inv_rn_do_2026_07_27": {
+    "value": 100,
+    "evidence": "https://raw.githubusercontent.com/pinuspackindo-ai/pinuspackindo-okr/data/uploads/inventory/1785225303443_2boyit_WhatsApp_Image_2026-07-27_at_17.49.55.jpeg",
+    "evidenceName": "WhatsApp Image 2026-07-27 at 17.49.55.jpeg",
+    "savedAt": "2026-07-27T10:54:53.483Z",
+    "locked": true,
+    "evidences": [
+      {
+        "name": "WhatsApp Image 2026-07-27 at 17.49.55.jpeg",
+        "data": "https://raw.githubusercontent.com/pinuspackindo-ai/pinuspackindo-okr/data/uploads/inventory/1785211095436_9rdbh4_WhatsApp_Image_2026-07-27_at_17.49.55.jpeg"
+      },
+      {
+        "name": "WhatsApp Image 2026-07-27 at 17.50.19.jpeg",
+        "data": "https://raw.githubusercontent.com/pinuspackindo-ai/pinuspackindo-okr/data/uploads/inventory/1785204538345_ihpdto_WhatsApp_Image_2026-07-27_at_17.50.19.jpeg"
+      },
+      {
+        "name": "WhatsApp Image 2026-07-27 at 17.52.19.jpeg",
+        "data": "https://raw.githubusercontent.com/pinuspackindo-ai/pinuspackindo-okr/data/uploads/inventory/1785149695453_nhws4n_WhatsApp_Image_2026-07-27_at_17.52.19.jpeg"
+      }
+    ]
+  },
+  "_ts": 1785287169370
 }
