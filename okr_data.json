@@ -1,4 +1,5 @@
 {
+  "_ts": 1785421876839,
   "_userAccess": {
     "Finance & Accounting": {
       "modules": [
@@ -4442,7 +4443,7 @@
           "objective": "Stok akurat, persediaan optimal, biaya & waste minimal.",
           "keyResult": "Akurasi DO & RN",
           "target": 100,
-          "actual": 99.69,
+          "actual": 99.83,
           "bobot": 10
         },
         {
@@ -6869,7 +6870,7 @@
   },
   "_inv_rn_do_2026_07_28": {
     "value": 100,
-    "evidence": "https://raw.githubusercontent.com/pinuspackindo-ai/pinuspackindo-okr/data/uploads/inventory/1785401094725_boxrm1_WhatsApp_Image_2026-07-28_at_16.13.08_1.jpeg",
+    "evidence": null,
     "evidenceName": "WhatsApp Image 2026-07-28 at 16.13.08 (1).jpeg",
     "savedAt": "2026-07-30T08:44:32.308Z",
     "locked": true,
@@ -6880,11 +6881,11 @@
       },
       {
         "name": "WhatsApp Image 2026-07-28 at 16.12.17 (1).jpeg",
-        "data": "https://raw.githubusercontent.com/pinuspackindo-ai/pinuspackindo-okr/data/uploads/inventory/1785401095367_2mrmjm_WhatsApp_Image_2026-07-28_at_16.12.17_1.jpeg"
+        "data": "https://raw.githubusercontent.com/pinuspackindo-ai/pinuspackindo-okr/data/uploads/inventory/1785401073959_l1t8px_WhatsApp_Image_2026-07-28_at_16.12.17_1.jpeg"
       },
       {
         "name": "WhatsApp Image 2026-07-28 at 16.09.27 (1).jpeg",
-        "data": "https://raw.githubusercontent.com/pinuspackindo-ai/pinuspackindo-okr/data/uploads/inventory/1785403058880_w0kcyp_WhatsApp_Image_2026-07-28_at_16.09.27_1.jpeg"
+        "data": null
       }
     ]
   },
@@ -6897,7 +6898,7 @@
     "evidences": [
       {
         "name": "WhatsApp Image 2026-07-29 at 17.57.02.jpeg",
-        "data": "https://raw.githubusercontent.com/pinuspackindo-ai/pinuspackindo-okr/data/uploads/inventory/1785403487585_ocycha_WhatsApp_Image_2026-07-29_at_17.57.02.jpeg"
+        "data": "https://raw.githubusercontent.com/pinuspackindo-ai/pinuspackindo-okr/data/uploads/inventory/1785401184248_8up7g5_WhatsApp_Image_2026-07-29_at_17.57.02.jpeg"
       },
       {
         "name": "WhatsApp Image 2026-07-29 at 17.53.31.jpeg",
@@ -6928,9 +6929,9 @@
   "_p_ins_2026_07_30": {
     "file1": "https://raw.githubusercontent.com/pinuspackindo-ai/pinuspackindo-okr/data/uploads/purchasing/1785403009131_d4au2r_product.product.xlsx",
     "file1Name": "product.product.xlsx",
-    "file2": "https://raw.githubusercontent.com/pinuspackindo-ai/pinuspackindo-okr/data/uploads/purchasing/1785403059541_7h0yik_product.product_1.xlsx",
+    "file2": null,
     "file2Name": "product.product (1).xlsx",
-    "file3": "https://raw.githubusercontent.com/pinuspackindo-ai/pinuspackindo-okr/data/uploads/purchasing/1785403048036_6tjpji_purchase.order.line.xlsx",
+    "file3": null,
     "file3Name": "purchase.order.line.xlsx",
     "users": {
       "Arif Wibowo": 100,
@@ -6950,7 +6951,7 @@
     "evidences": [
       {
         "name": "WhatsApp Image 2026-07-30 at 16.35.39.jpeg",
-        "data": "https://raw.githubusercontent.com/pinuspackindo-ai/pinuspackindo-okr/data/uploads/inventory/1785406154283_edi510_WhatsApp_Image_2026-07-30_at_16.35.39.jpeg"
+        "data": null
       },
       {
         "name": "WhatsApp Image 2026-07-30 at 16.35.19.jpeg",
@@ -6961,6 +6962,5 @@
         "data": "https://raw.githubusercontent.com/pinuspackindo-ai/pinuspackindo-okr/data/uploads/inventory/1785404245073_30pulv_WhatsApp_Image_2026-07-30_at_16.11.53.jpeg"
       }
     ]
-  },
-  "_ts": 1785420427221
+  }
 }
