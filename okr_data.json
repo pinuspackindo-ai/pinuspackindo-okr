@@ -6818,7 +6818,7 @@
     "savedAt": "2026-07-30T01:26:22.556Z",
     "locked": true
   },
-  "_ts": 1785403006887,
+  "_ts": 1785403009207,
   "_slim": 1,
   "_d_omzet_d_2026_07": {
     "value": 2075347012,
@@ -6956,7 +6956,7 @@
       "A'izatul Nafisah": 95.37
     },
     "score": 98.11,
-    "savedAt": null,
-    "locked": false
+    "savedAt": "2026-07-30T09:16:49.207Z",
+    "locked": true
   }
 }
