@@ -4251,7 +4251,7 @@
           "objective": "Mencapai target penjualan, pelanggan puas.",
           "keyResult": "Jumlah omset global",
           "target": 3400000000,
-          "actual": null,
+          "actual": 2075347012,
           "bobot": 35
         },
         {
@@ -4259,7 +4259,7 @@
           "objective": "Mencapai target penjualan, pelanggan puas.",
           "keyResult": "Retensi pelanggan",
           "target": 75,
-          "actual": null,
+          "actual": 54.1,
           "bobot": 30
         },
         {
@@ -4267,7 +4267,7 @@
           "objective": "Mencapai target penjualan, pelanggan puas.",
           "keyResult": "Customers baru",
           "target": 10,
-          "actual": null,
+          "actual": 14,
           "bobot": 25
         },
         {
@@ -4275,7 +4275,7 @@
           "objective": "Mencapai target penjualan, pelanggan puas.",
           "keyResult": "Kepuasan pelanggan",
           "target": 90,
-          "actual": null,
+          "actual": 76.7,
           "bobot": 10
         }
       ],
@@ -4371,7 +4371,7 @@
           "objective": "Membangun dan menjaga SDM yg kompeten, disiplin, produktif, inisiatif, guna mendukung perusahaan berkembang.",
           "keyResult": "Skor pencapaian KPI seluruh team",
           "target": 85,
-          "actual": null,
+          "actual": 88.81,
           "bobot": 25
         },
         {
@@ -4574,7 +4574,7 @@
           "objective": "Stok akurat, operasional berjalan sesuai SOP.",
           "keyResult": "Score kepuasan pelanggan distribusi",
           "target": 90,
-          "actual": null,
+          "actual": 76.7,
           "bobot": 15
         },
         {
@@ -6805,7 +6805,6 @@
     "savedAt": "2026-07-30T01:26:22.556Z",
     "locked": true
   },
-  "_ts": 1785399394190,
   "_d_omzet_d_2026_07": {
     "value": 2075347012,
     "evidence": "https://raw.githubusercontent.com/pinuspackindo-ai/pinuspackindo-okr/data/uploads/distribution_sales/1785387405632_o4vfn0_Screenshot_2026-07-30_at_11.52.52_AM.png",
@@ -6870,5 +6869,6 @@
         "data": null
       }
     ]
-  }
+  },
+  "_ts": 1785399395000
 }
