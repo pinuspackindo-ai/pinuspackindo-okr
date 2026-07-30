@@ -4233,13 +4233,13 @@
         "tal": "lulus training SO dan lancar lepas RN + ITR ke checker",
         "deadline": "2026-07-31",
         "bobot": 40,
-        "progress": 50,
+        "progress": 100,
         "review": "",
         "editing": false,
-        "savedAt": "2026-07-28T09:13:50.686Z"
+        "savedAt": "2026-07-30T01:01:18.542Z"
       }
     ],
-    "savedAt": "2026-07-28T09:13:50.693Z"
+    "savedAt": "2026-07-30T01:01:18.545Z"
   },
   "2026-07": {
     "Distribution Sales": {
@@ -6833,5 +6833,5 @@
     "savedAt": "2026-07-29T11:53:34.849Z",
     "locked": true
   },
-  "_ts": 1785373252626
+  "_ts": 1785373278545
 }
