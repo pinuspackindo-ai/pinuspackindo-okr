@@ -1,5 +1,4 @@
 {
-  "_ts": 1785373243695,
   "_userAccess": {
     "Finance & Accounting": {
       "modules": [
@@ -98,8 +97,8 @@
     "_ga_rot_2026_07": 1783134170325,
     "_fa_rot_2026_07": 1783308087934,
     "_p_kpen_2026_07": 1783393431960,
-    "_inv_rn_do_2026_07_27": 1785325960707,
-    "_inv_rn_do_2026_07_28": 1785325960707
+    "_inv_rn_do_2026_07_27": 1785333561162,
+    "_inv_rn_do_2026_07_28": 1785333561162
   },
   "_okrLock": {
     "2026-05|Store": {
@@ -4065,10 +4064,10 @@
         "tal": "Melebur md sales + inval md, revisi kpi per individu",
         "deadline": "2026-07-31",
         "bobot": 40,
-        "progress": 90,
+        "progress": 100,
         "review": "",
         "editing": false,
-        "savedAt": "2026-07-26T01:39:21.825Z"
+        "savedAt": "2026-07-29T15:11:07.793Z"
       },
       {
         "tal": "Running RN by checker",
@@ -4098,7 +4097,7 @@
         "savedAt": "2026-07-22T01:16:00.549Z"
       }
     ],
-    "savedAt": "2026-07-26T01:39:21.825Z"
+    "savedAt": "2026-07-29T15:11:07.793Z"
   },
   "_tal_d12_2026_07": {
     "rows": [
@@ -4179,10 +4178,10 @@
         "tal": "setting KPI bagi yg belum punya",
         "deadline": "2026-07-31",
         "bobot": 45,
-        "progress": 90,
+        "progress": 100,
         "review": "",
         "editing": false,
-        "savedAt": "2026-07-27T06:45:50.233Z"
+        "savedAt": "2026-07-29T13:52:31.921Z"
       },
       {
         "tal": "pengadaan atribut dresscode sesuai SOP + internal memo nya",
@@ -4203,7 +4202,7 @@
         "savedAt": "2026-07-21T07:22:41.058Z"
       }
     ],
-    "savedAt": "2026-07-27T06:45:50.233Z"
+    "savedAt": "2026-07-29T13:52:31.926Z"
   },
   "_tal_d2_2026_07": {
     "rows": [
@@ -6806,7 +6805,7 @@
     "evidences": [
       {
         "name": "beecfe6a-b942-4225-8556-d3713cd8afe6.jpg",
-        "data": null
+        "data": "https://raw.githubusercontent.com/pinuspackindo-ai/pinuspackindo-okr/data/uploads/inventory/1785333125333_gmul1x_beecfe6a-b942-4225-8556-d3713cd8afe6.jpg"
       },
       {
         "name": "3fc97cc5-f4a0-4bd0-a3b8-6e70616a3ce3.jpg",
@@ -6833,5 +6832,6 @@
     "score": 98.33,
     "savedAt": "2026-07-29T11:53:34.849Z",
     "locked": true
-  }
+  },
+  "_ts": 1785373245662
 }
