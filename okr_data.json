@@ -6798,12 +6798,12 @@
     "savedAt": "2026-07-28T10:55:38.222Z",
     "locked": true
   },
-  "_ts": 1785378980281,
   "_p_sv_2026_07_29": {
     "text": "METANOL, 11,500, 10,900; (S) SARINGAN TEH KAIN 11 CM, 7,550, 6,886; (S) SEKOP PLASTIK KECIL 23 CM, 16,857, 16,380; (S) SEKOP STAINLESS TANGGUNG 22 CM, 11,625, 10,112; (S) SENDOK ES KRIM KAYU 75 MM X 200, 4,643, 4,634; (S) SPATULA SILICONE KECIL 17,5 CM, 1,790, 1,693; (S) TOFFIECO PERISA VANILLA 25 CC, 21,326, 20,190; (S) TOPPER HBD BESAR, 1,745, 1,395; (S) TOPPER HBD KECIL, 893, 860",
     "evidence": "https://raw.githubusercontent.com/pinuspackindo-ai/pinuspackindo-okr/data/uploads/purchasing/1785374783024_cf9q8e_29.png",
     "evidenceName": "29.PNG",
     "savedAt": "2026-07-30T01:26:22.556Z",
     "locked": true
-  }
+  },
+  "_ts": 1785378985919
 }
