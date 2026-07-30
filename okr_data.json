@@ -6821,6 +6821,8 @@
     "savedAt": "2026-07-30T01:26:22.556Z",
     "locked": true
   },
+  "_ts": 1785394288466,
+  "_slim": 1,
   "_d_omzet_d_2026_07": {
     "value": 2075347012,
     "evidence": "https://raw.githubusercontent.com/pinuspackindo-ai/pinuspackindo-okr/data/uploads/distribution_sales/1785387405632_o4vfn0_Screenshot_2026-07-30_at_11.52.52_AM.png",
@@ -6872,6 +6874,5 @@
         "data": "https://raw.githubusercontent.com/pinuspackindo-ai/pinuspackindo-okr/data/uploads/distribution_sales/1785389282428_a888fa_Screenshot_2026-07-30_at_12.27.28_PM.png"
       }
     ]
-  },
-  "_ts": 1785394283982
+  }
 }
