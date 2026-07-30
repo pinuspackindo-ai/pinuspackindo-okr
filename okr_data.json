@@ -4618,13 +4618,13 @@
         "tal": "pendataan inventaris & vendor",
         "deadline": "2026-07-31",
         "bobot": 100,
-        "progress": null,
+        "progress": 100,
         "review": "",
         "editing": false,
-        "savedAt": "2026-07-08T03:41:50.225Z"
+        "savedAt": "2026-07-30T06:31:31.985Z"
       }
     ],
-    "savedAt": "2026-07-08T03:41:50.225Z"
+    "savedAt": "2026-07-30T06:31:31.985Z"
   },
   "_tal_d9_2026_07": {
     "rows": [
@@ -6821,7 +6821,7 @@
     "savedAt": "2026-07-30T01:26:22.556Z",
     "locked": true
   },
-  "_ts": 1785393085785,
+  "_ts": 1785393091985,
   "_slim": 1,
   "_d_omzet_d_2026_07": {
     "value": 2075347012,
