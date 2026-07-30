@@ -4125,10 +4125,10 @@
         "tal": "menjalankan proyek hpp bersama purchasing",
         "deadline": "2026-07-31",
         "bobot": 20,
-        "progress": 75,
+        "progress": 100,
         "review": "",
         "editing": false,
-        "savedAt": "2026-07-24T06:03:20.341Z"
+        "savedAt": "2026-07-30T06:31:23.040Z"
       },
       {
         "tal": "pendataan GA sebelum staff resign",
@@ -4140,7 +4140,7 @@
         "savedAt": "2026-07-22T14:37:52.792Z"
       }
     ],
-    "savedAt": "2026-07-24T06:03:20.341Z"
+    "savedAt": "2026-07-30T06:31:23.040Z"
   },
   "_tal_d10_2026_07": {
     "rows": [
@@ -6821,7 +6821,7 @@
     "savedAt": "2026-07-30T01:26:22.556Z",
     "locked": true
   },
-  "_ts": 1785393073699,
+  "_ts": 1785393083040,
   "_slim": 1,
   "_d_omzet_d_2026_07": {
     "value": 2075347012,
