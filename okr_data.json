@@ -97,8 +97,10 @@
     "_ga_rot_2026_07": 1783134170325,
     "_fa_rot_2026_07": 1783308087934,
     "_p_kpen_2026_07": 1783393431960,
-    "_inv_rn_do_2026_07_27": 1785333561162,
-    "_inv_rn_do_2026_07_28": 1785333561162
+    "_inv_rn_do_2026_07_27": 1785378712444,
+    "_inv_rn_do_2026_07_28": 1785287167945,
+    "_inv_rn_do_2026_07_29": 1785378809574,
+    "_p_ins_2026_07_29": 1785378809574
   },
   "_okrLock": {
     "2026-05|Store": {
@@ -4064,10 +4066,10 @@
         "tal": "Melebur md sales + inval md, revisi kpi per individu",
         "deadline": "2026-07-31",
         "bobot": 40,
-        "progress": 100,
+        "progress": 90,
         "review": "",
         "editing": false,
-        "savedAt": "2026-07-29T15:11:07.793Z"
+        "savedAt": "2026-07-26T01:39:21.825Z"
       },
       {
         "tal": "Running RN by checker",
@@ -4097,7 +4099,7 @@
         "savedAt": "2026-07-22T01:16:00.549Z"
       }
     ],
-    "savedAt": "2026-07-29T15:11:07.793Z"
+    "savedAt": "2026-07-26T01:39:21.825Z"
   },
   "_tal_d12_2026_07": {
     "rows": [
@@ -4181,7 +4183,7 @@
         "progress": 100,
         "review": "",
         "editing": false,
-        "savedAt": "2026-07-29T13:52:31.921Z"
+        "savedAt": "2026-07-30T02:32:57.708Z"
       },
       {
         "tal": "pengadaan atribut dresscode sesuai SOP + internal memo nya",
@@ -4202,7 +4204,7 @@
         "savedAt": "2026-07-21T07:22:41.058Z"
       }
     ],
-    "savedAt": "2026-07-29T13:52:31.926Z"
+    "savedAt": "2026-07-30T02:32:57.712Z"
   },
   "_tal_d2_2026_07": {
     "rows": [
@@ -4443,7 +4445,7 @@
           "objective": "Stok akurat, persediaan optimal, biaya & waste minimal.",
           "keyResult": "Akurasi DO & RN",
           "target": 100,
-          "actual": 99.67,
+          "actual": 99.73,
           "bobot": 10
         },
         {
@@ -4472,7 +4474,7 @@
           "objective": "Pengadaan stok tepat waktu dan berkwalitas, administrasi akurat..",
           "keyResult": "Tingkat in stock",
           "target": 95,
-          "actual": 92.76,
+          "actual": 92.53,
           "bobot": 40
         },
         {
@@ -6796,42 +6798,12 @@
     "savedAt": "2026-07-28T10:55:38.222Z",
     "locked": true
   },
-  "_inv_rn_do_2026_07_29": {
-    "value": 97.36,
-    "evidence": "https://raw.githubusercontent.com/pinuspackindo-ai/pinuspackindo-okr/data/uploads/inventory/1785332744456_pyxjkg_beecfe6a-b942-4225-8556-d3713cd8afe6.jpg",
-    "evidenceName": "beecfe6a-b942-4225-8556-d3713cd8afe6.jpg",
-    "savedAt": "2026-07-29T11:02:13.026Z",
-    "locked": true,
-    "evidences": [
-      {
-        "name": "beecfe6a-b942-4225-8556-d3713cd8afe6.jpg",
-        "data": "https://raw.githubusercontent.com/pinuspackindo-ai/pinuspackindo-okr/data/uploads/inventory/1785333125333_gmul1x_beecfe6a-b942-4225-8556-d3713cd8afe6.jpg"
-      },
-      {
-        "name": "3fc97cc5-f4a0-4bd0-a3b8-6e70616a3ce3.jpg",
-        "data": "https://raw.githubusercontent.com/pinuspackindo-ai/pinuspackindo-okr/data/uploads/inventory/1785325961707_tcepce_3fc97cc5-f4a0-4bd0-a3b8-6e70616a3ce3.jpg"
-      },
-      {
-        "name": "WhatsApp Image 2026-07-29 at 17.58.48.jpeg",
-        "data": "https://raw.githubusercontent.com/pinuspackindo-ai/pinuspackindo-okr/data/uploads/inventory/1785322935297_fczzk2_WhatsApp_Image_2026-07-29_at_17.58.48.jpeg"
-      }
-    ]
-  },
-  "_p_ins_2026_07_29": {
-    "file1": "https://raw.githubusercontent.com/pinuspackindo-ai/pinuspackindo-okr/data/uploads/purchasing/1785326003819_vyg4bv_product.product.xlsx",
-    "file1Name": "product.product.xlsx",
-    "file2": "https://raw.githubusercontent.com/pinuspackindo-ai/pinuspackindo-okr/data/uploads/purchasing/1785325995883_1ij7t1_product.product_1.xlsx",
-    "file2Name": "product.product (1).xlsx",
-    "file3": "https://raw.githubusercontent.com/pinuspackindo-ai/pinuspackindo-okr/data/uploads/purchasing/1785326005648_pkz0v3_purchase.order.line.xlsx",
-    "file3Name": "purchase.order.line.xlsx",
-    "users": {
-      "Arif Wibowo": 100,
-      "Adit Mohgat": 99.6,
-      "A'izatul Nafisah": 97.92
-    },
-    "score": 98.33,
-    "savedAt": "2026-07-29T11:53:34.849Z",
+  "_p_sv_2026_07_29": {
+    "text": "METANOL, 11,500, 10,900; (S) SARINGAN TEH KAIN 11 CM, 7,550, 6,886; (S) SEKOP PLASTIK KECIL 23 CM, 16,857, 16,380; (S) SEKOP STAINLESS TANGGUNG 22 CM, 11,625, 10,112; (S) SENDOK ES KRIM KAYU 75 MM X 200, 4,643, 4,634; (S) SPATULA SILICONE KECIL 17,5 CM, 1,790, 1,693; (S) TOFFIECO PERISA VANILLA 25 CC, 21,326, 20,190; (S) TOPPER HBD BESAR, 1,745, 1,395; (S) TOPPER HBD KECIL, 893, 860",
+    "evidence": "https://raw.githubusercontent.com/pinuspackindo-ai/pinuspackindo-okr/data/uploads/purchasing/1785374783024_cf9q8e_29.png",
+    "evidenceName": "29.PNG",
+    "savedAt": "2026-07-30T01:26:22.556Z",
     "locked": true
   },
-  "_ts": 1785378808894
+  "_ts": 1785378813710
 }
