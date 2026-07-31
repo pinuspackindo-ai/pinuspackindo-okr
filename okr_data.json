@@ -3738,7 +3738,7 @@
         "deadline": "2026-07-26",
         "submittedDate": "2026-07-26",
         "temuan": "0",
-        "evidence": "",
+        "evidence": null,
         "evidenceName": "k4.png",
         "locked": true,
         "evidences": [
@@ -7053,7 +7053,6 @@
       }
     ]
   },
-  "_ts": 1785471266185,
   "_p_sv_2026_07_31": {
     "text": "",
     "evidence": null,
@@ -7360,5 +7359,6 @@
         "savedAt": "2026-07-31T04:05:59.698Z"
       }
     ]
-  }
+  },
+  "_ts": 1785471272275
 }
