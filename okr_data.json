@@ -1,5 +1,4 @@
 {
-  "_ts": 1785468536685,
   "_userAccess": {
     "Finance & Accounting": {
       "modules": [
@@ -744,7 +743,7 @@
           "objective": "Inventaris utuh terawat, pengadaan tepat waktu, operasional aman lancar, user puas.",
           "keyResult": "Tingkat akurasi stok inventaris data vs fisik",
           "target": 98,
-          "actual": 90,
+          "actual": 65,
           "bobot": 40
         },
         {
@@ -4361,7 +4360,7 @@
           "objective": "Membangun dan menjaga SDM yg kompeten, disiplin, produktif, inisiatif, guna mendukung perusahaan berkembang.",
           "keyResult": "Tingkat kedisiplinan karyawan",
           "target": 90,
-          "actual": 97.7,
+          "actual": null,
           "bobot": 30
         },
         {
@@ -4385,7 +4384,7 @@
           "objective": "Membangun dan menjaga SDM yg kompeten, disiplin, produktif, inisiatif, guna mendukung perusahaan berkembang.",
           "keyResult": "Ketepatan waktu rekrutment",
           "target": 85,
-          "actual": 88.14,
+          "actual": null,
           "bobot": 15
         },
         {
@@ -6185,22 +6184,6 @@
             "data": null
           }
         ]
-      },
-      {
-        "jabatan": "STAFF",
-        "namaRequest": "GENERAL AFFAIR",
-        "tglRequest": "2026-06-16",
-        "deadline": "2026-07-16",
-        "realisasi": "2026-07-22",
-        "evidence": "https://raw.githubusercontent.com/pinuspackindo-ai/pinuspackindo-okr/data/uploads/hrd/1785468262248_j1k078_Surat_Penawaran_Kerja_-Arif_Prabowo.docx_1.pdf",
-        "evidenceName": "Surat Penawaran Kerja -Arif Prabowo.docx (1).pdf",
-        "editing": false,
-        "evidences": [
-          {
-            "name": "Surat Penawaran Kerja -Arif Prabowo.docx (1).pdf",
-            "data": null
-          }
-        ]
       }
     ],
     "savedAt": "2026-07-15T07:20:17.341Z"
@@ -6979,6 +6962,7 @@
       }
     ]
   },
+  "_ts": 1785468586669,
   "_p_sv_2026_07_31": {
     "text": "",
     "evidence": null,
