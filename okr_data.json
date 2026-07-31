@@ -1,5 +1,4 @@
 {
-  "_ts": 1785461043230,
   "_userAccess": {
     "Finance & Accounting": {
       "modules": [
@@ -4385,7 +4384,7 @@
           "objective": "Membangun dan menjaga SDM yg kompeten, disiplin, produktif, inisiatif, guna mendukung perusahaan berkembang.",
           "keyResult": "Ketepatan waktu rekrutment",
           "target": 85,
-          "actual": 93.69,
+          "actual": null,
           "bobot": 15
         },
         {
@@ -4443,7 +4442,7 @@
           "objective": "Stok akurat, persediaan optimal, biaya & waste minimal.",
           "keyResult": "Akurasi DO & RN",
           "target": 100,
-          "actual": 99.73,
+          "actual": 99.69,
           "bobot": 10
         },
         {
@@ -6185,22 +6184,6 @@
             "data": null
           }
         ]
-      },
-      {
-        "jabatan": "SPV/MANAGER",
-        "namaRequest": "GENERAL AFFAIR",
-        "tglRequest": "2026-06-16",
-        "deadline": "2026-07-31",
-        "realisasi": "2026-07-22",
-        "evidence": null,
-        "evidenceName": "WhatsApp Image 2026-07-30 at 09.40.36.jpeg",
-        "editing": false,
-        "evidences": [
-          {
-            "name": "WhatsApp Image 2026-07-30 at 09.40.36.jpeg",
-            "data": "https://raw.githubusercontent.com/pinuspackindo-ai/pinuspackindo-okr/data/uploads/hrd/1785386818608_g0tnxt_WhatsApp_Image_2026-07-30_at_09.40.36.jpeg"
-          }
-        ]
       }
     ],
     "savedAt": "2026-07-15T07:20:17.341Z"
@@ -6901,7 +6884,7 @@
       },
       {
         "name": "WhatsApp Image 2026-07-28 at 16.09.27 (1).jpeg",
-        "data": "https://raw.githubusercontent.com/pinuspackindo-ai/pinuspackindo-okr/data/uploads/inventory/1785403046482_typa87_WhatsApp_Image_2026-07-28_at_16.09.27_1.jpeg"
+        "data": "https://raw.githubusercontent.com/pinuspackindo-ai/pinuspackindo-okr/data/uploads/inventory/1785403058880_w0kcyp_WhatsApp_Image_2026-07-28_at_16.09.27_1.jpeg"
       }
     ]
   },
@@ -6914,7 +6897,7 @@
     "evidences": [
       {
         "name": "WhatsApp Image 2026-07-29 at 17.57.02.jpeg",
-        "data": "https://raw.githubusercontent.com/pinuspackindo-ai/pinuspackindo-okr/data/uploads/inventory/1785401184248_8up7g5_WhatsApp_Image_2026-07-29_at_17.57.02.jpeg"
+        "data": "https://raw.githubusercontent.com/pinuspackindo-ai/pinuspackindo-okr/data/uploads/inventory/1785403487585_ocycha_WhatsApp_Image_2026-07-29_at_17.57.02.jpeg"
       },
       {
         "name": "WhatsApp Image 2026-07-29 at 17.53.31.jpeg",
@@ -6945,7 +6928,7 @@
   "_p_ins_2026_07_30": {
     "file1": "https://raw.githubusercontent.com/pinuspackindo-ai/pinuspackindo-okr/data/uploads/purchasing/1785403009131_d4au2r_product.product.xlsx",
     "file1Name": "product.product.xlsx",
-    "file2": "https://raw.githubusercontent.com/pinuspackindo-ai/pinuspackindo-okr/data/uploads/purchasing/1785403405085_svcghq_product.product_1.xlsx",
+    "file2": "https://raw.githubusercontent.com/pinuspackindo-ai/pinuspackindo-okr/data/uploads/purchasing/1785403059541_7h0yik_product.product_1.xlsx",
     "file2Name": "product.product (1).xlsx",
     "file3": "https://raw.githubusercontent.com/pinuspackindo-ai/pinuspackindo-okr/data/uploads/purchasing/1785403048036_6tjpji_purchase.order.line.xlsx",
     "file3Name": "purchase.order.line.xlsx",
@@ -6967,16 +6950,17 @@
     "evidences": [
       {
         "name": "WhatsApp Image 2026-07-30 at 16.35.39.jpeg",
-        "data": null
+        "data": "https://raw.githubusercontent.com/pinuspackindo-ai/pinuspackindo-okr/data/uploads/inventory/1785406154283_edi510_WhatsApp_Image_2026-07-30_at_16.35.39.jpeg"
       },
       {
         "name": "WhatsApp Image 2026-07-30 at 16.35.19.jpeg",
-        "data": null
+        "data": "https://raw.githubusercontent.com/pinuspackindo-ai/pinuspackindo-okr/data/uploads/inventory/1785404493467_74823h_WhatsApp_Image_2026-07-30_at_16.35.19.jpeg"
       },
       {
         "name": "WhatsApp Image 2026-07-30 at 16.11.53.jpeg",
         "data": "https://raw.githubusercontent.com/pinuspackindo-ai/pinuspackindo-okr/data/uploads/inventory/1785404245073_30pulv_WhatsApp_Image_2026-07-30_at_16.11.53.jpeg"
       }
     ]
-  }
+  },
+  "_ts": 1785461044514
 }
