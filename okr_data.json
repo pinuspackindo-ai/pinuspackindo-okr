@@ -743,7 +743,7 @@
           "objective": "Inventaris utuh terawat, pengadaan tepat waktu, operasional aman lancar, user puas.",
           "keyResult": "Tingkat akurasi stok inventaris data vs fisik",
           "target": 98,
-          "actual": 90,
+          "actual": 65,
           "bobot": 40
         },
         {
@@ -6962,7 +6962,7 @@
       }
     ]
   },
-  "_ts": 1785463822777,
+  "_ts": 1785463901765,
   "_p_sv_2026_07_31": {
     "text": "",
     "evidence": null,
