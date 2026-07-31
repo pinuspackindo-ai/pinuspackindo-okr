@@ -4360,7 +4360,7 @@
           "objective": "Membangun dan menjaga SDM yg kompeten, disiplin, produktif, inisiatif, guna mendukung perusahaan berkembang.",
           "keyResult": "Tingkat kedisiplinan karyawan",
           "target": 90,
-          "actual": null,
+          "actual": 97.7,
           "bobot": 30
         },
         {
@@ -6962,7 +6962,7 @@
       }
     ]
   },
-  "_ts": 1785468586669,
+  "_ts": 1785468587941,
   "_p_sv_2026_07_31": {
     "text": "",
     "evidence": null,
