@@ -642,7 +642,7 @@
           "target": 90
         },
         {
-          "actual": 98.225,
+          "actual": 98.23,
           "bobot": 10,
           "id": "r1779890290785xbtj",
           "keyResult": "Tingkat implementasi rekomendasi audit",
@@ -6962,5 +6962,5 @@
       }
     ]
   },
-  "_ts": 1785463559157
+  "_ts": 1785463651325
 }
