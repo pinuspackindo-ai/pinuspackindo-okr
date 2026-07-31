@@ -7365,7 +7365,7 @@
         "temuan": "0",
         "evidence": null,
         "evidenceName": "so4.png",
-        "locked": true,
+        "locked": false,
         "evidences": [
           {
             "name": "so4.png",
@@ -7376,5 +7376,5 @@
       }
     ]
   },
-  "_ts": 1785471363255
+  "_ts": 1785471365850
 }
