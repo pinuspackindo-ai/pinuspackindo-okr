@@ -285,8 +285,8 @@
       "t": 1783480850054
     },
     "2026-06|General Affair": {
-      "l": 1,
-      "t": 1785463783156
+      "l": 0,
+      "t": 1785463685023
     },
     "2026-06|Distribution Sales": {
       "l": 1,
@@ -743,7 +743,7 @@
           "objective": "Inventaris utuh terawat, pengadaan tepat waktu, operasional aman lancar, user puas.",
           "keyResult": "Tingkat akurasi stok inventaris data vs fisik",
           "target": 98,
-          "actual": 65,
+          "actual": 90,
           "bobot": 40
         },
         {
@@ -6962,5 +6962,19 @@
       }
     ]
   },
-  "_ts": 1785463783188
+  "_ts": 1785463786026,
+  "_p_sv_2026_07_31": {
+    "text": "",
+    "evidence": null,
+    "evidenceName": null,
+    "savedAt": null,
+    "locked": false
+  },
+  "_p_sv_2026_07_30": {
+    "text": "BIBIT, NEGO DISKON DAPAT 0,49% UNTUK NOTA INI; BIBIT, NEGO BONUS DAPAT TOTAL 4 KG. 3 KG LILY + 1 KG VARIAN BARU.",
+    "evidence": "https://raw.githubusercontent.com/pinuspackindo-ai/pinuspackindo-okr/data/uploads/purchasing/1785463781893_jvxjav_30.png",
+    "evidenceName": "30.PNG",
+    "savedAt": "2026-07-31T02:09:46.026Z",
+    "locked": true
+  }
 }
