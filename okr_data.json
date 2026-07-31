@@ -1,5 +1,4 @@
 {
-  "_ts": 1785463475026,
   "_userAccess": {
     "Finance & Accounting": {
       "modules": [
@@ -98,10 +97,7 @@
     "_ga_rot_2026_07": 1783134170325,
     "_fa_rot_2026_07": 1783308087934,
     "_p_kpen_2026_07": 1783393431960,
-    "_inv_rn_do_2026_07_27": 1785378712444,
-    "_inv_rn_do_2026_07_28": 1785333561162,
-    "_inv_rn_do_2026_07_29": 1785378915654,
-    "_p_ins_2026_07_29": 1785378915654
+    "_inv_rn_do_2026_07_27": 1785378712444
   },
   "_okrLock": {
     "2026-05|Store": {
@@ -4227,10 +4223,10 @@
         "tal": "kids baking demo bersama chef alvian",
         "deadline": "2026-07-31",
         "bobot": 60,
-        "progress": 50,
+        "progress": 100,
         "review": "",
         "editing": false,
-        "savedAt": "2026-07-22T01:11:18.142Z"
+        "savedAt": "2026-07-30T09:23:10.497Z"
       },
       {
         "tal": "lulus training SO dan lancar lepas RN + ITR ke checker",
@@ -4242,7 +4238,7 @@
         "savedAt": "2026-07-30T02:36:30.659Z"
       }
     ],
-    "savedAt": "2026-07-30T02:36:30.680Z"
+    "savedAt": "2026-07-30T09:23:10.497Z"
   },
   "2026-07": {
     "Distribution Sales": {
@@ -4372,7 +4368,7 @@
           "objective": "Membangun dan menjaga SDM yg kompeten, disiplin, produktif, inisiatif, guna mendukung perusahaan berkembang.",
           "keyResult": "Skor pencapaian KPI seluruh team",
           "target": 85,
-          "actual": null,
+          "actual": 88.81,
           "bobot": 25
         },
         {
@@ -4388,7 +4384,7 @@
           "objective": "Membangun dan menjaga SDM yg kompeten, disiplin, produktif, inisiatif, guna mendukung perusahaan berkembang.",
           "keyResult": "Ketepatan waktu rekrutment",
           "target": 85,
-          "actual": 93.69,
+          "actual": null,
           "bobot": 15
         },
         {
@@ -4446,7 +4442,7 @@
           "objective": "Stok akurat, persediaan optimal, biaya & waste minimal.",
           "keyResult": "Akurasi DO & RN",
           "target": 100,
-          "actual": 99.73,
+          "actual": 99.69,
           "bobot": 10
         },
         {
@@ -4475,7 +4471,7 @@
           "objective": "Pengadaan stok tepat waktu dan berkwalitas, administrasi akurat..",
           "keyResult": "Tingkat in stock",
           "target": 95,
-          "actual": 92.53,
+          "actual": 92.97,
           "bobot": 40
         },
         {
@@ -6188,22 +6184,6 @@
             "data": null
           }
         ]
-      },
-      {
-        "jabatan": "SPV/MANAGER",
-        "namaRequest": "GENERAL AFFAIR",
-        "tglRequest": "2026-06-16",
-        "deadline": "2026-07-31",
-        "realisasi": "2026-07-22",
-        "evidence": null,
-        "evidenceName": "WhatsApp Image 2026-07-30 at 09.40.36.jpeg",
-        "editing": false,
-        "evidences": [
-          {
-            "name": "WhatsApp Image 2026-07-30 at 09.40.36.jpeg",
-            "data": "https://raw.githubusercontent.com/pinuspackindo-ai/pinuspackindo-okr/data/uploads/hrd/1785386818608_g0tnxt_WhatsApp_Image_2026-07-30_at_09.40.36.jpeg"
-          }
-        ]
       }
     ],
     "savedAt": "2026-07-15T07:20:17.341Z"
@@ -6873,5 +6853,114 @@
         "data": "https://raw.githubusercontent.com/pinuspackindo-ai/pinuspackindo-okr/data/uploads/distribution_sales/1785389282428_a888fa_Screenshot_2026-07-30_at_12.27.28_PM.png"
       }
     ]
-  }
+  },
+  "_hrd_kpi_2026_07": {
+    "value": 88.81,
+    "evidence": "https://raw.githubusercontent.com/pinuspackindo-ai/pinuspackindo-okr/data/uploads/hrd/1785395000812_sggdcp_rata2_kpi_juni_2026.png",
+    "evidenceName": "rata2 kpi juni 2026.png",
+    "savedAt": "2026-07-30T07:03:20.626Z",
+    "locked": true,
+    "evidences": [
+      {
+        "name": "rata2 kpi juni 2026.png",
+        "data": null
+      }
+    ]
+  },
+  "_inv_rn_do_2026_07_28": {
+    "value": 100,
+    "evidence": "https://raw.githubusercontent.com/pinuspackindo-ai/pinuspackindo-okr/data/uploads/inventory/1785401094725_boxrm1_WhatsApp_Image_2026-07-28_at_16.13.08_1.jpeg",
+    "evidenceName": "WhatsApp Image 2026-07-28 at 16.13.08 (1).jpeg",
+    "savedAt": "2026-07-30T08:44:32.308Z",
+    "locked": true,
+    "evidences": [
+      {
+        "name": "WhatsApp Image 2026-07-28 at 16.13.08 (1).jpeg",
+        "data": "https://raw.githubusercontent.com/pinuspackindo-ai/pinuspackindo-okr/data/uploads/inventory/1785401073169_82j333_WhatsApp_Image_2026-07-28_at_16.13.08_1.jpeg"
+      },
+      {
+        "name": "WhatsApp Image 2026-07-28 at 16.12.17 (1).jpeg",
+        "data": "https://raw.githubusercontent.com/pinuspackindo-ai/pinuspackindo-okr/data/uploads/inventory/1785401095367_2mrmjm_WhatsApp_Image_2026-07-28_at_16.12.17_1.jpeg"
+      },
+      {
+        "name": "WhatsApp Image 2026-07-28 at 16.09.27 (1).jpeg",
+        "data": "https://raw.githubusercontent.com/pinuspackindo-ai/pinuspackindo-okr/data/uploads/inventory/1785403058880_w0kcyp_WhatsApp_Image_2026-07-28_at_16.09.27_1.jpeg"
+      }
+    ]
+  },
+  "_inv_rn_do_2026_07_29": {
+    "value": 97.36,
+    "evidence": "https://raw.githubusercontent.com/pinuspackindo-ai/pinuspackindo-okr/data/uploads/inventory/1785401171544_epb8c4_WhatsApp_Image_2026-07-29_at_17.57.02.jpeg",
+    "evidenceName": "WhatsApp Image 2026-07-29 at 17.57.02.jpeg",
+    "savedAt": "2026-07-30T08:46:11.124Z",
+    "locked": true,
+    "evidences": [
+      {
+        "name": "WhatsApp Image 2026-07-29 at 17.57.02.jpeg",
+        "data": "https://raw.githubusercontent.com/pinuspackindo-ai/pinuspackindo-okr/data/uploads/inventory/1785403487585_ocycha_WhatsApp_Image_2026-07-29_at_17.57.02.jpeg"
+      },
+      {
+        "name": "WhatsApp Image 2026-07-29 at 17.53.31.jpeg",
+        "data": "https://raw.githubusercontent.com/pinuspackindo-ai/pinuspackindo-okr/data/uploads/inventory/1785401172074_ye6qek_WhatsApp_Image_2026-07-29_at_17.53.31.jpeg"
+      },
+      {
+        "name": "WhatsApp Image 2026-07-29 at 17.53.08.jpeg",
+        "data": null
+      }
+    ]
+  },
+  "_p_ins_2026_07_29": {
+    "file1": "https://raw.githubusercontent.com/pinuspackindo-ai/pinuspackindo-okr/data/uploads/purchasing/1785402994553_2dkkgc_product.product.xlsx",
+    "file1Name": "product.product.xlsx",
+    "file2": "https://raw.githubusercontent.com/pinuspackindo-ai/pinuspackindo-okr/data/uploads/purchasing/1785402987064_gj17b3_product.product_1.xlsx",
+    "file2Name": "product.product (1).xlsx",
+    "file3": "https://raw.githubusercontent.com/pinuspackindo-ai/pinuspackindo-okr/data/uploads/purchasing/1785402995439_47v9c0_purchase.order.line.xlsx",
+    "file3Name": "purchase.order.line.xlsx",
+    "users": {
+      "Arif Wibowo": 100,
+      "Adit Mohgat": 99.6,
+      "A'izatul Nafisah": 97.92
+    },
+    "score": 98.33,
+    "savedAt": "2026-07-30T09:16:46.887Z",
+    "locked": true
+  },
+  "_p_ins_2026_07_30": {
+    "file1": "https://raw.githubusercontent.com/pinuspackindo-ai/pinuspackindo-okr/data/uploads/purchasing/1785403009131_d4au2r_product.product.xlsx",
+    "file1Name": "product.product.xlsx",
+    "file2": "https://raw.githubusercontent.com/pinuspackindo-ai/pinuspackindo-okr/data/uploads/purchasing/1785403059541_7h0yik_product.product_1.xlsx",
+    "file2Name": "product.product (1).xlsx",
+    "file3": "https://raw.githubusercontent.com/pinuspackindo-ai/pinuspackindo-okr/data/uploads/purchasing/1785403048036_6tjpji_purchase.order.line.xlsx",
+    "file3Name": "purchase.order.line.xlsx",
+    "users": {
+      "Arif Wibowo": 100,
+      "Adit Mohgat": 99.59,
+      "A'izatul Nafisah": 95.37
+    },
+    "score": 98.11,
+    "savedAt": "2026-07-30T09:16:49.207Z",
+    "locked": true
+  },
+  "_inv_rn_do_2026_07_30": {
+    "value": 100,
+    "evidence": "https://raw.githubusercontent.com/pinuspackindo-ai/pinuspackindo-okr/data/uploads/inventory/1785404230712_8xdz5x_WhatsApp_Image_2026-07-30_at_16.35.39.jpeg",
+    "evidenceName": "WhatsApp Image 2026-07-30 at 16.35.39.jpeg",
+    "savedAt": "2026-07-30T09:37:09.053Z",
+    "locked": true,
+    "evidences": [
+      {
+        "name": "WhatsApp Image 2026-07-30 at 16.35.39.jpeg",
+        "data": "https://raw.githubusercontent.com/pinuspackindo-ai/pinuspackindo-okr/data/uploads/inventory/1785406154283_edi510_WhatsApp_Image_2026-07-30_at_16.35.39.jpeg"
+      },
+      {
+        "name": "WhatsApp Image 2026-07-30 at 16.35.19.jpeg",
+        "data": "https://raw.githubusercontent.com/pinuspackindo-ai/pinuspackindo-okr/data/uploads/inventory/1785404493467_74823h_WhatsApp_Image_2026-07-30_at_16.35.19.jpeg"
+      },
+      {
+        "name": "WhatsApp Image 2026-07-30 at 16.11.53.jpeg",
+        "data": "https://raw.githubusercontent.com/pinuspackindo-ai/pinuspackindo-okr/data/uploads/inventory/1785404245073_30pulv_WhatsApp_Image_2026-07-30_at_16.11.53.jpeg"
+      }
+    ]
+  },
+  "_ts": 1785463475893
 }
