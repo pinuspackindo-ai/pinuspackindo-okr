@@ -3740,7 +3740,7 @@
         "temuan": "0",
         "evidence": null,
         "evidenceName": "k4.png",
-        "locked": true,
+        "locked": false,
         "evidences": [
           {
             "name": "k4.png",
@@ -7360,5 +7360,5 @@
       }
     ]
   },
-  "_ts": 1785471292201
+  "_ts": 1785471296152
 }
