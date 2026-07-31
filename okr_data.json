@@ -1,5 +1,4 @@
 {
-  "_ts": 1785471258634,
   "_userAccess": {
     "Finance & Accounting": {
       "modules": [
@@ -3739,7 +3738,7 @@
         "deadline": "2026-07-26",
         "submittedDate": "2026-07-26",
         "temuan": "0",
-        "evidence": null,
+        "evidence": "",
         "evidenceName": "k4.png",
         "locked": true,
         "evidences": [
@@ -7054,6 +7053,7 @@
       }
     ]
   },
+  "_ts": 1785471266185,
   "_p_sv_2026_07_31": {
     "text": "",
     "evidence": null,
