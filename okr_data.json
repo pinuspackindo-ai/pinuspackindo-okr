@@ -739,15 +739,15 @@
     "General Affair": {
       "rows": [
         {
-          "id": "r17845375060260en2",
+          "id": "r17854636915093am7",
           "objective": "Inventaris utuh terawat, pengadaan tepat waktu, operasional aman lancar, user puas.",
           "keyResult": "Tingkat akurasi stok inventaris data vs fisik",
           "target": 98,
-          "actual": 65,
+          "actual": 90,
           "bobot": 40
         },
         {
-          "id": "r1784537506026kta7",
+          "id": "r1785463691510f7zp",
           "objective": "Inventaris utuh terawat, pengadaan tepat waktu, operasional aman lancar, user puas.",
           "keyResult": "Tingkat akurasi lead time pengadaan / maintenance",
           "target": 95,
@@ -755,7 +755,7 @@
           "bobot": 35
         },
         {
-          "id": "r1784537506026uo3t",
+          "id": "r17854636915103np5",
           "objective": "Inventaris utuh terawat, pengadaan tepat waktu, operasional aman lancar, user puas.",
           "keyResult": "Laporan inventaris akurat dan on time",
           "target": 100,
@@ -764,7 +764,7 @@
         }
       ],
       "actionPlan": "",
-      "savedAt": "2026-07-20T08:51:46.026Z"
+      "savedAt": "2026-07-31T02:08:11.510Z"
     },
     "HRD": {
       "actionPlan": "Drafting SOP ketidakhadiran",
@@ -6962,5 +6962,5 @@
       }
     ]
   },
-  "_ts": 1785463685062
+  "_ts": 1785463691510
 }
