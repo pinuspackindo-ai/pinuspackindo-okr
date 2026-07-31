@@ -1,5 +1,4 @@
 {
-  "_ts": 1785468595452,
   "_userAccess": {
     "Finance & Accounting": {
       "modules": [
@@ -744,7 +743,7 @@
           "objective": "Inventaris utuh terawat, pengadaan tepat waktu, operasional aman lancar, user puas.",
           "keyResult": "Tingkat akurasi stok inventaris data vs fisik",
           "target": 98,
-          "actual": 90,
+          "actual": 65,
           "bobot": 40
         },
         {
@@ -3576,16 +3575,11 @@
     "rows": [
       {
         "namaAudit": "Keuangan",
-        "score": "100",
-        "evidence": "https://raw.githubusercontent.com/pinuspackindo-ai/pinuspackindo-okr/data/uploads/internal_audit/1783052097566_ef2czo_Bukti.png",
-        "evidenceName": "Bukti.png",
-        "locked": true,
-        "evidences": [
-          {
-            "name": "Bukti.png",
-            "data": "https://raw.githubusercontent.com/pinuspackindo-ai/pinuspackindo-okr/data/uploads/internal_audit/1783052098809_smll3u_Bukti.png"
-          }
-        ],
+        "score": "",
+        "evidence": "",
+        "evidenceName": "",
+        "locked": false,
+        "evidences": [],
         "savedAt": "2026-07-03T04:14:57.955Z"
       },
       {
@@ -3653,7 +3647,7 @@
   "_ia_rot_keuangan_2026_07": {
     "rows": [
       {
-        "deadline": "2026-07-04",
+        "deadline": "2026-07-05",
         "submittedDate": "",
         "temuan": "",
         "evidence": null,
@@ -3671,7 +3665,7 @@
         ]
       },
       {
-        "deadline": "2026-07-11",
+        "deadline": "2026-07-12",
         "submittedDate": "",
         "temuan": "",
         "evidence": "",
@@ -3679,7 +3673,7 @@
         "locked": false
       },
       {
-        "deadline": "2026-07-18",
+        "deadline": "2026-07-19",
         "submittedDate": "",
         "temuan": "",
         "evidence": "",
@@ -3687,7 +3681,7 @@
         "locked": false
       },
       {
-        "deadline": "2026-07-25",
+        "deadline": "2026-07-26",
         "submittedDate": "",
         "temuan": "",
         "evidence": "",
@@ -4377,7 +4371,7 @@
           "objective": "Membangun dan menjaga SDM yg kompeten, disiplin, produktif, inisiatif, guna mendukung perusahaan berkembang.",
           "keyResult": "Akurasi & ketepatan waktu administrasi HR",
           "target": 95,
-          "actual": 98,
+          "actual": null,
           "bobot": 20
         },
         {
@@ -4385,7 +4379,7 @@
           "objective": "Membangun dan menjaga SDM yg kompeten, disiplin, produktif, inisiatif, guna mendukung perusahaan berkembang.",
           "keyResult": "Ketepatan waktu rekrutment",
           "target": 85,
-          "actual": 88.14,
+          "actual": null,
           "bobot": 15
         },
         {
@@ -4406,7 +4400,7 @@
           "objective": "Melindungi dan mengawasi sistem internal berbasis dari resiko yg timbul.",
           "keyResult": "Tingkat implementasi rekomendasi audit",
           "target": 100,
-          "actual": null,
+          "actual": 0,
           "bobot": 45
         },
         {
@@ -6185,22 +6179,6 @@
             "data": null
           }
         ]
-      },
-      {
-        "jabatan": "STAFF",
-        "namaRequest": "GENERAL AFFAIR",
-        "tglRequest": "2026-06-16",
-        "deadline": "2026-07-16",
-        "realisasi": "2026-07-22",
-        "evidence": "https://raw.githubusercontent.com/pinuspackindo-ai/pinuspackindo-okr/data/uploads/hrd/1785468262248_j1k078_Surat_Penawaran_Kerja_-Arif_Prabowo.docx_1.pdf",
-        "evidenceName": "Surat Penawaran Kerja -Arif Prabowo.docx (1).pdf",
-        "editing": false,
-        "evidences": [
-          {
-            "name": "Surat Penawaran Kerja -Arif Prabowo.docx (1).pdf",
-            "data": null
-          }
-        ]
       }
     ],
     "savedAt": "2026-07-15T07:20:17.341Z"
@@ -6979,6 +6957,7 @@
       }
     ]
   },
+  "_ts": 1785468630974,
   "_p_sv_2026_07_31": {
     "text": "",
     "evidence": null,
