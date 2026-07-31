@@ -3687,7 +3687,7 @@
         "temuan": "0",
         "evidence": null,
         "evidenceName": "so2.png",
-        "locked": true,
+        "locked": false,
         "evidences": [
           {
             "name": "Bukti.png",
@@ -7360,5 +7360,5 @@
       }
     ]
   },
-  "_ts": 1785471272275
+  "_ts": 1785471277840
 }
