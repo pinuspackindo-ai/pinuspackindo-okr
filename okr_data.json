@@ -3849,11 +3849,18 @@
   "_ia_proj_2026_07": {
     "rows": [
       {
-        "namaProject": "",
-        "tujuan": "",
-        "evidence": "",
-        "evidenceName": "",
-        "locked": false
+        "namaProject": "Payroll Slip Gaji Otomatis (https://internal.pinuspackindo.com/login)",
+        "tujuan": "Agar pengiriman slip gaji lebih efektif dan cepat.",
+        "evidence": "https://raw.githubusercontent.com/pinuspackindo-ai/pinuspackindo-okr/data/uploads/internal_audit/1785469635390_2npkdi_slip_gaji.png",
+        "evidenceName": "slip gaji.png",
+        "locked": true,
+        "evidences": [
+          {
+            "name": "slip gaji.png",
+            "data": "https://raw.githubusercontent.com/pinuspackindo-ai/pinuspackindo-okr/data/uploads/internal_audit/1785469635820_8ezbfo_slip_gaji.png"
+          }
+        ],
+        "savedAt": "2026-07-31T03:47:35.462Z"
       },
       {
         "namaProject": "",
@@ -4413,7 +4420,7 @@
           "objective": "Membangun dan menjaga SDM yg kompeten, disiplin, produktif, inisiatif, guna mendukung perusahaan berkembang.",
           "keyResult": "Akurasi & ketepatan waktu administrasi HR",
           "target": 95,
-          "actual": 98,
+          "actual": null,
           "bobot": 20
         },
         {
@@ -4458,7 +4465,7 @@
           "objective": "Melindungi dan mengawasi sistem internal berbasis dari resiko yg timbul.",
           "keyResult": "Jumlah inisiatif proaktif",
           "target": 2,
-          "actual": 0,
+          "actual": 1,
           "bobot": 20
         }
       ],
@@ -6999,6 +7006,7 @@
       }
     ]
   },
+  "_ts": 1785469655483,
   "_p_sv_2026_07_31": {
     "text": "",
     "evidence": null,
@@ -7094,6 +7102,5 @@
     ],
     "savedAt": "2026-07-31T03:32:07.560Z",
     "locked": true
-  },
-  "_ts": 1785469642790
+  }
 }
