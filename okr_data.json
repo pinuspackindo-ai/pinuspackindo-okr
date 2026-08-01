@@ -96,7 +96,6 @@
     "_ga_rot_2026_06": 1783134158109,
     "_ga_rot_2026_07": 1783134170325,
     "_fa_rot_2026_07": 1783308087934,
-    "_p_kpen_2026_07": 1783393431960,
     "_inv_rn_do_2026_07_27": 1785378712444
   },
   "_okrLock": {
@@ -4471,7 +4470,7 @@
           "objective": "Pengadaan stok tepat waktu dan berkwalitas, administrasi akurat..",
           "keyResult": "Tingkat in stock",
           "target": 95,
-          "actual": 93.17,
+          "actual": 92.97,
           "bobot": 40
         },
         {
@@ -6962,6 +6961,7 @@
       }
     ]
   },
+  "_ts": 1785556734431,
   "_p_sv_2026_07_31": {
     "text": "(S) POLY MAILER WARNA 35X50 CM X 50, 32,200, 30,695; (S) STICKER THANK YOU X 100, 4,479, 4,460",
     "evidence": "https://raw.githubusercontent.com/pinuspackindo-ai/pinuspackindo-okr/data/uploads/purchasing/1785547467697_755tvd_31.png",
@@ -6969,7 +6969,6 @@
     "savedAt": "2026-08-01T01:24:33.395Z",
     "locked": true
   },
-  "_ts": 1785554558665,
   "_p_ins_2026_07_31": {
     "file1": "https://raw.githubusercontent.com/pinuspackindo-ai/pinuspackindo-okr/data/uploads/purchasing/1785554554839_g6xzvu_product.product.xlsx",
     "file1Name": "product.product.xlsx",
@@ -6985,5 +6984,14 @@
     "score": 98.4,
     "savedAt": "2026-08-01T03:22:38.665Z",
     "locked": true
+  },
+  "_p_kpen_2026_07": {
+    "file": "https://raw.githubusercontent.com/pinuspackindo-ai/pinuspackindo-okr/data/uploads/purchasing/1785556735591_zsiv4z_purchase.order.line_17.xlsx",
+    "fileName": "purchase.order.line (17).xlsx",
+    "totalRows": 0,
+    "accRows": 0,
+    "score": null,
+    "savedAt": null,
+    "locked": false
   }
 }
