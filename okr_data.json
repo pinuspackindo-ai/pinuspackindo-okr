@@ -7153,7 +7153,7 @@
       }
     ]
   },
-  "_ts": 1785651884641,
+  "_ts": 1785651904009,
   "_tal_d0_2026_08": {
     "rows": [
       {
@@ -7326,13 +7326,13 @@
         "savedAt": "2026-08-02T06:24:44.641Z"
       },
       {
-        "tal": "planning & eksekusi pengelolaan tips warehouse",
-        "deadline": "2026-07-31",
-        "bobot": 35,
+        "tal": "eksekusi pengadaan palet 40%",
+        "deadline": "2026-08-31",
+        "bobot": 40,
         "progress": null,
         "review": "",
-        "editing": true,
-        "savedAt": "2026-08-02T04:14:20.970Z"
+        "editing": false,
+        "savedAt": "2026-08-02T06:25:04.009Z"
       },
       {
         "tal": "planning & eksekusi palet warehouse",
@@ -7344,7 +7344,7 @@
         "savedAt": "2026-08-02T04:14:20.970Z"
       }
     ],
-    "savedAt": "2026-08-02T06:24:44.641Z"
+    "savedAt": "2026-08-02T06:25:04.009Z"
   },
   "_tal_d11_2026_08": {
     "rows": [
