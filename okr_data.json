@@ -7153,7 +7153,7 @@
       }
     ]
   },
-  "_ts": 1785648363425,
+  "_ts": 1785648372608,
   "_tal_d0_2026_08": {
     "rows": [
       {
@@ -7203,17 +7203,17 @@
         "bobot": 40,
         "progress": null,
         "review": "",
-        "editing": false,
+        "editing": true,
         "savedAt": "2026-08-02T05:25:00.608Z"
       },
       {
         "tal": "mendata dan eksekusi asset non tetap untuk petty cash",
         "deadline": "2026-08-31",
-        "bobot": 30,
+        "bobot": 35,
         "progress": null,
         "review": "",
         "editing": false,
-        "savedAt": "2026-08-02T05:26:03.425Z"
+        "savedAt": "2026-08-02T05:26:12.608Z"
       },
       {
         "tal": "survey dan eksekusi pemakaian bahan agar hemat",
@@ -7221,11 +7221,11 @@
         "bobot": 25,
         "progress": null,
         "review": "",
-        "editing": false,
+        "editing": true,
         "savedAt": "2026-08-02T05:25:59.109Z"
       }
     ],
-    "savedAt": "2026-08-02T05:26:03.425Z"
+    "savedAt": "2026-08-02T05:26:12.608Z"
   },
   "_tal_d3_2026_08": {
     "rows": [
