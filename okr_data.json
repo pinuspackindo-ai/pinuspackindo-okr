@@ -7152,7 +7152,7 @@
       }
     ]
   },
-  "_ts": 1785671989499,
+  "_ts": 1785671998198,
   "_tal_d0_2026_08": {
     "rows": [
       {
@@ -7318,11 +7318,11 @@
       {
         "tal": "praktek meeting lintas divisi 2x sebulan",
         "deadline": "2026-08-31",
-        "bobot": 60,
+        "bobot": 40,
         "progress": null,
         "review": "",
-        "editing": true,
-        "savedAt": "2026-08-02T06:24:44.641Z"
+        "editing": false,
+        "savedAt": "2026-08-02T11:59:58.198Z"
       },
       {
         "tal": "imbuhan akurasi outbound di spreadsheet kepulangan driver",
@@ -7343,7 +7343,7 @@
         "savedAt": "2026-08-02T11:59:17.048Z"
       }
     ],
-    "savedAt": "2026-08-02T11:59:49.499Z"
+    "savedAt": "2026-08-02T11:59:58.198Z"
   },
   "_tal_d11_2026_08": {
     "rows": [
