@@ -7153,7 +7153,7 @@
       }
     ]
   },
-  "_ts": 1785646719858,
+  "_ts": 1785646721408,
   "_tal_d0_2026_08": {
     "rows": [
       {
@@ -7180,8 +7180,8 @@
         "bobot": 20,
         "progress": null,
         "review": "",
-        "editing": true,
-        "savedAt": "2026-08-02T04:58:06.258Z"
+        "editing": false,
+        "savedAt": "2026-08-02T04:58:40.741Z"
       },
       {
         "tal": "Finalisasi display toko sesuai planogram",
@@ -7189,11 +7189,11 @@
         "bobot": 10,
         "progress": null,
         "review": "",
-        "editing": true,
-        "savedAt": "2026-08-02T04:58:07.042Z"
+        "editing": false,
+        "savedAt": "2026-08-02T04:58:41.408Z"
       }
     ],
-    "savedAt": "2026-08-02T04:58:39.858Z"
+    "savedAt": "2026-08-02T04:58:41.408Z"
   },
   "_tal_d2_2026_08": {
     "rows": [
