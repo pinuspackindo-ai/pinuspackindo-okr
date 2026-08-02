@@ -7153,7 +7153,7 @@
       }
     ]
   },
-  "_ts": 1785667791046,
+  "_ts": 1785667828697,
   "_tal_d0_2026_08": {
     "rows": [
       {
@@ -7522,7 +7522,7 @@
     "Internal Audit": {
       "rows": [
         {
-          "id": "r178565624168359rn",
+          "id": "r1785667828679idt0",
           "objective": "Melindungi dan mengawasi sistem internal berbasis dari resiko yg timbul.",
           "keyResult": "Tingkat implementasi rekomendasi audit",
           "target": 100,
@@ -7530,7 +7530,7 @@
           "bobot": 45
         },
         {
-          "id": "r17856562416830stp",
+          "id": "r1785667828679b7c2",
           "objective": "Melindungi dan mengawasi sistem internal berbasis dari resiko yg timbul.",
           "keyResult": "Laporan audit akurat dan on time",
           "target": 100,
@@ -7538,7 +7538,7 @@
           "bobot": 35
         },
         {
-          "id": "r1785656241683gw00",
+          "id": "r1785667828679pm2x",
           "objective": "Melindungi dan mengawasi sistem internal berbasis dari resiko yg timbul.",
           "keyResult": "Jumlah inisiatif proaktif",
           "target": 2,
@@ -7546,7 +7546,8 @@
           "bobot": 20
         }
       ],
-      "actionPlan": "Finalisasi DD, bizflow, SOP warehouse"
+      "actionPlan": "",
+      "savedAt": "2026-08-02T10:50:28.679Z"
     },
     "Inventory": {
       "rows": [
