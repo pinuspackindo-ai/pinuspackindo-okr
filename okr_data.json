@@ -1,5 +1,4 @@
 {
-  "_ts": 1785573873820,
   "_userAccess": {
     "Finance & Accounting": {
       "modules": [
@@ -4063,9 +4062,9 @@
         "deadline": "2026-07-31",
         "bobot": 40,
         "progress": 100,
-        "review": "",
+        "review": "ok",
         "editing": false,
-        "savedAt": "2026-07-30T02:33:53.205Z"
+        "savedAt": "2026-08-02T03:56:53.562Z"
       },
       {
         "tal": "Running RN by checker",
@@ -4095,7 +4094,7 @@
         "savedAt": "2026-07-22T01:16:00.549Z"
       }
     ],
-    "savedAt": "2026-07-30T02:33:53.205Z"
+    "savedAt": "2026-08-02T03:56:53.562Z"
   },
   "_tal_d12_2026_07": {
     "rows": [
@@ -7153,5 +7152,6 @@
         "data": null
       }
     ]
-  }
+  },
+  "_ts": 1785643013562
 }
