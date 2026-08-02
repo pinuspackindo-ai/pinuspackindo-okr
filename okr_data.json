@@ -7153,7 +7153,7 @@
       }
     ]
   },
-  "_ts": 1785648465391,
+  "_ts": 1785648469591,
   "_tal_d0_2026_08": {
     "rows": [
       {
@@ -7176,12 +7176,12 @@
       },
       {
         "tal": "Running target kasir \"akurasi transaksi\"",
-        "deadline": "2026-07-05",
+        "deadline": "2026-08-05",
         "bobot": 20,
         "progress": null,
         "review": "",
-        "editing": true,
-        "savedAt": "2026-08-02T05:00:26.325Z"
+        "editing": false,
+        "savedAt": "2026-08-02T05:27:49.591Z"
       },
       {
         "tal": "Vakum marketplace KECUALI egg gloss & kara nata 360gr",
@@ -7193,7 +7193,7 @@
         "savedAt": "2026-08-02T05:00:24.059Z"
       }
     ],
-    "savedAt": "2026-08-02T05:27:45.391Z"
+    "savedAt": "2026-08-02T05:27:49.591Z"
   },
   "_tal_d2_2026_08": {
     "rows": [
