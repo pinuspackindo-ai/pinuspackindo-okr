@@ -4523,7 +4523,7 @@
           "objective": "Mencapai target penjualan, stok akurat, pelanggan puas, operasional sesuai SOP.",
           "keyResult": "Score kepuasan pelanggan",
           "target": 90,
-          "actual": null,
+          "actual": 89.77,
           "bobot": 20
         },
         {
@@ -7153,7 +7153,7 @@
       }
     ]
   },
-  "_ts": 1785667828697,
+  "_ts": 1785669185322,
   "_tal_d0_2026_08": {
     "rows": [
       {
