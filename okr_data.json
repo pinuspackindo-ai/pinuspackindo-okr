@@ -7153,7 +7153,6 @@
       }
     ]
   },
-  "_ts": 1785656170901,
   "_tal_d0_2026_08": {
     "rows": [
       {
@@ -7374,6 +7373,7 @@
     ],
     "savedAt": "2026-08-02T06:44:42.790Z"
   },
+  "_ts": 1785656182622,
   "_s_omzet_2026_08": {
     "value": 2607506500,
     "evidence": "https://raw.githubusercontent.com/pinuspackindo-ai/pinuspackindo-okr/data/uploads/store/1785654531857_c2erki_Sales_Juli.png",
