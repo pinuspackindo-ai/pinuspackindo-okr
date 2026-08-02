@@ -7153,7 +7153,7 @@
       }
     ]
   },
-  "_ts": 1785646772076,
+  "_ts": 1785646776792,
   "_tal_d0_2026_08": {
     "rows": [
       {
@@ -7162,8 +7162,8 @@
         "bobot": 40,
         "progress": null,
         "review": "",
-        "editing": true,
-        "savedAt": "2026-08-02T04:58:38.942Z"
+        "editing": false,
+        "savedAt": "2026-08-02T04:59:36.792Z"
       },
       {
         "tal": "Survey 30 pelanggan tema \"market sepi\"",
@@ -7193,7 +7193,7 @@
         "savedAt": "2026-08-02T04:58:41.408Z"
       }
     ],
-    "savedAt": "2026-08-02T04:59:32.076Z"
+    "savedAt": "2026-08-02T04:59:36.792Z"
   },
   "_tal_d2_2026_08": {
     "rows": [
