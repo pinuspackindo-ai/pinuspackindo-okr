@@ -4523,7 +4523,7 @@
           "objective": "Mencapai target penjualan, stok akurat, pelanggan puas, operasional sesuai SOP.",
           "keyResult": "Score kepuasan pelanggan",
           "target": 90,
-          "actual": 89.77,
+          "actual": null,
           "bobot": 20
         },
         {
@@ -7153,6 +7153,7 @@
       }
     ]
   },
+  "_ts": 1785666070424,
   "_tal_d0_2026_08": {
     "rows": [
       {
@@ -7725,7 +7726,7 @@
     "Warehouse": {
       "rows": [
         {
-          "id": "r1785656241683ckxi",
+          "id": "r1785666070424pe1p",
           "objective": "Stok akurat, operasional berjalan sesuai SOP.",
           "keyResult": "Tingkat akurasi stok fisik vs data",
           "target": 98,
@@ -7733,15 +7734,15 @@
           "bobot": 30
         },
         {
-          "id": "r1785656241683srfp",
+          "id": "r1785666070424b9qe",
           "objective": "Stok akurat, operasional berjalan sesuai SOP.",
           "keyResult": "Tingkat akurasi default diary",
-          "target": 95,
+          "target": 98,
           "actual": null,
           "bobot": 25
         },
         {
-          "id": "r17856562416839ibc",
+          "id": "r17856660704242xas",
           "objective": "Stok akurat, operasional berjalan sesuai SOP.",
           "keyResult": "Score avg cartrack",
           "target": 90,
@@ -7749,7 +7750,7 @@
           "bobot": 20
         },
         {
-          "id": "r1785656241683is2l",
+          "id": "r17856660704248i0e",
           "objective": "Stok akurat, operasional berjalan sesuai SOP.",
           "keyResult": "Score kepuasan pelanggan distribusi",
           "target": 90,
@@ -7757,7 +7758,7 @@
           "bobot": 15
         },
         {
-          "id": "r1785656241683zgh2",
+          "id": "r1785666070424ohkw",
           "objective": "Stok akurat, operasional berjalan sesuai SOP.",
           "keyResult": "Tingkat implementasi rekomendasi audit",
           "target": 100,
@@ -7765,7 +7766,8 @@
           "bobot": 10
         }
       ],
-      "actionPlan": ""
+      "actionPlan": "",
+      "savedAt": "2026-08-02T10:21:10.424Z"
     }
   },
   "_s_csat_2026_07": {
@@ -7784,6 +7786,5 @@
         "data": "https://raw.githubusercontent.com/pinuspackindo-ai/pinuspackindo-okr/data/uploads/store/1785656377259_ahbfu7_CSAT.png"
       }
     ]
-  },
-  "_ts": 1785658457714
+  }
 }
