@@ -7153,7 +7153,7 @@
       }
     ]
   },
-  "_ts": 1785651477147,
+  "_ts": 1785651479947,
   "_tal_d0_2026_08": {
     "rows": [
       {
@@ -7195,14 +7195,14 @@
       {
         "tal": "peralihan bagas ke fery",
         "deadline": "2026-08-31",
-        "bobot": 10,
+        "bobot": 5,
         "progress": null,
         "review": "",
-        "editing": true,
-        "savedAt": "2026-08-02T06:16:40.292Z"
+        "editing": false,
+        "savedAt": "2026-08-02T06:17:59.947Z"
       }
     ],
-    "savedAt": "2026-08-02T06:17:57.147Z"
+    "savedAt": "2026-08-02T06:17:59.947Z"
   },
   "_tal_d2_2026_08": {
     "rows": [
