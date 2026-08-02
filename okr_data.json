@@ -4523,7 +4523,7 @@
           "objective": "Mencapai target penjualan, stok akurat, pelanggan puas, operasional sesuai SOP.",
           "keyResult": "Score kepuasan pelanggan",
           "target": 90,
-          "actual": null,
+          "actual": 89.77,
           "bobot": 20
         },
         {
@@ -7153,7 +7153,6 @@
       }
     ]
   },
-  "_ts": 1785656422374,
   "_tal_d0_2026_08": {
     "rows": [
       {
@@ -7374,6 +7373,7 @@
     ],
     "savedAt": "2026-08-02T06:44:42.790Z"
   },
+  "_ts": 1785656466346,
   "_s_omzet_2026_08": {
     "value": 2607506500,
     "evidence": "https://raw.githubusercontent.com/pinuspackindo-ai/pinuspackindo-okr/data/uploads/store/1785654531857_c2erki_Sales_Juli.png",
