@@ -7153,7 +7153,7 @@
       }
     ]
   },
-  "_ts": 1785667691898,
+  "_ts": 1785667709281,
   "_tal_d0_2026_08": {
     "rows": [
       {
@@ -7430,7 +7430,7 @@
     "Finance & Accounting": {
       "rows": [
         {
-          "id": "r1785667691898pv24",
+          "id": "r1785667709280ykac",
           "objective": "Data dan fisik uang akurat, transaksi tepat dan on time.",
           "keyResult": "Tingkat keberhasilan penagihan piutang",
           "target": 98,
@@ -7438,7 +7438,7 @@
           "bobot": 30
         },
         {
-          "id": "r1785667691898xwwl",
+          "id": "r1785667709280hdb9",
           "objective": "Data dan fisik uang akurat, transaksi tepat dan on time.",
           "keyResult": "Payment akurat dan on time",
           "target": 98,
@@ -7446,7 +7446,7 @@
           "bobot": 25
         },
         {
-          "id": "r1785667691898gnji",
+          "id": "r178566770928174hc",
           "objective": "Data dan fisik uang akurat, transaksi tepat dan on time.",
           "keyResult": "Tingkat akurasi uang fisik dan data",
           "target": 98,
@@ -7454,7 +7454,7 @@
           "bobot": 20
         },
         {
-          "id": "r1785667691898slrv",
+          "id": "r1785667709281xaum",
           "objective": "Data dan fisik uang akurat, transaksi tepat dan on time.",
           "keyResult": "Laporan keuangan akurat dan on time",
           "target": 98,
@@ -7462,7 +7462,7 @@
           "bobot": 15
         },
         {
-          "id": "r1785667691898vjab",
+          "id": "r17856677092819k0i",
           "objective": "Data dan fisik uang akurat, transaksi tepat dan on time.",
           "keyResult": "Tingkat implementasi rekomendasi audit",
           "target": 100,
@@ -7470,8 +7470,8 @@
           "bobot": 10
         }
       ],
-      "actionPlan": "Planning investasi",
-      "savedAt": "2026-08-02T10:48:11.898Z"
+      "actionPlan": "",
+      "savedAt": "2026-08-02T10:48:29.281Z"
     },
     "HRD": {
       "rows": [
