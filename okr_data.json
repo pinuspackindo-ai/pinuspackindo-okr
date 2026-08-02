@@ -7153,7 +7153,7 @@
       }
     ]
   },
-  "_ts": 1785666070424,
+  "_ts": 1785666123607,
   "_tal_d0_2026_08": {
     "rows": [
       {
@@ -7615,23 +7615,23 @@
     "Inventory": {
       "rows": [
         {
-          "id": "r1785656241683owjn",
+          "id": "r1785666123607cmmh",
           "objective": "Stok akurat, persediaan optimal, biaya & waste minimal.",
           "keyResult": "Tingkat akurasi stok fisik vs data",
-          "target": 75,
+          "target": 85,
           "actual": null,
           "bobot": 20
         },
         {
-          "id": "r17856562416832kvj",
+          "id": "r17856661236071rdw",
           "objective": "Stok akurat, persediaan optimal, biaya & waste minimal.",
-          "keyResult": "Akurasi DO & RN",
+          "keyResult": "Akurasi DO vs RN",
           "target": 100,
           "actual": null,
           "bobot": 10
         },
         {
-          "id": "r17856562416837rvq",
+          "id": "r1785666123607qx8d",
           "objective": "Stok akurat, persediaan optimal, biaya & waste minimal.",
           "keyResult": "Tingkat akurasi administrasi",
           "target": 98,
@@ -7639,7 +7639,7 @@
           "bobot": 40
         },
         {
-          "id": "r1785656241683847h",
+          "id": "r1785666123607svuo",
           "objective": "Stok akurat, persediaan optimal, biaya & waste minimal.",
           "keyResult": "Laporan inventory akurat dan on time",
           "target": 100,
@@ -7647,7 +7647,8 @@
           "bobot": 30
         }
       ],
-      "actionPlan": "Planning acara chef Alfian"
+      "actionPlan": "",
+      "savedAt": "2026-08-02T10:22:03.607Z"
     },
     "Purchasing": {
       "rows": [
