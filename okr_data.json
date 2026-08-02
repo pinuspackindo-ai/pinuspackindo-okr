@@ -7153,7 +7153,7 @@
       }
     ]
   },
-  "_ts": 1785649089571,
+  "_ts": 1785649726075,
   "_tal_d0_2026_08": {
     "rows": [
       {
@@ -7262,16 +7262,16 @@
   "_tal_d4_2026_08": {
     "rows": [
       {
-        "tal": "pendataan inventaris & vendor",
+        "tal": "portal inventaris lengkap & siap pakai",
         "deadline": "2026-07-31",
-        "bobot": 100,
+        "bobot": 60,
         "progress": null,
         "review": "",
         "editing": false,
-        "savedAt": "2026-08-02T04:14:20.970Z"
+        "savedAt": "2026-08-02T05:48:46.075Z"
       }
     ],
-    "savedAt": "2026-08-02T04:14:20.970Z"
+    "savedAt": "2026-08-02T05:48:46.075Z"
   },
   "_tal_d9_2026_08": {
     "rows": [
