@@ -7153,7 +7153,7 @@
       }
     ]
   },
-  "_ts": 1785648458408,
+  "_ts": 1785648465391,
   "_tal_d0_2026_08": {
     "rows": [
       {
@@ -7167,12 +7167,12 @@
       },
       {
         "tal": "Survey 30 pelanggan tema \"market sepi\"",
-        "deadline": "2026-07-31",
+        "deadline": "2026-08-31",
         "bobot": 30,
         "progress": null,
         "review": "",
-        "editing": true,
-        "savedAt": "2026-08-02T05:00:27.492Z"
+        "editing": false,
+        "savedAt": "2026-08-02T05:27:45.391Z"
       },
       {
         "tal": "Running target kasir \"akurasi transaksi\"",
@@ -7193,7 +7193,7 @@
         "savedAt": "2026-08-02T05:00:24.059Z"
       }
     ],
-    "savedAt": "2026-08-02T05:27:38.408Z"
+    "savedAt": "2026-08-02T05:27:45.391Z"
   },
   "_tal_d2_2026_08": {
     "rows": [
