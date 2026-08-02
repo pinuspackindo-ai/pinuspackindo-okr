@@ -7153,7 +7153,7 @@
       }
     ]
   },
-  "_ts": 1785646721408,
+  "_ts": 1785646772076,
   "_tal_d0_2026_08": {
     "rows": [
       {
@@ -7162,17 +7162,17 @@
         "bobot": 40,
         "progress": null,
         "review": "",
-        "editing": false,
+        "editing": true,
         "savedAt": "2026-08-02T04:58:38.942Z"
       },
       {
-        "tal": "Running RN by checker",
+        "tal": "Survey 30 pelanggan tema \"market sepi\"",
         "deadline": "2026-07-31",
         "bobot": 30,
         "progress": null,
         "review": "",
         "editing": false,
-        "savedAt": "2026-08-02T04:58:39.858Z"
+        "savedAt": "2026-08-02T04:59:32.076Z"
       },
       {
         "tal": "Running repacking by checker + ITR by md sales",
@@ -7180,7 +7180,7 @@
         "bobot": 20,
         "progress": null,
         "review": "",
-        "editing": false,
+        "editing": true,
         "savedAt": "2026-08-02T04:58:40.741Z"
       },
       {
@@ -7189,11 +7189,11 @@
         "bobot": 10,
         "progress": null,
         "review": "",
-        "editing": false,
+        "editing": true,
         "savedAt": "2026-08-02T04:58:41.408Z"
       }
     ],
-    "savedAt": "2026-08-02T04:58:41.408Z"
+    "savedAt": "2026-08-02T04:59:32.076Z"
   },
   "_tal_d2_2026_08": {
     "rows": [
