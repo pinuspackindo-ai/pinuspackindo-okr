@@ -4637,9 +4637,9 @@
         "deadline": "2026-07-31",
         "bobot": 30,
         "progress": 100,
-        "review": "",
+        "review": "ok",
         "editing": false,
-        "savedAt": "2026-08-02T04:05:53.317Z"
+        "savedAt": "2026-08-02T04:06:10.366Z"
       },
       {
         "tal": "bersih bersih customer kecil",
@@ -4651,7 +4651,7 @@
         "savedAt": "2026-08-02T04:05:54.833Z"
       }
     ],
-    "savedAt": "2026-08-02T04:06:04.166Z"
+    "savedAt": "2026-08-02T04:06:10.366Z"
   },
   "_hrdViewAllV1": 1,
   "_fa_piutang_jt_2026_06": {
@@ -7153,5 +7153,5 @@
       }
     ]
   },
-  "_ts": 1785643564166
+  "_ts": 1785643570366
 }
