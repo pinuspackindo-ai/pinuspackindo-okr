@@ -7153,7 +7153,7 @@
       }
     ]
   },
-  "_ts": 1785652817887,
+  "_ts": 1785652820825,
   "_tal_d0_2026_08": {
     "rows": [
       {
@@ -7347,18 +7347,9 @@
         "review": "",
         "editing": false,
         "savedAt": "2026-08-02T06:40:17.887Z"
-      },
-      {
-        "tal": "lulus training SO dan lancar lepas RN + ITR ke checker",
-        "deadline": "2026-07-31",
-        "bobot": 40,
-        "progress": null,
-        "review": "",
-        "editing": true,
-        "savedAt": "2026-08-02T04:14:20.970Z"
       }
     ],
-    "savedAt": "2026-08-02T06:40:17.887Z"
+    "savedAt": "2026-08-02T06:40:20.825Z"
   },
   "_tal_d12_2026_08": {
     "rows": [
