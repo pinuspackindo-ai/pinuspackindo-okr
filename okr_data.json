@@ -7153,7 +7153,7 @@
       }
     ]
   },
-  "_ts": 1785667503431,
+  "_ts": 1785667589852,
   "_tal_d0_2026_08": {
     "rows": [
       {
@@ -7471,35 +7471,6 @@
         }
       ],
       "actionPlan": "Planning investasi"
-    },
-    "General Affair": {
-      "rows": [
-        {
-          "id": "r1785656241683hbwm",
-          "objective": "Inventaris utuh terawat, pengadaan tepat waktu, operasional aman lancar, user puas.",
-          "keyResult": "Tingkat akurasi stok inventaris data vs fisik",
-          "target": 98,
-          "actual": null,
-          "bobot": 40
-        },
-        {
-          "id": "r1785656241683pvhe",
-          "objective": "Inventaris utuh terawat, pengadaan tepat waktu, operasional aman lancar, user puas.",
-          "keyResult": "Tingkat akurasi lead time pengadaan / maintenance",
-          "target": 95,
-          "actual": null,
-          "bobot": 35
-        },
-        {
-          "id": "r1785656241683qx07",
-          "objective": "Inventaris utuh terawat, pengadaan tepat waktu, operasional aman lancar, user puas.",
-          "keyResult": "Laporan inventaris akurat dan on time",
-          "target": 100,
-          "actual": null,
-          "bobot": 25
-        }
-      ],
-      "actionPlan": "Kaji ulang cctv warehouse"
     },
     "HRD": {
       "rows": [
