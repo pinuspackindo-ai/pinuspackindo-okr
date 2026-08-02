@@ -7153,7 +7153,7 @@
       }
     ]
   },
-  "_ts": 1785651514314,
+  "_ts": 1785651523514,
   "_tal_d0_2026_08": {
     "rows": [
       {
@@ -7162,7 +7162,7 @@
         "bobot": 30,
         "progress": null,
         "review": "",
-        "editing": false,
+        "editing": true,
         "savedAt": "2026-08-02T06:18:26.246Z"
       },
       {
@@ -7171,7 +7171,7 @@
         "bobot": 25,
         "progress": null,
         "review": "",
-        "editing": false,
+        "editing": true,
         "savedAt": "2026-08-02T06:18:29.580Z"
       },
       {
@@ -7180,7 +7180,7 @@
         "bobot": 20,
         "progress": null,
         "review": "",
-        "editing": false,
+        "editing": true,
         "savedAt": "2026-08-02T06:18:32.731Z"
       },
       {
@@ -7189,20 +7189,20 @@
         "bobot": 15,
         "progress": null,
         "review": "",
-        "editing": false,
+        "editing": true,
         "savedAt": "2026-08-02T06:18:33.530Z"
       },
       {
         "tal": "peralihan bagas ke fery",
         "deadline": "2026-08-31",
-        "bobot": 5,
+        "bobot": 10,
         "progress": null,
         "review": "",
         "editing": false,
-        "savedAt": "2026-08-02T06:18:34.313Z"
+        "savedAt": "2026-08-02T06:18:43.514Z"
       }
     ],
-    "savedAt": "2026-08-02T06:18:34.314Z"
+    "savedAt": "2026-08-02T06:18:43.514Z"
   },
   "_tal_d2_2026_08": {
     "rows": [
