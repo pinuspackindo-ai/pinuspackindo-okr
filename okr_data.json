@@ -7153,7 +7153,7 @@
       }
     ]
   },
-  "_ts": 1785666150812,
+  "_ts": 1785666864298,
   "_tal_d0_2026_08": {
     "rows": [
       {
@@ -7578,15 +7578,15 @@
     "Inventory": {
       "rows": [
         {
-          "id": "r1785666123607cmmh",
+          "id": "r1785666864279o0ur",
           "objective": "Stok akurat, persediaan optimal, biaya & waste minimal.",
           "keyResult": "Tingkat akurasi stok fisik vs data",
-          "target": 85,
+          "target": 90,
           "actual": null,
           "bobot": 20
         },
         {
-          "id": "r17856661236071rdw",
+          "id": "r1785666864279zahj",
           "objective": "Stok akurat, persediaan optimal, biaya & waste minimal.",
           "keyResult": "Akurasi DO vs RN",
           "target": 100,
@@ -7594,7 +7594,7 @@
           "bobot": 10
         },
         {
-          "id": "r1785666123607qx8d",
+          "id": "r1785666864279nw6w",
           "objective": "Stok akurat, persediaan optimal, biaya & waste minimal.",
           "keyResult": "Tingkat akurasi administrasi",
           "target": 98,
@@ -7602,7 +7602,7 @@
           "bobot": 40
         },
         {
-          "id": "r1785666123607svuo",
+          "id": "r1785666864279qtym",
           "objective": "Stok akurat, persediaan optimal, biaya & waste minimal.",
           "keyResult": "Laporan inventory akurat dan on time",
           "target": 100,
@@ -7611,7 +7611,7 @@
         }
       ],
       "actionPlan": "",
-      "savedAt": "2026-08-02T10:22:03.607Z"
+      "savedAt": "2026-08-02T10:34:24.279Z"
     },
     "Purchasing": {
       "rows": [
