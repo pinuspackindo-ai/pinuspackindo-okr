@@ -7153,7 +7153,7 @@
       }
     ]
   },
-  "_ts": 1785649857957,
+  "_ts": 1785649858924,
   "_tal_d0_2026_08": {
     "rows": [
       {
@@ -7267,8 +7267,8 @@
         "bobot": 60,
         "progress": null,
         "review": "",
-        "editing": true,
-        "savedAt": "2026-08-02T05:48:46.075Z"
+        "editing": false,
+        "savedAt": "2026-08-02T05:50:58.924Z"
       },
       {
         "tal": "finishing pelabelan pada fisik inventaris",
@@ -7289,7 +7289,7 @@
         "savedAt": null
       }
     ],
-    "savedAt": "2026-08-02T05:50:57.957Z"
+    "savedAt": "2026-08-02T05:50:58.924Z"
   },
   "_tal_d9_2026_08": {
     "rows": [
