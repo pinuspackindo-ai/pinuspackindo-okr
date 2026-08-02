@@ -7153,7 +7153,7 @@
       }
     ]
   },
-  "_ts": 1785652820825,
+  "_ts": 1785652893687,
   "_tal_d0_2026_08": {
     "rows": [
       {
@@ -7244,17 +7244,17 @@
         "bobot": 45,
         "progress": null,
         "review": "",
-        "editing": false,
+        "editing": true,
         "savedAt": "2026-08-02T05:31:44.440Z"
       },
       {
         "tal": "drafting & pengesahan SO pinus 2026",
-        "deadline": "2026-07-31",
+        "deadline": "2026-08-31",
         "bobot": 35,
         "progress": null,
         "review": "",
         "editing": false,
-        "savedAt": "2026-08-02T05:32:12.373Z"
+        "savedAt": "2026-08-02T06:41:33.687Z"
       },
       {
         "tal": "drafting & pengesahan 50% buku product knowlegde",
@@ -7262,11 +7262,11 @@
         "bobot": 20,
         "progress": null,
         "review": "",
-        "editing": false,
+        "editing": true,
         "savedAt": "2026-08-02T05:38:09.571Z"
       }
     ],
-    "savedAt": "2026-08-02T05:38:09.571Z"
+    "savedAt": "2026-08-02T06:41:33.687Z"
   },
   "_tal_d4_2026_08": {
     "rows": [
