@@ -4638,8 +4638,8 @@
         "bobot": 30,
         "progress": 100,
         "review": "",
-        "editing": true,
-        "savedAt": "2026-07-17T18:48:48.962Z"
+        "editing": false,
+        "savedAt": "2026-08-02T04:05:32.299Z"
       },
       {
         "tal": "bersih bersih customer kecil",
@@ -4651,7 +4651,7 @@
         "savedAt": "2026-07-30T04:56:51.473Z"
       }
     ],
-    "savedAt": "2026-08-02T04:05:30.283Z"
+    "savedAt": "2026-08-02T04:05:32.299Z"
   },
   "_hrdViewAllV1": 1,
   "_fa_piutang_jt_2026_06": {
@@ -7153,5 +7153,5 @@
       }
     ]
   },
-  "_ts": 1785643530283
+  "_ts": 1785643532299
 }
