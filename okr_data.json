@@ -7152,7 +7152,7 @@
       }
     ]
   },
-  "_ts": 1785671014129,
+  "_ts": 1785671093842,
   "_tal_d0_2026_08": {
     "rows": [
       {
@@ -7475,7 +7475,7 @@
     "Internal Audit": {
       "rows": [
         {
-          "id": "r1785670354106z73z",
+          "id": "r1785671093828rp62",
           "objective": "Memperkuat pengendalian internal dan efektivitas proses bisnis melalui audit berbasis risiko serta perbaikan yang terbukti berjalan.",
           "keyResult": "Tingkat implementasi rekomendasi audit",
           "target": 100,
@@ -7483,16 +7483,16 @@
           "bobot": 60
         },
         {
-          "id": "r1785670354106dfkb",
+          "id": "r1785671093828z8we",
           "objective": "Memperkuat pengendalian internal dan efektivitas proses bisnis melalui audit berbasis risiko serta perbaikan yang terbukti berjalan.",
-          "keyResult": "Jumlah perbaikan proses disetujui, diterapkan, berdampak",
+          "keyResult": "Jumlah inisiatif proyek improvement",
           "target": 2,
           "actual": 0,
           "bobot": 40
         }
       ],
       "actionPlan": "",
-      "savedAt": "2026-08-02T11:32:34.106Z"
+      "savedAt": "2026-08-02T11:44:53.828Z"
     },
     "Inventory": {
       "rows": [
