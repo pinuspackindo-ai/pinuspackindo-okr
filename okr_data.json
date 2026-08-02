@@ -7153,7 +7153,7 @@
       }
     ]
   },
-  "_ts": 1785648375275,
+  "_ts": 1785648381841,
   "_tal_d0_2026_08": {
     "rows": [
       {
@@ -7199,12 +7199,12 @@
     "rows": [
       {
         "tal": "menyusun sisa SOP finance berdasar business flow finance",
-        "deadline": "2026-07-31",
+        "deadline": "2026-08-31",
         "bobot": 40,
         "progress": null,
         "review": "",
-        "editing": true,
-        "savedAt": "2026-08-02T05:25:00.608Z"
+        "editing": false,
+        "savedAt": "2026-08-02T05:26:21.841Z"
       },
       {
         "tal": "mendata dan eksekusi asset non tetap untuk petty cash",
@@ -7225,7 +7225,7 @@
         "savedAt": "2026-08-02T05:26:15.275Z"
       }
     ],
-    "savedAt": "2026-08-02T05:26:15.275Z"
+    "savedAt": "2026-08-02T05:26:21.841Z"
   },
   "_tal_d3_2026_08": {
     "rows": [
