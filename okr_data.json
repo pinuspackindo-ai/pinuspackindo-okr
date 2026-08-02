@@ -7152,7 +7152,7 @@
       }
     ]
   },
-  "_ts": 1785671998198,
+  "_ts": 1785672245647,
   "_tal_d0_2026_08": {
     "rows": [
       {
@@ -7304,14 +7304,23 @@
       {
         "tal": "peralihan fery ke sowam",
         "deadline": "2026-07-15",
-        "bobot": 100,
+        "bobot": 60,
         "progress": null,
         "review": "",
         "editing": false,
-        "savedAt": "2026-08-02T06:13:29.581Z"
+        "savedAt": "2026-08-02T12:04:05.646Z"
+      },
+      {
+        "tal": "",
+        "deadline": "",
+        "bobot": 0,
+        "progress": null,
+        "review": "",
+        "editing": true,
+        "savedAt": null
       }
     ],
-    "savedAt": "2026-08-02T06:13:29.582Z"
+    "savedAt": "2026-08-02T12:04:05.646Z"
   },
   "_tal_d10_2026_08": {
     "rows": [
