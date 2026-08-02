@@ -7153,7 +7153,7 @@
       }
     ]
   },
-  "_ts": 1785650003323,
+  "_ts": 1785651188887,
   "_tal_d0_2026_08": {
     "rows": [
       {
@@ -7267,8 +7267,8 @@
         "bobot": 45,
         "progress": null,
         "review": "",
-        "editing": true,
-        "savedAt": "2026-08-02T05:53:12.974Z"
+        "editing": false,
+        "savedAt": "2026-08-02T05:53:23.857Z"
       },
       {
         "tal": "finishing pelabelan pada fisik inventaris",
@@ -7289,7 +7289,7 @@
         "savedAt": "2026-08-02T05:53:22.057Z"
       }
     ],
-    "savedAt": "2026-08-02T05:53:23.323Z"
+    "savedAt": "2026-08-02T05:53:23.857Z"
   },
   "_tal_d9_2026_08": {
     "rows": [
@@ -7299,7 +7299,7 @@
         "bobot": 40,
         "progress": null,
         "review": "",
-        "editing": false,
+        "editing": true,
         "savedAt": "2026-08-02T04:14:20.970Z"
       },
       {
@@ -7308,20 +7308,11 @@
         "bobot": 30,
         "progress": null,
         "review": "",
-        "editing": false,
-        "savedAt": "2026-08-02T04:14:20.970Z"
-      },
-      {
-        "tal": "bersih bersih customer kecil",
-        "deadline": "2026-07-31",
-        "bobot": 20,
-        "progress": null,
-        "review": "",
-        "editing": false,
+        "editing": true,
         "savedAt": "2026-08-02T04:14:20.970Z"
       }
     ],
-    "savedAt": "2026-08-02T04:14:20.970Z"
+    "savedAt": "2026-08-02T06:13:08.887Z"
   },
   "_tal_d10_2026_08": {
     "rows": [
