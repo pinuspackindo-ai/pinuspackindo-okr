@@ -7153,7 +7153,7 @@
       }
     ]
   },
-  "_ts": 1785652965610,
+  "_ts": 1785652967993,
   "_tal_d0_2026_08": {
     "rows": [
       {
@@ -7370,17 +7370,8 @@
         "review": "",
         "editing": true,
         "savedAt": "2026-08-02T04:14:20.970Z"
-      },
-      {
-        "tal": "menjalankan proyek hpp bersama purchasing",
-        "deadline": "2026-07-31",
-        "bobot": 20,
-        "progress": null,
-        "review": "",
-        "editing": true,
-        "savedAt": "2026-08-02T04:14:20.970Z"
       }
     ],
-    "savedAt": "2026-08-02T06:42:45.610Z"
+    "savedAt": "2026-08-02T06:42:47.993Z"
   }
 }
