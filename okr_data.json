@@ -7153,7 +7153,7 @@
       }
     ]
   },
-  "_ts": 1785651512731,
+  "_ts": 1785651514314,
   "_tal_d0_2026_08": {
     "rows": [
       {
@@ -7189,8 +7189,8 @@
         "bobot": 15,
         "progress": null,
         "review": "",
-        "editing": true,
-        "savedAt": "2026-08-02T06:17:57.147Z"
+        "editing": false,
+        "savedAt": "2026-08-02T06:18:33.530Z"
       },
       {
         "tal": "peralihan bagas ke fery",
@@ -7198,11 +7198,11 @@
         "bobot": 5,
         "progress": null,
         "review": "",
-        "editing": true,
-        "savedAt": "2026-08-02T06:17:59.947Z"
+        "editing": false,
+        "savedAt": "2026-08-02T06:18:34.313Z"
       }
     ],
-    "savedAt": "2026-08-02T06:18:32.731Z"
+    "savedAt": "2026-08-02T06:18:34.314Z"
   },
   "_tal_d2_2026_08": {
     "rows": [
