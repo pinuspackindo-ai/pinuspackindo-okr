@@ -5848,14 +5848,14 @@
       },
       {
         "goal": "OKR score all divisions",
-        "target": "95%",
+        "target": "90%",
         "actual": "",
         "weight": "20",
         "src": "okr_global"
       },
       {
         "goal": "Avg KPIM scores all teams",
-        "target": "95%",
+        "target": "90%",
         "actual": "",
         "weight": "15",
         "src": "kpi_avg"
@@ -5868,7 +5868,7 @@
         "src": "tal_avg"
       }
     ],
-    "savedAt": "2026-08-02T12:20:31.230Z"
+    "savedAt": "2026-08-02T12:21:45.297Z"
   },
   "_p_apo_2026_07": {
     "file1": "https://raw.githubusercontent.com/pinuspackindo-ai/pinuspackindo-okr/data/uploads/purchasing/1785558542555_le6haz_purchase.order.line_17.xlsx",
@@ -7152,7 +7152,7 @@
       }
     ]
   },
-  "_ts": 1785673231230,
+  "_ts": 1785673305297,
   "_tal_d0_2026_08": {
     "rows": [
       {
