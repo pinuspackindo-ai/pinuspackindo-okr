@@ -7153,7 +7153,7 @@
       }
     ]
   },
-  "_ts": 1785666123607,
+  "_ts": 1785666140226,
   "_tal_d0_2026_08": {
     "rows": [
       {
@@ -7430,7 +7430,7 @@
     "Distribution Sales": {
       "rows": [
         {
-          "id": "r1785656241683je4w",
+          "id": "r1785666140208jxpy",
           "objective": "Mencapai target penjualan, pelanggan puas.",
           "keyResult": "Jumlah omset global",
           "target": 3400000000,
@@ -7438,7 +7438,7 @@
           "bobot": 35
         },
         {
-          "id": "r1785656241683acje",
+          "id": "r1785666140208o06q",
           "objective": "Mencapai target penjualan, pelanggan puas.",
           "keyResult": "Retensi pelanggan",
           "target": 75,
@@ -7446,7 +7446,7 @@
           "bobot": 30
         },
         {
-          "id": "r1785656241683za4g",
+          "id": "r1785666140208hr99",
           "objective": "Mencapai target penjualan, pelanggan puas.",
           "keyResult": "Customers baru",
           "target": 10,
@@ -7454,7 +7454,7 @@
           "bobot": 25
         },
         {
-          "id": "r1785656241683jbkb",
+          "id": "r1785666140208c2x0",
           "objective": "Mencapai target penjualan, pelanggan puas.",
           "keyResult": "Kepuasan pelanggan",
           "target": 90,
@@ -7462,7 +7462,8 @@
           "bobot": 10
         }
       ],
-      "actionPlan": "Training new telesales"
+      "actionPlan": "",
+      "savedAt": "2026-08-02T10:22:20.208Z"
     },
     "Finance & Accounting": {
       "rows": [
