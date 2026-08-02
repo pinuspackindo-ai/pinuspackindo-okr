@@ -7152,7 +7152,7 @@
       }
     ]
   },
-  "_ts": 1785671093828,
+  "_ts": 1785671957048,
   "_tal_d0_2026_08": {
     "rows": [
       {
@@ -7321,7 +7321,7 @@
         "bobot": 60,
         "progress": null,
         "review": "",
-        "editing": false,
+        "editing": true,
         "savedAt": "2026-08-02T06:24:44.641Z"
       },
       {
@@ -7330,11 +7330,20 @@
         "bobot": 40,
         "progress": null,
         "review": "",
-        "editing": false,
+        "editing": true,
         "savedAt": "2026-08-02T06:25:04.009Z"
+      },
+      {
+        "tal": "eksekusi pengadaan palet 40%",
+        "deadline": "2026-08-31",
+        "bobot": 25,
+        "progress": null,
+        "review": "",
+        "editing": false,
+        "savedAt": "2026-08-02T11:59:17.048Z"
       }
     ],
-    "savedAt": "2026-08-02T06:25:06.231Z"
+    "savedAt": "2026-08-02T11:59:17.048Z"
   },
   "_tal_d11_2026_08": {
     "rows": [
