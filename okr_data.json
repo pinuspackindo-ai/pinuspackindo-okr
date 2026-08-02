@@ -7153,7 +7153,7 @@
       }
     ]
   },
-  "_ts": 1785649976191,
+  "_ts": 1785649983323,
   "_tal_d0_2026_08": {
     "rows": [
       {
@@ -7267,7 +7267,7 @@
         "bobot": 60,
         "progress": null,
         "review": "",
-        "editing": false,
+        "editing": true,
         "savedAt": "2026-08-02T05:50:58.924Z"
       },
       {
@@ -7276,20 +7276,20 @@
         "bobot": 30,
         "progress": null,
         "review": "",
-        "editing": false,
+        "editing": true,
         "savedAt": "2026-08-02T05:50:57.957Z"
       },
       {
         "tal": "bersama finance, menentukan petty cash",
-        "deadline": "",
+        "deadline": "2026-08-31",
         "bobot": 10,
         "progress": null,
         "review": "",
         "editing": false,
-        "savedAt": "2026-08-02T05:52:56.191Z"
+        "savedAt": "2026-08-02T05:53:03.323Z"
       }
     ],
-    "savedAt": "2026-08-02T05:52:56.191Z"
+    "savedAt": "2026-08-02T05:53:03.323Z"
   },
   "_tal_d9_2026_08": {
     "rows": [
