@@ -7153,7 +7153,7 @@
       }
     ]
   },
-  "_ts": 1785655432755,
+  "_ts": 1785655437955,
   "_tal_d0_2026_08": {
     "rows": [
       {
@@ -7291,14 +7291,14 @@
       {
         "tal": "bersama finance, menentukan asset non tetap masuk petty cash",
         "deadline": "2026-08-31",
-        "bobot": 45,
+        "bobot": 20,
         "progress": null,
         "review": "",
-        "editing": true,
-        "savedAt": "2026-08-02T07:23:41.339Z"
+        "editing": false,
+        "savedAt": "2026-08-02T07:23:57.955Z"
       }
     ],
-    "savedAt": "2026-08-02T07:23:52.755Z"
+    "savedAt": "2026-08-02T07:23:57.955Z"
   },
   "_tal_d9_2026_08": {
     "rows": [
