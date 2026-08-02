@@ -7153,7 +7153,7 @@
       }
     ]
   },
-  "_ts": 1785653082790,
+  "_ts": 1785653323807,
   "_tal_d0_2026_08": {
     "rows": [
       {
@@ -7162,7 +7162,7 @@
         "bobot": 30,
         "progress": null,
         "review": "",
-        "editing": false,
+        "editing": true,
         "savedAt": "2026-08-02T06:18:45.880Z"
       },
       {
@@ -7171,7 +7171,7 @@
         "bobot": 25,
         "progress": null,
         "review": "",
-        "editing": false,
+        "editing": true,
         "savedAt": "2026-08-02T06:18:45.363Z"
       },
       {
@@ -7180,7 +7180,7 @@
         "bobot": 20,
         "progress": null,
         "review": "",
-        "editing": false,
+        "editing": true,
         "savedAt": "2026-08-02T06:18:44.814Z"
       },
       {
@@ -7189,20 +7189,20 @@
         "bobot": 15,
         "progress": null,
         "review": "",
-        "editing": false,
+        "editing": true,
         "savedAt": "2026-08-02T06:18:44.314Z"
       },
       {
-        "tal": "peralihan bagas ke fery",
+        "tal": "peralihan salah satu SA ke fery",
         "deadline": "2026-08-31",
         "bobot": 10,
         "progress": null,
         "review": "",
         "editing": false,
-        "savedAt": "2026-08-02T06:18:43.514Z"
+        "savedAt": "2026-08-02T06:48:43.807Z"
       }
     ],
-    "savedAt": "2026-08-02T06:18:45.880Z"
+    "savedAt": "2026-08-02T06:48:43.807Z"
   },
   "_tal_d2_2026_08": {
     "rows": [
