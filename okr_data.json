@@ -7153,7 +7153,7 @@
       }
     ]
   },
-  "_ts": 1785648196591,
+  "_ts": 1785648300608,
   "_tal_d0_2026_08": {
     "rows": [
       {
@@ -7198,13 +7198,13 @@
   "_tal_d2_2026_08": {
     "rows": [
       {
-        "tal": "menyusun sisa 50% SOP finance berdasar business flow finance",
+        "tal": "menyusun sisa SOP finance berdasar business flow finance",
         "deadline": "2026-07-31",
-        "bobot": 100,
+        "bobot": 40,
         "progress": null,
         "review": "",
         "editing": false,
-        "savedAt": "2026-08-02T05:18:57.208Z"
+        "savedAt": "2026-08-02T05:25:00.608Z"
       },
       {
         "tal": "Mendata items non asset tetap untuk petty cash",
@@ -7212,11 +7212,20 @@
         "bobot": 30,
         "progress": null,
         "review": "",
-        "editing": false,
+        "editing": true,
         "savedAt": "2026-08-02T05:23:16.591Z"
+      },
+      {
+        "tal": "",
+        "deadline": "",
+        "bobot": 0,
+        "progress": null,
+        "review": "",
+        "editing": true,
+        "savedAt": null
       }
     ],
-    "savedAt": "2026-08-02T05:23:16.591Z"
+    "savedAt": "2026-08-02T05:25:00.608Z"
   },
   "_tal_d3_2026_08": {
     "rows": [
