@@ -4080,9 +4080,9 @@
         "deadline": "2026-07-31",
         "bobot": 20,
         "progress": 100,
-        "review": "",
+        "review": "ok",
         "editing": false,
-        "savedAt": "2026-07-22T01:15:57.291Z"
+        "savedAt": "2026-08-02T03:57:05.695Z"
       },
       {
         "tal": "Finalisasi display toko sesuai planogram",
@@ -4094,7 +4094,7 @@
         "savedAt": "2026-07-22T01:16:00.549Z"
       }
     ],
-    "savedAt": "2026-08-02T03:56:57.046Z"
+    "savedAt": "2026-08-02T03:57:05.695Z"
   },
   "_tal_d12_2026_07": {
     "rows": [
@@ -7153,5 +7153,5 @@
       }
     ]
   },
-  "_ts": 1785643017046
+  "_ts": 1785643025695
 }
