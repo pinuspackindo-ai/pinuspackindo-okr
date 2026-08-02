@@ -4144,9 +4144,9 @@
         "deadline": "2026-07-31",
         "bobot": 40,
         "progress": 100,
-        "review": "",
+        "review": "ok",
         "editing": false,
-        "savedAt": "2026-07-23T04:52:48.558Z"
+        "savedAt": "2026-08-02T04:06:20.767Z"
       },
       {
         "tal": "planning & eksekusi pengelolaan tips warehouse",
@@ -4167,7 +4167,7 @@
         "savedAt": "2026-07-22T04:51:38.609Z"
       }
     ],
-    "savedAt": "2026-07-27T07:01:33.880Z"
+    "savedAt": "2026-08-02T04:06:20.767Z"
   },
   "_tal_d3_2026_07": {
     "rows": [
@@ -7153,5 +7153,5 @@
       }
     ]
   },
-  "_ts": 1785643574734
+  "_ts": 1785643580767
 }
