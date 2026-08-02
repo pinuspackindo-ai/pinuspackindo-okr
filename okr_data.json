@@ -5836,40 +5836,46 @@
         "goal": "Total omzet retail",
         "target": "Rp38,000,000,000",
         "actual": "",
-        "weight": "30"
+        "weight": "30",
+        "src": "store_omzet"
       },
       {
         "goal": "Total omzet distribution",
         "target": "Rp36,000,000,000",
         "actual": "",
-        "weight": "25"
+        "weight": "25",
+        "src": "distrib_omzet"
       },
       {
         "goal": "OKR score all divisions",
         "target": "90%",
         "actual": "",
-        "weight": "20"
+        "weight": "20",
+        "src": "okr_global"
       },
       {
         "goal": "Avg KPIM scores all teams",
         "target": "90%",
         "actual": "",
-        "weight": "15"
+        "weight": "15",
+        "src": "kpi_avg"
       },
       {
         "goal": "Avg TAL scores all teams",
-        "target": "90%",
+        "target": "95%",
         "actual": "",
-        "weight": "6"
+        "weight": "6",
+        "src": "tal_avg"
       },
       {
         "goal": "Buka cabang",
         "target": "1",
         "actual": "",
-        "weight": "4"
+        "weight": "4",
+        "src": "cabang_count"
       }
     ],
-    "savedAt": "2026-07-08T04:40:20.887Z"
+    "savedAt": "2026-08-02T11:13:44.564Z"
   },
   "_p_apo_2026_07": {
     "file1": "https://raw.githubusercontent.com/pinuspackindo-ai/pinuspackindo-okr/data/uploads/purchasing/1785558542555_le6haz_purchase.order.line_17.xlsx",
@@ -7153,7 +7159,7 @@
       }
     ]
   },
-  "_ts": 1785669191284,
+  "_ts": 1785669224564,
   "_tal_d0_2026_08": {
     "rows": [
       {
