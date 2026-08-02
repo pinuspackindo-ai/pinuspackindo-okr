@@ -7153,7 +7153,7 @@
       }
     ]
   },
-  "_ts": 1785653079205,
+  "_ts": 1785653082790,
   "_tal_d0_2026_08": {
     "rows": [
       {
@@ -7356,11 +7356,11 @@
       {
         "tal": "visualisasi core values pinus store & warehouse",
         "deadline": "2026-07-31",
-        "bobot": 100,
+        "bobot": 60,
         "progress": null,
         "review": "",
-        "editing": true,
-        "savedAt": "2026-08-02T06:43:16.573Z"
+        "editing": false,
+        "savedAt": "2026-08-02T06:44:42.790Z"
       },
       {
         "tal": "bersama GA, stok opname inventaris",
@@ -7372,6 +7372,6 @@
         "savedAt": "2026-08-02T06:44:39.205Z"
       }
     ],
-    "savedAt": "2026-08-02T06:44:39.205Z"
+    "savedAt": "2026-08-02T06:44:42.790Z"
   }
 }
