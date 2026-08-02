@@ -7153,7 +7153,7 @@
       }
     ]
   },
-  "_ts": 1785648300608,
+  "_ts": 1785648323575,
   "_tal_d0_2026_08": {
     "rows": [
       {
@@ -7207,13 +7207,13 @@
         "savedAt": "2026-08-02T05:25:00.608Z"
       },
       {
-        "tal": "Mendata items non asset tetap untuk petty cash",
+        "tal": "mendata dan eksekusi asset non tetap untuk petty cash",
         "deadline": "2026-08-31",
         "bobot": 30,
         "progress": null,
         "review": "",
-        "editing": true,
-        "savedAt": "2026-08-02T05:23:16.591Z"
+        "editing": false,
+        "savedAt": "2026-08-02T05:25:23.575Z"
       },
       {
         "tal": "",
@@ -7225,7 +7225,7 @@
         "savedAt": null
       }
     ],
-    "savedAt": "2026-08-02T05:25:00.608Z"
+    "savedAt": "2026-08-02T05:25:23.575Z"
   },
   "_tal_d3_2026_08": {
     "rows": [
