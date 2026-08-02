@@ -7153,7 +7153,7 @@
       }
     ]
   },
-  "_ts": 1785652970143,
+  "_ts": 1785652996573,
   "_tal_d0_2026_08": {
     "rows": [
       {
@@ -7354,15 +7354,15 @@
   "_tal_d12_2026_08": {
     "rows": [
       {
-        "tal": "membuat tools untuk repack + ITR",
+        "tal": "visualisasi core values pinus store & warehouse",
         "deadline": "2026-07-31",
-        "bobot": 40,
+        "bobot": 100,
         "progress": null,
         "review": "",
-        "editing": true,
-        "savedAt": "2026-08-02T04:14:20.970Z"
+        "editing": false,
+        "savedAt": "2026-08-02T06:43:16.573Z"
       }
     ],
-    "savedAt": "2026-08-02T06:42:50.143Z"
+    "savedAt": "2026-08-02T06:43:16.573Z"
   }
 }
