@@ -7153,7 +7153,7 @@
       }
     ]
   },
-  "_ts": 1785667709281,
+  "_ts": 1785667791046,
   "_tal_d0_2026_08": {
     "rows": [
       {
@@ -7476,7 +7476,7 @@
     "HRD": {
       "rows": [
         {
-          "id": "r17856562416839612",
+          "id": "r1785667791046mfxm",
           "objective": "Membangun dan menjaga SDM yg kompeten, disiplin, produktif, inisiatif, guna mendukung perusahaan berkembang.",
           "keyResult": "Tingkat kedisiplinan karyawan",
           "target": 90,
@@ -7484,7 +7484,7 @@
           "bobot": 30
         },
         {
-          "id": "r17856562416839w28",
+          "id": "r17856677910467fls",
           "objective": "Membangun dan menjaga SDM yg kompeten, disiplin, produktif, inisiatif, guna mendukung perusahaan berkembang.",
           "keyResult": "Skor pencapaian KPI seluruh team",
           "target": 85,
@@ -7492,7 +7492,7 @@
           "bobot": 25
         },
         {
-          "id": "r17856562416830jy1",
+          "id": "r17856677910464oxm",
           "objective": "Membangun dan menjaga SDM yg kompeten, disiplin, produktif, inisiatif, guna mendukung perusahaan berkembang.",
           "keyResult": "Akurasi & ketepatan waktu administrasi HR",
           "target": 95,
@@ -7500,7 +7500,7 @@
           "bobot": 20
         },
         {
-          "id": "r1785656241683txh7",
+          "id": "r1785667791046gml2",
           "objective": "Membangun dan menjaga SDM yg kompeten, disiplin, produktif, inisiatif, guna mendukung perusahaan berkembang.",
           "keyResult": "Ketepatan waktu rekrutment",
           "target": 85,
@@ -7508,7 +7508,7 @@
           "bobot": 15
         },
         {
-          "id": "r1785656241683ehkg",
+          "id": "r1785667791046a5kd",
           "objective": "Membangun dan menjaga SDM yg kompeten, disiplin, produktif, inisiatif, guna mendukung perusahaan berkembang.",
           "keyResult": "Skor kinerja karyawan baru",
           "target": 85,
@@ -7516,7 +7516,8 @@
           "bobot": 10
         }
       ],
-      "actionPlan": "Drafting SOP ketidakhadiran"
+      "actionPlan": "",
+      "savedAt": "2026-08-02T10:49:51.046Z"
     },
     "Internal Audit": {
       "rows": [
