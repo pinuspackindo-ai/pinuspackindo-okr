@@ -7153,7 +7153,7 @@
       }
     ]
   },
-  "_ts": 1785666148594,
+  "_ts": 1785666150812,
   "_tal_d0_2026_08": {
     "rows": [
       {
@@ -7427,44 +7427,6 @@
     ]
   },
   "2026-08": {
-    "Distribution Sales": {
-      "rows": [
-        {
-          "id": "r1785666140208jxpy",
-          "objective": "Mencapai target penjualan, pelanggan puas.",
-          "keyResult": "Jumlah omset global",
-          "target": 3400000000,
-          "actual": null,
-          "bobot": 35
-        },
-        {
-          "id": "r1785666140208o06q",
-          "objective": "Mencapai target penjualan, pelanggan puas.",
-          "keyResult": "Retensi pelanggan",
-          "target": 75,
-          "actual": null,
-          "bobot": 30
-        },
-        {
-          "id": "r1785666140208hr99",
-          "objective": "Mencapai target penjualan, pelanggan puas.",
-          "keyResult": "Customers baru",
-          "target": 10,
-          "actual": null,
-          "bobot": 25
-        },
-        {
-          "id": "r1785666140208c2x0",
-          "objective": "Mencapai target penjualan, pelanggan puas.",
-          "keyResult": "Kepuasan pelanggan",
-          "target": 90,
-          "actual": null,
-          "bobot": 10
-        }
-      ],
-      "actionPlan": "",
-      "savedAt": "2026-08-02T10:22:20.208Z"
-    },
     "Finance & Accounting": {
       "rows": [
         {
