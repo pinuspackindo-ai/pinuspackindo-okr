@@ -7153,7 +7153,7 @@
       }
     ]
   },
-  "_ts": 1785666140226,
+  "_ts": 1785666148594,
   "_tal_d0_2026_08": {
     "rows": [
       {
@@ -7687,43 +7687,6 @@
         }
       ],
       "actionPlan": ""
-    },
-    "Store": {
-      "rows": [
-        {
-          "id": "r17856562416834kcg",
-          "objective": "Mencapai target penjualan, stok akurat, pelanggan puas, operasional sesuai SOP.",
-          "keyResult": "Jumlah omset",
-          "target": 3040000000,
-          "actual": 2607506500,
-          "bobot": 30
-        },
-        {
-          "id": "r1785656241683rw5h",
-          "objective": "Mencapai target penjualan, stok akurat, pelanggan puas, operasional sesuai SOP.",
-          "keyResult": "Tingkat akurasi stok fisik vs data",
-          "target": 80,
-          "actual": null,
-          "bobot": 25
-        },
-        {
-          "id": "r1785656241683gqe2",
-          "objective": "Mencapai target penjualan, stok akurat, pelanggan puas, operasional sesuai SOP.",
-          "keyResult": "Score kepuasan pelanggan",
-          "target": 90,
-          "actual": null,
-          "bobot": 20
-        },
-        {
-          "id": "r1785656241683igo7",
-          "objective": "Mencapai target penjualan, stok akurat, pelanggan puas, operasional sesuai SOP.",
-          "keyResult": "Tingkat implementasi rekomendasi audit",
-          "target": 100,
-          "actual": null,
-          "bobot": 10
-        }
-      ],
-      "actionPlan": "Planning acara chef Avian"
     },
     "Warehouse": {
       "rows": [
