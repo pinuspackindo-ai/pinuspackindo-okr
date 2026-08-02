@@ -7153,7 +7153,7 @@
       }
     ]
   },
-  "_ts": 1785653458890,
+  "_ts": 1785653460857,
   "_tal_d0_2026_08": {
     "rows": [
       {
@@ -7180,8 +7180,8 @@
         "bobot": 20,
         "progress": null,
         "review": "",
-        "editing": true,
-        "savedAt": "2026-08-02T06:48:46.506Z"
+        "editing": false,
+        "savedAt": "2026-08-02T06:51:00.857Z"
       },
       {
         "tal": "Vakum marketplace KECUALI sku obralan",
@@ -7202,7 +7202,7 @@
         "savedAt": "2026-08-02T06:48:43.807Z"
       }
     ],
-    "savedAt": "2026-08-02T06:50:58.890Z"
+    "savedAt": "2026-08-02T06:51:00.857Z"
   },
   "_tal_d2_2026_08": {
     "rows": [
