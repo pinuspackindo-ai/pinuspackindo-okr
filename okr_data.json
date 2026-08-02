@@ -7153,5 +7153,234 @@
       }
     ]
   },
-  "_ts": 1785644027979
+  "_ts": 1785644060970,
+  "_tal_d0_2026_08": {
+    "rows": [
+      {
+        "tal": "Melebur md sales + inval md, revisi kpi per individu",
+        "deadline": "2026-07-31",
+        "bobot": 40,
+        "progress": null,
+        "review": "",
+        "editing": false,
+        "savedAt": "2026-08-02T04:14:20.970Z"
+      },
+      {
+        "tal": "Running RN by checker",
+        "deadline": "2026-07-31",
+        "bobot": 30,
+        "progress": null,
+        "review": "",
+        "editing": false,
+        "savedAt": "2026-08-02T04:14:20.970Z"
+      },
+      {
+        "tal": "Running repacking by checker + ITR by md sales",
+        "deadline": "2026-07-31",
+        "bobot": 20,
+        "progress": null,
+        "review": "",
+        "editing": false,
+        "savedAt": "2026-08-02T04:14:20.970Z"
+      },
+      {
+        "tal": "Finalisasi display toko sesuai planogram",
+        "deadline": "2026-07-31",
+        "bobot": 10,
+        "progress": null,
+        "review": "",
+        "editing": false,
+        "savedAt": "2026-08-02T04:14:20.970Z"
+      }
+    ],
+    "savedAt": "2026-08-02T04:14:20.970Z"
+  },
+  "_tal_d2_2026_08": {
+    "rows": [
+      {
+        "tal": "menyusun 50% SOP finance berdasar business flow finance",
+        "deadline": "2026-07-31",
+        "bobot": 100,
+        "progress": null,
+        "review": "",
+        "editing": false,
+        "savedAt": "2026-08-02T04:14:20.970Z"
+      }
+    ],
+    "savedAt": "2026-08-02T04:14:20.970Z"
+  },
+  "_tal_d3_2026_08": {
+    "rows": [
+      {
+        "tal": "setting KPI bagi yg belum punya",
+        "deadline": "2026-07-31",
+        "bobot": 45,
+        "progress": null,
+        "review": "",
+        "editing": false,
+        "savedAt": "2026-08-02T04:14:20.970Z"
+      },
+      {
+        "tal": "pengadaan atribut dresscode sesuai SOP + internal memo nya",
+        "deadline": "2026-07-31",
+        "bobot": 35,
+        "progress": null,
+        "review": "",
+        "editing": false,
+        "savedAt": "2026-08-02T04:14:20.970Z"
+      },
+      {
+        "tal": "menyusun business flow departement HRD",
+        "deadline": "2026-07-31",
+        "bobot": 20,
+        "progress": null,
+        "review": "",
+        "editing": false,
+        "savedAt": "2026-08-02T04:14:20.970Z"
+      }
+    ],
+    "savedAt": "2026-08-02T04:14:20.970Z"
+  },
+  "_tal_d4_2026_08": {
+    "rows": [
+      {
+        "tal": "pendataan inventaris & vendor",
+        "deadline": "2026-07-31",
+        "bobot": 100,
+        "progress": null,
+        "review": "",
+        "editing": false,
+        "savedAt": "2026-08-02T04:14:20.970Z"
+      }
+    ],
+    "savedAt": "2026-08-02T04:14:20.970Z"
+  },
+  "_tal_d9_2026_08": {
+    "rows": [
+      {
+        "tal": "buang sumo, bintang oz",
+        "deadline": "2026-07-31",
+        "bobot": 40,
+        "progress": null,
+        "review": "",
+        "editing": false,
+        "savedAt": "2026-08-02T04:14:20.970Z"
+      },
+      {
+        "tal": "survey kontrakan cabang",
+        "deadline": "2026-07-31",
+        "bobot": 30,
+        "progress": null,
+        "review": "",
+        "editing": false,
+        "savedAt": "2026-08-02T04:14:20.970Z"
+      },
+      {
+        "tal": "bersih bersih customer kecil",
+        "deadline": "2026-07-31",
+        "bobot": 20,
+        "progress": null,
+        "review": "",
+        "editing": false,
+        "savedAt": "2026-08-02T04:14:20.970Z"
+      }
+    ],
+    "savedAt": "2026-08-02T04:14:20.970Z"
+  },
+  "_tal_d10_2026_08": {
+    "rows": [
+      {
+        "tal": "revisi planogram warehouse",
+        "deadline": "2026-07-31",
+        "bobot": 40,
+        "progress": null,
+        "review": "",
+        "editing": false,
+        "savedAt": "2026-08-02T04:14:20.970Z"
+      },
+      {
+        "tal": "planning & eksekusi pengelolaan tips warehouse",
+        "deadline": "2026-07-31",
+        "bobot": 35,
+        "progress": null,
+        "review": "",
+        "editing": false,
+        "savedAt": "2026-08-02T04:14:20.970Z"
+      },
+      {
+        "tal": "planning & eksekusi palet warehouse",
+        "deadline": "2026-07-31",
+        "bobot": 25,
+        "progress": null,
+        "review": "",
+        "editing": false,
+        "savedAt": "2026-08-02T04:14:20.970Z"
+      }
+    ],
+    "savedAt": "2026-08-02T04:14:20.970Z"
+  },
+  "_tal_d11_2026_08": {
+    "rows": [
+      {
+        "tal": "kids baking demo bersama chef alvian",
+        "deadline": "2026-07-31",
+        "bobot": 60,
+        "progress": null,
+        "review": "",
+        "editing": false,
+        "savedAt": "2026-08-02T04:14:20.970Z"
+      },
+      {
+        "tal": "lulus training SO dan lancar lepas RN + ITR ke checker",
+        "deadline": "2026-07-31",
+        "bobot": 40,
+        "progress": null,
+        "review": "",
+        "editing": false,
+        "savedAt": "2026-08-02T04:14:20.970Z"
+      }
+    ],
+    "savedAt": "2026-08-02T04:14:20.970Z"
+  },
+  "_tal_d12_2026_08": {
+    "rows": [
+      {
+        "tal": "membuat tools untuk repack + ITR",
+        "deadline": "2026-07-31",
+        "bobot": 40,
+        "progress": null,
+        "review": "",
+        "editing": false,
+        "savedAt": "2026-08-02T04:14:20.970Z"
+      },
+      {
+        "tal": "finalisasi training admin inventory",
+        "deadline": "2026-07-31",
+        "bobot": 30,
+        "progress": null,
+        "review": "",
+        "editing": false,
+        "savedAt": "2026-08-02T04:14:20.970Z"
+      },
+      {
+        "tal": "menjalankan proyek hpp bersama purchasing",
+        "deadline": "2026-07-31",
+        "bobot": 20,
+        "progress": null,
+        "review": "",
+        "editing": false,
+        "savedAt": "2026-08-02T04:14:20.970Z"
+      },
+      {
+        "tal": "pendataan GA sebelum staff resign",
+        "deadline": "2026-07-31",
+        "bobot": 10,
+        "progress": null,
+        "review": "",
+        "editing": false,
+        "savedAt": "2026-08-02T04:14:20.970Z"
+      }
+    ],
+    "savedAt": "2026-08-02T04:14:20.970Z"
+  }
 }
