@@ -7153,7 +7153,7 @@
       }
     ]
   },
-  "_ts": 1785651188887,
+  "_ts": 1785651190987,
   "_tal_d0_2026_08": {
     "rows": [
       {
@@ -7301,18 +7301,9 @@
         "review": "",
         "editing": true,
         "savedAt": "2026-08-02T04:14:20.970Z"
-      },
-      {
-        "tal": "survey kontrakan cabang",
-        "deadline": "2026-07-31",
-        "bobot": 30,
-        "progress": null,
-        "review": "",
-        "editing": true,
-        "savedAt": "2026-08-02T04:14:20.970Z"
       }
     ],
-    "savedAt": "2026-08-02T06:13:08.887Z"
+    "savedAt": "2026-08-02T06:13:10.987Z"
   },
   "_tal_d10_2026_08": {
     "rows": [
