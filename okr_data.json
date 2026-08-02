@@ -7153,7 +7153,7 @@
       }
     ]
   },
-  "_ts": 1785646826325,
+  "_ts": 1785647937208,
   "_tal_d0_2026_08": {
     "rows": [
       {
@@ -7162,8 +7162,8 @@
         "bobot": 40,
         "progress": null,
         "review": "",
-        "editing": true,
-        "savedAt": "2026-08-02T04:59:36.792Z"
+        "editing": false,
+        "savedAt": "2026-08-02T05:00:28.026Z"
       },
       {
         "tal": "Survey 30 pelanggan tema \"market sepi\"",
@@ -7171,8 +7171,8 @@
         "bobot": 30,
         "progress": null,
         "review": "",
-        "editing": true,
-        "savedAt": "2026-08-02T04:59:32.076Z"
+        "editing": false,
+        "savedAt": "2026-08-02T05:00:27.492Z"
       },
       {
         "tal": "Running target kasir \"akurasi transaksi\"",
@@ -7193,21 +7193,30 @@
         "savedAt": "2026-08-02T05:00:24.059Z"
       }
     ],
-    "savedAt": "2026-08-02T05:00:26.325Z"
+    "savedAt": "2026-08-02T05:00:28.026Z"
   },
   "_tal_d2_2026_08": {
     "rows": [
       {
-        "tal": "menyusun 50% SOP finance berdasar business flow finance",
+        "tal": "menyusun sisa 50% SOP finance berdasar business flow finance",
         "deadline": "2026-07-31",
         "bobot": 100,
         "progress": null,
         "review": "",
         "editing": false,
-        "savedAt": "2026-08-02T04:14:20.970Z"
+        "savedAt": "2026-08-02T05:18:57.208Z"
+      },
+      {
+        "tal": "",
+        "deadline": "",
+        "bobot": 0,
+        "progress": null,
+        "review": "",
+        "editing": true,
+        "savedAt": null
       }
     ],
-    "savedAt": "2026-08-02T04:14:20.970Z"
+    "savedAt": "2026-08-02T05:18:57.208Z"
   },
   "_tal_d3_2026_08": {
     "rows": [
