@@ -7153,7 +7153,7 @@
       }
     ]
   },
-  "_ts": 1785648476108,
+  "_ts": 1785648704440,
   "_tal_d0_2026_08": {
     "rows": [
       {
@@ -7230,13 +7230,13 @@
   "_tal_d3_2026_08": {
     "rows": [
       {
-        "tal": "setting KPI bagi yg belum punya",
-        "deadline": "2026-07-31",
+        "tal": "sosialisasi & running new kpi tim fixed",
+        "deadline": "2026-08-15",
         "bobot": 45,
         "progress": null,
         "review": "",
         "editing": false,
-        "savedAt": "2026-08-02T04:14:20.970Z"
+        "savedAt": "2026-08-02T05:31:44.440Z"
       },
       {
         "tal": "pengadaan atribut dresscode sesuai SOP + internal memo nya",
@@ -7244,7 +7244,7 @@
         "bobot": 35,
         "progress": null,
         "review": "",
-        "editing": false,
+        "editing": true,
         "savedAt": "2026-08-02T04:14:20.970Z"
       },
       {
@@ -7253,11 +7253,11 @@
         "bobot": 20,
         "progress": null,
         "review": "",
-        "editing": false,
+        "editing": true,
         "savedAt": "2026-08-02T04:14:20.970Z"
       }
     ],
-    "savedAt": "2026-08-02T04:14:20.970Z"
+    "savedAt": "2026-08-02T05:31:44.440Z"
   },
   "_tal_d4_2026_08": {
     "rows": [
