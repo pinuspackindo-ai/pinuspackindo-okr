@@ -7152,7 +7152,7 @@
       }
     ]
   },
-  "_ts": 1785669302771,
+  "_ts": 1785670153557,
   "_tal_d0_2026_08": {
     "rows": [
       {
@@ -7521,24 +7521,24 @@
     "Internal Audit": {
       "rows": [
         {
-          "id": "r1785667828679idt0",
-          "objective": "Melindungi dan mengawasi sistem internal berbasis dari resiko yg timbul.",
+          "id": "r17856701535574z47",
+          "objective": "Memperkuat pengendalian internal dan efektivitas proses bisnis melalui audit berbasis risiko serta perbaikan yang terbukti berjalan.",
           "keyResult": "Tingkat implementasi rekomendasi audit",
           "target": 100,
           "actual": null,
           "bobot": 45
         },
         {
-          "id": "r1785667828679b7c2",
-          "objective": "Melindungi dan mengawasi sistem internal berbasis dari resiko yg timbul.",
+          "id": "r17856701535573oh7",
+          "objective": "Memperkuat pengendalian internal dan efektivitas proses bisnis melalui audit berbasis risiko serta perbaikan yang terbukti berjalan.",
           "keyResult": "Laporan audit akurat dan on time",
           "target": 100,
           "actual": null,
           "bobot": 35
         },
         {
-          "id": "r1785667828679pm2x",
-          "objective": "Melindungi dan mengawasi sistem internal berbasis dari resiko yg timbul.",
+          "id": "r1785670153557vgme",
+          "objective": "Memperkuat pengendalian internal dan efektivitas proses bisnis melalui audit berbasis risiko serta perbaikan yang terbukti berjalan.",
           "keyResult": "Jumlah inisiatif proaktif",
           "target": 2,
           "actual": 0,
@@ -7546,7 +7546,7 @@
         }
       ],
       "actionPlan": "",
-      "savedAt": "2026-08-02T10:50:28.679Z"
+      "savedAt": "2026-08-02T11:29:13.557Z"
     },
     "Inventory": {
       "rows": [
