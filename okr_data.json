@@ -7153,7 +7153,7 @@
       }
     ]
   },
-  "_ts": 1785651906231,
+  "_ts": 1785652817887,
   "_tal_d0_2026_08": {
     "rows": [
       {
@@ -7340,13 +7340,13 @@
   "_tal_d11_2026_08": {
     "rows": [
       {
-        "tal": "kids baking demo bersama chef alvian",
-        "deadline": "2026-07-31",
-        "bobot": 60,
+        "tal": "ketua lomba 17an karyawan",
+        "deadline": "2026-08-17",
+        "bobot": 100,
         "progress": null,
         "review": "",
         "editing": false,
-        "savedAt": "2026-08-02T04:14:20.970Z"
+        "savedAt": "2026-08-02T06:40:17.887Z"
       },
       {
         "tal": "lulus training SO dan lancar lepas RN + ITR ke checker",
@@ -7354,11 +7354,11 @@
         "bobot": 40,
         "progress": null,
         "review": "",
-        "editing": false,
+        "editing": true,
         "savedAt": "2026-08-02T04:14:20.970Z"
       }
     ],
-    "savedAt": "2026-08-02T04:14:20.970Z"
+    "savedAt": "2026-08-02T06:40:17.887Z"
   },
   "_tal_d12_2026_08": {
     "rows": [
