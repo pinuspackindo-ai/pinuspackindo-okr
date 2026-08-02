@@ -7153,7 +7153,7 @@
       }
     ]
   },
-  "_ts": 1785646816359,
+  "_ts": 1785646824059,
   "_tal_d0_2026_08": {
     "rows": [
       {
@@ -7162,7 +7162,7 @@
         "bobot": 40,
         "progress": null,
         "review": "",
-        "editing": false,
+        "editing": true,
         "savedAt": "2026-08-02T04:59:36.792Z"
       },
       {
@@ -7171,7 +7171,7 @@
         "bobot": 30,
         "progress": null,
         "review": "",
-        "editing": false,
+        "editing": true,
         "savedAt": "2026-08-02T04:59:32.076Z"
       },
       {
@@ -7180,20 +7180,20 @@
         "bobot": 20,
         "progress": null,
         "review": "",
-        "editing": false,
+        "editing": true,
         "savedAt": "2026-08-02T04:59:55.242Z"
       },
       {
         "tal": "Vakum marketplace KECUALI egg gloss & kara nata 360gr",
-        "deadline": "2026-07-31",
+        "deadline": "2026-07-05",
         "bobot": 10,
         "progress": null,
         "review": "",
         "editing": false,
-        "savedAt": "2026-08-02T05:00:16.359Z"
+        "savedAt": "2026-08-02T05:00:24.059Z"
       }
     ],
-    "savedAt": "2026-08-02T05:00:16.359Z"
+    "savedAt": "2026-08-02T05:00:24.059Z"
   },
   "_tal_d2_2026_08": {
     "rows": [
