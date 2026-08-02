@@ -7153,7 +7153,7 @@
       }
     ]
   },
-  "_ts": 1785653971983,
+  "_ts": 1785654308157,
   "_tal_d0_2026_08": {
     "rows": [
       {
@@ -7280,13 +7280,13 @@
         "savedAt": "2026-08-02T06:59:31.983Z"
       },
       {
-        "tal": "finishing pelabelan pada fisik inventaris",
+        "tal": "melengkapi sisa database portal GA",
         "deadline": "2026-08-31",
-        "bobot": 35,
+        "bobot": 30,
         "progress": null,
         "review": "",
-        "editing": true,
-        "savedAt": "2026-08-02T05:53:23.323Z"
+        "editing": false,
+        "savedAt": "2026-08-02T07:05:08.157Z"
       },
       {
         "tal": "bersama finance, menentukan petty cash",
@@ -7298,7 +7298,7 @@
         "savedAt": "2026-08-02T05:53:22.057Z"
       }
     ],
-    "savedAt": "2026-08-02T06:59:31.983Z"
+    "savedAt": "2026-08-02T07:05:08.157Z"
   },
   "_tal_d9_2026_08": {
     "rows": [
