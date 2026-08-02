@@ -7153,7 +7153,7 @@
       }
     ]
   },
-  "_ts": 1785651470465,
+  "_ts": 1785651477147,
   "_tal_d0_2026_08": {
     "rows": [
       {
@@ -7186,11 +7186,11 @@
       {
         "tal": "Vakum marketplace KECUALI egg gloss & kara nata 360gr",
         "deadline": "2026-08-05",
-        "bobot": 10,
+        "bobot": 15,
         "progress": null,
         "review": "",
-        "editing": true,
-        "savedAt": "2026-08-02T06:17:33.948Z"
+        "editing": false,
+        "savedAt": "2026-08-02T06:17:57.147Z"
       },
       {
         "tal": "peralihan bagas ke fery",
@@ -7202,7 +7202,7 @@
         "savedAt": "2026-08-02T06:16:40.292Z"
       }
     ],
-    "savedAt": "2026-08-02T06:17:50.465Z"
+    "savedAt": "2026-08-02T06:17:57.147Z"
   },
   "_tal_d2_2026_08": {
     "rows": [
