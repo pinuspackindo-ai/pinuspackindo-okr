@@ -4162,12 +4162,12 @@
         "deadline": "2026-07-31",
         "bobot": 25,
         "progress": 100,
-        "review": "pengajuan mulai akhr july",
+        "review": "pengajuan beli mulai akhr july",
         "editing": false,
-        "savedAt": "2026-08-02T04:12:35.311Z"
+        "savedAt": "2026-08-02T04:12:41.313Z"
       }
     ],
-    "savedAt": "2026-08-02T04:12:35.311Z"
+    "savedAt": "2026-08-02T04:12:41.313Z"
   },
   "_tal_d3_2026_07": {
     "rows": [
@@ -7153,5 +7153,5 @@
       }
     ]
   },
-  "_ts": 1785643955311
+  "_ts": 1785643961313
 }
