@@ -7153,7 +7153,7 @@
       }
     ]
   },
-  "_ts": 1785648732373,
+  "_ts": 1785649089571,
   "_tal_d0_2026_08": {
     "rows": [
       {
@@ -7248,16 +7248,16 @@
         "savedAt": "2026-08-02T05:32:12.373Z"
       },
       {
-        "tal": "menyusun business flow departement HRD",
+        "tal": "drafting & pengesahan 50% buku product knowlegde",
         "deadline": "2026-07-31",
         "bobot": 20,
         "progress": null,
         "review": "",
-        "editing": true,
-        "savedAt": "2026-08-02T04:14:20.970Z"
+        "editing": false,
+        "savedAt": "2026-08-02T05:38:09.571Z"
       }
     ],
-    "savedAt": "2026-08-02T05:32:12.373Z"
+    "savedAt": "2026-08-02T05:38:09.571Z"
   },
   "_tal_d4_2026_08": {
     "rows": [
