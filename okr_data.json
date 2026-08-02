@@ -7153,7 +7153,7 @@
       }
     ]
   },
-  "_ts": 1785651524314,
+  "_ts": 1785651884641,
   "_tal_d0_2026_08": {
     "rows": [
       {
@@ -7162,8 +7162,8 @@
         "bobot": 30,
         "progress": null,
         "review": "",
-        "editing": true,
-        "savedAt": "2026-08-02T06:18:26.246Z"
+        "editing": false,
+        "savedAt": "2026-08-02T06:18:45.880Z"
       },
       {
         "tal": "Survey 30 pelanggan tema \"market sepi\"",
@@ -7171,8 +7171,8 @@
         "bobot": 25,
         "progress": null,
         "review": "",
-        "editing": true,
-        "savedAt": "2026-08-02T06:18:29.580Z"
+        "editing": false,
+        "savedAt": "2026-08-02T06:18:45.363Z"
       },
       {
         "tal": "Running target kasir \"akurasi transaksi\"",
@@ -7180,8 +7180,8 @@
         "bobot": 20,
         "progress": null,
         "review": "",
-        "editing": true,
-        "savedAt": "2026-08-02T06:18:32.731Z"
+        "editing": false,
+        "savedAt": "2026-08-02T06:18:44.814Z"
       },
       {
         "tal": "Vakum marketplace KECUALI egg gloss & kara nata 360gr",
@@ -7202,7 +7202,7 @@
         "savedAt": "2026-08-02T06:18:43.514Z"
       }
     ],
-    "savedAt": "2026-08-02T06:18:44.314Z"
+    "savedAt": "2026-08-02T06:18:45.880Z"
   },
   "_tal_d2_2026_08": {
     "rows": [
@@ -7317,13 +7317,13 @@
   "_tal_d10_2026_08": {
     "rows": [
       {
-        "tal": "revisi planogram warehouse",
-        "deadline": "2026-07-31",
-        "bobot": 40,
+        "tal": "praktek meeting lintas divisi 2x sebulan",
+        "deadline": "2026-08-31",
+        "bobot": 60,
         "progress": null,
         "review": "",
         "editing": false,
-        "savedAt": "2026-08-02T04:14:20.970Z"
+        "savedAt": "2026-08-02T06:24:44.641Z"
       },
       {
         "tal": "planning & eksekusi pengelolaan tips warehouse",
@@ -7331,7 +7331,7 @@
         "bobot": 35,
         "progress": null,
         "review": "",
-        "editing": false,
+        "editing": true,
         "savedAt": "2026-08-02T04:14:20.970Z"
       },
       {
@@ -7340,11 +7340,11 @@
         "bobot": 25,
         "progress": null,
         "review": "",
-        "editing": false,
+        "editing": true,
         "savedAt": "2026-08-02T04:14:20.970Z"
       }
     ],
-    "savedAt": "2026-08-02T04:14:20.970Z"
+    "savedAt": "2026-08-02T06:24:44.641Z"
   },
   "_tal_d11_2026_08": {
     "rows": [
