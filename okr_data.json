@@ -7153,7 +7153,7 @@
       }
     ]
   },
-  "_ts": 1785655457705,
+  "_ts": 1785655462206,
   "_tal_d0_2026_08": {
     "rows": [
       {
@@ -7276,8 +7276,8 @@
         "bobot": 35,
         "progress": null,
         "review": "",
-        "editing": true,
-        "savedAt": "2026-08-02T07:23:58.772Z"
+        "editing": false,
+        "savedAt": "2026-08-02T07:24:22.206Z"
       },
       {
         "tal": "melengkapi sisa database portal GA agar siap pakai",
@@ -7298,7 +7298,7 @@
         "savedAt": "2026-08-02T07:24:14.339Z"
       }
     ],
-    "savedAt": "2026-08-02T07:24:17.705Z"
+    "savedAt": "2026-08-02T07:24:22.206Z"
   },
   "_tal_d9_2026_08": {
     "rows": [
