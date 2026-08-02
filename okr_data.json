@@ -7153,7 +7153,7 @@
       }
     ]
   },
-  "_ts": 1785653325823,
+  "_ts": 1785653458890,
   "_tal_d0_2026_08": {
     "rows": [
       {
@@ -7162,7 +7162,7 @@
         "bobot": 30,
         "progress": null,
         "review": "",
-        "editing": false,
+        "editing": true,
         "savedAt": "2026-08-02T06:48:45.240Z"
       },
       {
@@ -7171,7 +7171,7 @@
         "bobot": 25,
         "progress": null,
         "review": "",
-        "editing": false,
+        "editing": true,
         "savedAt": "2026-08-02T06:48:45.823Z"
       },
       {
@@ -7181,16 +7181,16 @@
         "progress": null,
         "review": "",
         "editing": true,
-        "savedAt": "2026-08-02T06:18:44.814Z"
+        "savedAt": "2026-08-02T06:48:46.506Z"
       },
       {
-        "tal": "Vakum marketplace KECUALI egg gloss & kara nata 360gr",
+        "tal": "Vakum marketplace KECUALI sku obralan",
         "deadline": "2026-08-05",
         "bobot": 15,
         "progress": null,
         "review": "",
-        "editing": true,
-        "savedAt": "2026-08-02T06:18:44.314Z"
+        "editing": false,
+        "savedAt": "2026-08-02T06:50:58.890Z"
       },
       {
         "tal": "peralihan salah satu SA ke fery",
@@ -7198,11 +7198,11 @@
         "bobot": 10,
         "progress": null,
         "review": "",
-        "editing": false,
+        "editing": true,
         "savedAt": "2026-08-02T06:48:43.807Z"
       }
     ],
-    "savedAt": "2026-08-02T06:48:45.823Z"
+    "savedAt": "2026-08-02T06:50:58.890Z"
   },
   "_tal_d2_2026_08": {
     "rows": [
