@@ -7153,7 +7153,7 @@
       }
     ]
   },
-  "_ts": 1785646776792,
+  "_ts": 1785646795242,
   "_tal_d0_2026_08": {
     "rows": [
       {
@@ -7175,13 +7175,13 @@
         "savedAt": "2026-08-02T04:59:32.076Z"
       },
       {
-        "tal": "Running repacking by checker + ITR by md sales",
-        "deadline": "2026-07-31",
+        "tal": "Running target kasir \"akurasi transaksi\"",
+        "deadline": "2026-07-05",
         "bobot": 20,
         "progress": null,
         "review": "",
-        "editing": true,
-        "savedAt": "2026-08-02T04:58:40.741Z"
+        "editing": false,
+        "savedAt": "2026-08-02T04:59:55.242Z"
       },
       {
         "tal": "Finalisasi display toko sesuai planogram",
@@ -7193,7 +7193,7 @@
         "savedAt": "2026-08-02T04:58:41.408Z"
       }
     ],
-    "savedAt": "2026-08-02T04:59:36.792Z"
+    "savedAt": "2026-08-02T04:59:55.242Z"
   },
   "_tal_d2_2026_08": {
     "rows": [
