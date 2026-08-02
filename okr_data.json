@@ -1,5 +1,4 @@
 {
-  "_ts": 1785656407075,
   "_userAccess": {
     "Finance & Accounting": {
       "modules": [
@@ -4524,7 +4523,7 @@
           "objective": "Mencapai target penjualan, stok akurat, pelanggan puas, operasional sesuai SOP.",
           "keyResult": "Score kepuasan pelanggan",
           "target": 90,
-          "actual": 89.77,
+          "actual": null,
           "bobot": 20
         },
         {
@@ -7154,6 +7153,7 @@
       }
     ]
   },
+  "_ts": 1785656422374,
   "_tal_d0_2026_08": {
     "rows": [
       {
