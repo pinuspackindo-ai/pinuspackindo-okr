@@ -7153,7 +7153,7 @@
       }
     ]
   },
-  "_ts": 1785654318701,
+  "_ts": 1785654377018,
   "_tal_d0_2026_08": {
     "rows": [
       {
@@ -7271,13 +7271,13 @@
   "_tal_d4_2026_08": {
     "rows": [
       {
-        "tal": "bersama auditor, finishing SO inventaris, input rapi masuk portal inventaris",
+        "tal": "bersama auditor, finishing SO inventaris, input rapi masuk portal GA",
         "deadline": "2026-07-31",
         "bobot": 35,
         "progress": null,
         "review": "",
         "editing": false,
-        "savedAt": "2026-08-02T06:59:31.983Z"
+        "savedAt": "2026-08-02T07:06:17.018Z"
       },
       {
         "tal": "melengkapi sisa database portal GA",
@@ -7285,7 +7285,7 @@
         "bobot": 30,
         "progress": null,
         "review": "",
-        "editing": false,
+        "editing": true,
         "savedAt": "2026-08-02T07:05:08.157Z"
       },
       {
@@ -7294,11 +7294,11 @@
         "bobot": 20,
         "progress": null,
         "review": "",
-        "editing": false,
+        "editing": true,
         "savedAt": "2026-08-02T07:05:18.701Z"
       }
     ],
-    "savedAt": "2026-08-02T07:05:18.701Z"
+    "savedAt": "2026-08-02T07:06:17.018Z"
   },
   "_tal_d9_2026_08": {
     "rows": [
