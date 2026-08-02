@@ -1,5 +1,4 @@
 {
-  "_ts": 1785655096599,
   "_userAccess": {
     "Finance & Accounting": {
       "modules": [
@@ -4508,7 +4507,7 @@
           "objective": "Mencapai target penjualan, stok akurat, pelanggan puas, operasional sesuai SOP.",
           "keyResult": "Jumlah omset",
           "target": 3040000000,
-          "actual": 2607506500,
+          "actual": null,
           "bobot": 30
         },
         {
@@ -4516,7 +4515,7 @@
           "objective": "Mencapai target penjualan, stok akurat, pelanggan puas, operasional sesuai SOP.",
           "keyResult": "Tingkat akurasi stok fisik vs data",
           "target": 80,
-          "actual": 73.95,
+          "actual": null,
           "bobot": 25
         },
         {
@@ -4532,7 +4531,7 @@
           "objective": "Mencapai target penjualan, stok akurat, pelanggan puas, operasional sesuai SOP.",
           "keyResult": "Tingkat implementasi rekomendasi audit",
           "target": 100,
-          "actual": 100,
+          "actual": null,
           "bobot": 10
         }
       ],
@@ -7154,6 +7153,7 @@
       }
     ]
   },
+  "_ts": 1785655421339,
   "_tal_d0_2026_08": {
     "rows": [
       {
@@ -7289,16 +7289,16 @@
         "savedAt": "2026-08-02T07:11:43.371Z"
       },
       {
-        "tal": "bersama finance, menentukan petty cash",
+        "tal": "bersama finance, menentukan asset non tetap masuk petty cash",
         "deadline": "2026-08-31",
-        "bobot": 20,
+        "bobot": 45,
         "progress": null,
         "review": "",
-        "editing": true,
-        "savedAt": "2026-08-02T07:05:18.701Z"
+        "editing": false,
+        "savedAt": "2026-08-02T07:23:41.339Z"
       }
     ],
-    "savedAt": "2026-08-02T07:11:43.921Z"
+    "savedAt": "2026-08-02T07:23:41.339Z"
   },
   "_tal_d9_2026_08": {
     "rows": [
@@ -7383,7 +7383,7 @@
     "evidences": [
       {
         "name": "Sales Juli.png",
-        "data": null
+        "data": "https://raw.githubusercontent.com/pinuspackindo-ai/pinuspackindo-okr/data/uploads/store/1785654703900_79xifg_Sales_Juli.png"
       }
     ]
   },
