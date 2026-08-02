@@ -7153,7 +7153,7 @@
       }
     ]
   },
-  "_ts": 1785648323575,
+  "_ts": 1785648359109,
   "_tal_d0_2026_08": {
     "rows": [
       {
@@ -7216,16 +7216,16 @@
         "savedAt": "2026-08-02T05:25:23.575Z"
       },
       {
-        "tal": "",
-        "deadline": "",
-        "bobot": 0,
+        "tal": "survey dan eksekusi pemakaian bahan agar hemat",
+        "deadline": "2026-08-31",
+        "bobot": 25,
         "progress": null,
         "review": "",
-        "editing": true,
-        "savedAt": null
+        "editing": false,
+        "savedAt": "2026-08-02T05:25:59.109Z"
       }
     ],
-    "savedAt": "2026-08-02T05:25:23.575Z"
+    "savedAt": "2026-08-02T05:25:59.109Z"
   },
   "_tal_d3_2026_08": {
     "rows": [
