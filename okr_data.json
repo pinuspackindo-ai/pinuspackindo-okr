@@ -4103,9 +4103,9 @@
         "deadline": "2026-07-31",
         "bobot": 40,
         "progress": 100,
-        "review": "",
+        "review": "ok",
         "editing": false,
-        "savedAt": "2026-07-09T04:21:32.196Z"
+        "savedAt": "2026-08-02T04:13:39.113Z"
       },
       {
         "tal": "finalisasi training admin inventory",
@@ -4135,7 +4135,7 @@
         "savedAt": "2026-07-30T06:31:25.785Z"
       }
     ],
-    "savedAt": "2026-07-30T06:31:25.785Z"
+    "savedAt": "2026-08-02T04:13:39.113Z"
   },
   "_tal_d10_2026_07": {
     "rows": [
@@ -7153,5 +7153,5 @@
       }
     ]
   },
-  "_ts": 1785643983962
+  "_ts": 1785644019113
 }
