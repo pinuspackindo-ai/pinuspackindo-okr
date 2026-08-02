@@ -7153,7 +7153,7 @@
       }
     ]
   },
-  "_ts": 1785646718942,
+  "_ts": 1785646719858,
   "_tal_d0_2026_08": {
     "rows": [
       {
@@ -7171,8 +7171,8 @@
         "bobot": 30,
         "progress": null,
         "review": "",
-        "editing": true,
-        "savedAt": "2026-08-02T04:58:05.526Z"
+        "editing": false,
+        "savedAt": "2026-08-02T04:58:39.858Z"
       },
       {
         "tal": "Running repacking by checker + ITR by md sales",
@@ -7193,7 +7193,7 @@
         "savedAt": "2026-08-02T04:58:07.042Z"
       }
     ],
-    "savedAt": "2026-08-02T04:58:38.942Z"
+    "savedAt": "2026-08-02T04:58:39.858Z"
   },
   "_tal_d2_2026_08": {
     "rows": [
