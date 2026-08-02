@@ -7153,17 +7153,17 @@
       }
     ]
   },
-  "_ts": 1785648381841,
+  "_ts": 1785648423841,
   "_tal_d0_2026_08": {
     "rows": [
       {
         "tal": "Menyusun business flow store",
-        "deadline": "2026-07-31",
+        "deadline": "2026-08-31",
         "bobot": 40,
         "progress": null,
         "review": "",
         "editing": false,
-        "savedAt": "2026-08-02T05:00:28.026Z"
+        "savedAt": "2026-08-02T05:27:03.841Z"
       },
       {
         "tal": "Survey 30 pelanggan tema \"market sepi\"",
@@ -7171,7 +7171,7 @@
         "bobot": 30,
         "progress": null,
         "review": "",
-        "editing": false,
+        "editing": true,
         "savedAt": "2026-08-02T05:00:27.492Z"
       },
       {
@@ -7180,7 +7180,7 @@
         "bobot": 20,
         "progress": null,
         "review": "",
-        "editing": false,
+        "editing": true,
         "savedAt": "2026-08-02T05:00:26.325Z"
       },
       {
@@ -7189,11 +7189,11 @@
         "bobot": 10,
         "progress": null,
         "review": "",
-        "editing": false,
+        "editing": true,
         "savedAt": "2026-08-02T05:00:24.059Z"
       }
     ],
-    "savedAt": "2026-08-02T05:00:28.026Z"
+    "savedAt": "2026-08-02T05:27:03.841Z"
   },
   "_tal_d2_2026_08": {
     "rows": [
