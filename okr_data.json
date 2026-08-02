@@ -7153,7 +7153,7 @@
       }
     ]
   },
-  "_ts": 1785655421339,
+  "_ts": 1785655432755,
   "_tal_d0_2026_08": {
     "rows": [
       {
@@ -7276,17 +7276,17 @@
         "bobot": 35,
         "progress": null,
         "review": "",
-        "editing": false,
+        "editing": true,
         "savedAt": "2026-08-02T07:11:43.921Z"
       },
       {
         "tal": "melengkapi sisa database portal GA agar siap pakai",
         "deadline": "2026-08-31",
-        "bobot": 30,
+        "bobot": 25,
         "progress": null,
         "review": "",
         "editing": false,
-        "savedAt": "2026-08-02T07:11:43.371Z"
+        "savedAt": "2026-08-02T07:23:52.755Z"
       },
       {
         "tal": "bersama finance, menentukan asset non tetap masuk petty cash",
@@ -7294,11 +7294,11 @@
         "bobot": 45,
         "progress": null,
         "review": "",
-        "editing": false,
+        "editing": true,
         "savedAt": "2026-08-02T07:23:41.339Z"
       }
     ],
-    "savedAt": "2026-08-02T07:23:41.339Z"
+    "savedAt": "2026-08-02T07:23:52.755Z"
   },
   "_tal_d9_2026_08": {
     "rows": [
