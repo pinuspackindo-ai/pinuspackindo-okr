@@ -7153,7 +7153,7 @@
       }
     ]
   },
-  "_ts": 1785652893687,
+  "_ts": 1785652898171,
   "_tal_d0_2026_08": {
     "rows": [
       {
@@ -7258,15 +7258,15 @@
       },
       {
         "tal": "drafting & pengesahan 50% buku product knowlegde",
-        "deadline": "2026-07-31",
+        "deadline": "2026-08-31",
         "bobot": 20,
         "progress": null,
         "review": "",
-        "editing": true,
-        "savedAt": "2026-08-02T05:38:09.571Z"
+        "editing": false,
+        "savedAt": "2026-08-02T06:41:38.171Z"
       }
     ],
-    "savedAt": "2026-08-02T06:41:33.687Z"
+    "savedAt": "2026-08-02T06:41:38.171Z"
   },
   "_tal_d4_2026_08": {
     "rows": [
