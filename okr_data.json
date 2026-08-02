@@ -7152,7 +7152,7 @@
       }
     ]
   },
-  "_ts": 1785670368878,
+  "_ts": 1785670971981,
   "_tal_d0_2026_08": {
     "rows": [
       {
@@ -7573,48 +7573,40 @@
     "Warehouse": {
       "rows": [
         {
-          "id": "r1785666070424pe1p",
+          "id": "r1785670971981euyq",
           "objective": "Stok akurat, operasional berjalan sesuai SOP.",
           "keyResult": "Tingkat akurasi stok fisik vs data",
+          "target": 98,
+          "actual": null,
+          "bobot": 35
+        },
+        {
+          "id": "r1785670971981pexw",
+          "objective": "Stok akurat, operasional berjalan sesuai SOP.",
+          "keyResult": "Tingkat akurasi default diary",
           "target": 98,
           "actual": null,
           "bobot": 30
         },
         {
-          "id": "r1785666070424b9qe",
-          "objective": "Stok akurat, operasional berjalan sesuai SOP.",
-          "keyResult": "Tingkat akurasi default diary",
-          "target": 98,
-          "actual": null,
-          "bobot": 25
-        },
-        {
-          "id": "r17856660704242xas",
-          "objective": "Stok akurat, operasional berjalan sesuai SOP.",
-          "keyResult": "Score avg cartrack",
-          "target": 90,
-          "actual": null,
-          "bobot": 20
-        },
-        {
-          "id": "r17856660704248i0e",
+          "id": "r1785670971981d3f5",
           "objective": "Stok akurat, operasional berjalan sesuai SOP.",
           "keyResult": "Score kepuasan pelanggan distribusi",
           "target": 90,
           "actual": null,
-          "bobot": 15
+          "bobot": 25
         },
         {
-          "id": "r1785666070424ohkw",
+          "id": "r1785670971981bv20",
           "objective": "Stok akurat, operasional berjalan sesuai SOP.",
           "keyResult": "Tingkat implementasi rekomendasi audit",
           "target": 100,
           "actual": null,
-          "bobot": 10
+          "bobot": 20
         }
       ],
       "actionPlan": "",
-      "savedAt": "2026-08-02T10:21:10.424Z"
+      "savedAt": "2026-08-02T11:42:51.981Z"
     }
   },
   "_s_csat_2026_07": {
