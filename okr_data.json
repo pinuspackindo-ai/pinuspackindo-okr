@@ -7153,7 +7153,7 @@
       }
     ]
   },
-  "_ts": 1785653463090,
+  "_ts": 1785653971983,
   "_tal_d0_2026_08": {
     "rows": [
       {
@@ -7271,13 +7271,13 @@
   "_tal_d4_2026_08": {
     "rows": [
       {
-        "tal": "portal inventaris lengkap & siap pakai",
+        "tal": "bersama auditor, finishing SO inventaris, input rapi masuk portal inventaris",
         "deadline": "2026-07-31",
-        "bobot": 45,
+        "bobot": 35,
         "progress": null,
         "review": "",
         "editing": false,
-        "savedAt": "2026-08-02T05:53:23.857Z"
+        "savedAt": "2026-08-02T06:59:31.983Z"
       },
       {
         "tal": "finishing pelabelan pada fisik inventaris",
@@ -7285,7 +7285,7 @@
         "bobot": 35,
         "progress": null,
         "review": "",
-        "editing": false,
+        "editing": true,
         "savedAt": "2026-08-02T05:53:23.323Z"
       },
       {
@@ -7294,11 +7294,11 @@
         "bobot": 20,
         "progress": null,
         "review": "",
-        "editing": false,
+        "editing": true,
         "savedAt": "2026-08-02T05:53:22.057Z"
       }
     ],
-    "savedAt": "2026-08-02T05:53:23.857Z"
+    "savedAt": "2026-08-02T06:59:31.983Z"
   },
   "_tal_d9_2026_08": {
     "rows": [
