@@ -7153,7 +7153,7 @@
       }
     ]
   },
-  "_ts": 1785666864279,
+  "_ts": 1785666910706,
   "_tal_d0_2026_08": {
     "rows": [
       {
@@ -7616,15 +7616,15 @@
     "Purchasing": {
       "rows": [
         {
-          "id": "r1785656241683wxtk",
+          "id": "r1785666910706chod",
           "objective": "Pengadaan stok tepat waktu dan berkwalitas, administrasi akurat..",
           "keyResult": "Tingkat in stock",
-          "target": 95,
+          "target": 98,
           "actual": 0,
           "bobot": 40
         },
         {
-          "id": "r178565624168302l9",
+          "id": "r178566691070633wz",
           "objective": "Pengadaan stok tepat waktu dan berkwalitas, administrasi akurat..",
           "keyResult": "Tingkat akurasi PO",
           "target": 95,
@@ -7632,15 +7632,15 @@
           "bobot": 30
         },
         {
-          "id": "r1785656241683a45f",
+          "id": "r1785666910706w17d",
           "objective": "Pengadaan stok tepat waktu dan berkwalitas, administrasi akurat..",
-          "keyResult": "Tingkat kwalitas pengadaan",
-          "target": 95,
+          "keyResult": "Tingkat akurasi RN vs DO",
+          "target": 98,
           "actual": null,
           "bobot": 20
         },
         {
-          "id": "r1785656241683taq3",
+          "id": "r1785666910706z5tg",
           "objective": "Pengadaan stok tepat waktu dan berkwalitas, administrasi akurat..",
           "keyResult": "Tingkat implementasi rekomendasi audit",
           "target": 100,
@@ -7648,7 +7648,8 @@
           "bobot": 10
         }
       ],
-      "actionPlan": ""
+      "actionPlan": "",
+      "savedAt": "2026-08-02T10:35:10.706Z"
     },
     "Warehouse": {
       "rows": [
