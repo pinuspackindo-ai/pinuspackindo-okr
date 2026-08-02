@@ -7153,7 +7153,7 @@
       }
     ]
   },
-  "_ts": 1785646795242,
+  "_ts": 1785646816359,
   "_tal_d0_2026_08": {
     "rows": [
       {
@@ -7184,16 +7184,16 @@
         "savedAt": "2026-08-02T04:59:55.242Z"
       },
       {
-        "tal": "Finalisasi display toko sesuai planogram",
+        "tal": "Vakum marketplace KECUALI egg gloss & kara nata 360gr",
         "deadline": "2026-07-31",
         "bobot": 10,
         "progress": null,
         "review": "",
-        "editing": true,
-        "savedAt": "2026-08-02T04:58:41.408Z"
+        "editing": false,
+        "savedAt": "2026-08-02T05:00:16.359Z"
       }
     ],
-    "savedAt": "2026-08-02T04:59:55.242Z"
+    "savedAt": "2026-08-02T05:00:16.359Z"
   },
   "_tal_d2_2026_08": {
     "rows": [
