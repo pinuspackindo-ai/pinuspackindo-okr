@@ -7153,7 +7153,7 @@
       }
     ]
   },
-  "_ts": 1785649992974,
+  "_ts": 1785649996124,
   "_tal_d0_2026_08": {
     "rows": [
       {
@@ -7273,11 +7273,11 @@
       {
         "tal": "finishing pelabelan pada fisik inventaris",
         "deadline": "2026-08-31",
-        "bobot": 30,
+        "bobot": 35,
         "progress": null,
         "review": "",
-        "editing": true,
-        "savedAt": "2026-08-02T05:50:57.957Z"
+        "editing": false,
+        "savedAt": "2026-08-02T05:53:16.124Z"
       },
       {
         "tal": "bersama finance, menentukan petty cash",
@@ -7289,7 +7289,7 @@
         "savedAt": "2026-08-02T05:53:03.323Z"
       }
     ],
-    "savedAt": "2026-08-02T05:53:12.974Z"
+    "savedAt": "2026-08-02T05:53:16.124Z"
   },
   "_tal_d9_2026_08": {
     "rows": [
