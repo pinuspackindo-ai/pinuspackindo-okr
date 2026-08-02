@@ -7153,7 +7153,7 @@
       }
     ]
   },
-  "_ts": 1785653460857,
+  "_ts": 1785653461774,
   "_tal_d0_2026_08": {
     "rows": [
       {
@@ -7171,8 +7171,8 @@
         "bobot": 25,
         "progress": null,
         "review": "",
-        "editing": true,
-        "savedAt": "2026-08-02T06:48:45.823Z"
+        "editing": false,
+        "savedAt": "2026-08-02T06:51:01.774Z"
       },
       {
         "tal": "Running target kasir \"akurasi transaksi\"",
@@ -7202,7 +7202,7 @@
         "savedAt": "2026-08-02T06:48:43.807Z"
       }
     ],
-    "savedAt": "2026-08-02T06:51:00.857Z"
+    "savedAt": "2026-08-02T06:51:01.774Z"
   },
   "_tal_d2_2026_08": {
     "rows": [
