@@ -4507,7 +4507,7 @@
           "objective": "Mencapai target penjualan, stok akurat, pelanggan puas, operasional sesuai SOP.",
           "keyResult": "Jumlah omset",
           "target": 3040000000,
-          "actual": null,
+          "actual": 2607506500,
           "bobot": 30
         },
         {
@@ -4515,7 +4515,7 @@
           "objective": "Mencapai target penjualan, stok akurat, pelanggan puas, operasional sesuai SOP.",
           "keyResult": "Tingkat akurasi stok fisik vs data",
           "target": 80,
-          "actual": null,
+          "actual": 73.95,
           "bobot": 25
         },
         {
@@ -4531,7 +4531,7 @@
           "objective": "Mencapai target penjualan, stok akurat, pelanggan puas, operasional sesuai SOP.",
           "keyResult": "Tingkat implementasi rekomendasi audit",
           "target": 100,
-          "actual": null,
+          "actual": 100,
           "bobot": 10
         }
       ],
@@ -7153,7 +7153,7 @@
       }
     ]
   },
-  "_ts": 1785655462206,
+  "_ts": 1785656170901,
   "_tal_d0_2026_08": {
     "rows": [
       {
