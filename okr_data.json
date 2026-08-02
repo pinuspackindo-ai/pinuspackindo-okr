@@ -5841,7 +5841,7 @@
       },
       {
         "goal": "Total omzet distribution",
-        "target": "Rp36,000,000,000",
+        "target": "Rp30,000,000,000",
         "actual": "",
         "weight": "25",
         "src": "distrib_omzet"
@@ -5868,7 +5868,7 @@
         "src": "tal_avg"
       }
     ],
-    "savedAt": "2026-08-02T11:14:59.679Z"
+    "savedAt": "2026-08-02T12:20:31.230Z"
   },
   "_p_apo_2026_07": {
     "file1": "https://raw.githubusercontent.com/pinuspackindo-ai/pinuspackindo-okr/data/uploads/purchasing/1785558542555_le6haz_purchase.order.line_17.xlsx",
@@ -7152,7 +7152,7 @@
       }
     ]
   },
-  "_ts": 1785673182885,
+  "_ts": 1785673231230,
   "_tal_d0_2026_08": {
     "rows": [
       {
