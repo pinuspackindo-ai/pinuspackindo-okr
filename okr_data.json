@@ -7153,7 +7153,7 @@
       }
     ]
   },
-  "_ts": 1785649983323,
+  "_ts": 1785649992974,
   "_tal_d0_2026_08": {
     "rows": [
       {
@@ -7264,11 +7264,11 @@
       {
         "tal": "portal inventaris lengkap & siap pakai",
         "deadline": "2026-07-31",
-        "bobot": 60,
+        "bobot": 45,
         "progress": null,
         "review": "",
-        "editing": true,
-        "savedAt": "2026-08-02T05:50:58.924Z"
+        "editing": false,
+        "savedAt": "2026-08-02T05:53:12.974Z"
       },
       {
         "tal": "finishing pelabelan pada fisik inventaris",
@@ -7289,7 +7289,7 @@
         "savedAt": "2026-08-02T05:53:03.323Z"
       }
     ],
-    "savedAt": "2026-08-02T05:53:03.323Z"
+    "savedAt": "2026-08-02T05:53:12.974Z"
   },
   "_tal_d9_2026_08": {
     "rows": [
