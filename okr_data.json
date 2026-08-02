@@ -7153,7 +7153,7 @@
       }
     ]
   },
-  "_ts": 1785652996573,
+  "_ts": 1785653079205,
   "_tal_d0_2026_08": {
     "rows": [
       {
@@ -7359,10 +7359,19 @@
         "bobot": 100,
         "progress": null,
         "review": "",
-        "editing": false,
+        "editing": true,
         "savedAt": "2026-08-02T06:43:16.573Z"
+      },
+      {
+        "tal": "bersama GA, stok opname inventaris",
+        "deadline": "2026-08-31",
+        "bobot": 40,
+        "progress": null,
+        "review": "",
+        "editing": false,
+        "savedAt": "2026-08-02T06:44:39.205Z"
       }
     ],
-    "savedAt": "2026-08-02T06:43:16.573Z"
+    "savedAt": "2026-08-02T06:44:39.205Z"
   }
 }
