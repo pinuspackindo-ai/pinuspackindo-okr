@@ -4153,9 +4153,9 @@
         "deadline": "2026-07-31",
         "bobot": 35,
         "progress": 100,
-        "review": "ok",
+        "review": "jalan mulai 1 agt",
         "editing": false,
-        "savedAt": "2026-08-02T04:06:26.600Z"
+        "savedAt": "2026-08-02T04:12:52.551Z"
       },
       {
         "tal": "planning & eksekusi palet warehouse",
@@ -4167,7 +4167,7 @@
         "savedAt": "2026-08-02T04:12:41.313Z"
       }
     ],
-    "savedAt": "2026-08-02T04:12:41.313Z"
+    "savedAt": "2026-08-02T04:12:52.551Z"
   },
   "_tal_d3_2026_07": {
     "rows": [
@@ -7153,5 +7153,5 @@
       }
     ]
   },
-  "_ts": 1785643961313
+  "_ts": 1785643972551
 }
