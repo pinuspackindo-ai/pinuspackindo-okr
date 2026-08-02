@@ -7153,6 +7153,7 @@
       }
     ]
   },
+  "_ts": 1785654703371,
   "_tal_d0_2026_08": {
     "rows": [
       {
@@ -7275,17 +7276,17 @@
         "bobot": 35,
         "progress": null,
         "review": "",
-        "editing": false,
+        "editing": true,
         "savedAt": "2026-08-02T07:06:17.018Z"
       },
       {
-        "tal": "melengkapi sisa database portal GA",
+        "tal": "melengkapi sisa database portal GA agar siap pakai",
         "deadline": "2026-08-31",
         "bobot": 30,
         "progress": null,
         "review": "",
         "editing": false,
-        "savedAt": "2026-08-02T07:06:20.434Z"
+        "savedAt": "2026-08-02T07:11:43.371Z"
       },
       {
         "tal": "bersama finance, menentukan petty cash",
@@ -7297,7 +7298,7 @@
         "savedAt": "2026-08-02T07:05:18.701Z"
       }
     ],
-    "savedAt": "2026-08-02T07:06:20.434Z"
+    "savedAt": "2026-08-02T07:11:43.371Z"
   },
   "_tal_d9_2026_08": {
     "rows": [
@@ -7373,7 +7374,6 @@
     ],
     "savedAt": "2026-08-02T06:44:42.790Z"
   },
-  "_ts": 1785654530995,
   "_s_omzet_2026_08": {
     "value": 2607506500,
     "evidence": "https://raw.githubusercontent.com/pinuspackindo-ai/pinuspackindo-okr/data/uploads/store/1785654531857_c2erki_Sales_Juli.png",
