@@ -7153,7 +7153,7 @@
       }
     ]
   },
-  "_ts": 1785648704440,
+  "_ts": 1785648732373,
   "_tal_d0_2026_08": {
     "rows": [
       {
@@ -7239,13 +7239,13 @@
         "savedAt": "2026-08-02T05:31:44.440Z"
       },
       {
-        "tal": "pengadaan atribut dresscode sesuai SOP + internal memo nya",
+        "tal": "drafting & pengesahan SO pinus 2026",
         "deadline": "2026-07-31",
         "bobot": 35,
         "progress": null,
         "review": "",
-        "editing": true,
-        "savedAt": "2026-08-02T04:14:20.970Z"
+        "editing": false,
+        "savedAt": "2026-08-02T05:32:12.373Z"
       },
       {
         "tal": "menyusun business flow departement HRD",
@@ -7257,7 +7257,7 @@
         "savedAt": "2026-08-02T04:14:20.970Z"
       }
     ],
-    "savedAt": "2026-08-02T05:31:44.440Z"
+    "savedAt": "2026-08-02T05:32:12.373Z"
   },
   "_tal_d4_2026_08": {
     "rows": [
