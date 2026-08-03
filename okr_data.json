@@ -7563,7 +7563,7 @@
           "objective": "Pengadaan stok tepat waktu dan berkwalitas, administrasi akurat.",
           "keyResult": "Tingkat in stock",
           "target": 98,
-          "actual": 98.28,
+          "actual": 0,
           "bobot": 40
         },
         {
@@ -7612,6 +7612,7 @@
       }
     ]
   },
+  "_ts": 1785747094198,
   "_hrd_kdk_2026_07": {
     "abs": {
       "aktif": 26,
@@ -7653,39 +7654,6 @@
     "snkScore": 100,
     "totalScore": 98.46153846153847,
     "savedAt": "2026-08-03T02:14:08.719Z",
-    "locked": true
-  },
-  "_ts": 1785747080257,
-  "_p_ins_2026_08_01": {
-    "file1": "https://raw.githubusercontent.com/pinuspackindo-ai/pinuspackindo-okr/data/uploads/purchasing/1785747058271_rhbaj6_product.product.xlsx",
-    "file1Name": "product.product.xlsx",
-    "file2": "https://raw.githubusercontent.com/pinuspackindo-ai/pinuspackindo-okr/data/uploads/purchasing/1785747067810_ella59_product.product_1.xlsx",
-    "file2Name": "product.product (1).xlsx",
-    "file3": "https://raw.githubusercontent.com/pinuspackindo-ai/pinuspackindo-okr/data/uploads/purchasing/1785747068928_4f9c93_purchase.order.line.xlsx",
-    "file3Name": "purchase.order.line.xlsx",
-    "users": {
-      "Arif Wibowo": 100,
-      "Adit Mohgat": 99.59,
-      "A'izatul Nafisah": 95.37
-    },
-    "score": 98.11,
-    "savedAt": "2026-08-03T08:51:17.193Z",
-    "locked": true
-  },
-  "_p_ins_2026_08_03": {
-    "file1": "https://raw.githubusercontent.com/pinuspackindo-ai/pinuspackindo-okr/data/uploads/purchasing/1785747079580_wzgddj_product.product.xlsx",
-    "file1Name": "product.product.xlsx",
-    "file2": "https://raw.githubusercontent.com/pinuspackindo-ai/pinuspackindo-okr/data/uploads/purchasing/1785747080655_ywi1s4_product.product_1.xlsx",
-    "file2Name": "product.product (1).xlsx",
-    "file3": "https://raw.githubusercontent.com/pinuspackindo-ai/pinuspackindo-okr/data/uploads/purchasing/1785747081725_1dtfwt_purchase.order.line.xlsx",
-    "file3Name": "purchase.order.line.xlsx",
-    "users": {
-      "Arif Wibowo": 100,
-      "Adit Mohgat": 98.76,
-      "A'izatul Nafisah": 95.42
-    },
-    "score": 98.44,
-    "savedAt": "2026-08-03T08:51:20.257Z",
     "locked": true
   }
 }
