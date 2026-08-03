@@ -7277,12 +7277,12 @@
     "rows": [
       {
         "tal": "bersama auditor, finishing SO inventaris, input rapi masuk portal GA",
-        "deadline": "2026-07-31",
+        "deadline": "2026-08-31",
         "bobot": 35,
         "progress": null,
         "review": "",
         "editing": false,
-        "savedAt": "2026-08-02T07:24:22.206Z"
+        "savedAt": "2026-08-03T06:10:17.141Z"
       },
       {
         "tal": "melengkapi sisa database portal GA agar siap pakai",
@@ -7291,7 +7291,7 @@
         "progress": null,
         "review": "",
         "editing": false,
-        "savedAt": "2026-08-02T07:24:17.705Z"
+        "savedAt": "2026-08-03T06:10:18.508Z"
       },
       {
         "tal": "bersama finance, menentukan asset non tetap masuk petty cash",
@@ -7299,11 +7299,11 @@
         "bobot": 25,
         "progress": null,
         "review": "",
-        "editing": false,
+        "editing": true,
         "savedAt": "2026-08-02T07:24:14.339Z"
       }
     ],
-    "savedAt": "2026-08-02T07:24:22.206Z"
+    "savedAt": "2026-08-03T06:10:18.508Z"
   },
   "_tal_d9_2026_08": {
     "rows": [
@@ -7612,7 +7612,7 @@
       }
     ]
   },
-  "_ts": 1785737729847,
+  "_ts": 1785737730947,
   "_hrd_kdk_2026_07": {
     "abs": {
       "aktif": 26,
