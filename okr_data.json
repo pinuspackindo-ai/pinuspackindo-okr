@@ -7586,6 +7586,44 @@
       ],
       "actionPlan": "",
       "savedAt": "2026-08-02T10:45:03.431Z"
+    },
+    "Warehouse": {
+      "rows": [
+        {
+          "id": "r1785671014129ldj3",
+          "objective": "Stok akurat, operasional berjalan sesuai SOP.",
+          "keyResult": "Tingkat akurasi stok fisik vs data",
+          "target": 98,
+          "actual": null,
+          "bobot": 35
+        },
+        {
+          "id": "r17856710141297uy0",
+          "objective": "Stok akurat, operasional berjalan sesuai SOP.",
+          "keyResult": "Tingkat akurasi default diary",
+          "target": 98,
+          "actual": null,
+          "bobot": 30
+        },
+        {
+          "id": "r1785671014129kz1i",
+          "objective": "Stok akurat, operasional berjalan sesuai SOP.",
+          "keyResult": "Score kepuasan pelanggan distribusi",
+          "target": 90,
+          "actual": null,
+          "bobot": 20
+        },
+        {
+          "id": "r1785671014129bort",
+          "objective": "Stok akurat, operasional berjalan sesuai SOP.",
+          "keyResult": "Tingkat implementasi rekomendasi audit",
+          "target": 100,
+          "actual": null,
+          "bobot": 15
+        }
+      ],
+      "actionPlan": "",
+      "savedAt": "2026-08-02T11:43:34.129Z"
     }
   },
   "_s_csat_2026_07": {
@@ -7605,5 +7643,5 @@
       }
     ]
   },
-  "_ts": 1785720723476
+  "_ts": 1785720826178
 }
