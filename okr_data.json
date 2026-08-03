@@ -95,14 +95,7 @@
   "_deleted": {
     "_ga_rot_2026_06": 1783134158109,
     "_ga_rot_2026_07": 1783134170325,
-    "_fa_rot_2026_07": 1783308087934,
-    "_p_sv_2026_07_30": 1785722937723,
-    "_hrd_kedisiplinan_2026_07": 1785722937723,
-    "_hrd_akurasi_adm_2026_07": 1785722937723,
-    "_kpi_2026_06": 1785722937723,
-    "_ia_rot_cartrack_2026_07": 1785722937723,
-    "_ia_rot_defaultdiary_2026_07": 1785722937723,
-    "_ia_rot_stokopname_2026_07": 1785722937723
+    "_fa_rot_2026_07": 1783308087934
   },
   "_okrLock": {
     "2026-05|Store": {
@@ -7159,6 +7152,7 @@
       }
     ]
   },
+  "_ts": 1785736935226,
   "_tal_d0_2026_08": {
     "rows": [
       {
@@ -7611,49 +7605,5 @@
         "data": "https://raw.githubusercontent.com/pinuspackindo-ai/pinuspackindo-okr/data/uploads/store/1785656377259_ahbfu7_CSAT.png"
       }
     ]
-  },
-  "_hrd_kdk_2026_07": {
-    "abs": {
-      "aktif": 26,
-      "temuan": 1,
-      "ev": null,
-      "evName": "absensi keterlambatan juli 2026.png",
-      "evs": [
-        {
-          "name": "absensi keterlambatan juli 2026.png",
-          "data": null
-        }
-      ]
-    },
-    "kep": {
-      "aktif": 26,
-      "temuan": 0,
-      "ev": null,
-      "evName": "absensi keterlambatan juli 2026.png",
-      "evs": [
-        {
-          "name": "absensi keterlambatan juli 2026.png",
-          "data": "https://raw.githubusercontent.com/pinuspackindo-ai/pinuspackindo-okr/data/uploads/hrd/1785723249285_c2gzpn_absensi_keterlambatan_juli_2026.png"
-        }
-      ]
-    },
-    "snk": {
-      "jumlah": 0,
-      "ev": null,
-      "evName": "bukti sanksi juli 2026.jpeg",
-      "evs": [
-        {
-          "name": "bukti sanksi juli 2026.jpeg",
-          "data": null
-        }
-      ]
-    },
-    "absScore": 96.15384615384616,
-    "kepScore": 100,
-    "snkScore": 100,
-    "totalScore": 98.46153846153847,
-    "savedAt": "2026-08-03T02:14:08.719Z",
-    "locked": true
-  },
-  "_ts": 1785726950578
+  }
 }
