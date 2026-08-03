@@ -7277,12 +7277,12 @@
     "rows": [
       {
         "tal": "bersama auditor, finishing SO inventaris, input rapi masuk portal GA",
-        "deadline": "2026-07-31",
+        "deadline": "2026-08-31",
         "bobot": 35,
         "progress": null,
         "review": "",
         "editing": false,
-        "savedAt": "2026-08-03T06:10:09.340Z"
+        "savedAt": "2026-08-03T06:10:17.141Z"
       },
       {
         "tal": "melengkapi sisa database portal GA agar siap pakai",
@@ -7290,7 +7290,7 @@
         "bobot": 30,
         "progress": null,
         "review": "",
-        "editing": false,
+        "editing": true,
         "savedAt": "2026-08-02T07:24:17.705Z"
       },
       {
@@ -7299,11 +7299,11 @@
         "bobot": 25,
         "progress": null,
         "review": "",
-        "editing": false,
+        "editing": true,
         "savedAt": "2026-08-02T07:24:14.339Z"
       }
     ],
-    "savedAt": "2026-08-03T06:10:09.340Z"
+    "savedAt": "2026-08-03T06:10:17.141Z"
   },
   "_tal_d9_2026_08": {
     "rows": [
@@ -7655,5 +7655,5 @@
     "savedAt": "2026-08-03T02:14:08.719Z",
     "locked": true
   },
-  "_ts": 1785737409340
+  "_ts": 1785737417141
 }
