@@ -4363,7 +4363,7 @@
           "objective": "Membangun dan menjaga SDM yg kompeten, disiplin, produktif, inisiatif, guna mendukung perusahaan berkembang.",
           "keyResult": "Tingkat kedisiplinan karyawan",
           "target": 90,
-          "actual": null,
+          "actual": 97.7,
           "bobot": 30
         },
         {
@@ -4379,7 +4379,7 @@
           "objective": "Membangun dan menjaga SDM yg kompeten, disiplin, produktif, inisiatif, guna mendukung perusahaan berkembang.",
           "keyResult": "Akurasi & ketepatan waktu administrasi HR",
           "target": 95,
-          "actual": null,
+          "actual": 98,
           "bobot": 20
         },
         {
@@ -7732,5 +7732,5 @@
       }
     ]
   },
-  "_ts": 1785812824901
+  "_ts": 1785812838752
 }
