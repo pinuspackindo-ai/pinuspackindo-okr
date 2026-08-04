@@ -100,7 +100,8 @@
     "_kpi_2026_06": 1785821600423,
     "_ia_rot_cartrack_2026_07": 1785821600423,
     "_ia_rot_defaultdiary_2026_07": 1785821600423,
-    "_ia_rot_stokopname_2026_07": 1785821600423
+    "_ia_rot_stokopname_2026_07": 1785821600423,
+    "_inv_rn_do_2026_05_06": 1785821290910
   },
   "_okrLock": {
     "2026-05|Store": {
@@ -3697,7 +3698,7 @@
   "_ia_rot_keuangan_2026_07": {
     "rows": [
       {
-        "deadline": "2026-07-05",
+        "deadline": "2026-07-04",
         "submittedDate": "",
         "temuan": "",
         "evidence": null,
@@ -3715,7 +3716,7 @@
         ]
       },
       {
-        "deadline": "2026-07-12",
+        "deadline": "2026-07-11",
         "submittedDate": "",
         "temuan": "",
         "evidence": "",
@@ -3723,7 +3724,7 @@
         "locked": false
       },
       {
-        "deadline": "2026-07-19",
+        "deadline": "2026-07-18",
         "submittedDate": "",
         "temuan": "",
         "evidence": "",
@@ -3731,7 +3732,7 @@
         "locked": false
       },
       {
-        "deadline": "2026-07-26",
+        "deadline": "2026-07-25",
         "submittedDate": "",
         "temuan": "",
         "evidence": "",
@@ -4450,7 +4451,7 @@
           "objective": "Melindungi dan mengawasi sistem internal berbasis dari resiko yg timbul.",
           "keyResult": "Tingkat implementasi rekomendasi audit",
           "target": 100,
-          "actual": 100,
+          "actual": null,
           "bobot": 45
         },
         {
@@ -7750,7 +7751,7 @@
   },
   "_hrd_kedisiplinan_2026_07": {
     "value": 97.7,
-    "evidence": null,
+    "evidence": "https://raw.githubusercontent.com/pinuspackindo-ai/pinuspackindo-okr/data/uploads/hrd/1785812139589_6pl4b8_KEDISIPLINAN_JULI_2026.png",
     "evidenceName": "KEDISIPLINAN JULI 2026.png",
     "savedAt": "2026-08-04T02:54:57.650Z",
     "locked": true,
@@ -7770,10 +7771,11 @@
     "evidences": [
       {
         "name": "OKR AKURASI ADM HRD JULI 2026.png",
-        "data": null
+        "data": "https://raw.githubusercontent.com/pinuspackindo-ai/pinuspackindo-okr/data/uploads/hrd/1785812259655_m2nxcv_OKR_AKURASI_ADM_HRD_JULI_2026.png"
       }
     ]
   },
+  "_ts": 1785822068206,
   "_hrd_rec_2026_08": {
     "rows": [
       {
@@ -7794,6 +7796,5 @@
       }
     ],
     "savedAt": "2026-08-04T02:57:01.174Z"
-  },
-  "_ts": 1785822037973
+  }
 }
