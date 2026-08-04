@@ -1,4 +1,5 @@
 {
+  "_ts": 1785812778314,
   "_userAccess": {
     "Finance & Accounting": {
       "modules": [
@@ -97,6 +98,8 @@
     "_ga_rot_2026_07": 1783134170325,
     "_fa_rot_2026_07": 1783308087934,
     "_p_sv_2026_07_30": 1785722937723,
+    "_hrd_kedisiplinan_2026_07": 1785722937723,
+    "_hrd_akurasi_adm_2026_07": 1785722937723,
     "_kpi_2026_06": 1785722937723,
     "_ia_rot_cartrack_2026_07": 1785722937723,
     "_ia_rot_defaultdiary_2026_07": 1785722937723,
@@ -7687,7 +7690,7 @@
   },
   "_inv_rn_do_2026_08_03": {
     "value": 96.15,
-    "evidence": "https://raw.githubusercontent.com/pinuspackindo-ai/pinuspackindo-okr/data/uploads/inventory/1785805615393_fpkmjc_WhatsApp_Image_2026-08-03_at_16.18.29.jpeg",
+    "evidence": null,
     "evidenceName": "WhatsApp Image 2026-08-03 at 16.18.29.jpeg",
     "savedAt": "2026-08-03T10:56:29.285Z",
     "locked": true,
@@ -7698,39 +7701,12 @@
       },
       {
         "name": "WhatsApp Image 2026-08-03 at 17.47.38.jpeg",
-        "data": "https://raw.githubusercontent.com/pinuspackindo-ai/pinuspackindo-okr/data/uploads/inventory/1785805693328_hag7kp_WhatsApp_Image_2026-08-03_at_17.47.38.jpeg"
+        "data": null
       },
       {
         "name": "WhatsApp Image 2026-08-03 at 17.47.12.jpeg",
         "data": "https://raw.githubusercontent.com/pinuspackindo-ai/pinuspackindo-okr/data/uploads/inventory/1785754592084_umgkvn_WhatsApp_Image_2026-08-03_at_17.47.12.jpeg"
       }
     ]
-  },
-  "_hrd_kedisiplinan_2026_07": {
-    "value": 97.7,
-    "evidence": "https://raw.githubusercontent.com/pinuspackindo-ai/pinuspackindo-okr/data/uploads/hrd/1785812139589_6pl4b8_KEDISIPLINAN_JULI_2026.png",
-    "evidenceName": "KEDISIPLINAN JULI 2026.png",
-    "savedAt": "2026-08-04T02:54:57.650Z",
-    "locked": true,
-    "evidences": [
-      {
-        "name": "KEDISIPLINAN JULI 2026.png",
-        "data": "https://raw.githubusercontent.com/pinuspackindo-ai/pinuspackindo-okr/data/uploads/hrd/1785812120739_vvp1cn_KEDISIPLINAN_JULI_2026.png"
-      }
-    ]
-  },
-  "_hrd_akurasi_adm_2026_07": {
-    "value": 98,
-    "evidence": "https://raw.githubusercontent.com/pinuspackindo-ai/pinuspackindo-okr/data/uploads/hrd/1785812197354_9u9vb0_OKR_AKURASI_ADM_HRD_JULI_2026.png",
-    "evidenceName": "OKR AKURASI ADM HRD JULI 2026.png",
-    "savedAt": "2026-08-04T02:56:36.100Z",
-    "locked": true,
-    "evidences": [
-      {
-        "name": "OKR AKURASI ADM HRD JULI 2026.png",
-        "data": "https://raw.githubusercontent.com/pinuspackindo-ai/pinuspackindo-okr/data/uploads/hrd/1785812259655_m2nxcv_OKR_AKURASI_ADM_HRD_JULI_2026.png"
-      }
-    ]
-  },
-  "_ts": 1785812351085
+  }
 }
