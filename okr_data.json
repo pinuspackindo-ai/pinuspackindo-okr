@@ -1,5 +1,5 @@
 {
-  "_ts": 1785823096502,
+  "_ts": 1785823098348,
   "_userAccess": {
     "Finance & Accounting": {
       "modules": [
@@ -4530,7 +4530,7 @@
           "objective": "Melindungi dan mengawasi sistem internal berbasis dari resiko yg timbul.",
           "keyResult": "Jumlah inisiatif proaktif",
           "target": 2,
-          "actual": 0,
+          "actual": 3,
           "bobot": 20
         }
       ],
