@@ -4363,7 +4363,7 @@
           "objective": "Membangun dan menjaga SDM yg kompeten, disiplin, produktif, inisiatif, guna mendukung perusahaan berkembang.",
           "keyResult": "Tingkat kedisiplinan karyawan",
           "target": 90,
-          "actual": null,
+          "actual": 97.7,
           "bobot": 30
         },
         {
@@ -4379,7 +4379,7 @@
           "objective": "Membangun dan menjaga SDM yg kompeten, disiplin, produktif, inisiatif, guna mendukung perusahaan berkembang.",
           "keyResult": "Akurasi & ketepatan waktu administrasi HR",
           "target": 95,
-          "actual": null,
+          "actual": 98,
           "bobot": 20
         },
         {
@@ -7706,7 +7706,6 @@
       }
     ]
   },
-  "_ts": 1785813344617,
   "_hrd_kedisiplinan_2026_07": {
     "value": 97.7,
     "evidence": "https://raw.githubusercontent.com/pinuspackindo-ai/pinuspackindo-okr/data/uploads/hrd/1785812139589_6pl4b8_KEDISIPLINAN_JULI_2026.png",
@@ -7733,6 +7732,7 @@
       }
     ]
   },
+  "_ts": 1785813368284,
   "_hrd_rec_2026_08": {
     "rows": [
       {
