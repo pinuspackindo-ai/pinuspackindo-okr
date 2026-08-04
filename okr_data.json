@@ -1,4 +1,5 @@
 {
+  "_ts": 1785823096502,
   "_userAccess": {
     "Finance & Accounting": {
       "modules": [
@@ -3751,7 +3752,7 @@
         "deadline": "2026-07-26",
         "submittedDate": "2026-07-26",
         "temuan": "0",
-        "evidence": "https://raw.githubusercontent.com/pinuspackindo-ai/pinuspackindo-okr/data/uploads/internal_audit/1785822214440_3akbxd_k4.png",
+        "evidence": "",
         "evidenceName": "k4.png",
         "locked": true,
         "evidences": [
@@ -4492,7 +4493,7 @@
           "objective": "Membangun dan menjaga SDM yg kompeten, disiplin, produktif, inisiatif, guna mendukung perusahaan berkembang.",
           "keyResult": "Ketepatan waktu rekrutment",
           "target": 85,
-          "actual": 75.29,
+          "actual": null,
           "bobot": 15
         },
         {
@@ -4529,7 +4530,7 @@
           "objective": "Melindungi dan mengawasi sistem internal berbasis dari resiko yg timbul.",
           "keyResult": "Jumlah inisiatif proaktif",
           "target": 2,
-          "actual": 3,
+          "actual": 0,
           "bobot": 20
         }
       ],
@@ -6308,22 +6309,6 @@
             "data": null
           }
         ]
-      },
-      {
-        "jabatan": "STAFF",
-        "namaRequest": "STAFF GA OFFICER",
-        "tglRequest": "2026-06-16",
-        "deadline": "2026-07-16",
-        "realisasi": "2026-08-22",
-        "evidence": "https://raw.githubusercontent.com/pinuspackindo-ai/pinuspackindo-okr/data/uploads/hrd/1785813970918_o2rap9_Surat_Penawaran_Kerja_-Arif_Prabowo.docx_1.pdf",
-        "evidenceName": "Surat Penawaran Kerja -Arif Prabowo.docx (1).pdf",
-        "editing": false,
-        "evidences": [
-          {
-            "name": "Surat Penawaran Kerja -Arif Prabowo.docx (1).pdf",
-            "data": null
-          }
-        ]
       }
     ],
     "savedAt": "2026-07-15T07:20:17.341Z"
@@ -7652,7 +7637,7 @@
           "objective": "Stok akurat, persediaan optimal, biaya & waste minimal.",
           "keyResult": "Akurasi DO vs RN",
           "target": 100,
-          "actual": 96.15,
+          "actual": null,
           "bobot": 10
         },
         {
@@ -7808,7 +7793,7 @@
   },
   "_inv_rn_do_2026_08_03": {
     "value": 96.15,
-    "evidence": "https://raw.githubusercontent.com/pinuspackindo-ai/pinuspackindo-okr/data/uploads/inventory/1785805615393_fpkmjc_WhatsApp_Image_2026-08-03_at_16.18.29.jpeg",
+    "evidence": "https://raw.githubusercontent.com/pinuspackindo-ai/pinuspackindo-okr/data/uploads/inventory/1785819053018_7sr9tl_WhatsApp_Image_2026-08-03_at_16.18.29.jpeg",
     "evidenceName": "WhatsApp Image 2026-08-03 at 16.18.29.jpeg",
     "savedAt": "2026-08-03T10:56:29.285Z",
     "locked": true,
@@ -7819,7 +7804,7 @@
       },
       {
         "name": "WhatsApp Image 2026-08-03 at 17.47.38.jpeg",
-        "data": "https://raw.githubusercontent.com/pinuspackindo-ai/pinuspackindo-okr/data/uploads/inventory/1785805693328_hag7kp_WhatsApp_Image_2026-08-03_at_17.47.38.jpeg"
+        "data": "https://raw.githubusercontent.com/pinuspackindo-ai/pinuspackindo-okr/data/uploads/inventory/1785819522115_i77d9h_WhatsApp_Image_2026-08-03_at_17.47.38.jpeg"
       },
       {
         "name": "WhatsApp Image 2026-08-03 at 17.47.12.jpeg",
@@ -7979,7 +7964,7 @@
         "evidences": [
           {
             "name": "so4.png",
-            "data": "https://raw.githubusercontent.com/pinuspackindo-ai/pinuspackindo-okr/data/uploads/internal_audit/1785822351902_4l98nm_so4.png"
+            "data": null
           }
         ],
         "savedAt": "2026-08-04T05:45:09.221Z"
@@ -7998,7 +7983,7 @@
         "evidences": [
           {
             "name": "default.png",
-            "data": "https://raw.githubusercontent.com/pinuspackindo-ai/pinuspackindo-okr/data/uploads/internal_audit/1785822374093_30wh0n_default.png"
+            "data": null
           }
         ],
         "savedAt": "2026-08-04T05:45:49.708Z"
@@ -8023,6 +8008,5 @@
         "savedAt": "2026-08-04T05:46:03.869Z"
       }
     ]
-  },
-  "_ts": 1785823084532
+  }
 }
