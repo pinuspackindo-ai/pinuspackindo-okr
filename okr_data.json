@@ -7838,24 +7838,7 @@
     ]
   },
   "_hrd_rec_2026_08": {
-    "rows": [
-      {
-        "jabatan": "STAFF",
-        "namaRequest": "CUSTOMER SERVICE RETAIL",
-        "tglRequest": "2026-06-06",
-        "deadline": "2026-07-06",
-        "realisasi": "2026-07-13",
-        "evidence": "https://raw.githubusercontent.com/pinuspackindo-ai/pinuspackindo-okr/data/uploads/hrd/1785813333595_8n1pbg_Surat_Penawaran_Kerja_-Mentari_Rindang_Wangi_P_CS_.docx.pdf",
-        "evidenceName": "Surat Penawaran Kerja -Mentari Rindang Wangi P (CS) .docx.pdf",
-        "editing": false,
-        "evidences": [
-          {
-            "name": "Surat Penawaran Kerja -Mentari Rindang Wangi P (CS) .docx.pdf",
-            "data": "https://raw.githubusercontent.com/pinuspackindo-ai/pinuspackindo-okr/data/uploads/hrd/1785813340348_3z8i1s_Surat_Penawaran_Kerja_-Mentari_Rindang_Wangi_P_CS_.docx.pdf"
-          }
-        ]
-      }
-    ],
+    "rows": [],
     "savedAt": "2026-08-04T02:57:01.174Z"
   },
   "_ia_rot_stokopname_2026_07": {
@@ -7960,5 +7943,5 @@
       }
     ]
   },
-  "_ts": 1785822897234
+  "_ts": 1785822908833
 }
