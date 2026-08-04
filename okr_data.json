@@ -1,5 +1,4 @@
 {
-  "_ts": 1785822376833,
   "_userAccess": {
     "Finance & Accounting": {
       "modules": [
@@ -7919,11 +7918,12 @@
         "evidences": [
           {
             "name": "cartrack.png",
-            "data": null
+            "data": "https://raw.githubusercontent.com/pinuspackindo-ai/pinuspackindo-okr/data/uploads/internal_audit/1785822380284_0qdht7_cartrack.png"
           }
         ],
         "savedAt": "2026-08-04T05:46:03.869Z"
       }
     ]
-  }
+  },
+  "_ts": 1785822377764
 }
