@@ -643,7 +643,7 @@
           "target": 90
         },
         {
-          "actual": 98.23,
+          "actual": 98.225,
           "bobot": 10,
           "id": "r1779890290785xbtj",
           "keyResult": "Tingkat implementasi rekomendasi audit",
@@ -3751,7 +3751,7 @@
         "deadline": "2026-07-26",
         "submittedDate": "2026-07-26",
         "temuan": "0",
-        "evidence": "https://raw.githubusercontent.com/pinuspackindo-ai/pinuspackindo-okr/data/uploads/internal_audit/1785822214440_3akbxd_k4.png",
+        "evidence": "",
         "evidenceName": "k4.png",
         "locked": true,
         "evidences": [
@@ -7963,7 +7963,7 @@
         "evidences": [
           {
             "name": "so4.png",
-            "data": "https://raw.githubusercontent.com/pinuspackindo-ai/pinuspackindo-okr/data/uploads/internal_audit/1785822351902_4l98nm_so4.png"
+            "data": null
           }
         ],
         "savedAt": "2026-08-04T05:45:09.221Z"
@@ -7982,7 +7982,7 @@
         "evidences": [
           {
             "name": "default.png",
-            "data": "https://raw.githubusercontent.com/pinuspackindo-ai/pinuspackindo-okr/data/uploads/internal_audit/1785822374093_30wh0n_default.png"
+            "data": null
           }
         ],
         "savedAt": "2026-08-04T05:45:49.708Z"
@@ -8008,5 +8008,5 @@
       }
     ]
   },
-  "_ts": 1785823155064
+  "_ts": 1785823155131
 }
