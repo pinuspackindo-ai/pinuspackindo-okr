@@ -1,4 +1,5 @@
 {
+  "_ts": 1785812189232,
   "_userAccess": {
     "Finance & Accounting": {
       "modules": [
@@ -7707,10 +7708,9 @@
       }
     ]
   },
-  "_ts": 1785812144062,
   "_hrd_kedisiplinan_2026_07": {
     "value": 97.7,
-    "evidence": "https://raw.githubusercontent.com/pinuspackindo-ai/pinuspackindo-okr/data/uploads/hrd/1785812139589_6pl4b8_KEDISIPLINAN_JULI_2026.png",
+    "evidence": null,
     "evidenceName": "KEDISIPLINAN JULI 2026.png",
     "savedAt": "2026-08-04T02:54:57.650Z",
     "locked": true,
