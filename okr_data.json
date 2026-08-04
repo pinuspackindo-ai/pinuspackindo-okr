@@ -3751,7 +3751,7 @@
         "deadline": "2026-07-26",
         "submittedDate": "2026-07-26",
         "temuan": "0",
-        "evidence": "https://raw.githubusercontent.com/pinuspackindo-ai/pinuspackindo-okr/data/uploads/internal_audit/1785822849363_hnr6va_k4.png",
+        "evidence": "https://raw.githubusercontent.com/pinuspackindo-ai/pinuspackindo-okr/data/uploads/internal_audit/1785822214440_3akbxd_k4.png",
         "evidenceName": "k4.png",
         "locked": true,
         "evidences": [
@@ -4513,7 +4513,7 @@
           "objective": "Melindungi dan mengawasi sistem internal berbasis dari resiko yg timbul.",
           "keyResult": "Tingkat implementasi rekomendasi audit",
           "target": 100,
-          "actual": null,
+          "actual": 100,
           "bobot": 45
         },
         {
@@ -4521,7 +4521,7 @@
           "objective": "Melindungi dan mengawasi sistem internal berbasis dari resiko yg timbul.",
           "keyResult": "Laporan audit akurat dan on time",
           "target": 100,
-          "actual": null,
+          "actual": 100,
           "bobot": 35
         },
         {
@@ -7813,7 +7813,7 @@
   },
   "_hrd_kedisiplinan_2026_07": {
     "value": 97.7,
-    "evidence": "https://raw.githubusercontent.com/pinuspackindo-ai/pinuspackindo-okr/data/uploads/hrd/1785812139589_6pl4b8_KEDISIPLINAN_JULI_2026.png",
+    "evidence": null,
     "evidenceName": "KEDISIPLINAN JULI 2026.png",
     "savedAt": "2026-08-04T02:54:57.650Z",
     "locked": true,
@@ -7833,11 +7833,10 @@
     "evidences": [
       {
         "name": "OKR AKURASI ADM HRD JULI 2026.png",
-        "data": "https://raw.githubusercontent.com/pinuspackindo-ai/pinuspackindo-okr/data/uploads/hrd/1785812259655_m2nxcv_OKR_AKURASI_ADM_HRD_JULI_2026.png"
+        "data": null
       }
     ]
   },
-  "_ts": 1785822848595,
   "_hrd_rec_2026_08": {
     "rows": [
       {
@@ -7935,7 +7934,7 @@
         "evidences": [
           {
             "name": "default.png",
-            "data": "https://raw.githubusercontent.com/pinuspackindo-ai/pinuspackindo-okr/data/uploads/internal_audit/1785822369756_v41brb_default.png"
+            "data": "https://raw.githubusercontent.com/pinuspackindo-ai/pinuspackindo-okr/data/uploads/internal_audit/1785822374093_30wh0n_default.png"
           }
         ],
         "savedAt": "2026-08-04T05:45:49.708Z"
@@ -7954,11 +7953,12 @@
         "evidences": [
           {
             "name": "cartrack.png",
-            "data": "https://raw.githubusercontent.com/pinuspackindo-ai/pinuspackindo-okr/data/uploads/internal_audit/1785822669242_gjrgtl_cartrack.png"
+            "data": "https://raw.githubusercontent.com/pinuspackindo-ai/pinuspackindo-okr/data/uploads/internal_audit/1785822380284_0qdht7_cartrack.png"
           }
         ],
         "savedAt": "2026-08-04T05:46:03.869Z"
       }
     ]
-  }
+  },
+  "_ts": 1785822856061
 }
