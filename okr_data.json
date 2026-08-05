@@ -7666,7 +7666,7 @@
           "objective": "Pengadaan stok tepat waktu dan berkwalitas, administrasi akurat.",
           "keyResult": "Tingkat in stock",
           "target": 98,
-          "actual": 98.35,
+          "actual": 98.28,
           "bobot": 40
         },
         {
@@ -8034,7 +8034,7 @@
       }
     ]
   },
-  "_ts": 1785896857093,
+  "_ts": 1785896918861,
   "_p_ins_2026_08_04": {
     "file1": "https://raw.githubusercontent.com/pinuspackindo-ai/pinuspackindo-okr/data/uploads/purchasing/1785896746288_ns0elv_product.product.xlsx",
     "file1Name": "product.product.xlsx",
