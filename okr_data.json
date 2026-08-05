@@ -4542,7 +4542,7 @@
           "objective": "Stok akurat, persediaan optimal, biaya & waste minimal.",
           "keyResult": "Tingkat akurasi stok fisik vs data",
           "target": 75,
-          "actual": null,
+          "actual": 84.06,
           "bobot": 20
         },
         {
@@ -7927,8 +7927,8 @@
     "value": 84.06,
     "evidence": "https://raw.githubusercontent.com/pinuspackindo-ai/pinuspackindo-okr/data/uploads/inventory/1785823507179_dujclz_Screenshot_2026-08-04_130444.png",
     "evidenceName": "Screenshot 2026-08-04 130444.png",
-    "savedAt": "2026-08-04T06:05:06.546Z",
-    "locked": false,
+    "savedAt": "2026-08-05T07:59:08.422Z",
+    "locked": true,
     "evidences": [
       {
         "name": "Screenshot 2026-08-04 130444.png",
@@ -7952,7 +7952,7 @@
     "savedAt": "2026-08-05T02:27:36.899Z",
     "locked": true
   },
-  "_ts": 1785916744590,
+  "_ts": 1785916752764,
   "_inv_akurasi_i_2026_06": {
     "value": 86.37,
     "evidence": "https://raw.githubusercontent.com/pinuspackindo-ai/pinuspackindo-okr/data/uploads/inventory/1785916739041_okru61_Pinus.jpg",
