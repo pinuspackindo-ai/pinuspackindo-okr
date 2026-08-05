@@ -4468,7 +4468,7 @@
           "objective": "Membangun dan menjaga SDM yg kompeten, disiplin, produktif, inisiatif, guna mendukung perusahaan berkembang.",
           "keyResult": "Tingkat kedisiplinan karyawan",
           "target": 90,
-          "actual": 97.7,
+          "actual": null,
           "bobot": 30
         },
         {
@@ -4484,7 +4484,7 @@
           "objective": "Membangun dan menjaga SDM yg kompeten, disiplin, produktif, inisiatif, guna mendukung perusahaan berkembang.",
           "keyResult": "Akurasi & ketepatan waktu administrasi HR",
           "target": 95,
-          "actual": 98,
+          "actual": null,
           "bobot": 20
         },
         {
@@ -4529,7 +4529,7 @@
           "objective": "Melindungi dan mengawasi sistem internal berbasis dari resiko yg timbul.",
           "keyResult": "Jumlah inisiatif proaktif",
           "target": 2,
-          "actual": 3,
+          "actual": 0,
           "bobot": 20
         }
       ],
@@ -4587,7 +4587,7 @@
           "objective": "Pengadaan stok tepat waktu dan berkwalitas, administrasi akurat..",
           "keyResult": "Tingkat akurasi PO",
           "target": 95,
-          "actual": 77.65,
+          "actual": 32.67,
           "bobot": 30
         },
         {
@@ -8034,5 +8034,5 @@
       }
     ]
   },
-  "_ts": 1785892454962
+  "_ts": 1785894417930
 }
