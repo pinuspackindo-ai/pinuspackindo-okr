@@ -1,5 +1,5 @@
 {
-  "_ts": 1785916643383,
+  "_ts": 1785916647064,
   "_userAccess": {
     "Finance & Accounting": {
       "modules": [
@@ -4493,7 +4493,7 @@
           "objective": "Membangun dan menjaga SDM yg kompeten, disiplin, produktif, inisiatif, guna mendukung perusahaan berkembang.",
           "keyResult": "Ketepatan waktu rekrutment",
           "target": 85,
-          "actual": 90.54,
+          "actual": 100,
           "bobot": 15
         },
         {
@@ -6280,26 +6280,6 @@
     "rows": [
       {
         "jabatan": "STAFF",
-        "namaRequest": "CUSTOMER SERVICE TOKO",
-        "tglRequest": "2026-06-06",
-        "deadline": "2026-07-06",
-        "realisasi": "2026-07-13",
-        "evidence": null,
-        "evidenceName": "Pinus.jpg",
-        "editing": false,
-        "evidences": [
-          {
-            "name": "bukti offering letter mentari cs 130726.jpeg",
-            "data": "https://raw.githubusercontent.com/pinuspackindo-ai/pinuspackindo-okr/data/uploads/hrd/1784110792450_mqclex_bukti_offering_letter_mentari_cs_130726.jpeg"
-          },
-          {
-            "name": "Pinus.jpg",
-            "data": "https://raw.githubusercontent.com/pinuspackindo-ai/pinuspackindo-okr/data/uploads/hrd/1785916614124_d6mk9i_Pinus.jpg"
-          }
-        ]
-      },
-      {
-        "jabatan": "STAFF",
         "namaRequest": "ACCOUNT PAYABLE",
         "tglRequest": "2026-07-16",
         "deadline": "2026-08-15",
@@ -6314,6 +6294,22 @@
           },
           {
             "name": "Pinus.jpg",
+            "data": null
+          }
+        ]
+      },
+      {
+        "jabatan": "STAFF",
+        "namaRequest": "ACCOUNT PAYABLE",
+        "tglRequest": "2026-07-16",
+        "deadline": "2026-08-15",
+        "realisasi": "2026-07-15",
+        "evidence": null,
+        "evidenceName": "bukti offering letter vica AP .png",
+        "editing": false,
+        "evidences": [
+          {
+            "name": "bukti offering letter vica AP .png",
             "data": null
           }
         ]
