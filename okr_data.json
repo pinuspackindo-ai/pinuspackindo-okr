@@ -1,5 +1,4 @@
 {
-  "_ts": 1785916807374,
   "_userAccess": {
     "Finance & Accounting": {
       "modules": [
@@ -4514,7 +4513,7 @@
           "objective": "Melindungi dan mengawasi sistem internal berbasis dari resiko yg timbul.",
           "keyResult": "Tingkat implementasi rekomendasi audit",
           "target": 100,
-          "actual": 100,
+          "actual": null,
           "bobot": 45
         },
         {
@@ -4522,7 +4521,7 @@
           "objective": "Melindungi dan mengawasi sistem internal berbasis dari resiko yg timbul.",
           "keyResult": "Laporan audit akurat dan on time",
           "target": 100,
-          "actual": 100,
+          "actual": null,
           "bobot": 35
         },
         {
@@ -4543,7 +4542,7 @@
           "objective": "Stok akurat, persediaan optimal, biaya & waste minimal.",
           "keyResult": "Tingkat akurasi stok fisik vs data",
           "target": 75,
-          "actual": 84.06,
+          "actual": null,
           "bobot": 20
         },
         {
@@ -4559,7 +4558,7 @@
           "objective": "Stok akurat, persediaan optimal, biaya & waste minimal.",
           "keyResult": "Tingkat akurasi administrasi",
           "target": 98,
-          "actual": 97.4,
+          "actual": null,
           "bobot": 40
         },
         {
@@ -8035,6 +8034,7 @@
       }
     ]
   },
+  "_ts": 1785916829491,
   "_p_ins_2026_08_04": {
     "file1": "https://raw.githubusercontent.com/pinuspackindo-ai/pinuspackindo-okr/data/uploads/purchasing/1785896746288_ns0elv_product.product.xlsx",
     "file1Name": "product.product.xlsx",
@@ -8066,7 +8066,7 @@
   },
   "_inv_inputan_i_2026_06": {
     "value": 96.6,
-    "evidence": null,
+    "evidence": "https://raw.githubusercontent.com/pinuspackindo-ai/pinuspackindo-okr/data/uploads/inventory/1785916804504_b5vgt4_Pinus.jpg",
     "evidenceName": "Pinus.jpg",
     "savedAt": "2026-08-05T07:59:48.630Z",
     "locked": true,
