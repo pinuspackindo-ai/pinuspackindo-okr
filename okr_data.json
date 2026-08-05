@@ -1,5 +1,4 @@
 {
-  "_ts": 1785891177191,
   "_userAccess": {
     "Finance & Accounting": {
       "modules": [
@@ -7637,7 +7636,7 @@
           "objective": "Stok akurat, persediaan optimal, biaya & waste minimal.",
           "keyResult": "Akurasi DO vs RN",
           "target": 100,
-          "actual": 96.15,
+          "actual": null,
           "bobot": 10
         },
         {
@@ -7804,7 +7803,7 @@
       },
       {
         "name": "WhatsApp Image 2026-08-03 at 17.47.38.jpeg",
-        "data": null
+        "data": "https://raw.githubusercontent.com/pinuspackindo-ai/pinuspackindo-okr/data/uploads/inventory/1785819522115_i77d9h_WhatsApp_Image_2026-08-03_at_17.47.38.jpeg"
       },
       {
         "name": "WhatsApp Image 2026-08-03 at 17.47.12.jpeg",
@@ -8034,5 +8033,6 @@
         "data": "https://raw.githubusercontent.com/pinuspackindo-ai/pinuspackindo-okr/data/uploads/inventory/1785823542490_0hbj7m_Screenshot_2026-08-04_130444.png"
       }
     ]
-  }
+  },
+  "_ts": 1785891178927
 }
