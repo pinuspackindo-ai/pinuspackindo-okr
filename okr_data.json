@@ -3700,7 +3700,7 @@
         "temuan": "0",
         "evidence": "https://raw.githubusercontent.com/pinuspackindo-ai/pinuspackindo-okr/data/uploads/internal_audit/1785822079368_p8je4l_so2.png",
         "evidenceName": "so2.png",
-        "locked": true,
+        "locked": false,
         "evidences": [
           {
             "name": "Bukti.png",
@@ -4521,7 +4521,7 @@
           "objective": "Melindungi dan mengawasi sistem internal berbasis dari resiko yg timbul.",
           "keyResult": "Laporan audit akurat dan on time",
           "target": 100,
-          "actual": null,
+          "actual": 100,
           "bobot": 35
         },
         {
@@ -8050,5 +8050,5 @@
     "savedAt": "2026-08-05T02:27:36.899Z",
     "locked": true
   },
-  "_ts": 1785916377945
+  "_ts": 1785916390456
 }
