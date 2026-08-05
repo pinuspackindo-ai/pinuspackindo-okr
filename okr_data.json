@@ -7952,7 +7952,6 @@
     "savedAt": "2026-08-05T02:27:36.899Z",
     "locked": true
   },
-  "_ts": 1785916909134,
   "_inv_akurasi_i_2026_06": {
     "value": 86.37,
     "evidence": "https://raw.githubusercontent.com/pinuspackindo-ai/pinuspackindo-okr/data/uploads/inventory/1785916739041_okru61_Pinus.jpg",
@@ -7978,5 +7977,6 @@
         "data": "https://raw.githubusercontent.com/pinuspackindo-ai/pinuspackindo-okr/data/uploads/inventory/1785916787755_y6w3md_Pinus.jpg"
       }
     ]
-  }
+  },
+  "_ts": 1785916910075
 }
