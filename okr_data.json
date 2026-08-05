@@ -1,5 +1,5 @@
 {
-  "_ts": 1785916636711,
+  "_ts": 1785916641479,
   "_userAccess": {
     "Finance & Accounting": {
       "modules": [
@@ -7866,17 +7866,17 @@
       },
       {
         "jabatan": "STAFF",
-        "namaRequest": "OFFICE BOY",
-        "tglRequest": "2026-07-10",
-        "deadline": "2026-08-09",
-        "realisasi": "2026-07-29",
-        "evidence": "https://raw.githubusercontent.com/pinuspackindo-ai/pinuspackindo-okr/data/uploads/hrd/1785813696337_bbk285_OJT_ALI_MAHMUDI_20260729_0001.pdf",
-        "evidenceName": "OJT ALI MAHMUDI_20260729_0001.pdf",
+        "namaRequest": "STAFF ACOUNT PAYABLE",
+        "tglRequest": "2026-06-16",
+        "deadline": "2026-07-16",
+        "realisasi": "2026-07-15",
+        "evidence": null,
+        "evidenceName": "Surat Penawaran Kerja -Vica Sukmatama (AP) .docx.pdf",
         "editing": false,
         "evidences": [
           {
-            "name": "OJT ALI MAHMUDI_20260729_0001.pdf",
-            "data": null
+            "name": "Surat Penawaran Kerja -Vica Sukmatama (AP) .docx.pdf",
+            "data": "https://raw.githubusercontent.com/pinuspackindo-ai/pinuspackindo-okr/data/uploads/hrd/1785813696901_1g7lj0_Surat_Penawaran_Kerja_-Vica_Sukmatama_AP_.docx.pdf"
           }
         ]
       },
