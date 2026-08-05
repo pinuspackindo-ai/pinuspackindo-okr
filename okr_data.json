@@ -3621,7 +3621,7 @@
         "score": "100",
         "evidence": "https://raw.githubusercontent.com/pinuspackindo-ai/pinuspackindo-okr/data/uploads/internal_audit/1785821986223_h6r5ge_purchase.png",
         "evidenceName": "purchase.png",
-        "locked": true,
+        "locked": false,
         "evidences": [
           {
             "name": "purchase.png",
@@ -8050,5 +8050,5 @@
     "savedAt": "2026-08-05T02:27:36.899Z",
     "locked": true
   },
-  "_ts": 1785916498085
+  "_ts": 1785916498799
 }
