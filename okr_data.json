@@ -3910,14 +3910,14 @@
         "tujuan": "memudahkan tim untuk analisa fluktuasi",
         "evidence": "https://raw.githubusercontent.com/pinuspackindo-ai/pinuspackindo-okr/data/uploads/internal_audit/1785822725303_sllzzu_hpp.png",
         "evidenceName": "hpp.png",
-        "locked": false,
+        "locked": true,
         "evidences": [
           {
             "name": "hpp.png",
             "data": "https://raw.githubusercontent.com/pinuspackindo-ai/pinuspackindo-okr/data/uploads/internal_audit/1785822724037_pllp6m_hpp.png"
           }
         ],
-        "savedAt": "2026-08-04T05:52:02.875Z"
+        "savedAt": "2026-08-05T07:52:51.879Z"
       },
       {
         "namaProject": "Portal Inventaris Part 1 (inventaris.pinuspackindo.com)",
@@ -8050,5 +8050,5 @@
     "savedAt": "2026-08-05T02:27:36.899Z",
     "locked": true
   },
-  "_ts": 1785916370728
+  "_ts": 1785916371916
 }
