@@ -3924,14 +3924,14 @@
         "tujuan": "mempermudah record kegiatan inventaris",
         "evidence": "https://raw.githubusercontent.com/pinuspackindo-ai/pinuspackindo-okr/data/uploads/internal_audit/1785822842393_9tc7ef_inventaris.png",
         "evidenceName": "inventaris .png",
-        "locked": false,
+        "locked": true,
         "evidences": [
           {
             "name": "inventaris .png",
             "data": "https://raw.githubusercontent.com/pinuspackindo-ai/pinuspackindo-okr/data/uploads/internal_audit/1785822840732_xsgbvi_inventaris.png"
           }
         ],
-        "savedAt": "2026-08-04T05:53:59.947Z"
+        "savedAt": "2026-08-05T07:52:54.152Z"
       }
     ]
   },
@@ -8050,5 +8050,5 @@
     "savedAt": "2026-08-05T02:27:36.899Z",
     "locked": true
   },
-  "_ts": 1785916373079
+  "_ts": 1785916374190
 }
