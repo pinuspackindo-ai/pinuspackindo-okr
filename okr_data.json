@@ -7857,22 +7857,6 @@
       },
       {
         "jabatan": "STAFF",
-        "namaRequest": "STAFF ACOUNT PAYABLE",
-        "tglRequest": "2026-06-16",
-        "deadline": "2026-07-16",
-        "realisasi": "2026-07-15",
-        "evidence": null,
-        "evidenceName": "Surat Penawaran Kerja -Vica Sukmatama (AP) .docx.pdf",
-        "editing": false,
-        "evidences": [
-          {
-            "name": "Surat Penawaran Kerja -Vica Sukmatama (AP) .docx.pdf",
-            "data": "https://raw.githubusercontent.com/pinuspackindo-ai/pinuspackindo-okr/data/uploads/hrd/1785813696901_1g7lj0_Surat_Penawaran_Kerja_-Vica_Sukmatama_AP_.docx.pdf"
-          }
-        ]
-      },
-      {
-        "jabatan": "STAFF",
         "namaRequest": "OFFICE BOY",
         "tglRequest": "2026-07-10",
         "deadline": "2026-08-09",
@@ -8034,5 +8018,5 @@
     "savedAt": "2026-08-05T02:27:36.899Z",
     "locked": true
   },
-  "_ts": 1785916583634
+  "_ts": 1785916585584
 }
