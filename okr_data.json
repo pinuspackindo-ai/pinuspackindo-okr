@@ -7997,14 +7997,14 @@
         "temuan": "0",
         "evidence": "https://raw.githubusercontent.com/pinuspackindo-ai/pinuspackindo-okr/data/uploads/internal_audit/1785822363546_e09j1k_cartrack.png",
         "evidenceName": "cartrack.png",
-        "locked": false,
+        "locked": true,
         "evidences": [
           {
             "name": "cartrack.png",
             "data": "https://raw.githubusercontent.com/pinuspackindo-ai/pinuspackindo-okr/data/uploads/internal_audit/1785822669242_gjrgtl_cartrack.png"
           }
         ],
-        "savedAt": "2026-08-04T05:46:03.869Z"
+        "savedAt": "2026-08-05T07:54:43.711Z"
       }
     ]
   },
@@ -8050,5 +8050,5 @@
     "savedAt": "2026-08-05T02:27:36.899Z",
     "locked": true
   },
-  "_ts": 1785916471365
+  "_ts": 1785916483737
 }
