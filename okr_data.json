@@ -4521,7 +4521,7 @@
           "objective": "Melindungi dan mengawasi sistem internal berbasis dari resiko yg timbul.",
           "keyResult": "Laporan audit akurat dan on time",
           "target": 100,
-          "actual": null,
+          "actual": 100,
           "bobot": 35
         },
         {
@@ -7666,7 +7666,7 @@
           "objective": "Pengadaan stok tepat waktu dan berkwalitas, administrasi akurat.",
           "keyResult": "Tingkat in stock",
           "target": 98,
-          "actual": 98.28,
+          "actual": 98.35,
           "bobot": 40
         },
         {
@@ -7978,7 +7978,7 @@
         "temuan": "0",
         "evidence": "https://raw.githubusercontent.com/pinuspackindo-ai/pinuspackindo-okr/data/uploads/internal_audit/1785822327357_fzk0oa_default.png",
         "evidenceName": "default.png",
-        "locked": true,
+        "locked": false,
         "evidences": [
           {
             "name": "default.png",
@@ -8034,7 +8034,6 @@
       }
     ]
   },
-  "_ts": 1785916418100,
   "_p_ins_2026_08_04": {
     "file1": "https://raw.githubusercontent.com/pinuspackindo-ai/pinuspackindo-okr/data/uploads/purchasing/1785896746288_ns0elv_product.product.xlsx",
     "file1Name": "product.product.xlsx",
@@ -8050,5 +8049,6 @@
     "score": 98.5,
     "savedAt": "2026-08-05T02:27:36.899Z",
     "locked": true
-  }
+  },
+  "_ts": 1785916467633
 }
