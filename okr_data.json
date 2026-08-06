@@ -4525,7 +4525,7 @@
           "objective": "Melindungi dan mengawasi sistem internal berbasis dari resiko yg timbul.",
           "keyResult": "Tingkat implementasi rekomendasi audit",
           "target": 100,
-          "actual": 100,
+          "actual": null,
           "bobot": 45
         },
         {
@@ -4533,7 +4533,7 @@
           "objective": "Melindungi dan mengawasi sistem internal berbasis dari resiko yg timbul.",
           "keyResult": "Laporan audit akurat dan on time",
           "target": 100,
-          "actual": 100,
+          "actual": null,
           "bobot": 35
         },
         {
@@ -4554,7 +4554,7 @@
           "objective": "Stok akurat, persediaan optimal, biaya & waste minimal.",
           "keyResult": "Tingkat akurasi stok fisik vs data",
           "target": 75,
-          "actual": 84.06,
+          "actual": null,
           "bobot": 20
         },
         {
@@ -4570,7 +4570,7 @@
           "objective": "Stok akurat, persediaan optimal, biaya & waste minimal.",
           "keyResult": "Tingkat akurasi administrasi",
           "target": 98,
-          "actual": 97.4,
+          "actual": null,
           "bobot": 40
         },
         {
@@ -6288,7 +6288,40 @@
     "locked": true
   },
   "_hrd_rec_2026_07": {
-    "rows": [],
+    "rows": [
+      {
+        "jabatan": "STAFF",
+        "namaRequest": "CUSTOMER SERVICE TOKO",
+        "tglRequest": "2026-06-06",
+        "deadline": "2026-07-06",
+        "realisasi": "2026-07-13",
+        "evidence": null,
+        "evidenceName": "bukti offering letter mentari cs 130726.jpeg",
+        "editing": false,
+        "evidences": [
+          {
+            "name": "bukti offering letter mentari cs 130726.jpeg",
+            "data": "https://raw.githubusercontent.com/pinuspackindo-ai/pinuspackindo-okr/data/uploads/hrd/1784110792450_mqclex_bukti_offering_letter_mentari_cs_130726.jpeg"
+          }
+        ]
+      },
+      {
+        "jabatan": "STAFF",
+        "namaRequest": "ACCOUNT PAYABLE",
+        "tglRequest": "2026-07-16",
+        "deadline": "2026-08-15",
+        "realisasi": "2026-07-15",
+        "evidence": null,
+        "evidenceName": "bukti offering letter vica AP .png",
+        "editing": false,
+        "evidences": [
+          {
+            "name": "bukti offering letter vica AP .png",
+            "data": null
+          }
+        ]
+      }
+    ],
     "savedAt": "2026-07-15T07:20:17.341Z"
   },
   "_p_ins_2026_07_15": {
@@ -7645,7 +7678,7 @@
           "objective": "Pengadaan stok tepat waktu dan berkwalitas, administrasi akurat.",
           "keyResult": "Tingkat in stock",
           "target": 98,
-          "actual": 98.35,
+          "actual": 98.33,
           "bobot": 40
         },
         {
@@ -7817,7 +7850,72 @@
     ]
   },
   "_hrd_rec_2026_08": {
-    "rows": [],
+    "rows": [
+      {
+        "jabatan": "STAFF",
+        "namaRequest": "CUSTOMER SERVICE RETAIL",
+        "tglRequest": "2026-06-06",
+        "deadline": "2026-07-06",
+        "realisasi": "2026-07-13",
+        "evidence": "https://raw.githubusercontent.com/pinuspackindo-ai/pinuspackindo-okr/data/uploads/hrd/1785813333595_8n1pbg_Surat_Penawaran_Kerja_-Mentari_Rindang_Wangi_P_CS_.docx.pdf",
+        "evidenceName": "Surat Penawaran Kerja -Mentari Rindang Wangi P (CS) .docx.pdf",
+        "editing": false,
+        "evidences": [
+          {
+            "name": "Surat Penawaran Kerja -Mentari Rindang Wangi P (CS) .docx.pdf",
+            "data": "https://raw.githubusercontent.com/pinuspackindo-ai/pinuspackindo-okr/data/uploads/hrd/1785813497517_wo4chz_Surat_Penawaran_Kerja_-Mentari_Rindang_Wangi_P_CS_.docx.pdf"
+          }
+        ]
+      },
+      {
+        "jabatan": "STAFF",
+        "namaRequest": "STAFF ACOUNT PAYABLE",
+        "tglRequest": "2026-06-16",
+        "deadline": "2026-07-16",
+        "realisasi": "2026-07-15",
+        "evidence": null,
+        "evidenceName": "Surat Penawaran Kerja -Vica Sukmatama (AP) .docx.pdf",
+        "editing": false,
+        "evidences": [
+          {
+            "name": "Surat Penawaran Kerja -Vica Sukmatama (AP) .docx.pdf",
+            "data": "https://raw.githubusercontent.com/pinuspackindo-ai/pinuspackindo-okr/data/uploads/hrd/1785813696901_1g7lj0_Surat_Penawaran_Kerja_-Vica_Sukmatama_AP_.docx.pdf"
+          }
+        ]
+      },
+      {
+        "jabatan": "STAFF",
+        "namaRequest": "STAFF GA OFFICER",
+        "tglRequest": "2026-06-16",
+        "deadline": "2026-07-16",
+        "realisasi": "2026-07-22",
+        "evidence": null,
+        "evidenceName": "Surat Penawaran Kerja -Arif Prabowo.docx (1).pdf",
+        "editing": false,
+        "evidences": [
+          {
+            "name": "Surat Penawaran Kerja -Arif Prabowo.docx (1).pdf",
+            "data": "https://raw.githubusercontent.com/pinuspackindo-ai/pinuspackindo-okr/data/uploads/hrd/1785813582774_cxp7br_Surat_Penawaran_Kerja_-Arif_Prabowo.docx_1.pdf"
+          }
+        ]
+      },
+      {
+        "jabatan": "STAFF",
+        "namaRequest": "OFFICE BOY",
+        "tglRequest": "2026-07-10",
+        "deadline": "2026-08-09",
+        "realisasi": "2026-07-29",
+        "evidence": "https://raw.githubusercontent.com/pinuspackindo-ai/pinuspackindo-okr/data/uploads/hrd/1785813696337_bbk285_OJT_ALI_MAHMUDI_20260729_0001.pdf",
+        "evidenceName": "OJT ALI MAHMUDI_20260729_0001.pdf",
+        "editing": false,
+        "evidences": [
+          {
+            "name": "OJT ALI MAHMUDI_20260729_0001.pdf",
+            "data": null
+          }
+        ]
+      }
+    ],
     "savedAt": "2026-08-04T02:57:01.174Z"
   },
   "_ia_rot_stokopname_2026_07": {
@@ -7990,7 +8088,6 @@
       }
     ]
   },
-  "_ts": 1785986433905,
   "_inv_rn_do_2026_08_04": {
     "value": 95.45,
     "evidence": "https://raw.githubusercontent.com/pinuspackindo-ai/pinuspackindo-okr/data/uploads/inventory/1785981578882_1jfhj9_WhatsApp_Image_2026-08-04_at_17.22.43.jpeg",
@@ -8054,6 +8151,7 @@
       }
     ]
   },
+  "_ts": 1785988308786,
   "_p_ins_2026_08_05": {
     "file1": "https://raw.githubusercontent.com/pinuspackindo-ai/pinuspackindo-okr/data/uploads/purchasing/1785986370413_krq2g8_product.product.xlsx",
     "file1Name": "product.product.xlsx",
