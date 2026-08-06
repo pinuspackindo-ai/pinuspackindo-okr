@@ -7318,10 +7318,10 @@
         "tal": "Running target kasir \"akurasi transaksi\"",
         "deadline": "2026-08-05",
         "bobot": 20,
-        "progress": null,
+        "progress": 100,
         "review": "",
         "editing": false,
-        "savedAt": "2026-08-02T06:51:00.857Z"
+        "savedAt": "2026-08-06T13:34:02.293Z"
       },
       {
         "tal": "Vakum marketplace KECUALI sku obralan",
@@ -7342,7 +7342,7 @@
         "savedAt": "2026-08-02T06:51:03.090Z"
       }
     ],
-    "savedAt": "2026-08-02T06:51:03.090Z"
+    "savedAt": "2026-08-06T13:34:02.293Z"
   },
   "_tal_d2_2026_08": {
     "rows": [
@@ -8239,5 +8239,5 @@
       }
     ]
   },
-  "_ts": 1786023216378
+  "_ts": 1786023242293
 }
