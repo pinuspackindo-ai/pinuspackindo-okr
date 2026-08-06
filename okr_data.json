@@ -304,6 +304,18 @@
     "2026-07|Warehouse": {
       "l": 1,
       "t": 1785982265427
+    },
+    "2026-07|Distribution Sales": {
+      "l": 1,
+      "t": 1786007763086
+    },
+    "2026-07|Store": {
+      "l": 1,
+      "t": 1786007768750
+    },
+    "2026-07|Inventory": {
+      "l": 1,
+      "t": 1786007788926
     }
   },
   "2026-05": {
@@ -4554,7 +4566,7 @@
           "objective": "Stok akurat, persediaan optimal, biaya & waste minimal.",
           "keyResult": "Tingkat akurasi stok fisik vs data",
           "target": 75,
-          "actual": null,
+          "actual": 84.06,
           "bobot": 20
         },
         {
@@ -4570,7 +4582,7 @@
           "objective": "Stok akurat, persediaan optimal, biaya & waste minimal.",
           "keyResult": "Tingkat akurasi administrasi",
           "target": 98,
-          "actual": null,
+          "actual": 97.4,
           "bobot": 40
         },
         {
@@ -8108,5 +8120,5 @@
       }
     ]
   },
-  "_ts": 1786007796122
+  "_ts": 1786007799738
 }
