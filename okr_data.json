@@ -1,5 +1,4 @@
 {
-  "_ts": 1785982197676,
   "_userAccess": {
     "Finance & Accounting": {
       "modules": [
@@ -4514,7 +4513,7 @@
           "objective": "Melindungi dan mengawasi sistem internal berbasis dari resiko yg timbul.",
           "keyResult": "Tingkat implementasi rekomendasi audit",
           "target": 100,
-          "actual": null,
+          "actual": 100,
           "bobot": 45
         },
         {
@@ -4522,7 +4521,7 @@
           "objective": "Melindungi dan mengawasi sistem internal berbasis dari resiko yg timbul.",
           "keyResult": "Laporan audit akurat dan on time",
           "target": 100,
-          "actual": null,
+          "actual": 100,
           "bobot": 35
         },
         {
@@ -4543,7 +4542,7 @@
           "objective": "Stok akurat, persediaan optimal, biaya & waste minimal.",
           "keyResult": "Tingkat akurasi stok fisik vs data",
           "target": 75,
-          "actual": null,
+          "actual": 84.06,
           "bobot": 20
         },
         {
@@ -4559,7 +4558,7 @@
           "objective": "Stok akurat, persediaan optimal, biaya & waste minimal.",
           "keyResult": "Tingkat akurasi administrasi",
           "target": 98,
-          "actual": null,
+          "actual": 97.4,
           "bobot": 40
         },
         {
@@ -6277,40 +6276,7 @@
     "locked": true
   },
   "_hrd_rec_2026_07": {
-    "rows": [
-      {
-        "jabatan": "STAFF",
-        "namaRequest": "CUSTOMER SERVICE TOKO",
-        "tglRequest": "2026-06-06",
-        "deadline": "2026-07-06",
-        "realisasi": "2026-07-13",
-        "evidence": null,
-        "evidenceName": "bukti offering letter mentari cs 130726.jpeg",
-        "editing": false,
-        "evidences": [
-          {
-            "name": "bukti offering letter mentari cs 130726.jpeg",
-            "data": "https://raw.githubusercontent.com/pinuspackindo-ai/pinuspackindo-okr/data/uploads/hrd/1784110792450_mqclex_bukti_offering_letter_mentari_cs_130726.jpeg"
-          }
-        ]
-      },
-      {
-        "jabatan": "STAFF",
-        "namaRequest": "ACCOUNT PAYABLE",
-        "tglRequest": "2026-07-16",
-        "deadline": "2026-08-15",
-        "realisasi": "2026-07-15",
-        "evidence": null,
-        "evidenceName": "bukti offering letter vica AP .png",
-        "editing": false,
-        "evidences": [
-          {
-            "name": "bukti offering letter vica AP .png",
-            "data": null
-          }
-        ]
-      }
-    ],
+    "rows": [],
     "savedAt": "2026-07-15T07:20:17.341Z"
   },
   "_p_ins_2026_07_15": {
@@ -7637,7 +7603,7 @@
           "objective": "Stok akurat, persediaan optimal, biaya & waste minimal.",
           "keyResult": "Akurasi DO vs RN",
           "target": 100,
-          "actual": 95.57,
+          "actual": null,
           "bobot": 10
         },
         {
@@ -7839,72 +7805,7 @@
     ]
   },
   "_hrd_rec_2026_08": {
-    "rows": [
-      {
-        "jabatan": "STAFF",
-        "namaRequest": "CUSTOMER SERVICE RETAIL",
-        "tglRequest": "2026-06-06",
-        "deadline": "2026-07-06",
-        "realisasi": "2026-07-13",
-        "evidence": "https://raw.githubusercontent.com/pinuspackindo-ai/pinuspackindo-okr/data/uploads/hrd/1785813333595_8n1pbg_Surat_Penawaran_Kerja_-Mentari_Rindang_Wangi_P_CS_.docx.pdf",
-        "evidenceName": "Surat Penawaran Kerja -Mentari Rindang Wangi P (CS) .docx.pdf",
-        "editing": false,
-        "evidences": [
-          {
-            "name": "Surat Penawaran Kerja -Mentari Rindang Wangi P (CS) .docx.pdf",
-            "data": "https://raw.githubusercontent.com/pinuspackindo-ai/pinuspackindo-okr/data/uploads/hrd/1785813497517_wo4chz_Surat_Penawaran_Kerja_-Mentari_Rindang_Wangi_P_CS_.docx.pdf"
-          }
-        ]
-      },
-      {
-        "jabatan": "STAFF",
-        "namaRequest": "STAFF ACOUNT PAYABLE",
-        "tglRequest": "2026-06-16",
-        "deadline": "2026-07-16",
-        "realisasi": "2026-07-15",
-        "evidence": null,
-        "evidenceName": "Surat Penawaran Kerja -Vica Sukmatama (AP) .docx.pdf",
-        "editing": false,
-        "evidences": [
-          {
-            "name": "Surat Penawaran Kerja -Vica Sukmatama (AP) .docx.pdf",
-            "data": "https://raw.githubusercontent.com/pinuspackindo-ai/pinuspackindo-okr/data/uploads/hrd/1785813696901_1g7lj0_Surat_Penawaran_Kerja_-Vica_Sukmatama_AP_.docx.pdf"
-          }
-        ]
-      },
-      {
-        "jabatan": "STAFF",
-        "namaRequest": "STAFF GA OFFICER",
-        "tglRequest": "2026-06-16",
-        "deadline": "2026-07-16",
-        "realisasi": "2026-07-22",
-        "evidence": null,
-        "evidenceName": "Surat Penawaran Kerja -Arif Prabowo.docx (1).pdf",
-        "editing": false,
-        "evidences": [
-          {
-            "name": "Surat Penawaran Kerja -Arif Prabowo.docx (1).pdf",
-            "data": "https://raw.githubusercontent.com/pinuspackindo-ai/pinuspackindo-okr/data/uploads/hrd/1785813582774_cxp7br_Surat_Penawaran_Kerja_-Arif_Prabowo.docx_1.pdf"
-          }
-        ]
-      },
-      {
-        "jabatan": "STAFF",
-        "namaRequest": "OFFICE BOY",
-        "tglRequest": "2026-07-10",
-        "deadline": "2026-08-09",
-        "realisasi": "2026-07-29",
-        "evidence": "https://raw.githubusercontent.com/pinuspackindo-ai/pinuspackindo-okr/data/uploads/hrd/1785813696337_bbk285_OJT_ALI_MAHMUDI_20260729_0001.pdf",
-        "evidenceName": "OJT ALI MAHMUDI_20260729_0001.pdf",
-        "editing": false,
-        "evidences": [
-          {
-            "name": "OJT ALI MAHMUDI_20260729_0001.pdf",
-            "data": null
-          }
-        ]
-      }
-    ],
+    "rows": [],
     "savedAt": "2026-08-04T02:57:01.174Z"
   },
   "_ia_rot_stokopname_2026_07": {
@@ -8077,67 +7978,5 @@
       }
     ]
   },
-  "_inv_rn_do_2026_08_04": {
-    "value": 95.45,
-    "evidence": "https://raw.githubusercontent.com/pinuspackindo-ai/pinuspackindo-okr/data/uploads/inventory/1785981578882_1jfhj9_WhatsApp_Image_2026-08-04_at_17.22.43.jpeg",
-    "evidenceName": "WhatsApp Image 2026-08-04 at 17.22.43.jpeg",
-    "savedAt": "2026-08-06T01:59:36.406Z",
-    "locked": true,
-    "evidences": [
-      {
-        "name": "WhatsApp Image 2026-08-04 at 17.22.43.jpeg",
-        "data": "https://raw.githubusercontent.com/pinuspackindo-ai/pinuspackindo-okr/data/uploads/inventory/1785981578306_axcof8_WhatsApp_Image_2026-08-04_at_17.22.43.jpeg"
-      },
-      {
-        "name": "WhatsApp Image 2026-08-04 at 17.51.57.jpeg",
-        "data": "https://raw.githubusercontent.com/pinuspackindo-ai/pinuspackindo-okr/data/uploads/inventory/1785981843726_gbxlr2_WhatsApp_Image_2026-08-04_at_17.51.57.jpeg"
-      },
-      {
-        "name": "WhatsApp Image 2026-08-04 at 17.50.30.jpeg",
-        "data": "https://raw.githubusercontent.com/pinuspackindo-ai/pinuspackindo-okr/data/uploads/inventory/1785981627754_o5tfqz_WhatsApp_Image_2026-08-04_at_17.50.30.jpeg"
-      }
-    ]
-  },
-  "_inv_rn_do_2026_08_05": {
-    "value": 95.45,
-    "evidence": "https://raw.githubusercontent.com/pinuspackindo-ai/pinuspackindo-okr/data/uploads/inventory/1785981754361_vb6e7v_WhatsApp_Image_2026-08-05_at_17.46.51.jpeg",
-    "evidenceName": "WhatsApp Image 2026-08-05 at 17.46.51.jpeg",
-    "savedAt": "2026-08-06T02:02:32.806Z",
-    "locked": true,
-    "evidences": [
-      {
-        "name": "WhatsApp Image 2026-08-05 at 17.46.51.jpeg",
-        "data": "https://raw.githubusercontent.com/pinuspackindo-ai/pinuspackindo-okr/data/uploads/inventory/1785981844787_njvgnk_WhatsApp_Image_2026-08-05_at_17.46.51.jpeg"
-      },
-      {
-        "name": "WhatsApp Image 2026-08-05 at 17.49.48.jpeg",
-        "data": "https://raw.githubusercontent.com/pinuspackindo-ai/pinuspackindo-okr/data/uploads/inventory/1785981755053_3cyaia_WhatsApp_Image_2026-08-05_at_17.49.48.jpeg"
-      },
-      {
-        "name": "WhatsApp Image 2026-08-05 at 17.48.38.jpeg",
-        "data": null
-      }
-    ]
-  },
-  "_inv_rn_do_2026_08_01": {
-    "value": 95.23,
-    "evidence": "https://raw.githubusercontent.com/pinuspackindo-ai/pinuspackindo-okr/data/uploads/inventory/1785981845371_wlib98_WhatsApp_Image_2026-08-01_at_15.58.03.jpeg",
-    "evidenceName": "WhatsApp Image 2026-08-01 at 15.58.03.jpeg",
-    "savedAt": "2026-08-06T02:04:02.266Z",
-    "locked": true,
-    "evidences": [
-      {
-        "name": "WhatsApp Image 2026-08-01 at 15.58.03.jpeg",
-        "data": null
-      },
-      {
-        "name": "WhatsApp Image 2026-08-01 at 15.56.25.jpeg",
-        "data": null
-      },
-      {
-        "name": "WhatsApp Image 2026-08-01 at 15.33.50.jpeg",
-        "data": null
-      }
-    ]
-  }
+  "_ts": 1785982207349
 }
