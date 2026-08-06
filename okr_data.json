@@ -7434,13 +7434,13 @@
         "tal": "eksekusi pengadaan palet 40%",
         "deadline": "2026-08-31",
         "bobot": 25,
-        "progress": null,
+        "progress": 10,
         "review": "",
         "editing": false,
-        "savedAt": "2026-08-02T11:59:17.048Z"
+        "savedAt": "2026-08-06T02:13:51.678Z"
       }
     ],
-    "savedAt": "2026-08-02T11:59:58.198Z"
+    "savedAt": "2026-08-06T02:13:51.679Z"
   },
   "_tal_d11_2026_08": {
     "rows": [
@@ -8053,5 +8053,5 @@
       }
     ]
   },
-  "_ts": 1785982381414
+  "_ts": 1785982431679
 }
