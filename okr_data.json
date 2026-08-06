@@ -4578,7 +4578,7 @@
           "objective": "Stok akurat, persediaan optimal, biaya & waste minimal.",
           "keyResult": "Laporan inventory akurat dan on time",
           "target": 100,
-          "actual": null,
+          "actual": 100,
           "bobot": 30
         }
       ],
@@ -7998,7 +7998,6 @@
       }
     ]
   },
-  "_ts": 1786007674608,
   "_inv_rn_do_2026_08_04": {
     "value": 95.45,
     "evidence": "https://raw.githubusercontent.com/pinuspackindo-ai/pinuspackindo-okr/data/uploads/inventory/1785981578882_1jfhj9_WhatsApp_Image_2026-08-04_at_17.22.43.jpeg",
@@ -8077,5 +8076,37 @@
     "score": 98.28,
     "savedAt": "2026-08-06T03:19:36.242Z",
     "locked": true
-  }
+  },
+  "_inv_rot_2026_07": {
+    "poin": [
+      0,
+      0,
+      0,
+      0,
+      0
+    ],
+    "akurasiEv": "https://raw.githubusercontent.com/pinuspackindo-ai/pinuspackindo-okr/data/uploads/inventory/1786006854746_1qb4yg_Screenshot_2026-08-06_152604.png",
+    "akurasiEvName": "Screenshot 2026-08-06 152604.png",
+    "ontimeDate": "2026-08-05",
+    "ontimeEv": "https://raw.githubusercontent.com/pinuspackindo-ai/pinuspackindo-okr/data/uploads/inventory/1786007378273_w7cl6i_Screenshot_2026-08-06_152604.png",
+    "ontimeEvName": "Screenshot 2026-08-06 152604.png",
+    "akurasiScore": 100,
+    "ontimeScore": 100,
+    "totalScore": 100,
+    "savedAt": "2026-08-06T08:36:50.366Z",
+    "locked": true,
+    "ontimeEvs": [
+      {
+        "name": "Screenshot 2026-08-06 152604.png",
+        "data": "https://raw.githubusercontent.com/pinuspackindo-ai/pinuspackindo-okr/data/uploads/inventory/1786005411789_4rvb01_Screenshot_2026-08-06_152604.png"
+      }
+    ],
+    "akurasiEvs": [
+      {
+        "name": "Screenshot 2026-08-06 152604.png",
+        "data": "https://raw.githubusercontent.com/pinuspackindo-ai/pinuspackindo-okr/data/uploads/inventory/1786007360508_yepc10_Screenshot_2026-08-06_152604.png"
+      }
+    ]
+  },
+  "_ts": 1786007675682
 }
