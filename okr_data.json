@@ -4513,7 +4513,7 @@
           "objective": "Melindungi dan mengawasi sistem internal berbasis dari resiko yg timbul.",
           "keyResult": "Tingkat implementasi rekomendasi audit",
           "target": 100,
-          "actual": null,
+          "actual": 100,
           "bobot": 45
         },
         {
@@ -4521,7 +4521,7 @@
           "objective": "Melindungi dan mengawasi sistem internal berbasis dari resiko yg timbul.",
           "keyResult": "Laporan audit akurat dan on time",
           "target": 100,
-          "actual": null,
+          "actual": 100,
           "bobot": 35
         },
         {
@@ -4542,7 +4542,7 @@
           "objective": "Stok akurat, persediaan optimal, biaya & waste minimal.",
           "keyResult": "Tingkat akurasi stok fisik vs data",
           "target": 75,
-          "actual": null,
+          "actual": 84.06,
           "bobot": 20
         },
         {
@@ -4558,7 +4558,7 @@
           "objective": "Stok akurat, persediaan optimal, biaya & waste minimal.",
           "keyResult": "Tingkat akurasi administrasi",
           "target": 98,
-          "actual": null,
+          "actual": 97.4,
           "bobot": 40
         },
         {
@@ -8076,5 +8076,5 @@
       }
     ]
   },
-  "_ts": 1785979625022
+  "_ts": 1785981405106
 }
