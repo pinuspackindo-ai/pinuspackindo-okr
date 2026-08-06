@@ -3610,7 +3610,7 @@
             "data": "https://raw.githubusercontent.com/pinuspackindo-ai/pinuspackindo-okr/data/uploads/internal_audit/1783052098809_smll3u_Bukti.png"
           }
         ],
-        "savedAt": "2026-08-05T07:54:55.171Z"
+        "savedAt": "2026-08-06T09:16:48.102Z"
       },
       {
         "namaAudit": "Stock Opname Store",
@@ -3624,7 +3624,7 @@
             "data": "https://raw.githubusercontent.com/pinuspackindo-ai/pinuspackindo-okr/data/uploads/internal_audit/1785821965532_2xg7a5_store.png"
           }
         ],
-        "savedAt": "2026-08-05T07:54:56.479Z"
+        "savedAt": "2026-08-06T09:16:49.726Z"
       },
       {
         "namaAudit": "Stock Opname Warehouse",
@@ -3638,7 +3638,7 @@
             "data": "https://raw.githubusercontent.com/pinuspackindo-ai/pinuspackindo-okr/data/uploads/internal_audit/1785821975916_1hkiab_whause.png"
           }
         ],
-        "savedAt": "2026-08-05T07:54:58.056Z"
+        "savedAt": "2026-08-06T09:16:51.342Z"
       },
       {
         "namaAudit": "Purchasing",
@@ -3652,7 +3652,7 @@
             "data": "https://raw.githubusercontent.com/pinuspackindo-ai/pinuspackindo-okr/data/uploads/internal_audit/1785821988076_8zv8jj_purchase.png"
           }
         ],
-        "savedAt": "2026-08-05T07:54:59.480Z"
+        "savedAt": "2026-08-06T09:16:53.046Z"
       },
       {
         "namaAudit": "Inventory",
@@ -3666,7 +3666,7 @@
             "data": "https://raw.githubusercontent.com/pinuspackindo-ai/pinuspackindo-okr/data/uploads/internal_audit/1785822000425_cng7tt_inevntory.png"
           }
         ],
-        "savedAt": "2026-08-05T07:55:00.736Z"
+        "savedAt": "2026-08-06T09:16:54.246Z"
       },
       {
         "namaAudit": "Default Diary",
@@ -3680,7 +3680,7 @@
             "data": "https://raw.githubusercontent.com/pinuspackindo-ai/pinuspackindo-okr/data/uploads/internal_audit/1785822011249_eg8c1x_dd.png"
           }
         ],
-        "savedAt": "2026-08-05T07:55:02.039Z"
+        "savedAt": "2026-08-06T09:16:55.782Z"
       },
       {
         "namaAudit": "Cartrack",
@@ -3694,7 +3694,7 @@
             "data": null
           }
         ],
-        "savedAt": "2026-08-05T07:55:03.327Z"
+        "savedAt": "2026-08-06T09:16:57.214Z"
       }
     ]
   },
@@ -3739,7 +3739,7 @@
             "data": "https://raw.githubusercontent.com/pinuspackindo-ai/pinuspackindo-okr/data/uploads/internal_audit/1785822084456_x51mkc_so2.png"
           }
         ],
-        "savedAt": "2026-08-05T07:53:11.464Z"
+        "savedAt": "2026-08-06T09:17:03.366Z"
       },
       {
         "deadline": "2026-07-12",
@@ -3754,7 +3754,7 @@
             "data": "https://raw.githubusercontent.com/pinuspackindo-ai/pinuspackindo-okr/data/uploads/internal_audit/1785822130825_skw7wi_k2.png"
           }
         ],
-        "savedAt": "2026-08-05T07:53:13.072Z"
+        "savedAt": "2026-08-06T09:17:04.694Z"
       },
       {
         "deadline": "2026-07-19",
@@ -3769,7 +3769,7 @@
             "data": "https://raw.githubusercontent.com/pinuspackindo-ai/pinuspackindo-okr/data/uploads/internal_audit/1785822153504_85lbv3_k3.png"
           }
         ],
-        "savedAt": "2026-08-05T07:53:14.624Z"
+        "savedAt": "2026-08-06T09:17:06.157Z"
       },
       {
         "deadline": "2026-07-26",
@@ -3788,7 +3788,7 @@
             "data": "https://raw.githubusercontent.com/pinuspackindo-ai/pinuspackindo-okr/data/uploads/internal_audit/1785822211662_041sqp_k4.png"
           }
         ],
-        "savedAt": "2026-08-05T07:53:16.357Z"
+        "savedAt": "2026-08-06T09:17:07.974Z"
       }
     ]
   },
@@ -3920,7 +3920,7 @@
         "tujuan": "Untuk mempermudah penngiriman slip gaji",
         "evidence": "https://raw.githubusercontent.com/pinuspackindo-ai/pinuspackindo-okr/data/uploads/internal_audit/1785822652331_h98p03_slip_gaji.png",
         "evidenceName": "slip gaji.png",
-        "locked": true,
+        "locked": false,
         "evidences": [
           {
             "name": "slip gaji.png",
@@ -4537,7 +4537,7 @@
           "objective": "Melindungi dan mengawasi sistem internal berbasis dari resiko yg timbul.",
           "keyResult": "Tingkat implementasi rekomendasi audit",
           "target": 100,
-          "actual": null,
+          "actual": 100,
           "bobot": 45
         },
         {
@@ -4545,7 +4545,7 @@
           "objective": "Melindungi dan mengawasi sistem internal berbasis dari resiko yg timbul.",
           "keyResult": "Laporan audit akurat dan on time",
           "target": 100,
-          "actual": null,
+          "actual": 100,
           "bobot": 35
         },
         {
@@ -8120,5 +8120,5 @@
       }
     ]
   },
-  "_ts": 1786007828622
+  "_ts": 1786007833046
 }
