@@ -3617,14 +3617,14 @@
         "score": "100",
         "evidence": "https://raw.githubusercontent.com/pinuspackindo-ai/pinuspackindo-okr/data/uploads/internal_audit/1785822001881_gncnz4_store.png",
         "evidenceName": "store.png",
-        "locked": false,
+        "locked": true,
         "evidences": [
           {
             "name": "store.png",
             "data": "https://raw.githubusercontent.com/pinuspackindo-ai/pinuspackindo-okr/data/uploads/internal_audit/1785821965532_2xg7a5_store.png"
           }
         ],
-        "savedAt": "2026-08-05T07:54:56.479Z"
+        "savedAt": "2026-08-06T09:16:49.726Z"
       },
       {
         "namaAudit": "Stock Opname Warehouse",
@@ -8120,5 +8120,5 @@
       }
     ]
   },
-  "_ts": 1786007808894
+  "_ts": 1786007809726
 }
