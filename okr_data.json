@@ -4625,7 +4625,7 @@
     "Store": {
       "rows": [
         {
-          "id": "r1783922585494bud9",
+          "id": "r1785996667125qtt8",
           "objective": "Mencapai target penjualan, stok akurat, pelanggan puas, operasional sesuai SOP.",
           "keyResult": "Jumlah omset",
           "target": 3040000000,
@@ -4633,7 +4633,7 @@
           "bobot": 30
         },
         {
-          "id": "r1783922585494hg3u",
+          "id": "r17859966671252drf",
           "objective": "Mencapai target penjualan, stok akurat, pelanggan puas, operasional sesuai SOP.",
           "keyResult": "Tingkat akurasi stok fisik vs data",
           "target": 80,
@@ -4641,7 +4641,7 @@
           "bobot": 25
         },
         {
-          "id": "r1783922585494htn7",
+          "id": "r1785996667125o12d",
           "objective": "Mencapai target penjualan, stok akurat, pelanggan puas, operasional sesuai SOP.",
           "keyResult": "Score kepuasan pelanggan",
           "target": 90,
@@ -4649,16 +4649,24 @@
           "bobot": 20
         },
         {
-          "id": "r1783922585494ii2k",
+          "id": "r1785996667125hwy6",
           "objective": "Mencapai target penjualan, stok akurat, pelanggan puas, operasional sesuai SOP.",
           "keyResult": "Tingkat implementasi rekomendasi audit",
           "target": 100,
           "actual": 100,
           "bobot": 10
+        },
+        {
+          "id": "r1785996667125ntqq",
+          "objective": "Mencapai target penjualan, stok akurat, pelanggan puas, operasional sesuai SOP.",
+          "keyResult": "Kedisiplinan & kepatuhan",
+          "target": 95,
+          "actual": null,
+          "bobot": 15
         }
       ],
-      "actionPlan": "Planning acara chef Avian",
-      "savedAt": "2026-07-13T06:03:05.494Z"
+      "actionPlan": "",
+      "savedAt": "2026-08-06T06:11:07.125Z"
     },
     "Warehouse": {
       "rows": [
@@ -8167,5 +8175,5 @@
     "savedAt": "2026-08-06T03:19:36.242Z",
     "locked": true
   },
-  "_ts": 1785996615124
+  "_ts": 1785996667125
 }
