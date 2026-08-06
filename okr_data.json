@@ -3659,14 +3659,14 @@
         "score": "100",
         "evidence": "https://raw.githubusercontent.com/pinuspackindo-ai/pinuspackindo-okr/data/uploads/internal_audit/1785822017724_nbalvu_inevntory.png",
         "evidenceName": "inevntory.png",
-        "locked": false,
+        "locked": true,
         "evidences": [
           {
             "name": "inevntory.png",
             "data": "https://raw.githubusercontent.com/pinuspackindo-ai/pinuspackindo-okr/data/uploads/internal_audit/1785822000425_cng7tt_inevntory.png"
           }
         ],
-        "savedAt": "2026-08-05T07:55:00.736Z"
+        "savedAt": "2026-08-06T09:16:54.246Z"
       },
       {
         "namaAudit": "Default Diary",
@@ -8120,5 +8120,5 @@
       }
     ]
   },
-  "_ts": 1786007813694
+  "_ts": 1786007814270
 }
