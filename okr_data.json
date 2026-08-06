@@ -1,5 +1,4 @@
 {
-  "_ts": 1786007375961,
   "_userAccess": {
     "Finance & Accounting": {
       "modules": [
@@ -8089,7 +8088,7 @@
     "akurasiEv": "https://raw.githubusercontent.com/pinuspackindo-ai/pinuspackindo-okr/data/uploads/inventory/1786006854746_1qb4yg_Screenshot_2026-08-06_152604.png",
     "akurasiEvName": "Screenshot 2026-08-06 152604.png",
     "ontimeDate": "2026-08-05",
-    "ontimeEv": null,
+    "ontimeEv": "https://raw.githubusercontent.com/pinuspackindo-ai/pinuspackindo-okr/data/uploads/inventory/1786007378273_w7cl6i_Screenshot_2026-08-06_152604.png",
     "ontimeEvName": "Screenshot 2026-08-06 152604.png",
     "akurasiScore": 100,
     "ontimeScore": 100,
@@ -8108,5 +8107,6 @@
         "data": "https://raw.githubusercontent.com/pinuspackindo-ai/pinuspackindo-okr/data/uploads/inventory/1786007360508_yepc10_Screenshot_2026-08-06_152604.png"
       }
     ]
-  }
+  },
+  "_ts": 1786007377241
 }
