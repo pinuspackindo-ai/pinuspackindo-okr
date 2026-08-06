@@ -6340,54 +6340,6 @@
             "data": null
           }
         ]
-      },
-      {
-        "jabatan": "STAFF",
-        "namaRequest": "STAFF GA OFFICER",
-        "tglRequest": "2026-06-16",
-        "deadline": "2026-07-16",
-        "realisasi": "2026-07-22",
-        "evidence": null,
-        "evidenceName": "Surat Penawaran Kerja -Arif Prabowo.docx (1).pdf",
-        "editing": false,
-        "evidences": [
-          {
-            "name": "Surat Penawaran Kerja -Arif Prabowo.docx (1).pdf",
-            "data": null
-          }
-        ]
-      },
-      {
-        "jabatan": "STAFF",
-        "namaRequest": "ACCOUNT PAYABLE",
-        "tglRequest": "2026-06-16",
-        "deadline": "2026-07-16",
-        "realisasi": "2026-07-15",
-        "evidence": null,
-        "evidenceName": "Surat Penawaran Kerja -Vica Sukmatama (AP) .docx.pdf",
-        "editing": false,
-        "evidences": [
-          {
-            "name": "Surat Penawaran Kerja -Vica Sukmatama (AP) .docx.pdf",
-            "data": null
-          }
-        ]
-      },
-      {
-        "jabatan": "STAFF",
-        "namaRequest": "OFFICE BOY",
-        "tglRequest": "2026-07-10",
-        "deadline": "2026-08-09",
-        "realisasi": "2026-07-29",
-        "evidence": null,
-        "evidenceName": "OJT ALI MAHMUDI_20260729_0001.pdf",
-        "editing": false,
-        "evidences": [
-          {
-            "name": "OJT ALI MAHMUDI_20260729_0001.pdf",
-            "data": null
-          }
-        ]
       }
     ],
     "savedAt": "2026-07-15T07:20:17.341Z"
@@ -8156,6 +8108,7 @@
       }
     ]
   },
+  "_ts": 1786009102002,
   "_inv_rn_do_2026_08_04": {
     "value": 95.45,
     "evidence": "https://raw.githubusercontent.com/pinuspackindo-ai/pinuspackindo-okr/data/uploads/inventory/1785981578882_1jfhj9_WhatsApp_Image_2026-08-04_at_17.22.43.jpeg",
@@ -8286,6 +8239,5 @@
         "data": "https://raw.githubusercontent.com/pinuspackindo-ai/pinuspackindo-okr/data/uploads/inventory/1786008363143_rqqh21_WhatsApp_Image_2026-08-06_at_16.11.20.jpeg"
       }
     ]
-  },
-  "_ts": 1786008836763
+  }
 }
