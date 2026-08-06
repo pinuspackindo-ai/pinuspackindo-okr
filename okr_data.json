@@ -3617,7 +3617,7 @@
         "score": "100",
         "evidence": "https://raw.githubusercontent.com/pinuspackindo-ai/pinuspackindo-okr/data/uploads/internal_audit/1785822001881_gncnz4_store.png",
         "evidenceName": "store.png",
-        "locked": true,
+        "locked": false,
         "evidences": [
           {
             "name": "store.png",
@@ -8120,5 +8120,5 @@
       }
     ]
   },
-  "_ts": 1786007808102
+  "_ts": 1786007808894
 }
