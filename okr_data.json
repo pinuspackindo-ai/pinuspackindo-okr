@@ -3631,21 +3631,21 @@
         "score": "100",
         "evidence": "https://raw.githubusercontent.com/pinuspackindo-ai/pinuspackindo-okr/data/uploads/internal_audit/1785821974081_fwjgue_whause.png",
         "evidenceName": "whause.png",
-        "locked": false,
+        "locked": true,
         "evidences": [
           {
             "name": "whause.png",
             "data": "https://raw.githubusercontent.com/pinuspackindo-ai/pinuspackindo-okr/data/uploads/internal_audit/1785821975916_1hkiab_whause.png"
           }
         ],
-        "savedAt": "2026-08-05T07:54:58.056Z"
+        "savedAt": "2026-08-06T09:16:51.342Z"
       },
       {
         "namaAudit": "Purchasing",
         "score": "100",
         "evidence": "https://raw.githubusercontent.com/pinuspackindo-ai/pinuspackindo-okr/data/uploads/internal_audit/1785821986223_h6r5ge_purchase.png",
         "evidenceName": "purchase.png",
-        "locked": true,
+        "locked": false,
         "evidences": [
           {
             "name": "purchase.png",
@@ -8120,5 +8120,5 @@
       }
     ]
   },
-  "_ts": 1786007810752
+  "_ts": 1786007812310
 }
