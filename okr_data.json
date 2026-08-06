@@ -3586,7 +3586,7 @@
             "data": "https://raw.githubusercontent.com/pinuspackindo-ai/pinuspackindo-okr/data/uploads/internal_audit/1783052098809_smll3u_Bukti.png"
           }
         ],
-        "savedAt": "2026-07-03T04:14:57.955Z"
+        "savedAt": "2026-08-05T07:54:55.171Z"
       },
       {
         "namaAudit": "Stock Opname Store",
@@ -3600,7 +3600,7 @@
             "data": "https://raw.githubusercontent.com/pinuspackindo-ai/pinuspackindo-okr/data/uploads/internal_audit/1785821965532_2xg7a5_store.png"
           }
         ],
-        "savedAt": "2026-08-04T05:39:23.334Z"
+        "savedAt": "2026-08-05T07:54:56.479Z"
       },
       {
         "namaAudit": "Stock Opname Warehouse",
@@ -3614,7 +3614,7 @@
             "data": "https://raw.githubusercontent.com/pinuspackindo-ai/pinuspackindo-okr/data/uploads/internal_audit/1785821975916_1hkiab_whause.png"
           }
         ],
-        "savedAt": "2026-08-04T05:39:33.942Z"
+        "savedAt": "2026-08-05T07:54:58.056Z"
       },
       {
         "namaAudit": "Purchasing",
@@ -3628,7 +3628,7 @@
             "data": "https://raw.githubusercontent.com/pinuspackindo-ai/pinuspackindo-okr/data/uploads/internal_audit/1785821988076_8zv8jj_purchase.png"
           }
         ],
-        "savedAt": "2026-08-04T05:39:46.054Z"
+        "savedAt": "2026-08-05T07:54:59.480Z"
       },
       {
         "namaAudit": "Inventory",
@@ -3642,7 +3642,7 @@
             "data": "https://raw.githubusercontent.com/pinuspackindo-ai/pinuspackindo-okr/data/uploads/internal_audit/1785822000425_cng7tt_inevntory.png"
           }
         ],
-        "savedAt": "2026-08-04T05:39:59.942Z"
+        "savedAt": "2026-08-05T07:55:00.736Z"
       },
       {
         "namaAudit": "Default Diary",
@@ -3656,7 +3656,7 @@
             "data": "https://raw.githubusercontent.com/pinuspackindo-ai/pinuspackindo-okr/data/uploads/internal_audit/1785822011249_eg8c1x_dd.png"
           }
         ],
-        "savedAt": "2026-08-04T05:40:09.054Z"
+        "savedAt": "2026-08-05T07:55:02.039Z"
       },
       {
         "namaAudit": "Cartrack",
@@ -3670,7 +3670,7 @@
             "data": null
           }
         ],
-        "savedAt": "2026-08-04T05:40:15.557Z"
+        "savedAt": "2026-08-05T07:55:03.327Z"
       }
     ]
   },
@@ -3715,7 +3715,7 @@
             "data": "https://raw.githubusercontent.com/pinuspackindo-ai/pinuspackindo-okr/data/uploads/internal_audit/1785822084456_x51mkc_so2.png"
           }
         ],
-        "savedAt": "2026-08-04T05:41:22.245Z"
+        "savedAt": "2026-08-05T07:53:11.464Z"
       },
       {
         "deadline": "2026-07-12",
@@ -3730,7 +3730,7 @@
             "data": "https://raw.githubusercontent.com/pinuspackindo-ai/pinuspackindo-okr/data/uploads/internal_audit/1785822130825_skw7wi_k2.png"
           }
         ],
-        "savedAt": "2026-08-04T05:41:51.462Z"
+        "savedAt": "2026-08-05T07:53:13.072Z"
       },
       {
         "deadline": "2026-07-19",
@@ -3745,7 +3745,7 @@
             "data": "https://raw.githubusercontent.com/pinuspackindo-ai/pinuspackindo-okr/data/uploads/internal_audit/1785822153504_85lbv3_k3.png"
           }
         ],
-        "savedAt": "2026-08-04T05:42:08.629Z"
+        "savedAt": "2026-08-05T07:53:14.624Z"
       },
       {
         "deadline": "2026-07-26",
@@ -3764,7 +3764,7 @@
             "data": "https://raw.githubusercontent.com/pinuspackindo-ai/pinuspackindo-okr/data/uploads/internal_audit/1785822211662_041sqp_k4.png"
           }
         ],
-        "savedAt": "2026-08-04T05:43:31.989Z"
+        "savedAt": "2026-08-05T07:53:16.357Z"
       }
     ]
   },
@@ -3903,7 +3903,7 @@
             "data": "https://raw.githubusercontent.com/pinuspackindo-ai/pinuspackindo-okr/data/uploads/internal_audit/1785822650644_2947mr_slip_gaji.png"
           }
         ],
-        "savedAt": "2026-08-04T05:50:50.364Z"
+        "savedAt": "2026-08-05T07:52:49.024Z"
       },
       {
         "namaProject": "Tools Analisa HPP (procurement.pinuspackindo.com)",
@@ -3917,7 +3917,7 @@
             "data": "https://raw.githubusercontent.com/pinuspackindo-ai/pinuspackindo-okr/data/uploads/internal_audit/1785822724037_pllp6m_hpp.png"
           }
         ],
-        "savedAt": "2026-08-04T05:52:02.875Z"
+        "savedAt": "2026-08-05T07:52:51.879Z"
       },
       {
         "namaProject": "Portal Inventaris Part 1 (inventaris.pinuspackindo.com)",
@@ -3931,7 +3931,7 @@
             "data": "https://raw.githubusercontent.com/pinuspackindo-ai/pinuspackindo-okr/data/uploads/internal_audit/1785822840732_xsgbvi_inventaris.png"
           }
         ],
-        "savedAt": "2026-08-04T05:53:59.947Z"
+        "savedAt": "2026-08-05T07:52:54.152Z"
       }
     ]
   },
@@ -4468,7 +4468,7 @@
           "objective": "Membangun dan menjaga SDM yg kompeten, disiplin, produktif, inisiatif, guna mendukung perusahaan berkembang.",
           "keyResult": "Tingkat kedisiplinan karyawan",
           "target": 90,
-          "actual": null,
+          "actual": 97.7,
           "bobot": 30
         },
         {
@@ -4484,7 +4484,7 @@
           "objective": "Membangun dan menjaga SDM yg kompeten, disiplin, produktif, inisiatif, guna mendukung perusahaan berkembang.",
           "keyResult": "Akurasi & ketepatan waktu administrasi HR",
           "target": 95,
-          "actual": null,
+          "actual": 98,
           "bobot": 20
         },
         {
@@ -4529,7 +4529,7 @@
           "objective": "Melindungi dan mengawasi sistem internal berbasis dari resiko yg timbul.",
           "keyResult": "Jumlah inisiatif proaktif",
           "target": 2,
-          "actual": 0,
+          "actual": 3,
           "bobot": 20
         }
       ],
@@ -4587,7 +4587,7 @@
           "objective": "Pengadaan stok tepat waktu dan berkwalitas, administrasi akurat..",
           "keyResult": "Tingkat akurasi PO",
           "target": 95,
-          "actual": 32.67,
+          "actual": 77.65,
           "bobot": 30
         },
         {
@@ -5978,7 +5978,7 @@
         "src": "tal_avg"
       }
     ],
-    "savedAt": "2026-08-02T12:21:45.297Z"
+    "savedAt": "2026-08-05T08:04:04.461Z"
   },
   "_p_apo_2026_07": {
     "file1": "https://raw.githubusercontent.com/pinuspackindo-ai/pinuspackindo-okr/data/uploads/purchasing/1785825212476_j6xbex_purchase.order.line.xlsx",
@@ -7921,7 +7921,7 @@
             "data": "https://raw.githubusercontent.com/pinuspackindo-ai/pinuspackindo-okr/data/uploads/internal_audit/1785822250802_2h94mp_so1.png"
           }
         ],
-        "savedAt": "2026-08-04T05:44:08.549Z"
+        "savedAt": "2026-08-05T07:53:20.655Z"
       },
       {
         "deadline": "2026-07-14",
@@ -7936,7 +7936,7 @@
             "data": "https://raw.githubusercontent.com/pinuspackindo-ai/pinuspackindo-okr/data/uploads/internal_audit/1785822265866_snr17s_soo2.png"
           }
         ],
-        "savedAt": "2026-08-04T05:44:23.541Z"
+        "savedAt": "2026-08-05T07:53:22.063Z"
       },
       {
         "deadline": "2026-07-21",
@@ -7951,7 +7951,7 @@
             "data": "https://raw.githubusercontent.com/pinuspackindo-ai/pinuspackindo-okr/data/uploads/internal_audit/1785822286460_36f84r_so3.png"
           }
         ],
-        "savedAt": "2026-08-04T05:44:46.854Z"
+        "savedAt": "2026-08-05T07:53:24.167Z"
       },
       {
         "deadline": "2026-07-28",
@@ -7966,7 +7966,7 @@
             "data": "https://raw.githubusercontent.com/pinuspackindo-ai/pinuspackindo-okr/data/uploads/internal_audit/1785822351902_4l98nm_so4.png"
           }
         ],
-        "savedAt": "2026-08-04T05:45:09.221Z"
+        "savedAt": "2026-08-05T07:53:25.911Z"
       }
     ]
   },
@@ -7985,7 +7985,7 @@
             "data": "https://raw.githubusercontent.com/pinuspackindo-ai/pinuspackindo-okr/data/uploads/internal_audit/1785822369756_v41brb_default.png"
           }
         ],
-        "savedAt": "2026-08-04T05:45:49.708Z"
+        "savedAt": "2026-08-05T07:54:28.639Z"
       }
     ]
   },
@@ -8004,7 +8004,7 @@
             "data": "https://raw.githubusercontent.com/pinuspackindo-ai/pinuspackindo-okr/data/uploads/internal_audit/1785822669242_gjrgtl_cartrack.png"
           }
         ],
-        "savedAt": "2026-08-04T05:46:03.869Z"
+        "savedAt": "2026-08-05T07:54:43.711Z"
       }
     ]
   },
@@ -8012,7 +8012,7 @@
     "value": 97.4,
     "evidence": "https://raw.githubusercontent.com/pinuspackindo-ai/pinuspackindo-okr/data/uploads/inventory/1785823422031_we1pbw_Screenshot_2026-08-04_130259.png",
     "evidenceName": "Screenshot 2026-08-04 130259.png",
-    "savedAt": "2026-08-04T06:03:30.014Z",
+    "savedAt": "2026-08-05T07:59:37.286Z",
     "locked": true,
     "evidences": [
       {
@@ -8025,7 +8025,7 @@
     "value": 84.06,
     "evidence": "https://raw.githubusercontent.com/pinuspackindo-ai/pinuspackindo-okr/data/uploads/inventory/1785823507179_dujclz_Screenshot_2026-08-04_130444.png",
     "evidenceName": "Screenshot 2026-08-04 130444.png",
-    "savedAt": "2026-08-04T06:05:06.546Z",
+    "savedAt": "2026-08-05T07:59:08.422Z",
     "locked": true,
     "evidences": [
       {
@@ -8034,7 +8034,6 @@
       }
     ]
   },
-  "_ts": 1785979600839,
   "_p_ins_2026_08_04": {
     "file1": "https://raw.githubusercontent.com/pinuspackindo-ai/pinuspackindo-okr/data/uploads/purchasing/1785896746288_ns0elv_product.product.xlsx",
     "file1Name": "product.product.xlsx",
@@ -8050,5 +8049,32 @@
     "score": 98.5,
     "savedAt": "2026-08-05T02:27:36.899Z",
     "locked": true
-  }
+  },
+  "_inv_akurasi_i_2026_06": {
+    "value": 86.37,
+    "evidence": "https://raw.githubusercontent.com/pinuspackindo-ai/pinuspackindo-okr/data/uploads/inventory/1785916739041_okru61_Pinus.jpg",
+    "evidenceName": "Pinus.jpg",
+    "savedAt": "2026-08-05T07:58:59.679Z",
+    "locked": true,
+    "evidences": [
+      {
+        "name": "Pinus.jpg",
+        "data": "https://raw.githubusercontent.com/pinuspackindo-ai/pinuspackindo-okr/data/uploads/inventory/1785916744095_lfw26c_Pinus.jpg"
+      }
+    ]
+  },
+  "_inv_inputan_i_2026_06": {
+    "value": 96.6,
+    "evidence": null,
+    "evidenceName": "Pinus.jpg",
+    "savedAt": "2026-08-05T07:59:48.630Z",
+    "locked": true,
+    "evidences": [
+      {
+        "name": "Pinus.jpg",
+        "data": "https://raw.githubusercontent.com/pinuspackindo-ai/pinuspackindo-okr/data/uploads/inventory/1785916787755_y6w3md_Pinus.jpg"
+      }
+    ]
+  },
+  "_ts": 1785979602077
 }
