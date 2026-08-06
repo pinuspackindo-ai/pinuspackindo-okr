@@ -7327,10 +7327,10 @@
         "tal": "Vakum marketplace KECUALI sku obralan",
         "deadline": "2026-08-05",
         "bobot": 15,
-        "progress": null,
+        "progress": 100,
         "review": "",
         "editing": false,
-        "savedAt": "2026-08-02T06:50:58.890Z"
+        "savedAt": "2026-08-06T13:34:10.731Z"
       },
       {
         "tal": "peralihan salah satu SA ke fery",
@@ -7342,7 +7342,7 @@
         "savedAt": "2026-08-02T06:51:03.090Z"
       }
     ],
-    "savedAt": "2026-08-06T13:34:02.293Z"
+    "savedAt": "2026-08-06T13:34:10.731Z"
   },
   "_tal_d2_2026_08": {
     "rows": [
@@ -8239,5 +8239,5 @@
       }
     ]
   },
-  "_ts": 1786023242293
+  "_ts": 1786023250731
 }
