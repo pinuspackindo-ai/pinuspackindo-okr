@@ -3920,14 +3920,14 @@
         "tujuan": "Untuk mempermudah penngiriman slip gaji",
         "evidence": "https://raw.githubusercontent.com/pinuspackindo-ai/pinuspackindo-okr/data/uploads/internal_audit/1785822652331_h98p03_slip_gaji.png",
         "evidenceName": "slip gaji.png",
-        "locked": false,
+        "locked": true,
         "evidences": [
           {
             "name": "slip gaji.png",
             "data": "https://raw.githubusercontent.com/pinuspackindo-ai/pinuspackindo-okr/data/uploads/internal_audit/1785822650644_2947mr_slip_gaji.png"
           }
         ],
-        "savedAt": "2026-08-05T07:52:49.024Z"
+        "savedAt": "2026-08-06T09:17:14.511Z"
       },
       {
         "namaProject": "Tools Analisa HPP (procurement.pinuspackindo.com)",
@@ -8120,5 +8120,5 @@
       }
     ]
   },
-  "_ts": 1786007833046
+  "_ts": 1786007834537
 }
