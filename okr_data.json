@@ -7978,5 +7978,68 @@
       }
     ]
   },
-  "_ts": 1785982207349
+  "_ts": 1785982208423,
+  "_inv_rn_do_2026_08_04": {
+    "value": 95.45,
+    "evidence": "https://raw.githubusercontent.com/pinuspackindo-ai/pinuspackindo-okr/data/uploads/inventory/1785981578882_1jfhj9_WhatsApp_Image_2026-08-04_at_17.22.43.jpeg",
+    "evidenceName": "WhatsApp Image 2026-08-04 at 17.22.43.jpeg",
+    "savedAt": "2026-08-06T01:59:36.406Z",
+    "locked": true,
+    "evidences": [
+      {
+        "name": "WhatsApp Image 2026-08-04 at 17.22.43.jpeg",
+        "data": "https://raw.githubusercontent.com/pinuspackindo-ai/pinuspackindo-okr/data/uploads/inventory/1785981578306_axcof8_WhatsApp_Image_2026-08-04_at_17.22.43.jpeg"
+      },
+      {
+        "name": "WhatsApp Image 2026-08-04 at 17.51.57.jpeg",
+        "data": "https://raw.githubusercontent.com/pinuspackindo-ai/pinuspackindo-okr/data/uploads/inventory/1785981843726_gbxlr2_WhatsApp_Image_2026-08-04_at_17.51.57.jpeg"
+      },
+      {
+        "name": "WhatsApp Image 2026-08-04 at 17.50.30.jpeg",
+        "data": "https://raw.githubusercontent.com/pinuspackindo-ai/pinuspackindo-okr/data/uploads/inventory/1785981627754_o5tfqz_WhatsApp_Image_2026-08-04_at_17.50.30.jpeg"
+      }
+    ]
+  },
+  "_inv_rn_do_2026_08_05": {
+    "value": 95.45,
+    "evidence": "https://raw.githubusercontent.com/pinuspackindo-ai/pinuspackindo-okr/data/uploads/inventory/1785981754361_vb6e7v_WhatsApp_Image_2026-08-05_at_17.46.51.jpeg",
+    "evidenceName": "WhatsApp Image 2026-08-05 at 17.46.51.jpeg",
+    "savedAt": "2026-08-06T02:02:32.806Z",
+    "locked": true,
+    "evidences": [
+      {
+        "name": "WhatsApp Image 2026-08-05 at 17.46.51.jpeg",
+        "data": "https://raw.githubusercontent.com/pinuspackindo-ai/pinuspackindo-okr/data/uploads/inventory/1785981844787_njvgnk_WhatsApp_Image_2026-08-05_at_17.46.51.jpeg"
+      },
+      {
+        "name": "WhatsApp Image 2026-08-05 at 17.49.48.jpeg",
+        "data": "https://raw.githubusercontent.com/pinuspackindo-ai/pinuspackindo-okr/data/uploads/inventory/1785981755053_3cyaia_WhatsApp_Image_2026-08-05_at_17.49.48.jpeg"
+      },
+      {
+        "name": "WhatsApp Image 2026-08-05 at 17.48.38.jpeg",
+        "data": null
+      }
+    ]
+  },
+  "_inv_rn_do_2026_08_01": {
+    "value": 95.23,
+    "evidence": "https://raw.githubusercontent.com/pinuspackindo-ai/pinuspackindo-okr/data/uploads/inventory/1785981845371_wlib98_WhatsApp_Image_2026-08-01_at_15.58.03.jpeg",
+    "evidenceName": "WhatsApp Image 2026-08-01 at 15.58.03.jpeg",
+    "savedAt": "2026-08-06T02:04:02.266Z",
+    "locked": true,
+    "evidences": [
+      {
+        "name": "WhatsApp Image 2026-08-01 at 15.58.03.jpeg",
+        "data": null
+      },
+      {
+        "name": "WhatsApp Image 2026-08-01 at 15.56.25.jpeg",
+        "data": null
+      },
+      {
+        "name": "WhatsApp Image 2026-08-01 at 15.33.50.jpeg",
+        "data": null
+      }
+    ]
+  }
 }
