@@ -4516,7 +4516,7 @@
           "objective": "Membangun dan menjaga SDM yg kompeten, disiplin, produktif, inisiatif, guna mendukung perusahaan berkembang.",
           "keyResult": "Ketepatan waktu rekrutment",
           "target": 85,
-          "actual": 92.88,
+          "actual": null,
           "bobot": 15
         },
         {
@@ -7318,19 +7318,19 @@
         "tal": "Running target kasir \"akurasi transaksi\"",
         "deadline": "2026-08-05",
         "bobot": 20,
-        "progress": null,
+        "progress": 100,
         "review": "",
         "editing": false,
-        "savedAt": "2026-08-02T06:51:00.857Z"
+        "savedAt": "2026-08-06T13:34:02.293Z"
       },
       {
         "tal": "Vakum marketplace KECUALI sku obralan",
         "deadline": "2026-08-05",
         "bobot": 15,
-        "progress": null,
+        "progress": 100,
         "review": "",
         "editing": false,
-        "savedAt": "2026-08-02T06:50:58.890Z"
+        "savedAt": "2026-08-06T13:34:10.731Z"
       },
       {
         "tal": "peralihan salah satu SA ke fery",
@@ -7342,7 +7342,7 @@
         "savedAt": "2026-08-02T06:51:03.090Z"
       }
     ],
-    "savedAt": "2026-08-02T06:51:03.090Z"
+    "savedAt": "2026-08-06T13:34:10.731Z"
   },
   "_tal_d2_2026_08": {
     "rows": [
@@ -8108,7 +8108,6 @@
       }
     ]
   },
-  "_ts": 1786064419313,
   "_inv_rn_do_2026_08_04": {
     "value": 95.45,
     "evidence": "https://raw.githubusercontent.com/pinuspackindo-ai/pinuspackindo-okr/data/uploads/inventory/1785981578882_1jfhj9_WhatsApp_Image_2026-08-04_at_17.22.43.jpeg",
@@ -8196,10 +8195,10 @@
       0,
       0
     ],
-    "akurasiEv": "https://raw.githubusercontent.com/pinuspackindo-ai/pinuspackindo-okr/data/uploads/inventory/1786006854746_1qb4yg_Screenshot_2026-08-06_152604.png",
+    "akurasiEv": "https://raw.githubusercontent.com/pinuspackindo-ai/pinuspackindo-okr/data/uploads/inventory/1786005693163_pu601e_Screenshot_2026-08-06_152604.png",
     "akurasiEvName": "Screenshot 2026-08-06 152604.png",
     "ontimeDate": "2026-08-05",
-    "ontimeEv": "https://raw.githubusercontent.com/pinuspackindo-ai/pinuspackindo-okr/data/uploads/inventory/1786007378273_w7cl6i_Screenshot_2026-08-06_152604.png",
+    "ontimeEv": "https://raw.githubusercontent.com/pinuspackindo-ai/pinuspackindo-okr/data/uploads/inventory/1786024808464_7hqbbv_Screenshot_2026-08-06_152604.png",
     "ontimeEvName": "Screenshot 2026-08-06 152604.png",
     "akurasiScore": 100,
     "ontimeScore": 100,
@@ -8215,7 +8214,7 @@
     "akurasiEvs": [
       {
         "name": "Screenshot 2026-08-06 152604.png",
-        "data": "https://raw.githubusercontent.com/pinuspackindo-ai/pinuspackindo-okr/data/uploads/inventory/1786007360508_yepc10_Screenshot_2026-08-06_152604.png"
+        "data": "https://raw.githubusercontent.com/pinuspackindo-ai/pinuspackindo-okr/data/uploads/inventory/1786064421972_w8wrze_Screenshot_2026-08-06_152604.png"
       }
     ]
   },
@@ -8239,5 +8238,6 @@
         "data": "https://raw.githubusercontent.com/pinuspackindo-ai/pinuspackindo-okr/data/uploads/inventory/1786008363143_rqqh21_WhatsApp_Image_2026-08-06_at_16.11.20.jpeg"
       }
     ]
-  }
+  },
+  "_ts": 1786064421075
 }
