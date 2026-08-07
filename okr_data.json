@@ -7433,17 +7433,8 @@
         "bobot": 40,
         "progress": null,
         "review": "",
-        "editing": false,
+        "editing": true,
         "savedAt": "2026-08-02T11:59:58.198Z"
-      },
-      {
-        "tal": "imbuhan akurasi outbound di spreadsheet kepulangan driver",
-        "deadline": "2026-08-31",
-        "bobot": 35,
-        "progress": null,
-        "review": "",
-        "editing": false,
-        "savedAt": "2026-08-02T11:59:49.499Z"
       },
       {
         "tal": "eksekusi pengadaan palet 40%",
@@ -7451,11 +7442,11 @@
         "bobot": 25,
         "progress": null,
         "review": "",
-        "editing": false,
+        "editing": true,
         "savedAt": "2026-08-06T02:14:04.178Z"
       }
     ],
-    "savedAt": "2026-08-06T02:14:04.178Z"
+    "savedAt": "2026-08-07T07:01:21.049Z"
   },
   "_tal_d11_2026_08": {
     "rows": [
@@ -8115,5 +8106,5 @@
       }
     ]
   },
-  "_ts": 1786086066529
+  "_ts": 1786086081049
 }
