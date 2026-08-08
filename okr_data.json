@@ -95,16 +95,12 @@
   "_deleted": {
     "_ga_rot_2026_06": 1783134158109,
     "_ga_rot_2026_07": 1783134170325,
-    "_fa_rot_2026_07": 1786155487231,
     "_p_sv_2026_07_30": 1785821600423,
     "_kpi_2026_06": 1785821600423,
     "_inv_rn_do_2026_05_06": 1785821290910,
-    "_inv_rn_do_2026_08_06": 1786155487231,
-    "_fa_rot_2026_08": 1786155487231,
-    "_fa_piutang_jt_2026_07": 1786155487231,
-    "_fa_akurasi_saldo_fa_2026_07": 1786155487231,
-    "_fa_akurasi_input_fa_2026_07": 1786155487231,
-    "_fa_impl_reko_fa_2026_07": 1786155487231
+    "_p_ins_2026_08_06": 1786176989238,
+    "_p_ins_2026_08_07": 1786176989238,
+    "_p_sv_2026_08_07": 1786176989238
   },
   "_okrLock": {
     "2026-05|Store": {
@@ -4447,7 +4443,7 @@
           "objective": "Data dan fisik uang akurat, transaksi tepat dan on time.",
           "keyResult": "Laporan keuangan akurat dan on time",
           "target": 98,
-          "actual": null,
+          "actual": 98.33,
           "bobot": 15
         },
         {
@@ -4543,7 +4539,7 @@
           "objective": "Melindungi dan mengawasi sistem internal berbasis dari resiko yg timbul.",
           "keyResult": "Tingkat implementasi rekomendasi audit",
           "target": 100,
-          "actual": 100,
+          "actual": null,
           "bobot": 45
         },
         {
@@ -4551,7 +4547,7 @@
           "objective": "Melindungi dan mengawasi sistem internal berbasis dari resiko yg timbul.",
           "keyResult": "Laporan audit akurat dan on time",
           "target": 100,
-          "actual": 100,
+          "actual": null,
           "bobot": 35
         },
         {
@@ -4572,7 +4568,7 @@
           "objective": "Stok akurat, persediaan optimal, biaya & waste minimal.",
           "keyResult": "Tingkat akurasi stok fisik vs data",
           "target": 75,
-          "actual": 84.06,
+          "actual": null,
           "bobot": 20
         },
         {
@@ -4588,7 +4584,7 @@
           "objective": "Stok akurat, persediaan optimal, biaya & waste minimal.",
           "keyResult": "Tingkat akurasi administrasi",
           "target": 98,
-          "actual": 97.4,
+          "actual": null,
           "bobot": 40
         },
         {
@@ -7294,7 +7290,7 @@
         "progress": 100,
         "review": "",
         "editing": false,
-        "savedAt": "2026-08-07T06:59:59.979Z"
+        "savedAt": "2026-08-06T13:34:02.293Z"
       },
       {
         "tal": "Vakum marketplace KECUALI sku obralan",
@@ -7303,7 +7299,7 @@
         "progress": 100,
         "review": "",
         "editing": false,
-        "savedAt": "2026-08-07T07:00:02.245Z"
+        "savedAt": "2026-08-06T13:34:10.731Z"
       },
       {
         "tal": "peralihan salah satu SA ke fery",
@@ -7315,7 +7311,7 @@
         "savedAt": "2026-08-02T06:51:03.090Z"
       }
     ],
-    "savedAt": "2026-08-07T07:00:02.245Z"
+    "savedAt": "2026-08-06T13:34:10.731Z"
   },
   "_tal_d2_2026_08": {
     "rows": [
@@ -7407,11 +7403,11 @@
         "bobot": 25,
         "progress": null,
         "review": "",
-        "editing": false,
-        "savedAt": "2026-08-07T07:01:06.529Z"
+        "editing": true,
+        "savedAt": "2026-08-02T07:24:14.339Z"
       }
     ],
-    "savedAt": "2026-08-07T07:01:06.529Z"
+    "savedAt": "2026-08-03T06:10:18.508Z"
   },
   "_tal_d9_2026_08": {
     "rows": [
@@ -7441,23 +7437,32 @@
       {
         "tal": "praktek meeting lintas divisi 2x sebulan",
         "deadline": "2026-08-31",
-        "bobot": 60,
-        "progress": null,
-        "review": "",
-        "editing": true,
-        "savedAt": "2026-08-07T07:01:33.345Z"
-      },
-      {
-        "tal": "eksekusi pengadaan palet 40%",
-        "deadline": "2026-08-31",
         "bobot": 40,
         "progress": null,
         "review": "",
         "editing": false,
-        "savedAt": "2026-08-07T07:01:39.313Z"
+        "savedAt": "2026-08-02T11:59:58.198Z"
+      },
+      {
+        "tal": "imbuhan akurasi outbound di spreadsheet kepulangan driver",
+        "deadline": "2026-08-31",
+        "bobot": 35,
+        "progress": null,
+        "review": "",
+        "editing": false,
+        "savedAt": "2026-08-02T11:59:49.499Z"
+      },
+      {
+        "tal": "eksekusi pengadaan palet 40%",
+        "deadline": "2026-08-31",
+        "bobot": 25,
+        "progress": null,
+        "review": "",
+        "editing": false,
+        "savedAt": "2026-08-06T02:14:04.178Z"
       }
     ],
-    "savedAt": "2026-08-07T07:01:39.313Z"
+    "savedAt": "2026-08-06T02:14:04.178Z"
   },
   "_tal_d11_2026_08": {
     "rows": [
@@ -7580,7 +7585,7 @@
           "objective": "Data dan fisik uang akurat, transaksi tepat dan on time.",
           "keyResult": "Laporan keuangan akurat dan on time",
           "target": 98,
-          "actual": null,
+          "actual": 98.33,
           "bobot": 15
         },
         {
@@ -7662,7 +7667,7 @@
           "objective": "Pengadaan stok tepat waktu dan berkwalitas, administrasi akurat.",
           "keyResult": "Tingkat in stock",
           "target": 98,
-          "actual": 98.26,
+          "actual": 98.33,
           "bobot": 40
         },
         {
@@ -8097,7 +8102,7 @@
     "akurasiEv": "https://raw.githubusercontent.com/pinuspackindo-ai/pinuspackindo-okr/data/uploads/inventory/1786006854746_1qb4yg_Screenshot_2026-08-06_152604.png",
     "akurasiEvName": "Screenshot 2026-08-06 152604.png",
     "ontimeDate": "2026-08-05",
-    "ontimeEv": "https://raw.githubusercontent.com/pinuspackindo-ai/pinuspackindo-okr/data/uploads/inventory/1786007378273_w7cl6i_Screenshot_2026-08-06_152604.png",
+    "ontimeEv": "https://raw.githubusercontent.com/pinuspackindo-ai/pinuspackindo-okr/data/uploads/inventory/1786024808464_7hqbbv_Screenshot_2026-08-06_152604.png",
     "ontimeEvName": "Screenshot 2026-08-06 152604.png",
     "akurasiScore": 100,
     "ontimeScore": 100,
@@ -8113,55 +8118,171 @@
     "akurasiEvs": [
       {
         "name": "Screenshot 2026-08-06 152604.png",
-        "data": "https://raw.githubusercontent.com/pinuspackindo-ai/pinuspackindo-okr/data/uploads/inventory/1786007360508_yepc10_Screenshot_2026-08-06_152604.png"
+        "data": null
       }
     ]
   },
-  "_p_ins_2026_08_06": {
-    "file1": "https://raw.githubusercontent.com/pinuspackindo-ai/pinuspackindo-okr/data/uploads/purchasing/1786091907438_qivaq9_product.product.xlsx",
-    "file1Name": "product.product.xlsx",
-    "file2": "https://raw.githubusercontent.com/pinuspackindo-ai/pinuspackindo-okr/data/uploads/purchasing/1786091919174_xghi49_product.product_1.xlsx",
-    "file2Name": "product.product (1).xlsx",
-    "file3": "https://raw.githubusercontent.com/pinuspackindo-ai/pinuspackindo-okr/data/uploads/purchasing/1786091908119_8f0dd1_purchase.order.line.xlsx",
-    "file3Name": "purchase.order.line.xlsx",
-    "users": {
-      "Arif Wibowo": 98.5,
-      "Adit Mohgat": 98.84,
-      "A'izatul Nafisah": 97.76
-    },
-    "score": 98.11,
-    "savedAt": "2026-08-07T08:38:37.741Z",
-    "locked": true
-  },
-  "_p_ins_2026_08_07": {
-    "file1": "https://raw.githubusercontent.com/pinuspackindo-ai/pinuspackindo-okr/data/uploads/purchasing/1786097215697_7kld7e_product.product.xlsx",
-    "file1Name": "product.product.xlsx",
-    "file2": "https://raw.githubusercontent.com/pinuspackindo-ai/pinuspackindo-okr/data/uploads/purchasing/1786091922589_lgalrr_product.product_1.xlsx",
-    "file2Name": "product.product (1).xlsx",
-    "file3": "https://raw.githubusercontent.com/pinuspackindo-ai/pinuspackindo-okr/data/uploads/purchasing/1786091920284_fcrn1c_purchase.order.line.xlsx",
-    "file3Name": "purchase.order.line.xlsx",
-    "users": {
-      "Arif Wibowo": 98.5,
-      "Adit Mohgat": 98.84,
-      "A'izatul Nafisah": 97.76
-    },
-    "score": 98.11,
-    "savedAt": "2026-08-07T08:38:41.213Z",
-    "locked": true
+  "_inv_rn_do_2026_08_06": {
+    "value": 95.45,
+    "evidence": "https://raw.githubusercontent.com/pinuspackindo-ai/pinuspackindo-okr/data/uploads/inventory/1786008526877_lc8u73_WhatsApp_Image_2026-08-06_at_16.24.25.jpeg",
+    "evidenceName": "WhatsApp Image 2026-08-06 at 16.24.25.jpeg",
+    "savedAt": "2026-08-06T09:26:01.479Z",
+    "locked": true,
+    "evidences": [
+      {
+        "name": "WhatsApp Image 2026-08-06 at 16.24.25.jpeg",
+        "data": null
+      },
+      {
+        "name": "WhatsApp Image 2026-08-06 at 16.24.05.jpeg",
+        "data": "https://raw.githubusercontent.com/pinuspackindo-ai/pinuspackindo-okr/data/uploads/inventory/1786008461857_ggpzks_WhatsApp_Image_2026-08-06_at_16.24.05.jpeg"
+      },
+      {
+        "name": "WhatsApp Image 2026-08-06 at 16.11.20.jpeg",
+        "data": "https://raw.githubusercontent.com/pinuspackindo-ai/pinuspackindo-okr/data/uploads/inventory/1786008363143_rqqh21_WhatsApp_Image_2026-08-06_at_16.11.20.jpeg"
+      }
+    ]
   },
   "_p_sv_2026_08_06": {
     "text": "KUAS KUE SILICONE, 5,954, 5,784; PENJEPIT MAKANAN, 6,975, 6,675; PISAU RODA PIZZA, 9,275, 9,180",
-    "evidence": "https://raw.githubusercontent.com/pinuspackindo-ai/pinuspackindo-okr/data/uploads/purchasing/1786151191885_rt6s3a_06.png",
+    "evidence": "https://raw.githubusercontent.com/pinuspackindo-ai/pinuspackindo-okr/data/uploads/purchasing/1786064849252_m38cd1_06.png",
     "evidenceName": "06.PNG",
-    "savedAt": "2026-08-08T01:06:47.849Z",
+    "savedAt": "2026-08-07T01:07:44.215Z",
     "locked": true
   },
-  "_p_sv_2026_08_07": {
-    "text": "SPORK KAYU, 5,258, 3,714",
-    "evidence": "https://raw.githubusercontent.com/pinuspackindo-ai/pinuspackindo-okr/data/uploads/purchasing/1786151205840_na7d45_07.png",
-    "evidenceName": "07.PNG",
-    "savedAt": "2026-08-08T01:07:00.241Z",
-    "locked": true
+  "_fa_rot_2026_08": {
+    "poin": [
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      1,
+      0
+    ],
+    "akurasiEv": "https://raw.githubusercontent.com/pinuspackindo-ai/pinuspackindo-okr/data/uploads/finance_accounting/1786065885848_0rx6u1_WhatsApp_Image_2026-08-07_at_08.20.00.jpeg",
+    "akurasiEvName": "WhatsApp Image 2026-08-07 at 08.20.00.jpeg",
+    "ontimeDate": "2026-08-04",
+    "ontimeEv": null,
+    "ontimeEvName": "WhatsApp Image 2026-08-07 at 08.21.01.jpeg",
+    "akurasiScore": 96.66666666666667,
+    "ontimeScore": 100,
+    "totalScore": 98.33333333333334,
+    "savedAt": "2026-08-07T01:23:58.451Z",
+    "locked": true,
+    "akurasiEvs": [
+      {
+        "name": "WhatsApp Image 2026-08-07 at 08.20.00.jpeg",
+        "data": "https://raw.githubusercontent.com/pinuspackindo-ai/pinuspackindo-okr/data/uploads/finance_accounting/1786065839152_apiy7a_WhatsApp_Image_2026-08-07_at_08.20.00.jpeg"
+      }
+    ],
+    "ontimeEvs": [
+      {
+        "name": "WhatsApp Image 2026-08-07 at 08.21.01.jpeg",
+        "data": "https://raw.githubusercontent.com/pinuspackindo-ai/pinuspackindo-okr/data/uploads/finance_accounting/1786065839703_paqg5l_WhatsApp_Image_2026-08-07_at_08.21.01.jpeg"
+      }
+    ]
   },
-  "_ts": 1786176985433
+  "_fa_rot_2026_07": {
+    "poin": [
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      1,
+      0
+    ],
+    "akurasiEv": "https://raw.githubusercontent.com/pinuspackindo-ai/pinuspackindo-okr/data/uploads/finance_accounting/1786066018903_gwxfxm_WhatsApp_Image_2026-08-07_at_08.20.00.jpeg",
+    "akurasiEvName": "WhatsApp Image 2026-08-07 at 08.20.00.jpeg",
+    "ontimeDate": "2026-08-04",
+    "ontimeEv": "https://raw.githubusercontent.com/pinuspackindo-ai/pinuspackindo-okr/data/uploads/finance_accounting/1786072417827_1lrhm2_WhatsApp_Image_2026-08-07_at_08.21.01.jpeg",
+    "ontimeEvName": "WhatsApp Image 2026-08-07 at 08.21.01.jpeg",
+    "akurasiScore": 96.66666666666667,
+    "ontimeScore": 100,
+    "totalScore": 98.33333333333334,
+    "savedAt": "2026-08-07T01:24:45.626Z",
+    "locked": true,
+    "akurasiEvs": [
+      {
+        "name": "WhatsApp Image 2026-08-07 at 08.20.00.jpeg",
+        "data": null
+      }
+    ],
+    "ontimeEvs": [
+      {
+        "name": "WhatsApp Image 2026-08-07 at 08.21.01.jpeg",
+        "data": null
+      }
+    ]
+  },
+  "_fa_piutang_jt_2026_07": {
+    "value": 100,
+    "evidence": "https://raw.githubusercontent.com/pinuspackindo-ai/pinuspackindo-okr/data/uploads/finance_accounting/1786066483032_pxrrs6_laporan_lk_audit.png",
+    "evidenceName": "laporan lk audit.png",
+    "savedAt": "2026-08-07T01:34:43.904Z",
+    "locked": true,
+    "evidences": [
+      {
+        "name": "laporan lk audit.png",
+        "data": null
+      }
+    ]
+  },
+  "_fa_akurasi_saldo_fa_2026_07": {
+    "value": 95.45,
+    "evidence": "https://raw.githubusercontent.com/pinuspackindo-ai/pinuspackindo-okr/data/uploads/finance_accounting/1786066798398_u2jcv3_laporan_lk_audit.png",
+    "evidenceName": "laporan lk audit.png",
+    "savedAt": "2026-08-07T01:39:26.775Z",
+    "locked": true,
+    "evidences": [
+      {
+        "name": "laporan lk audit.png",
+        "data": "https://raw.githubusercontent.com/pinuspackindo-ai/pinuspackindo-okr/data/uploads/finance_accounting/1786066765912_mk15u4_laporan_lk_audit.png"
+      }
+    ]
+  },
+  "_fa_akurasi_input_fa_2026_07": {
+    "value": 100,
+    "evidence": null,
+    "evidenceName": "laporan lk audit.png",
+    "savedAt": "2026-08-07T01:39:59.255Z",
+    "locked": true,
+    "evidences": [
+      {
+        "name": "laporan lk audit.png",
+        "data": "https://raw.githubusercontent.com/pinuspackindo-ai/pinuspackindo-okr/data/uploads/finance_accounting/1786066799086_o3uqzr_laporan_lk_audit.png"
+      }
+    ]
+  },
+  "_fa_impl_reko_fa_2026_07": {
+    "value": 99.3,
+    "evidence": "https://raw.githubusercontent.com/pinuspackindo-ai/pinuspackindo-okr/data/uploads/finance_accounting/1786067139636_wkuljd_laporan_lk_audit.png",
+    "evidenceName": "laporan lk audit.png",
+    "savedAt": "2026-08-07T01:45:44.743Z",
+    "locked": true,
+    "evidences": [
+      {
+        "name": "laporan lk audit.png",
+        "data": "https://raw.githubusercontent.com/pinuspackindo-ai/pinuspackindo-okr/data/uploads/finance_accounting/1786067143911_jrvvxq_laporan_lk_audit.png"
+      }
+    ]
+  },
+  "_ts": 1786176989238
 }
