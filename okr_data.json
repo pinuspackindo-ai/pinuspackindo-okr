@@ -4440,7 +4440,7 @@
           "objective": "Data dan fisik uang akurat, transaksi tepat dan on time.",
           "keyResult": "Laporan keuangan akurat dan on time",
           "target": 98,
-          "actual": null,
+          "actual": 98.33,
           "bobot": 15
         },
         {
@@ -7582,7 +7582,7 @@
           "objective": "Data dan fisik uang akurat, transaksi tepat dan on time.",
           "keyResult": "Laporan keuangan akurat dan on time",
           "target": 98,
-          "actual": null,
+          "actual": 98.33,
           "bobot": 15
         },
         {
@@ -8072,7 +8072,6 @@
       }
     ]
   },
-  "_ts": 1786160082025,
   "_p_ins_2026_08_05": {
     "file1": "https://raw.githubusercontent.com/pinuspackindo-ai/pinuspackindo-okr/data/uploads/purchasing/1785986370413_krq2g8_product.product.xlsx",
     "file1Name": "product.product.xlsx",
@@ -8281,5 +8280,6 @@
         "data": "https://raw.githubusercontent.com/pinuspackindo-ai/pinuspackindo-okr/data/uploads/finance_accounting/1786067143911_jrvvxq_laporan_lk_audit.png"
       }
     ]
-  }
+  },
+  "_ts": 1786168436462
 }
