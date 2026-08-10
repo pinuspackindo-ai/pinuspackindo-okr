@@ -6692,14 +6692,15 @@
     "file3": "https://raw.githubusercontent.com/pinuspackindo-ai/pinuspackindo-okr/data/uploads/purchasing/1784880766939_mnr477_purchase.order.line.xlsx",
     "file3Name": "purchase.order.line.xlsx",
     "users": {
-      "Arif Wibowo": 98.98,
-      "Adit Mohgat": 98.78,
-      "A'izatul Nafisah": 97.88
+      "Arif Wibowo": 91.88,
+      "Adit Mohgat": 90.61,
+      "A'izatul Nafisah": 92.42
     },
     "score": 91.14,
     "savedAt": "2026-07-24T07:53:42.597Z",
     "locked": true,
-    "scoreV": 2
+    "scoreV": 2,
+    "usersV": 2
   },
   "_p_sv_2026_07_21": {
     "text": "(S) HAECHANDLE SAUS GOCHUJANG 170 GR, 14,062, 13,489; (S) HERCULES BAKING POWDER 110 GR, 12,933, 12,079; (S) PLASTIK SELAMAT MENIKMATI 20X20 X 50, 3,217, 2,715; (S) SPATULA BUTTERCREAM STAINLESS 32 CM, 12,790, 9,201",
@@ -8519,5 +8520,5 @@
     "scoreV": 2,
     "usersV": 2
   },
-  "_ts": 1786377801259
+  "_ts": 1786377803050
 }
