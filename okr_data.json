@@ -7726,7 +7726,7 @@
           "objective": "Pengadaan stok tepat waktu dan berkwalitas, administrasi akurat.",
           "keyResult": "Tingkat in stock",
           "target": 98,
-          "actual": 97.27,
+          "actual": 96.34,
           "bobot": 40
         },
         {
@@ -7830,9 +7830,10 @@
       "Adit Mohgat": 99.59,
       "A'izatul Nafisah": 95.37
     },
-    "score": 98.11,
+    "score": 90.64,
     "savedAt": "2026-08-03T08:51:17.193Z",
-    "locked": true
+    "locked": true,
+    "scoreV": 2
   },
   "_p_ins_2026_08_03": {
     "file1": "https://raw.githubusercontent.com/pinuspackindo-ai/pinuspackindo-okr/data/uploads/purchasing/1785747079580_wzgddj_product.product.xlsx",
@@ -8466,5 +8467,5 @@
     "savedAt": "2026-08-10T09:02:28.029Z",
     "locked": true
   },
-  "_ts": 1786377701995
+  "_ts": 1786377702214
 }
