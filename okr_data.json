@@ -3602,7 +3602,7 @@
         "score": "100",
         "evidence": "https://raw.githubusercontent.com/pinuspackindo-ai/pinuspackindo-okr/data/uploads/internal_audit/1783052097566_ef2czo_Bukti.png",
         "evidenceName": "Bukti.png",
-        "locked": true,
+        "locked": false,
         "evidences": [
           {
             "name": "Bukti.png",
@@ -4536,7 +4536,7 @@
           "objective": "Melindungi dan mengawasi sistem internal berbasis dari resiko yg timbul.",
           "keyResult": "Tingkat implementasi rekomendasi audit",
           "target": 100,
-          "actual": null,
+          "actual": 100,
           "bobot": 45
         },
         {
@@ -8375,5 +8375,5 @@
       }
     ]
   },
-  "_ts": 1786333857413
+  "_ts": 1786333892062
 }
