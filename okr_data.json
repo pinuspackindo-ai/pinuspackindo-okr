@@ -4536,7 +4536,7 @@
           "objective": "Melindungi dan mengawasi sistem internal berbasis dari resiko yg timbul.",
           "keyResult": "Tingkat implementasi rekomendasi audit",
           "target": 100,
-          "actual": null,
+          "actual": 100,
           "bobot": 45
         },
         {
@@ -4544,7 +4544,7 @@
           "objective": "Melindungi dan mengawasi sistem internal berbasis dari resiko yg timbul.",
           "keyResult": "Laporan audit akurat dan on time",
           "target": 100,
-          "actual": null,
+          "actual": 100,
           "bobot": 35
         },
         {
@@ -8375,7 +8375,7 @@
       }
     ]
   },
-  "_ts": 1786333930851,
+  "_ts": 1786333931436,
   "_ia_rot_defaultdiary_2026_08": {
     "rows": [
       {
@@ -8384,7 +8384,7 @@
         "temuan": "",
         "evidence": "",
         "evidenceName": "",
-        "locked": true,
+        "locked": false,
         "savedAt": "2026-08-10T03:52:03.364Z"
       }
     ]
