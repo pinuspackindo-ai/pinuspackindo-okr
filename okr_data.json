@@ -7357,10 +7357,10 @@
         "tal": "drafting & pengesahan SO pinus 2026",
         "deadline": "2026-08-31",
         "bobot": 35,
-        "progress": 30,
+        "progress": null,
         "review": "",
         "editing": false,
-        "savedAt": "2026-08-10T03:10:54.901Z"
+        "savedAt": "2026-08-02T06:41:33.687Z"
       },
       {
         "tal": "drafting & pengesahan 50% buku product knowlegde",
@@ -7372,7 +7372,7 @@
         "savedAt": "2026-08-02T06:41:38.171Z"
       }
     ],
-    "savedAt": "2026-08-10T03:10:54.902Z"
+    "savedAt": "2026-08-02T06:41:39.021Z"
   },
   "_tal_d4_2026_08": {
     "rows": [
@@ -8281,5 +8281,5 @@
       }
     ]
   },
-  "_ts": 1786331526718
+  "_ts": 1786332985114
 }
