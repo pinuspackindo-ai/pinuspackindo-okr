@@ -5978,7 +5978,8 @@
     "users": null,
     "score": 90.73,
     "savedAt": "2026-07-07T09:14:40.429Z",
-    "locked": true
+    "locked": true,
+    "scoreV": 2
   },
   "_sbg_2026": {
     "rows": [
@@ -8481,5 +8482,5 @@
     "scoreV": 2,
     "usersV": 2
   },
-  "_ts": 1786377741261
+  "_ts": 1786377759264
 }
