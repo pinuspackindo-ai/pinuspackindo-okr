@@ -325,10 +325,6 @@
     "2026-07|Finance & Accounting": {
       "l": 1,
       "t": 1786335690860
-    },
-    "2026-07|HRD": {
-      "l": 1,
-      "t": 1786335693796
     }
   },
   "2026-05": {
@@ -4550,7 +4546,7 @@
           "objective": "Melindungi dan mengawasi sistem internal berbasis dari resiko yg timbul.",
           "keyResult": "Tingkat implementasi rekomendasi audit",
           "target": 100,
-          "actual": null,
+          "actual": 100,
           "bobot": 45
         },
         {
@@ -4558,7 +4554,7 @@
           "objective": "Melindungi dan mengawasi sistem internal berbasis dari resiko yg timbul.",
           "keyResult": "Laporan audit akurat dan on time",
           "target": 100,
-          "actual": null,
+          "actual": 100,
           "bobot": 35
         },
         {
@@ -8389,26 +8385,26 @@
       }
     ]
   },
-  "_ts": 1786349842164,
   "_ia_rot_defaultdiary_2026_08": {
     "rows": [
       {
         "deadline": "2026-08-31",
         "submittedDate": "2026-07-23",
         "temuan": "0",
-        "evidence": "https://raw.githubusercontent.com/pinuspackindo-ai/pinuspackindo-okr/data/uploads/internal_audit/1786335622089_fzb4x9_dd.png",
+        "evidence": "https://raw.githubusercontent.com/pinuspackindo-ai/pinuspackindo-okr/data/uploads/internal_audit/1786335623923_pe3ce4_dd.png",
         "evidenceName": "dd.png",
         "locked": true,
         "savedAt": "2026-08-10T04:20:09.804Z",
         "evidences": [
           {
             "name": "dd.png",
-            "data": "https://raw.githubusercontent.com/pinuspackindo-ai/pinuspackindo-okr/data/uploads/internal_audit/1786335610473_2q47yk_dd.png"
+            "data": "https://raw.githubusercontent.com/pinuspackindo-ai/pinuspackindo-okr/data/uploads/internal_audit/1786335611049_6qhq97_dd.png"
           }
         ]
       }
     ]
   },
+  "_ts": 1786350628421,
   "_ia_rot_cartrack_2026_08": {
     "rows": [
       {
@@ -8433,22 +8429,6 @@
     "evidence": null,
     "evidenceName": "07.PNG",
     "savedAt": "2026-08-10T01:14:18.295Z",
-    "locked": true
-  },
-  "_p_ins_2026_08_10": {
-    "file1": "https://raw.githubusercontent.com/pinuspackindo-ai/pinuspackindo-okr/data/uploads/purchasing/1786349585771_bd9kj2_product.product.xlsx",
-    "file1Name": "product.product.xlsx",
-    "file2": "https://raw.githubusercontent.com/pinuspackindo-ai/pinuspackindo-okr/data/uploads/purchasing/1786349773534_vqwguw_product.product_1.xlsx",
-    "file2Name": "product.product (1).xlsx",
-    "file3": "https://raw.githubusercontent.com/pinuspackindo-ai/pinuspackindo-okr/data/uploads/purchasing/1786349779862_h5yvf8_purchase.order.line.xlsx",
-    "file3Name": "purchase.order.line.xlsx",
-    "users": {
-      "Arif Wibowo": 98.82,
-      "Adit Mohgat": 99.57,
-      "A'izatul Nafisah": 93.65
-    },
-    "score": 98.4,
-    "savedAt": "2026-08-10T08:16:17.418Z",
     "locked": true
   }
 }
