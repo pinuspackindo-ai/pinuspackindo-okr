@@ -1,5 +1,5 @@
 {
-  "_ts": 1786333788566,
+  "_ts": 1786333789789,
   "_userAccess": {
     "Finance & Accounting": {
       "modules": [
@@ -4627,7 +4627,7 @@
           "objective": "Pengadaan stok tepat waktu dan berkwalitas, administrasi akurat..",
           "keyResult": "Tingkat implementasi rekomendasi audit",
           "target": 100,
-          "actual": null,
+          "actual": 93.45,
           "bobot": 10
         }
       ],
