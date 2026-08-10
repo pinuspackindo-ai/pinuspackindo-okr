@@ -3658,21 +3658,21 @@
         "score": "100",
         "evidence": "https://raw.githubusercontent.com/pinuspackindo-ai/pinuspackindo-okr/data/uploads/internal_audit/1785822017724_nbalvu_inevntory.png",
         "evidenceName": "inevntory.png",
-        "locked": false,
+        "locked": true,
         "evidences": [
           {
             "name": "inevntory.png",
             "data": "https://raw.githubusercontent.com/pinuspackindo-ai/pinuspackindo-okr/data/uploads/internal_audit/1785822000425_cng7tt_inevntory.png"
           }
         ],
-        "savedAt": "2026-08-10T03:37:03.971Z"
+        "savedAt": "2026-08-10T03:51:37.756Z"
       },
       {
         "namaAudit": "Default Diary",
         "score": "100",
         "evidence": "https://raw.githubusercontent.com/pinuspackindo-ai/pinuspackindo-okr/data/uploads/internal_audit/1785822008607_ib7k64_dd.png",
         "evidenceName": "dd.png",
-        "locked": true,
+        "locked": false,
         "evidences": [
           {
             "name": "dd.png",
@@ -8375,5 +8375,5 @@
       }
     ]
   },
-  "_ts": 1786333897227
+  "_ts": 1786333898368
 }
