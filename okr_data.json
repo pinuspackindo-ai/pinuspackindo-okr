@@ -8375,5 +8375,18 @@
       }
     ]
   },
-  "_ts": 1786333917580
+  "_ts": 1786333923364,
+  "_ia_rot_defaultdiary_2026_08": {
+    "rows": [
+      {
+        "deadline": "2026-08-31",
+        "submittedDate": "",
+        "temuan": "",
+        "evidence": "",
+        "evidenceName": "",
+        "locked": true,
+        "savedAt": "2026-08-10T03:52:03.364Z"
+      }
+    ]
+  }
 }
