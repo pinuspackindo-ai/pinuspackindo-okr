@@ -4574,7 +4574,7 @@
           "objective": "Stok akurat, persediaan optimal, biaya & waste minimal.",
           "keyResult": "Tingkat akurasi stok fisik vs data",
           "target": 75,
-          "actual": 84.06,
+          "actual": null,
           "bobot": 20
         },
         {
@@ -4590,7 +4590,7 @@
           "objective": "Stok akurat, persediaan optimal, biaya & waste minimal.",
           "keyResult": "Tingkat akurasi administrasi",
           "target": 98,
-          "actual": 97.4,
+          "actual": null,
           "bobot": 40
         },
         {
@@ -4611,7 +4611,7 @@
           "objective": "Pengadaan stok tepat waktu dan berkwalitas, administrasi akurat..",
           "keyResult": "Tingkat in stock",
           "target": 95,
-          "actual": 93.19,
+          "actual": 93.17,
           "bobot": 40
         },
         {
@@ -5978,8 +5978,7 @@
     "users": null,
     "score": 90.73,
     "savedAt": "2026-07-07T09:14:40.429Z",
-    "locked": true,
-    "scoreV": 2
+    "locked": true
   },
   "_sbg_2026": {
     "rows": [
@@ -6048,8 +6047,7 @@
     },
     "score": 91.73,
     "savedAt": "2026-07-08T08:43:09.816Z",
-    "locked": true,
-    "scoreV": 2
+    "locked": true
   },
   "_kpi_2026_01": {
     "value": 94.86,
@@ -6386,10 +6384,9 @@
       "Adit Mohgat": 87.4,
       "A'izatul Nafisah": 95.62
     },
-    "score": 91.46,
+    "score": 91.17,
     "savedAt": "2026-07-15T10:19:51.843Z",
-    "locked": true,
-    "scoreV": 2
+    "locked": true
   },
   "_p_sv_2026_07_15": {
     "text": "METANOL, 1,750,000, 1,700,000",
@@ -6585,10 +6582,9 @@
       "Adit Mohgat": 86.01,
       "A'izatul Nafisah": 94.5
     },
-    "score": 91.08,
+    "score": 90.74,
     "savedAt": "2026-07-18T04:39:45.206Z",
-    "locked": true,
-    "scoreV": 2
+    "locked": true
   },
   "_p_ins_2026_07_20": {
     "file1": "https://raw.githubusercontent.com/pinuspackindo-ai/pinuspackindo-okr/data/uploads/purchasing/1784539883862_s8ec3w_product.product.xlsx",
@@ -7700,7 +7696,7 @@
           "objective": "Stok akurat, persediaan optimal, biaya & waste minimal.",
           "keyResult": "Akurasi DO vs RN",
           "target": 100,
-          "actual": 95.55,
+          "actual": null,
           "bobot": 10
         },
         {
@@ -7730,7 +7726,7 @@
           "objective": "Pengadaan stok tepat waktu dan berkwalitas, administrasi akurat.",
           "keyResult": "Tingkat in stock",
           "target": 98,
-          "actual": 91.2,
+          "actual": 97.37,
           "bobot": 40
         },
         {
@@ -7830,15 +7826,13 @@
     "file3": "https://raw.githubusercontent.com/pinuspackindo-ai/pinuspackindo-okr/data/uploads/purchasing/1785747068928_4f9c93_purchase.order.line.xlsx",
     "file3Name": "purchase.order.line.xlsx",
     "users": {
-      "Arif Wibowo": 93.12,
-      "Adit Mohgat": 93.39,
-      "A'izatul Nafisah": 89.65
+      "Arif Wibowo": 100,
+      "Adit Mohgat": 99.59,
+      "A'izatul Nafisah": 95.37
     },
-    "score": 90.64,
+    "score": 98.11,
     "savedAt": "2026-08-03T08:51:17.193Z",
-    "locked": true,
-    "scoreV": 2,
-    "usersV": 2
+    "locked": true
   },
   "_p_ins_2026_08_03": {
     "file1": "https://raw.githubusercontent.com/pinuspackindo-ai/pinuspackindo-okr/data/uploads/purchasing/1785747079580_wzgddj_product.product.xlsx",
@@ -7848,15 +7842,13 @@
     "file3": "https://raw.githubusercontent.com/pinuspackindo-ai/pinuspackindo-okr/data/uploads/purchasing/1785747081725_1dtfwt_purchase.order.line.xlsx",
     "file3Name": "purchase.order.line.xlsx",
     "users": {
-      "Arif Wibowo": 93.69,
-      "Adit Mohgat": 91.29,
-      "A'izatul Nafisah": 89.97
+      "Arif Wibowo": 100,
+      "Adit Mohgat": 98.76,
+      "A'izatul Nafisah": 95.42
     },
-    "score": 90.93,
+    "score": 98.44,
     "savedAt": "2026-08-03T08:51:20.257Z",
-    "locked": true,
-    "scoreV": 2,
-    "usersV": 2
+    "locked": true
   },
   "_inv_rn_do_2026_08_03": {
     "value": 96.15,
@@ -8045,15 +8037,13 @@
     "file3": "https://raw.githubusercontent.com/pinuspackindo-ai/pinuspackindo-okr/data/uploads/purchasing/1785896858928_3ywlwr_purchase.order.line.xlsx",
     "file3Name": "purchase.order.line.xlsx",
     "users": {
-      "Arif Wibowo": 89.97,
-      "Adit Mohgat": 91.02,
-      "A'izatul Nafisah": 90.34
+      "Arif Wibowo": 99.33,
+      "Adit Mohgat": 98.83,
+      "A'izatul Nafisah": 98.01
     },
-    "score": 90.55,
+    "score": 98.5,
     "savedAt": "2026-08-05T02:27:36.899Z",
-    "locked": true,
-    "scoreV": 2,
-    "usersV": 2
+    "locked": true
   },
   "_inv_akurasi_i_2026_06": {
     "value": 86.37,
@@ -8152,15 +8142,13 @@
     "file3": "https://raw.githubusercontent.com/pinuspackindo-ai/pinuspackindo-okr/data/uploads/purchasing/1785986377594_pws63f_purchase.order.line.xlsx",
     "file3Name": "purchase.order.line.xlsx",
     "users": {
-      "Arif Wibowo": 92.19,
-      "Adit Mohgat": 90.53,
-      "A'izatul Nafisah": 91.23
+      "Arif Wibowo": 99.26,
+      "Adit Mohgat": 98.86,
+      "A'izatul Nafisah": 97.95
     },
-    "score": 91.15,
+    "score": 98.28,
     "savedAt": "2026-08-06T03:19:36.242Z",
-    "locked": true,
-    "scoreV": 2,
-    "usersV": 2
+    "locked": true
   },
   "_inv_rot_2026_07": {
     "poin": [
@@ -8421,15 +8409,13 @@
     "file3": "https://raw.githubusercontent.com/pinuspackindo-ai/pinuspackindo-okr/data/uploads/purchasing/1786352239446_qprx01_purchase.order.line.xlsx",
     "file3Name": "purchase.order.line.xlsx",
     "users": {
-      "Arif Wibowo": 93.26,
-      "Adit Mohgat": 93.82,
-      "A'izatul Nafisah": 92.72
+      "Arif Wibowo": 98.5,
+      "Adit Mohgat": 98.84,
+      "A'izatul Nafisah": 97.76
     },
-    "score": 91.66,
+    "score": 98.11,
     "savedAt": "2026-08-10T08:57:13.573Z",
-    "locked": true,
-    "scoreV": 2,
-    "usersV": 2
+    "locked": true
   },
   "_p_ins_2026_08_07": {
     "file1": "https://raw.githubusercontent.com/pinuspackindo-ai/pinuspackindo-okr/data/uploads/purchasing/1786352251068_a9iqpq_product.product.xlsx",
@@ -8439,15 +8425,13 @@
     "file3": "https://raw.githubusercontent.com/pinuspackindo-ai/pinuspackindo-okr/data/uploads/purchasing/1786352252002_dbjlqo_purchase.order.line.xlsx",
     "file3Name": "purchase.order.line.xlsx",
     "users": {
-      "Arif Wibowo": 93.26,
-      "Adit Mohgat": 93.82,
-      "A'izatul Nafisah": 92.72
+      "Arif Wibowo": 98.5,
+      "Adit Mohgat": 98.84,
+      "A'izatul Nafisah": 97.76
     },
-    "score": 91.66,
+    "score": 98.11,
     "savedAt": "2026-08-10T08:57:30.389Z",
-    "locked": true,
-    "scoreV": 2,
-    "usersV": 2
+    "locked": true
   },
   "_p_ins_2026_08_10": {
     "file1": "https://raw.githubusercontent.com/pinuspackindo-ai/pinuspackindo-okr/data/uploads/purchasing/1786352483674_luwnb3_product.product_2.xlsx",
@@ -8477,13 +8461,11 @@
     "users": {
       "Arif Wibowo": 100,
       "Adit Mohgat": 100,
-      "A'izatul Nafisah": 91.94
+      "A'izatul Nafisah": 97.58
     },
-    "score": 91.81,
+    "score": 98.17,
     "savedAt": "2026-08-10T09:02:28.029Z",
-    "locked": true,
-    "scoreV": 2,
-    "usersV": 2
+    "locked": true
   },
-  "_ts": 1786377759875
+  "_ts": 1786377771278
 }
