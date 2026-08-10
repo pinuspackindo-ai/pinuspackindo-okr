@@ -7862,14 +7862,14 @@
         "temuan": "0",
         "evidence": "https://raw.githubusercontent.com/pinuspackindo-ai/pinuspackindo-okr/data/uploads/internal_audit/1785822286960_j1vxvm_soo2.png",
         "evidenceName": "soo2.png",
-        "locked": false,
+        "locked": true,
         "evidences": [
           {
             "name": "soo2.png",
             "data": "https://raw.githubusercontent.com/pinuspackindo-ai/pinuspackindo-okr/data/uploads/internal_audit/1785822265866_snr17s_soo2.png"
           }
         ],
-        "savedAt": "2026-08-05T07:53:22.063Z"
+        "savedAt": "2026-08-10T03:37:28.380Z"
       },
       {
         "deadline": "2026-07-21",
@@ -7877,7 +7877,7 @@
         "temuan": "0",
         "evidence": "https://raw.githubusercontent.com/pinuspackindo-ai/pinuspackindo-okr/data/uploads/internal_audit/1785822289006_y72eo5_so3.png",
         "evidenceName": "so3.png",
-        "locked": true,
+        "locked": false,
         "evidences": [
           {
             "name": "so3.png",
@@ -8281,5 +8281,5 @@
       }
     ]
   },
-  "_ts": 1786333047836
+  "_ts": 1786333048988
 }
