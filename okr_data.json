@@ -8471,12 +8471,13 @@
     "users": {
       "Arif Wibowo": 100,
       "Adit Mohgat": 100,
-      "A'izatul Nafisah": 97.58
+      "A'izatul Nafisah": 91.94
     },
     "score": 91.81,
     "savedAt": "2026-08-10T09:02:28.029Z",
     "locked": true,
-    "scoreV": 2
+    "scoreV": 2,
+    "usersV": 2
   },
-  "_ts": 1786377734498
+  "_ts": 1786377735467
 }
