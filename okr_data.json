@@ -1,4 +1,5 @@
 {
+  "_ts": 1786335699477,
   "_userAccess": {
     "Finance & Accounting": {
       "modules": [
@@ -325,6 +326,10 @@
     "2026-07|Finance & Accounting": {
       "l": 1,
       "t": 1786335690860
+    },
+    "2026-07|HRD": {
+      "l": 1,
+      "t": 1786335693796
     }
   },
   "2026-05": {
@@ -4575,7 +4580,7 @@
           "objective": "Stok akurat, persediaan optimal, biaya & waste minimal.",
           "keyResult": "Tingkat akurasi stok fisik vs data",
           "target": 75,
-          "actual": null,
+          "actual": 84.06,
           "bobot": 20
         },
         {
@@ -4591,7 +4596,7 @@
           "objective": "Stok akurat, persediaan optimal, biaya & waste minimal.",
           "keyResult": "Tingkat akurasi administrasi",
           "target": 98,
-          "actual": null,
+          "actual": 97.4,
           "bobot": 40
         },
         {
@@ -8404,7 +8409,6 @@
       }
     ]
   },
-  "_ts": 1786335699480,
   "_ia_rot_cartrack_2026_08": {
     "rows": [
       {
