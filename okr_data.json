@@ -3672,14 +3672,14 @@
         "score": "100",
         "evidence": "https://raw.githubusercontent.com/pinuspackindo-ai/pinuspackindo-okr/data/uploads/internal_audit/1785822008607_ib7k64_dd.png",
         "evidenceName": "dd.png",
-        "locked": false,
+        "locked": true,
         "evidences": [
           {
             "name": "dd.png",
             "data": "https://raw.githubusercontent.com/pinuspackindo-ai/pinuspackindo-okr/data/uploads/internal_audit/1785822011249_eg8c1x_dd.png"
           }
         ],
-        "savedAt": "2026-08-06T09:16:55.782Z"
+        "savedAt": "2026-08-10T03:37:05.699Z"
       },
       {
         "namaAudit": "Cartrack",
@@ -8281,5 +8281,5 @@
       }
     ]
   },
-  "_ts": 1786333024755
+  "_ts": 1786333025699
 }
