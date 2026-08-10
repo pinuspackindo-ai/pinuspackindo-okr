@@ -97,10 +97,7 @@
     "_ga_rot_2026_07": 1783134170325,
     "_p_sv_2026_07_30": 1785821600423,
     "_kpi_2026_06": 1785821600423,
-    "_inv_rn_do_2026_05_06": 1785821290910,
-    "_p_ins_2026_08_06": 1786176989238,
-    "_p_ins_2026_08_07": 1786176989238,
-    "_p_sv_2026_08_07": 1786176989238
+    "_inv_rn_do_2026_05_06": 1785821290910
   },
   "_okrLock": {
     "2026-05|Store": {
@@ -4443,7 +4440,7 @@
           "objective": "Data dan fisik uang akurat, transaksi tepat dan on time.",
           "keyResult": "Laporan keuangan akurat dan on time",
           "target": 98,
-          "actual": 98.33,
+          "actual": null,
           "bobot": 15
         },
         {
@@ -7585,7 +7582,7 @@
           "objective": "Data dan fisik uang akurat, transaksi tepat dan on time.",
           "keyResult": "Laporan keuangan akurat dan on time",
           "target": 98,
-          "actual": 98.33,
+          "actual": null,
           "bobot": 15
         },
         {
@@ -8075,6 +8072,7 @@
       }
     ]
   },
+  "_ts": 1786327969111,
   "_p_ins_2026_08_05": {
     "file1": "https://raw.githubusercontent.com/pinuspackindo-ai/pinuspackindo-okr/data/uploads/purchasing/1785986370413_krq2g8_product.product.xlsx",
     "file1Name": "product.product.xlsx",
@@ -8283,6 +8281,5 @@
         "data": "https://raw.githubusercontent.com/pinuspackindo-ai/pinuspackindo-okr/data/uploads/finance_accounting/1786067143911_jrvvxq_laporan_lk_audit.png"
       }
     ]
-  },
-  "_ts": 1786326420111
+  }
 }
