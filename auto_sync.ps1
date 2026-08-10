@@ -4,7 +4,8 @@
 # GitHub setiap ada file yang berubah
 # ============================================
 
-$projectPath = "C:\1. Audit\1. PINUS\5. PROJECT\2. Tools Purchase (OKR) v.1"
+# Folder proyek = lokasi file script ini, jadi tetap benar walau foldernya di-rename
+$projectPath = $PSScriptRoot
 $debounceSeconds = 10   # tunggu 10 detik setelah perubahan terakhir sebelum push
 
 Write-Host "AUTO SYNC aktif - memantau perubahan file..." -ForegroundColor Green

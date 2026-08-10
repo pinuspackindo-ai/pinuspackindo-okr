@@ -7,6 +7,7 @@ __pycache__/
 uploads/
 tmp/
 local_config.py
+_data_wt/
 
 live2.html
 _livecheck.html

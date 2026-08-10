@@ -1,5 +1,5 @@
 @echo off
-cd /d "C:\1. Audit\1. PINUS\5. PROJECT\2. Tools Purchase (OKR) v.1"
+cd /d "%~dp0"
 echo.
 echo ================================================
 echo   PINUS PACKINDO - AUTO DEPLOY
