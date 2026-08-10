@@ -6138,7 +6138,8 @@
     "score": 91.73,
     "savedAt": "2026-07-09T09:06:02.207Z",
     "locked": true,
-    "scoreV": 2
+    "scoreV": 2,
+    "usersV": 2
   },
   "_p_sv_2026_07_09": {
     "text": "TIGA BERLIAN SAGU MUTIARA, 270,000, 260,000",
@@ -6162,7 +6163,8 @@
     "score": 92.32,
     "savedAt": "2026-07-23T03:26:54.798Z",
     "locked": true,
-    "scoreV": 2
+    "scoreV": 2,
+    "usersV": 2
   },
   "_hrd_kin_2026_07": {
     "rows": [
@@ -6296,7 +6298,8 @@
     "score": 90.99,
     "savedAt": "2026-07-14T08:38:46.222Z",
     "locked": true,
-    "scoreV": 2
+    "scoreV": 2,
+    "usersV": 2
   },
   "_hrd_rec_2026_07": {
     "rows": [
@@ -6582,7 +6585,8 @@
     "score": 90.9,
     "savedAt": "2026-07-17T10:37:09.263Z",
     "locked": true,
-    "scoreV": 2
+    "scoreV": 2,
+    "usersV": 2
   },
   "_p_ins_2026_07_18": {
     "file1": "https://raw.githubusercontent.com/pinuspackindo-ai/pinuspackindo-okr/data/uploads/purchasing/1784349577080_t3wt78_product.product.xlsx",
@@ -6985,7 +6989,8 @@
     "score": 90.66,
     "savedAt": "2026-07-27T09:06:02.436Z",
     "locked": true,
-    "scoreV": 2
+    "scoreV": 2,
+    "usersV": 2
   },
   "_p_ins_2026_07_28": {
     "file1": null,
@@ -8509,5 +8514,5 @@
     "scoreV": 2,
     "usersV": 2
   },
-  "_ts": 1786377774819
+  "_ts": 1786377785786
 }
