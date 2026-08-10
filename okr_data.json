@@ -8186,7 +8186,7 @@
     "evidence": "https://raw.githubusercontent.com/pinuspackindo-ai/pinuspackindo-okr/data/uploads/inventory/1786008526877_lc8u73_WhatsApp_Image_2026-08-06_at_16.24.25.jpeg",
     "evidenceName": "WhatsApp Image 2026-08-06 at 16.24.25.jpeg",
     "savedAt": "2026-08-06T09:26:01.479Z",
-    "locked": true,
+    "locked": false,
     "evidences": [
       {
         "name": "WhatsApp Image 2026-08-06 at 16.24.25.jpeg",
@@ -8465,5 +8465,5 @@
     "savedAt": "2026-08-10T09:02:28.029Z",
     "locked": true
   },
-  "_ts": 1786377611221
+  "_ts": 1786377630333
 }
