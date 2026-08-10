@@ -4416,7 +4416,7 @@
           "objective": "Data dan fisik uang akurat, transaksi tepat dan on time.",
           "keyResult": "Tingkat keberhasilan penagihan piutang",
           "target": 95,
-          "actual": null,
+          "actual": 100,
           "bobot": 30
         },
         {
@@ -4424,7 +4424,7 @@
           "objective": "Data dan fisik uang akurat, transaksi tepat dan on time.",
           "keyResult": "Payment akurat dan on time",
           "target": 98,
-          "actual": null,
+          "actual": 100,
           "bobot": 25
         },
         {
@@ -4432,7 +4432,7 @@
           "objective": "Data dan fisik uang akurat, transaksi tepat dan on time.",
           "keyResult": "Tingkat akurasi uang fisik dan data",
           "target": 98,
-          "actual": null,
+          "actual": 95.45,
           "bobot": 20
         },
         {
@@ -4448,7 +4448,7 @@
           "objective": "Data dan fisik uang akurat, transaksi tepat dan on time.",
           "keyResult": "Tingkat implementasi rekomendasi audit",
           "target": 100,
-          "actual": null,
+          "actual": 99.3,
           "bobot": 10
         }
       ],
@@ -8281,5 +8281,5 @@
       }
     ]
   },
-  "_ts": 1786332989567
+  "_ts": 1786332991262
 }
