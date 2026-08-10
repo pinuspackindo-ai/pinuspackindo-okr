@@ -3630,7 +3630,7 @@
         "score": "100",
         "evidence": "https://raw.githubusercontent.com/pinuspackindo-ai/pinuspackindo-okr/data/uploads/internal_audit/1785821974081_fwjgue_whause.png",
         "evidenceName": "whause.png",
-        "locked": true,
+        "locked": false,
         "evidences": [
           {
             "name": "whause.png",
@@ -8281,5 +8281,5 @@
       }
     ]
   },
-  "_ts": 1786333020148
+  "_ts": 1786333020891
 }
