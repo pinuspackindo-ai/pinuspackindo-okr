@@ -4613,7 +4613,7 @@
           "objective": "Pengadaan stok tepat waktu dan berkwalitas, administrasi akurat..",
           "keyResult": "Tingkat in stock",
           "target": 95,
-          "actual": 92.6,
+          "actual": 91.72,
           "bobot": 40
         },
         {
@@ -6668,9 +6668,10 @@
       "Adit Mohgat": 94.47,
       "A'izatul Nafisah": 95.17
     },
-    "score": 94.18,
+    "score": 91.56,
     "savedAt": "2026-07-23T09:40:18.178Z",
-    "locked": true
+    "locked": true,
+    "scoreV": 2
   },
   "_p_ins_2026_07_24": {
     "file1": "https://raw.githubusercontent.com/pinuspackindo-ai/pinuspackindo-okr/data/uploads/purchasing/1784879619553_ec4z03_product.product.xlsx",
@@ -6684,9 +6685,10 @@
       "Adit Mohgat": 98.78,
       "A'izatul Nafisah": 97.88
     },
-    "score": 97.33,
+    "score": 91.14,
     "savedAt": "2026-07-24T07:53:42.597Z",
-    "locked": true
+    "locked": true,
+    "scoreV": 2
   },
   "_p_sv_2026_07_21": {
     "text": "(S) HAECHANDLE SAUS GOCHUJANG 170 GR, 14,062, 13,489; (S) HERCULES BAKING POWDER 110 GR, 12,933, 12,079; (S) PLASTIK SELAMAT MENIKMATI 20X20 X 50, 3,217, 2,715; (S) SPATULA BUTTERCREAM STAINLESS 32 CM, 12,790, 9,201",
@@ -7138,9 +7140,10 @@
       "Adit Mohgat": 99.59,
       "A'izatul Nafisah": 95.37
     },
-    "score": 98.11,
+    "score": 90.64,
     "savedAt": "2026-07-30T09:16:49.207Z",
-    "locked": true
+    "locked": true,
+    "scoreV": 2
   },
   "_inv_rn_do_2026_07_30": {
     "value": 100,
@@ -7182,9 +7185,10 @@
       "Adit Mohgat": 98.37,
       "A'izatul Nafisah": 95.39
     },
-    "score": 98.4,
+    "score": 91,
     "savedAt": "2026-08-01T05:05:30.933Z",
-    "locked": true
+    "locked": true,
+    "scoreV": 2
   },
   "_p_kpen_2026_07": {
     "file": "https://raw.githubusercontent.com/pinuspackindo-ai/pinuspackindo-okr/data/uploads/purchasing/1785560731986_kiktdg_purchase.order.line.xlsx",
@@ -8498,5 +8502,5 @@
     "scoreV": 2,
     "usersV": 2
   },
-  "_ts": 1786377762181
+  "_ts": 1786377763152
 }
