@@ -7959,7 +7959,7 @@
     "evidence": "https://raw.githubusercontent.com/pinuspackindo-ai/pinuspackindo-okr/data/uploads/inventory/1785823507179_dujclz_Screenshot_2026-08-04_130444.png",
     "evidenceName": "Screenshot 2026-08-04 130444.png",
     "savedAt": "2026-08-06T09:14:58.183Z",
-    "locked": true,
+    "locked": false,
     "evidences": [
       {
         "name": "Screenshot 2026-08-04 130444.png",
@@ -8281,5 +8281,5 @@
       }
     ]
   },
-  "_ts": 1786333131955
+  "_ts": 1786333148764
 }
