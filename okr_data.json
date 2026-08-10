@@ -1,5 +1,5 @@
 {
-  "_ts": 1786335653397,
+  "_ts": 1786335655387,
   "_userAccess": {
     "Finance & Accounting": {
       "modules": [
@@ -4584,7 +4584,7 @@
           "objective": "Stok akurat, persediaan optimal, biaya & waste minimal.",
           "keyResult": "Tingkat akurasi administrasi",
           "target": 98,
-          "actual": null,
+          "actual": 97.4,
           "bobot": 40
         },
         {
@@ -8029,8 +8029,8 @@
     "value": 97.4,
     "evidence": "https://raw.githubusercontent.com/pinuspackindo-ai/pinuspackindo-okr/data/uploads/inventory/1785823422031_we1pbw_Screenshot_2026-08-04_130259.png",
     "evidenceName": "Screenshot 2026-08-04 130259.png",
-    "savedAt": "2026-08-10T03:38:48.732Z",
-    "locked": false,
+    "savedAt": "2026-08-10T04:20:55.349Z",
+    "locked": true,
     "evidences": [
       {
         "name": "Screenshot 2026-08-04 130259.png",
