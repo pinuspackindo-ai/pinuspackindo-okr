@@ -33,6 +33,14 @@ app.config['TEMPLATES_AUTO_RELOAD'] = True
 # In-memory result store keyed by session ID (single-user local app)
 _store: dict = {}
 
+# Ambang "dianggap habis" untuk In Stock: QoH <= 0,01 dihitung sebagai 0 (minus ikut jadi 0).
+# Diterapkan PER Excel, bukan pada total gabungan. +1e-9 menutup galat float.
+INSTOCK_ZERO_EPS = 0.01 + 1e-9
+
+def _zero_small(s):
+    """QoH per Excel: q <= 0,01 (termasuk minus) → 0. Hanya nilai > 0,01 yang dihitung."""
+    return s.mask(s <= INSTOCK_ZERO_EPS, 0.0)
+
 ACC_KEYWORDS = [
     'HPP','SUPPLIER','HARGA','KUANTITI','QTY',
     'SALAH','DISKON','LEBIH','KURANG','TEMPO','TERMIN','NAMA',
@@ -226,6 +234,10 @@ def analyze_instock():
     g1 = d1.groupby(name_k1)[qty_k1].sum().reset_index().rename(columns={name_k1:'name', qty_k1:'q1'})
     g2 = d2.groupby(name_k2)[qty_k2].sum().reset_index().rename(columns={name_k2:'name', qty_k2:'q2'})
     uom_map = (d1.dropna(subset=[uom_k1]).groupby(name_k1)[uom_k1].first().to_dict() if uom_k1 else {})
+
+    # Sisa pecahan kecil dianggap habis, dinilai per Excel sebelum digabung
+    g1['q1'] = _zero_small(g1['q1'])
+    g2['q2'] = _zero_small(g2['q2'])
 
     merged = pd.merge(g1, g2, on='name', how='outer').fillna(0)
     merged['total']    = merged['q1'] + merged['q2']
