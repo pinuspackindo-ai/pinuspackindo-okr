@@ -95,7 +95,6 @@
   "_deleted": {
     "_ga_rot_2026_06": 1783134158109,
     "_ga_rot_2026_07": 1783134170325,
-    "_fa_rot_2026_07": 1783308087934,
     "_p_sv_2026_07_30": 1785821600423,
     "_kpi_2026_06": 1785821600423,
     "_inv_rn_do_2026_05_06": 1785821290910
@@ -4441,7 +4440,7 @@
           "objective": "Data dan fisik uang akurat, transaksi tepat dan on time.",
           "keyResult": "Laporan keuangan akurat dan on time",
           "target": 98,
-          "actual": null,
+          "actual": 98.33,
           "bobot": 15
         },
         {
@@ -4516,7 +4515,7 @@
           "objective": "Membangun dan menjaga SDM yg kompeten, disiplin, produktif, inisiatif, guna mendukung perusahaan berkembang.",
           "keyResult": "Ketepatan waktu rekrutment",
           "target": 85,
-          "actual": 92.88,
+          "actual": null,
           "bobot": 15
         },
         {
@@ -6308,88 +6307,7 @@
     "locked": true
   },
   "_hrd_rec_2026_07": {
-    "rows": [
-      {
-        "jabatan": "STAFF",
-        "namaRequest": "CUSTOMER SERVICE TOKO",
-        "tglRequest": "2026-06-06",
-        "deadline": "2026-07-06",
-        "realisasi": "2026-07-13",
-        "evidence": null,
-        "evidenceName": "bukti offering letter mentari cs 130726.jpeg",
-        "editing": false,
-        "evidences": [
-          {
-            "name": "bukti offering letter mentari cs 130726.jpeg",
-            "data": "https://raw.githubusercontent.com/pinuspackindo-ai/pinuspackindo-okr/data/uploads/hrd/1784110792450_mqclex_bukti_offering_letter_mentari_cs_130726.jpeg"
-          }
-        ]
-      },
-      {
-        "jabatan": "STAFF",
-        "namaRequest": "ACCOUNT PAYABLE",
-        "tglRequest": "2026-07-16",
-        "deadline": "2026-08-15",
-        "realisasi": "2026-07-15",
-        "evidence": null,
-        "evidenceName": "bukti offering letter vica AP .png",
-        "editing": false,
-        "evidences": [
-          {
-            "name": "bukti offering letter vica AP .png",
-            "data": null
-          }
-        ]
-      },
-      {
-        "jabatan": "STAFF",
-        "namaRequest": "STAFF GA OFFICER",
-        "tglRequest": "2026-06-16",
-        "deadline": "2026-07-16",
-        "realisasi": "2026-07-22",
-        "evidence": null,
-        "evidenceName": "Surat Penawaran Kerja -Arif Prabowo.docx (1).pdf",
-        "editing": false,
-        "evidences": [
-          {
-            "name": "Surat Penawaran Kerja -Arif Prabowo.docx (1).pdf",
-            "data": null
-          }
-        ]
-      },
-      {
-        "jabatan": "STAFF",
-        "namaRequest": "ACCOUNT PAYABLE",
-        "tglRequest": "2026-06-16",
-        "deadline": "2026-07-16",
-        "realisasi": "2026-07-15",
-        "evidence": null,
-        "evidenceName": "Surat Penawaran Kerja -Vica Sukmatama (AP) .docx.pdf",
-        "editing": false,
-        "evidences": [
-          {
-            "name": "Surat Penawaran Kerja -Vica Sukmatama (AP) .docx.pdf",
-            "data": null
-          }
-        ]
-      },
-      {
-        "jabatan": "STAFF",
-        "namaRequest": "OFFICE BOY",
-        "tglRequest": "2026-07-10",
-        "deadline": "2026-08-09",
-        "realisasi": "2026-07-29",
-        "evidence": null,
-        "evidenceName": "OJT ALI MAHMUDI_20260729_0001.pdf",
-        "editing": false,
-        "evidences": [
-          {
-            "name": "OJT ALI MAHMUDI_20260729_0001.pdf",
-            "data": null
-          }
-        ]
-      }
-    ],
+    "rows": [],
     "savedAt": "2026-07-15T07:20:17.341Z"
   },
   "_p_ins_2026_07_15": {
@@ -7366,19 +7284,19 @@
         "tal": "Running target kasir \"akurasi transaksi\"",
         "deadline": "2026-08-05",
         "bobot": 20,
-        "progress": null,
+        "progress": 100,
         "review": "",
         "editing": false,
-        "savedAt": "2026-08-02T06:51:00.857Z"
+        "savedAt": "2026-08-06T13:34:02.293Z"
       },
       {
         "tal": "Vakum marketplace KECUALI sku obralan",
         "deadline": "2026-08-05",
         "bobot": 15,
-        "progress": null,
+        "progress": 100,
         "review": "",
         "editing": false,
-        "savedAt": "2026-08-02T06:50:58.890Z"
+        "savedAt": "2026-08-06T13:34:10.731Z"
       },
       {
         "tal": "peralihan salah satu SA ke fery",
@@ -7390,7 +7308,7 @@
         "savedAt": "2026-08-02T06:51:03.090Z"
       }
     ],
-    "savedAt": "2026-08-02T06:51:03.090Z"
+    "savedAt": "2026-08-06T13:34:10.731Z"
   },
   "_tal_d2_2026_08": {
     "rows": [
@@ -7664,7 +7582,7 @@
           "objective": "Data dan fisik uang akurat, transaksi tepat dan on time.",
           "keyResult": "Laporan keuangan akurat dan on time",
           "target": 98,
-          "actual": null,
+          "actual": 98.33,
           "bobot": 15
         },
         {
@@ -7918,72 +7836,7 @@
     ]
   },
   "_hrd_rec_2026_08": {
-    "rows": [
-      {
-        "jabatan": "STAFF",
-        "namaRequest": "CUSTOMER SERVICE RETAIL",
-        "tglRequest": "2026-06-06",
-        "deadline": "2026-07-06",
-        "realisasi": "2026-07-13",
-        "evidence": "https://raw.githubusercontent.com/pinuspackindo-ai/pinuspackindo-okr/data/uploads/hrd/1785813333595_8n1pbg_Surat_Penawaran_Kerja_-Mentari_Rindang_Wangi_P_CS_.docx.pdf",
-        "evidenceName": "Surat Penawaran Kerja -Mentari Rindang Wangi P (CS) .docx.pdf",
-        "editing": false,
-        "evidences": [
-          {
-            "name": "Surat Penawaran Kerja -Mentari Rindang Wangi P (CS) .docx.pdf",
-            "data": "https://raw.githubusercontent.com/pinuspackindo-ai/pinuspackindo-okr/data/uploads/hrd/1785813497517_wo4chz_Surat_Penawaran_Kerja_-Mentari_Rindang_Wangi_P_CS_.docx.pdf"
-          }
-        ]
-      },
-      {
-        "jabatan": "STAFF",
-        "namaRequest": "STAFF ACOUNT PAYABLE",
-        "tglRequest": "2026-06-16",
-        "deadline": "2026-07-16",
-        "realisasi": "2026-07-15",
-        "evidence": null,
-        "evidenceName": "Surat Penawaran Kerja -Vica Sukmatama (AP) .docx.pdf",
-        "editing": false,
-        "evidences": [
-          {
-            "name": "Surat Penawaran Kerja -Vica Sukmatama (AP) .docx.pdf",
-            "data": "https://raw.githubusercontent.com/pinuspackindo-ai/pinuspackindo-okr/data/uploads/hrd/1785813696901_1g7lj0_Surat_Penawaran_Kerja_-Vica_Sukmatama_AP_.docx.pdf"
-          }
-        ]
-      },
-      {
-        "jabatan": "STAFF",
-        "namaRequest": "STAFF GA OFFICER",
-        "tglRequest": "2026-06-16",
-        "deadline": "2026-07-16",
-        "realisasi": "2026-07-22",
-        "evidence": null,
-        "evidenceName": "Surat Penawaran Kerja -Arif Prabowo.docx (1).pdf",
-        "editing": false,
-        "evidences": [
-          {
-            "name": "Surat Penawaran Kerja -Arif Prabowo.docx (1).pdf",
-            "data": "https://raw.githubusercontent.com/pinuspackindo-ai/pinuspackindo-okr/data/uploads/hrd/1785813582774_cxp7br_Surat_Penawaran_Kerja_-Arif_Prabowo.docx_1.pdf"
-          }
-        ]
-      },
-      {
-        "jabatan": "STAFF",
-        "namaRequest": "OFFICE BOY",
-        "tglRequest": "2026-07-10",
-        "deadline": "2026-08-09",
-        "realisasi": "2026-07-29",
-        "evidence": "https://raw.githubusercontent.com/pinuspackindo-ai/pinuspackindo-okr/data/uploads/hrd/1785813696337_bbk285_OJT_ALI_MAHMUDI_20260729_0001.pdf",
-        "evidenceName": "OJT ALI MAHMUDI_20260729_0001.pdf",
-        "editing": false,
-        "evidences": [
-          {
-            "name": "OJT ALI MAHMUDI_20260729_0001.pdf",
-            "data": null
-          }
-        ]
-      }
-    ],
+    "rows": [],
     "savedAt": "2026-08-04T02:57:01.174Z"
   },
   "_ia_rot_stokopname_2026_07": {
@@ -8246,7 +8099,7 @@
     "akurasiEv": "https://raw.githubusercontent.com/pinuspackindo-ai/pinuspackindo-okr/data/uploads/inventory/1786006854746_1qb4yg_Screenshot_2026-08-06_152604.png",
     "akurasiEvName": "Screenshot 2026-08-06 152604.png",
     "ontimeDate": "2026-08-05",
-    "ontimeEv": "https://raw.githubusercontent.com/pinuspackindo-ai/pinuspackindo-okr/data/uploads/inventory/1786007378273_w7cl6i_Screenshot_2026-08-06_152604.png",
+    "ontimeEv": "https://raw.githubusercontent.com/pinuspackindo-ai/pinuspackindo-okr/data/uploads/inventory/1786024808464_7hqbbv_Screenshot_2026-08-06_152604.png",
     "ontimeEvName": "Screenshot 2026-08-06 152604.png",
     "akurasiScore": 100,
     "ontimeScore": 100,
@@ -8262,7 +8115,7 @@
     "akurasiEvs": [
       {
         "name": "Screenshot 2026-08-06 152604.png",
-        "data": "https://raw.githubusercontent.com/pinuspackindo-ai/pinuspackindo-okr/data/uploads/inventory/1786007360508_yepc10_Screenshot_2026-08-06_152604.png"
+        "data": null
       }
     ]
   },
@@ -8287,5 +8140,146 @@
       }
     ]
   },
-  "_ts": 1786331084000
+  "_p_sv_2026_08_06": {
+    "text": "KUAS KUE SILICONE, 5,954, 5,784; PENJEPIT MAKANAN, 6,975, 6,675; PISAU RODA PIZZA, 9,275, 9,180",
+    "evidence": "https://raw.githubusercontent.com/pinuspackindo-ai/pinuspackindo-okr/data/uploads/purchasing/1786064849252_m38cd1_06.png",
+    "evidenceName": "06.PNG",
+    "savedAt": "2026-08-07T01:07:44.215Z",
+    "locked": true
+  },
+  "_fa_rot_2026_08": {
+    "poin": [
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      1,
+      0
+    ],
+    "akurasiEv": "https://raw.githubusercontent.com/pinuspackindo-ai/pinuspackindo-okr/data/uploads/finance_accounting/1786065885848_0rx6u1_WhatsApp_Image_2026-08-07_at_08.20.00.jpeg",
+    "akurasiEvName": "WhatsApp Image 2026-08-07 at 08.20.00.jpeg",
+    "ontimeDate": "2026-08-04",
+    "ontimeEv": null,
+    "ontimeEvName": "WhatsApp Image 2026-08-07 at 08.21.01.jpeg",
+    "akurasiScore": 96.66666666666667,
+    "ontimeScore": 100,
+    "totalScore": 98.33333333333334,
+    "savedAt": "2026-08-07T01:23:58.451Z",
+    "locked": true,
+    "akurasiEvs": [
+      {
+        "name": "WhatsApp Image 2026-08-07 at 08.20.00.jpeg",
+        "data": "https://raw.githubusercontent.com/pinuspackindo-ai/pinuspackindo-okr/data/uploads/finance_accounting/1786065839152_apiy7a_WhatsApp_Image_2026-08-07_at_08.20.00.jpeg"
+      }
+    ],
+    "ontimeEvs": [
+      {
+        "name": "WhatsApp Image 2026-08-07 at 08.21.01.jpeg",
+        "data": "https://raw.githubusercontent.com/pinuspackindo-ai/pinuspackindo-okr/data/uploads/finance_accounting/1786065839703_paqg5l_WhatsApp_Image_2026-08-07_at_08.21.01.jpeg"
+      }
+    ]
+  },
+  "_fa_rot_2026_07": {
+    "poin": [
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      1,
+      0
+    ],
+    "akurasiEv": "https://raw.githubusercontent.com/pinuspackindo-ai/pinuspackindo-okr/data/uploads/finance_accounting/1786066018903_gwxfxm_WhatsApp_Image_2026-08-07_at_08.20.00.jpeg",
+    "akurasiEvName": "WhatsApp Image 2026-08-07 at 08.20.00.jpeg",
+    "ontimeDate": "2026-08-04",
+    "ontimeEv": "https://raw.githubusercontent.com/pinuspackindo-ai/pinuspackindo-okr/data/uploads/finance_accounting/1786072417827_1lrhm2_WhatsApp_Image_2026-08-07_at_08.21.01.jpeg",
+    "ontimeEvName": "WhatsApp Image 2026-08-07 at 08.21.01.jpeg",
+    "akurasiScore": 96.66666666666667,
+    "ontimeScore": 100,
+    "totalScore": 98.33333333333334,
+    "savedAt": "2026-08-07T01:24:45.626Z",
+    "locked": true,
+    "akurasiEvs": [
+      {
+        "name": "WhatsApp Image 2026-08-07 at 08.20.00.jpeg",
+        "data": null
+      }
+    ],
+    "ontimeEvs": [
+      {
+        "name": "WhatsApp Image 2026-08-07 at 08.21.01.jpeg",
+        "data": null
+      }
+    ]
+  },
+  "_fa_piutang_jt_2026_07": {
+    "value": 100,
+    "evidence": "https://raw.githubusercontent.com/pinuspackindo-ai/pinuspackindo-okr/data/uploads/finance_accounting/1786066483032_pxrrs6_laporan_lk_audit.png",
+    "evidenceName": "laporan lk audit.png",
+    "savedAt": "2026-08-07T01:34:43.904Z",
+    "locked": true,
+    "evidences": [
+      {
+        "name": "laporan lk audit.png",
+        "data": null
+      }
+    ]
+  },
+  "_fa_akurasi_saldo_fa_2026_07": {
+    "value": 95.45,
+    "evidence": "https://raw.githubusercontent.com/pinuspackindo-ai/pinuspackindo-okr/data/uploads/finance_accounting/1786066798398_u2jcv3_laporan_lk_audit.png",
+    "evidenceName": "laporan lk audit.png",
+    "savedAt": "2026-08-07T01:39:26.775Z",
+    "locked": true,
+    "evidences": [
+      {
+        "name": "laporan lk audit.png",
+        "data": "https://raw.githubusercontent.com/pinuspackindo-ai/pinuspackindo-okr/data/uploads/finance_accounting/1786066765912_mk15u4_laporan_lk_audit.png"
+      }
+    ]
+  },
+  "_fa_akurasi_input_fa_2026_07": {
+    "value": 100,
+    "evidence": null,
+    "evidenceName": "laporan lk audit.png",
+    "savedAt": "2026-08-07T01:39:59.255Z",
+    "locked": true,
+    "evidences": [
+      {
+        "name": "laporan lk audit.png",
+        "data": "https://raw.githubusercontent.com/pinuspackindo-ai/pinuspackindo-okr/data/uploads/finance_accounting/1786066799086_o3uqzr_laporan_lk_audit.png"
+      }
+    ]
+  },
+  "_fa_impl_reko_fa_2026_07": {
+    "value": 99.3,
+    "evidence": "https://raw.githubusercontent.com/pinuspackindo-ai/pinuspackindo-okr/data/uploads/finance_accounting/1786067139636_wkuljd_laporan_lk_audit.png",
+    "evidenceName": "laporan lk audit.png",
+    "savedAt": "2026-08-07T01:45:44.743Z",
+    "locked": true,
+    "evidences": [
+      {
+        "name": "laporan lk audit.png",
+        "data": "https://raw.githubusercontent.com/pinuspackindo-ai/pinuspackindo-okr/data/uploads/finance_accounting/1786067143911_jrvvxq_laporan_lk_audit.png"
+      }
+    ]
+  },
+  "_ts": 1786331085038
 }
