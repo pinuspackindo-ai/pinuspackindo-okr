@@ -6027,8 +6027,8 @@
     "lateScore": 72.51585623678648,
     "accScore": 89.64059196617336,
     "finalScore": 77.65327695560254,
-    "savedAt": "2026-08-04T06:33:36.640Z",
-    "locked": false,
+    "savedAt": "2026-08-10T14:47:59.698Z",
+    "locked": true,
     "users": {
       "Arif Wibowo": {
         "ket": 100,
@@ -8428,7 +8428,7 @@
     "savedAt": "2026-08-10T01:14:18.295Z",
     "locked": true
   },
-  "_ts": 1786373271480,
+  "_ts": 1786373279741,
   "_p_ins_2026_08_06": {
     "file1": "https://raw.githubusercontent.com/pinuspackindo-ai/pinuspackindo-okr/data/uploads/purchasing/1786352227959_c1nfjp_product.product.xlsx",
     "file1Name": "product.product.xlsx",
