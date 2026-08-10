@@ -3713,7 +3713,8 @@
     "file2Name": "product.product (1).xlsx",
     "score": 91.7,
     "savedAt": "2026-07-03T04:24:43.625Z",
-    "locked": true
+    "locked": true,
+    "scoreV": 2
   },
   "_p_ins_2026_07_01": {
     "file1": null,
@@ -3976,7 +3977,8 @@
     "file2Name": "product.product (3).xlsx",
     "score": 91.7,
     "savedAt": "2026-07-04T08:15:45.845Z",
-    "locked": true
+    "locked": true,
+    "scoreV": 2
   },
   "_w_default_diary_2026_06": {
     "value": 91.6,
@@ -4611,7 +4613,7 @@
           "objective": "Pengadaan stok tepat waktu dan berkwalitas, administrasi akurat..",
           "keyResult": "Tingkat in stock",
           "target": 95,
-          "actual": 93.22,
+          "actual": 92.94,
           "bobot": 40
         },
         {
@@ -6134,7 +6136,8 @@
     },
     "score": 91.73,
     "savedAt": "2026-07-09T09:06:02.207Z",
-    "locked": true
+    "locked": true,
+    "scoreV": 2
   },
   "_p_sv_2026_07_09": {
     "text": "TIGA BERLIAN SAGU MUTIARA, 270,000, 260,000",
@@ -6157,7 +6160,8 @@
     },
     "score": 92.32,
     "savedAt": "2026-07-23T03:26:54.798Z",
-    "locked": true
+    "locked": true,
+    "scoreV": 2
   },
   "_hrd_kin_2026_07": {
     "rows": [
@@ -6255,7 +6259,8 @@
     },
     "score": 91.8,
     "savedAt": "2026-07-14T08:37:40.919Z",
-    "locked": true
+    "locked": true,
+    "scoreV": 2
   },
   "_p_ins_2026_07_13": {
     "file1": "https://raw.githubusercontent.com/pinuspackindo-ai/pinuspackindo-okr/data/uploads/purchasing/1784018158945_zu3fsf_product.product.xlsx",
@@ -6271,7 +6276,8 @@
     },
     "score": 90.99,
     "savedAt": "2026-07-14T08:37:42.998Z",
-    "locked": true
+    "locked": true,
+    "scoreV": 2
   },
   "_p_ins_2026_07_14": {
     "file1": "https://raw.githubusercontent.com/pinuspackindo-ai/pinuspackindo-okr/data/uploads/purchasing/1784018319180_5yzjuk_product.product.xlsx",
@@ -6287,7 +6293,8 @@
     },
     "score": 90.99,
     "savedAt": "2026-07-14T08:38:46.222Z",
-    "locked": true
+    "locked": true,
+    "scoreV": 2
   },
   "_hrd_rec_2026_07": {
     "rows": [
@@ -6569,9 +6576,10 @@
       "Adit Mohgat": 86.78,
       "A'izatul Nafisah": 93.89
     },
-    "score": 90.55,
+    "score": 90.9,
     "savedAt": "2026-07-17T10:37:09.263Z",
-    "locked": true
+    "locked": true,
+    "scoreV": 2
   },
   "_p_ins_2026_07_18": {
     "file1": "https://raw.githubusercontent.com/pinuspackindo-ai/pinuspackindo-okr/data/uploads/purchasing/1784349577080_t3wt78_product.product.xlsx",
@@ -7111,9 +7119,10 @@
       "Adit Mohgat": 99.6,
       "A'izatul Nafisah": 97.92
     },
-    "score": 98.33,
+    "score": 90.27,
     "savedAt": "2026-07-30T09:16:46.887Z",
-    "locked": true
+    "locked": true,
+    "scoreV": 2
   },
   "_p_ins_2026_07_30": {
     "file1": "https://raw.githubusercontent.com/pinuspackindo-ai/pinuspackindo-okr/data/uploads/purchasing/1785403009131_d4au2r_product.product.xlsx",
@@ -8487,5 +8496,5 @@
     "scoreV": 2,
     "usersV": 2
   },
-  "_ts": 1786377760200
+  "_ts": 1786377761806
 }
