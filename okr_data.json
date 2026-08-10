@@ -6263,7 +6263,8 @@
     "score": 91.8,
     "savedAt": "2026-07-14T08:37:40.919Z",
     "locked": true,
-    "scoreV": 2
+    "scoreV": 2,
+    "usersV": 2
   },
   "_p_ins_2026_07_13": {
     "file1": "https://raw.githubusercontent.com/pinuspackindo-ai/pinuspackindo-okr/data/uploads/purchasing/1784018158945_zu3fsf_product.product.xlsx",
@@ -6673,14 +6674,15 @@
     "file3": "https://raw.githubusercontent.com/pinuspackindo-ai/pinuspackindo-okr/data/uploads/purchasing/1784799618222_ntt8rf_purchase.order.line.xlsx",
     "file3Name": "purchase.order.line.xlsx",
     "users": {
-      "Arif Wibowo": 95.94,
-      "Adit Mohgat": 94.47,
-      "A'izatul Nafisah": 95.17
+      "Arif Wibowo": 92.89,
+      "Adit Mohgat": 92.17,
+      "A'izatul Nafisah": 93.35
     },
     "score": 91.56,
     "savedAt": "2026-07-23T09:40:18.178Z",
     "locked": true,
-    "scoreV": 2
+    "scoreV": 2,
+    "usersV": 2
   },
   "_p_ins_2026_07_24": {
     "file1": "https://raw.githubusercontent.com/pinuspackindo-ai/pinuspackindo-okr/data/uploads/purchasing/1784879619553_ec4z03_product.product.xlsx",
@@ -8514,5 +8516,5 @@
     "scoreV": 2,
     "usersV": 2
   },
-  "_ts": 1786377785786
+  "_ts": 1786377793961
 }
