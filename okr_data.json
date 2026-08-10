@@ -7759,7 +7759,7 @@
           "objective": "Pengadaan stok tepat waktu dan berkwalitas, administrasi akurat.",
           "keyResult": "Tingkat in stock",
           "target": 98,
-          "actual": 98.33,
+          "actual": 98.35,
           "bobot": 40
         },
         {
@@ -8434,21 +8434,21 @@
     "savedAt": "2026-08-10T01:14:18.295Z",
     "locked": true
   },
-  "_ts": 1786349767191,
+  "_ts": 1786349777990,
   "_p_ins_2026_08_10": {
     "file1": "https://raw.githubusercontent.com/pinuspackindo-ai/pinuspackindo-okr/data/uploads/purchasing/1786349585771_bd9kj2_product.product.xlsx",
     "file1Name": "product.product.xlsx",
     "file2": "https://raw.githubusercontent.com/pinuspackindo-ai/pinuspackindo-okr/data/uploads/purchasing/1786349773534_vqwguw_product.product_1.xlsx",
     "file2Name": "product.product (1).xlsx",
-    "file3": "https://raw.githubusercontent.com/pinuspackindo-ai/pinuspackindo-okr/data/uploads/purchasing/1786349774656_05s72l_purchase.order.line.xlsx",
+    "file3": "https://raw.githubusercontent.com/pinuspackindo-ai/pinuspackindo-okr/data/uploads/purchasing/1786349779862_h5yvf8_purchase.order.line.xlsx",
     "file3Name": "purchase.order.line.xlsx",
     "users": {
       "Arif Wibowo": 98.82,
       "Adit Mohgat": 99.57,
       "A'izatul Nafisah": 93.65
     },
-    "score": null,
-    "savedAt": null,
-    "locked": false
+    "score": 98.4,
+    "savedAt": "2026-08-10T08:16:17.418Z",
+    "locked": true
   }
 }
