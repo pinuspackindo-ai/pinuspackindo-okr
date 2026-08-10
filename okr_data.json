@@ -3686,14 +3686,14 @@
         "score": "100",
         "evidence": "https://raw.githubusercontent.com/pinuspackindo-ai/pinuspackindo-okr/data/uploads/internal_audit/1785822016479_qedhd3_car.png",
         "evidenceName": "car.png",
-        "locked": false,
+        "locked": true,
         "evidences": [
           {
             "name": "car.png",
             "data": null
           }
         ],
-        "savedAt": "2026-08-06T09:16:57.214Z"
+        "savedAt": "2026-08-10T03:37:07.011Z"
       }
     ]
   },
@@ -8281,5 +8281,5 @@
       }
     ]
   },
-  "_ts": 1786333026283
+  "_ts": 1786333028705
 }
