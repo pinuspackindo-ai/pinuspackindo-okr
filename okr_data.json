@@ -1,4 +1,5 @@
 {
+  "_ts": 1786335646121,
   "_userAccess": {
     "Finance & Accounting": {
       "modules": [
@@ -8042,7 +8043,7 @@
     "evidence": "https://raw.githubusercontent.com/pinuspackindo-ai/pinuspackindo-okr/data/uploads/inventory/1785823507179_dujclz_Screenshot_2026-08-04_130444.png",
     "evidenceName": "Screenshot 2026-08-04 130444.png",
     "savedAt": "2026-08-10T03:39:10.787Z",
-    "locked": true,
+    "locked": false,
     "evidences": [
       {
         "name": "Screenshot 2026-08-04 130444.png",
@@ -8396,7 +8397,6 @@
       }
     ]
   },
-  "_ts": 1786335639252,
   "_ia_rot_cartrack_2026_08": {
     "rows": [
       {
