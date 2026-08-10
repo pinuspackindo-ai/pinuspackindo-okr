@@ -8147,14 +8147,15 @@
     "file3": "https://raw.githubusercontent.com/pinuspackindo-ai/pinuspackindo-okr/data/uploads/purchasing/1785986377594_pws63f_purchase.order.line.xlsx",
     "file3Name": "purchase.order.line.xlsx",
     "users": {
-      "Arif Wibowo": 99.26,
-      "Adit Mohgat": 98.86,
-      "A'izatul Nafisah": 97.95
+      "Arif Wibowo": 92.19,
+      "Adit Mohgat": 90.53,
+      "A'izatul Nafisah": 91.23
     },
     "score": 91.15,
     "savedAt": "2026-08-06T03:19:36.242Z",
     "locked": true,
-    "scoreV": 2
+    "scoreV": 2,
+    "usersV": 2
   },
   "_inv_rot_2026_07": {
     "poin": [
@@ -8476,5 +8477,5 @@
     "locked": true,
     "scoreV": 2
   },
-  "_ts": 1786377721824
+  "_ts": 1786377729773
 }
