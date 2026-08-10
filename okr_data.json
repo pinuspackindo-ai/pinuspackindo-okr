@@ -6278,7 +6278,8 @@
     "score": 90.99,
     "savedAt": "2026-07-14T08:37:42.998Z",
     "locked": true,
-    "scoreV": 2
+    "scoreV": 2,
+    "usersV": 2
   },
   "_p_ins_2026_07_14": {
     "file1": "https://raw.githubusercontent.com/pinuspackindo-ai/pinuspackindo-okr/data/uploads/purchasing/1784018319180_5yzjuk_product.product.xlsx",
@@ -8508,5 +8509,5 @@
     "scoreV": 2,
     "usersV": 2
   },
-  "_ts": 1786377772801
+  "_ts": 1786377774819
 }
