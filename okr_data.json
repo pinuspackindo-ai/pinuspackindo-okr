@@ -8457,7 +8457,7 @@
     },
     "score": 91.23,
     "savedAt": "2026-08-10T09:01:37.557Z",
-    "locked": true,
+    "locked": false,
     "scoreV": 2,
     "usersV": 2
   },
@@ -8478,5 +8478,5 @@
     "locked": true,
     "scoreV": 2
   },
-  "_ts": 1786377734428
+  "_ts": 1786377734498
 }
