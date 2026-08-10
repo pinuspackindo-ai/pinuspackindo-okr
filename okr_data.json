@@ -4611,7 +4611,7 @@
           "objective": "Pengadaan stok tepat waktu dan berkwalitas, administrasi akurat..",
           "keyResult": "Tingkat in stock",
           "target": 95,
-          "actual": 93.17,
+          "actual": 93.18,
           "bobot": 40
         },
         {
@@ -6385,9 +6385,10 @@
       "Adit Mohgat": 87.4,
       "A'izatul Nafisah": 95.62
     },
-    "score": 91.17,
+    "score": 91.46,
     "savedAt": "2026-07-15T10:19:51.843Z",
-    "locked": true
+    "locked": true,
+    "scoreV": 2
   },
   "_p_sv_2026_07_15": {
     "text": "METANOL, 1,750,000, 1,700,000",
@@ -8482,5 +8483,5 @@
     "scoreV": 2,
     "usersV": 2
   },
-  "_ts": 1786377759264
+  "_ts": 1786377759428
 }
