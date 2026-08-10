@@ -4590,7 +4590,7 @@
           "objective": "Stok akurat, persediaan optimal, biaya & waste minimal.",
           "keyResult": "Tingkat akurasi administrasi",
           "target": 98,
-          "actual": 97.4,
+          "actual": null,
           "bobot": 40
         },
         {
@@ -7696,7 +7696,7 @@
           "objective": "Stok akurat, persediaan optimal, biaya & waste minimal.",
           "keyResult": "Akurasi DO vs RN",
           "target": 100,
-          "actual": 95.55,
+          "actual": null,
           "bobot": 10
         },
         {
@@ -8465,5 +8465,5 @@
     "savedAt": "2026-08-10T09:02:28.029Z",
     "locked": true
   },
-  "_ts": 1786377644569
+  "_ts": 1786377650870
 }
