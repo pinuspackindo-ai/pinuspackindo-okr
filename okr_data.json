@@ -3644,14 +3644,14 @@
         "score": "100",
         "evidence": "https://raw.githubusercontent.com/pinuspackindo-ai/pinuspackindo-okr/data/uploads/internal_audit/1785821986223_h6r5ge_purchase.png",
         "evidenceName": "purchase.png",
-        "locked": false,
+        "locked": true,
         "evidences": [
           {
             "name": "purchase.png",
             "data": "https://raw.githubusercontent.com/pinuspackindo-ai/pinuspackindo-okr/data/uploads/internal_audit/1785821988076_8zv8jj_purchase.png"
           }
         ],
-        "savedAt": "2026-08-06T09:16:53.046Z"
+        "savedAt": "2026-08-10T03:37:02.771Z"
       },
       {
         "namaAudit": "Inventory",
@@ -8281,5 +8281,5 @@
       }
     ]
   },
-  "_ts": 1786333022267
+  "_ts": 1786333022795
 }
