@@ -317,14 +317,6 @@
     "2026-07|Inventory": {
       "l": 1,
       "t": 1786007788926
-    },
-    "2026-07|Purchasing": {
-      "l": 1,
-      "t": 1786335688261
-    },
-    "2026-07|Finance & Accounting": {
-      "l": 1,
-      "t": 1786335690860
     }
   },
   "2026-05": {
@@ -4426,7 +4418,7 @@
           "objective": "Data dan fisik uang akurat, transaksi tepat dan on time.",
           "keyResult": "Tingkat keberhasilan penagihan piutang",
           "target": 95,
-          "actual": 100,
+          "actual": null,
           "bobot": 30
         },
         {
@@ -4434,7 +4426,7 @@
           "objective": "Data dan fisik uang akurat, transaksi tepat dan on time.",
           "keyResult": "Payment akurat dan on time",
           "target": 98,
-          "actual": 100,
+          "actual": null,
           "bobot": 25
         },
         {
@@ -4442,7 +4434,7 @@
           "objective": "Data dan fisik uang akurat, transaksi tepat dan on time.",
           "keyResult": "Tingkat akurasi uang fisik dan data",
           "target": 98,
-          "actual": 95.45,
+          "actual": null,
           "bobot": 20
         },
         {
@@ -4458,7 +4450,7 @@
           "objective": "Data dan fisik uang akurat, transaksi tepat dan on time.",
           "keyResult": "Tingkat implementasi rekomendasi audit",
           "target": 100,
-          "actual": 99.3,
+          "actual": null,
           "bobot": 10
         }
       ],
@@ -4525,7 +4517,7 @@
           "objective": "Membangun dan menjaga SDM yg kompeten, disiplin, produktif, inisiatif, guna mendukung perusahaan berkembang.",
           "keyResult": "Ketepatan waktu rekrutment",
           "target": 85,
-          "actual": 92.88,
+          "actual": null,
           "bobot": 15
         },
         {
@@ -4546,7 +4538,7 @@
           "objective": "Melindungi dan mengawasi sistem internal berbasis dari resiko yg timbul.",
           "keyResult": "Tingkat implementasi rekomendasi audit",
           "target": 100,
-          "actual": 100,
+          "actual": null,
           "bobot": 45
         },
         {
@@ -4554,7 +4546,7 @@
           "objective": "Melindungi dan mengawasi sistem internal berbasis dari resiko yg timbul.",
           "keyResult": "Laporan audit akurat dan on time",
           "target": 100,
-          "actual": 100,
+          "actual": null,
           "bobot": 35
         },
         {
@@ -4636,7 +4628,7 @@
           "objective": "Pengadaan stok tepat waktu dan berkwalitas, administrasi akurat..",
           "keyResult": "Tingkat implementasi rekomendasi audit",
           "target": 100,
-          "actual": 93.45,
+          "actual": null,
           "bobot": 10
         }
       ],
@@ -6317,88 +6309,7 @@
     "locked": true
   },
   "_hrd_rec_2026_07": {
-    "rows": [
-      {
-        "jabatan": "STAFF",
-        "namaRequest": "OFFICE BOY",
-        "tglRequest": "2026-07-10",
-        "deadline": "2026-08-09",
-        "realisasi": "2026-07-29",
-        "evidence": "https://raw.githubusercontent.com/pinuspackindo-ai/pinuspackindo-okr/data/uploads/hrd/1786333493194_nvcxq7_OJT_ALI_MAHMUDI_20260729_0001.pdf",
-        "evidenceName": "OJT ALI MAHMUDI_20260729_0001.pdf",
-        "editing": false,
-        "evidences": [
-          {
-            "name": "OJT ALI MAHMUDI_20260729_0001.pdf",
-            "data": "https://raw.githubusercontent.com/pinuspackindo-ai/pinuspackindo-okr/data/uploads/hrd/1786333433105_tzi728_OJT_ALI_MAHMUDI_20260729_0001.pdf"
-          }
-        ]
-      },
-      {
-        "jabatan": "STAFF",
-        "namaRequest": "ACCOUNT PAYABLE",
-        "tglRequest": "2026-06-16",
-        "deadline": "2026-07-16",
-        "realisasi": "2026-07-15",
-        "evidence": "https://raw.githubusercontent.com/pinuspackindo-ai/pinuspackindo-okr/data/uploads/hrd/1786333747168_77zh5u_Surat_Penawaran_Kerja_-Vica_Sukmatama_AP_.docx.pdf",
-        "evidenceName": "Surat Penawaran Kerja -Vica Sukmatama (AP) .docx.pdf",
-        "editing": false,
-        "evidences": [
-          {
-            "name": "Surat Penawaran Kerja -Vica Sukmatama (AP) .docx.pdf",
-            "data": null
-          }
-        ]
-      },
-      {
-        "jabatan": "STAFF",
-        "namaRequest": "GENERAL AFFAIR",
-        "tglRequest": "2026-06-16",
-        "deadline": "2026-07-16",
-        "realisasi": "2026-07-22",
-        "evidence": null,
-        "evidenceName": "Surat Penawaran Kerja -Arif Prabowo.docx (1).pdf",
-        "editing": false,
-        "evidences": [
-          {
-            "name": "Surat Penawaran Kerja -Arif Prabowo.docx (1).pdf",
-            "data": null
-          }
-        ]
-      },
-      {
-        "jabatan": "STAFF",
-        "namaRequest": "CUSTOMER SERVICE",
-        "tglRequest": "2026-06-06",
-        "deadline": "2026-07-06",
-        "realisasi": "2026-07-13",
-        "evidence": "https://raw.githubusercontent.com/pinuspackindo-ai/pinuspackindo-okr/data/uploads/hrd/1786333587854_oudq7m_Surat_Penawaran_Kerja_-Mentari_Rindang_Wangi_P_CS_.docx.pdf",
-        "evidenceName": "Surat Penawaran Kerja -Mentari Rindang Wangi P (CS) .docx.pdf",
-        "editing": false,
-        "evidences": [
-          {
-            "name": "Surat Penawaran Kerja -Mentari Rindang Wangi P (CS) .docx.pdf",
-            "data": null
-          }
-        ]
-      },
-      {
-        "jabatan": "STAFF",
-        "namaRequest": "STAFF PURSHASING",
-        "tglRequest": "2026-07-13",
-        "deadline": "2026-08-12",
-        "realisasi": "2026-08-07",
-        "evidence": null,
-        "evidenceName": "Surat Penawaran Kerja -Yurida Tri W ( Purchasing) .docx_2 (1).pdf",
-        "editing": false,
-        "evidences": [
-          {
-            "name": "Surat Penawaran Kerja -Yurida Tri W ( Purchasing) .docx_2 (1).pdf",
-            "data": null
-          }
-        ]
-      }
-    ],
+    "rows": [],
     "savedAt": "2026-07-15T07:20:17.341Z"
   },
   "_p_ins_2026_07_15": {
@@ -8372,9 +8283,16 @@
       }
     ]
   },
+  "_p_sv_2026_08_07": {
+    "text": "SPORK KAYU, 5,258, 3,714",
+    "evidence": null,
+    "evidenceName": "07.PNG",
+    "savedAt": "2026-08-10T01:14:18.295Z",
+    "locked": true
+  },
   "_p_ir_2026_07": {
     "value": 93.45,
-    "evidence": "https://raw.githubusercontent.com/pinuspackindo-ai/pinuspackindo-okr/data/uploads/purchasing/1786333340323_vdrdkv_Screenshot_2026-08-10_104046.png",
+    "evidence": null,
     "evidenceName": "Screenshot 2026-08-10 104046.png",
     "savedAt": "2026-08-10T03:41:46.604Z",
     "locked": true,
@@ -8404,7 +8322,6 @@
       }
     ]
   },
-  "_ts": 1786335819515,
   "_ia_rot_cartrack_2026_08": {
     "rows": [
       {
@@ -8424,11 +8341,5 @@
       }
     ]
   },
-  "_p_sv_2026_08_07": {
-    "text": "SPORK KAYU, 5,258, 3,714",
-    "evidence": null,
-    "evidenceName": "07.PNG",
-    "savedAt": "2026-08-10T01:14:18.295Z",
-    "locked": true
-  }
+  "_ts": 1786335833032
 }
