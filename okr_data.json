@@ -99,8 +99,7 @@
     "_kpi_2026_06": 1785821600423,
     "_inv_rn_do_2026_05_06": 1785821290910,
     "_p_ins_2026_08_06": 1786324413942,
-    "_p_ins_2026_08_07": 1786324413942,
-    "_p_sv_2026_08_07": 1786324413942
+    "_p_ins_2026_08_07": 1786324413942
   },
   "_okrLock": {
     "2026-05|Store": {
@@ -8284,5 +8283,12 @@
       }
     ]
   },
-  "_ts": 1786324423049
+  "_ts": 1786324455882,
+  "_p_sv_2026_08_07": {
+    "text": "SPORK KAYU, 5,258, 3,714",
+    "evidence": "https://raw.githubusercontent.com/pinuspackindo-ai/pinuspackindo-okr/data/uploads/purchasing/1786324440881_yy4zmo_07.png",
+    "evidenceName": "07.PNG",
+    "savedAt": null,
+    "locked": false
+  }
 }
