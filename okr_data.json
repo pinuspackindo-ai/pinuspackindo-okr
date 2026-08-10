@@ -3761,7 +3761,7 @@
         "temuan": "0",
         "evidence": "https://raw.githubusercontent.com/pinuspackindo-ai/pinuspackindo-okr/data/uploads/internal_audit/1785822129350_0zlzwf_k3.png",
         "evidenceName": "k3.png",
-        "locked": true,
+        "locked": false,
         "evidences": [
           {
             "name": "k3.png",
@@ -8375,5 +8375,5 @@
       }
     ]
   },
-  "_ts": 1786333907970
+  "_ts": 1786333909620
 }
