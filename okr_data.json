@@ -7930,7 +7930,7 @@
         "temuan": "0",
         "evidence": "https://raw.githubusercontent.com/pinuspackindo-ai/pinuspackindo-okr/data/uploads/internal_audit/1785822363546_e09j1k_cartrack.png",
         "evidenceName": "cartrack.png",
-        "locked": true,
+        "locked": false,
         "evidences": [
           {
             "name": "cartrack.png",
@@ -8281,5 +8281,5 @@
       }
     ]
   },
-  "_ts": 1786333053636
+  "_ts": 1786333055195
 }
