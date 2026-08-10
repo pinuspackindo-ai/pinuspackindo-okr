@@ -7360,7 +7360,7 @@
         "progress": 30,
         "review": "",
         "editing": false,
-        "savedAt": "2026-08-10T03:07:44.480Z"
+        "savedAt": "2026-08-10T03:10:54.901Z"
       },
       {
         "tal": "drafting & pengesahan 50% buku product knowlegde",
@@ -7372,7 +7372,7 @@
         "savedAt": "2026-08-02T06:41:38.171Z"
       }
     ],
-    "savedAt": "2026-08-10T03:07:44.483Z"
+    "savedAt": "2026-08-10T03:10:54.902Z"
   },
   "_tal_d4_2026_08": {
     "rows": [
@@ -8281,5 +8281,5 @@
       }
     ]
   },
-  "_ts": 1786331370795
+  "_ts": 1786331454902
 }
