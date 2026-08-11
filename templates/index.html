@@ -3429,7 +3429,7 @@ function purchApoRender(){
       html+='<td style="text-align:center;"><span class="metric-value '+cls+'" style="font-size:.95rem;">'+(fs!==null?fs.toFixed(1)+'%':'&#x2014;')+'</span>';
       if(fs!==null)html+='<div style="font-size:9px;color:var(--text-l);">Ket:'+d.lateScore.toFixed(0)+'% Aku:'+d.accScore.toFixed(0)+'%</div>';
       if(fs!==null&&d.users){Object.keys(d.users).forEach(function(un){var uu=d.users[un];if(!uu)return;
-        if(typeof uu.score==='number')html+='<div style="font-size:9px;color:var(--text-m);">'+esc(un)+': <strong>'+uu.score.toFixed(1)+'%</strong>'+(uu.po?' <span style="color:var(--text-l);">('+uu.po+' PO)</span>':'')+'</div>';
+        if(typeof uu.score==='number')html+='<div style="font-size:9px;color:var(--text-m);">'+esc(un)+': <strong>'+uu.score.toFixed(1)+'%</strong>'+(uu.baris?' <span style="color:var(--text-l);">('+uu.baris+' baris / '+uu.po+' PO)</span>':(uu.po?' <span style="color:var(--text-l);">('+uu.po+' PO)</span>':''))+'</div>';
         else html+='<div style="font-size:9px;color:var(--text-l);">'+esc(un)+': &#x2014; (tanpa PO)</div>';});}
       html+='</td>';
       html+='<td style="text-align:center;">'+(linked?(fs!==null?'<span style="color:var(--success);font-weight:600;">'+fs.toFixed(1)+'%</span>':'<span style="color:var(--text-l);">&#x2014;</span>'):'<span style="font-size:10px;color:var(--text-l);">Tidak tersambung</span>')+'</td>';
@@ -3496,12 +3496,19 @@ function purchApoSave(month){
           var ordK=findCol(h1,['orderdate','orddate','tanggalorder','tglorder','purchasedate']);
           var recK=findCol(h1,['receiveddate','receivedate','recdate','tanggalterima','tglterima','received','arrival']);
           if(!refK||!ordK||!recK){notify('File Keterlambatan: kolom tidak ditemukan. Pastikan ada Order Reference, Order Date, Received Date','error');return;}
-          var allRows1=rows1.map(function(row){var ref=String(row[refK]||'').trim();var od=parseDate(row[ordK]);var rd=parseDate(row[recK]);var late=od&&rd&&(sameDay(od,rd)||od.getTime()>rd.getTime());return{ref:ref,status:late?'Terlambat':'Ontime'};});
-          var refMap={};allRows1.forEach(function(r){if(!r.ref)return;if(!refMap[r.ref])refMap[r.ref]={ref:r.ref,status:r.status};else if(r.status==='Terlambat')refMap[r.ref].status='Terlambat';});
-          var uniq=Object.values(refMap);
+          // Pembuat & partner dibaca per BARIS (dipakai utk penilaian individu di bawah)
+          var creK=findCol(h1,['createdby','create by','createby','dibuatoleh','pembuat','creator'])
+                 ||findCol(h1,['lastupdateby','lastupdatedby','updateby','updatedby','last update','pic','petugas','oleh','user']);
+          var parK1=findCol(h1,['partner','vendor','supplier','pemasok','namavendor']);
+          var allRows1=rows1.map(function(row){var ref=String(row[refK]||'').trim();var od=parseDate(row[ordK]);var rd=parseDate(row[recK]);var late=od&&rd&&(sameDay(od,rd)||od.getTime()>rd.getTime());return{ref:ref,status:late?'Terlambat':'Ontime',who:creK?_insNorm(row[creK]):''};});
+          // Satuan hitung = BARIS PRODUK, bukan nomor PO. Satu nomor PO dgn 5 produk
+          // dihitung 5, karena penilaiannya pada produk yang dipesan.
+          var uniq=allRows1.filter(function(r){return r.ref;});
           var tlbt=uniq.filter(function(r){return r.status==='Terlambat';}).length;
           var total1=uniq.length;
           var lateScore=total1?(total1-tlbt)/total1*100:0;
+          // Jumlah nomor PO unik — masih dipakai sbg penyebut Akurasi (lihat totalRef)
+          var poSet={};uniq.forEach(function(r){poSet[r.ref]=1;});var totalPO=Object.keys(poSet).length;
           // ── Akurasi (accScore) dari file2 ──
           var wb2=XLSX.read(arr2,{type:'array',cellDates:true});
           var rows2=XLSX.utils.sheet_to_json(wb2.Sheets[wb2.SheetNames[0]],{defval:''});
@@ -3509,44 +3516,40 @@ function purchApoSave(month){
           var originK=findCol(h2,['sourceorigin','source origin','origin']);
           if(!originK){notify('File Akurasi: kolom Source Origin tidak ditemukan','error');return;}
           var inacc=rows2.filter(function(row){var origin=String(row[originK]||'').trim();return ACC_KW.some(function(kw){return origin.toUpperCase().indexOf(kw)!==-1;});});
-          var totalRef=total1||rows2.length;
+          // Penyebut Akurasi TETAP jumlah nomor PO (bukan baris produk) — belum diubah
+          var totalRef=totalPO||rows2.length;
           var accScore=totalRef?Math.max(0,totalRef-inacc.length)/totalRef*100:0;
           // ── Final ──
           var finalScore=lateScore*0.7+accScore*0.3;
           // ── PER-USER (Juli 2026 →): penyebut = PO milik PIC itu sendiri, bukan total global ──
           var apoUsers=null;
           if(typeof purchInstockNewFormula==='function'&&purchInstockNewFormula(y,month)){
-            // Nama individu HANYA dari file Keterlambatan, kolom "Created by".
-            // (fallback ke Last Update By kalau file lama tidak punya kolom Created by)
-            var creK=findCol(h1,['createdby','create by','createby','dibuatoleh','pembuat','creator'])
-                   ||findCol(h1,['lastupdateby','lastupdatedby','updateby','updatedby','last update','pic','petugas','oleh','user']);
-            var parK1=findCol(h1,['partner','vendor','supplier','pemasok','namavendor']);
-            // ref → pembuat (utk Ketepatan), dan partner → pembuat (utk Akurasi).
-            // Kalau 1 partner/ref dibuat >1 orang, yang dipakai adalah pembuat TERAKHIR
-            // (baris paling bawah di Excel) — karena itu tidak pakai guard "if kosong".
-            var refUpd={},partnerUser={};
+            // Nama individu HANYA dari file Keterlambatan, kolom "Created by" (sudah dibaca
+            // per baris di allRows1.who). Untuk Akurasi butuh peta partner → pembuat;
+            // kalau 1 partner dibuat >1 orang, yang dipakai pembuat TERAKHIR di Excel.
+            var partnerUser={};
             rows1.forEach(function(row){
-              var who=creK?_insNorm(row[creK]):'';if(!who)return;
-              var ref=String(row[refK]||'').trim();
-              if(ref)refUpd[ref]=who;
-              if(parK1){var pn=_insNorm(row[parK1]);if(pn)partnerUser[pn]=who;}
+              var who=creK?_insNorm(row[creK]):'';if(!who||!parK1)return;
+              var pn=_insNorm(row[parK1]);if(pn)partnerUser[pn]=who;
             });
             // File Akurasi tidak punya Created by → nama diambil lewat kolom Partner,
             // dicocokkan ke partner yang sama di file Keterlambatan utk dapat pembuatnya.
             var parK2=findCol(h2,['partner','vendor','supplier','pemasok','namavendor']);
             apoUsers={};
             APO_USERS.forEach(function(u){
-              // Penyebut = PO yang dibuat PIC ini saja (bukan total semua orang)
-              var poU=uniq.filter(function(r){return (refUpd[r.ref]||'').indexOf(u.m)!==-1;});
-              var totalU=poU.length;
-              if(!totalU){apoUsers[u.key]={ket:null,aku:null,score:null,po:0};return;} // tidak ada PO → tanpa nilai
-              var lateU=poU.filter(function(r){return r.status==='Terlambat';}).length;
+              // Penyebut = milik PIC ini sendiri, bukan total semua orang.
+              // Ketepatan: baris produk miliknya. Akurasi: nomor PO miliknya (samakan dgn global).
+              var lineU=uniq.filter(function(r){return (r.who||'').indexOf(u.m)!==-1;});
+              var totalU=lineU.length;
+              if(!totalU){apoUsers[u.key]={ket:null,aku:null,score:null,baris:0,po:0};return;} // tanpa PO → tanpa nilai
+              var lateU=lineU.filter(function(r){return r.status==='Terlambat';}).length;
               var ketU=(totalU-lateU)/totalU*100;
+              var poSetU={};lineU.forEach(function(r){poSetU[r.ref]=1;});var poU=Object.keys(poSetU).length;
               var inaccU=parK2?inacc.filter(function(row){
                 return (partnerUser[_insNorm(row[parK2])]||'').indexOf(u.m)!==-1;
               }).length:0;
-              var akuU=Math.max(0,totalU-inaccU)/totalU*100;
-              apoUsers[u.key]={ket:Math.round(ketU*100)/100,aku:Math.round(akuU*100)/100,score:Math.round((ketU*0.7+akuU*0.3)*100)/100,po:totalU};
+              var akuU=poU?Math.max(0,poU-inaccU)/poU*100:0;
+              apoUsers[u.key]={ket:Math.round(ketU*100)/100,aku:Math.round(akuU*100)/100,score:Math.round((ketU*0.7+akuU*0.3)*100)/100,baris:totalU,po:poU};
             });
           }
           _purchPending={type:'akurasi_po',year:y,month:month,file1:d.file1,file1Name:d.file1Name,file2:d.file2,file2Name:d.file2Name,lateScore:lateScore,accScore:accScore,finalScore:finalScore,users:apoUsers};
