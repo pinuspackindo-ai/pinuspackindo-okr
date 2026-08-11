@@ -3661,6 +3661,12 @@ function purchKpenSave(month){
         var lubK=findCol(h,['createdby','create by','createby','dibuatoleh','pembuat','creator'])
                ||findCol(h,['lastupdateby','lastupdatedby','updateby','updatedby','last update','pic','petugas','oleh','user']);
         var allRows=rows.map(function(row){var rqty=Math.round((parseFloat(row[rqtyK])||0)*100)/100;var qty=Math.round((parseFloat(row[qtyK])||0)*100)/100;return{status:rqty===qty?'Akurat':'Tidak Akurat',upd:lubK?_insNorm(row[lubK]):''};});
+        // Juli 2026 → : skor global HANYA menilai baris milik 3 purchasing (APO_USERS).
+        // Kalau tidak ada yang cocok (file lama tanpa Created by), pakai semua baris.
+        if(typeof purchInstockNewFormula==='function'&&purchInstockNewFormula(y,month)&&typeof APO_USERS!=='undefined'){
+          var _k3=allRows.filter(function(r){return APO_USERS.some(function(u){return r.upd.indexOf(u.m)!==-1;});});
+          if(_k3.length)allRows=_k3;
+        }
         var total=allRows.length;var accRows=allRows.filter(function(r){return r.status==='Akurat';}).length;
         var score=total?accRows/total*100:0;
         // ── PER-USER (Juli 2026 →): penyebut = baris milik PIC itu sendiri ──
