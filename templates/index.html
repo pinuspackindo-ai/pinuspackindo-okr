@@ -3428,7 +3428,9 @@ function purchApoRender(){
       var fs=d.finalScore;var cls=fs!==null?scoreClass(fs):'';
       html+='<td style="text-align:center;"><span class="metric-value '+cls+'" style="font-size:.95rem;">'+(fs!==null?fs.toFixed(1)+'%':'&#x2014;')+'</span>';
       if(fs!==null)html+='<div style="font-size:9px;color:var(--text-l);">Ket:'+d.lateScore.toFixed(0)+'% Aku:'+d.accScore.toFixed(0)+'%</div>';
-      if(fs!==null&&d.users){Object.keys(d.users).forEach(function(un){var uu=d.users[un];if(uu&&typeof uu.score==='number')html+='<div style="font-size:9px;color:var(--text-m);">'+esc(un)+': <strong>'+uu.score.toFixed(1)+'%</strong></div>';});}
+      if(fs!==null&&d.users){Object.keys(d.users).forEach(function(un){var uu=d.users[un];if(!uu)return;
+        if(typeof uu.score==='number')html+='<div style="font-size:9px;color:var(--text-m);">'+esc(un)+': <strong>'+uu.score.toFixed(1)+'%</strong>'+(uu.po?' <span style="color:var(--text-l);">('+uu.po+' PO)</span>':'')+'</div>';
+        else html+='<div style="font-size:9px;color:var(--text-l);">'+esc(un)+': &#x2014; (tanpa PO)</div>';});}
       html+='</td>';
       html+='<td style="text-align:center;">'+(linked?(fs!==null?'<span style="color:var(--success);font-weight:600;">'+fs.toFixed(1)+'%</span>':'<span style="color:var(--text-l);">&#x2014;</span>'):'<span style="font-size:10px;color:var(--text-l);">Tidak tersambung</span>')+'</td>';
       html+='<td style="text-align:center;white-space:nowrap;"><div style="display:flex;gap:4px;justify-content:center;align-items:center;"><button onclick="purchApoEdit('+m+')" style="background:none;border:1px solid var(--border);color:var(--text-m);border-radius:var(--radius-sm);padding:4px 10px;cursor:pointer;font-size:11px;font-family:var(--font);">&#x270F;&#xFE0F; Edit</button><button onclick="purchApoDelete('+m+')" style="background:none;border:1.5px solid #fca5a5;color:#dc2626;border-radius:var(--radius-sm);padding:4px 8px;cursor:pointer;font-size:12px;font-family:var(--font);">&#x1F5D1;</button></div></td>';
@@ -3511,7 +3513,7 @@ function purchApoSave(month){
           var accScore=totalRef?Math.max(0,totalRef-inacc.length)/totalRef*100:0;
           // ── Final ──
           var finalScore=lateScore*0.7+accScore*0.3;
-          // ── PER-USER (Juli 2026 →): penyebut = T global (total1), temuan difokuskan per nama ──
+          // ── PER-USER (Juli 2026 →): penyebut = PO milik PIC itu sendiri, bukan total global ──
           var apoUsers=null;
           if(typeof purchInstockNewFormula==='function'&&purchInstockNewFormula(y,month)){
             // Nama individu HANYA dari file Keterlambatan, kolom "Created by".
@@ -3534,13 +3536,17 @@ function purchApoSave(month){
             var parK2=findCol(h2,['partner','vendor','supplier','pemasok','namavendor']);
             apoUsers={};
             APO_USERS.forEach(function(u){
-              var lateU=0;uniq.forEach(function(r){if(r.status==='Terlambat'&&(refUpd[r.ref]||'').indexOf(u.m)!==-1)lateU++;});
-              var ketU=total1?(total1-lateU)/total1*100:0;
+              // Penyebut = PO yang dibuat PIC ini saja (bukan total semua orang)
+              var poU=uniq.filter(function(r){return (refUpd[r.ref]||'').indexOf(u.m)!==-1;});
+              var totalU=poU.length;
+              if(!totalU){apoUsers[u.key]={ket:null,aku:null,score:null,po:0};return;} // tidak ada PO → tanpa nilai
+              var lateU=poU.filter(function(r){return r.status==='Terlambat';}).length;
+              var ketU=(totalU-lateU)/totalU*100;
               var inaccU=parK2?inacc.filter(function(row){
                 return (partnerUser[_insNorm(row[parK2])]||'').indexOf(u.m)!==-1;
               }).length:0;
-              var akuU=totalRef?Math.max(0,totalRef-inaccU)/totalRef*100:0;
-              apoUsers[u.key]={ket:Math.round(ketU*100)/100,aku:Math.round(akuU*100)/100,score:Math.round((ketU*0.7+akuU*0.3)*100)/100};
+              var akuU=Math.max(0,totalU-inaccU)/totalU*100;
+              apoUsers[u.key]={ket:Math.round(ketU*100)/100,aku:Math.round(akuU*100)/100,score:Math.round((ketU*0.7+akuU*0.3)*100)/100,po:totalU};
             });
           }
           _purchPending={type:'akurasi_po',year:y,month:month,file1:d.file1,file1Name:d.file1Name,file2:d.file2,file2Name:d.file2Name,lateScore:lateScore,accScore:accScore,finalScore:finalScore,users:apoUsers};
