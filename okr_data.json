@@ -97,7 +97,8 @@
     "_ga_rot_2026_07": 1783134170325,
     "_p_sv_2026_07_30": 1785821600423,
     "_kpi_2026_06": 1785821600423,
-    "_inv_rn_do_2026_05_06": 1785821290910
+    "_inv_rn_do_2026_05_06": 1785821290910,
+    "_p_kpen_2026_07": 1786423292107
   },
   "_okrLock": {
     "2026-05|Store": {
@@ -4624,7 +4625,7 @@
           "objective": "Pengadaan stok tepat waktu dan berkwalitas, administrasi akurat..",
           "keyResult": "Tingkat akurasi PO",
           "target": 95,
-          "actual": 83.51,
+          "actual": 78.69,
           "bobot": 30
         },
         {
@@ -4632,7 +4633,7 @@
           "objective": "Pengadaan stok tepat waktu dan berkwalitas, administrasi akurat..",
           "keyResult": "Tingkat kwalitas pengadaan",
           "target": 95,
-          "actual": 97.1,
+          "actual": null,
           "bobot": 20
         },
         {
@@ -7211,26 +7212,6 @@
     "scoreV": 2,
     "usersV": 2
   },
-  "_p_kpen_2026_07": {
-    "file": "https://raw.githubusercontent.com/pinuspackindo-ai/pinuspackindo-okr/data/uploads/purchasing/1785560731986_kiktdg_purchase.order.line.xlsx",
-    "fileName": "purchase.order.line.xlsx",
-    "totalRows": 1692,
-    "accRows": 1643,
-    "score": 97.10401891252955,
-    "savedAt": "2026-08-01T04:52:14.163Z",
-    "locked": true,
-    "users": {
-      "Arif Wibowo": {
-        "score": 100
-      },
-      "Adit Mohgat": {
-        "score": 100
-      },
-      "A'izatul Nafisah": {
-        "score": 100
-      }
-    }
-  },
   "_w_impl_audit_w_2026_07": {
     "value": 97.72,
     "evidence": null,
@@ -8523,6 +8504,8 @@
     "scoreV": 2,
     "usersV": 2
   },
+  "_ts": 1786423292107,
+  "_p_apo_2026_07x": null,
   "_p_apo_2026_07": {
     "file1": "https://raw.githubusercontent.com/pinuspackindo-ai/pinuspackindo-okr/data/uploads/purchasing/1786422859929_wqkg3r_purchase.order.line_1.xlsx",
     "file1Name": "purchase.order.line (1).xlsx",
@@ -8562,7 +8545,5 @@
         "telat": 49
       }
     }
-  },
-  "_ts": 1786423258144,
-  "_p_apo_2026_07x": null
+  }
 }
