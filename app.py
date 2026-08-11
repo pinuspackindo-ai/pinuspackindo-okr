@@ -11,17 +11,21 @@ import threading
 import urllib.request
 import urllib.error
 
-# ─── GITHUB CONFIG ──────────────────────────────────────────────────────────
-# Isi GITHUB_TOKEN dan GITHUB_REPO sekali, lalu restart Flask.
-# Data OKR akan otomatis terpush ke GitHub setiap kali disimpan.
-GITHUB_TOKEN  = ''                                    # Diisi otomatis dari local_config.py
-GITHUB_REPO   = 'pinuspackindo-ai/pinuspackindo-okr'  # Format: "username/nama-repo"
-GITHUB_BRANCH = 'main'         # Branch aktif (biasanya main atau master)
-GITHUB_FILE   = 'okr_data.json'  # Path file di dalam repo (jangan diubah)
-# Token dibaca dari local_config.py (tidak masuk GitHub — aman)
+# ─── SUPABASE CONFIG ────────────────────────────────────────────────────────
+# Penyimpanan data OKR. Menggantikan GitHub (okr_data.json di branch `data`).
+# Isi kedua nilai ini di local_config.py — file itu masuk .gitignore:
+#     SUPABASE_URL = 'https://ivxfbpbwwyvkgijrkycj.supabase.co'
+#     SUPABASE_SERVICE_KEY = '<service_role key>'
+SUPABASE_URL = 'https://ivxfbpbwwyvkgijrkycj.supabase.co'
+SUPABASE_SERVICE_KEY = ''
 try:
-    from local_config import GITHUB_TOKEN as _LC_TOKEN
-    if _LC_TOKEN: GITHUB_TOKEN = _LC_TOKEN
+    from local_config import SUPABASE_URL as _LC_SB_URL
+    if _LC_SB_URL: SUPABASE_URL = _LC_SB_URL
+except ImportError:
+    pass
+try:
+    from local_config import SUPABASE_SERVICE_KEY as _LC_SB_KEY
+    if _LC_SB_KEY: SUPABASE_SERVICE_KEY = _LC_SB_KEY
 except ImportError:
     pass
 # ────────────────────────────────────────────────────────────────────────────
@@ -107,46 +111,72 @@ def to_xlsx(df, sheet='Data'):
     buf.seek(0)
     return buf
 
-# ─── GITHUB PUSH ─────────────────────────────────────────────
+# ─── SUPABASE PUSH ───────────────────────────────────────────
+# Menggantikan push ke GitHub. Data OKR disimpan sebagai satu baris
+# id='main' di tabel okr_state (kolom data jsonb, ts bigint).
 
-def _push_github_bg(data_str):
-    """Push okr_data.json ke GitHub via Contents API. Dijalankan di background thread."""
-    if not GITHUB_TOKEN or not GITHUB_REPO:
+def _push_supabase_bg(data_str):
+    """Upsert data OKR ke Supabase. Dijalankan di background thread."""
+    if not SUPABASE_URL or not SUPABASE_SERVICE_KEY:
+        print('[Supabase] SUPABASE_URL / SUPABASE_SERVICE_KEY belum diisi di local_config.py')
         return
-    api_url = 'https://api.github.com/repos/{}/contents/{}'.format(GITHUB_REPO, GITHUB_FILE)
+    api_url = SUPABASE_URL.rstrip('/') + '/rest/v1/okr_state?on_conflict=id'
     headers = {
-        'Authorization': 'token ' + GITHUB_TOKEN,
-        'Accept': 'application/vnd.github.v3+json',
+        'apikey': SUPABASE_SERVICE_KEY,
+        'Authorization': 'Bearer ' + SUPABASE_SERVICE_KEY,
         'Content-Type': 'application/json',
+        'Prefer': 'resolution=merge-duplicates,return=minimal',
         'User-Agent': 'PINUS-OKR-App',
     }
-    # 1. GET SHA file saat ini (wajib untuk update)
-    sha = ''
     try:
-        req = urllib.request.Request(
-            api_url + '?ref=' + GITHUB_BRANCH, headers=headers)
-        with urllib.request.urlopen(req, timeout=10) as resp:
-            info = json.loads(resp.read().decode('utf-8'))
-            sha = info.get('sha', '')
-    except Exception:
-        pass  # File belum ada di repo → sha kosong → create baru
-    # 2. PUT update / create file
-    payload = {
-        'message': 'chore: update OKR data',
-        'content': base64.b64encode(data_str.encode('utf-8')).decode('ascii'),
-        'branch':  GITHUB_BRANCH,
-    }
-    if sha:
-        payload['sha'] = sha
-    body = json.dumps(payload, ensure_ascii=False).encode('utf-8')
-    try:
-        req = urllib.request.Request(api_url, data=body, headers=headers, method='PUT')
-        with urllib.request.urlopen(req, timeout=15) as resp:
-            print('[GitHub] Push OK — status', resp.status)
-    except urllib.error.HTTPError as e:
-        print('[GitHub] HTTPError', e.code, e.reason, e.read().decode())
+        data_obj = json.loads(data_str)
     except Exception as e:
-        print('[GitHub] Push error:', e)
+        print('[Supabase] Data bukan JSON valid:', e)
+        return
+    if '"__CLOUD__"' in data_str:
+        print('[Supabase] Dibatalkan: data mengandung placeholder __CLOUD__')
+        return
+    row = [{
+        'id': 'main',
+        'data': data_obj,
+        'ts': int(data_obj.get('_ts') or (datetime.now().timestamp() * 1000)),
+        'updated_at': datetime.now().astimezone().isoformat(),
+    }]
+    body = json.dumps(row, ensure_ascii=False).encode('utf-8')
+    try:
+        req = urllib.request.Request(api_url, data=body, headers=headers, method='POST')
+        with urllib.request.urlopen(req, timeout=20) as resp:
+            print('[Supabase] Upsert OK — status', resp.status)
+    except urllib.error.HTTPError as e:
+        print('[Supabase] HTTPError', e.code, e.reason, e.read().decode()[:300])
+    except Exception as e:
+        print('[Supabase] Push error:', e)
+
+
+def _fetch_supabase():
+    """Ambil data OKR dari Supabase. Kembalikan None kalau gagal / belum diisi."""
+    if not SUPABASE_URL or not SUPABASE_SERVICE_KEY:
+        return None
+    api_url = (SUPABASE_URL.rstrip('/')
+               + '/rest/v1/okr_state?id=eq.main&select=data,ts')
+    headers = {
+        'apikey': SUPABASE_SERVICE_KEY,
+        'Authorization': 'Bearer ' + SUPABASE_SERVICE_KEY,
+        'User-Agent': 'PINUS-OKR-App',
+    }
+    try:
+        req = urllib.request.Request(api_url, headers=headers)
+        with urllib.request.urlopen(req, timeout=15) as resp:
+            rows = json.loads(resp.read().decode('utf-8'))
+        if not rows:
+            return None
+        d = rows[0].get('data') or {}
+        if rows[0].get('ts') and not d.get('_ts'):
+            d['_ts'] = int(rows[0]['ts'])
+        return d
+    except Exception as e:
+        print('[Supabase] Fetch error:', e)
+        return None
 
 # ─── ROUTES ──────────────────────────────────────────────────
 
@@ -167,26 +197,30 @@ def okr_data_get():
 
 @app.route('/api/okr', methods=['GET', 'POST'])
 def okr_api():
-    """GET: baca okr_data.json | POST: simpan + push ke GitHub."""
+    """GET: baca dari Supabase (fallback ke file lokal) | POST: simpan lokal + Supabase."""
     if request.method == 'GET':
-        if os.path.exists(OKR_DATA_PATH):
+        # Sumber utama = Supabase, supaya sama dengan yang dilihat versi web
+        _d = _fetch_supabase()
+        if _d is None and os.path.exists(OKR_DATA_PATH):
             with open(OKR_DATA_PATH, 'r', encoding='utf-8') as f:
                 _d = json.load(f)
-            # ?meta=1 → kirim HANYA {_ts} untuk polling hemat transfer
-            if request.args.get('meta'):
-                return jsonify({'_ts': _d.get('_ts', 0)})
-            return jsonify(_d)
-        return jsonify({})
+        if _d is None:
+            return jsonify({})
+        # ?meta=1 → kirim HANYA {_ts} untuk polling hemat transfer
+        if request.args.get('meta'):
+            return jsonify({'_ts': _d.get('_ts', 0)})
+        return jsonify(_d)
     # POST
     data = request.get_json(silent=True)
     if not isinstance(data, dict):
         return jsonify({'ok': False, 'msg': 'Invalid data'}), 400
     data_str = json.dumps(data, ensure_ascii=False, indent=2)
+    # File lokal tetap ditulis sebagai cadangan offline
     with open(OKR_DATA_PATH, 'w', encoding='utf-8') as f:
         f.write(data_str)
-    if GITHUB_TOKEN and GITHUB_REPO:
-        threading.Thread(target=_push_github_bg, args=(data_str,), daemon=True).start()
-    return jsonify({'ok': True, 'github': bool(GITHUB_TOKEN and GITHUB_REPO)})
+    if SUPABASE_URL and SUPABASE_SERVICE_KEY:
+        threading.Thread(target=_push_supabase_bg, args=(data_str,), daemon=True).start()
+    return jsonify({'ok': True, 'supabase': bool(SUPABASE_URL and SUPABASE_SERVICE_KEY)})
 
 @app.route('/login', methods=['POST'])
 def login():
