@@ -7402,13 +7402,13 @@
         "tal": "peralihan salah satu SA ke fery",
         "deadline": "2026-08-31",
         "bobot": 10,
-        "progress": null,
+        "progress": 100,
         "review": "",
         "editing": false,
-        "savedAt": "2026-08-11T04:24:01.715Z"
+        "savedAt": "2026-08-11T04:24:05.248Z"
       }
     ],
-    "savedAt": "2026-08-11T04:24:01.715Z"
+    "savedAt": "2026-08-11T04:24:05.248Z"
   },
   "_tal_d2_2026_08": {
     "rows": [
@@ -8559,5 +8559,5 @@
       }
     }
   },
-  "_ts": 1786422241715
+  "_ts": 1786422245248
 }
