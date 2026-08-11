@@ -97,7 +97,8 @@
     "_ga_rot_2026_07": 1783134170325,
     "_p_sv_2026_07_30": 1785821600423,
     "_kpi_2026_06": 1785821600423,
-    "_inv_rn_do_2026_05_06": 1785821290910
+    "_inv_rn_do_2026_05_06": 1785821290910,
+    "_p_apo_2026_07": 1786415459443
   },
   "_okrLock": {
     "2026-05|Store": {
@@ -4620,7 +4621,7 @@
           "objective": "Pengadaan stok tepat waktu dan berkwalitas, administrasi akurat..",
           "keyResult": "Tingkat akurasi PO",
           "target": 95,
-          "actual": 83.51,
+          "actual": null,
           "bobot": 30
         },
         {
@@ -8519,45 +8520,5 @@
     "scoreV": 2,
     "usersV": 2
   },
-  "_p_apo_2026_07": {
-    "file1": "https://raw.githubusercontent.com/pinuspackindo-ai/pinuspackindo-okr/data/uploads/purchasing/1786421914902_ge1gha_purchase.order.line.xlsx",
-    "file1Name": "purchase.order.line.xlsx",
-    "file2": "https://raw.githubusercontent.com/pinuspackindo-ai/pinuspackindo-okr/data/uploads/purchasing/1786421925457_fy2045_account.move_1.xlsx",
-    "file2Name": "account.move (1).xlsx",
-    "lateScore": 78.38862559241706,
-    "accScore": 95.45023696682465,
-    "finalScore": 83.50710900473933,
-    "savedAt": "2026-08-11T04:18:42.883Z",
-    "locked": true,
-    "users": {
-      "Arif Wibowo": {
-        "ket": 64.87,
-        "aku": 95.59,
-        "score": 74.08,
-        "baris": 612,
-        "po": 107,
-        "temuan": 27,
-        "telat": 215
-      },
-      "Adit Mohgat": {
-        "ket": 98.22,
-        "aku": 97.78,
-        "score": 98.09,
-        "baris": 225,
-        "po": 52,
-        "temuan": 5,
-        "telat": 4
-      },
-      "A'izatul Nafisah": {
-        "ket": 95.87,
-        "aku": 92.66,
-        "score": 94.91,
-        "baris": 218,
-        "po": 79,
-        "temuan": 16,
-        "telat": 9
-      }
-    }
-  },
-  "_ts": 1786422028214
+  "_ts": 1786422225099
 }
