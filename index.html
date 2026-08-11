@@ -3522,13 +3522,31 @@ function purchApoSave(month){
           // ── PER-USER (Juli 2026 →): penyebut = T global (total1), temuan difokuskan per nama ──
           var apoUsers=null;
           if(typeof purchInstockNewFormula==='function'&&purchInstockNewFormula(y,month)){
-            var lubK=findCol(h1,['lastupdateby','lastupdatedby','last update by','updateby','updatedby','last update','pic','petugas','oleh','user']);
-            var refUpd={};rows1.forEach(function(row){var ref=String(row[refK]||'').trim();if(!ref)return;if(lubK&&!refUpd[ref])refUpd[ref]=_insNorm(row[lubK]);});
+            // Nama individu HANYA dari file Keterlambatan, kolom "Created by".
+            // (fallback ke Last Update By kalau file lama tidak punya kolom Created by)
+            var creK=findCol(h1,['createdby','create by','createby','dibuatoleh','pembuat','creator'])
+                   ||findCol(h1,['lastupdateby','lastupdatedby','updateby','updatedby','last update','pic','petugas','oleh','user']);
+            var parK1=findCol(h1,['partner','vendor','supplier','pemasok','namavendor']);
+            // ref → pembuat (utk Ketepatan), dan partner → pembuat (utk Akurasi).
+            // Kalau 1 partner/ref dibuat >1 orang, yang dipakai adalah pembuat TERAKHIR
+            // (baris paling bawah di Excel) — karena itu tidak pakai guard "if kosong".
+            var refUpd={},partnerUser={};
+            rows1.forEach(function(row){
+              var who=creK?_insNorm(row[creK]):'';if(!who)return;
+              var ref=String(row[refK]||'').trim();
+              if(ref)refUpd[ref]=who;
+              if(parK1){var pn=_insNorm(row[parK1]);if(pn)partnerUser[pn]=who;}
+            });
+            // File Akurasi tidak punya Created by → nama diambil lewat kolom Partner,
+            // dicocokkan ke partner yang sama di file Keterlambatan utk dapat pembuatnya.
+            var parK2=findCol(h2,['partner','vendor','supplier','pemasok','namavendor']);
             apoUsers={};
             APO_USERS.forEach(function(u){
               var lateU=0;uniq.forEach(function(r){if(r.status==='Terlambat'&&(refUpd[r.ref]||'').indexOf(u.m)!==-1)lateU++;});
               var ketU=total1?(total1-lateU)/total1*100:0;
-              var inaccU=inacc.filter(function(row){return _insNorm(row[originK]).indexOf(u.m)!==-1;}).length;
+              var inaccU=parK2?inacc.filter(function(row){
+                return (partnerUser[_insNorm(row[parK2])]||'').indexOf(u.m)!==-1;
+              }).length:0;
               var akuU=totalRef?Math.max(0,totalRef-inaccU)/totalRef*100:0;
               apoUsers[u.key]={ket:Math.round(ketU*100)/100,aku:Math.round(akuU*100)/100,score:Math.round((ketU*0.7+akuU*0.3)*100)/100};
             });
