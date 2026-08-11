@@ -4624,7 +4624,7 @@
           "objective": "Pengadaan stok tepat waktu dan berkwalitas, administrasi akurat..",
           "keyResult": "Tingkat akurasi PO",
           "target": 95,
-          "actual": null,
+          "actual": 83.51,
           "bobot": 30
         },
         {
@@ -8529,7 +8529,6 @@
     "scoreV": 2,
     "usersV": 2
   },
-  "_ts": 1786436299384,
   "_p_apo_2026_07": {
     "file1": "https://raw.githubusercontent.com/pinuspackindo-ai/pinuspackindo-okr/data/uploads/purchasing/1786422859929_wqkg3r_purchase.order.line_1.xlsx",
     "file1Name": "purchase.order.line (1).xlsx",
@@ -8570,5 +8569,6 @@
       }
     }
   },
-  "_p_apo_2026_07x": null
+  "_p_apo_2026_07x": null,
+  "_ts": 1786436299913
 }
