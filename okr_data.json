@@ -4624,7 +4624,7 @@
           "objective": "Pengadaan stok tepat waktu dan berkwalitas, administrasi akurat..",
           "keyResult": "Tingkat akurasi PO",
           "target": 95,
-          "actual": null,
+          "actual": 78.69,
           "bobot": 30
         },
         {
@@ -8523,17 +8523,46 @@
     "scoreV": 2,
     "usersV": 2
   },
-  "_ts": 1786422856819,
+  "_ts": 1786422863727,
   "_p_apo_2026_07x": null,
   "_p_apo_2026_07": {
     "file1": "https://raw.githubusercontent.com/pinuspackindo-ai/pinuspackindo-okr/data/uploads/purchasing/1786422859929_wqkg3r_purchase.order.line_1.xlsx",
     "file1Name": "purchase.order.line (1).xlsx",
     "file2": "https://raw.githubusercontent.com/pinuspackindo-ai/pinuspackindo-okr/data/uploads/purchasing/1786422859480_p4w5g0_account.move_1.xlsx",
     "file2Name": "account.move (1).xlsx",
-    "lateScore": null,
-    "accScore": null,
-    "finalScore": null,
-    "savedAt": null,
-    "locked": false
+    "lateScore": 70.63903281519862,
+    "accScore": 97.46689694876224,
+    "finalScore": 78.68739205526771,
+    "savedAt": "2026-08-11T04:34:23.727Z",
+    "locked": true,
+    "users": {
+      "Arif Wibowo": {
+        "ket": 46.99,
+        "aku": 96.86,
+        "score": 61.95,
+        "baris": 732,
+        "po": 159,
+        "temuan": 23,
+        "telat": 388
+      },
+      "Adit Mohgat": {
+        "ket": 84.13,
+        "aku": 99.13,
+        "score": 88.63,
+        "baris": 460,
+        "po": 99,
+        "temuan": 4,
+        "telat": 73
+      },
+      "A'izatul Nafisah": {
+        "ket": 90.99,
+        "aku": 96.88,
+        "score": 92.76,
+        "baris": 544,
+        "po": 230,
+        "temuan": 17,
+        "telat": 49
+      }
+    }
   }
 }
