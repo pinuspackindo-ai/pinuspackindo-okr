@@ -8444,14 +8444,15 @@
     "file3": "https://raw.githubusercontent.com/pinuspackindo-ai/pinuspackindo-okr/data/uploads/purchasing/1786352252002_dbjlqo_purchase.order.line.xlsx",
     "file3Name": "purchase.order.line.xlsx",
     "users": {
-      "Arif Wibowo": 98.5,
-      "Adit Mohgat": 98.84,
-      "A'izatul Nafisah": 97.76
+      "Arif Wibowo": 93.26,
+      "Adit Mohgat": 93.82,
+      "A'izatul Nafisah": 92.72
     },
     "score": 91.66,
     "savedAt": "2026-08-10T08:57:30.389Z",
     "locked": true,
-    "scoreV": 2
+    "scoreV": 2,
+    "usersV": 2
   },
   "_p_ins_2026_08_10": {
     "file1": "https://raw.githubusercontent.com/pinuspackindo-ai/pinuspackindo-okr/data/uploads/purchasing/1786352483674_luwnb3_product.product_2.xlsx",
@@ -8529,5 +8530,5 @@
     }
   },
   "_p_apo_2026_07x": null,
-  "_ts": 1786437255868
+  "_ts": 1786437256795
 }
