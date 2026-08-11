@@ -7853,14 +7853,15 @@
     "file3": "https://raw.githubusercontent.com/pinuspackindo-ai/pinuspackindo-okr/data/uploads/purchasing/1785747081725_1dtfwt_purchase.order.line.xlsx",
     "file3Name": "purchase.order.line.xlsx",
     "users": {
-      "Arif Wibowo": 100,
-      "Adit Mohgat": 98.76,
-      "A'izatul Nafisah": 95.42
+      "Arif Wibowo": 93.69,
+      "Adit Mohgat": 91.29,
+      "A'izatul Nafisah": 89.97
     },
     "score": 90.93,
     "savedAt": "2026-08-03T08:51:20.257Z",
     "locked": true,
-    "scoreV": 2
+    "scoreV": 2,
+    "usersV": 2
   },
   "_inv_rn_do_2026_08_03": {
     "value": 96.15,
@@ -8156,14 +8157,15 @@
     "file3": "https://raw.githubusercontent.com/pinuspackindo-ai/pinuspackindo-okr/data/uploads/purchasing/1785986377594_pws63f_purchase.order.line.xlsx",
     "file3Name": "purchase.order.line.xlsx",
     "users": {
-      "Arif Wibowo": 99.26,
-      "Adit Mohgat": 98.86,
-      "A'izatul Nafisah": 97.95
+      "Arif Wibowo": 92.19,
+      "Adit Mohgat": 90.53,
+      "A'izatul Nafisah": 91.23
     },
     "score": 91.15,
     "savedAt": "2026-08-06T03:19:36.242Z",
     "locked": true,
-    "scoreV": 2
+    "scoreV": 2,
+    "usersV": 2
   },
   "_inv_rot_2026_07": {
     "poin": [
@@ -8527,5 +8529,5 @@
     }
   },
   "_p_apo_2026_07x": null,
-  "_ts": 1786437254024
+  "_ts": 1786437255868
 }
