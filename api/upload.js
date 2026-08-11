@@ -64,7 +64,9 @@ module.exports = async function handler(req, res) {
       return res.status(200).json({ ok: true, url: hasil.url, key, path: key, size: buf.length, legacy: 'github' });
     }
     await b2.putObject(key, buf, mime);
-    const url = asalPermintaan(req) + '/api/file?k=' + encodeURIComponent(key);
+    // URL RELATIF, bukan absolut: file yang sama jadi bisa dibuka dari dashboard
+    // lokal (Flask) maupun versi web tanpa perlu menulis ulang data.
+    const url = '/api/file?k=' + key;
     return res.status(200).json({ ok: true, url, key, path: key, size: buf.length });
   } catch (e) {
     return res.status(500).json({ ok: false, msg: String(e).slice(0, 300) });

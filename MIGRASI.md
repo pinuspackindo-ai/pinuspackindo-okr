@@ -1,5 +1,43 @@
 # Migrasi GitHub → Supabase + Backblaze B2
 
+## Cara cepat: jalankan dari laptop, tanpa Vercel
+
+Ini jalur yang dipakai sekarang. Vercel tidak perlu disentuh sama sekali.
+
+**1. Buat tabel di Supabase** — SQL di [Langkah 1](#langkah-1--buat-tabel-di-supabase) di bawah,
+tempel di SQL Editor Supabase, klik Run. Sekali saja.
+
+**2. Buat Application Key di Backblaze** — lihat [Langkah 2](#langkah-2--buat-application-key-di-backblaze).
+
+**3. Isi kredensial di laptop** — salin `local_config.example.py` jadi `local_config.py`,
+isi 5 nilai. File itu tidak masuk git.
+
+**4. Jalankan migrasinya:**
+
+```bash
+py migrasi_ke_cloud.py --cek
+```
+```bash
+py migrasi_ke_cloud.py --data
+```
+```bash
+py migrasi_ke_cloud.py --file
+```
+
+`--cek` memeriksa kesiapan dan menghitung sisa pekerjaan. `--data` memindahkan
+data OKR ke Supabase. `--file` memindahkan 606 file ke B2 lalu menulis ulang
+URL-nya di data. Aman diulang — kalau terputus, jalankan lagi perintah yang sama.
+Kemajuan disimpan tiap 10 file.
+
+**5. Pakai dashboardnya** — jalankan `app.py` seperti biasa. Dia membaca data dari
+Supabase dan menyajikan file dari B2 lewat `/api/file`.
+
+Sisa dokumen di bawah adalah rincian tiap langkah, plus cara lewat Vercel kalau
+suatu saat diperlukan.
+
+---
+
+
 Status: **kode siap, menunggu kredensial di-set.** Selama ENV belum diisi,
 aplikasi tetap berjalan memakai GitHub seperti biasa (dwi-mode), jadi tidak ada
 downtime. Begitu ENV terisi, penyimpanan otomatis berpindah.

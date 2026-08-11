@@ -114,7 +114,7 @@ module.exports = async function handler(req, res) {
           const buf = Buffer.from(await rr.arrayBuffer());
           const key = keyDariUrl(u);
           await b2.putObject(key, buf, rr.headers.get('content-type') || 'application/octet-stream');
-          data = ganti(data, u, asal + '/api/file?k=' + encodeURIComponent(key));
+          data = ganti(data, u, '/api/file?k=' + key); // relatif → jalan di lokal & web
           berhasil.push({ key, byte: buf.length });
         } catch (e) {
           gagal.push({ url: u, sebab: String(e).slice(0, 120) });

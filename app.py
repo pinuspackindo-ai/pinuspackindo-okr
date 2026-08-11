@@ -10,6 +10,7 @@ import base64
 import threading
 import urllib.request
 import urllib.error
+import b2py
 
 # ─── SUPABASE CONFIG ────────────────────────────────────────────────────────
 # Penyimpanan data OKR. Menggantikan GitHub (okr_data.json di branch `data`).
@@ -221,6 +222,82 @@ def okr_api():
     if SUPABASE_URL and SUPABASE_SERVICE_KEY:
         threading.Thread(target=_push_supabase_bg, args=(data_str,), daemon=True).start()
     return jsonify({'ok': True, 'supabase': bool(SUPABASE_URL and SUPABASE_SERVICE_KEY)})
+
+# ── File bukti & Excel: disimpan di Backblaze B2 ─────────────
+# Bucket bersifat PRIVATE, jadi frontend tidak boleh menunjuk URL B2 langsung.
+# Yang disimpan di data OKR adalah path relatif '/api/file?k=uploads/...'
+# supaya sama-sama jalan di dashboard lokal maupun versi web.
+
+def _slug(s, batas=80):
+    s = re.sub(r'[^a-zA-Z0-9._-]+', '_', str(s or ''))
+    return s.strip('_')[:batas] or 'file'
+
+
+@app.route('/api/upload', methods=['POST'])
+def api_upload():
+    """Terima {divisi, name, dataUrl} → simpan ke B2 → balas {ok, url}."""
+    if not b2py.siap():
+        return jsonify({'ok': False, 'msg': 'Kredensial B2 belum diisi di local_config.py'}), 500
+    body = request.get_json(silent=True) or {}
+    data_url = body.get('dataUrl') or ''
+    if 'base64,' not in data_url:
+        return jsonify({'ok': False, 'msg': 'dataUrl tidak valid'}), 400
+
+    m = re.match(r'^data:([^;]+);base64,', data_url)
+    mime = m.group(1) if m else 'application/octet-stream'
+    nama = str(body.get('name') or 'bukti')
+    ext = ''
+    m2 = re.search(r'\.([a-zA-Z0-9]{1,5})$', nama)
+    if m2:
+        ext = '.' + m2.group(1).lower()
+    elif 'jpeg' in mime:
+        ext = '.jpg'
+    elif 'png' in mime:
+        ext = '.png'
+    elif 'pdf' in mime:
+        ext = '.pdf'
+    elif 'sheet' in mime:
+        ext = '.xlsx'
+    else:
+        ext = '.bin'
+
+    divisi = _slug(body.get('divisi') or 'umum', 40)
+    dasar = _slug(re.sub(r'\.[a-zA-Z0-9]{1,5}$', '', nama))
+    stamp = '{}_{}'.format(int(datetime.now().timestamp() * 1000), uuid.uuid4().hex[:6])
+    key = 'uploads/{}/{}_{}{}'.format(divisi, stamp, dasar, ext)
+
+    try:
+        isi = base64.b64decode(data_url.split('base64,', 1)[1])
+        b2py.put_object(key, isi, mime)
+    except Exception as e:
+        return jsonify({'ok': False, 'msg': str(e)[:300]}), 500
+    return jsonify({'ok': True, 'url': '/api/file?k=' + key, 'key': key, 'size': len(isi)})
+
+
+@app.route('/api/file')
+def api_file():
+    """Proxy baca objek dari bucket B2 yang private."""
+    if not b2py.siap():
+        return jsonify({'ok': False, 'msg': 'Kredensial B2 belum diisi di local_config.py'}), 500
+    key = request.args.get('k', '')
+    if not key or '..' in key or not re.match(r'^uploads/[A-Za-z0-9._-]+/[A-Za-z0-9._-]+$', key):
+        return jsonify({'ok': False, 'msg': 'Parameter k tidak valid'}), 400
+    try:
+        isi, ctype = b2py.get_object(key)
+    except Exception as e:
+        return jsonify({'ok': False, 'msg': str(e)[:300]}), 502
+    ext = (re.search(r'\.([A-Za-z0-9]{1,5})$', key) or [None, ''])[1].lower()
+    mimes = {
+        'jpg': 'image/jpeg', 'jpeg': 'image/jpeg', 'png': 'image/png', 'gif': 'image/gif',
+        'webp': 'image/webp', 'pdf': 'application/pdf', 'csv': 'text/csv', 'txt': 'text/plain',
+        'xlsx': 'application/vnd.openxmlformats-officedocument.spreadsheetml.sheet',
+        'xls': 'application/vnd.ms-excel',
+    }
+    resp = app.response_class(isi, mimetype=mimes.get(ext) or ctype or 'application/octet-stream')
+    resp.headers['Content-Disposition'] = 'inline; filename="{}"'.format(key.split('/')[-1])
+    resp.headers['Cache-Control'] = 'private, max-age=300'
+    return resp
+
 
 @app.route('/login', methods=['POST'])
 def login():
