@@ -3593,7 +3593,9 @@ function purchKpenRender(){
       var sc=d.score;var cls=sc!==null?scoreClass(sc):'';
       html+='<td style="text-align:center;"><span class="metric-value '+cls+'" style="font-size:.95rem;">'+(sc!==null?sc.toFixed(1)+'%':'&#x2014;')+'</span>';
       if(sc!==null)html+='<div style="font-size:9px;color:var(--text-l);">'+d.accRows+' / '+d.totalRows+' akurat</div>';
-      if(sc!==null&&d.users){Object.keys(d.users).forEach(function(un){var uu=d.users[un];if(uu&&typeof uu.score==='number')html+='<div style="font-size:9px;color:var(--text-m);">'+esc(un)+': <strong>'+uu.score.toFixed(1)+'%</strong></div>';});}
+      if(sc!==null&&d.users){Object.keys(d.users).forEach(function(un){var uu=d.users[un];if(!uu)return;
+        if(typeof uu.score==='number')html+='<div style="font-size:9px;color:var(--text-m);">'+esc(un)+': <strong>'+uu.score.toFixed(1)+'%</strong>'+(uu.baris?' <span style="color:var(--text-l);">('+(uu.baris-uu.temuan)+'/'+uu.baris+' akurat)</span>':'')+'</div>';
+        else html+='<div style="font-size:9px;color:var(--text-l);">'+esc(un)+': &#x2014; (tanpa baris)</div>';});}
       html+='</td>';
       html+='<td style="text-align:center;">'+(linked?(sc!==null?'<span style="color:var(--success);font-weight:600;">'+sc.toFixed(1)+'%</span>':'<span style="color:var(--text-l);">&#x2014;</span>'):'<span style="font-size:10px;color:var(--text-l);">Tidak tersambung</span>')+'</td>';
       html+='<td style="text-align:center;white-space:nowrap;"><div style="display:flex;gap:4px;justify-content:center;align-items:center;"><button onclick="purchKpenEdit('+m+')" style="background:none;border:1px solid var(--border);color:var(--text-m);border-radius:var(--radius-sm);padding:4px 10px;cursor:pointer;font-size:11px;font-family:var(--font);">&#x270F;&#xFE0F; Edit</button><button onclick="purchKpenDelete('+m+')" style="background:none;border:1.5px solid #fca5a5;color:#dc2626;border-radius:var(--radius-sm);padding:4px 8px;cursor:pointer;font-size:12px;font-family:var(--font);">&#x1F5D1;</button></div></td>';
@@ -3645,17 +3647,23 @@ function purchKpenSave(month){
         var rqtyK=findCol(h,['receivedqty','received qty','receivedquantity','qty received','qtyreceived','terima']);
         var qtyK=h.find(function(c){return c.trim().toLowerCase()==='quantity';})||findCol(h,['quantity','qty']);
         if(!rqtyK||!qtyK){notify('Kolom Received Qty / Quantity tidak ditemukan','error');return;}
-        var lubK=findCol(h,['lastupdateby','lastupdatedby','last update by','updateby','updatedby','last update','pic','petugas','oleh','user']);
+        // Nama PIC dari kolom "Created by" (file penerimaan = purchase.order.line).
+        // Last Update By hanya fallback utk file lama; kalau dulu dipakai sendiri, kolomnya
+        // tidak pernah ketemu sehingga skor tiap orang selalu 100%.
+        var lubK=findCol(h,['createdby','create by','createby','dibuatoleh','pembuat','creator'])
+               ||findCol(h,['lastupdateby','lastupdatedby','updateby','updatedby','last update','pic','petugas','oleh','user']);
         var allRows=rows.map(function(row){var rqty=Math.round((parseFloat(row[rqtyK])||0)*100)/100;var qty=Math.round((parseFloat(row[qtyK])||0)*100)/100;return{status:rqty===qty?'Akurat':'Tidak Akurat',upd:lubK?_insNorm(row[lubK]):''};});
         var total=allRows.length;var accRows=allRows.filter(function(r){return r.status==='Akurat';}).length;
         var score=total?accRows/total*100:0;
-        // ── PER-USER (Juli 2026 →): penyebut = total global, temuan (tidak akurat) difokuskan per nama ──
+        // ── PER-USER (Juli 2026 →): penyebut = baris milik PIC itu sendiri ──
         var kpenUsers=null;
         if(typeof purchInstockNewFormula==='function'&&purchInstockNewFormula(y,month)&&typeof APO_USERS!=='undefined'){
           kpenUsers={};
           APO_USERS.forEach(function(u){
-            var badU=allRows.filter(function(r){return r.status==='Tidak Akurat'&&r.upd.indexOf(u.m)!==-1;}).length;
-            kpenUsers[u.key]={score:total?Math.round((total-badU)/total*10000)/100:0};
+            var mine=allRows.filter(function(r){return r.upd.indexOf(u.m)!==-1;});
+            if(!mine.length){kpenUsers[u.key]={score:null,baris:0,temuan:0};return;} // tanpa baris → tanpa nilai
+            var badU=mine.filter(function(r){return r.status==='Tidak Akurat';}).length;
+            kpenUsers[u.key]={score:Math.round((mine.length-badU)/mine.length*10000)/100,baris:mine.length,temuan:badU};
           });
         }
         _purchPending={type:'kualitas_pen',year:y,month:month,file:d.file,fileName:d.fileName,totalRows:total,accRows:accRows,score:score,users:kpenUsers};
