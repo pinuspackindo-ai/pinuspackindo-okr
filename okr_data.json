@@ -4632,7 +4632,7 @@
           "objective": "Pengadaan stok tepat waktu dan berkwalitas, administrasi akurat..",
           "keyResult": "Tingkat kwalitas pengadaan",
           "target": 95,
-          "actual": null,
+          "actual": 97.06,
           "bobot": 20
         },
         {
@@ -8503,7 +8503,7 @@
     "scoreV": 2,
     "usersV": 2
   },
-  "_ts": 1786424584500,
+  "_ts": 1786424589546,
   "_p_apo_2026_07x": null,
   "_p_apo_2026_07": {
     "file1": "https://raw.githubusercontent.com/pinuspackindo-ai/pinuspackindo-okr/data/uploads/purchasing/1786422859929_wqkg3r_purchase.order.line_1.xlsx",
@@ -8548,10 +8548,21 @@
   "_p_kpen_2026_07": {
     "file": "https://raw.githubusercontent.com/pinuspackindo-ai/pinuspackindo-okr/data/uploads/purchasing/1786424588194_d4o4dp_purchase.order.line_1.xlsx",
     "fileName": "purchase.order.line (1).xlsx",
-    "totalRows": 0,
-    "accRows": 0,
-    "score": null,
-    "savedAt": null,
-    "locked": false
+    "totalRows": 1737,
+    "accRows": 1686,
+    "score": 97.06390328151986,
+    "savedAt": "2026-08-11T05:03:09.546Z",
+    "locked": true,
+    "users": {
+      "Arif Wibowo": {
+        "score": 100
+      },
+      "Adit Mohgat": {
+        "score": 100
+      },
+      "A'izatul Nafisah": {
+        "score": 100
+      }
+    }
   }
 }
