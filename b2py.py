@@ -123,6 +123,17 @@ def get_object(key: str):
         raise RuntimeError(f'B2 GET {e.code}: {e.read().decode(errors="replace")[:200]}')
 
 
+def delete_object(key: str) -> bool:
+    """Hapus objek dari bucket."""
+    req = _request('DELETE', key)
+    try:
+        with urllib.request.urlopen(req, timeout=30) as resp:
+            resp.read()
+            return True
+    except urllib.error.HTTPError as e:
+        raise RuntimeError(f'B2 DELETE {e.code}: {e.read().decode(errors="replace")[:200]}')
+
+
 def list_objects(prefix: str = 'uploads/', max_keys: int = 1000):
     """Daftar key di bucket (untuk verifikasi). Kembalikan list of str."""
     q = urllib.parse.urlencode({'list-type': '2', 'prefix': prefix, 'max-keys': max_keys})
